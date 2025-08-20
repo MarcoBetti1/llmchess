@@ -1,0 +1,71 @@
+from __future__ import annotations
+import chess, chess.pgn, datetime
+from typing import Optional
+
+class Referee:
+    def __init__(self, starting_fen: str | None = None):
+        self.board = chess.Board(fen=starting_fen) if starting_fen else chess.Board()
+        self._headers: dict[str, str] = {}
+        self._result_override: Optional[str] = None
+        self._termination_comment: Optional[str] = None
+
+    # ---------------- Header / Result Management -----------------
+    def set_headers(self, event: str = "LLM Chess Benchmark", site: str = "?", date: Optional[str] = None,
+                    round_: str = "?", white: str = "?", black: str = "?"):
+        date = date or datetime.date.today().strftime("%Y.%m.%d")
+        self._headers.update({
+            "Event": event,
+            "Site": site,
+            "Date": date,
+            "Round": round_,
+            "White": white,
+            "Black": black,
+        })
+
+    def set_result(self, result: str, termination_reason: Optional[str] = None):
+        self._result_override = result
+        if termination_reason:
+            self._termination_comment = f"Termination: {termination_reason}"
+
+    def force_result(self, result: str, termination_reason: Optional[str] = None):
+        # alias to set_result
+        self.set_result(result, termination_reason)
+
+    # ---------------- Move Application -----------------
+    def apply_uci(self, uci: str) -> tuple[bool, str | None]:
+        try:
+            mv = chess.Move.from_uci(uci)
+        except Exception:
+            return False, None
+        if mv not in self.board.legal_moves:
+            return False, None
+        san = self.board.san(mv)
+        self.board.push(mv)
+        return True, san
+
+    def engine_apply(self, mv: chess.Move) -> str:
+        san = self.board.san(mv)
+        self.board.push(mv)
+        return san
+
+    # ---------------- PGN / Status -----------------
+    def pgn(self) -> str:
+        game = chess.pgn.Game()
+        # headers
+        for k, v in self._headers.items():
+            game.headers[k] = v
+        game.headers["Result"] = self.status()
+        node = game
+        for mv in list(self.board.move_stack):
+            node = node.add_variation(mv)
+        if self._termination_comment:
+            game.comment = self._termination_comment
+        exporter = chess.pgn.StringExporter(headers=True, variations=False, comments=bool(self._termination_comment))
+        return game.accept(exporter)
+
+    def status(self) -> str:
+        if self._result_override:
+            return self._result_override
+        if self.board.is_game_over():
+            return self.board.result()
+        return "*"

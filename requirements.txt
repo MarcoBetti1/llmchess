@@ -1,0 +1,6 @@
+openai>=1.40.0
+openai-agents>=1.0.0
+python-chess>=1.999
+pydantic>=2.7
+python-dotenv>=1.0
+tqdm>=4.66
