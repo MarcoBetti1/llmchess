@@ -3,7 +3,7 @@ import time, asyncio, logging, statistics, json
 import chess
 from dataclasses import dataclass, field
 from .referee import Referee
-from .llm_client import ask_for_best_move_raw, ask_for_best_move_conversation, SYSTEM_CONV, SYSTEM
+from .llm_client import ask_for_best_move_raw, ask_for_best_move_conversation, ask_for_best_move_plain, SYSTEM_CONV, SYSTEM
 from .agent_normalizer import normalize_with_agent
 from .move_validator import normalize_move
 
@@ -16,6 +16,8 @@ class GameConfig:
     fail_on_illegal: bool = True         # terminate immediately on illegal LLM move
     conversation_mode: bool = False      # if True, use chat history (no FEN shown to model)
     conversation_log_path: str | None = None  # optional path to dump reconstructed conversation JSON
+    max_illegal_moves: int = 1           # number of illegal LLM moves allowed before termination
+    llm_is_white: bool = True            # if False, LLM plays Black
 
 class GameRunner:
     def __init__(self, model: str, opponent, cfg: GameConfig | None = None):
@@ -24,7 +26,11 @@ class GameRunner:
         self.opp = opponent
         self.cfg = cfg or GameConfig()
         self.ref = Referee()
-        self.ref.set_headers(white=self.model, black=self._opp_name())
+        # Decide headers based on side
+        if (self.cfg.llm_is_white):
+            self.ref.set_headers(white=self.model, black=self._opp_name())
+        else:
+            self.ref.set_headers(white=self._opp_name(), black=self.model)
         self.records: list[dict] = []  # list of dicts per ply
         self.termination_reason: str | None = None
         self.start_ts = time.time()
@@ -62,20 +68,27 @@ class GameRunner:
         tail = sans[-max_plies:]
         return " ".join(tail)
 
+    def _annotated_history(self) -> str:
+        """Return history as one move per line: 'White Pawn e4' / 'Black Knight f6'. No numbering."""
+        lines: list[str] = []
+        board = chess.Board()
+        for mv in self.ref.board.move_stack:
+            piece = board.piece_at(mv.from_square)
+            san = board.san(mv)
+            color = "White" if board.turn == chess.WHITE else "Black"
+            piece_name = chess.piece_name(piece.piece_type).capitalize() if piece else "Piece"
+            lines.append(f"{color} {piece_name} {san}")
+            board.push(mv)
+        return "\n".join(lines)
+
     # ---------------- LLM Turn (FEN/PGN mode) -----------------
     def _llm_turn_standard(self):
-        fen = self.ref.board.fen()
         side = "white" if self.ref.board.turn == chess.WHITE else "black"
-        pgn_tail = self._pgn_tail()
-        prompt = (
-            f"Position (FEN): {fen}\n"
-            + f"Side to move: {side}\n"
-            + (f"Recent moves (PGN tail):\n{pgn_tail}\n" if pgn_tail else "")
-            + "Respond with the best chess move."
-        )
-        raw = ask_for_best_move_raw(fen=fen, pgn_tail=pgn_tail, side=side, model=self.model)
+        history = self._annotated_history()
+        raw = ask_for_best_move_plain(side=side, history_text=history, model=self.model)
+        fen = self.ref.board.fen()
         ok, uci, san, agent_ms, meta, _ = self._process_llm_raw(
-            raw, fen, meta_extra={"pgn_tail_used": bool(pgn_tail), "mode": "standard", "prompt": prompt}
+            raw, fen, meta_extra={"mode": "standard", "prompt": f"Side to move: {side}\n{history}"}
         )
         return ok, uci, san, agent_ms, meta
 
@@ -98,30 +111,73 @@ class GameRunner:
             # Should not happen except first move handled earlier
             self.chat_messages.append({"role": "user", "content": "Your move."})
 
+    def _format_history_lines(self) -> str:
+        lines = []
+        move_pairs: dict[int, dict[str, str]] = {}
+        ply_index = 0
+        board = chess.Board()
+        for rec in self.records:
+            if not rec.get("san"):
+                continue
+            mv_color = "white" if ply_index % 2 == 0 else "black"
+            move_no = (ply_index // 2) + 1
+            move_pairs.setdefault(move_no, {})[mv_color] = rec["san"]
+            ply_index += 1
+        for num in sorted(move_pairs.keys()):
+            pair = move_pairs[num]
+            w = pair.get("white")
+            b = pair.get("black")
+            if w and b:
+                lines.append(f"{num}. White: {w} Black: {b}")
+            elif w:
+                lines.append(f"{num}. White: {w}")
+        return "\n".join(lines)
+
+    def _ensure_conversation_initialized(self):
+        if self.chat_messages:
+            return
+        # System prompt generic
+        side = "White" if self.cfg.llm_is_white else "Black"
+        self.chat_messages.append({"role": "system", "content": "You are playing a serious chess game. Provide only the best legal move each turn in SAN (short algebraic). No commentary."})
+        if self.cfg.llm_is_white:
+            self.chat_messages.append({"role": "user", "content": "You play White. Provide only your first move in SAN."})
+        # If LLM is black we delay first user message until after white's first move
+
+    def _build_turn_prompt(self) -> str:
+        side = "White" if self.cfg.llm_is_white else "Black"
+        moving_side = "White" if self.ref.board.turn == chess.WHITE else "Black"
+        history = self._format_history_lines()
+        base = "You are playing a chess game. What's your next move?"
+        if history:
+            base += f"\nMoves so far:\n{history}"
+        base += f"\n{moving_side} to move. Provide only the move in SAN."  # always ends with instruction
+        return base
+
     def _llm_turn_conversation(self):
-        self._init_conversation_if_needed()
-        if len(self.chat_messages) > 2 and (self.chat_messages[-1]["role"] != "user" or "Your move" not in self.chat_messages[-1]["content"]):
-            # Add user prompt for move if not already last
-            self._conversation_user_prompt()
+        self._ensure_conversation_initialized()
+        # If LLM is black and no user prompt yet (after white moved)
+        if not self.cfg.llm_is_white and len(self.chat_messages) == 1:
+            # Add first prompt after opponent's initial white move exists
+            history = self._format_history_lines()
+            self.chat_messages.append({"role": "user", "content": f"You play Black. Game has started.\nMoves so far:\n{history}\nProvide only your first move in SAN."})
+        else:
+            # Regular subsequent prompt
+            self.chat_messages.append({"role": "user", "content": self._build_turn_prompt()})
         raw = ask_for_best_move_conversation(self.chat_messages, model=self.model)
-        fen = self.ref.board.fen()  # still needed locally for validation; not sent to model
+        fen = self.ref.board.fen()
         ok, uci, san, agent_ms, meta, salvage_used = self._process_llm_raw(raw, fen, meta_extra={"mode": "conversation"})
-        # Append assistant message with normalized SAN (or raw if failed)
-        assistant_reply = san if san else raw.split()[0] if raw else "(no-move)"
+        assistant_reply = san if san else (raw.split()[0] if raw else "(no-move)")
         self.chat_messages.append({"role": "assistant", "content": assistant_reply})
-        if salvage_used:
-            # optionally clarify to keep model consistent (not strictly necessary; we keep hidden)
-            pass
         return ok, uci, san, agent_ms, meta
 
     # ---------------- Shared processing -----------------
     def _process_llm_raw(self, raw: str, fen: str, meta_extra: dict | None = None):
         t0 = time.time()
+        # Extract candidate move string (agent just extracts, independent of board)
         try:
-            uci = asyncio.run(normalize_with_agent(fen, raw))
+            candidate = asyncio.run(normalize_with_agent(raw))  # now returns raw candidate token
         except Exception:
-            self.log.exception("Agent normalization failed; attempting direct validator salvage")
-            uci = ""
+            candidate = ""
         agent_ms = int((time.time() - t0) * 1000)
 
         salvage_used = False
@@ -134,29 +190,34 @@ class GameRunner:
         ok = False
         san = None
 
-        if uci:
-            ok, san = _apply_and_record(uci)
-            if not ok:
-                self.log.warning("Agent produced illegal move: %s", uci)
-        else:
-            self.log.warning("Agent returned empty move output")
-
-        if (not ok) and self.cfg.salvage_with_validator:
-            validator_info = normalize_move(raw, fen)
+        uci = ""
+        if candidate:
+            # Validate candidate via move validator
+            validator_info = normalize_move(candidate, fen)
             if validator_info.get("ok"):
-                salvage_used = True
                 uci = validator_info["uci"]
                 ok, san = _apply_and_record(uci)
-                if ok:
-                    self.log.info("Salvaged legal move via validator: %s (san=%s)", uci, san)
             else:
-                self.log.warning("Validator salvage failed: %s", validator_info.get("reason"))
+                self.log.debug("Candidate not legal: %s", validator_info.get("reason"))
+        else:
+            self.log.warning("No candidate extracted from LLM reply")
+
+        if (not ok) and self.cfg.salvage_with_validator:
+            # Try salvage on full raw reply
+            v2 = normalize_move(raw, fen)
+            if v2.get("ok"):
+                salvage_used = True
+                uci = v2["uci"]
+                ok, san = _apply_and_record(uci)
+                if ok:
+                    self.log.info("Salvaged move from raw reply: %s", uci)
+            else:
+                validator_info = v2
 
         if self.cfg.verbose_llm:
             self.log.info("LLM raw='%s' agent_uci='%s' ok=%s", raw, uci, ok)
 
-        if not ok and self.cfg.fail_on_illegal:
-            self.termination_reason = "illegal_llm_move"
+    # Termination decision handled in play() based on counters
 
         meta = {
             "raw": raw,
@@ -227,17 +288,22 @@ class GameRunner:
 
     def play(self) -> str:
         ply = 0
+        illegal_moves = 0
         while self.ref.status() == "*" and ply < self.cfg.max_plies:
-            if self.ref.board.turn == chess.WHITE:
+            llm_turn_now = (self.ref.board.turn == chess.WHITE and self.cfg.llm_is_white) or (self.ref.board.turn == chess.BLACK and not self.cfg.llm_is_white)
+            if llm_turn_now:
                 if self.cfg.conversation_mode:
                     ok, uci, san, ms, meta = self._llm_turn_conversation()
                 else:
                     ok, uci, san, ms, meta = self._llm_turn_standard()
                 self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
                 self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", ply+1, uci, ok, san, ms)
-                if not ok and self.cfg.fail_on_illegal:
-                    self.log.error("Terminating due to illegal LLM move at ply %d", ply+1)
-                    break
+                if not ok:
+                    illegal_moves += 1
+                    if illegal_moves >= self.cfg.max_illegal_moves and self.cfg.fail_on_illegal:
+                        self.termination_reason = "illegal_llm_move"
+                        self.log.error("Terminating due to illegal LLM move at ply %d (count=%d)", ply+1, illegal_moves)
+                        break
             else:
                 ok, uci, san = self._opp_turn()
                 self.records.append({"actor": "OPP", "uci": uci, "ok": ok, "san": san})
@@ -274,6 +340,7 @@ class GameRunner:
             "plies_llm": len(llm_moves),
             "llm_legal_moves": len(legal),
             "llm_illegal_moves": len(illegal),
+            "llm_illegal_limit": self.cfg.max_illegal_moves,
             "llm_salvage_successes": salvage_success,
             "llm_legal_rate": (len(legal) / len(llm_moves)) if llm_moves else 0.0,
             "latency_ms_avg": statistics.mean(latencies) if latencies else 0,

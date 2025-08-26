@@ -16,6 +16,8 @@ if __name__ == "__main__":
     ap.add_argument("--log-level", default="INFO", help="Python logging level")
     ap.add_argument("--verbose-llm", action="store_true", help="Log raw LLM replies")
     ap.add_argument("--conversation", action="store_true", help="Enable conversation mode (no FEN sent; pure chat history)")
+    ap.add_argument("--max-illegal", type=int, default=1, help="Terminate after this many illegal LLM moves (1 means immediate)")
+    ap.add_argument("--engine-path", default=None, help="Path to Stockfish (overrides STOCKFISH_PATH)")
     ap.add_argument("--opponent", choices=["engine", "random"], default="engine", help="Opponent type")
     args = ap.parse_args()
 
@@ -28,8 +30,8 @@ if __name__ == "__main__":
     if args.opponent == "random":
         opp = RandomOpponent()
     else:
-        opp = EngineOpponent(depth=args.depth, movetime_ms=args.movetime)
-    cfg = GameConfig(max_plies=args.max_plies, pgn_tail_plies=args.pgn_tail, verbose_llm=args.verbose_llm, conversation_mode=args.conversation)
+        opp = EngineOpponent(depth=args.depth, movetime_ms=args.movetime, engine_path=args.engine_path)
+    cfg = GameConfig(max_plies=args.max_plies, pgn_tail_plies=args.pgn_tail, verbose_llm=args.verbose_llm, conversation_mode=args.conversation, max_illegal_moves=args.max_illegal)
     runner = GameRunner(model=args.model, opponent=opp, cfg=cfg)
     mode_label = "conversation" if args.conversation else "standard"
     log.info("Starting single game (%s mode): model=%s vs %s depth=%s movetime=%s", mode_label, args.model, args.opponent, args.depth, args.movetime)

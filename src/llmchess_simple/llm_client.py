@@ -41,3 +41,24 @@ def ask_for_best_move_conversation(messages: List[Dict[str, str]], model: Option
         input=messages,
     )
     return rsp.output_text.strip()
+
+def ask_for_best_move_plain(side: str, history_text: str = "", model: Optional[str] = None) -> str:
+    """Plain text prompt without FEN. history_text should be a multiline string of past moves.
+
+    Example history_text:
+      1. White Pawn e4  Black Knight f6
+      2. White Pawn e5  Black Pawn g6
+    """
+    user_parts = [f"Side to move: {side}"]
+    if history_text:
+        user_parts.append("Recent moves:\n\n" + history_text)
+    user_parts.append("\nRespond with your best chess move.")
+    user_content = "\n".join(user_parts)
+    rsp = client.responses.create(
+        model=model or SETTINGS.openai_model,
+        input=[
+            {"role": "system", "content": SYSTEM},
+            {"role": "user", "content": user_content},
+        ],
+    )
+    return rsp.output_text.strip()
