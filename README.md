@@ -25,28 +25,20 @@ The game pipeline:
 ## Quickstart
 
 ```bash
-python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
 pip install -r requirements.txt
-
 # Set env vars (or copy .env.example to .env and edit)
-export OPENAI_API_KEY=...           # required
-export STOCKFISH_PATH=/usr/bin/stockfish  # adjust for your system
-# optional: export OPENAI_MODEL=gpt-5
+export OPENAI_API_KEY=
+export OPENAI_MODEL=
+export STOCKFISH_PATH=
 
-# Play a single game (LLM as White vs Stockfish depth 6) in plaintext prompting mode
-python play_one.py --model gpt-5 --depth 6 --prompt-mode plaintext
+
 
 # Save conversation snapshots every move (to a directory)
 python play_one.py --prompt-mode plaintext --conv-log ./log1 --conv-log-every-turn
 
-# Or load defaults from a JSON config (see below) and override from CLI
-python play_one.py --config config.example.json --model gpt-5
+# play_many.py documentation
 ```
-
-## Requirements
-- Python 3.10+
-- Stockfish (install and set `STOCKFISH_PATH`)
-- Packages in `requirements.txt`
 
 ## Notes
 - The **agent** only validates/normalizes the move. All strategy testing is handled by the engine opponent and results.
@@ -55,7 +47,7 @@ python play_one.py --config config.example.json --model gpt-5
 
 ---
 
-## Command-line arguments
+## Command-line arguments (clean ts up)
 
 Core gameplay
 - --model: Target LLM (default from OPENAI_MODEL env or gpt-5)
