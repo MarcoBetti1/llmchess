@@ -6,6 +6,9 @@ from .referee import Referee
 from .llm_client import ask_for_best_move_raw, ask_for_best_move_conversation, ask_for_best_move_plain, SYSTEM_CONV, SYSTEM
 from .agent_normalizer import normalize_with_agent
 from .move_validator import normalize_move
+import os
+from datetime import datetime
+from .prompting import PromptConfig, build_plaintext_messages, build_fen_messages
 
 @dataclass
 class GameConfig:
@@ -18,6 +21,10 @@ class GameConfig:
     conversation_log_path: str | None = None  # optional path to dump reconstructed conversation JSON
     max_illegal_moves: int = 1           # number of illegal LLM moves allowed before termination
     llm_is_white: bool = True            # if False, LLM plays Black
+    # New: write conversation log after every turn if a path is provided
+    conversation_log_every_turn: bool = False
+    # Modular prompting configuration
+    prompt_cfg: PromptConfig = field(default_factory=PromptConfig)
 
 class GameRunner:
     def __init__(self, model: str, opponent, cfg: GameConfig | None = None):
@@ -36,6 +43,135 @@ class GameRunner:
         self.start_ts = time.time()
         # Conversation history (used only if conversation_mode)
         self.chat_messages: list[dict] = []
+        # Prepare conversation log path: treat --conv-log as directory or file
+        self._prepare_conv_log_path()
+        self._global_ply = 0  # counts total plies executed in this runner
+
+    def _prepare_conv_log_path(self):
+        p = self.cfg.conversation_log_path
+        if not p:
+            return
+        try:
+            base, ext = os.path.splitext(p)
+            is_dir_like = os.path.isdir(p) or (ext == "")
+            if is_dir_like:
+                dir_path = p
+                os.makedirs(dir_path, exist_ok=True)
+                ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+                side = "w" if self.cfg.llm_is_white else "b"
+                mode = "conv" if self.cfg.conversation_mode else "std"
+                fname = f"conv_{ts}_{mode}_{side}.json"
+                resolved = os.path.join(dir_path, fname)
+            else:
+                dir_path = os.path.dirname(p)
+                if dir_path:
+                    os.makedirs(dir_path, exist_ok=True)
+                resolved = p
+            self.cfg.conversation_log_path = resolved
+        except Exception:
+            self.log.exception("Failed to prepare conversation log path; disabling conversation logging")
+            self.cfg.conversation_log_path = None
+
+    # --------------- Structured history export ---------------
+    def export_structured_history(self) -> dict:
+        """Return a structured representation of the chess game suitable for visualization.
+        Includes headers, result, termination reason, and per-ply entries with SAN, UCI, FENs.
+        """
+        start_fen = chess.STARTING_FEN
+        board = chess.Board()
+        moves = []
+        ply_idx = 0
+        for rec in self.records:
+            uci = rec.get("uci")
+            if not uci:
+                continue
+            fen_before = board.fen()
+            try:
+                mv = chess.Move.from_uci(uci)
+            except Exception:
+                continue
+            san = None
+            legal = mv in board.legal_moves
+            if legal:
+                san = board.san(mv)
+                board.push(mv)
+            fen_after = board.fen()
+            moves.append({
+                "ply": ply_idx + 1,
+                "side": "white" if (ply_idx % 2 == 0) else "black",
+                "uci": uci,
+                "san": san,
+                "legal": bool(legal),
+                "fen_before": fen_before,
+                "fen_after": fen_after,
+                "actor": rec.get("actor"),
+            })
+            ply_idx += 1
+        # After building moves list, derive last_illegal_raw from records
+        last_illegal_raw = None
+        for rec in reversed(self.records):
+            if rec.get("actor") == "LLM" and rec.get("ok") is False:
+                last_illegal_raw = (rec.get("meta") or {}).get("raw")
+                break
+        data = {
+            "headers": getattr(self.ref, "_headers", {}),
+            "start_fen": start_fen,
+            "result": self.ref.status(),
+            "termination_reason": self.termination_reason,
+            "moves": moves,
+            "model": self.model,
+            "llm_is_white": self.cfg.llm_is_white,
+        }
+        # Enrich with explicit termination markers
+        terminated = data["result"] != "*" or bool(self.termination_reason)
+        data["terminated"] = terminated
+        data["termination_at_ply"] = len(moves) if terminated else None
+        if terminated:
+            evt = {
+                "event": "termination",
+                "ply": len(moves),
+                "result": data["result"],
+                "reason": self.termination_reason or "normal_game_end",
+            }
+            if (self.termination_reason == "illegal_llm_move") and last_illegal_raw:
+                evt["last_illegal_raw"] = last_illegal_raw
+            data["moves"].append(evt)
+        return data
+
+    def _structured_history_path(self) -> str | None:
+        p = self.cfg.conversation_log_path
+        if not p:
+            return None
+        # If conversation_log_path is a directory, write history.json inside; if file, create a sibling with hist_ prefix
+        if os.path.isdir(p) or os.path.splitext(p)[1] == "":
+            try:
+                os.makedirs(p, exist_ok=True)
+            except Exception:
+                pass
+            return os.path.join(p, "history.json")
+        dir_path = os.path.dirname(p)
+        base = os.path.basename(p)
+        if base.startswith("conv_"):
+            base = "hist_" + base[len("conv_"):]
+        else:
+            name, ext = os.path.splitext(base)
+            base = f"{name}_history{ext or '.json'}"
+        return os.path.join(dir_path, base)
+
+    def dump_structured_history_json(self):
+        path = self._structured_history_path()
+        if not path:
+            return
+        try:
+            d = self.export_structured_history()
+            dir_path = os.path.dirname(path)
+            if dir_path:
+                os.makedirs(dir_path, exist_ok=True)
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(d, f, ensure_ascii=False, indent=2)
+            self.log.info("Wrote structured history to %s", path)
+        except Exception:
+            self.log.exception("Failed writing structured history")
 
     def _opp_name(self) -> str:
         # Prefer explicit name attribute if provided (e.g., RandomOpponent)
@@ -81,14 +217,67 @@ class GameRunner:
             board.push(mv)
         return "\n".join(lines)
 
-    # ---------------- LLM Turn (FEN/PGN mode) -----------------
-    def _llm_turn_standard(self):
+    # New helpers for batched orchestration
+    def needs_llm_turn(self) -> bool:
+        if self.ref.status() != "*":
+            return False
+        return (self.ref.board.turn == chess.WHITE and self.cfg.llm_is_white) or (self.ref.board.turn == chess.BLACK and not self.cfg.llm_is_white)
+
+    def build_llm_messages(self) -> list[dict]:
+        """Build the messages for the next LLM turn according to prompt config (standard mode only)."""
         side = "white" if self.ref.board.turn == chess.WHITE else "black"
         history = self._annotated_history()
-        raw = ask_for_best_move_plain(side=side, history_text=history, model=self.model)
+        is_starting = self.cfg.llm_is_white and len(self.ref.board.move_stack) == 0
+        if self.cfg.prompt_cfg.mode == "fen":
+            fen = self.ref.board.fen()
+            pgn_tail = self._pgn_tail()
+            return build_fen_messages(fen=fen, pgn_tail=pgn_tail, side=side, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
+        else:
+            return build_plaintext_messages(side=side, history_text=history, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
+
+    def step_llm_with_raw(self, raw: str):
+        """Process a provided raw LLM reply as the current move, record it, and handle termination state."""
         fen = self.ref.board.fen()
+        # Recover prompts for metadata
+        msgs = self.build_llm_messages()
+        user_prompt_text = msgs[-1]["content"] if msgs else ""
+        sys_prompt_text = msgs[0]["content"] if msgs else ""
+        ok, uci, san, ms, meta, _ = self._process_llm_raw(raw, fen, meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode})
+        self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
+        self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", self._global_ply+1, uci, ok, san, ms)
+        if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
+            self.dump_conversation_json()
+            self.dump_structured_history_json()
+        if not ok:
+            # increment illegal counter and possibly terminate
+            # Note: keep same semantics as play()
+            # We track via a local counter derived from recorded moves
+            illegal_llm = sum(1 for r in self.records if r.get("actor") == "LLM" and not r.get("ok"))
+            if illegal_llm >= self.cfg.max_illegal_moves and self.cfg.fail_on_illegal:
+                self.termination_reason = "illegal_llm_move"
+                self.log.error("Terminating due to illegal LLM move at ply %d (count=%d)", self._global_ply+1, illegal_llm)
+        self._global_ply += 1
+        return ok
+
+    def step_opponent(self):
+        ok, uci, san = self._opp_turn()
+        self.records.append({"actor": "OPP", "uci": uci, "ok": ok, "san": san})
+        self.log.debug("Ply %d OPP move %s san=%s", self._global_ply+1, uci, san)
+        if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
+            self.dump_conversation_json()
+            self.dump_structured_history_json()
+        self._global_ply += 1
+        return ok
+
+    # ---------------- LLM Turn (FEN/PGN mode) -----------------
+    def _llm_turn_standard(self):
+        messages = self.build_llm_messages()
+        raw = ask_for_best_move_conversation(messages, model=self.model)
+        fen = self.ref.board.fen()
+        user_prompt_text = messages[-1]["content"] if messages else ""
+        sys_prompt_text = messages[0]["content"] if messages else ""
         ok, uci, san, agent_ms, meta, _ = self._process_llm_raw(
-            raw, fen, meta_extra={"mode": "standard", "prompt": f"Side to move: {side}\n{history}"}
+            raw, fen, meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode}
         )
         return ok, uci, san, agent_ms, meta
 
@@ -242,7 +431,14 @@ class GameRunner:
         """
         if self.cfg.conversation_mode:
             return list(self.chat_messages)
-        messages: list[dict] = [{"role": "system", "content": SYSTEM}]
+        # Prefer exact system prompt captured in meta on first LLM turn
+        sys_text = None
+        for rec in self.records:
+            if rec.get("actor") == "LLM":
+                sys_text = rec.get("meta", {}).get("system")
+                if sys_text:
+                    break
+        messages: list[dict] = [{"role": "system", "content": sys_text or SYSTEM}]
         for rec in self.records:
             if rec.get("actor") != "LLM":
                 continue
@@ -259,6 +455,9 @@ class GameRunner:
         if not path:
             return
         try:
+            dir_path = os.path.dirname(path)
+            if dir_path:
+                os.makedirs(dir_path, exist_ok=True)
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(self.export_conversation(), f, ensure_ascii=False, indent=2)
             self.log.info("Wrote conversation log to %s", path)
@@ -286,6 +485,28 @@ class GameRunner:
         referee_res = self.ref.status()
         return {"reconstructed_result": reconstructed, "referee_result": referee_res, "mismatch": reconstructed != referee_res}
 
+    # ---------------- Finalization for batched orchestrator -----------------
+    def finalize_if_terminated(self):
+        """Ensure referee result is set when termination conditions are met in batched mode.
+        Also enforce max_plies.
+        """
+        # If already has a result, ensure termination_reason at least set to normal
+        if self.ref.status() != "*":
+            if not self.termination_reason:
+                self.termination_reason = "normal_game_end"
+            self.ref.set_result(self.ref.status(), self.termination_reason)
+            return
+        # Illegal LLM threshold => LLM loses
+        if self.termination_reason == "illegal_llm_move" and self.cfg.fail_on_illegal:
+            result = "0-1" if self.cfg.llm_is_white else "1-0"
+            self.ref.force_result(result, self.termination_reason)
+            return
+        # Max plies
+        if len(self.records) >= self.cfg.max_plies:
+            self.termination_reason = self.termination_reason or "max_plies_reached"
+            self.ref.set_result("1/2-1/2", self.termination_reason)
+            return
+
     def play(self) -> str:
         ply = 0
         illegal_moves = 0
@@ -298,6 +519,10 @@ class GameRunner:
                     ok, uci, san, ms, meta = self._llm_turn_standard()
                 self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
                 self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", ply+1, uci, ok, san, ms)
+                # New: save conversation snapshot after each LLM move if enabled
+                if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
+                    self.dump_conversation_json()
+                    self.dump_structured_history_json()
                 if not ok:
                     illegal_moves += 1
                     if illegal_moves >= self.cfg.max_illegal_moves and self.cfg.fail_on_illegal:
@@ -312,10 +537,15 @@ class GameRunner:
                 if self.cfg.conversation_mode:
                     # We'll add the user prompt only right before asking next time to avoid duplicates
                     pass
+                # New: save conversation snapshot after each OPP move if enabled
+                if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
+                    self.dump_conversation_json()
+                    self.dump_structured_history_json()
             ply += 1
         result = self.ref.status()
         if self.termination_reason == "illegal_llm_move" and result == "*":
-            result = "0-1"  # white (LLM) loses
+            # LLM loses regardless of color
+            result = "0-1" if self.cfg.llm_is_white else "1-0"
             self.ref.force_result(result, self.termination_reason)
         elif result != "*":
             self.termination_reason = self.termination_reason or "normal_game_end"
@@ -326,6 +556,7 @@ class GameRunner:
             result = "1/2-1/2"
         self.log.info("Game finished result=%s reason=%s plies=%d", result, self.termination_reason, ply)
         self.dump_conversation_json()
+        self.dump_structured_history_json()
         return result
 
     # ---------------- Metrics -----------------
@@ -357,4 +588,6 @@ class GameRunner:
         if self.cfg.conversation_mode:
             m["conversation_messages"] = self.chat_messages
         m["history_verification"] = self.verify_history_result()
+        # Also include a small preview of the structured history path if available
+        m["structured_history_path"] = self._structured_history_path()
         return m

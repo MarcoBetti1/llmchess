@@ -1,0 +1,73 @@
+EXAMPLE STARTING PROMPT & RESPONSE:
+
+Input
+user
+Side to move: white
+
+Respond with your best chess move.
+
+system
+You are a strong chess player. When asked for a move, decide the best move.
+
+Output
+
+Reasoning- Empty reasoning item
+
+I don’t have the board position. Please provide the FEN/PGN or an image. If this is the starting position, my move is 1.e4.
+
+EXAMPLE STARTING NORMALIZED RESPONSE & RESPONSE:
+
+Instructions
+System Instructions
+You receive a raw reply.
+Make sure its a chess move and avoid any other text.
+Output ONLY the move in UCI (lowercase, promotion letter if any). If no move appears, output the single word NONE.
+
+Input
+
+user
+RAW REPLY: I don’t have the board position. Please provide the FEN/PGN or an image. If this is the starting position, my move is 1.e4.
+Return only the move in UCI or NONE:
+
+Output
+
+assistant
+e2e4
+
+EXAMPLE SECOND PROMPT & RESPONSE:
+
+system
+You are a strong chess player. When asked for a move, decide the best move.
+User
+Side to move: white
+Recent moves:
+
+White Pawn e4
+Black Pawn h6
+
+Respond with your best chess move.
+
+Output
+
+Reasoning- Empty reasoning item
+assistant
+d4
+
+EXAMPLE NORMALIZED PROMPT & RESPONSE:
+
+Instructions
+System Instructions
+You receive a raw reply.
+Make sure its a chess move and avoid any other text.
+Output ONLY the move in UCI (lowercase, promotion letter if any). If no move appears, output the single word NONE.
+
+Input
+
+user
+RAW REPLY: d4
+Return only the move in UCI or NONE:
+
+Output
+
+assistant
+d2d4

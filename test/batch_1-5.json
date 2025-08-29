@@ -1,0 +1,24 @@
+{
+  "model": "gpt-5",
+  "opponent": "random",
+  "depth": 6,
+  "movetime": null,
+  "engine_path": null,
+  "llm_color": "white",
+  "max_plies": 240,
+  "max_illegal": 1,
+  "pgn_tail": 20,
+  "verbose_llm": false,
+  "conversation_mode": false,
+  "prompt": {
+    "mode": "plaintext",
+    "starting_context_enabled": true,
+    "instruction_line": "Provide only your best legal move in SAN."
+  },
+  "conversation_log": {
+    "path": "./log1",
+    "every_turn": true
+  },
+  "games": 2,
+  "batch": true
+}

@@ -1,3 +1,9 @@
 venv
 
 .env
+
+runs/
+
+__pycache__/
+
+log1/
