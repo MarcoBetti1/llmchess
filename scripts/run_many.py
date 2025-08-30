@@ -44,7 +44,16 @@ def build_configs_from_dict(d: Dict):
     max_illegal = d.get('max_illegal', 1)
     pgn_tail = d.get('pgn_tail', 20)
     verbose_llm = d.get('verbose_llm', False)
+    game_log = d.get('game_log', False)
     conversation_mode = d.get('conversation_mode', False)
+    # New unified mode switch: "parallel" | "batch" (required going forward)
+    mode = str(d.get('mode', 'parallel')).strip().lower()
+    if mode not in ('parallel', 'batch'):
+        logging.getLogger('run_many').warning("Unknown mode '%s'; defaulting to 'parallel'", mode)
+        mode = 'parallel'
+
+    # Optional chunk size for batch jobs; if None, provider/env defaults apply
+    games_per_batch = d.get('games_per_batch')
 
     prompt = d.get('prompt', {}) or {}
     prompt_mode = prompt.get('mode', 'plaintext')
@@ -56,7 +65,7 @@ def build_configs_from_dict(d: Dict):
     conv_every = conv.get('every_turn', False)
 
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
-    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_mode=bool(conversation_mode), max_illegal_moves=int(max_illegal), conversation_log_path=conv_path, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg)
+    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_mode=bool(conversation_mode), max_illegal_moves=int(max_illegal), conversation_log_path=conv_path, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=bool(game_log))
 
     return {
         'model': model,
@@ -65,8 +74,12 @@ def build_configs_from_dict(d: Dict):
         'movetime': movetime,
         'engine_path': engine_path,
         'games': int(d.get('games', 1)),
-        'batch': bool(d.get('batch', False)),
+        # Unified execution mode
+        'mode': mode,
+        # Optional: chunk size for OpenAI Batches API
+    'games_per_batch': (int(games_per_batch) if isinstance(games_per_batch, (int, float)) else None),
         'gcfg': gcfg,
+    # No legacy fields supported going forward
     }
 
 
@@ -90,6 +103,7 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
     opponent = cfg_entry['opponent']
     depth = cfg_entry['depth']
     movetime = cfg_entry['movetime']
+    engine_path = cfg_entry['engine_path']
     games = cfg_entry['games']
     gcfg: GameConfig = cfg_entry['gcfg']
 
@@ -119,7 +133,8 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
         if opponent == 'random':
             opp = RandomOpponent()
         else:
-            opp = EngineOpponent(depth=depth, movetime_ms=movetime)
+            # Keep sequential path consistent with batched path
+            opp = EngineOpponent(depth=depth, movetime_ms=movetime, engine_path=engine_path)
         runner = GameRunner(model=model, opponent=opp, cfg=gcfg_i)
         res = runner.play()
         m = runner.summary()
@@ -134,18 +149,20 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
     return all_metrics
 
 
-def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | None):
+def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | None, prefer_batches: bool | None = None, items_per_batch: int | None = None):
     model = cfg_entry['model']
     opponent = cfg_entry['opponent']
     depth = cfg_entry['depth']
     movetime = cfg_entry['movetime']
+    engine_path = cfg_entry['engine_path']
     games = cfg_entry['games']
     gcfg: GameConfig = cfg_entry['gcfg']
 
     # Override output paths per config if requested
     gcfg = _override_output_paths(gcfg, config_name, base_out_dir, force_every_turn=True)
 
-    orch = BatchOrchestrator(model=model, num_games=games, opponent=opponent, depth=depth, movetime_ms=movetime, base_cfg=gcfg)
+    # batch orchestrator == multi-game loop; prefer_batches decides transport (Batches API vs parallel /responses)
+    orch = BatchOrchestrator(model=model, num_games=games, opponent=opponent, depth=depth, movetime_ms=movetime, engine_path=engine_path, base_cfg=gcfg, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
     summaries = orch.run()
     all_metrics = []
     for i, m in enumerate(summaries):
@@ -163,9 +180,12 @@ def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | 
 def main():
     ap = argparse.ArgumentParser(description='Run many games by sweeping over JSON config files.')
     ap.add_argument('--configs', required=True, help='Comma-separated list of config paths, directories, or glob patterns (e.g., configs/*.json)')
-    ap.add_argument('--batch', action='store_true', help='Force batch mode regardless of config')
+    # Unified mode switch (CLI). If omitted, config decides.
+    ap.add_argument('--mode', choices=['parallel', 'batch'], help='Execution mode: parallel (responses API) or batch (OpenAI Batches API). Overrides config.')
+    ap.add_argument('--games-per-batch', type=int, default=None, help='Chunk size for OpenAI Batches API (per cycle). Overrides config.')
     ap.add_argument('--out-jsonl', default=None, help='Path to write per-game metrics as JSONL')
     ap.add_argument('--out-dir', default=None, help='Base output directory to store logs per test run (defaults to runs/run_YYYYMMDD-HHMMSS)')
+    ap.add_argument('--game-log', action='store_true', help='Enable console logging of each LLM/engine move to monitor progress')
     ap.add_argument('--log-level', default='INFO')
     args = ap.parse_args()
 
@@ -203,10 +223,19 @@ def main():
             log.error('Failed to read %s: %s', path, e)
             continue
         entry = build_configs_from_dict(d)
+        # Apply CLI overrides
+        if args.game_log:
+            entry['gcfg'].game_log = True
         config_name = os.path.basename(path)
-        use_batch = args.batch or entry.get('batch', False)
-        if use_batch:
-            metrics = run_batched(entry, config_name, jsonl_f, base_out_dir)
+        # Determine mode precedence: CLI --mode > config.mode
+        mode = args.mode if args.mode else entry.get('mode', 'parallel')
+
+        if mode == 'batch':
+            # In the new model, batch mode always uses the OpenAI Batches API transport
+            prefer_batches = True
+            # Allow CLI override for chunk size; else take from config; provider will fallback to env if None
+            items_per_batch = args.games_per_batch if args.games_per_batch is not None else entry.get('games_per_batch')
+            metrics = run_batched(entry, config_name, jsonl_f, base_out_dir, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
         else:
             metrics = run_sequential(entry, config_name, jsonl_f, base_out_dir)
         grand_metrics.extend(metrics)

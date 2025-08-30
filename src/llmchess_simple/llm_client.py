@@ -1,9 +1,24 @@
 from __future__ import annotations
-from typing import Optional, List, Dict
-from openai import OpenAI
-from .config import SETTINGS
+"""
+Facade over provider-specific LLM transports (parallel /responses and OpenAI Batches).
 
-client = OpenAI(api_key=SETTINGS.openai_api_key)
+Transports:
+- Parallel /responses (interactive): low latency per turn, best for live game loops.
+- OpenAI Batches API (offline): submit N requests as one job; best for large sweeps.
+
+Selection:
+- prefer_batches flag (explicit), else LLMCHESS_USE_OPENAI_BATCH env, else default to parallel.
+- LLMCHESS_ITEMS_PER_BATCH controls chunking if more than one batch job is needed per turn.
+
+This module exposes a stable API and delegates to a provider implementation.
+"""
+from typing import Optional, List, Dict
+import logging
+from .providers.openai_provider import OpenAIProvider
+
+# Provider registry: in the future, we can add Anthropic, Azure OpenAI, etc.
+_PROVIDER = OpenAIProvider()
+log = logging.getLogger("llm_client")
 
 SYSTEM = "You are a strong chess player. When asked for a move, decide the best move."
 # Conversation mode system prompt (no FEN provided)
@@ -14,20 +29,7 @@ SYSTEM_CONV = (
 
 def ask_for_best_move_raw(fen: str, pgn_tail: str = "", side: str = "", model: Optional[str]=None) -> str:
     """Ask the target LLM for the best move in free-form text (no strict JSON)."""
-    user = (
-        f"Position (FEN): {fen}\n"
-        + (f"Side to move: {side}\n" if side else "")
-        + (f"Recent moves (PGN tail):\n{pgn_tail}\n" if pgn_tail else "")
-        + "Respond with the best chess move."
-    )
-    rsp = client.responses.create(
-        model=model or SETTINGS.openai_model,
-        input=[
-            {"role": "system", "content": SYSTEM},
-            {"role": "user", "content": user},
-        ],
-    )
-    return rsp.output_text.strip()
+    return _PROVIDER.ask_for_best_move_raw(fen, pgn_tail=pgn_tail, side=side, model=model)
 
 
 def ask_for_best_move_conversation(messages: List[Dict[str, str]], model: Optional[str] = None) -> str:
@@ -36,11 +38,7 @@ def ask_for_best_move_conversation(messages: List[Dict[str, str]], model: Option
     messages: list of {role, content} dicts. Caller is responsible for appending the latest
     user prompt requesting the move. This function simply sends them and returns raw text.
     """
-    rsp = client.responses.create(
-        model=model or SETTINGS.openai_model,
-        input=messages,
-    )
-    return rsp.output_text.strip()
+    return _PROVIDER.ask_for_best_move_conversation(messages, model=model)
 
 def ask_for_best_move_plain(side: str, history_text: str = "", model: Optional[str] = None) -> str:
     """Plain text prompt without FEN. history_text should be a multiline string of past moves.
@@ -49,16 +47,36 @@ def ask_for_best_move_plain(side: str, history_text: str = "", model: Optional[s
       1. White Pawn e4  Black Knight f6
       2. White Pawn e5  Black Pawn g6
     """
-    user_parts = [f"Side to move: {side}"]
-    if history_text:
-        user_parts.append("Recent moves:\n\n" + history_text)
-    user_parts.append("\nRespond with your best chess move.")
-    user_content = "\n".join(user_parts)
-    rsp = client.responses.create(
-        model=model or SETTINGS.openai_model,
-        input=[
-            {"role": "system", "content": SYSTEM},
-            {"role": "user", "content": user_content},
-        ],
-    )
-    return rsp.output_text.strip()
+    return _PROVIDER.ask_for_best_move_plain(side, history_text=history_text, model=model)
+
+
+# ------------------------- Transport facade -------------------------
+
+
+def _extract_output_text_from_response_obj(resp_obj: dict) -> str:
+    """Deprecated: kept for backward compat if any callers import it. Delegates to provider."""
+    return OpenAIProvider._extract_output_text_from_response_obj(resp_obj)
+
+
+def submit_responses_parallel(items: List[Dict], max_concurrency: int = None, request_timeout_s: float = None) -> Dict[str, str]:
+    return _PROVIDER.submit_responses_parallel(items, max_concurrency=max_concurrency, request_timeout_s=request_timeout_s)
+
+
+def submit_responses_batch(items: List[Dict], poll_interval_s: float | None = None, timeout_s: float | None = None) -> Dict[str, str]:
+    return _PROVIDER.submit_responses_batch(items, poll_interval_s=poll_interval_s, timeout_s=timeout_s)
+
+
+def submit_responses_batch_chunked(items: List[Dict], items_per_batch: Optional[int] = None) -> Dict[str, str]:
+    return _PROVIDER.submit_responses_batch_chunked(items, items_per_batch=items_per_batch)
+
+
+def submit_responses_transport(items: List[Dict], prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None) -> Dict[str, str]:
+    return _PROVIDER.submit_responses_transport(items, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
+
+
+def submit_responses(items: List[Dict]) -> Dict[str, str]:
+    return _PROVIDER.submit_responses(items)
+
+
+def submit_responses_blocking_all(items: List[Dict], max_wait_s: float = None, prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None) -> Dict[str, str]:
+    return _PROVIDER.submit_responses_blocking_all(items, max_wait_s=max_wait_s, prefer_batches=prefer_batches, items_per_batch=items_per_batch)

@@ -1,5 +1,5 @@
 {
-  "model": "gpt-5-mini",
+  "model": "gpt-5-nano",
   "opponent": "random",
   "depth": 6,
   "movetime": null,
@@ -19,6 +19,7 @@
     "path": "./log1",
     "every_turn": true
   },
-  "games": 2,
-  "batch": true
+  "games": 1,
+  "mode": "parallel",
+  "game_log": true
 }

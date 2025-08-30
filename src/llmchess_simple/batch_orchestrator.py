@@ -4,16 +4,20 @@ from typing import List, Dict, Optional
 from .game import GameRunner, GameConfig
 from .engine_opponent import EngineOpponent
 from .random_opponent import RandomOpponent
-from .batch_client import submit_responses_blocking_all
+from .llm_client import submit_responses_blocking_all
 
 log = logging.getLogger("batch_orchestrator")
 
 class BatchOrchestrator:
-    def __init__(self, model: str, num_games: int, opponent: str = "engine", depth: Optional[int] = 6, movetime_ms: Optional[int] = None, engine_path: Optional[str] = None, base_cfg: Optional[GameConfig] = None):
+    def __init__(self, model: str, num_games: int, opponent: str = "engine", depth: Optional[int] = 6, movetime_ms: Optional[int] = None, engine_path: Optional[str] = None, base_cfg: Optional[GameConfig] = None, prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None):
         self.model = model
         self.runners: List[GameRunner] = []
         self._build_games(num_games, opponent, depth, movetime_ms, engine_path, base_cfg)
         self._cycle = 0
+    # Transport selection for each LLM turn across all active games:
+    # None => defer to env in llm_client; True => OpenAI Batches API (offline); False => parallel /responses (interactive)
+        self.prefer_batches = prefer_batches
+        self.items_per_batch = items_per_batch
 
     def _build_games(self, n: int, opponent: str, depth: Optional[int], movetime_ms: Optional[int], engine_path: Optional[str], base_cfg: Optional[GameConfig]):
         for i in range(n):
@@ -54,6 +58,7 @@ class BatchOrchestrator:
         Returns: list of per-game summaries.
         """
         while True:
+            log.debug("Cycle %d start", self._cycle + 1)
             # Finalize any games that hit termination conditions in prior cycle
             for r in self.runners:
                 r.finalize_if_terminated()
@@ -90,9 +95,9 @@ class BatchOrchestrator:
                 # Nothing to ask this cycle (e.g., all became terminal after engine move)
                 continue
 
-            # 3) Submit responses and wait for all pending LLM turns this cycle
-            # Use OpenAI Batches transport for batched runs, chunk size via env LLMCHESS_ITEMS_PER_BATCH
-            outputs = submit_responses_blocking_all(items, prefer_batches=True)
+            # 3) Submit one request per active LLM turn this cycle using chosen transport
+            log.debug("Cycle %d submitting %d LLM turns (prefer_batches=%s)", self._cycle, len(items), self.prefer_batches)
+            outputs = submit_responses_blocking_all(items, prefer_batches=self.prefer_batches, items_per_batch=self.items_per_batch)
             for cid, text in outputs.items():
                 i = index_map.get(cid)
                 if i is None:

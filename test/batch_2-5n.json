@@ -6,7 +6,7 @@
   "engine_path": null,
   "llm_color": "white",
   "max_plies": 240,
-  "max_illegal": 3,
+  "max_illegal": 1,
   "pgn_tail": 20,
   "verbose_llm": false,
   "conversation_mode": false,
@@ -20,5 +20,7 @@
     "every_turn": true
   },
   "games": 5,
-  "batch": true
+  "mode": "batch",
+  "games_per_batch": 5,
+  "game_log": true
 }

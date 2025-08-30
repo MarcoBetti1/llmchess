@@ -2,9 +2,9 @@
 Check max illegal var if it works (Y)  
 Check prompting methods and clean up pipeline for it ()  
 Check if in batch mode when one game ends, others will continue until completion. (Y)  
-Fix batch prompting: i think its logic works in batches but it uses individual api requests. (N)  
+Fix batch prompting. (N)  
 
-`python -u scripts/run_many.py --configs test/batch_2-5n.json --batch --out-dir runs/g100 --log-level INFO`
+`python -u scripts/run_many.py --configs test/batch_2-5n.json --mode batch --out-dir runs/g100 --log-level INFO`
 
 
 # LLM Chess (Simplified)
@@ -144,7 +144,7 @@ FEN (future)
 Run multiple games from JSON configs with per-run output folders and structured histories.
 
 Examples (Windows):
-- python scripts\run_many.py --configs "test\single_default.json,test\batch_two_games.json" --batch --out-dir .\runs\smoke --log-level INFO
+- python scripts\run_many.py --configs "test\single_default.json,test\batch_two_games.json" --mode batch --out-dir .\runs\smoke --log-level INFO
 - For large sweeps (100 games): copy a config and set "games": 100, then run the same command with --batch.
 
 Behavior
@@ -163,10 +163,20 @@ Structured history JSON
 
 Batching implementation
 - By default, prompts from active games are sent concurrently using the Responses API for low latency.
-- To force the OpenAI Batches API (with completion_window, suitable for offline jobs), set:
-  - LLMCHESS_USE_OPENAI_BATCH=1
-  - Optional: OPENAI_BATCH_COMPLETION_WINDOW=24h
-- For interactive chess loops, prefer the default concurrent mode instead of true Batches.
+Modes
+- mode: "parallel" | "batch"
+  - parallel → direct /responses API (interactive)
+  - batch → OpenAI Batches API (offline)
+
+Batch chunking
+- games_per_batch: integer; how many game turns to bundle per batch job each cycle. If omitted, provider/env defaults apply (LLMCHESS_ITEMS_PER_BATCH).
+
+Examples
+- Parallel single game: `--mode parallel`
+- Batch with chunk size 5: `--mode batch --games-per-batch 5`
+
+Deprecated
+- The config keys `batch` and `prefer_batches` are deprecated. Use `mode` and (optionally) `games_per_batch` instead.
 
 Troubleshooting
 - Ensure OPENAI_MODEL targets a Responses-capable model (e.g., gpt-4o-mini) and upgrade the SDK: pip install -U openai

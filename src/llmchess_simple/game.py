@@ -25,6 +25,8 @@ class GameConfig:
     conversation_log_every_turn: bool = False
     # Modular prompting configuration
     prompt_cfg: PromptConfig = field(default_factory=PromptConfig)
+    # Console logging of moves as they happen
+    game_log: bool = False
 
 class GameRunner:
     def __init__(self, model: str, opponent, cfg: GameConfig | None = None):
@@ -244,7 +246,15 @@ class GameRunner:
         sys_prompt_text = msgs[0]["content"] if msgs else ""
         ok, uci, san, ms, meta, _ = self._process_llm_raw(raw, fen, meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode})
         self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
-        self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", self._global_ply+1, uci, ok, san, ms)
+        # Console-friendly log of LLM action
+        if self.cfg.game_log:
+            disp = san or (uci or "(no-move)")
+            raw_short = (raw or "").replace("\n", " ")
+            if len(raw_short) > 140:
+                raw_short = raw_short[:140] + "…"
+            self.log.info("[ply %d] LLM: move=%s legal=%s time_ms=%d raw='%s'", self._global_ply+1, disp, ok, ms, raw_short)
+        else:
+            self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", self._global_ply+1, uci, ok, san, ms)
         if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
             self.dump_conversation_json()
             self.dump_structured_history_json()
@@ -262,7 +272,10 @@ class GameRunner:
     def step_opponent(self):
         ok, uci, san = self._opp_turn()
         self.records.append({"actor": "OPP", "uci": uci, "ok": ok, "san": san})
-        self.log.debug("Ply %d OPP move %s san=%s", self._global_ply+1, uci, san)
+        if self.cfg.game_log:
+            self.log.info("[ply %d] OPP: move=%s (%s)", self._global_ply+1, san or uci, uci)
+        else:
+            self.log.debug("Ply %d OPP move %s san=%s", self._global_ply+1, uci, san)
         if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
             self.dump_conversation_json()
             self.dump_structured_history_json()
