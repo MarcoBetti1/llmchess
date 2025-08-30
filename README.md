@@ -3,6 +3,9 @@ Check max illegal var if it works (Y)
 Check prompting methods and clean up pipeline for it ()  
 Check if in batch mode when one game ends, others will continue until completion. (Y)  
 Fix batch prompting. (N)  
+Orgainze project (play_one outside scripts dir) ()  
+
+
 
 `python -u scripts/run_many.py --configs test/batch_2-5n.json --mode batch --out-dir runs/g100 --log-level INFO`
 
