@@ -1,10 +1,17 @@
 # TODO
 Check if in batch mode when one game ends, others will continue until completion. ()
-Orgainze project (play_one outside scripts dir) ()
-Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.
+Orgainze project (play_one outside scripts dir) (). 
 
+Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.  
 
-Seems batch was done right but my understanding wasnt perfect. We must wait for the batch to be completed. This may take very long, its a good idea to test/ get a successful batch run.  
+In batch demo why is  
+```
+"out_dir": "runs/batch_demo",
+  "log_level": "INFO",
+  "conversation_log": {
+    "path": "runs/batch_demo" 
+```
+There 2 paths?
 
 `python -u scripts/run_many.py --configs test/batch_2-5n.json`
 
@@ -218,13 +225,11 @@ Environment variables
 - LLMCHESS_USE_GUARD_AGENT: set to 0 to disable guard agent normalization
 
 Notes
-- The old flag LLMCHESS_USE_OPENAI_BATCH has been removed. Use `mode: "batch"` in config, or `--mode batch` to enable the Batches API.
+- Use `mode: "batch"` in config, or `--mode batch` to enable the Batches API.
 
-Batch status utility
-- You can inspect a batch job and optionally download its outputs/errors:
-  - python scripts/batch_status.py <batch_id>
-  - python scripts/batch_status.py <batch_id> --download-out out.jsonl --download-error err.jsonl
-  The summary includes status, counts, timestamps, and file IDs.
+Batch status
+- Batch creation and progress are logged to the console during runs (status changes, request counts, timestamps, progress %, duration).
+- For deeper inspection or downloads, use the OpenAI web UI.
 
 Troubleshooting
 - Ensure your chosen model in the JSON/CLI targets a Responses-capable model (e.g., gpt-4o-mini) and upgrade the SDK: pip install -U openai
