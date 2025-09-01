@@ -1,13 +1,12 @@
 # TODO
-Check max illegal var if it works (Y)  
-Check prompting methods and clean up pipeline for it ()  
-Check if in batch mode when one game ends, others will continue until completion. (Y)  
-Fix batch prompting. (N)  
-Orgainze project (play_one outside scripts dir) ()  
+Check if in batch mode when one game ends, others will continue until completion. ()
+Orgainze project (play_one outside scripts dir) ()
+Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.
 
 
+Seems batch was done right but my understanding wasnt perfect. We must wait for the batch to be completed. This may take very long, its a good idea to test/ get a successful batch run.  
 
-`python -u scripts/run_many.py --configs test/batch_2-5n.json --mode batch --out-dir runs/g100 --log-level INFO`
+`python -u scripts/run_many.py --configs test/batch_2-5n.json`
 
 
 # LLM Chess (Simplified)
@@ -32,13 +31,12 @@ The game pipeline:
 pip install -r requirements.txt
 # Set env vars (or copy .env.example to .env and edit)
 export OPENAI_API_KEY=
-export OPENAI_MODEL=
 export STOCKFISH_PATH=
 
 
 
 # Save conversation snapshots every move (to a directory)
-python play_one.py --prompt-mode plaintext --conv-log ./log1 --conv-log-every-turn
+python play_one.py --model gpt-4o-mini --prompt-mode plaintext --conv-log ./log1 --conv-log-every-turn
 
 # play_many.py documentation
 ```
@@ -50,14 +48,43 @@ python play_one.py --prompt-mode plaintext --conv-log ./log1 --conv-log-every-tu
 
 ---
 
-## Command-line arguments (clean ts up)
+## Config-driven runs (updated)
+You can run experiments with just a config file. The config controls logging and outputs:
+
+- out_dir: directory where conversation logs and results.jsonl are written
+- log_level: INFO | DEBUG | WARNING | ERROR
+  - At INFO/DEBUG, per-turn conversation snapshots are written.
+  - At WARNING/ERROR, only final artifacts are written.
+- mode: parallel | batch
+- games_per_batch: optional chunk size for batch mode
+
+Example:
+
+```json
+{
+  "model": "gpt-5-nano",
+  "engine": "Stockfish",
+  "opponent": "random",
+  "games": 2,
+  "mode": "batch",
+  "out_dir": "runs/g100",
+  "log_level": "INFO"
+}
+```
+
+Run it with:
+
+```bash
+python -u scripts/run_many.py --configs test/batch_2-5n.json
+```
+
 
 Core gameplay
-- --model: Target LLM (default from OPENAI_MODEL env or gpt-5)
+- --model: Target LLM (required if not specified in the JSON config)
 - --opponent: engine | random (default engine)
 - --depth: Stockfish search depth (ignored if --movetime is set)
 - --movetime: Stockfish movetime in ms (overrides depth)
-- --engine-path: Path to Stockfish binary (overrides STOCKFISH_PATH)
+- --engine: Engine name to use (Stockfish only for now). Binary path comes from env STOCKFISH_PATH.
 - --llm-color: white | black (which side the LLM plays; default white)
 - --max-plies: Maximum plies before truncation (default 240)
 - --max-illegal: Terminate after this many illegal LLM moves (default 1)
@@ -90,11 +117,11 @@ Load a config file via `--config <path>`. Example:
 
 ```json
 {
-  "model": "gpt-5",
+  "model": "gpt-4o-mini",
   "opponent": "engine",
   "depth": 6,
   "movetime": null,
-  "engine_path": null,
+  "engine": "Stockfish",
   "llm_color": "white",
   "max_plies": 240,
   "max_illegal": 1,
@@ -178,9 +205,27 @@ Examples
 - Parallel single game: `--mode parallel`
 - Batch with chunk size 5: `--mode batch --games-per-batch 5`
 
-Deprecated
-- The config keys `batch` and `prefer_batches` are deprecated. Use `mode` and (optionally) `games_per_batch` instead.
+Environment variables
+- STOCKFISH_PATH: path to the Stockfish binary. On macOS: `brew install stockfish` then `which stockfish`.
+- OPENAI_BATCH_COMPLETION_WINDOW: default 24h
+- LLMCHESS_ITEMS_PER_BATCH: chunk size when batching (default 200)
+- LLMCHESS_TURN_MAX_WAIT_S: overall per-turn max wait when using parallel mode (default 1200)
+- LLMCHESS_BATCH_POLL_S: batch status poll interval seconds (default 2.0)
+- LLMCHESS_BATCH_TIMEOUT_S: per-batch-job polling timeout in batch mode (default 600)
+- LLMCHESS_RESPONSES_TIMEOUT_S: per-response timeout seconds (default 300)
+- LLMCHESS_RESPONSES_RETRIES: retries for parallel responses (default 4)
+- LLMCHESS_MAX_CONCURRENCY: max in-flight parallel responses (default 8)
+- LLMCHESS_USE_GUARD_AGENT: set to 0 to disable guard agent normalization
+
+Notes
+- The old flag LLMCHESS_USE_OPENAI_BATCH has been removed. Use `mode: "batch"` in config, or `--mode batch` to enable the Batches API.
+
+Batch status utility
+- You can inspect a batch job and optionally download its outputs/errors:
+  - python scripts/batch_status.py <batch_id>
+  - python scripts/batch_status.py <batch_id> --download-out out.jsonl --download-error err.jsonl
+  The summary includes status, counts, timestamps, and file IDs.
 
 Troubleshooting
-- Ensure OPENAI_MODEL targets a Responses-capable model (e.g., gpt-4o-mini) and upgrade the SDK: pip install -U openai
+- Ensure your chosen model in the JSON/CLI targets a Responses-capable model (e.g., gpt-4o-mini) and upgrade the SDK: pip install -U openai
 - To disable the guard agent and rely on lightweight regex/validator fallback, set LLMCHESS_USE_GUARD_AGENT=0

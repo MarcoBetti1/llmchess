@@ -3,7 +3,7 @@
   "opponent": "random",
   "depth": 6,
   "movetime": null,
-  "engine_path": null,
+  "engine": "Stockfish",
   "llm_color": "white",
   "max_plies": 240,
   "max_illegal": 1,
@@ -15,11 +15,12 @@
     "starting_context_enabled": true,
     "instruction_line": "Provide only your best legal move in SAN."
   },
+  "out_dir": "runs/g100",
+  "log_level": "INFO",
   "conversation_log": {
-    "path": "./log1",
-    "every_turn": true
+    "path": "runs/g100"
   },
-  "games": 1,
-  "mode": "parallel",
-  "game_log": true
+  "games": 2,
+  "mode": "batch",
+  "games_per_batch": 2
 }

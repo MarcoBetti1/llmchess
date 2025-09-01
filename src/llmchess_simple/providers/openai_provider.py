@@ -14,7 +14,6 @@ class OpenAIProvider:
         self.log = logging.getLogger("llm_client.openai")
 
         # Environment-driven knobs
-        self.USE_OPENAI_BATCH = os.environ.get("LLMCHESS_USE_OPENAI_BATCH", "0") != "0"
         self.DEFAULT_COMPLETION_WINDOW = os.environ.get("OPENAI_BATCH_COMPLETION_WINDOW", "24h")
         self.RESPONSES_TIMEOUT_S = float(os.environ.get("LLMCHESS_RESPONSES_TIMEOUT_S", "300"))
         self.RESPONSES_RETRIES = int(os.environ.get("LLMCHESS_RESPONSES_RETRIES", "4"))
@@ -32,8 +31,10 @@ class OpenAIProvider:
             + (f"Recent moves (PGN tail):\n{pgn_tail}\n" if pgn_tail else "")
             + "Respond with the best chess move."
         )
+        if not model:
+            raise ValueError("Model is required; set it in your JSON config (key 'model') or CLI.")
         rsp = self.client.responses.create(
-            model=model or SETTINGS.openai_model,
+            model=model,
             input=[
                 {"role": "system", "content": "You are a strong chess player. When asked for a move, decide the best move."},
                 {"role": "user", "content": user},
@@ -42,10 +43,9 @@ class OpenAIProvider:
         return rsp.output_text.strip()
 
     def ask_for_best_move_conversation(self, messages: List[Dict[str, str]], model: Optional[str] = None) -> str:
-        rsp = self.client.responses.create(
-            model=model or SETTINGS.openai_model,
-            input=messages,
-        )
+        if not model:
+            raise ValueError("Model is required; set it in your JSON config (key 'model') or CLI.")
+        rsp = self.client.responses.create(model=model, input=messages)
         return rsp.output_text.strip()
 
     def ask_for_best_move_plain(self, side: str, history_text: str = "", model: Optional[str] = None) -> str:
@@ -54,13 +54,12 @@ class OpenAIProvider:
             parts.append("Recent moves:\n\n" + history_text)
         parts.append("\nRespond with your best chess move.")
         user_content = "\n".join(parts)
-        rsp = self.client.responses.create(
-            model=model or SETTINGS.openai_model,
-            input=[
-                {"role": "system", "content": "You are a strong chess player. When asked for a move, decide the best move."},
-                {"role": "user", "content": user_content},
-            ],
-        )
+        if not model:
+            raise ValueError("Model is required; set it in your JSON config (key 'model') or CLI.")
+        rsp = self.client.responses.create(model=model, input=[
+            {"role": "system", "content": "You are a strong chess player. When asked for a move, decide the best move."},
+            {"role": "user", "content": user_content},
+        ])
         return rsp.output_text.strip()
 
     # ---------------- Transports ----------------
@@ -136,7 +135,9 @@ class OpenAIProvider:
 
         def _one(it: Dict) -> tuple[str, str]:
             cid = str(it["custom_id"])  # ensure string keys
-            model = it.get("model") or SETTINGS.openai_model
+            model = it.get("model")
+            if not model:
+                raise ValueError("Each item must include a 'model' field.")
             messages = it["messages"]
             text = self._request_with_retry(model=model, messages=messages, timeout_s=request_timeout_s, retries=self.RESPONSES_RETRIES, idempotency_key=cid)
             return cid, text
@@ -186,7 +187,9 @@ class OpenAIProvider:
         buf = io.StringIO()
         for it in items:
             cid = str(it["custom_id"])  # ensure str
-            model = it.get("model") or SETTINGS.openai_model
+            model = it.get("model")
+            if not model:
+                raise ValueError("Each item must include a 'model' field.")
             body = {"model": model, "input": it["messages"]}
             line = {"custom_id": cid, "method": "POST", "url": "/v1/responses", "body": body}
             buf.write(json.dumps(line) + "\n")
@@ -194,20 +197,61 @@ class OpenAIProvider:
 
         payload = buf.getvalue().encode("utf-8")
         up = self.client.files.create(file=("batch.jsonl", payload), purpose="batch")
-        self.log.info("Submitting one batch with %d items (window=%s)", len(items), self.DEFAULT_COMPLETION_WINDOW)
-        batch = self.client.batches.create(input_file_id=up.id, endpoint="/v1/responses", completion_window=self.DEFAULT_COMPLETION_WINDOW)
+        self.log.info(
+            "Submitting one batch with %d items (window=%s)",
+            len(items),
+            self.DEFAULT_COMPLETION_WINDOW,
+        )
+        batch = self.client.batches.create(
+            input_file_id=up.id,
+            endpoint="/v1/responses",
+            completion_window=self.DEFAULT_COMPLETION_WINDOW,
+        )
+        try:
+            self.log.info(
+                "Batch %s created: status=%s endpoint=%s created_at=%s input_file_id=%s",
+                getattr(batch, "id", "<unknown>"),
+                getattr(batch, "status", None),
+                getattr(batch, "endpoint", None),
+                getattr(batch, "created_at", None),
+                getattr(batch, "input_file_id", None),
+            )
+        except Exception:
+            pass
 
         poll_interval_s = float(poll_interval_s if poll_interval_s is not None else self.BATCH_POLL_INTERVAL_S)
         timeout_s = float(timeout_s if timeout_s is not None else self.BATCH_TIMEOUT_S)
         t0 = time.time()
         prev_status = None
+        prev_counts = None
         while True:
             b = self.client.batches.retrieve(batch.id)
             status = getattr(b, "status", None) or ""
-            if status != prev_status:
-                counts = getattr(b, "request_counts", None)
-                self.log.info("Batch %s status=%s counts=%s", b.id, status, counts)
+            counts = getattr(b, "request_counts", None)
+            if status != prev_status or counts != prev_counts:
+                try:
+                    total = (counts or {}).get("total") if isinstance(counts, dict) else None
+                    completed = (counts or {}).get("completed") if isinstance(counts, dict) else None
+                    failed = (counts or {}).get("failed") if isinstance(counts, dict) else None
+                    pct = None
+                    if isinstance(total, int) and total > 0 and isinstance(completed, int):
+                        pct = (completed / total) * 100.0
+                    self.log.info(
+                        "Batch %s status=%s counts=%s in_progress_at=%s finalizing_at=%s completed_at=%s",
+                        getattr(b, "id", "<unknown>"),
+                        status,
+                        counts,
+                        getattr(b, "in_progress_at", None),
+                        getattr(b, "finalizing_at", None) if hasattr(b, "finalizing_at") else None,
+                        getattr(b, "completed_at", None),
+                    )
+                    if pct is not None:
+                        self.log.info("Batch %s progress: %.1f%% (completed=%s failed=%s total=%s)", getattr(b, "id", "<unknown>"), pct, completed, failed, total)
+                except Exception:
+                    # Always prefer to continue polling rather than fail on logging
+                    pass
                 prev_status = status
+                prev_counts = counts
             if status in ("completed", "failed", "canceled", "cancelled", "expired"):
                 break
             if time.time() - t0 > timeout_s:
@@ -220,6 +264,17 @@ class OpenAIProvider:
             time.sleep(poll_interval_s)
 
         if status != "completed":
+            try:
+                self.log.warning(
+                    "Batch %s finished with status=%s output_file_id=%s error_file_id=%s counts=%s",
+                    getattr(b, "id", "<unknown>"),
+                    status,
+                    getattr(b, "output_file_id", None),
+                    getattr(b, "error_file_id", None),
+                    getattr(b, "request_counts", None),
+                )
+            except Exception:
+                pass
             err_id = getattr(b, "error_file_id", None)
             if err_id:
                 try:
@@ -237,6 +292,18 @@ class OpenAIProvider:
         if not out_id:
             self.log.error("Batch %s completed but has no output_file_id", b.id)
             return {}
+
+        try:
+            self.log.info(
+                "Batch %s completed. output_file_id=%s error_file_id=%s counts=%s duration=%.1fs",
+                getattr(b, "id", "<unknown>"),
+                out_id,
+                getattr(b, "error_file_id", None),
+                getattr(b, "request_counts", None),
+                time.time() - t0,
+            )
+        except Exception:
+            pass
 
         out_obj = self.client.files.content(out_id)
         raw_text = self._read_file_text(out_obj)
@@ -278,7 +345,8 @@ class OpenAIProvider:
         return merged
 
     def submit_responses_transport(self, items: List[Dict], prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None) -> Dict[str, str]:
-        use_batches = self.USE_OPENAI_BATCH if prefer_batches is None else bool(prefer_batches)
+        # Default to parallel unless explicitly told to batch
+        use_batches = bool(prefer_batches)
         if use_batches:
             return self.submit_responses_batch_chunked(items, items_per_batch=items_per_batch)
         return self.submit_responses_parallel(items)
@@ -289,7 +357,8 @@ class OpenAIProvider:
     def submit_responses_blocking_all(self, items: List[Dict], max_wait_s: float | None = None, prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None) -> Dict[str, str]:
         if not items:
             return {}
-        use_batches = self.USE_OPENAI_BATCH if prefer_batches is None else bool(prefer_batches)
+        # Default to parallel unless explicitly told to batch
+        use_batches = bool(prefer_batches)
         if use_batches:
             return self.submit_responses_batch_chunked(items, items_per_batch=items_per_batch)
 

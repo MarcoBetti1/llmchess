@@ -32,27 +32,36 @@ def collect_config_files(spec: str) -> List[str]:
     return sorted(set(files))
 
 
+def _parse_log_level(name: str | None) -> int:
+    name = (name or "INFO").upper()
+    return getattr(logging, name, logging.INFO)
+
+
 def build_configs_from_dict(d: Dict):
     # Defaults
-    model = d.get('model', 'gpt-5')
+    model = d.get('model')
+    if not model or not isinstance(model, str) or not model.strip():
+        raise ValueError("Config must include a non-empty 'model' string (e.g., 'gpt-4o-mini').")
     opponent = d.get('opponent', 'engine')
     depth = d.get('depth', 6)
     movetime = d.get('movetime')
-    engine_path = d.get('engine_path')
+    # Engine selection by name; path comes from env (.env)
+    engine = d.get('engine', 'Stockfish')
     llm_color = d.get('llm_color', 'white')
     max_plies = d.get('max_plies', 240)
     max_illegal = d.get('max_illegal', 1)
     pgn_tail = d.get('pgn_tail', 20)
     verbose_llm = d.get('verbose_llm', False)
-    game_log = d.get('game_log', False)
+    # Unified log level (drives both console and per-turn logging)
+    log_level_name = d.get('log_level')
     conversation_mode = d.get('conversation_mode', False)
-    # New unified mode switch: "parallel" | "batch" (required going forward)
+    # New unified mode switch: "parallel" | "batch"
     mode = str(d.get('mode', 'parallel')).strip().lower()
     if mode not in ('parallel', 'batch'):
         logging.getLogger('run_many').warning("Unknown mode '%s'; defaulting to 'parallel'", mode)
         mode = 'parallel'
 
-    # Optional chunk size for batch jobs; if None, provider/env defaults apply
+    # chunk size for batch jobs (optional config key). If None, provider/env defaults apply
     games_per_batch = d.get('games_per_batch')
 
     prompt = d.get('prompt', {}) or {}
@@ -61,36 +70,44 @@ def build_configs_from_dict(d: Dict):
     instruction_line = prompt.get('instruction_line', 'Provide only your best legal move in SAN.')
 
     conv = d.get('conversation_log', {}) or {}
-    conv_path = conv.get('path')
-    conv_every = conv.get('every_turn', False)
+    # Unify out_dir with conversation_log.path (out_dir takes precedence)
+    out_dir = d.get('out_dir') or conv.get('path')
+    # Unify every_turn with log level: INFO/DEBUG -> True; else False (unless not provided)
+    conv_every = conv.get('every_turn', None)
+    if log_level_name is not None:
+        conv_every = _parse_log_level(log_level_name) <= logging.INFO
+    elif conv_every is None:
+        conv_every = False
 
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
-    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_mode=bool(conversation_mode), max_illegal_moves=int(max_illegal), conversation_log_path=conv_path, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=bool(game_log))
+    # game_log driven by log level (INFO/DEBUG => True)
+    game_log_flag = _parse_log_level(log_level_name) <= logging.INFO
+    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_mode=bool(conversation_mode), max_illegal_moves=int(max_illegal), conversation_log_path=out_dir, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=bool(game_log_flag))
 
     return {
         'model': model,
         'opponent': opponent,
         'depth': depth,
         'movetime': movetime,
-        'engine_path': engine_path,
+    'engine': engine,
         'games': int(d.get('games', 1)),
         # Unified execution mode
         'mode': mode,
+        # Unified output directory and log level
+        'out_dir': out_dir,
+        'log_level': (log_level_name or 'INFO'),
         # Optional: chunk size for OpenAI Batches API
-    'games_per_batch': (int(games_per_batch) if isinstance(games_per_batch, (int, float)) else None),
+    'games_per_batch': (int(games_per_batch) if isinstance(games_per_batch, (int, float, str)) and str(games_per_batch).isdigit() else None),
         'gcfg': gcfg,
     # No legacy fields supported going forward
     }
 
 
 def _override_output_paths(gcfg: GameConfig, config_name: str, base_out_dir: str | None, force_every_turn: bool = False):
-    """If base_out_dir is provided, place conversation + structured history under
-    base_out_dir/<config_name_without_ext>/
-    """
+    """If base_out_dir is provided, place logs directly under that directory."""
     if not base_out_dir:
         return gcfg
-    sub = os.path.splitext(os.path.basename(config_name))[0]
-    cfg_dir = os.path.join(base_out_dir, sub)
+    cfg_dir = base_out_dir
     os.makedirs(cfg_dir, exist_ok=True)
     gcfg.conversation_log_path = cfg_dir
     if force_every_turn:
@@ -103,7 +120,7 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
     opponent = cfg_entry['opponent']
     depth = cfg_entry['depth']
     movetime = cfg_entry['movetime']
-    engine_path = cfg_entry['engine_path']
+    engine = cfg_entry['engine']
     games = cfg_entry['games']
     gcfg: GameConfig = cfg_entry['gcfg']
 
@@ -133,8 +150,10 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
         if opponent == 'random':
             opp = RandomOpponent()
         else:
-            # Keep sequential path consistent with batched path
-            opp = EngineOpponent(depth=depth, movetime_ms=movetime, engine_path=engine_path)
+            # Stockfish only; path resolved via env in EngineOpponent
+            if engine and str(engine).lower() != 'stockfish':
+                raise ValueError(f"Unsupported engine '{engine}'. Only 'Stockfish' is supported.")
+            opp = EngineOpponent(depth=depth, movetime_ms=movetime, engine_path=None)
         runner = GameRunner(model=model, opponent=opp, cfg=gcfg_i)
         res = runner.play()
         m = runner.summary()
@@ -154,7 +173,7 @@ def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | 
     opponent = cfg_entry['opponent']
     depth = cfg_entry['depth']
     movetime = cfg_entry['movetime']
-    engine_path = cfg_entry['engine_path']
+    engine = cfg_entry['engine']
     games = cfg_entry['games']
     gcfg: GameConfig = cfg_entry['gcfg']
 
@@ -162,7 +181,7 @@ def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | 
     gcfg = _override_output_paths(gcfg, config_name, base_out_dir, force_every_turn=True)
 
     # batch orchestrator == multi-game loop; prefer_batches decides transport (Batches API vs parallel /responses)
-    orch = BatchOrchestrator(model=model, num_games=games, opponent=opponent, depth=depth, movetime_ms=movetime, engine_path=engine_path, base_cfg=gcfg, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
+    orch = BatchOrchestrator(model=model, num_games=games, opponent=opponent, depth=depth, movetime_ms=movetime, engine=engine, base_cfg=gcfg, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
     summaries = orch.run()
     all_metrics = []
     for i, m in enumerate(summaries):
@@ -183,13 +202,12 @@ def main():
     # Unified mode switch (CLI). If omitted, config decides.
     ap.add_argument('--mode', choices=['parallel', 'batch'], help='Execution mode: parallel (responses API) or batch (OpenAI Batches API). Overrides config.')
     ap.add_argument('--games-per-batch', type=int, default=None, help='Chunk size for OpenAI Batches API (per cycle). Overrides config.')
-    ap.add_argument('--out-jsonl', default=None, help='Path to write per-game metrics as JSONL')
-    ap.add_argument('--out-dir', default=None, help='Base output directory to store logs per test run (defaults to runs/run_YYYYMMDD-HHMMSS)')
-    ap.add_argument('--game-log', action='store_true', help='Enable console logging of each LLM/engine move to monitor progress')
-    ap.add_argument('--log-level', default='INFO')
+    ap.add_argument('--out-jsonl', default=None, help='Path to write per-game metrics as JSONL (overrides config out_dir)')
+    ap.add_argument('--out-dir', default=None, help='Output directory to store logs for this run (overrides config out_dir)')
+    ap.add_argument('--log-level', default=None, help='Python logging level (overrides config log_level)')
     args = ap.parse_args()
 
-    logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO),
+    logging.basicConfig(level=logging.INFO,
                         format='%(asctime)s %(levelname)s %(name)s: %(message)s')
     log = logging.getLogger('run_many')
 
@@ -197,21 +215,6 @@ def main():
     if not files:
         log.error('No config files found for spec: %s', args.configs)
         sys.exit(1)
-
-    # Prepare base output directory
-    base_out_dir = args.out_dir
-    created_default_out = False
-    if not base_out_dir:
-        ts = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
-        base_out_dir = os.path.join(os.getcwd(), 'runs', f'run_{ts}')
-        os.makedirs(base_out_dir, exist_ok=True)
-        created_default_out = True
-    else:
-        os.makedirs(base_out_dir, exist_ok=True)
-
-    # If no explicit JSONL, default to base_out_dir/results.jsonl
-    jsonl_path = args.out_jsonl or os.path.join(base_out_dir, 'results.jsonl')
-    jsonl_f = open(jsonl_path, 'a', encoding='utf-8') if jsonl_path else None
 
     grand_metrics = []
     t0 = time.time()
@@ -223,10 +226,19 @@ def main():
             log.error('Failed to read %s: %s', path, e)
             continue
         entry = build_configs_from_dict(d)
-        # Apply CLI overrides
-        if args.game_log:
-            entry['gcfg'].game_log = True
+        # Effective log level (CLI overrides config)
+        eff_log_level_name = (args.log_level or entry.get('log_level') or 'INFO')
+        logging.getLogger().setLevel(_parse_log_level(eff_log_level_name))
         config_name = os.path.basename(path)
+        # Determine effective out dir per config
+        ts = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
+        default_out = os.path.join(os.getcwd(), 'runs', f'run_{ts}')
+        base_out_dir = args.out_dir or entry.get('out_dir') or default_out
+        os.makedirs(base_out_dir, exist_ok=True)
+
+        # Per-config JSONL file
+        jsonl_path = args.out_jsonl or os.path.join(base_out_dir, 'results.jsonl')
+        jsonl_f = open(jsonl_path, 'a', encoding='utf-8') if jsonl_path else None
         # Determine mode precedence: CLI --mode > config.mode
         mode = args.mode if args.mode else entry.get('mode', 'parallel')
 
@@ -240,8 +252,8 @@ def main():
             metrics = run_sequential(entry, config_name, jsonl_f, base_out_dir)
         grand_metrics.extend(metrics)
 
-    if jsonl_f:
-        jsonl_f.close()
+        if jsonl_f:
+            jsonl_f.close()
 
     # Aggregate overall
     results = [m.get('result','*') for m in grand_metrics]
@@ -258,7 +270,7 @@ def main():
     print(f"Avg legal rate: {avg_legal*100:.2f}%")
     print(f"Avg LLM latency (ms): {avg_latency:.1f}")
     print(f"Wall time: {time.time()-t0:.1f}s")
-    print(f"Outputs: {base_out_dir}")
+    print("Outputs written under each config's out_dir (or default runs/run_YYYYMMDD-HHMMSS)")
 
 if __name__ == '__main__':
     main()

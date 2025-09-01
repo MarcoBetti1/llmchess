@@ -23,7 +23,7 @@ if __name__ == "__main__":
     ap.add_argument("--opponent", choices=["engine", "random"], default=None, help="Opponent type")
     ap.add_argument("--depth", type=int, default=None, help="Engine search depth (ignored if --movetime provided)")
     ap.add_argument("--movetime", type=int, default=None, help="Engine movetime in ms (overrides depth if set)")
-    ap.add_argument("--engine-path", default=None, help="Path to Stockfish (overrides STOCKFISH_PATH)")
+    ap.add_argument("--engine", default=None, help="Engine name to use (Stockfish only for now). Path is read from env.")
     ap.add_argument("--llm-color", choices=["white", "black"], default=None, help="Which side the LLM plays")
     ap.add_argument("--max-plies", type=int, default=None)
     ap.add_argument("--max-illegal", type=int, default=None, help="Terminate after this many illegal LLM moves (1 means immediate)")
@@ -61,11 +61,13 @@ if __name__ == "__main__":
     logging.basicConfig(level=getattr(logging, log_level, logging.INFO), format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     log = logging.getLogger("play_one")
 
-    model = pick("model", default="gpt-5")
+    model = pick("model", default=None)
+    if not model:
+        raise ValueError("Model is required. Provide --model or set 'model' in the JSON config.")
     opponent_type = pick("opponent", default="engine")
     depth = pick("depth", default=6)
     movetime = pick("movetime", default=None)
-    engine_path = pick("engine_path", default=None)
+    engine = pick("engine", default=(cfg_dict.get("engine") if isinstance(cfg_dict.get("engine"), str) else "Stockfish"))
     llm_color = pick("llm_color", default="white")
     max_plies = pick("max_plies", default=240)
     max_illegal = pick("max_illegal", default=1)
@@ -87,7 +89,9 @@ if __name__ == "__main__":
     if opponent_type == "random":
         opp = RandomOpponent()
     else:
-        opp = EngineOpponent(depth=int(depth) if depth is not None else None, movetime_ms=int(movetime) if movetime is not None else None, engine_path=engine_path)
+        if engine and str(engine).lower() != "stockfish":
+            raise ValueError(f"Unsupported engine '{engine}'. Only 'Stockfish' is supported.")
+        opp = EngineOpponent(depth=int(depth) if depth is not None else None, movetime_ms=int(movetime) if movetime is not None else None, engine_path=None)
 
     # Build PromptConfig and GameConfig
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
@@ -105,7 +109,7 @@ if __name__ == "__main__":
 
     runner = GameRunner(model=model, opponent=opp, cfg=gcfg)
     mode_label = "conversation" if conversation_mode else f"standard:{prompt_mode}"
-    log.info("Starting game: model=%s vs %s depth=%s movetime=%s side=%s mode=%s", model, opponent_type, depth, movetime, llm_color, mode_label)
+    log.info("Starting game: model=%s vs %s depth=%s movetime=%s engine=%s side=%s mode=%s", model, opponent_type, depth, movetime, engine, llm_color, mode_label)
     result = runner.play()
     metrics = runner.metrics()
 

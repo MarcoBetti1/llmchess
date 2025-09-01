@@ -9,22 +9,25 @@ from .llm_client import submit_responses_blocking_all
 log = logging.getLogger("batch_orchestrator")
 
 class BatchOrchestrator:
-    def __init__(self, model: str, num_games: int, opponent: str = "engine", depth: Optional[int] = 6, movetime_ms: Optional[int] = None, engine_path: Optional[str] = None, base_cfg: Optional[GameConfig] = None, prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None):
+    def __init__(self, model: str, num_games: int, opponent: str = "engine", depth: Optional[int] = 6, movetime_ms: Optional[int] = None, engine: Optional[str] = "Stockfish", base_cfg: Optional[GameConfig] = None, prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None):
         self.model = model
         self.runners: List[GameRunner] = []
-        self._build_games(num_games, opponent, depth, movetime_ms, engine_path, base_cfg)
+        self._build_games(num_games, opponent, depth, movetime_ms, engine, base_cfg)
         self._cycle = 0
-    # Transport selection for each LLM turn across all active games:
-    # None => defer to env in llm_client; True => OpenAI Batches API (offline); False => parallel /responses (interactive)
+        # Transport selection for each LLM turn across all active games:
+        # True => OpenAI Batches API (offline); False/None => parallel /responses (interactive)
         self.prefer_batches = prefer_batches
         self.items_per_batch = items_per_batch
 
-    def _build_games(self, n: int, opponent: str, depth: Optional[int], movetime_ms: Optional[int], engine_path: Optional[str], base_cfg: Optional[GameConfig]):
+    def _build_games(self, n: int, opponent: str, depth: Optional[int], movetime_ms: Optional[int], engine: Optional[str], base_cfg: Optional[GameConfig]):
         for i in range(n):
             if opponent == "random":
                 opp = RandomOpponent()
             else:
-                opp = EngineOpponent(depth=depth, movetime_ms=movetime_ms, engine_path=engine_path)
+                # Stockfish only for now; engine path resolved via env in EngineOpponent
+                if engine and str(engine).lower() != "stockfish":
+                    raise ValueError(f"Unsupported engine '{engine}'. Only 'Stockfish' is supported.")
+                opp = EngineOpponent(depth=depth, movetime_ms=movetime_ms, engine_path=None)
             # Use a copy of config per game to avoid shared state; shallow copy is fine
             cfg = GameConfig(**vars(base_cfg)) if base_cfg else GameConfig()
             # Make output paths unique per game if a base path is provided

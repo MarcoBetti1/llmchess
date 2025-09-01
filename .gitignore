@@ -11,3 +11,5 @@ log1/
 */__pycache__/
 
 config.example.json
+
+future_prompts/

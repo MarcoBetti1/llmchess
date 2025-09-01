@@ -7,7 +7,7 @@ Transports:
 - OpenAI Batches API (offline): submit N requests as one job; best for large sweeps.
 
 Selection:
-- prefer_batches flag (explicit), else LLMCHESS_USE_OPENAI_BATCH env, else default to parallel.
+- prefer_batches flag (explicit). Defaults to parallel unless explicitly set to batch.
 - LLMCHESS_ITEMS_PER_BATCH controls chunking if more than one batch job is needed per turn.
 
 This module exposes a stable API and delegates to a provider implementation.
