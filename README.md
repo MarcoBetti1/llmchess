@@ -13,7 +13,8 @@ In batch demo why is
 ```
 There 2 paths?
 
-`python -u scripts/run_many.py --configs test/batch_2-5n.json`
+`python -u scripts/run_many.py --configs test/batch_demo.json`
+`python -u scripts/run_many.py --configs test/parallel_demo.json`
 
 
 # LLM Chess (Simplified)
