@@ -1,5 +1,5 @@
 {
-  "model": "gpt-5-nano",
+  "model": "gpt-5",
   "opponent": "random",
   "depth": 6,
   "movetime": null,
