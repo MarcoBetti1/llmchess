@@ -1,0 +1,46 @@
+[
+  {
+    "role": "system",
+    "content": "You are a strong chess player. When asked for a move, provide only the best legal move."
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn h3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "g6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn h3\nBlack Pawn g6\nWhite Pawn f4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bg7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn h3\nBlack Pawn g6\nWhite Pawn f4\nBlack Bishop Bg7\nWhite Knight Na3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn h3\nBlack Pawn g6\nWhite Pawn f4\nBlack Bishop Bg7\nWhite Knight Na3\nBlack Pawn e5\nWhite Pawn c4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qh4#"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn h3\nBlack Pawn g6\nWhite Pawn f4\nBlack Bishop Bg7\nWhite Knight Na3\nBlack Pawn e5\nWhite Pawn c4\nBlack Queen Qh4+\nWhite Pawn g3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxg3+"
+  }
+]

@@ -2,6 +2,8 @@
 - Check if in batch mode when one game ends, others will continue.  
 - Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.  
 
+### RESULTS
+python -u scripts/summarize_results.py --root runs/prelim --sort-by avg_legal_rate
 # LLM Chess (Simplified)
 
 A lightweight benchmark to test LLMs on chess with light agent system:  
@@ -47,6 +49,35 @@ Run it with:
 ```bash
 python -u scripts/run.py --configs test-configs/config.json
 ```
+
+### Run multiple configs (test automation)
+
+Use the simple wrapper to run all configs in a folder or a custom list. It calls `scripts/run.py` for each file and summarizes results.
+
+```bash
+# Run all demo configs
+python -u scripts/run_configs.py --configs "test-configs/*.json"
+
+# Only batch demo
+python -u scripts/run_configs.py --configs test-configs/batch_demo.json
+
+# Mix files and folders (comma-separated)
+python -u scripts/run_configs.py --configs "test-configs,batch_configs/*.json,extra/run.json"
+
+# Force a mode regardless of the config (optional)
+python -u scripts/run_configs.py --configs "test-configs/*.json" --mode batch
+
+# Stop on first failure
+python -u scripts/run_configs.py --configs "test-configs/*.json" --stop-on-error
+
+# Dry-run to preview commands
+python -u scripts/run_configs.py --configs "test-configs/*.json" --dry-run
+```
+
+Notes
+- The wrapper forwards `--mode` and `--games-per-batch` to `scripts/run.py`.
+- Each config still controls its own `out_dir`; outputs are written there.
+- Uses your current Python interpreter; override with `--python /path/to/python`.
 
 
 ### Configuration file (JSON)

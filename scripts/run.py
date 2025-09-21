@@ -66,8 +66,7 @@ def build_configs_from_dict(d: Dict):
     starting_context_enabled = prompt.get('starting_context_enabled', True)
     instruction_line = prompt.get('instruction_line', 'Provide only your best legal move in SAN.')
 
-    # Logging/output controls are now defaulted: always write logs every turn.
-    # Conversation/history logs will be placed under the run's output directory (CLI --out-dir or default).
+    # Conversation/history logs will be placed under the run's output directory
     conv_every = True
 
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
@@ -82,11 +81,9 @@ def build_configs_from_dict(d: Dict):
         'engine': engine,
         'out_dir': out_dir,
         'games': games,
-        # execution mode
         'mode': mode,
-        # Chunk size now controlled via env var LLMCHESS_ITEMS_PER_BATCH (CLI can override)
         'gcfg': gcfg,
-    # No legacy fields supported going forward
+
     }
 
 
@@ -110,8 +107,7 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
     engine = cfg_entry['engine']
     games = cfg_entry['games']
     gcfg: GameConfig = cfg_entry['gcfg']
-
-    # Override output paths per config if requested
+    
     base_gcfg = _override_output_paths(gcfg, config_name, base_out_dir, force_every_turn=True)
 
     all_metrics = []

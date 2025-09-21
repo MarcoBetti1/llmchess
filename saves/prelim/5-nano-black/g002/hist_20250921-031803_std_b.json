@@ -1,0 +1,165 @@
+{
+  "headers": {
+    "Event": "LLM Chess Benchmark",
+    "Site": "?",
+    "Date": "2025.09.21",
+    "Round": "?",
+    "White": "Random",
+    "Black": "gpt-5-nano"
+  },
+  "start_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "result": "0-1",
+  "termination_reason": "normal_game_end",
+  "moves": [
+    {
+      "ply": 1,
+      "side": "white",
+      "uci": "g1f3",
+      "san": "Nf3",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1",
+      "actor": "OPP"
+    },
+    {
+      "ply": 2,
+      "side": "black",
+      "uci": "f7f6",
+      "san": "f6",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1",
+      "fen_after": "rnbqkbnr/ppppp1pp/5p2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 2",
+      "actor": "LLM"
+    },
+    {
+      "ply": 3,
+      "side": "white",
+      "uci": "a2a3",
+      "san": "a3",
+      "legal": true,
+      "fen_before": "rnbqkbnr/ppppp1pp/5p2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 2",
+      "fen_after": "rnbqkbnr/ppppp1pp/5p2/8/8/P4N2/1PPPPPPP/RNBQKB1R b KQkq - 0 2",
+      "actor": "OPP"
+    },
+    {
+      "ply": 4,
+      "side": "black",
+      "uci": "e7e5",
+      "san": "e5",
+      "legal": true,
+      "fen_before": "rnbqkbnr/ppppp1pp/5p2/8/8/P4N2/1PPPPPPP/RNBQKB1R b KQkq - 0 2",
+      "fen_after": "rnbqkbnr/pppp2pp/5p2/4p3/8/P4N2/1PPPPPPP/RNBQKB1R w KQkq - 0 3",
+      "actor": "LLM"
+    },
+    {
+      "ply": 5,
+      "side": "white",
+      "uci": "f3d4",
+      "san": "Nd4",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppp2pp/5p2/4p3/8/P4N2/1PPPPPPP/RNBQKB1R w KQkq - 0 3",
+      "fen_after": "rnbqkbnr/pppp2pp/5p2/4p3/3N4/P7/1PPPPPPP/RNBQKB1R b KQkq - 1 3",
+      "actor": "OPP"
+    },
+    {
+      "ply": 6,
+      "side": "black",
+      "uci": "e5d4",
+      "san": "exd4",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppp2pp/5p2/4p3/3N4/P7/1PPPPPPP/RNBQKB1R b KQkq - 1 3",
+      "fen_after": "rnbqkbnr/pppp2pp/5p2/8/3p4/P7/1PPPPPPP/RNBQKB1R w KQkq - 0 4",
+      "actor": "LLM"
+    },
+    {
+      "ply": 7,
+      "side": "white",
+      "uci": "h2h3",
+      "san": "h3",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppp2pp/5p2/8/3p4/P7/1PPPPPPP/RNBQKB1R w KQkq - 0 4",
+      "fen_after": "rnbqkbnr/pppp2pp/5p2/8/3p4/P6P/1PPPPPP1/RNBQKB1R b KQkq - 0 4",
+      "actor": "OPP"
+    },
+    {
+      "ply": 8,
+      "side": "black",
+      "uci": "d8e7",
+      "san": "Qe7",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppp2pp/5p2/8/3p4/P6P/1PPPPPP1/RNBQKB1R b KQkq - 0 4",
+      "fen_after": "rnb1kbnr/ppppq1pp/5p2/8/3p4/P6P/1PPPPPP1/RNBQKB1R w KQkq - 1 5",
+      "actor": "LLM"
+    },
+    {
+      "ply": 9,
+      "side": "white",
+      "uci": "b2b4",
+      "san": "b4",
+      "legal": true,
+      "fen_before": "rnb1kbnr/ppppq1pp/5p2/8/3p4/P6P/1PPPPPP1/RNBQKB1R w KQkq - 1 5",
+      "fen_after": "rnb1kbnr/ppppq1pp/5p2/8/1P1p4/P6P/2PPPPP1/RNBQKB1R b KQkq - 0 5",
+      "actor": "OPP"
+    },
+    {
+      "ply": 10,
+      "side": "black",
+      "uci": "e7e3",
+      "san": "Qe3",
+      "legal": true,
+      "fen_before": "rnb1kbnr/ppppq1pp/5p2/8/1P1p4/P6P/2PPPPP1/RNBQKB1R b KQkq - 0 5",
+      "fen_after": "rnb1kbnr/pppp2pp/5p2/8/1P1p4/P3q2P/2PPPPP1/RNBQKB1R w KQkq - 1 6",
+      "actor": "LLM"
+    },
+    {
+      "ply": 11,
+      "side": "white",
+      "uci": "f2f4",
+      "san": "f4",
+      "legal": true,
+      "fen_before": "rnb1kbnr/pppp2pp/5p2/8/1P1p4/P3q2P/2PPPPP1/RNBQKB1R w KQkq - 1 6",
+      "fen_after": "rnb1kbnr/pppp2pp/5p2/8/1P1p1P2/P3q2P/2PPP1P1/RNBQKB1R b KQkq - 0 6",
+      "actor": "OPP"
+    },
+    {
+      "ply": 12,
+      "side": "black",
+      "uci": "e3f4",
+      "san": "Qxf4",
+      "legal": true,
+      "fen_before": "rnb1kbnr/pppp2pp/5p2/8/1P1p1P2/P3q2P/2PPP1P1/RNBQKB1R b KQkq - 0 6",
+      "fen_after": "rnb1kbnr/pppp2pp/5p2/8/1P1p1q2/P6P/2PPP1P1/RNBQKB1R w KQkq - 0 7",
+      "actor": "LLM"
+    },
+    {
+      "ply": 13,
+      "side": "white",
+      "uci": "g2g3",
+      "san": "g3",
+      "legal": true,
+      "fen_before": "rnb1kbnr/pppp2pp/5p2/8/1P1p1q2/P6P/2PPP1P1/RNBQKB1R w KQkq - 0 7",
+      "fen_after": "rnb1kbnr/pppp2pp/5p2/8/1P1p1q2/P5PP/2PPP3/RNBQKB1R b KQkq - 0 7",
+      "actor": "OPP"
+    },
+    {
+      "ply": 14,
+      "side": "black",
+      "uci": "f4g3",
+      "san": "Qxg3#",
+      "legal": true,
+      "fen_before": "rnb1kbnr/pppp2pp/5p2/8/1P1p1q2/P5PP/2PPP3/RNBQKB1R b KQkq - 0 7",
+      "fen_after": "rnb1kbnr/pppp2pp/5p2/8/1P1p4/P5qP/2PPP3/RNBQKB1R w KQkq - 0 8",
+      "actor": "LLM"
+    },
+    {
+      "event": "termination",
+      "ply": 14,
+      "result": "0-1",
+      "reason": "normal_game_end"
+    }
+  ],
+  "model": "gpt-5-nano",
+  "llm_is_white": false,
+  "terminated": true,
+  "termination_at_ply": 14
+}

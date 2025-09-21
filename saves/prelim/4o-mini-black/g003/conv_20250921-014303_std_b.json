@@ -1,0 +1,62 @@
+[
+  {
+    "role": "system",
+    "content": "You are a strong chess player. When asked for a move, provide only the best legal move."
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn c3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "...d5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn c3\nBlack Pawn d5\nWhite Pawn a3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "dxc4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn c3\nBlack Pawn d5\nWhite Pawn a3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "dxc4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn c3\nBlack Pawn d5\nWhite Pawn a3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "...e5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn c3\nBlack Pawn d5\nWhite Pawn a3\nBlack Pawn e5\nWhite Pawn b3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn c3\nBlack Pawn d5\nWhite Pawn a3\nBlack Pawn e5\nWhite Pawn b3\nBlack Pawn e4\nWhite Knight Nf3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "...Nf6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: black\nMove history:\nWhite Pawn c3\nBlack Pawn d5\nWhite Pawn a3\nBlack Pawn e5\nWhite Pawn b3\nBlack Pawn e4\nWhite Knight Nf3\nBlack Pawn f6\nWhite Pawn g3\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "...Nf6"
+  }
+]

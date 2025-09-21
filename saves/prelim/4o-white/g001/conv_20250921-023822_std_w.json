@@ -1,0 +1,94 @@
+[
+  {
+    "role": "system",
+    "content": "You are a strong chess player. When asked for a move, provide only the best legal move."
+  },
+  {
+    "role": "user",
+    "content": "Game start. You are White. Make the first move of the game.\nSide to move: white\nMove history:\n(none)\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nf3"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "d4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bxa6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nWhite Bishop Bxa6\nBlack Queen Qd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "dxc5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nWhite Bishop Bxa6\nBlack Queen Qd8\nWhite Pawn dxc5\nBlack Pawn h6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "O-O"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nWhite Bishop Bxa6\nBlack Queen Qd8\nWhite Pawn dxc5\nBlack Pawn h6\nWhite King O-O\nBlack Pawn f5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ne5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nWhite Bishop Bxa6\nBlack Queen Qd8\nWhite Pawn dxc5\nBlack Pawn h6\nWhite King O-O\nBlack Pawn f5\nWhite Pawn e5\nBlack Knight Nf6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "exf6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nWhite Bishop Bxa6\nBlack Queen Qd8\nWhite Pawn dxc5\nBlack Pawn h6\nWhite King O-O\nBlack Pawn f5\nWhite Pawn e5\nBlack Knight Nf6\nWhite Pawn exf6\nBlack Pawn bxa6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ne5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nWhite Bishop Bxa6\nBlack Queen Qd8\nWhite Pawn dxc5\nBlack Pawn h6\nWhite King O-O\nBlack Pawn f5\nWhite Pawn e5\nBlack Knight Nf6\nWhite Pawn exf6\nBlack Pawn bxa6\nWhite Knight Ne5\nBlack Bishop Bb7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qh5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn c5\nWhite Knight Nf3\nBlack Queen Qc7\nWhite Pawn d4\nBlack Knight Na6\nWhite Bishop Bxa6\nBlack Queen Qd8\nWhite Pawn dxc5\nBlack Pawn h6\nWhite King O-O\nBlack Pawn f5\nWhite Pawn e5\nBlack Knight Nf6\nWhite Pawn exf6\nBlack Pawn bxa6\nWhite Knight Ne5\nBlack Bishop Bb7\nWhite Queen Qh5+\nBlack Pawn g6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxg6+"
+  }
+]

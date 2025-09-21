@@ -1,0 +1,174 @@
+[
+  {
+    "role": "system",
+    "content": "You are a strong chess player. When asked for a move, provide only the best legal move."
+  },
+  {
+    "role": "user",
+    "content": "Game start. You are White. Make the first move of the game.\nSide to move: white\nMove history:\n(none)\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "exd5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "c4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "d4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nf3"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ne5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "c5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nc3+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bc4+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qf3+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd3+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qg6#"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ne4+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "g4+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nWhite Pawn g4+\nBlack Pawn hxg4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "fxg4+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nWhite Pawn g4+\nBlack Pawn hxg4\nWhite Pawn fxg4+\nBlack King Kxe4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ng3+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nWhite Pawn g4+\nBlack Pawn hxg4\nWhite Pawn fxg4+\nBlack King Kxe4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bxe6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nWhite Pawn g4+\nBlack Pawn hxg4\nWhite Pawn fxg4+\nBlack King Kxe4\nWhite Bishop Bxe6\nBlack Pawn bxc5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bd5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nWhite Pawn g4+\nBlack Pawn hxg4\nWhite Pawn fxg4+\nBlack King Kxe4\nWhite Bishop Bxe6\nBlack Pawn bxc5\nWhite Pawn d5\nBlack King Kxe5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "0-0-0"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nWhite Pawn g4+\nBlack Pawn hxg4\nWhite Pawn fxg4+\nBlack King Kxe4\nWhite Bishop Bxe6\nBlack Pawn bxc5\nWhite Pawn d5\nBlack King Kxe5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bf4#"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn d5\nWhite Pawn exd5\nBlack Pawn b6\nWhite Pawn c4\nBlack Knight Na6\nWhite Pawn d4\nBlack King Kd7\nWhite Knight Nf3\nBlack Pawn h5\nWhite Knight Ne5+\nBlack King Kd6\nWhite Pawn c5+\nBlack King Kxd5\nWhite Knight Nc3+\nBlack King Ke6\nWhite Bishop Bc4+\nBlack King Kf5\nWhite Pawn f3\nBlack Bishop Be6\nWhite Queen Qd3+\nBlack King Kf6\nWhite Queen Qg6+\nBlack Pawn fxg6\nWhite Knight Ne4+\nBlack King Kf5\nWhite Pawn g4+\nBlack Pawn hxg4\nWhite Pawn fxg4+\nBlack King Kxe4\nWhite Bishop Bxe6\nBlack Pawn bxc5\nWhite Pawn d5\nBlack King Kxe5\nWhite Bishop Bf4+\nBlack King Kxf4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "White Knight Nd3+"
+  }
+]

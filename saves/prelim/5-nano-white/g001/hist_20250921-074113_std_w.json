@@ -1,0 +1,106 @@
+{
+  "headers": {
+    "Event": "LLM Chess Benchmark",
+    "Site": "?",
+    "Date": "2025.09.21",
+    "Round": "?",
+    "White": "gpt-5-nano",
+    "Black": "Random"
+  },
+  "start_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "result": "0-1",
+  "termination_reason": "illegal_llm_move",
+  "moves": [
+    {
+      "ply": 1,
+      "side": "white",
+      "uci": "e2e4",
+      "san": "e4",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "actor": "LLM"
+    },
+    {
+      "ply": 2,
+      "side": "black",
+      "uci": "g7g5",
+      "san": "g5",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppppp1p/8/6p1/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "actor": "OPP"
+    },
+    {
+      "ply": 3,
+      "side": "white",
+      "uci": "d2d4",
+      "san": "d4",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppppp1p/8/6p1/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "fen_after": "rnbqkbnr/pppppp1p/8/6p1/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+      "actor": "LLM"
+    },
+    {
+      "ply": 4,
+      "side": "black",
+      "uci": "f8g7",
+      "san": "Bg7",
+      "legal": true,
+      "fen_before": "rnbqkbnr/pppppp1p/8/6p1/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+      "fen_after": "rnbqk1nr/ppppppbp/8/6p1/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 1 3",
+      "actor": "OPP"
+    },
+    {
+      "ply": 5,
+      "side": "white",
+      "uci": "d4d5",
+      "san": "d5",
+      "legal": true,
+      "fen_before": "rnbqk1nr/ppppppbp/8/6p1/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 1 3",
+      "fen_after": "rnbqk1nr/ppppppbp/8/3P2p1/4P3/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+      "actor": "LLM"
+    },
+    {
+      "ply": 6,
+      "side": "black",
+      "uci": "h7h5",
+      "san": "h5",
+      "legal": true,
+      "fen_before": "rnbqk1nr/ppppppbp/8/3P2p1/4P3/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+      "fen_after": "rnbqk1nr/ppppppb1/8/3P2pp/4P3/8/PPP2PPP/RNBQKBNR w KQkq - 0 4",
+      "actor": "OPP"
+    },
+    {
+      "ply": 7,
+      "side": "white",
+      "uci": "d5d6",
+      "san": "d6",
+      "legal": true,
+      "fen_before": "rnbqk1nr/ppppppb1/8/3P2pp/4P3/8/PPP2PPP/RNBQKBNR w KQkq - 0 4",
+      "fen_after": "rnbqk1nr/ppppppb1/3P4/6pp/4P3/8/PPP2PPP/RNBQKBNR b KQkq - 0 4",
+      "actor": "LLM"
+    },
+    {
+      "ply": 8,
+      "side": "black",
+      "uci": "h8h7",
+      "san": "Rh7",
+      "legal": true,
+      "fen_before": "rnbqk1nr/ppppppb1/3P4/6pp/4P3/8/PPP2PPP/RNBQKBNR b KQkq - 0 4",
+      "fen_after": "rnbqk1n1/ppppppbr/3P4/6pp/4P3/8/PPP2PPP/RNBQKBNR w KQq - 1 5",
+      "actor": "OPP"
+    },
+    {
+      "event": "termination",
+      "ply": 8,
+      "result": "0-1",
+      "reason": "illegal_llm_move",
+      "last_illegal_raw": "d7"
+    }
+  ],
+  "model": "gpt-5-nano",
+  "llm_is_white": true,
+  "terminated": true,
+  "termination_at_ply": 8
+}

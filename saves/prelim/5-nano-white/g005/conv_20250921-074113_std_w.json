@@ -1,0 +1,94 @@
+[
+  {
+    "role": "system",
+    "content": "You are a strong chess player. When asked for a move, provide only the best legal move."
+  },
+  {
+    "role": "user",
+    "content": "Game start. You are White. Make the first move of the game.\nSide to move: white\nMove history:\n(none)\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nf3"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nc3"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nxd4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nWhite Knight Nxd4\nBlack Knight Nh5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxh5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nWhite Knight Nxd4\nBlack Knight Nh5\nWhite Queen Qxh5\nBlack Pawn d6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ne6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nWhite Knight Nxd4\nBlack Knight Nh5\nWhite Queen Qxh5\nBlack Pawn d6\nWhite Knight Ne6\nBlack Pawn g5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nxd8"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nWhite Knight Nxd4\nBlack Knight Nh5\nWhite Queen Qxh5\nBlack Pawn d6\nWhite Knight Ne6\nBlack Pawn g5\nWhite Knight Nxd8\nBlack Rook Rg8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxf7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nWhite Knight Nxd4\nBlack Knight Nh5\nWhite Queen Qxh5\nBlack Pawn d6\nWhite Knight Ne6\nBlack Pawn g5\nWhite Knight Nxd8\nBlack Rook Rg8\nWhite Queen Qxf7+\nBlack King Kd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxg8"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nWhite Knight Nxd4\nBlack Knight Nh5\nWhite Queen Qxh5\nBlack Pawn d6\nWhite Knight Ne6\nBlack Pawn g5\nWhite Knight Nxd8\nBlack Rook Rg8\nWhite Queen Qxf7+\nBlack King Kd7\nWhite Queen Qxg8\nBlack Pawn a5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bb5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Knight Nc6\nWhite Knight Nf3\nBlack Knight Nf6\nWhite Pawn c3\nBlack Knight Nd4\nWhite Knight Nxd4\nBlack Knight Nh5\nWhite Queen Qxh5\nBlack Pawn d6\nWhite Knight Ne6\nBlack Pawn g5\nWhite Knight Nxd8\nBlack Rook Rg8\nWhite Queen Qxf7+\nBlack King Kd7\nWhite Queen Qxg8\nBlack Pawn a5\nWhite Bishop Bb5+\nBlack King Kxd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxf8#"
+  }
+]

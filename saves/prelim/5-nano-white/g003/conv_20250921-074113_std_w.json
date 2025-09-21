@@ -1,0 +1,630 @@
+[
+  {
+    "role": "system",
+    "content": "You are a strong chess player. When asked for a move, provide only the best legal move."
+  },
+  {
+    "role": "user",
+    "content": "Game start. You are White. Make the first move of the game.\nSide to move: white\nMove history:\n(none)\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nf3"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "d4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxd4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxd7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Be3"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bg5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bxe7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bxd8"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bc7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bxb8"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bc7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bc4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ke2"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nc3"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rd1"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "h4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "g4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rxh4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rxd7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rxh7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rxf7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rxb7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nd5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nc7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nxa8"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rb8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rxh8"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nb6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nc8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rh6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nb6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rh8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nd5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rc8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Re8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Re7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Rf7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nf6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Ne4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nxg5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nf7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nd6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "e8=Q+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qc8#"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qa8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qb7#"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qb6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxc5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Kd7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qe6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Kd8"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Nxg5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qf6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qe6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd8+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qxa5"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qb5+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qc6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Bh3+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "g6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "g7"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "g8=Q+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qg7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nWhite Queen Qg7+\nBlack King Kd6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd7+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nWhite Queen Qg7+\nBlack King Kd6\nWhite Queen Qd7+\nBlack King Ke5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qd6+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nWhite Queen Qg7+\nBlack King Kd6\nWhite Queen Qd7+\nBlack King Ke5\nWhite Queen Qd6+\nBlack King Kxd6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "a4"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nWhite Queen Qg7+\nBlack King Kd6\nWhite Queen Qd7+\nBlack King Ke5\nWhite Queen Qd6+\nBlack King Kxd6\nWhite Pawn a4\nBlack King Ke5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Be6"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nWhite Queen Qg7+\nBlack King Kd6\nWhite Queen Qd7+\nBlack King Ke5\nWhite Queen Qd6+\nBlack King Kxd6\nWhite Pawn a4\nBlack King Ke5\nWhite Bishop Be6\nBlack King Kd4\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Kd2"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nWhite Queen Qg7+\nBlack King Kd6\nWhite Queen Qd7+\nBlack King Ke5\nWhite Queen Qd6+\nBlack King Kxd6\nWhite Pawn a4\nBlack King Ke5\nWhite Bishop Be6\nBlack King Kd4\nWhite King Kd2\nBlack King Ke5\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "f4+"
+  },
+  {
+    "role": "user",
+    "content": "Side to move: white\nMove history:\nWhite Pawn e4\nBlack Pawn e5\nWhite Pawn f3\nBlack Pawn c6\nWhite Pawn d4\nBlack Pawn exd4\nWhite Queen Qxd4\nBlack Knight Ne7\nWhite Queen Qxd7+\nBlack King Kxd7\nWhite Bishop Be3\nBlack Rook Rg8\nWhite Bishop Bg5\nBlack King Ke8\nWhite Bishop Bxe7\nBlack Pawn a6\nWhite Bishop Bxd8\nBlack Bishop Bd7\nWhite Bishop Bc7\nBlack Pawn g6\nWhite Bishop Bxb8\nBlack King Kd8\nWhite Bishop Bc7+\nBlack King Kxc7\nWhite Pawn c4\nBlack Bishop Bb4+\nWhite King Ke2\nBlack Bishop Be7\nWhite Knight Nc3\nBlack Rook Rac8\nWhite Rook Rd1\nBlack Bishop Bg5\nWhite Pawn h4\nBlack Bishop Bf5\nWhite Pawn g4\nBlack Bishop Bxh4\nWhite Rook Rxh4\nBlack Bishop Bd7\nWhite Rook Rxd7+\nBlack King Kxd7\nWhite Rook Rxh7\nBlack Rook Ra8\nWhite Rook Rxf7+\nBlack King Ke6\nWhite Rook Rxb7\nBlack Pawn g5\nWhite Knight Nd5\nBlack Rook Rh8\nWhite Knight Nc7+\nBlack King Kf7\nWhite Knight Nxa8+\nBlack King Ke8\nWhite Rook Rb8+\nBlack King Kd7\nWhite Rook Rxh8\nBlack Pawn c5\nWhite Knight Nb6+\nBlack King Kd6\nWhite Knight Nc8+\nBlack King Kc6\nWhite Rook Rh6+\nBlack King Kd7\nWhite Knight Nb6+\nBlack King Kd8\nWhite Rook Rh8+\nBlack King Kc7\nWhite Knight Nd5+\nBlack King Kc6\nWhite Rook Rc8+\nBlack King Kd6\nWhite Pawn e5+\nBlack King Ke6\nWhite Rook Re8+\nBlack King Kf7\nWhite Rook Re7+\nBlack King Kf8\nWhite Rook Rf7+\nBlack King Kg8\nWhite Knight Nf6+\nBlack King Kxf7\nWhite Knight Ne4\nBlack King Kf8\nWhite Knight Nxg5\nBlack King Ke8\nWhite Pawn e6\nBlack King Kd8\nWhite Knight Nf7+\nBlack King Kc8\nWhite Knight Nd6+\nBlack King Kc7\nWhite Pawn e7\nBlack King Kd7\nWhite Pawn e8=Q+\nBlack King Kc7\nWhite Queen Qc8+\nBlack King Kb6\nWhite Queen Qd8+\nBlack King Kc6\nWhite Queen Qa8+\nBlack King Kc7\nWhite Queen Qb7+\nBlack King Kxd6\nWhite Queen Qb6+\nBlack King Ke7\nWhite Queen Qxc5+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kf8\nWhite Pawn g5\nBlack Pawn a5\nWhite Queen Qf6+\nBlack King Ke8\nWhite Queen Qe6+\nBlack King Kd8\nWhite Queen Qd6+\nBlack King Kc8\nWhite Queen Qd8+\nBlack King Kb7\nWhite Queen Qxa5\nBlack King Kb8\nWhite Queen Qb5+\nBlack King Kc8\nWhite Queen Qc6+\nBlack King Kd8\nWhite Queen Qd7+\nBlack King Kxd7\nWhite Bishop Bh3+\nBlack King Ke7\nWhite Pawn g6\nBlack King Kf6\nWhite Pawn g7\nBlack King Kf7\nWhite Pawn g8=Q+\nBlack King Ke7\nWhite Queen Qg7+\nBlack King Kd6\nWhite Queen Qd7+\nBlack King Ke5\nWhite Queen Qd6+\nBlack King Kxd6\nWhite Pawn a4\nBlack King Ke5\nWhite Bishop Be6\nBlack King Kd4\nWhite King Kd2\nBlack King Ke5\nWhite Pawn f4+\nBlack King Kf6\nProvide only your best legal move in SAN."
+  },
+  {
+    "role": "assistant",
+    "content": "Qe5+"
+  }
+]
