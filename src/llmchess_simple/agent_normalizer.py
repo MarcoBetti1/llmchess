@@ -1,24 +1,22 @@
 from __future__ import annotations
 import asyncio, logging, os, re
-try:
-    from agents import Agent, Runner, ModelSettings
-except Exception:  # pragma: no cover
-    from openai_agents import Agent, Runner, ModelSettings  # type: ignore
+from agents import Agent, Runner, ModelSettings
 
 log = logging.getLogger("agent_normalizer")
 
-USE_GUARD_AGENT = os.environ.get("LLMCHESS_USE_GUARD_AGENT", "1") != "0"
+# Enable guard agent by default (controlled by env flag only).
+USE_GUARD_AGENT = (os.environ.get("LLMCHESS_USE_GUARD_AGENT", "1") != "0")
 
 INSTRUCTIONS = (
     "You receive a raw reply.\n"
-    "Make sure its a chess move and avoid any other text.\n"
-    "Output ONLY the move in UCI (lowercase, promotion letter if any). If no move appears, output the single word NONE."
+    "Ensure it is a chess move and avoid any other text.\n"
+    "Output ONLY the move in UCI (lowercase, include promotion letter if any). If no move is present, output the single word NONE."
 )
 
 move_guard = Agent(
     name="MoveGuard",
     instructions=INSTRUCTIONS,
-    model_settings=ModelSettings(temperature=0.0)
+    model_settings=ModelSettings(temperature=0.0),
 )
 
 async def _agent_suggest(raw_reply: str) -> str:

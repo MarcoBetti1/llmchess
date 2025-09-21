@@ -1,8 +1,10 @@
 from __future__ import annotations
+"""Minimal referee to apply moves, track headers, and emit PGN."""
 import chess, chess.pgn, datetime
 from typing import Optional
 
 class Referee:
+    """Plain chess referee around python-chess Board and PGN export."""
     def __init__(self, starting_fen: str | None = None):
         self.board = chess.Board(fen=starting_fen) if starting_fen else chess.Board()
         self._headers: dict[str, str] = {}
@@ -11,7 +13,7 @@ class Referee:
 
     # ---------------- Header / Result Management -----------------
     def set_headers(self, event: str = "LLM Chess Benchmark", site: str = "?", date: Optional[str] = None,
-                    round_: str = "?", white: str = "?", black: str = "?"):
+                    round_: str = "?", white: str = "?", black: str = "?") -> None:
         date = date or datetime.date.today().strftime("%Y.%m.%d")
         self._headers.update({
             "Event": event,
@@ -22,12 +24,12 @@ class Referee:
             "Black": black,
         })
 
-    def set_result(self, result: str, termination_reason: Optional[str] = None):
+    def set_result(self, result: str, termination_reason: Optional[str] = None) -> None:
         self._result_override = result
         if termination_reason:
             self._termination_comment = f"Termination: {termination_reason}"
 
-    def force_result(self, result: str, termination_reason: Optional[str] = None):
+    def force_result(self, result: str, termination_reason: Optional[str] = None) -> None:
         # alias to set_result
         self.set_result(result, termination_reason)
 

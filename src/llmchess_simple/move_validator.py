@@ -55,8 +55,9 @@ def normalize_move(raw_text: str, fen: str) -> dict:
     # Last resort: look for any legal SAN that appears in text
     legal = list(board.legal_moves)
     legal_sans = {board.san(m): m for m in legal}
+    lower = raw_text.lower()
     for san, mv in legal_sans.items():
-        if san in raw_text:
+        if san.lower() in lower:
             return {"ok": True, "uci": mv.uci(), "san": san}
 
     return {"ok": False, "reason": "Could not find a legal move in the reply."}

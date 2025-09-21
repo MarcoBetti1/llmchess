@@ -24,7 +24,7 @@ SYSTEM = "You are a strong chess player. When asked for a move, decide the best 
 # Conversation mode system prompt (no FEN provided)
 SYSTEM_CONV = (
     "You are playing as White in a chess game against a strong engine.\n"
-    "You will respond with a single legal chess that benifits you the best.\n"
+    "Respond with a single legal chess move that benefits you most.\n"
 )
 
 def ask_for_best_move_raw(fen: str, pgn_tail: str = "", side: str = "", model: Optional[str]=None) -> str:

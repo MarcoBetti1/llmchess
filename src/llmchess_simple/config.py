@@ -1,3 +1,4 @@
+"""Configuration for API keys and engine paths (env-driven)."""
 from dataclasses import dataclass
 import os
 from dotenv import load_dotenv
@@ -10,3 +11,5 @@ class Settings:
     stockfish_path: str = os.environ.get("STOCKFISH_PATH", "stockfish")
 
 SETTINGS = Settings()
+
+__all__ = ["SETTINGS", "Settings"]
