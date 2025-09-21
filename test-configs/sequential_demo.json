@@ -1,25 +1,21 @@
 {
-  "model": "gpt-5",
+  "model": "gpt-4o-mini",
   "opponent": "random",
   "depth": 6,
   "movetime": null,
   "engine": "Stockfish",
   "llm_color": "white",
   "max_plies": 240,
-  "max_illegal": 1,
+  "max_illegal": 5,
   "pgn_tail": 20,
   "verbose_llm": false,
   "conversation_mode": false,
+  "out_dir": "runs/test/seq",
   "prompt": {
     "mode": "plaintext",
     "starting_context_enabled": true,
     "instruction_line": "Provide only your best legal move in SAN."
   },
-  "out_dir": "runs/parallel_demo",
-  "log_level": "INFO",
-  "conversation_log": {
-    "path": "runs/parallel_demo"
-  },
-  "games": 1,
-  "mode": "parallel"
+  "games": 5,
+  "mode": "sequential"
 }

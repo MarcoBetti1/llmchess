@@ -1,5 +1,5 @@
 {
-  "model": "gpt-5-nano",
+  "model": "gpt-4o-mini",
   "opponent": "random",
   "depth": 6,
   "movetime": null,
@@ -10,15 +10,11 @@
   "pgn_tail": 20,
   "verbose_llm": false,
   "conversation_mode": false,
+  "out_dir": "runs/test/batch",
   "prompt": {
     "mode": "plaintext",
     "starting_context_enabled": true,
     "instruction_line": "Provide only your best legal move in SAN."
-  },
-  "out_dir": "runs/batch_demo",
-  "log_level": "INFO",
-  "conversation_log": {
-    "path": "runs/batch_demo" 
   },
   "games": 2,
   "mode": "batch",

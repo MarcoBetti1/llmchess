@@ -45,59 +45,46 @@ def build_configs_from_dict(d: Dict):
     opponent = d.get('opponent', 'engine')
     depth = d.get('depth', 6)
     movetime = d.get('movetime')
+    games = d.get('games', 1)
     # Engine selection by name; path comes from env (.env)
     engine = d.get('engine', 'Stockfish')
+    # Output directory is required and comes only from config
+    out_dir = d.get('out_dir')
+    if not isinstance(out_dir, str) or not out_dir.strip():
+        raise ValueError("Config must include a non-empty 'out_dir' path (e.g., 'runs/test/').")
     llm_color = d.get('llm_color', 'white')
     max_plies = d.get('max_plies', 240)
     max_illegal = d.get('max_illegal', 1)
     pgn_tail = d.get('pgn_tail', 20)
     verbose_llm = d.get('verbose_llm', False)
-    # Unified log level (drives both console and per-turn logging)
-    log_level_name = d.get('log_level')
     conversation_mode = d.get('conversation_mode', False)
-    # New unified mode switch: "parallel" | "batch"
-    mode = str(d.get('mode', 'parallel')).strip().lower()
-    if mode not in ('parallel', 'batch'):
-        logging.getLogger('run_many').warning("Unknown mode '%s'; defaulting to 'parallel'", mode)
-        mode = 'parallel'
-
-    # chunk size for batch jobs (optional config key). If None, provider/env defaults apply
-    games_per_batch = d.get('games_per_batch')
+    # Unified mode switch: "sequential" | "batch" (accept legacy "parallel" as alias of sequential)
+    mode = str(d.get('mode', 'sequential')).strip().lower()
 
     prompt = d.get('prompt', {}) or {}
     prompt_mode = prompt.get('mode', 'plaintext')
     starting_context_enabled = prompt.get('starting_context_enabled', True)
     instruction_line = prompt.get('instruction_line', 'Provide only your best legal move in SAN.')
 
-    conv = d.get('conversation_log', {}) or {}
-    # Unify out_dir with conversation_log.path (out_dir takes precedence)
-    out_dir = d.get('out_dir') or conv.get('path')
-    # Unify every_turn with log level: INFO/DEBUG -> True; else False (unless not provided)
-    conv_every = conv.get('every_turn', None)
-    if log_level_name is not None:
-        conv_every = _parse_log_level(log_level_name) <= logging.INFO
-    elif conv_every is None:
-        conv_every = False
+    # Logging/output controls are now defaulted: always write logs every turn.
+    # Conversation/history logs will be placed under the run's output directory (CLI --out-dir or default).
+    conv_every = True
 
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
-    # game_log driven by log level (INFO/DEBUG => True)
-    game_log_flag = _parse_log_level(log_level_name) <= logging.INFO
-    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_mode=bool(conversation_mode), max_illegal_moves=int(max_illegal), conversation_log_path=out_dir, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=bool(game_log_flag))
+    # Always enable console game log and per-turn conversation/history logging.
+    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_mode=bool(conversation_mode), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=True)
 
     return {
         'model': model,
         'opponent': opponent,
         'depth': depth,
         'movetime': movetime,
-    'engine': engine,
-        'games': int(d.get('games', 1)),
-        # Unified execution mode
-        'mode': mode,
-        # Unified output directory and log level
+        'engine': engine,
         'out_dir': out_dir,
-        'log_level': (log_level_name or 'INFO'),
-        # Optional: chunk size for OpenAI Batches API
-    'games_per_batch': (int(games_per_batch) if isinstance(games_per_batch, (int, float, str)) and str(games_per_batch).isdigit() else None),
+        'games': games,
+        # execution mode
+        'mode': mode,
+        # Chunk size now controlled via env var LLMCHESS_ITEMS_PER_BATCH (CLI can override)
         'gcfg': gcfg,
     # No legacy fields supported going forward
     }
@@ -200,10 +187,8 @@ def main():
     ap = argparse.ArgumentParser(description='Run many games by sweeping over JSON config files.')
     ap.add_argument('--configs', required=True, help='Comma-separated list of config paths, directories, or glob patterns (e.g., configs/*.json)')
     # Unified mode switch (CLI). If omitted, config decides.
-    ap.add_argument('--mode', choices=['parallel', 'batch'], help='Execution mode: parallel (responses API) or batch (OpenAI Batches API). Overrides config.')
-    ap.add_argument('--games-per-batch', type=int, default=None, help='Chunk size for OpenAI Batches API (per cycle). Overrides config.')
-    ap.add_argument('--out-jsonl', default=None, help='Path to write per-game metrics as JSONL (overrides config out_dir)')
-    ap.add_argument('--out-dir', default=None, help='Output directory to store logs for this run (overrides config out_dir)')
+    ap.add_argument('--mode', choices=['sequential', 'batch'], help='Execution mode: sequential (per-game runner) or batch (OpenAI Batches API). Overrides config.')
+    ap.add_argument('--games-per-batch', type=int, default=None, help='Chunk size for OpenAI Batches API (per cycle). Overrides env LLMCHESS_ITEMS_PER_BATCH if set.')
     ap.add_argument('--log-level', default=None, help='Python logging level (overrides config log_level)')
     args = ap.parse_args()
 
@@ -226,27 +211,26 @@ def main():
             log.error('Failed to read %s: %s', path, e)
             continue
         entry = build_configs_from_dict(d)
-        # Effective log level (CLI overrides config)
-        eff_log_level_name = (args.log_level or entry.get('log_level') or 'INFO')
+        # Effective log level (CLI)
+        eff_log_level_name = (args.log_level or 'INFO')
         logging.getLogger().setLevel(_parse_log_level(eff_log_level_name))
         config_name = os.path.basename(path)
-        # Determine effective out dir per config
-        ts = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
-        default_out = os.path.join(os.getcwd(), 'runs', f'run_{ts}')
-        base_out_dir = args.out_dir or entry.get('out_dir') or default_out
+        # Determine out dir strictly from config (no defaults)
+        base_out_dir = entry['out_dir']
         os.makedirs(base_out_dir, exist_ok=True)
 
-        # Per-config JSONL file
-        jsonl_path = args.out_jsonl or os.path.join(base_out_dir, 'results.jsonl')
+        # Per-config JSONL file under the config-provided out_dir
+        jsonl_path = os.path.join(base_out_dir, 'results.jsonl')
         jsonl_f = open(jsonl_path, 'a', encoding='utf-8') if jsonl_path else None
-        # Determine mode precedence: CLI --mode > config.mode
-        mode = args.mode if args.mode else entry.get('mode', 'parallel')
+        # Determine mode precedence: CLI --mode > config.mode (accept legacy 'parallel' as sequential)
+        mode_cfg = entry.get('mode', 'sequential')
+        mode = args.mode if args.mode else ('sequential' if str(mode_cfg).lower() in ('sequential','parallel') else 'batch')
 
         if mode == 'batch':
             # In the new model, batch mode always uses the OpenAI Batches API transport
             prefer_batches = True
-            # Allow CLI override for chunk size; else take from config; provider will fallback to env if None
-            items_per_batch = args.games_per_batch if args.games_per_batch is not None else entry.get('games_per_batch')
+            # Allow CLI override for chunk size; provider will fallback to env LLMCHESS_ITEMS_PER_BATCH if None
+            items_per_batch = args.games_per_batch if args.games_per_batch is not None else None
             metrics = run_batched(entry, config_name, jsonl_f, base_out_dir, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
         else:
             metrics = run_sequential(entry, config_name, jsonl_f, base_out_dir)
@@ -270,7 +254,7 @@ def main():
     print(f"Avg legal rate: {avg_legal*100:.2f}%")
     print(f"Avg LLM latency (ms): {avg_latency:.1f}")
     print(f"Wall time: {time.time()-t0:.1f}s")
-    print("Outputs written under each config's out_dir (or default runs/run_YYYYMMDD-HHMMSS)")
+    print("Outputs written under each config's 'out_dir' path.")
 
 if __name__ == '__main__':
     main()
