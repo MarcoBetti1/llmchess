@@ -1,15 +1,6 @@
 # TODO
-Check if in batch mode when one game ends, others will continue until completion. ()
-Orgainze project (play_one outside scripts dir) (). 
-
-Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.  
-
-Results are automatically written under an output folder per run.  
-Use these commands to try the demos:
-
-`python -u scripts/run.py --configs test-configs/batch_demo.json`
-`python -u scripts/run.py --configs test-configs/parallel_demo.json`  # uses mode: sequential
-
+- Check if in batch mode when one game ends, others will continue.  
+- Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.  
 
 # LLM Chess (Simplified)
 
@@ -27,76 +18,34 @@ The game pipeline:
 
 
 ## Quickstart
+Requirements
+- `pip install -r requirements.txt`
+Set env vars (or copy .env.example to .env and edit)
 
 ```bash
-
-pip install -r requirements.txt
-# Set env vars (or copy .env.example to .env and edit)
 export OPENAI_API_KEY=
 export STOCKFISH_PATH=
-
-
-
-# Save conversation snapshots every move (defaults enabled)
-python play_one.py --model gpt-4o-mini --prompt-mode plaintext
-
-# Multi-game runner documentation
 ```
+- `python play_one.py --model gpt-4o-mini --prompt-mode plaintext`
+
 
 ## Notes
 - The **agent** only validates/normalizes the move. All strategy testing is handled by the engine opponent and results.
 - The code uses the OpenAI **Responses API** for free-form LLM replies and the **Agents SDK** for the validator tool.
 - If your Agents SDK import path differs, adjust `agent_normalizer.py` imports accordingly (see comments).
 
----
 
-## Visualize a recorded game (rewatch)
-
-Use the interactive viewer to step through a structured history JSON (hist_*.json):
-
-- Run: python scripts/view_game.py <path-to-hist.json>
-- Optional flags: --autoplay (start playing automatically), --delay <seconds> (autoplay speed)
-- Controls during viewing:
-  - Enter: next move
-  - p: previous move
-  - a: autoplay (resume)
-  - s: pause
-  - r: restart from beginning
-  - g <ply>: jump to ply number (0..N)
-  - + / -: faster / slower autoplay
-  - q: quit
-
-Example path from this repo:
-- scripts/view_game.py runs/parallel_demo/g001/hist_20250920-122740_std_w.json
-
-Notes
-- Viewer uses python-chess to render an ASCII board in the terminal.
-- If the game ended due to an illegal move, playback stops at the last legal position and shows the termination info.
-
----
 
 ## Config-driven runs (simplified)
 You can run experiments with just a config file. Outputs are always written:
 
 See the Notes in the configuration section for all supported fields.
 
-Example:
-
-```json
-{
-  "model": "gpt-5-nano",
-  "engine": "Stockfish",
-  "opponent": "random",
-  "games": 2,
-  "mode": "batch"
-}
-```
 
 Run it with:
 
 ```bash
-python -u scripts/run.py --configs test-configs/batch_demo.json
-python -u scripts/run.py --configs test-configs/parallel_demo.json
+python -u scripts/run.py --configs test-configs/config.json
 ```
 
 
@@ -172,14 +121,6 @@ FEN (future)
 
 Run multiple games from JSON configs with per-run output folders and structured histories.
 
-Examples (Windows):
-- python scripts\run.py --configs "test-configs\parallel_demo.json,test-configs\batch_demo.json" --mode batch --out-dir .\runs\smoke
-- For large sweeps (100 games): copy a config and set "games": 100, then run the same command with --mode batch.
-
-Behavior
-- If `--out-dir` is provided, logs are written there; otherwise a timestamped directory under `runs/` is created.
-- A JSONL of per-game summaries is written to `<out-dir>/results.jsonl` unless `--out-jsonl` overrides the path.
-
 Structured history JSON
 - Contains headers, result, termination reason, and an array of moves with:
   - ply, side, actor (LLM/OPP)
@@ -188,33 +129,13 @@ Structured history JSON
 - This is designed to be consumed by visualization tools.
 
 Batching implementation
-- By default, prompts from active games are sent concurrently using the Responses API for low latency.
-Modes
+- Use `mode: "batch"` in config to enable the Batches API.
+- By default, prompts from active games are sent concurrently using the Responses API.
+Modes  
 - mode: "sequential" | "batch"
   - sequential → direct /responses API (interactive)
   - batch → OpenAI Batches API (offline)
 
-Batch chunking
-- games_per_batch: integer; how many game turns to bundle per batch job each cycle. If omitted, provider/env defaults apply (LLMCHESS_ITEMS_PER_BATCH).
-
-Examples
-- Sequential single game: `--mode sequential`
-- Batch with chunk size 5: `--mode batch --games-per-batch 5`
-
-Environment variables
-- STOCKFISH_PATH: path to the Stockfish binary. On macOS: `brew install stockfish` then `which stockfish`.
-- OPENAI_BATCH_COMPLETION_WINDOW: default 24h
-- LLMCHESS_ITEMS_PER_BATCH: chunk size when batching (default 200)
-- LLMCHESS_TURN_MAX_WAIT_S: overall per-turn max wait when using sequential mode (default 1200)
-- LLMCHESS_BATCH_POLL_S: batch status poll interval seconds (default 2.0)
-- LLMCHESS_BATCH_TIMEOUT_S: per-batch-job polling timeout in batch mode (default 600)
-- LLMCHESS_RESPONSES_TIMEOUT_S: per-response timeout seconds (default 300)
-- LLMCHESS_RESPONSES_RETRIES: retries for Responses API (default 4)
-- LLMCHESS_MAX_CONCURRENCY: max in-flight Responses API requests (default 8)
-- LLMCHESS_USE_GUARD_AGENT: set to 0 to disable guard agent normalization
-
-Notes
-- Use `mode: "batch"` in config, or `--mode batch` to enable the Batches API.
 
 Batch status
 - Batch creation and progress are logged to the console during runs (status changes, request counts, timestamps, progress %, duration).
@@ -222,4 +143,3 @@ Batch status
 
 Troubleshooting
 - Ensure your chosen model in the JSON/CLI targets a Responses-capable model (e.g., gpt-4o-mini) and upgrade the SDK: pip install -U openai
-- To disable the guard agent and rely on lightweight regex/validator fallback, set LLMCHESS_USE_GUARD_AGENT=0
