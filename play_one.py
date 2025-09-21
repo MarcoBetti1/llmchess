@@ -29,7 +29,6 @@ if __name__ == "__main__":
     ap.add_argument("--max-illegal", type=int, default=None, help="Terminate after this many illegal LLM moves (1 means immediate)")
     ap.add_argument("--pgn-tail", type=int, default=None, help="How many recent plies to include in prompts (used in FEN mode as PGN tail; still used internally)")
     ap.add_argument("--verbose-llm", action="store_true", help="Log raw LLM replies")
-    ap.add_argument("--conversation", action="store_true", help="Enable legacy conversation mode (bypasses modular prompting)")
     # Prompting configuration
     ap.add_argument("--prompt-mode", choices=["plaintext", "fen"], default=None, help="Prompting style for standard mode")
     ap.add_argument("--no-starting-context", action="store_true", help="Disable explicit first-move starting context line")
@@ -73,7 +72,6 @@ if __name__ == "__main__":
     max_illegal = pick("max_illegal", default=1)
     pgn_tail = pick("pgn_tail", default=20)
     verbose_llm = args.verbose_llm or bool(cfg_dict.get("verbose_llm", False))
-    conversation_mode = args.conversation or bool(cfg_dict.get("conversation_mode", False))
 
     # Prompting
     prompt_mode = pick("prompt_mode", default=(cfg_dict.get("prompt", {}) or {}).get("mode", "plaintext"))
@@ -99,7 +97,6 @@ if __name__ == "__main__":
         max_plies=int(max_plies),
         pgn_tail_plies=int(pgn_tail),
         verbose_llm=verbose_llm,
-        conversation_mode=conversation_mode,
         max_illegal_moves=int(max_illegal),
         conversation_log_path=conv_log_path,
         conversation_log_every_turn=conv_every_turn,
@@ -108,7 +105,7 @@ if __name__ == "__main__":
     )
 
     runner = GameRunner(model=model, opponent=opp, cfg=gcfg)
-    mode_label = "conversation" if conversation_mode else f"standard:{prompt_mode}"
+    mode_label = f"standard:{prompt_mode}"
     log.info("Starting game: model=%s vs %s depth=%s movetime=%s engine=%s side=%s mode=%s", model, opponent_type, depth, movetime, engine, llm_color, mode_label)
     result = runner.play()
     metrics = runner.metrics()
@@ -117,11 +114,6 @@ if __name__ == "__main__":
     print("Termination:", runner.termination_reason)
     print("Metrics:", metrics)
     print("PGN:\n", runner.ref.pgn())
-
-    if gcfg.conversation_mode:
-        print("Conversation messages:")
-        for m in runner.chat_messages:
-            print(f"  {m['role']}: {m['content']}")
 
     if args.pgn_out:
         with open(args.pgn_out, "w", encoding="utf-8") as f:

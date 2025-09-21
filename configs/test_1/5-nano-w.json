@@ -1,0 +1,21 @@
+{
+  "model": "gpt-5-nano",
+  "opponent": "random",
+  "depth": 6,
+  "movetime": null,
+  "llm_color": "white",
+  "max_plies": 240,
+  "max_illegal": 3,
+  "pgn_tail": 20,
+  "verbose_llm": false,
+  "conversation_mode": false,
+  "out_dir": "runs/prelim/5-nano-white",
+  "prompt": {
+    "mode": "plaintext",
+    "starting_context_enabled": true,
+    "instruction_line": "Provide only your best legal move in SAN."
+  },
+  "games": 10,
+  "mode": "batch",
+  "games_per_batch": 10
+}

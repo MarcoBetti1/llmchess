@@ -23,14 +23,10 @@ def collect_config_files(spec: str) -> List[str]:
 
 def main():
     ap = argparse.ArgumentParser(description='Run scripts/run.py over a set of config files.')
-    ap.add_argument('--configs', default='test-configs/*.json',
-                    help='Comma-separated list of files, dirs, or globs (default: test-configs/*.json)')
+    ap.add_argument('--configs', default='configs/test-configs/*.json',
+                    help='Comma-separated list of files, dirs, or globs (default: configs/test-configs/*.json)')
     ap.add_argument('--python', default=sys.executable,
                     help='Python interpreter to use (default: current)')
-    ap.add_argument('--mode', choices=['sequential', 'batch'], default=None,
-                    help='Optional mode override forwarded to scripts/run.py')
-    ap.add_argument('--games-per-batch', type=int, default=None,
-                    help='Optional chunk size forwarded to scripts/run.py')
     ap.add_argument('--stop-on-error', action='store_true', help='Stop on first non-zero exit.')
     ap.add_argument('--dry-run', action='store_true', help='Print commands instead of executing.')
     args = ap.parse_args()
@@ -50,10 +46,6 @@ def main():
     t0 = time.time()
     for cfg in files:
         cmd = [args.python, '-u', run_py, '--configs', cfg]
-        if args.mode:
-            cmd += ['--mode', args.mode]
-        if args.games_per_batch is not None:
-            cmd += ['--games-per-batch', str(args.games_per_batch)]
 
         print('Running:', ' '.join(cmd))
         if args.dry_run:

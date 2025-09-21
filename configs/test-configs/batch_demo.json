@@ -1,22 +1,20 @@
 {
-  "model": "gpt-5-nano",
+  "model": "gpt-4o-mini",
   "opponent": "random",
   "depth": 6,
   "movetime": null,
-  "engine": "Stockfish",
   "llm_color": "white",
   "max_plies": 240,
-  "max_illegal": 3,
+  "max_illegal": 1,
   "pgn_tail": 20,
   "verbose_llm": false,
   "conversation_mode": false,
-  "out_dir": "runs/prelim/5-nano-white",
+  "out_dir": "runs/test/batch",
   "prompt": {
     "mode": "plaintext",
     "starting_context_enabled": true,
     "instruction_line": "Provide only your best legal move in SAN."
   },
-  "games": 10,
-  "mode": "batch",
-  "games_per_batch": 10
+  "games": 2,
+  "mode": "batch"
 }

@@ -1,6 +1,8 @@
 # TODO
 - Check if in batch mode when one game ends, others will continue.  
 - Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.  
+- Clean up env vars
+- Clean/Fix/Test Engine opponent 
 
 ### RESULTS
 python -u scripts/summarize_results.py --root runs/prelim --sort-by avg_legal_rate
@@ -25,8 +27,17 @@ Requirements
 Set env vars (or copy .env.example to .env and edit)
 
 ```bash
-export OPENAI_API_KEY=
-export STOCKFISH_PATH=
+OPENAI_API_KEY=...
+STOCKFISH_PATH=...
+LLMCHESS_ITEMS_PER_BATCH=200
+LLMCHESS_TURN_MAX_WAIT_S=1200 # overall per-turn max wait when using parallel mode (default 1200)
+LLMCHESS_BATCH_POLL_S=10.0 # batch status poll interval seconds 
+LLMCHESS_BATCH_TIMEOUT_S=6000 # per-batch-job polling timeout in batch mode 
+LLMCHESS_RESPONSES_TIMEOUT_S=300 # per-response timeout seconds (default 300)
+LLMCHESS_RESPONSES_RETRIES=4  # retries for parallel responses (default 4)
+LLMCHESS_MAX_CONCURRENCY=8 # max in-flight parallel responses (default 8)
+LLMCHESS_USE_GUARD_AGENT=1 # set to 0 to disable guard agent normalization
+
 ```
 - `python play_one.py --model gpt-4o-mini --prompt-mode plaintext`
 
@@ -56,26 +67,24 @@ Use the simple wrapper to run all configs in a folder or a custom list. It calls
 
 ```bash
 # Run all demo configs
-python -u scripts/run_configs.py --configs "test-configs/*.json"
+python -u scripts/run_tests.py --configs "test-configs/*.json"
 
 # Only batch demo
-python -u scripts/run_configs.py --configs test-configs/batch_demo.json
+python -u scripts/run_tests.py --configs test-configs/batch_demo.json
 
 # Mix files and folders (comma-separated)
-python -u scripts/run_configs.py --configs "test-configs,batch_configs/*.json,extra/run.json"
-
-# Force a mode regardless of the config (optional)
-python -u scripts/run_configs.py --configs "test-configs/*.json" --mode batch
+python -u scripts/run_tests.py --configs "test-configs,batch_configs/*.json,extra/run.json"
 
 # Stop on first failure
-python -u scripts/run_configs.py --configs "test-configs/*.json" --stop-on-error
+python -u scripts/run_tests.py --configs "test-configs/*.json" --stop-on-error
 
 # Dry-run to preview commands
-python -u scripts/run_configs.py --configs "test-configs/*.json" --dry-run
+python -u scripts/run_tests.py --configs "test-configs/*.json" --dry-run
 ```
 
 Notes
-- The wrapper forwards `--mode` and `--games-per-batch` to `scripts/run.py`.
+- Each config controls its own `mode` and `log_level`; there is no CLI override.
+- `games_per_batch` is not a CLI/config override; it is controlled by the environment variable `LLMCHESS_ITEMS_PER_BATCH` (see below).
 - Each config still controls its own `out_dir`; outputs are written there.
 - Uses your current Python interpreter; override with `--python /path/to/python`.
 
@@ -86,22 +95,26 @@ Load configs via `--configs <path or glob>`. Example:
 
 ```json
 {
-  "model": "gpt-4o-mini",
-  "opponent": "engine",
+  "model": "gpt-4o",
+  "opponent": "random",
   "depth": 6,
   "movetime": null,
   "engine": "Stockfish",
-  "llm_color": "white",
+  "llm_color": "black",
   "max_plies": 240,
-  "max_illegal": 1,
+  "max_illegal": 2,
   "pgn_tail": 20,
   "verbose_llm": false,
   "conversation_mode": false,
+  "log_level": "INFO",
+  "out_dir": "runs/prelim/4o-black",
   "prompt": {
     "mode": "plaintext",
     "starting_context_enabled": true,
     "instruction_line": "Provide only your best legal move in SAN."
-  }
+  },
+  "games": 10,
+  "mode": "batch"
 }
 ```
 
@@ -117,12 +130,24 @@ Notes
 - `pgn_tail`: Number of recent plies included when building a PGN tail (used by prompting and future FEN mode).
 - `verbose_llm`: When true, prints raw LLM replies to the console.
 - `conversation_mode`: Legacy chat-style prompting (bypasses the standard prompt builder).
+- `log_level`: Python logging level for the run (e.g., `INFO`, `DEBUG`).
 - `prompt.mode`: Prompting variant — `plaintext` (current) or `fen` (future/scaffolded).
 - `prompt.starting_context_enabled`: Include a brief first-move context when the LLM starts as White.
 - `prompt.instruction_line`: Final instruction appended to prompts (default asks for best legal move in SAN).
 - `games`: Number of games to run for this config.
 - `mode`: `sequential` (per-game runner using Responses API) or `batch` (OpenAI Batches API).
-- `games_per_batch`: Batch mode chunk size (optional; if omitted, provider/env defaults apply).
+
+---
+
+## Environment variables
+
+- LLMCHESS_ITEMS_PER_BATCH: chunk size for Batches API when `mode` is `batch`.
+  - Example (Linux/macOS): `export LLMCHESS_ITEMS_PER_BATCH=50`
+  - Example (Windows PowerShell): `$env:LLMCHESS_ITEMS_PER_BATCH=50`
+  - Example (Windows CMD): `set LLMCHESS_ITEMS_PER_BATCH=50`
+- OPENAI_BATCH_COMPLETION_WINDOW: batch completion window (default: `24h`).
+- LLMCHESS_MAX_CONCURRENCY: parallel /responses concurrency (default: 8).
+- LLMCHESS_RESPONSES_TIMEOUT_S, LLMCHESS_RESPONSES_RETRIES, LLMCHESS_TURN_MAX_WAIT_S, LLMCHESS_BATCH_POLL_S, LLMCHESS_BATCH_TIMEOUT_S: advanced tuning knobs.
 
 ---
 
@@ -165,7 +190,7 @@ Batching implementation
 Modes  
 - mode: "sequential" | "batch"
   - sequential → direct /responses API (interactive)
-  - batch → OpenAI Batches API (offline)
+  - batch → OpenAI Batches API (offline). Chunking is controlled by `LLMCHESS_ITEMS_PER_BATCH`.
 
 
 Batch status

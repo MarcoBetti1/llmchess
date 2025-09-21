@@ -3,30 +3,32 @@ import time, asyncio, logging, statistics, json
 import chess
 from dataclasses import dataclass, field
 from .referee import Referee
-from .llm_client import ask_for_best_move_raw, ask_for_best_move_conversation, ask_for_best_move_plain, SYSTEM_CONV, SYSTEM
+from .llm_client import ask_for_best_move_conversation, SYSTEM
 from .agent_normalizer import normalize_with_agent
 from .move_validator import normalize_move
 import os
 from datetime import datetime
 from .prompting import PromptConfig, build_plaintext_messages, build_fen_messages
 
+
 @dataclass
 class GameConfig:
     max_plies: int = 240
-    pgn_tail_plies: int = 20
+    pgn_tail_plies: int = 20 
     verbose_llm: bool = False
     salvage_with_validator: bool = True  # attempt salvage if agent output illegal
     fail_on_illegal: bool = True         # terminate immediately on illegal LLM move
-    conversation_mode: bool = False      # if True, use chat history (no FEN shown to model)
-    conversation_log_path: str | None = None  # optional path to dump reconstructed conversation JSON
+    # Conversation/trace logging
+    conversation_log_path: str | None = None  # optional path or directory to dump reconstructed conversation JSON
+    conversation_log_every_turn: bool = False # write conversation and structured history after every ply
+    # Side and validation
     max_illegal_moves: int = 1           # number of illegal LLM moves allowed before termination
     llm_is_white: bool = True            # if False, LLM plays Black
-    # New: write conversation log after every turn if a path is provided
-    conversation_log_every_turn: bool = False
     # Modular prompting configuration
     prompt_cfg: PromptConfig = field(default_factory=PromptConfig)
     # Console logging of moves as they happen
     game_log: bool = False
+
 
 class GameRunner:
     def __init__(self, model: str, opponent, cfg: GameConfig | None = None):
@@ -43,9 +45,7 @@ class GameRunner:
         self.records: list[dict] = []  # list of dicts per ply
         self.termination_reason: str | None = None
         self.start_ts = time.time()
-        # Conversation history (used only if conversation_mode)
-        self.chat_messages: list[dict] = []
-        # Prepare conversation log path: treat --conv-log as directory or file
+        # Prepare conversation log path: treat path as directory or file
         self._prepare_conv_log_path()
         self._global_ply = 0  # counts total plies executed in this runner
 
@@ -61,8 +61,10 @@ class GameRunner:
                 os.makedirs(dir_path, exist_ok=True)
                 ts = datetime.now().strftime("%Y%m%d-%H%M%S")
                 side = "w" if self.cfg.llm_is_white else "b"
-                mode = "conv" if self.cfg.conversation_mode else "std"
-                fname = f"conv_{ts}_{mode}_{side}.json"
+                # Include prompting mode in filename for clarity
+                pmode = (self.cfg.prompt_cfg.mode or "plaintext").lower()
+                mode_tag = "fen" if pmode == "fen" else "std"
+                fname = f"conv_{ts}_{mode_tag}_{side}.json"
                 resolved = os.path.join(dir_path, fname)
             else:
                 dir_path = os.path.dirname(p)
@@ -226,7 +228,7 @@ class GameRunner:
         return (self.ref.board.turn == chess.WHITE and self.cfg.llm_is_white) or (self.ref.board.turn == chess.BLACK and not self.cfg.llm_is_white)
 
     def build_llm_messages(self) -> list[dict]:
-        """Build the messages for the next LLM turn according to prompt config (standard mode only)."""
+        """Build the messages for the next LLM turn according to prompt config."""
         side = "white" if self.ref.board.turn == chess.WHITE else "black"
         history = self._annotated_history()
         is_starting = self.cfg.llm_is_white and len(self.ref.board.move_stack) == 0
@@ -260,8 +262,6 @@ class GameRunner:
             self.dump_structured_history_json()
         if not ok:
             # increment illegal counter and possibly terminate
-            # Note: keep same semantics as play()
-            # We track via a local counter derived from recorded moves
             illegal_llm = sum(1 for r in self.records if r.get("actor") == "LLM" and not r.get("ok"))
             if illegal_llm >= self.cfg.max_illegal_moves and self.cfg.fail_on_illegal:
                 self.termination_reason = "illegal_llm_move"
@@ -282,7 +282,7 @@ class GameRunner:
         self._global_ply += 1
         return ok
 
-    # ---------------- LLM Turn (FEN/PGN mode) -----------------
+    # ---------------- LLM Turn (modular prompt modes) -----------------
     def _llm_turn_standard(self):
         messages = self.build_llm_messages()
         raw = ask_for_best_move_conversation(messages, model=self.model)
@@ -292,84 +292,6 @@ class GameRunner:
         ok, uci, san, agent_ms, meta, _ = self._process_llm_raw(
             raw, fen, meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode}
         )
-        return ok, uci, san, agent_ms, meta
-
-    # ---------------- LLM Turn (Conversation mode) -----------------
-    def _init_conversation_if_needed(self):
-        if not self.chat_messages:
-            self.chat_messages.append({"role": "system", "content": SYSTEM_CONV})
-            self.chat_messages.append({"role": "user", "content": "Game start. You are White. Make your first move. Respond ONLY with the move in SAN."})
-
-    def _conversation_user_prompt(self):
-        # Called when it's white (LLM) turn, after opponent possibly moved.
-        if len(self.chat_messages) <= 2:  # first move already has prompt
-            return
-        # Last opponent move SAN is last record with actor OPP
-        opp_moves = [r for r in self.records if r.get("actor") == "OPP"]
-        if opp_moves:
-            last_san = opp_moves[-1].get("san")
-            self.chat_messages.append({"role": "user", "content": f"Black plays {last_san}. Your move."})
-        else:
-            # Should not happen except first move handled earlier
-            self.chat_messages.append({"role": "user", "content": "Your move."})
-
-    def _format_history_lines(self) -> str:
-        lines = []
-        move_pairs: dict[int, dict[str, str]] = {}
-        ply_index = 0
-        board = chess.Board()
-        for rec in self.records:
-            if not rec.get("san"):
-                continue
-            mv_color = "white" if ply_index % 2 == 0 else "black"
-            move_no = (ply_index // 2) + 1
-            move_pairs.setdefault(move_no, {})[mv_color] = rec["san"]
-            ply_index += 1
-        for num in sorted(move_pairs.keys()):
-            pair = move_pairs[num]
-            w = pair.get("white")
-            b = pair.get("black")
-            if w and b:
-                lines.append(f"{num}. White: {w} Black: {b}")
-            elif w:
-                lines.append(f"{num}. White: {w}")
-        return "\n".join(lines)
-
-    def _ensure_conversation_initialized(self):
-        if self.chat_messages:
-            return
-        # System prompt generic
-        side = "White" if self.cfg.llm_is_white else "Black"
-        self.chat_messages.append({"role": "system", "content": "You are playing a serious chess game. Provide only the best legal move each turn in SAN (short algebraic). No commentary."})
-        if self.cfg.llm_is_white:
-            self.chat_messages.append({"role": "user", "content": "You play White. Provide only your first move in SAN."})
-        # If LLM is black we delay first user message until after white's first move
-
-    def _build_turn_prompt(self) -> str:
-        side = "White" if self.cfg.llm_is_white else "Black"
-        moving_side = "White" if self.ref.board.turn == chess.WHITE else "Black"
-        history = self._format_history_lines()
-        base = "You are playing a chess game. What's your next move?"
-        if history:
-            base += f"\nMoves so far:\n{history}"
-        base += f"\n{moving_side} to move. Provide only the move in SAN."  # always ends with instruction
-        return base
-
-    def _llm_turn_conversation(self):
-        self._ensure_conversation_initialized()
-        # If LLM is black and no user prompt yet (after white moved)
-        if not self.cfg.llm_is_white and len(self.chat_messages) == 1:
-            # Add first prompt after opponent's initial white move exists
-            history = self._format_history_lines()
-            self.chat_messages.append({"role": "user", "content": f"You play Black. Game has started.\nMoves so far:\n{history}\nProvide only your first move in SAN."})
-        else:
-            # Regular subsequent prompt
-            self.chat_messages.append({"role": "user", "content": self._build_turn_prompt()})
-        raw = ask_for_best_move_conversation(self.chat_messages, model=self.model)
-        fen = self.ref.board.fen()
-        ok, uci, san, agent_ms, meta, salvage_used = self._process_llm_raw(raw, fen, meta_extra={"mode": "conversation"})
-        assistant_reply = san if san else (raw.split()[0] if raw else "(no-move)")
-        self.chat_messages.append({"role": "assistant", "content": assistant_reply})
         return ok, uci, san, agent_ms, meta
 
     # ---------------- Shared processing -----------------
@@ -419,7 +341,7 @@ class GameRunner:
         if self.cfg.verbose_llm:
             self.log.info("LLM raw='%s' agent_uci='%s' ok=%s", raw, uci, ok)
 
-    # Termination decision handled in play() based on counters
+        # Termination decision handled in play() based on counters
 
         meta = {
             "raw": raw,
@@ -439,11 +361,8 @@ class GameRunner:
     # ---------------- Export / Verification -----------------
     def export_conversation(self) -> list[dict]:
         """Return a chat-style list of messages representing the interaction.
-        Standard mode: reconstruct from stored prompts and raw replies.
-        Conversation mode: return the live chat history.
+        Reconstruct from stored prompts and raw replies collected in meta.
         """
-        if self.cfg.conversation_mode:
-            return list(self.chat_messages)
         # Prefer exact system prompt captured in meta on first LLM turn
         sys_text = None
         for rec in self.records:
@@ -526,13 +445,10 @@ class GameRunner:
         while self.ref.status() == "*" and ply < self.cfg.max_plies:
             llm_turn_now = (self.ref.board.turn == chess.WHITE and self.cfg.llm_is_white) or (self.ref.board.turn == chess.BLACK and not self.cfg.llm_is_white)
             if llm_turn_now:
-                if self.cfg.conversation_mode:
-                    ok, uci, san, ms, meta = self._llm_turn_conversation()
-                else:
-                    ok, uci, san, ms, meta = self._llm_turn_standard()
+                ok, uci, san, ms, meta = self._llm_turn_standard()
                 self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
                 self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", ply+1, uci, ok, san, ms)
-                # New: save conversation snapshot after each LLM move if enabled
+                # Save after each LLM move if enabled
                 if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
                     self.dump_conversation_json()
                     self.dump_structured_history_json()
@@ -546,11 +462,7 @@ class GameRunner:
                 ok, uci, san = self._opp_turn()
                 self.records.append({"actor": "OPP", "uci": uci, "ok": ok, "san": san})
                 self.log.debug("Ply %d OPP move %s san=%s", ply+1, uci, san)
-                # In conversation mode, add user message describing engine move for next LLM prompt
-                if self.cfg.conversation_mode:
-                    # We'll add the user prompt only right before asking next time to avoid duplicates
-                    pass
-                # New: save conversation snapshot after each OPP move if enabled
+                # Save after each OPP move if enabled
                 if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
                     self.dump_conversation_json()
                     self.dump_structured_history_json()
@@ -592,14 +504,12 @@ class GameRunner:
             "result": self.ref.status(),
             "termination_reason": self.termination_reason,
             "duration_s": round(time.time() - self.start_ts, 2),
-            "mode": "conversation" if self.cfg.conversation_mode else "standard",
+            "mode": self.cfg.prompt_cfg.mode,
         }
 
     def summary(self) -> dict:
         m = self.metrics()
         m["pgn"] = self.ref.pgn()
-        if self.cfg.conversation_mode:
-            m["conversation_messages"] = self.chat_messages
         m["history_verification"] = self.verify_history_result()
         # Also include a small preview of the structured history path if available
         m["structured_history_path"] = self._structured_history_path()

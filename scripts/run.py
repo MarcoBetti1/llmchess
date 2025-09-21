@@ -53,11 +53,10 @@ def build_configs_from_dict(d: Dict):
     if not isinstance(out_dir, str) or not out_dir.strip():
         raise ValueError("Config must include a non-empty 'out_dir' path (e.g., 'runs/test/').")
     llm_color = d.get('llm_color', 'white')
-    max_plies = d.get('max_plies', 240)
+    max_plies = d.get('max_plies', 480)
     max_illegal = d.get('max_illegal', 1)
     pgn_tail = d.get('pgn_tail', 20)
     verbose_llm = d.get('verbose_llm', False)
-    conversation_mode = d.get('conversation_mode', False)
     # Unified mode switch: "sequential" | "batch" (accept legacy "parallel" as alias of sequential)
     mode = str(d.get('mode', 'sequential')).strip().lower()
 
@@ -71,7 +70,7 @@ def build_configs_from_dict(d: Dict):
 
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
     # Always enable console game log and per-turn conversation/history logging.
-    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_mode=bool(conversation_mode), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=True)
+    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=True)
 
     return {
         'model': model,
@@ -182,10 +181,6 @@ def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | 
 def main():
     ap = argparse.ArgumentParser(description='Run many games by sweeping over JSON config files.')
     ap.add_argument('--configs', required=True, help='Comma-separated list of config paths, directories, or glob patterns (e.g., configs/*.json)')
-    # Unified mode switch (CLI). If omitted, config decides.
-    ap.add_argument('--mode', choices=['sequential', 'batch'], help='Execution mode: sequential (per-game runner) or batch (OpenAI Batches API). Overrides config.')
-    ap.add_argument('--games-per-batch', type=int, default=None, help='Chunk size for OpenAI Batches API (per cycle). Overrides env LLMCHESS_ITEMS_PER_BATCH if set.')
-    ap.add_argument('--log-level', default=None, help='Python logging level (overrides config log_level)')
     args = ap.parse_args()
 
     logging.basicConfig(level=logging.INFO,
@@ -207,8 +202,8 @@ def main():
             log.error('Failed to read %s: %s', path, e)
             continue
         entry = build_configs_from_dict(d)
-        # Effective log level (CLI)
-        eff_log_level_name = (args.log_level or 'INFO')
+        # Effective log level comes from config (key: log_level), defaults to INFO
+        eff_log_level_name = (d.get('log_level') or 'INFO')
         logging.getLogger().setLevel(_parse_log_level(eff_log_level_name))
         config_name = os.path.basename(path)
         # Determine out dir strictly from config (no defaults)
@@ -218,15 +213,15 @@ def main():
         # Per-config JSONL file under the config-provided out_dir
         jsonl_path = os.path.join(base_out_dir, 'results.jsonl')
         jsonl_f = open(jsonl_path, 'a', encoding='utf-8') if jsonl_path else None
-        # Determine mode precedence: CLI --mode > config.mode (accept legacy 'parallel' as sequential)
+        # Determine mode strictly from config (accept legacy 'parallel' as sequential)
         mode_cfg = entry.get('mode', 'sequential')
-        mode = args.mode if args.mode else ('sequential' if str(mode_cfg).lower() in ('sequential','parallel') else 'batch')
+        mode = 'sequential' if str(mode_cfg).lower() in ('sequential','parallel') else 'batch'
 
         if mode == 'batch':
             # In the new model, batch mode always uses the OpenAI Batches API transport
             prefer_batches = True
-            # Allow CLI override for chunk size; provider will fallback to env LLMCHESS_ITEMS_PER_BATCH if None
-            items_per_batch = args.games_per_batch if args.games_per_batch is not None else None
+            # Chunk size is read from env LLMCHESS_ITEMS_PER_BATCH inside the provider when None
+            items_per_batch = None
             metrics = run_batched(entry, config_name, jsonl_f, base_out_dir, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
         else:
             metrics = run_sequential(entry, config_name, jsonl_f, base_out_dir)
