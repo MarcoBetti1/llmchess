@@ -1,3 +1,4 @@
+Built for chatgpt, built by chatgpt.
 # TODO
 - Check if in batch mode when one game ends, others will continue.  
 - Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.  
