@@ -13,3 +13,12 @@ log1/
 config.example.json
 
 future_prompts/
+
+prof.yml
+
+configs/test_1/
+
+configs/test_2/
+
+configs/test_2_alrcomp/
+

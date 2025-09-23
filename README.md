@@ -6,7 +6,7 @@ Built for chatgpt, built by chatgpt.
 - **Log system**: Current unused logging system takes up a space in code and config. At least move option to profile?
 - **Batch cancel**: Since we often run tests and dont wait for batch results this may waste tokens.  (later if running in app, manual for now)
 - **Play one**: Not a huge reason to have this functionality. Although having a single game controlled manually could be fun, maybe if I think the llm can beat me in chess.  
-
+- **Inspect**: View_game should be removed.
 # LLM Chess
 
 A lightweight benchmark to test LLMs on chess with light agent system:  
@@ -40,7 +40,7 @@ See [writing tests](#writing-tests) section for all supported fields.
 Run it with:
 
 ```bash
-python -u scripts/run.py --configs test-configs/config.json
+python -u scripts/run.py --configs tests/demo-tests/config.json
 ```
 
 ### Run multiple configs (test automation)

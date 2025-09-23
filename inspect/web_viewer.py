@@ -10,7 +10,7 @@ from flask import Flask, jsonify, request, send_from_directory, abort
 # Resolve project root and runs directory
 THIS_FILE = Path(__file__).resolve()
 PROJECT_ROOT = THIS_FILE.parent.parent  # chess2/
-WEBUI_DIR = PROJECT_ROOT / "webui"
+WEBUI_DIR = PROJECT_ROOT / "inspect" / "webui"
 RUNS_DIR = PROJECT_ROOT / "runs"
 
 app = Flask(
