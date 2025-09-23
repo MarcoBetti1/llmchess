@@ -1,3 +1,4 @@
+Built for chatgpt, built by chatgpt.
 # TODO
 - **Batch optimization**: See about combining different tests where sum (# total games) < Max batch size. Can batches be submitted in parallel? 
 - **Black/White config settings**: Add an option for both where the test is doubled one for black one for white.  

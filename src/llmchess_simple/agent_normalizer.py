@@ -20,14 +20,14 @@ USE_GUARD_AGENT = SETTINGS.use_guard_agent
 
 INSTRUCTIONS = (
     "You receive a raw reply.\n"
-    "Make sure its a chess move and avoid any other text.\n"
-    "Output ONLY the move in UCI (lowercase, promotion letter if any). If no move appears, output the single word NONE."
+    "Ensure it is a chess move and avoid any other text.\n"
+    "Output ONLY the move in UCI (lowercase, include promotion letter if any). If no move is present, output the single word NONE."
 )
 
 move_guard = Agent(
     name="MoveGuard",
     instructions=INSTRUCTIONS,
-    model_settings=ModelSettings(temperature=0.0)
+    model_settings=ModelSettings(temperature=0.0),
 )
 
 async def _agent_suggest(raw_reply: str) -> str:

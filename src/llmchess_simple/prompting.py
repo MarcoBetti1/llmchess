@@ -11,6 +11,14 @@ from dataclasses import dataclass
 
 @dataclass
 class PromptConfig:
+    """Lightweight configuration for shaping move prompts.
+
+    - mode: the prompting approach; currently 'plaintext' or 'fen' (scaffold only)
+    - starting_context_enabled: when True and LLM starts as White, add a one-line intro
+    - request_format: informational flag for desired move format (not enforced here)
+    - system_*: system strings used per mode
+    - instruction_line: appended to user message to request a concise move
+    """
     # Mode of prompting: 'plaintext' or 'fen' (scaffold)
     mode: str = "plaintext"
     # Whether to include an explicit starting-context line when the LLM makes the first move
@@ -29,12 +37,12 @@ class PromptConfig:
 
 
 def build_plaintext_messages(side: str, history_text: str, is_starting: bool, cfg: PromptConfig) -> list[dict]:
-    """Builds a chat-style message list for plaintext prompting.
+    """Return a minimal chat message list for plaintext prompting.
 
-    Plaintext rules:
-    - Always include the move history in a list (or (none) if empty)
-    - If and only if the LLM is starting the game and starting_context_enabled, add an explicit starting line
-    - Always end with instruction_line requesting the output format
+    Rules:
+    - Always include move history (or '(none)')
+    - If LLM starts and starting_context_enabled, add a starting-line hint
+    - End with instruction_line to request a concise move
     """
     sys_msg = cfg.system_plaintext
 
@@ -58,7 +66,7 @@ def build_plaintext_messages(side: str, history_text: str, is_starting: bool, cf
 
 
 def build_fen_messages(fen: str, pgn_tail: str, side: str, is_starting: bool, cfg: PromptConfig) -> list[dict]:
-    """Scaffold for FEN-based prompting. Not used in the initial tests, kept for future work."""
+    """Scaffold for FEN-based prompting (kept for future experiments)."""
     sys_msg = cfg.system_fen
     lines: list[str] = []
     if is_starting and cfg.starting_context_enabled and side.lower() == "white":
