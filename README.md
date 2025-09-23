@@ -118,7 +118,6 @@ We load tests in the form of json files via `--configs <path or glob>`. Example:
 Primary configuration is read from `prof.yml` at the repo root. All keys can and should be provided as environment variables; when both are present, YAML values take precedence.
 
 Keys
-- OPENAI_API_KEY: OpenAI API key.
 - STOCKFISH_PATH: Full path to Stockfish binary. On Windows, quote or escape backslashes.
 - OPENAI_BATCH_COMPLETION_WINDOW: Batch completion window (default: `24h`).
 - LLMCHESS_ITEMS_PER_BATCH: Chunk size for Batches API when `mode` is `batch`.
