@@ -16,10 +16,10 @@ future_prompts/
 
 prof.yml
 
-configs/test_1/
+tests/test_1/
 
-configs/test_2/
+tests/test_2/
 
-configs/test_2_alrcomp/
+tests/test_2_alrcomp/
 
-tests/
+saves/
