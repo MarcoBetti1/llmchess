@@ -1,0 +1,9 @@
+LLMCHESS_ITEMS_PER_BATCH: 200
+LLMCHESS_TURN_MAX_WAIT_S: 1200  # overall per-turn max wait when using parallel mode (default 1200)
+LLMCHESS_BATCH_POLL_S: 10.0      # batch status poll interval seconds (default 2.0)
+LLMCHESS_BATCH_TIMEOUT_S: 6000   # per-batch-job polling timeout in batch mode (default 600)
+LLMCHESS_RESPONSES_TIMEOUT_S: 300  # per-response timeout seconds (default 300)
+LLMCHESS_RESPONSES_RETRIES: 4      # retries for parallel responses (default 4)
+LLMCHESS_MAX_CONCURRENCY: 8        # max in-flight parallel responses (default 8)
+LLMCHESS_USE_GUARD_AGENT: 1        # set to 0 to disable guard agent normalization
+STOCKFISH_PATH: "c:\\Users\\Marco\\Desktop\\stockfish\\stockfish-windows-x86-64-avx2.exe"

@@ -1,13 +1,22 @@
+"""
+Agent-backed normalizer for raw LLM replies to chess moves.
+
+Flow:
+1) Quick regex to extract UCI from free-form text.
+2) If not found and LLMCHESS_USE_GUARD_AGENT != "0", ask a tiny guard Agent (Agents SDK) to return UCI or NONE.
+3) Fallback: first word-like token.
+
+Returns lowercase UCI (with promotion letter) when possible; otherwise a best-effort token or empty string.
+
+"""
 from __future__ import annotations
-import asyncio, logging, os, re
-try:
-    from agents import Agent, Runner, ModelSettings
-except Exception:  # pragma: no cover
-    from openai_agents import Agent, Runner, ModelSettings  # type: ignore
+import asyncio, logging, re
+from agents import Agent, Runner, ModelSettings
+from .config import SETTINGS
 
-log = logging.getLogger("agent_normalizer")
+log = logging.getLogger("agent_normalizer") 
 
-USE_GUARD_AGENT = os.environ.get("LLMCHESS_USE_GUARD_AGENT", "1") != "0"
+USE_GUARD_AGENT = SETTINGS.use_guard_agent
 
 INSTRUCTIONS = (
     "You receive a raw reply.\n"

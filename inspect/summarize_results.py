@@ -1,3 +1,10 @@
+"""
+Summarize benchmark results across runs.
+
+- Scans runs/*/results.jsonl, groups by model and starting color, and aggregates metrics.
+- Prints per-group summary ordered by a selected metric and a white-vs-black delta.
+
+"""
 import argparse
 import json
 import os

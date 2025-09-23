@@ -1,3 +1,14 @@
+"""
+Single-game runner and config.
+
+- GameConfig: knobs for max plies, illegal-move policy, side, prompting mode, and logging.
+- GameRunner: orchestrates one game between an LLM and an opponent (engine/random) using python-chess.
+  - Builds prompts (plaintext/FEN) via prompting.py, calls llm_client, normalizes via agent_normalizer,
+    validates/salvages with move_validator, and applies moves through Referee.
+  - Logs per-turn conversation and structured history JSON for visualization.
+  - Exposes step_* helpers for batched runs and summary/metrics at the end.
+
+"""
 from __future__ import annotations
 import time, asyncio, logging, statistics, json
 import chess
@@ -17,7 +28,6 @@ class GameConfig:
     pgn_tail_plies: int = 20 
     verbose_llm: bool = False
     salvage_with_validator: bool = True  # attempt salvage if agent output illegal
-    fail_on_illegal: bool = True         # terminate immediately on illegal LLM move
     # Conversation/trace logging
     conversation_log_path: str | None = None  # optional path or directory to dump reconstructed conversation JSON
     conversation_log_every_turn: bool = False # write conversation and structured history after every ply
@@ -263,7 +273,7 @@ class GameRunner:
         if not ok:
             # increment illegal counter and possibly terminate
             illegal_llm = sum(1 for r in self.records if r.get("actor") == "LLM" and not r.get("ok"))
-            if illegal_llm >= self.cfg.max_illegal_moves and self.cfg.fail_on_illegal:
+            if illegal_llm >= self.cfg.max_illegal_moves:
                 self.termination_reason = "illegal_llm_move"
                 self.log.error("Terminating due to illegal LLM move at ply %d (count=%d)", self._global_ply+1, illegal_llm)
         self._global_ply += 1
@@ -429,7 +439,7 @@ class GameRunner:
             self.ref.set_result(self.ref.status(), self.termination_reason)
             return
         # Illegal LLM threshold => LLM loses
-        if self.termination_reason == "illegal_llm_move" and self.cfg.fail_on_illegal:
+        if self.termination_reason == "illegal_llm_move":
             result = "0-1" if self.cfg.llm_is_white else "1-0"
             self.ref.force_result(result, self.termination_reason)
             return
@@ -454,7 +464,7 @@ class GameRunner:
                     self.dump_structured_history_json()
                 if not ok:
                     illegal_moves += 1
-                    if illegal_moves >= self.cfg.max_illegal_moves and self.cfg.fail_on_illegal:
+                    if illegal_moves >= self.cfg.max_illegal_moves:
                         self.termination_reason = "illegal_llm_move"
                         self.log.error("Terminating due to illegal LLM move at ply %d (count=%d)", ply+1, illegal_moves)
                         break

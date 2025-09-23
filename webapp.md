@@ -1,8 +1,12 @@
 ### Webapp
 WIP!!!
-(old doc vvv)
+
+
+## Idea 1
+allow for visualizing multiple games at once to verify that each game is different.
 ## Visualize a recorded game (rewatch)
 
+### Deprecated
 Use the interactive viewer to step through a structured history JSON (hist_*.json):
 
 - Run: python scripts/view_game.py <path-to-hist.json>

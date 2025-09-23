@@ -1,3 +1,12 @@
+"""
+Move parsing/validation helpers for free-form LLM replies.
+
+- Extracts candidate UCI or SAN (incl. 0-0/O-O castling) from text.
+- Validates against a given FEN using python-chess; caches legal UCI moves per FEN.
+- Exposes normalize_move(...) for robust salvage, plus is_legal_uci(...) and legal_moves(...).
+
+Used by GameRunner to validate/salvage LLM outputs; see README for overall flow.
+"""
 from __future__ import annotations
 import re
 import chess

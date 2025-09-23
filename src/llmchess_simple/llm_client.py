@@ -1,16 +1,13 @@
 from __future__ import annotations
 """
-Facade over provider-specific LLM transports (parallel /responses and OpenAI Batches).
+LLM client facade over provider transports.
 
-Transports:
-- Parallel /responses (interactive): low latency per turn, best for live game loops.
-- OpenAI Batches API (offline): submit N requests as one job; best for large sweeps.
+- Parallel Responses API (interactive): low latency per turn, good for live games.
+- OpenAI Batches API (offline): submit N requests as one job for large sweeps.
 
-Selection:
-- prefer_batches flag (explicit). Defaults to parallel unless explicitly set to batch.
-- LLMCHESS_ITEMS_PER_BATCH controls chunking if more than one batch job is needed per turn.
+Selection: prefer parallel by default; set prefer_batches=True to force batches.
+Chunking controlled by env LLMCHESS_ITEMS_PER_BATCH. Stable API delegates to provider.
 
-This module exposes a stable API and delegates to a provider implementation.
 """
 from typing import Optional, List, Dict
 import logging

@@ -1,5 +1,15 @@
 from __future__ import annotations
-"""OpenAI transport implementation for move prompts and batched/parallel requests."""
+"""
+OpenAI transport for move prompts and batched/parallel submissions.
+
+- Responses API: interactive requests with retry and concurrency controls (ThreadPoolExecutor).
+- Batches API: offline JSONL uploads with polling; chunking via LLMCHESS_ITEMS_PER_BATCH.
+- Robust _extract_output_text_from_response_obj() to normalize text across response shapes.
+
+Environment knobs: OPENAI_BATCH_COMPLETION_WINDOW, LLMCHESS_MAX_CONCURRENCY, LLMCHESS_RESPONSES_TIMEOUT_S,
+LLMCHESS_RESPONSES_RETRIES, LLMCHESS_TURN_MAX_WAIT_S, LLMCHESS_BATCH_POLL_S, LLMCHESS_BATCH_TIMEOUT_S,
+LLMCHESS_ITEMS_PER_BATCH. See README for details.
+"""
 from typing import Optional, List, Dict
 import io, json, logging, os, random, time, math
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -13,15 +23,15 @@ class OpenAIProvider:
         self.client = OpenAI(api_key=SETTINGS.openai_api_key)
         self.log = logging.getLogger("llm_client.openai")
 
-        # Environment-driven knobs
-        self.DEFAULT_COMPLETION_WINDOW = os.environ.get("OPENAI_BATCH_COMPLETION_WINDOW", "24h")
-        self.RESPONSES_TIMEOUT_S = float(os.environ.get("LLMCHESS_RESPONSES_TIMEOUT_S", "300"))
-        self.RESPONSES_RETRIES = int(os.environ.get("LLMCHESS_RESPONSES_RETRIES", "4"))
-        self.MAX_CONCURRENCY = int(os.environ.get("LLMCHESS_MAX_CONCURRENCY", "8"))
-        self.ITEMS_PER_BATCH = int(os.environ.get("LLMCHESS_ITEMS_PER_BATCH", "200"))
-        self.TURN_MAX_WAIT_S = float(os.environ.get("LLMCHESS_TURN_MAX_WAIT_S", "1200"))
-        self.BATCH_POLL_INTERVAL_S = float(os.environ.get("LLMCHESS_BATCH_POLL_S", "2.0"))
-        self.BATCH_TIMEOUT_S = float(os.environ.get("LLMCHESS_BATCH_TIMEOUT_S", "600.0"))
+        # Settings-driven knobs (YAML > env > defaults via config)
+        self.DEFAULT_COMPLETION_WINDOW = SETTINGS.openai_batch_completion_window
+        self.RESPONSES_TIMEOUT_S = SETTINGS.responses_timeout_s
+        self.RESPONSES_RETRIES = SETTINGS.responses_retries
+        self.MAX_CONCURRENCY = SETTINGS.max_concurrency
+        self.ITEMS_PER_BATCH = SETTINGS.items_per_batch
+        self.TURN_MAX_WAIT_S = SETTINGS.turn_max_wait_s
+        self.BATCH_POLL_INTERVAL_S = SETTINGS.batch_poll_s
+        self.BATCH_TIMEOUT_S = SETTINGS.batch_timeout_s
 
     # ---------------- Plain prompts ----------------
     def ask_for_best_move_raw(self, fen: str, pgn_tail: str = "", side: str = "", model: Optional[str] = None) -> str:
@@ -333,7 +343,7 @@ class OpenAIProvider:
     def submit_responses_batch_chunked(self, items: List[Dict], items_per_batch: Optional[int] = None) -> Dict[str, str]:
         if not items:
             return {}
-        ipb = items_per_batch if items_per_batch is not None else int(os.environ.get("LLMCHESS_ITEMS_PER_BATCH", str(self.ITEMS_PER_BATCH)))
+        ipb = items_per_batch if items_per_batch is not None else self.ITEMS_PER_BATCH
         if ipb <= 0:
             return self.submit_responses_batch(items)
         merged: Dict[str, str] = {}

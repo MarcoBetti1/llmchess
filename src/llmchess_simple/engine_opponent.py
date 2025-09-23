@@ -1,3 +1,11 @@
+"""
+Stockfish-backed opponent.
+
+- Resolves engine binary path from: explicit parameter, SETTINGS.stockfish_path/env, or system PATH.
+- choose(): queries the engine with either fixed depth or movetime_ms to return a chess.Move.
+- close(): terminates the engine process.
+
+"""
 from __future__ import annotations
 import os, shutil, chess, chess.engine
 from .config import SETTINGS

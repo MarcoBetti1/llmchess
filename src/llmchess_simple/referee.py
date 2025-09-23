@@ -1,3 +1,13 @@
+"""
+Referee: centralized game state and PGN/export utilities.
+
+- Owns a python-chess Board and applies validated moves (UCI or engine Move).
+- Manages PGN headers, result overrides, and optional termination comment.
+- Exposes status() for current result and pgn() to serialize finished/ongoing games.
+
+Used by GameRunner/BatchOrchestrator to track state, record outcomes, and emit PGN.
+
+"""
 from __future__ import annotations
 import chess, chess.pgn, datetime
 from typing import Optional

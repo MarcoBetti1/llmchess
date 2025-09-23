@@ -1,3 +1,17 @@
+"""
+RUN.py — Experiment runner
+- Sweeps one or more JSON config files and runs multiple chess games per config.
+- Supports two modes per config:
+  * sequential → direct OpenAI Responses API (interactive)
+  * batch → OpenAI Batches API (offline chunking; size via LLMCHESS_ITEMS_PER_BATCH)
+- Opponents: Stockfish (via STOCKFISH_PATH) or random.
+- Writes per-game conversation/history logs and aggregates results to <out_dir>/results.jsonl.
+- Respects per-config log_level and out_dir (no CLI overrides).
+- Prints a grand summary (W/D/L, avg plies, legal rate, latency, wall time).
+Usage: python -u scripts/run.py --configs "test-configs/*.json"
+Env knobs: LLMCHESS_MAX_CONCURRENCY, LLMCHESS_RESPONSES_TIMEOUT_S, LLMCHESS_TURN_MAX_WAIT_S, etc.
+
+"""
 import argparse, json, logging, os, sys, glob, statistics, time, datetime
 import copy
 from typing import List, Dict

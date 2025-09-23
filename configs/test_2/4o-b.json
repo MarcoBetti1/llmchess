@@ -2,7 +2,6 @@
   "model": "gpt-4o",
   "opponent": "random",
   "llm_color": "black",
-  "max_plies": 240,
   "max_illegal": 2,
   "pgn_tail": 20,
   "verbose_llm": false,

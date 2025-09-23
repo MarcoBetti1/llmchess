@@ -1,12 +1,12 @@
 # TODO
-- Check if in batch mode when one game ends, others will continue.  
-- Add a cancel for batching. Since we often run tests and dont wait for batch results this may waste tokens.  
-- Clean up env vars
-- Clean/Fix/Test Engine opponent 
+- **Batch optimization**: See about combining different tests where sum (# total games) < Max batch size. Can batches be submitted in parallel? 
+- **Black/White config settings**: Add an option for both where the test is doubled one for black one for white.  
+- **Config simplifcation**: make config simpler and [more intuitive](#test-params)
+- **Log system**: Current unused logging system takes up a space in code and config. At least move option to profile?
+- **Batch cancel**: Since we often run tests and dont wait for batch results this may waste tokens.  (later if running in app, manual for now)
+- **Play one**: Not a huge reason to have this functionality. Although having a single game controlled manually could be fun, maybe if I think the llm can beat me in chess.  
 
-### RESULTS
-python -u scripts/summarize_results.py --root runs/prelim --sort-by avg_legal_rate
-# LLM Chess (Simplified)
+# LLM Chess
 
 A lightweight benchmark to test LLMs on chess with light agent system:  
 Currently 1 agent who:  
@@ -20,40 +20,21 @@ The game pipeline:
   against the FEN and normalize it to UCI. If invalid, the agent is asked to try again.
 - We apply the move and play
 
+### Prompt Flow
+raw -> candidate via agent_normalizer -> validate against FEN -> apply if legal; else salvage from raw -> apply -> record/log.  
+Conversation logs show raw; structured history shows what actually got played.
 
-## Quickstart
-Requirements
-- `pip install -r requirements.txt`
-Set env vars (or copy .env.example to .env and edit)
-
-```bash
-OPENAI_API_KEY=...
-STOCKFISH_PATH=...
-LLMCHESS_ITEMS_PER_BATCH=200
-LLMCHESS_TURN_MAX_WAIT_S=1200 # overall per-turn max wait when using parallel mode (default 1200)
-LLMCHESS_BATCH_POLL_S=10.0 # batch status poll interval seconds 
-LLMCHESS_BATCH_TIMEOUT_S=6000 # per-batch-job polling timeout in batch mode 
-LLMCHESS_RESPONSES_TIMEOUT_S=300 # per-response timeout seconds (default 300)
-LLMCHESS_RESPONSES_RETRIES=4  # retries for parallel responses (default 4)
-LLMCHESS_MAX_CONCURRENCY=8 # max in-flight parallel responses (default 8)
-LLMCHESS_USE_GUARD_AGENT=1 # set to 0 to disable guard agent normalization
-
-```
-- `python play_one.py --model gpt-4o-mini --prompt-mode plaintext`
-
-
-## Notes
+### Notes
 - The **agent** only validates/normalizes the move. All strategy testing is handled by the engine opponent and results.
 - The code uses the OpenAI **Responses API** for free-form LLM replies and the **Agents SDK** for the validator tool.
-- If your Agents SDK import path differs, adjust `agent_normalizer.py` imports accordingly (see comments).
 
+## Quickstart (todo)
+Requirements, Yaml, Json test or play one.
 
-
-## Config-driven runs (simplified)
+## Config-driven runs
 You can run experiments with just a config file. Outputs are always written:
 
-See the Notes in the configuration section for all supported fields.
-
+See [writing tests](#writing-tests) section for all supported fields.
 
 Run it with:
 
@@ -69,9 +50,6 @@ Use the simple wrapper to run all configs in a folder or a custom list. It calls
 # Run all demo configs
 python -u scripts/run_tests.py --configs "test-configs/*.json"
 
-# Only batch demo
-python -u scripts/run_tests.py --configs test-configs/batch_demo.json
-
 # Mix files and folders (comma-separated)
 python -u scripts/run_tests.py --configs "test-configs,batch_configs/*.json,extra/run.json"
 
@@ -82,16 +60,9 @@ python -u scripts/run_tests.py --configs "test-configs/*.json" --stop-on-error
 python -u scripts/run_tests.py --configs "test-configs/*.json" --dry-run
 ```
 
-Notes
-- Each config controls its own `mode` and `log_level`; there is no CLI override.
-- `games_per_batch` is not a CLI/config override; it is controlled by the environment variable `LLMCHESS_ITEMS_PER_BATCH` (see below).
-- Each config still controls its own `out_dir`; outputs are written there.
-- Uses your current Python interpreter; override with `--python /path/to/python`.
+### writing-tests
 
-
-### Configuration file (JSON)
-
-Load configs via `--configs <path or glob>`. Example:
+We load tests in the form of json files via `--configs <path or glob>`. Example:
 
 ```json
 {
@@ -105,7 +76,6 @@ Load configs via `--configs <path or glob>`. Example:
   "max_illegal": 2,
   "pgn_tail": 20,
   "verbose_llm": false,
-  "conversation_mode": false,
   "log_level": "INFO",
   "out_dir": "runs/prelim/4o-black",
   "prompt": {
@@ -118,7 +88,7 @@ Load configs via `--configs <path or glob>`. Example:
 }
 ```
 
-Notes
+##### test-params
 - `model`: Target LLM model ID (e.g., `gpt-4o-mini`).
 - `opponent`: `engine` (Stockfish) or `random`.
 - `depth`: Stockfish search depth (used when `movetime` is null).
@@ -128,8 +98,7 @@ Notes
 - `max_plies`: Maximum total plies before truncation.
 - `max_illegal`: Illegal LLM moves allowed before termination (when reached, game ends as a loss for the LLM).
 - `pgn_tail`: Number of recent plies included when building a PGN tail (used by prompting and future FEN mode).
-- `verbose_llm`: When true, prints raw LLM replies to the console.
-- `conversation_mode`: Legacy chat-style prompting (bypasses the standard prompt builder).
+- `verbose_llm`: When true, prints raw LLM replies to the console. This is pointless and should remove.
 - `log_level`: Python logging level for the run (e.g., `INFO`, `DEBUG`).
 - `prompt.mode`: Prompting variant — `plaintext` (current) or `fen` (future/scaffolded).
 - `prompt.starting_context_enabled`: Include a brief first-move context when the LLM starts as White.
@@ -137,17 +106,29 @@ Notes
 - `games`: Number of games to run for this config.
 - `mode`: `sequential` (per-game runner using Responses API) or `batch` (OpenAI Batches API).
 
+1. Each config controls its own `mode` and `log_level`; (Do we need log level here?)
+2. Each config still controls its own `out_dir`; outputs are written there. (Better way to do this?)
+3. Uses your current Python interpreter; override with `--python /path/to/python`. (Useful?)
+
 ---
 
-## Environment variables
+## config profile
 
-- LLMCHESS_ITEMS_PER_BATCH: chunk size for Batches API when `mode` is `batch`.
-  - Example (Linux/macOS): `export LLMCHESS_ITEMS_PER_BATCH=50`
-  - Example (Windows PowerShell): `$env:LLMCHESS_ITEMS_PER_BATCH=50`
-  - Example (Windows CMD): `set LLMCHESS_ITEMS_PER_BATCH=50`
-- OPENAI_BATCH_COMPLETION_WINDOW: batch completion window (default: `24h`).
-- LLMCHESS_MAX_CONCURRENCY: parallel /responses concurrency (default: 8).
-- LLMCHESS_RESPONSES_TIMEOUT_S, LLMCHESS_RESPONSES_RETRIES, LLMCHESS_TURN_MAX_WAIT_S, LLMCHESS_BATCH_POLL_S, LLMCHESS_BATCH_TIMEOUT_S: advanced tuning knobs.
+Primary configuration is read from `prof.yml` at the repo root. All keys can and should be provided as environment variables; when both are present, YAML values take precedence.
+
+Keys
+- OPENAI_API_KEY: OpenAI API key.
+- STOCKFISH_PATH: Full path to Stockfish binary. On Windows, quote or escape backslashes.
+- OPENAI_BATCH_COMPLETION_WINDOW: Batch completion window (default: `24h`).
+- LLMCHESS_ITEMS_PER_BATCH: Chunk size for Batches API when `mode` is `batch`.
+- LLMCHESS_MAX_CONCURRENCY: Parallel /responses concurrency (default: 8).
+- LLMCHESS_RESPONSES_TIMEOUT_S, LLMCHESS_RESPONSES_RETRIES, LLMCHESS_TURN_MAX_WAIT_S, LLMCHESS_BATCH_POLL_S, LLMCHESS_BATCH_TIMEOUT_S: Advanced tuning knobs.
+- LLMCHESS_USE_GUARD_AGENT: 1 to enable the guard agent (default enabled), 0 to disable.
+
+Environment usage (optional)
+- You may still set any of the above as environment variables. This is convenient for CI or one-off runs.
+- Examples (Windows PowerShell): `$env:LLMCHESS_ITEMS_PER_BATCH=50`
+- Examples (Windows CMD): `set LLMCHESS_ITEMS_PER_BATCH=50`
 
 ---
 
@@ -175,7 +156,7 @@ FEN (future)
 
 ## Batch/concurrent runs and outputs
 
-Run multiple games from JSON configs with per-run output folders and structured histories.
+Run multiple games from JSON files with per-run output folders and structured histories.
 
 Structured history JSON
 - Contains headers, result, termination reason, and an array of moves with:
@@ -199,3 +180,12 @@ Batch status
 
 Troubleshooting
 - Ensure your chosen model in the JSON/CLI targets a Responses-capable model (e.g., gpt-4o-mini) and upgrade the SDK: pip install -U openai
+
+## Results
+**Work in progress**:
+`python -u scripts/summarize_results.py --root runs/prelim --sort-by avg_legal_rate`
+Should give stats on a bunch of tests in the provided folder.
+
+## Viewer
+**Work in progress**:
+First iteration of web app to view games is in inspect folder. Next, allow for visualizing multiple games at once to verify that each game is different, win conditions are met successfully.

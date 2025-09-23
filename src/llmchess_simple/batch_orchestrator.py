@@ -1,3 +1,13 @@
+"""
+BatchOrchestrator: run many games in lockstep and batch LLM turns.
+
+- Builds N GameRunner instances vs Random or Stockfish opponents.
+- Each cycle: finalize ended games, step engine where needed, collect active LLM prompts,
+  submit as a batch via either the parallel Responses API (interactive) or the Batches API (offline),
+  then feed raw replies back to the corresponding runners.
+- prefer_batches/items_per_batch control transport; see README env knobs.
+- On completion, dumps per-game artifacts (conversation/history) and returns summaries.
+"""
 from __future__ import annotations
 import logging, math, os
 from typing import List, Dict, Optional

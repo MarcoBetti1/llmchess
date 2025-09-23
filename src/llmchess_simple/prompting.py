@@ -1,3 +1,11 @@
+"""
+Prompt builders and config for LLM move requests.
+
+- PromptConfig controls mode (plaintext|fen scaffold), starting context, and instruction line.
+- build_plaintext_messages(): chat-style messages with side, concise history, and final instruction.
+- build_fen_messages(): future scaffold adding FEN and PGN tail (kept for later experiments).
+
+"""
 from __future__ import annotations
 from dataclasses import dataclass
 

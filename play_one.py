@@ -1,3 +1,11 @@
+"""
+Single-game CLI runner.
+
+- Loads optional JSON config and allows CLI overrides.
+- Builds Random or Stockfish opponent, configures prompting, logging, and limits.
+- Runs one game via GameRunner, prints result/metrics, and can write PGN.
+See README for configuration keys and environment variables.
+"""
 import argparse
 import json
 import logging

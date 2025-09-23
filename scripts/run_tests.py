@@ -1,3 +1,12 @@
+"""
+RUN_TEST.py — Test harness for batch-running configs
+- Thin wrapper that invokes scripts/run.py for each config file in a list/dir/glob.
+- Ensures stable ordering, prints per-config status and durations, then a summary.
+- Options:
+  * --dry-run: print commands without executing
+  * --stop-on-error: halt on first non-zero exit
+  * --python: choose interpreter (defaults to current)
+"""
 import argparse
 import glob
 import os

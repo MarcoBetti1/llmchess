@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+"""
+Terminal game viewer for structured history JSON.
+
+- Loads hist_*.json, reconstructs positions, and renders ASCII boards with python-chess.
+- Supports step, autoplay with adjustable delay, goto ply, and pause.
+- Works on Windows (msvcrt) and POSIX terminals.
+
+"""
+
 import argparse
 import json
 import os
