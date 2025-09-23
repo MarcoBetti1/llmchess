@@ -49,16 +49,16 @@ Use the simple wrapper to run all configs in a folder or a custom list. It calls
 
 ```bash
 # Run all demo configs
-python -u scripts/run_tests.py --configs "test-configs/*.json"
+python -u scripts/run_tests.py --configs "test-folder/*.json"
 
 # Mix files and folders (comma-separated)
-python -u scripts/run_tests.py --configs "test-configs,batch_configs/*.json,extra/run.json"
+python -u scripts/run_tests.py --configs "test.json,test-folder/*.json,second-test-folder/test.json"
 
 # Stop on first failure
-python -u scripts/run_tests.py --configs "test-configs/*.json" --stop-on-error
+python -u scripts/run_tests.py --configs "test-folder/*.json" --stop-on-error
 
 # Dry-run to preview commands
-python -u scripts/run_tests.py --configs "test-configs/*.json" --dry-run
+python -u scripts/run_tests.py --configs "test-folder/*.json" --dry-run
 ```
 
 ### writing-tests
