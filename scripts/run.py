@@ -66,7 +66,9 @@ def build_configs_from_dict(d: Dict):
     out_dir = d.get('out_dir')
     if not isinstance(out_dir, str) or not out_dir.strip():
         raise ValueError("Config must include a non-empty 'out_dir' path (e.g., 'runs/test/').")
-    llm_color = d.get('llm_color', 'white')
+    # Color selection: prefer 'color' (may be 'white' | 'black' | 'both'),
+    # with backward-compat fallback to 'llm_color'.
+    color_cfg = (d.get('color') or d.get('llm_color') or 'white')
     max_plies = d.get('max_plies', 480)
     max_illegal = d.get('max_illegal', 1)
     pgn_tail = d.get('pgn_tail', 20)
@@ -84,7 +86,7 @@ def build_configs_from_dict(d: Dict):
 
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
     # Always enable console game log and per-turn conversation/history logging.
-    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), llm_is_white=(llm_color=='white'), prompt_cfg=pcfg, game_log=True)
+    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), color=str(color_cfg if color_cfg != 'both' else 'white').lower(), prompt_cfg=pcfg, game_log=True)
 
     return {
         'model': model,
@@ -96,6 +98,7 @@ def build_configs_from_dict(d: Dict):
         'games': games,
         'mode': mode,
         'gcfg': gcfg,
+    'color': str(color_cfg).lower(),
 
     }
 
@@ -119,14 +122,27 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
     movetime = cfg_entry['movetime']
     engine = cfg_entry['engine']
     games = cfg_entry['games']
+    color_cfg = str(cfg_entry.get('color', 'white')).lower()
     gcfg: GameConfig = cfg_entry['gcfg']
     
     base_gcfg = _override_output_paths(gcfg, config_name, base_out_dir, force_every_turn=True)
 
+    # Determine iteration plan
+    if color_cfg == 'both':
+        total = games * 2
+        def color_for_index_str(k: int) -> str:
+            return 'white' if k < games else 'black'  # first half white, second half black
+    else:
+        total = games
+        color_str = 'white' if color_cfg == 'white' else 'black'
+        def color_for_index_str(k: int, _c=color_str) -> str:
+            return _c
+
     all_metrics = []
-    for i in range(games):
+    for i in range(total):
         # Clone per game and make output unique
         gcfg_i = copy.deepcopy(base_gcfg)
+        gcfg_i.color = color_for_index_str(i)
         p = gcfg_i.conversation_log_path
         if p:
             try:
@@ -171,13 +187,26 @@ def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | 
     movetime = cfg_entry['movetime']
     engine = cfg_entry['engine']
     games = cfg_entry['games']
+    color_cfg = str(cfg_entry.get('color', 'white')).lower()
     gcfg: GameConfig = cfg_entry['gcfg']
 
     # Override output paths per config if requested
     gcfg = _override_output_paths(gcfg, config_name, base_out_dir, force_every_turn=True)
 
+    # Prepare per-game color assignment for efficient batching
+    per_game_colors = None
+    num_games = games
+    if color_cfg == 'both':
+        num_games = games * 2
+        # First half white, second half black
+        per_game_colors = [True] * games + [False] * games
+    elif color_cfg == 'white':
+        per_game_colors = [True] * games
+    elif color_cfg == 'black':
+        per_game_colors = [False] * games
+
     # batch orchestrator == multi-game loop; prefer_batches decides transport (Batches API vs parallel /responses)
-    orch = BatchOrchestrator(model=model, num_games=games, opponent=opponent, depth=depth, movetime_ms=movetime, engine=engine, base_cfg=gcfg, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
+    orch = BatchOrchestrator(model=model, num_games=num_games, opponent=opponent, depth=depth, movetime_ms=movetime, engine=engine, base_cfg=gcfg, prefer_batches=prefer_batches, items_per_batch=items_per_batch, per_game_colors=per_game_colors)
     summaries = orch.run()
     all_metrics = []
     for i, m in enumerate(summaries):

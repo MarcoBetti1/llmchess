@@ -6,16 +6,24 @@ Built for chatgpt, built by chatgpt.
 - **Log system**: Current unused logging system takes up a space in code and config. At least move option to profile?
 - **Batch cancel**: Since we often run tests and dont wait for batch results this may waste tokens.  (later if running in app, manual for now)
 - **Play one**: Not a huge reason to have this functionality. Although having a single game controlled manually could be fun, maybe if I think the llm can beat me in chess.  
-- **Inspect**: View_game should be removed.
-# LLM Chess
+- **Salvaged Move**: Make this part more clear. When the agent helps vs when the agents response is equal to raw response.
 
+# LLM Chess
 A lightweight benchmark to test LLMs on chess with light agent system:  
-Currently 1 agent who:  
+
+## Agent Normalizer
+Agents main purpose is to:
 
 1) ensures the model's reply actually contains a chess move, and
 2) return it in a strict **UCI** format (e.g., `e2e4`, `e7e8q`).
 
-The game pipeline:
+To take some weight off the llm I decided to use an agent for verifying/correcting the llms response into something that we can use in a chess game.
+Maybe the llms response is "My best move is fxg3", the agent will then return just "fxg3".
+
+- The **agent** only validates/normalizes the move. All strategy testing is handled by the engine opponent and results.
+- The code uses the OpenAI **Responses API** for free-form LLM replies and the **Agents SDK** for the validator tool.
+
+## Game Logic
 - We prompt a target model and ask for the *best move*.
 - We pass the model's free-form reply to a tiny **Agent (Agents SDK)** that calls a Python tool to validate the move
   against the FEN and normalize it to UCI. If invalid, the agent is asked to try again.
@@ -25,12 +33,15 @@ The game pipeline:
 raw -> candidate via agent_normalizer -> validate against FEN -> apply if legal; else salvage from raw -> apply -> record/log.  
 Conversation logs show raw; structured history shows what actually got played.
 
-### Notes
-- The **agent** only validates/normalizes the move. All strategy testing is handled by the engine opponent and results.
-- The code uses the OpenAI **Responses API** for free-form LLM replies and the **Agents SDK** for the validator tool.
-
 ## Quickstart (todo)
-Requirements, Yaml, Json test or play one.
+Make python venv `python -m venv venv`.  
+Activate venv `source bin/scripts/activate` on mac.  
+Install requirements `pip install -r requirements.txt`.    
+Set OPENAI API key in environment as `OPENAI_API_KEY`.   
+Make `settings.yaml` file for changing settings and setting engine path.  
+Download stockfish and set `STOCKFISH_PATH` settings variable
+
+
 
 ## Config-driven runs
 You can run experiments with just a config file. Outputs are always written:
@@ -40,19 +51,21 @@ See [writing tests](#writing-tests) section for all supported fields.
 Run it with:
 
 ```bash
-python -u scripts/run.py --configs tests/demo-tests/config.json
+python -u scripts/run.py --configs tests/demo-tests/demo.json
+
+
 ```
 
-### Run multiple configs (test automation)
+#### Run multiple configs (test automation)
 
 Use the simple wrapper to run all configs in a folder or a custom list. It calls `scripts/run.py` for each file and summarizes results.
 
 ```bash
 # Run all demo configs
-python -u scripts/run_tests.py --configs "test-folder/*.json"
+python -u scripts/run_tests.py --configs "tests/*.json"
 
 # Mix files and folders (comma-separated)
-python -u scripts/run_tests.py --configs "test.json,test-folder/*.json,second-test-folder/test.json"
+python -u scripts/run_tests.py --configs "tests/demo-tests/batch_demo.json,tests/demo-tests/sequential_demo.json"
 
 # Stop on first failure
 python -u scripts/run_tests.py --configs "test-folder/*.json" --stop-on-error
@@ -95,7 +108,7 @@ We load tests in the form of json files via `--configs <path or glob>`. Example:
 - `depth`: Stockfish search depth (used when `movetime` is null).
 - `movetime`: Stockfish movetime in milliseconds; overrides `depth` when set.
 - `engine`: Engine name; only `Stockfish` is supported (binary path via `STOCKFISH_PATH`).
-- `llm_color`: `white` or `black` — which side the LLM plays.
+- `llm_color`: `white`, `black` or `both` — which side the LLM plays. Both runs the test twice one for each side.
 - `max_plies`: Maximum total plies before truncation.
 - `max_illegal`: Illegal LLM moves allowed before termination (when reached, game ends as a loss for the LLM).
 - `pgn_tail`: Number of recent plies included when building a PGN tail (used by prompting and future FEN mode).
@@ -113,7 +126,7 @@ We load tests in the form of json files via `--configs <path or glob>`. Example:
 
 ---
 
-## config profile
+## Configure Settings
 
 Primary configuration is read from `prof.yml` at the repo root. All keys can and should be provided as environment variables; when both are present, YAML values take precedence.
 

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 import os
 from typing import Any, Callable
 
-# Optional: keep dotenv for legacy .env users; YAML takes precedence
+# YAML takes precedence
 try:
     from dotenv import load_dotenv  # type: ignore
     load_dotenv()
@@ -41,7 +41,7 @@ def _load_yaml(path: str) -> dict:
     return {}
 
 
-_cfg = _load_yaml(os.path.join(_repo_root(), "prof.yml"))
+_cfg = _load_yaml(os.path.join(_repo_root(), "settings.yml"))
 
 
 def _parse_bool(v: Any) -> bool:
