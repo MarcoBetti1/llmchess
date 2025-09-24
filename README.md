@@ -1,4 +1,5 @@
-Built for chatgpt, built by chatgpt.
+Built for chatgpt, built by chatgpt.  
+Trying to bring out one of my llm benchmark ideas. If this line exists then its extremely unfinished.  
 # TODO
 - **Batch optimization**: See about combining different tests where sum (# total games) < Max batch size. Seems batches can be submitted in parallel. 
 - **Black/White config settings**: Add an option for both where the test is doubled one for black one for white.  
@@ -7,6 +8,13 @@ Built for chatgpt, built by chatgpt.
 - **Batch cancel**: Since we often run tests and dont wait for batch results this may waste tokens.  (later if running in app, manual for now)
 - **Play one**: Not a huge reason to have this functionality. Although having a single game controlled manually could be fun, maybe if I think the llm can beat me in chess.  
 - **Salvaged Move**: Make this part more clear. When the agent helps vs when the agents response is equal to raw response.
+- **LLM_COLOR**: Simplify color logic. Code and results storage use things like LLM_IS_WHITE. This is needed in starting a game because if LLM_IS_WHITE and "starting_context_enabled": true Then the prompt forming logic for the first turn is affected. But we shouldnt store the game results as LLM_IS_WHITE. Instead we should store players and their colors like:
+
+LLM: White  
+
+OPP: Black  
+
+We also shouldnt pass the test config variable as llm is white. instead just pass color (since 'both' can be passed in place of color as test to duplicate that test for each color) and have a static check on the first turn of a game to see if llm is white and starting context is needed. 
 
 # LLM Chess
 A lightweight benchmark to test LLMs on chess with light agent system:  
@@ -32,6 +40,7 @@ Maybe the llms response is "My best move is fxg3", the agent will then return ju
 ### Prompt Flow
 raw -> candidate via agent_normalizer -> validate against FEN -> apply if legal; else salvage from raw -> apply -> record/log.  
 Conversation logs show raw; structured history shows what actually got played.
+
 
 ## Quickstart (todo)
 Make python venv `python -m venv venv`.  
