@@ -26,6 +26,9 @@
   const btnHumanMove = document.getElementById('btnHumanMove');
   const playHint = document.getElementById('playHint');
   const llmWaiting = document.getElementById('llmWaiting');
+  const llmPendingPanel = document.getElementById('llmPendingPanel');
+  const llmTimerEl = document.getElementById('llmTimer');
+  const llmLastDurationEl = document.getElementById('llmLastDuration');
 
   // ===== State =====
   let allGames = [];
@@ -41,6 +44,8 @@
   let pendingHumanMove = null; // {from,to,uci}
   let currentLegalMoves = []; // array of {uci, from, to, promotion}
   let pollTimer = null;
+  let playHumanColor = null; // 'white' | 'black'
+  let llmTimerHandle = null;
 
   function uciToPretty(move) {
     if (!move) return '';
@@ -267,9 +272,25 @@
   playForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(playForm); const body = {}; fd.forEach((v,k)=> body[k]=v);
-    const r = await fetch('/api/play/start', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
-    const j = await r.json(); playSessionId = j.session_id; playStatus.textContent = 'Session ' + playSessionId + ' started';
-    btnHumanMove.disabled = false; btnLLMTurn.disabled = false; await refreshPlayState();
+    playStatus.textContent = 'Starting game...';
+    try {
+      const r = await fetch('/api/play/start', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+      let text = await r.text();
+      let j;
+      try { j = JSON.parse(text); } catch(parseErr){ throw new Error('Server response not JSON: '+ text.slice(0,120)); }
+      if(!r.ok){ throw new Error(j.error || r.status + ' ' + r.statusText); }
+      playSessionId = j.session_id; 
+      playStatus.textContent = 'Session ' + playSessionId + ' started';
+      const llmColor = (j.llm_color || 'white').toLowerCase();
+      playHumanColor = llmColor === 'white' ? 'black' : 'white';
+      playFlipped = (playHumanColor === 'black');
+      playBoardEl.classList.remove('disabled');
+      btnHumanMove.disabled = true; 
+      pendingHumanMove = null; playHint.textContent = '';
+      await refreshPlayState();
+    } catch(err){
+      playStatus.textContent = 'Failed to start: ' + err;
+    }
   });
 
   btnHumanMove?.addEventListener('click', async () => {
@@ -278,7 +299,7 @@
     const uci = pendingHumanMove.uci;
     pendingHumanMove = null;
     playHint.textContent = '';
-    await fetch('/api/play/human_move', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({session_id: playSessionId, uci})});
+    try { await fetch('/api/play/human_move', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({session_id: playSessionId, uci})}); } catch {}
     await refreshPlayState();
   });
 
@@ -287,6 +308,7 @@
     drawBoardPlay(d.fen, d); renderConversation(d.conversation||[]); renderPlayMoves(d.moves||[]);
     currentLegalMoves = d.legal_moves || [];
     const humanTurn = d.human_turn;
+    updatePendingPanel(d);
     if(d.result && d.result !== '*') {
       playStatus.textContent = `Game over: ${d.result} (${d.termination_reason||'normal'})`;
       llmWaiting.hidden = true; clearPolling(); btnHumanMove.disabled = true; return;
@@ -297,17 +319,36 @@
       btnHumanMove.disabled = !pendingHumanMove;
       clearPolling();
     } else {
-      // LLM turn: show waiting, poll until turn passes or game ends
       playHint.textContent = '';
       btnHumanMove.disabled = true;
-      llmWaiting.hidden = false;
+      llmWaiting.hidden = true; // replaced by pending panel
       ensurePolling();
     }
   }
   function ensurePolling(){ if(pollTimer) return; pollTimer = setInterval(()=>{ if(playSessionId) refreshPlayState(); }, 1800); }
   function clearPolling(){ if(pollTimer){ clearInterval(pollTimer); pollTimer=null; } }
   function renderConversation(msgs){ playConversationEl.textContent = msgs.map(m=>`${m.role}> ${m.content}`).join('\n'); playConversationEl.scrollTop = playConversationEl.scrollHeight; }
-  function renderPlayMoves(moves){ playMovesEl.innerHTML=''; moves.filter(m=>m.san).forEach(m=>{ const li=document.createElement('li'); li.textContent = `${m.ply}. ${m.san} (${m.actor})`; playMovesEl.appendChild(li); }); }
+  function renderPlayMoves(moves){
+    playMovesEl.innerHTML='';
+    const filtered = moves.filter(m=>m.san && m.actor && m.actor !== 'termination');
+    filtered.forEach(m=>{
+      const li=document.createElement('li');
+      const plySpan=document.createElement('span'); plySpan.className='ply'; plySpan.textContent = m.ply;
+      const sanSpan=document.createElement('span'); sanSpan.className='san'; sanSpan.textContent = m.san;
+      const actorSpan=document.createElement('span'); actorSpan.className='actor'; actorSpan.textContent = m.actor;
+      li.appendChild(plySpan); li.appendChild(sanSpan); li.appendChild(actorSpan); playMovesEl.appendChild(li);
+    });
+  }
+  function updatePendingPanel(d){
+    if(!llmPendingPanel) return;
+    if(d.llm_pending){
+      llmPendingPanel.classList.remove('hidden');
+      llmTimerEl.textContent = (d.llm_pending_for_ms/1000).toFixed(1)+'s';
+    } else {
+      if(d.llm_last_duration_ms){ llmLastDurationEl.textContent = `Last: ${(d.llm_last_duration_ms/1000).toFixed(2)}s`; }
+      llmPendingPanel.classList.add('hidden');
+    }
+  }
   function drawBoardPlay(fen, state){
     const placement = fen.split(' ')[0]; const rows=placement.split('/'); const grid=[]; for(let r=0;r<8;r++){ const row=rows[r]; const out=[]; for(const ch of row){ if(/^[1-8]$/.test(ch)){ for(let i=0;i<parseInt(ch,10);i++) out.push(''); } else out.push(ch);} grid.push(out);} let rs=[...grid]; if(playFlipped){ rs=rs.slice().reverse().map(r=>r.slice().reverse()); }
     // Build index mapping for orientation to coordinate names
@@ -320,43 +361,80 @@
       return file + rank;
     }
     playBoardEl.innerHTML='';
-    let dragOrigin = null;
-    let dragOriginSq = null;
     const humanTurn = state?.human_turn;
     const legalByFrom = {};
     (state?.legal_moves||[]).forEach(m => { (legalByFrom[m.from] ||= []).push(m); });
+
+    // Drag & click state
+    let selectedFrom = null; // square name
+    let ghostEl = null; // floating piece element during drag
+    let dragging = false;
+
+    function clearHighlights(){
+      playBoardEl.querySelectorAll('.sq').forEach(sq=>{
+        sq.classList.remove('selected-from','legal-target','hover-target');
+      });
+    }
+    function highlightFrom(from){
+      clearHighlights();
+      const originCell = playBoardEl.querySelector(`.sq[data-square="${from}"]`);
+      if(originCell) originCell.classList.add('selected-from');
+      (legalByFrom[from]||[]).forEach(m=>{
+        const tgt = playBoardEl.querySelector(`.sq[data-square="${m.to}"]`);
+        if(tgt) tgt.classList.add('legal-target');
+      });
+    }
+    function commitMove(from,to){
+      const mv = (legalByFrom[from]||[]).find(m=>m.to===to);
+      if(mv){
+        pendingHumanMove = {from, to, uci: mv.uci};
+        playHint.textContent = `${mv.uci} ready`;
+        btnHumanMove.disabled = false;
+      }
+      cancelSelection();
+    }
+    function cancelSelection(){
+      selectedFrom = null; dragging = false; if(ghostEl){ ghostEl.remove(); ghostEl=null; }
+      clearHighlights();
+    }
+    function startDrag(cell){
+      if(!cell) return; const sq = cell.dataset.square; if(!sq) return; selectedFrom = sq; highlightFrom(sq); dragging = true; btnHumanMove.disabled = true;
+      // create ghost
+      const pieceSpan = cell.querySelector('span');
+      if(pieceSpan){
+        ghostEl = document.createElement('div');
+        ghostEl.className = 'drag-ghost';
+        ghostEl.textContent = pieceSpan.textContent;
+        document.body.appendChild(ghostEl);
+      }
+    }
+    function updateGhostPosition(ev){ if(!ghostEl) return; ghostEl.style.left = (ev.clientX - 24) + 'px'; ghostEl.style.top = (ev.clientY - 24) + 'px'; }
+    function squareAtPoint(ev){ const el = document.elementFromPoint(ev.clientX, ev.clientY); if(!el) return null; return el.closest('.sq'); }
     function onPointerDown(e){
       if(!humanTurn) return;
       const cell = e.currentTarget; const sq = cell.dataset.square;
       if(!sq || !legalByFrom[sq]) return;
-      dragOrigin = cell; dragOriginSq = sq; cell.classList.add('drag-origin');
+      e.preventDefault();
+      if(selectedFrom === sq){ cancelSelection(); return; }
+      startDrag(cell);
     }
-    function onPointerEnter(e){
-      if(!dragOriginSq) return; const cell=e.currentTarget; const targetSq=cell.dataset.square; if(!targetSq) return;
-      if(isLegalTarget(dragOriginSq,targetSq)) cell.classList.add('drop-target-valid');
-    }
-    function onPointerLeave(e){ e.currentTarget.classList.remove('drop-target-valid'); }
-    function onPointerUp(e){
-      if(!dragOriginSq) return; const cell=e.currentTarget; const targetSq=cell.dataset.square; if(!targetSq) { resetDrag(); return; }
-      if(isLegalTarget(dragOriginSq,targetSq)) {
-        const mv = legalByFrom[dragOriginSq].find(m=>m.to===targetSq) || null;
-        if(mv){ pendingHumanMove = {from: dragOriginSq, to: targetSq, uci: mv.uci}; playHint.textContent = `${mv.uci} ready`; btnHumanMove.disabled = false; }
-      }
-      resetDrag();
-    }
-    function resetDrag(){ if(dragOrigin){ dragOrigin.classList.remove('drag-origin'); } dragOrigin=null; dragOriginSq=null; Array.from(playBoardEl.querySelectorAll('.drop-target-valid')).forEach(el=>el.classList.remove('drop-target-valid')); }
+    function onPointerMove(e){ if(!dragging) return; updateGhostPosition(e); const cell = squareAtPoint(e); playBoardEl.querySelectorAll('.sq.hover-target').forEach(x=>x.classList.remove('hover-target')); if(cell){ const tgtSq = cell.dataset.square; if(tgtSq && selectedFrom && isLegalTarget(selectedFrom, tgtSq)) cell.classList.add('hover-target'); } }
+    function onPointerUp(e){ if(!dragging) return; const cell = squareAtPoint(e); if(cell && selectedFrom){ const tgtSq = cell.dataset.square; if(tgtSq && isLegalTarget(selectedFrom, tgtSq)) { commitMove(selectedFrom, tgtSq); return; } }
+      cancelSelection(); }
     function isLegalTarget(from,to){ return !!(legalByFrom[from] && legalByFrom[from].some(m=>m.to===to)); }
+    // Click (non-drag) fallback
+    playBoardEl.addEventListener('click', (e)=>{ if(!humanTurn) return; const cell = e.target.closest('.sq'); if(!cell) return; const sq = cell.dataset.square; if(!sq) return; if(selectedFrom && selectedFrom !== sq && isLegalTarget(selectedFrom, sq)){ commitMove(selectedFrom, sq); } else if(legalByFrom[sq]) { selectedFrom = sq; highlightFrom(sq); btnHumanMove.disabled = true; playHint.textContent = 'Select destination'; } });
+
+    if(humanTurn){
+      document.addEventListener('pointermove', onPointerMove, {passive:true});
+      document.addEventListener('pointerup', onPointerUp, {once:true});
+    }
     for(let r=0;r<8;r++){
       for(let c=0;c<8;c++){
         const cell=document.createElement('div'); cell.className='sq '+(((r+c)%2===0)?'light':'dark'); const p=rs[r][c];
         const squareName = coordFromDisplay({r,c}); cell.dataset.square = squareName;
         if(p){ const span=document.createElement('span'); span.className= /[A-Z]/.test(p)?'white':'black'; span.textContent = pieceGlyph(p); cell.appendChild(span);}        
-        if(humanTurn) {
-          cell.addEventListener('pointerdown', onPointerDown);
-          cell.addEventListener('pointerup', onPointerUp);
-          cell.addEventListener('pointerenter', onPointerEnter);
-          cell.addEventListener('pointerleave', onPointerLeave);
-        }
+        if(humanTurn) { cell.addEventListener('pointerdown', onPointerDown); }
         playBoardEl.appendChild(cell);
       }
     }
@@ -364,5 +442,11 @@
 
   // ===== Init =====
   function initBoardGrid(){ boardEl?.style.setProperty('--rows',8); boardEl?.style.setProperty('--cols',8); playBoardEl?.style.setProperty('--rows',8); playBoardEl?.style.setProperty('--cols',8);}  
-  initBoardGrid(); loadGames(); loadAnalysis();
+  initBoardGrid();
+  // Pre-game: show starting position but disable interactions until session starts
+  if(playBoardEl){
+    playBoardEl.classList.add('disabled');
+    drawBoardPlay('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', {human_turn:false, legal_moves:[]});
+  }
+  loadGames(); loadAnalysis();
 })();
