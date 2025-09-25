@@ -11,7 +11,7 @@
   "conversation_mode": false,
   "out_dir": "runs/test/batch",
   "prompt": {
-    "mode": "plaintext",
+    "mode": "fen+plaintext",
     "starting_context_enabled": true,
     "instruction_line": "Provide only your best legal move in SAN."
   },

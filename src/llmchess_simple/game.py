@@ -19,7 +19,7 @@ from .agent_normalizer import normalize_with_agent
 from .move_validator import normalize_move
 import os
 from datetime import datetime
-from .prompting import PromptConfig, build_plaintext_messages, build_fen_messages
+from .prompting import PromptConfig, build_plaintext_messages, build_fen_messages, build_fen_plaintext_messages
 
 
 @dataclass
@@ -91,7 +91,12 @@ class GameRunner:
                 side = "w" if self._llm_is_white() else "b"
                 # Include prompting mode in filename for clarity
                 pmode = (self.cfg.prompt_cfg.mode or "plaintext").lower()
-                mode_tag = "fen" if pmode == "fen" else "std"
+                if pmode == "fen":
+                    mode_tag = "fen"
+                elif pmode in ("fen+plaintext", "fen_plaintext", "fen-and-plaintext"):
+                    mode_tag = "fenpl"
+                else:
+                    mode_tag = "std"
                 fname = f"conv_{ts}_{mode_tag}_{side}.json"
                 resolved = os.path.join(dir_path, fname)
             else:
@@ -265,12 +270,16 @@ class GameRunner:
         history = self._annotated_history()
         # Starting context if LLM is white and no moves yet
         is_starting = self._llm_is_white() and len(self.ref.board.move_stack) == 0
-        if self.cfg.prompt_cfg.mode == "fen":
+        mode = (self.cfg.prompt_cfg.mode or "plaintext").lower()
+        if mode == "fen":
             fen = self.ref.board.fen()
             pgn_tail = self._pgn_tail()
             return build_fen_messages(fen=fen, pgn_tail=pgn_tail, side=side, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
-        else:
-            return build_plaintext_messages(side=side, history_text=history, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
+        if mode in ("fen+plaintext", "fen_plaintext", "fen-and-plaintext"):
+            fen = self.ref.board.fen()
+            return build_fen_plaintext_messages(fen=fen, side=side, history_text=history, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
+        # default plaintext
+        return build_plaintext_messages(side=side, history_text=history, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
 
     def step_llm_with_raw(self, raw: str):
         """Process a provided raw LLM reply as the current move, record it, and handle termination state."""
