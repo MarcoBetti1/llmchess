@@ -33,10 +33,8 @@ class GameConfig:
     conversation_log_every_turn: bool = False # write conversation and structured history after every ply
     # Side and validation
     max_illegal_moves: int = 1           # number of illegal LLM moves allowed before termination
-    # Preferred color configuration: 'white' | 'black'.
-    # Back-compat: if older configs set llm_is_white, we derive color from it via a helper in GameRunner.
+    # Explicit LLM color: 'white' | 'black'
     color: str = "white"
-    llm_is_white: bool = True            # DEPRECATED
     # Modular prompting configuration
     prompt_cfg: PromptConfig = field(default_factory=PromptConfig)
     # Console logging of moves as they happen
@@ -51,15 +49,12 @@ class GameRunner:
         self.cfg = cfg or GameConfig()
         self.ref = Referee()
         
-        # Helper: determine if LLM plays white (prefers cfg.color, falls back to cfg.llm_is_white)
-        def _derive_is_white() -> bool:
-            c = getattr(self.cfg, "color", None)
-            if c is not None:
-                return str(c).lower() == "white"
-            return bool(getattr(self.cfg, "llm_is_white", True))
-        self._is_white = _derive_is_white()
+        # Normalize LLM color
+        self.llm_color = (getattr(self.cfg, "color", "white") or "white").lower()
+        if self.llm_color not in ("white", "black"):
+            self.llm_color = "white"
         # Decide headers based on side
-        if (self._is_white):
+        if self.llm_color == "white":
             self.ref.set_headers(white=self.model, black=self._opp_name())
         else:
             self.ref.set_headers(white=self._opp_name(), black=self.model)
@@ -70,12 +65,6 @@ class GameRunner:
         self._prepare_conv_log_path()
         self._global_ply = 0  # counts total plies executed in this runner
 
-    def _llm_is_white(self) -> bool:
-        """Return True if the LLM plays White, based on cfg.color (preferred) or legacy cfg.llm_is_white."""
-        c = getattr(self.cfg, "color", None)
-        if c is not None:
-            return str(c).lower() == "white"
-        return bool(getattr(self.cfg, "llm_is_white", True))
 
     def _prepare_conv_log_path(self):
         p = self.cfg.conversation_log_path
@@ -88,7 +77,7 @@ class GameRunner:
                 dir_path = p
                 os.makedirs(dir_path, exist_ok=True)
                 ts = datetime.now().strftime("%Y%m%d-%H%M%S")
-                side = "w" if self._llm_is_white() else "b"
+                side = "w" if self.llm_color == "white" else "b"
                 # Include prompting mode in filename for clarity
                 pmode = (self.cfg.prompt_cfg.mode or "plaintext").lower()
                 if pmode == "fen":
@@ -159,8 +148,8 @@ class GameRunner:
             "model": self.model,
             # Explicit player-color mapping for clarity in outputs
             "players": {
-                "LLM": "White" if self._llm_is_white() else "Black",
-                "OPP": "Black" if self._llm_is_white() else "White",
+                "LLM": "White" if self.llm_color == "white" else "Black",
+                "OPP": "Black" if self.llm_color == "white" else "White",
             },
         }
         # Enrich with explicit termination markers
@@ -262,14 +251,14 @@ class GameRunner:
     def needs_llm_turn(self) -> bool:
         if self.ref.status() != "*":
             return False
-        return (self.ref.board.turn == chess.WHITE and self._llm_is_white()) or (self.ref.board.turn == chess.BLACK and not self._llm_is_white())
+        return (self.ref.board.turn == chess.WHITE and self.llm_color == "white") or (self.ref.board.turn == chess.BLACK and self.llm_color == "black")
 
     def build_llm_messages(self) -> list[dict]:
         """Build the messages for the next LLM turn according to prompt config."""
         side = "white" if self.ref.board.turn == chess.WHITE else "black"
         history = self._annotated_history()
         # Starting context if LLM is white and no moves yet
-        is_starting = self._llm_is_white() and len(self.ref.board.move_stack) == 0
+        is_starting = (self.llm_color == "white") and len(self.ref.board.move_stack) == 0
         mode = (self.cfg.prompt_cfg.mode or "plaintext").lower()
         if mode == "fen":
             fen = self.ref.board.fen()
@@ -472,7 +461,7 @@ class GameRunner:
             return
         # Illegal LLM threshold => LLM loses
         if self.termination_reason == "illegal_llm_move":
-            result = "0-1" if self._llm_is_white() else "1-0"
+            result = "0-1" if self.llm_color == "white" else "1-0"
             self.ref.force_result(result, self.termination_reason)
             return
         # Max plies
@@ -485,7 +474,7 @@ class GameRunner:
         ply = 0
         illegal_moves = 0
         while self.ref.status() == "*" and ply < self.cfg.max_plies:
-            llm_turn_now = (self.ref.board.turn == chess.WHITE and self._llm_is_white()) or (self.ref.board.turn == chess.BLACK and not self._llm_is_white())
+            llm_turn_now = (self.ref.board.turn == chess.WHITE and self.llm_color == "white") or (self.ref.board.turn == chess.BLACK and self.llm_color == "black")
             if llm_turn_now:
                 ok, uci, san, ms, meta = self._llm_turn_standard()
                 self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
@@ -512,7 +501,7 @@ class GameRunner:
         result = self.ref.status()
         if self.termination_reason == "illegal_llm_move" and result == "*":
             # LLM loses regardless of color
-            result = "0-1" if self._llm_is_white() else "1-0"
+            result = "0-1" if self.llm_color == "white" else "1-0"
             self.ref.force_result(result, self.termination_reason)
         elif result != "*":
             self.termination_reason = self.termination_reason or "normal_game_end"

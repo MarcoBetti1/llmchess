@@ -15,6 +15,8 @@ from .game import GameRunner, GameConfig
 from .engine_opponent import EngineOpponent
 from .random_opponent import RandomOpponent
 from .llm_client import submit_responses_blocking_all
+from .config import SETTINGS
+from typing import Callable, Any
 
 log = logging.getLogger("batch_orchestrator")
 
@@ -27,6 +29,8 @@ class BatchOrchestrator:
         # Transport selection for each LLM turn across all active games:
         self.prefer_batches = prefer_batches
         self.items_per_batch = items_per_batch
+        # Track pending retries for games whose last LLM request produced no output
+        self._pending_retry = {}  # game_index -> retry_count (int)
 
     def _build_games(self, n: int, opponent: str, depth: Optional[int], movetime_ms: Optional[int], engine: Optional[str], base_cfg: Optional[GameConfig], per_game_colors: Optional[List[bool]] = None):
         for i in range(n):
@@ -66,8 +70,10 @@ class BatchOrchestrator:
     def _active_indices(self) -> List[int]:
         return [i for i, r in enumerate(self.runners) if r.ref.status() == "*"]
 
-    def run(self, max_cycles: Optional[int] = None) -> List[dict]:
+    def run(self, max_cycles: Optional[int] = None, progress_cb: Optional[Callable[[dict], Any]] = None) -> List[dict]:
         """Run all games to completion (or until max_cycles), batching LLM prompts each cycle.
+        Optional progress_cb is invoked after each cycle with a dict containing:
+          cycle, active_count, games: [{index, plies, terminated, result}]
         Returns: list of per-game summaries.
         """
         while True:
@@ -96,6 +102,7 @@ class BatchOrchestrator:
             active = self._active_indices()
             items: List[Dict] = []
             index_map: Dict[str, int] = {}
+            # First, prepare normal new turn items
             for i in active:
                 r = self.runners[i]
                 if r.needs_llm_turn():
@@ -103,24 +110,77 @@ class BatchOrchestrator:
                     cid = f"g{i}_ply{len(r.records)+1}"
                     items.append({"custom_id": cid, "messages": msgs, "model": self.model})
                     index_map[cid] = i
+            # Next, append any pending retry items for games still awaiting same ply (ensure no duplication)
+            retry_items: List[Dict] = []
+            for gi, count in list(self._pending_retry.items()):
+                # Skip if game finished while waiting
+                runner = self.runners[gi]
+                if runner.ref.status() != "*":
+                    del self._pending_retry[gi]
+                    continue
+                # If the game advanced anyway (somehow), drop retry
+                if not runner.needs_llm_turn():
+                    del self._pending_retry[gi]
+                    continue
+                # Only retry if below max
+                if count >= SETTINGS.partial_retry_max:
+                    log.warning("Game %d exceeded partial retry max (%d); skipping further retries", gi, SETTINGS.partial_retry_max)
+                    del self._pending_retry[gi]
+                    continue
+                cid = f"g{gi}_ply{len(runner.records)+1}"
+                if cid in index_map:
+                    # Already included as a fresh item; treat that as natural retry and reset counter
+                    self._pending_retry[gi] = 0
+                    continue
+                msgs = runner.build_llm_messages()
+                retry_items.append({"custom_id": cid, "messages": msgs, "model": self.model})
+                index_map[cid] = gi
+            if retry_items:
+                log.debug("Including %d retry items in cycle %d", len(retry_items), self._cycle)
+                # Strategy: combine retries and fresh items in one transport submission
+                items.extend(retry_items)
 
             if not items:
                 # Nothing to ask this cycle (e.g., all became terminal after engine move)
+                # Still emit progress so UI can update plies after engine-only cycle
+                if progress_cb:
+                    progress_cb(self._progress_snapshot())
                 continue
 
             # 3) Submit one request per active LLM turn this cycle using chosen transport
             log.debug("Cycle %d submitting %d LLM turns (prefer_batches=%s)", self._cycle, len(items), self.prefer_batches)
             outputs = submit_responses_blocking_all(items, prefer_batches=self.prefer_batches, items_per_batch=self.items_per_batch)
+            expected_cids = set(index_map.keys())
+            received_cids = set(outputs.keys())
+            missing_cids = expected_cids - received_cids
+            if missing_cids:
+                log.warning("Cycle %d partial batch: received %d/%d (missing=%s)", self._cycle, len(received_cids), len(expected_cids), sorted(missing_cids))
+            # Process received outputs
             for cid, text in outputs.items():
                 i = index_map.get(cid)
                 if i is None:
                     continue
                 r = self.runners[i]
                 r.step_llm_with_raw(text)
+                # Successful receipt resets retry counter
+                if i in self._pending_retry:
+                    del self._pending_retry[i]
+            # Handle missing outputs: increment retry counters
+            for cid in missing_cids:
+                gi = index_map.get(cid)
+                if gi is None:
+                    continue
+                prev = self._pending_retry.get(gi, 0)
+                self._pending_retry[gi] = prev + 1
+                log.debug("Marked game %d for retry (attempt %d)", gi, self._pending_retry[gi])
 
             # 4) Finalize after LLM moves (e.g., illegal threshold)
             for r in self.runners:
                 r.finalize_if_terminated()
+
+            # Emit progress after LLM cycle
+            if progress_cb:
+                progress_cb(self._progress_snapshot())
 
         # Close opponents, dump final artifacts, and collect summaries
         summaries: List[dict] = []
@@ -138,3 +198,18 @@ class BatchOrchestrator:
                 pass
             summaries.append(r.summary())
         return summaries
+
+    # -------------------- Helpers --------------------
+    def _progress_snapshot(self) -> dict:
+        games = []
+        for i, r in enumerate(self.runners):
+            res = r.ref.status()
+            games.append({
+                "index": i,
+                "plies": len(r.records),
+                "terminated": res != "*" or bool(r.termination_reason),
+                "result": res if res != "*" else None,
+                "termination_reason": r.termination_reason,
+            })
+        active = sum(1 for g in games if not g["terminated"])
+        return {"cycle": self._cycle, "active_count": active, "games": games}

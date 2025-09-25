@@ -16,5 +16,5 @@
     "instruction_line": "Provide only your best legal move in SAN."
   },
   "games": 1,
-  "mode": "sequential"
+  "mode": "batch"
 }

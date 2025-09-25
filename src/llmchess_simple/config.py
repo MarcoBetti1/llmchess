@@ -85,6 +85,7 @@ class Settings:
     responses_retries: int
     max_concurrency: int
     use_guard_agent: bool
+    partial_retry_max: int
 
 
 SETTINGS = Settings(
@@ -99,4 +100,5 @@ SETTINGS = Settings(
     responses_retries=int(_get("LLMCHESS_RESPONSES_RETRIES", 4, cast=int)),
     max_concurrency=int(_get("LLMCHESS_MAX_CONCURRENCY", 8, cast=int)),
     use_guard_agent=_parse_bool(_get("LLMCHESS_USE_GUARD_AGENT", True)),
+    partial_retry_max=int(_get("LLMCHESS_PARTIAL_RETRY_MAX", 3, cast=int)),
 )
