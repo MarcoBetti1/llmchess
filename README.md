@@ -1,14 +1,18 @@
 Built for chatgpt, built by chatgpt.  
 Trying to bring out one of my llm benchmark ideas. If this line exists then its extremely unfinished.  
 ### TODO
-- **Batch optimization**: See about combining different model-consistent tests where sum (# total games) < Max batch size. (low priority)
+- **Reasoning Tokens**: GPT5 late game responses can have output reasoning tokens like 20k for a single turn of a game. Can we see this reasoning? the actual response is < 10 tokens. Even if we cant see what they are, fetch the total token count for enhanced results. 
 - **Config simplifcation**: make config simpler and [more intuitive](#test-params)
 - **Log system**: First gotta figure out whats going on here.  
 - **Batch cancel**: Since we often run tests and dont wait for batch results this may waste tokens.  (later if running in app, manual for now)
 - **Play one**: For fun.  
-- **Salvaged Move**: Clairfy when the agent helps vs when the agents response is equal to raw response.
-- **Results**: Clarify current system. Hist file is a bit redundant, conv is fine for now.  
-- **FEN prompting**: To see if model does better when we attach or substitue FEN game state. Currently "fen+plaintext" as prompting argument. Test this feature.  
+- **Salvaged Move**: Clarify when the agent helps vs when the agents response is equal to raw response.
+- **Results**
+- **Check Alert**: starting prompt context, but instead of starting prompt, its when the game is in check and its the llms turn.
+
+#### UI
+- In run part, give notification when game in check state
+- Fix testing part.
 
 # LLM Chess
 A lightweight benchmark to test LLMs on chess with light agent system:  
@@ -141,11 +145,6 @@ Keys
 - LLMCHESS_MAX_CONCURRENCY: Parallel /responses concurrency (default: 8).
 - LLMCHESS_RESPONSES_TIMEOUT_S, LLMCHESS_RESPONSES_RETRIES, LLMCHESS_TURN_MAX_WAIT_S, LLMCHESS_BATCH_POLL_S, LLMCHESS_BATCH_TIMEOUT_S: Advanced tuning knobs.
 - LLMCHESS_USE_GUARD_AGENT: 1 to enable the guard agent (default enabled), 0 to disable.
-
-Environment usage (optional)
-- You may still set any of the above as environment variables. This is convenient for CI or one-off runs.
-- Examples (Windows PowerShell): `$env:LLMCHESS_ITEMS_PER_BATCH=50`
-- Examples (Windows CMD): `set LLMCHESS_ITEMS_PER_BATCH=50`
 
 ---
 
