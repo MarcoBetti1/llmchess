@@ -93,3 +93,4 @@ The app uses a lightweight in-memory run manager (`inspect/run_manager.py`) that
 - Slim down or relocate the legacy logging hooks that are currently unused.
 - Add first-class cancellation for batch jobs to avoid wasting tokens when runs are aborted.
 - Explore a “play one” interactive mode for human-vs-LLM experiments.
+- On illegal move (before max_illegal), append that move and the fact that it was illegal to next prompt context
