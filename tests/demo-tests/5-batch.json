@@ -1,5 +1,5 @@
 {
-  "model": "gpt-4.1",
+  "model": "gpt-5",
   "opponent": "random",
   "depth": 6,
   "movetime": null,
@@ -9,7 +9,7 @@
   "pgn_tail": 20,
   "verbose_llm": false,
   "conversation_mode": false,
-  "out_dir": "runs/GPT5/",
+  "out_dir": "runs/5-batch/",
   "prompt": {
     "mode": "plaintext",
     "starting_context_enabled": true,

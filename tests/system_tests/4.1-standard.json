@@ -1,5 +1,5 @@
 {
-  "model": "gpt-5",
+  "model": "gpt-4.1",
   "opponent": "random",
   "depth": 6,
   "movetime": null,
@@ -7,14 +7,15 @@
   "max_plies": 240,
   "max_illegal": 1,
   "pgn_tail": 20,
-  "verbose_llm": false,
+  "verbose_llm": true,
+  "prompt_system": "standard",
   "conversation_mode": false,
-  "out_dir": "runs/GPT5/",
+  "out_dir": "runs/4.1-standard/",
   "prompt": {
     "mode": "plaintext",
     "starting_context_enabled": true,
-    "instruction_line": "Provide only your best legal move in SAN."
+    "instruction_line": "Propose the single best legal move in SAN notation. Respond with only the SAN string (e.g., Nf3)."
   },
-  "games": 10,
+  "games": 50,
   "mode": "batch"
 }

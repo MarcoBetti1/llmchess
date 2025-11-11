@@ -81,12 +81,14 @@ def build_configs_from_dict(d: Dict):
     starting_context_enabled = prompt.get('starting_context_enabled', True)
     instruction_line = prompt.get('instruction_line', 'Provide only your best legal move in SAN.')
 
+    prompt_system = (d.get('prompt_system') or 'standard')
+
     # Conversation/history logs will be placed under the run's output directory
     conv_every = True
 
     pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
     # Always enable console game log and per-turn conversation/history logging.
-    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), color=str(color_cfg if color_cfg != 'both' else 'white').lower(), prompt_cfg=pcfg, game_log=True)
+    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), color=str(color_cfg if color_cfg != 'both' else 'white').lower(), prompt_cfg=pcfg, prompt_system=str(prompt_system).lower(), game_log=True)
 
     return {
         'model': model,

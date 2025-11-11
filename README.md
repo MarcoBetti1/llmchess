@@ -52,6 +52,10 @@ Every config writes its outputs under the provided `out_dir`:
 
 You can switch between natural-language histories, FEN-only prompts, or hybrids by editing the `prompt` block in your config. The effect of each mode, plus guidance on requesting SAN vs UCI outputs, is detailed in [`docs/chess-text-representation.md`](docs/chess-text-representation.md). Because legality is ultimately enforced by `python-chess`, you can experiment freely with different textual representations.
 
+### Prompt systems
+
+Set the optional `prompt_system` field in your JSON config to control how many LLM exchanges happen per turn. The default value `"standard"` keeps the existing single-message flow. The new `"legal-move-system-simple"` system introduces a two-step interaction: the model proposes a move, a follow-up question asks whether that move is legal, and only confirmed moves proceed (with up to three retries before falling back to standard validation). The resulting conversation logs capture every stage so you can audit the reasoning.
+
 ## Batch orchestration & transports
 
 `BatchOrchestrator` keeps many games in lockstep. Set `mode` to `sequential` (default) to use parallel `/responses` calls with retry/backoff controls, or `mode` to `batch` to upload JSONL payloads to the OpenAI Batches API. Chunking and timeout knobs are controlled via configuration variables (`LLMCHESS_ITEMS_PER_BATCH`, `LLMCHESS_BATCH_TIMEOUT_S`, etc.) described in [`docs/configuration.md`](docs/configuration.md).
@@ -81,7 +85,6 @@ The app uses a lightweight in-memory run manager (`inspect/run_manager.py`) that
 - [`docs/chess-text-representation.md`](docs/chess-text-representation.md) – how prompts and replies encode the game.
 - [`docs/agent-normalizer.md`](docs/agent-normalizer.md) – MoveGuard agent prompt and behavior.
 
-Refer to these pages for deeper dives; the README stays focused on the overall architecture and workflow.
 
 ## Roadmap / open questions
 

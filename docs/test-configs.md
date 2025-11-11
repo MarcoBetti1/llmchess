@@ -32,6 +32,7 @@ Everything else is optional.
 | `pgn_tail` | integer | `20` | Number of recent plies included in the PGN tail that feeds prompt builders (used for FEN + plaintext prompts). |
 | `verbose_llm` | boolean | `false` | When true, prints the raw LLM response, candidate move, and legality assessment to the console for each LLM turn. |
 | `prompt` | object | `{}` | Nested structure that customises how prompts are built (see [Prompt settings](#prompt-settings)). |
+| `prompt_system` | string | `"standard"` | Selects the per-turn prompting workflow. Use `"legal-move-system-simple"` to enable the two-step legality checker; any unknown value falls back to the standard single prompt. |
 | `conversation_mode` | boolean | `false` | Currently unused placeholder. Present for legacy configs; toggling it has no effect. |
 
 ## Prompt settings

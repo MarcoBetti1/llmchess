@@ -96,6 +96,7 @@ class BatchOrchestrator:
             active = self._active_indices()
             items: List[Dict] = []
             index_map: Dict[str, int] = {}
+            prompts: Dict[str, List[Dict]] = {}
             for i in active:
                 r = self.runners[i]
                 if r.needs_llm_turn():
@@ -103,6 +104,7 @@ class BatchOrchestrator:
                     cid = f"g{i}_ply{len(r.records)+1}"
                     items.append({"custom_id": cid, "messages": msgs, "model": self.model})
                     index_map[cid] = i
+                    prompts[cid] = msgs
 
             if not items:
                 # Nothing to ask this cycle (e.g., all became terminal after engine move)
@@ -116,7 +118,7 @@ class BatchOrchestrator:
                 if i is None:
                     continue
                 r = self.runners[i]
-                r.step_llm_with_raw(text)
+                r.step_llm_with_raw(text, messages=prompts.get(cid))
 
             # 4) Finalize after LLM moves (e.g., illegal threshold)
             for r in self.runners:

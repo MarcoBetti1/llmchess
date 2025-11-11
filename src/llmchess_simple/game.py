@@ -13,6 +13,7 @@ from __future__ import annotations
 import time, asyncio, logging, statistics, json
 import chess
 from dataclasses import dataclass, field
+from typing import Dict, List, Optional
 from .referee import Referee
 from .llm_client import ask_for_best_move_conversation, SYSTEM
 from .agent_normalizer import normalize_with_agent
@@ -20,6 +21,7 @@ from .move_validator import normalize_move
 import os
 from datetime import datetime
 from .prompting import PromptConfig, build_plaintext_messages, build_fen_messages, build_fen_plaintext_messages
+from .prompt_systems import create_prompt_system
 
 
 @dataclass
@@ -39,6 +41,7 @@ class GameConfig:
     llm_is_white: bool = True            # DEPRECATED
     # Modular prompting configuration
     prompt_cfg: PromptConfig = field(default_factory=PromptConfig)
+    prompt_system: str = "standard"
     # Console logging of moves as they happen
     game_log: bool = False
 
@@ -50,6 +53,8 @@ class GameRunner:
         self.opp = opponent
         self.cfg = cfg or GameConfig()
         self.ref = Referee()
+        self.prompt_system_name = (getattr(self.cfg, "prompt_system", "standard") or "standard").lower()
+        self._active_prompt_system = None
         
         # Helper: determine if LLM plays white (prefers cfg.color, falls back to cfg.llm_is_white)
         def _derive_is_white() -> bool:
@@ -258,58 +263,181 @@ class GameRunner:
             board.push(mv)
         return "\n".join(lines)
 
-    # New helpers for batched orchestration
-    def needs_llm_turn(self) -> bool:
-        if self.ref.status() != "*":
-            return False
-        return (self.ref.board.turn == chess.WHITE and self._llm_is_white()) or (self.ref.board.turn == chess.BLACK and not self._llm_is_white())
-
-    def build_llm_messages(self) -> list[dict]:
-        """Build the messages for the next LLM turn according to prompt config."""
+    def _build_move_request_messages(self, extra_lines: Optional[List[str]] = None) -> List[Dict[str, str]]:
         side = "white" if self.ref.board.turn == chess.WHITE else "black"
         history = self._annotated_history()
-        # Starting context if LLM is white and no moves yet
         is_starting = self._llm_is_white() and len(self.ref.board.move_stack) == 0
         mode = (self.cfg.prompt_cfg.mode or "plaintext").lower()
+
         if mode == "fen":
             fen = self.ref.board.fen()
             pgn_tail = self._pgn_tail()
-            return build_fen_messages(fen=fen, pgn_tail=pgn_tail, side=side, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
-        if mode in ("fen+plaintext", "fen_plaintext", "fen-and-plaintext"):
+            messages = build_fen_messages(
+                fen=fen,
+                pgn_tail=pgn_tail,
+                side=side,
+                is_starting=is_starting,
+                cfg=self.cfg.prompt_cfg,
+            )
+        elif mode in ("fen+plaintext", "fen_plaintext", "fen-and-plaintext"):
             fen = self.ref.board.fen()
-            return build_fen_plaintext_messages(fen=fen, side=side, history_text=history, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
-        # default plaintext
-        return build_plaintext_messages(side=side, history_text=history, is_starting=is_starting, cfg=self.cfg.prompt_cfg)
+            messages = build_fen_plaintext_messages(
+                fen=fen,
+                side=side,
+                history_text=history,
+                is_starting=is_starting,
+                cfg=self.cfg.prompt_cfg,
+            )
+        else:
+            messages = build_plaintext_messages(
+                side=side,
+                history_text=history,
+                is_starting=is_starting,
+                cfg=self.cfg.prompt_cfg,
+            )
 
-    def step_llm_with_raw(self, raw: str):
-        """Process a provided raw LLM reply as the current move, record it, and handle termination state."""
+        if extra_lines:
+            user_index = next((i for i, msg in enumerate(messages) if msg.get("role") == "user"), None)
+            if user_index is not None:
+                base_content = messages[user_index].get("content", "").rstrip()
+                addition = "\n".join(extra_lines).strip()
+                if base_content and addition:
+                    messages[user_index]["content"] = f"{base_content}\n{addition}"
+                elif addition:
+                    messages[user_index]["content"] = addition
+        return messages
+
+    def _build_legality_check_messages(self, candidate_move: str, attempt_number: int) -> List[Dict[str, str]]:
+        side = "white" if self.ref.board.turn == chess.WHITE else "black"
+        history = self._annotated_history()
         fen = self.ref.board.fen()
-        # Recover prompts for metadata
-        msgs = self.build_llm_messages()
-        user_prompt_text = msgs[-1]["content"] if msgs else ""
-        sys_prompt_text = msgs[0]["content"] if msgs else ""
-        ok, uci, san, ms, meta, _ = self._process_llm_raw(raw, fen, meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode})
-        self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
+        pgn_tail = self._pgn_tail()
+
+        system_prompt = (
+            "You are a strict chess referee. Respond with YES if the proposed move is legal in the given position, "
+            "otherwise respond with NO."
+        )
+
+        lines: List[str] = []
+        lines.append(f"Attempt {attempt_number} legal-check for the LLM's proposed move.")
+        lines.append(f"Side to move: {side}")
+        lines.append(f"Position (FEN): {fen}")
+        if pgn_tail:
+            lines.append("Recent moves (PGN tail):")
+            lines.append(pgn_tail)
+        if history:
+            lines.append("Annotated history:")
+            lines.append(history)
+        lines.append(f"Proposed move: {candidate_move}")
+        lines.append("Answer with YES if the move is legal. Otherwise answer with NO.")
+
+        user_content = "\n".join(lines)
+        return [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_content},
+        ]
+
+    # New helpers for batched orchestration
+    def _is_llm_turn_now(self) -> bool:
+        return (
+            (self.ref.board.turn == chess.WHITE and self._llm_is_white())
+            or (self.ref.board.turn == chess.BLACK and not self._llm_is_white())
+        )
+
+    def needs_llm_turn(self) -> bool:
+        if self.ref.status() != "*":
+            return False
+        if self._active_prompt_system and self._active_prompt_system.has_pending_followup():
+            return True
+        return self._is_llm_turn_now()
+
+    def _ensure_prompt_system(self):
+        if self._active_prompt_system is None:
+            self._active_prompt_system = create_prompt_system(self.prompt_system_name)
+            self._active_prompt_system.begin_turn(self)
+        return self._active_prompt_system
+
+    def build_llm_messages(self) -> list[dict]:
+        """Build the messages for the next LLM interaction based on the active prompt system."""
+        system = self._ensure_prompt_system()
+        return system.build_messages(self)
+
+    def step_llm_with_raw(self, raw: str, messages: Optional[List[Dict[str, str]]] = None):
+        """Process a raw LLM reply for the active prompt system.
+
+        Returns:
+            None if the prompt system requires follow-up interactions (no move applied yet).
+            Tuple (ok, uci, san, ms, meta) when a move has been finalized and applied.
+        """
+        system = self._ensure_prompt_system()
+        if messages is None:
+            self.log.debug("Messages not provided to step_llm_with_raw; rebuilding may desync prompt system.")
+            messages = self._last_messages_cache if hasattr(self, "_last_messages_cache") else []  # type: ignore[attr-defined]
+
+        result = system.process_response(self, raw, messages)
+
+        # Persist last messages for debugging/conversation reconstruction
+        self._last_messages_cache = messages  # type: ignore[attr-defined]
+
+        if not result.completed:
+            self.log.debug("Prompt system '%s' awaiting follow-up (metadata=%s)", system.name, result.metadata)
+            return None
+
+        stages = system.get_stages()
+        meta_extra = dict(result.metadata or {})
+        meta_extra.setdefault("prompt_mode", self.cfg.prompt_cfg.mode)
+        meta_extra.setdefault("mode", "prompt_system" if system.name != "standard" else "standard")
+        meta_extra["prompt_system"] = system.name
+        meta_extra["prompt_system_stages"] = [stage.to_dict() for stage in stages]
+
+        if stages:
+            primary = stages[0]
+            meta_extra.setdefault("prompt", primary.user)
+            meta_extra.setdefault("system", primary.system)
+            meta_extra.setdefault("assistant_raw", primary.assistant)
+
+        raw_for_move = result.raw_for_move if result.raw_for_move is not None else raw
+        fen = self.ref.board.fen()
+        ok, uci, san, ms, meta, _ = self._process_llm_raw(raw_for_move, fen, meta_extra=meta_extra)
+
+        record = {"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta}
+        self.records.append(record)
+
+        self._active_prompt_system = None
+
         # Console-friendly log of LLM action
         if self.cfg.game_log:
             disp = san or (uci or "(no-move)")
-            raw_short = (raw or "").replace("\n", " ")
+            raw_short = (raw_for_move or "").replace("\n", " ")
             if len(raw_short) > 140:
                 raw_short = raw_short[:140] + "…"
-            self.log.info("[ply %d] LLM: move=%s legal=%s time_ms=%d raw='%s'", self._global_ply+1, disp, ok, ms, raw_short)
+            self.log.info(
+                "[ply %d] LLM: move=%s legal=%s time_ms=%d raw='%s'",
+                self._global_ply + 1,
+                disp,
+                ok,
+                ms,
+                raw_short,
+            )
         else:
-            self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", self._global_ply+1, uci, ok, san, ms)
+            self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", self._global_ply + 1, uci, ok, san, ms)
+
         if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
             self.dump_conversation_json()
             self.dump_structured_history_json()
+
         if not ok:
-            # increment illegal counter and possibly terminate
             illegal_llm = sum(1 for r in self.records if r.get("actor") == "LLM" and not r.get("ok"))
             if illegal_llm >= self.cfg.max_illegal_moves:
                 self.termination_reason = "illegal_llm_move"
-                self.log.error("Terminating due to illegal LLM move at ply %d (count=%d)", self._global_ply+1, illegal_llm)
+                self.log.error(
+                    "Terminating due to illegal LLM move at ply %d (count=%d)",
+                    self._global_ply + 1,
+                    illegal_llm,
+                )
+
         self._global_ply += 1
-        return ok
+        return ok, uci, san, ms, meta
 
     def step_opponent(self):
         ok, uci, san = self._opp_turn()
@@ -326,15 +454,14 @@ class GameRunner:
 
     # ---------------- LLM Turn (modular prompt modes) -----------------
     def _llm_turn_standard(self):
-        messages = self.build_llm_messages()
-        raw = ask_for_best_move_conversation(messages, model=self.model)
-        fen = self.ref.board.fen()
-        user_prompt_text = messages[-1]["content"] if messages else ""
-        sys_prompt_text = messages[0]["content"] if messages else ""
-        ok, uci, san, agent_ms, meta, _ = self._process_llm_raw(
-            raw, fen, meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode}
-        )
-        return ok, uci, san, agent_ms, meta
+        while True:
+            messages = self.build_llm_messages()
+            raw = ask_for_best_move_conversation(messages, model=self.model)
+            result = self.step_llm_with_raw(raw, messages)
+            if result is None:
+                continue
+            ok, uci, san, ms, meta = result
+            return ok, uci, san, ms, meta
 
     # ---------------- Shared processing -----------------
     def _process_llm_raw(self, raw: str, fen: str, meta_extra: dict | None = None):
@@ -405,23 +532,45 @@ class GameRunner:
         """Return a chat-style list of messages representing the interaction.
         Reconstruct from stored prompts and raw replies collected in meta.
         """
-        # Prefer exact system prompt captured in meta on first LLM turn
-        sys_text = None
-        for rec in self.records:
-            if rec.get("actor") == "LLM":
-                sys_text = rec.get("meta", {}).get("system")
-                if sys_text:
-                    break
-        messages: list[dict] = [{"role": "system", "content": sys_text or SYSTEM}]
+        messages: list[dict] = []
+        base_system: Optional[str] = None
+        last_system: Optional[str] = None
+
         for rec in self.records:
             if rec.get("actor") != "LLM":
                 continue
             meta = rec.get("meta", {})
-            prompt = meta.get("prompt")
-            raw = meta.get("raw") or meta.get("assistant_raw") or ""
-            if prompt:
-                messages.append({"role": "user", "content": prompt})
-            messages.append({"role": "assistant", "content": raw})
+            stages = meta.get("prompt_system_stages") or []
+            if stages:
+                for stage in stages:
+                    stage_system = stage.get("system") or ""
+                    if stage_system and not base_system:
+                        base_system = stage_system
+                    if stage_system and stage_system != last_system:
+                        messages.append({"role": "system", "content": stage_system})
+                        last_system = stage_system
+                    user = stage.get("user")
+                    if user:
+                        messages.append({"role": "user", "content": user})
+                    assistant = stage.get("assistant")
+                    if assistant:
+                        messages.append({"role": "assistant", "content": assistant})
+            else:
+                prompt = meta.get("prompt")
+                sys_text = meta.get("system")
+                raw = meta.get("raw") or meta.get("assistant_raw") or ""
+                if sys_text and not base_system:
+                    base_system = sys_text
+                if sys_text and sys_text != last_system:
+                    messages.append({"role": "system", "content": sys_text})
+                    last_system = sys_text
+                if prompt:
+                    messages.append({"role": "user", "content": prompt})
+                if raw:
+                    messages.append({"role": "assistant", "content": raw})
+
+        if not messages or messages[0].get("role") != "system":
+            messages.insert(0, {"role": "system", "content": base_system or SYSTEM})
         return messages
 
     def dump_conversation_json(self):
@@ -488,12 +637,8 @@ class GameRunner:
             llm_turn_now = (self.ref.board.turn == chess.WHITE and self._llm_is_white()) or (self.ref.board.turn == chess.BLACK and not self._llm_is_white())
             if llm_turn_now:
                 ok, uci, san, ms, meta = self._llm_turn_standard()
-                self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
-                self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", ply+1, uci, ok, san, ms)
-                # Save after each LLM move if enabled
-                if self.cfg.conversation_log_path and self.cfg.conversation_log_every_turn:
-                    self.dump_conversation_json()
-                    self.dump_structured_history_json()
+                self.log.debug("Ply %d LLM move %s ok=%s san=%s ms=%d", ply + 1, uci, ok, san, ms)
+                # step_llm_with_raw already handled logging and dumps when enabled
                 if not ok:
                     illegal_moves += 1
                     if illegal_moves >= self.cfg.max_illegal_moves:
@@ -547,6 +692,7 @@ class GameRunner:
             "termination_reason": self.termination_reason,
             "duration_s": round(time.time() - self.start_ts, 2),
             "mode": self.cfg.prompt_cfg.mode,
+            "prompt_system": self.prompt_system_name,
         }
 
     def summary(self) -> dict:
