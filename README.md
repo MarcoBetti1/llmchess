@@ -94,4 +94,5 @@ The app uses a lightweight in-memory run manager (`inspect/run_manager.py`) that
 - Add first-class cancellation for batch jobs to avoid wasting tokens when runs are aborted.
 - Explore a “play one” interactive mode for human-vs-LLM experiments.
 - On illegal move (before max_illegal), append that move and the fact that it was illegal to next prompt context
-- Test for: Fake LLM responses to test guard agent on truth set
+- Test for: Fake LLM responses to test guard agent on truth set 
+- Pick up a test after pause or failure based off game state and conv hist.
