@@ -1,18 +1,15 @@
 """
 RUN.py — Experiment runner
 - Sweeps one or more JSON config files and runs multiple chess games per config.
-- Supports two modes per config:
-  * sequential → direct OpenAI Responses API (interactive)
-  * batch → OpenAI Batches API (offline chunking; size via LLMCHESS_ITEMS_PER_BATCH)
-- Opponents: Stockfish (via STOCKFISH_PATH) or random.
+- Sequential mode only: one chat/completions call per turn until the game ends.
+- Opponents: another LLM (provider-agnostic) or a local human user.
 - Writes per-game conversation/history logs and aggregates results to <out_dir>/results.jsonl.
 - Respects per-config log_level and out_dir (no CLI overrides).
 - Prints a grand summary (W/D/L, avg plies, legal rate, latency, wall time).
-Usage: python -u scripts/run.py --configs "test-configs/*.json"
-Env knobs: LLMCHESS_MAX_CONCURRENCY, LLMCHESS_RESPONSES_TIMEOUT_S, LLMCHESS_TURN_MAX_WAIT_S, etc.
-
+Usage: python -u scripts/run.py --configs "tests/*.json"
+Env knobs: LLMCHESS_MAX_CONCURRENCY, LLMCHESS_RESPONSES_TIMEOUT_S, etc.
 """
-import argparse, json, logging, os, sys, glob, statistics, time, datetime
+import argparse, json, logging, os, sys, glob, statistics, time
 import copy
 from typing import List, Dict
 
@@ -22,10 +19,9 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from src.llmchess_simple.game import GameRunner, GameConfig
-from src.llmchess_simple.engine_opponent import EngineOpponent
-from src.llmchess_simple.random_opponent import RandomOpponent
+from src.llmchess_simple.llm_opponent import LLMOpponent
+from src.llmchess_simple.user_opponent import UserOpponent
 from src.llmchess_simple.prompting import PromptConfig
-from src.llmchess_simple.batch_orchestrator import BatchOrchestrator
 
 
 def load_json(path: str) -> Dict:
@@ -56,12 +52,14 @@ def build_configs_from_dict(d: Dict):
     model = d.get('model')
     if not model or not isinstance(model, str) or not model.strip():
         raise ValueError("Config must include a non-empty 'model' string (e.g., 'gpt-4o-mini').")
-    opponent = d.get('opponent', 'engine')
-    depth = d.get('depth', 6)
-    movetime = d.get('movetime')
+    provider = d.get('provider')
+    provider_options = d.get('provider_options')
+    opponent = d.get('opponent', 'llm')
+    opponent_model = d.get('opponent_model')
+    opponent_provider = d.get('opponent_provider') or provider
+    opponent_provider_options = d.get('opponent_provider_options')
+    opponent_name = d.get('opponent_name')
     games = d.get('games', 1)
-    # Engine selection by name; path comes from env (.env)
-    engine = d.get('engine', 'Stockfish')
     # Output directory is required and comes only from config
     out_dir = d.get('out_dir')
     if not isinstance(out_dir, str) or not out_dir.strip():
@@ -70,35 +68,49 @@ def build_configs_from_dict(d: Dict):
     # with backward-compat fallback to 'llm_color'.
     color_cfg = (d.get('color') or d.get('llm_color') or 'white')
     max_plies = d.get('max_plies', 480)
-    max_illegal = d.get('max_illegal', 1)
     pgn_tail = d.get('pgn_tail', 20)
     verbose_llm = d.get('verbose_llm', False)
-    # Unified mode switch: "sequential" | "batch" (accept legacy "parallel" as alias of sequential)
-    mode = str(d.get('mode', 'sequential')).strip().lower()
+    # Mode fixed to sequential (legacy values ignored)
+    mode = 'sequential'
 
     prompt = d.get('prompt', {}) or {}
     prompt_mode = prompt.get('mode', 'plaintext')
     starting_context_enabled = prompt.get('starting_context_enabled', True)
     instruction_line = prompt.get('instruction_line', 'Provide only your best legal move in SAN.')
+    instruction_template = prompt.get('instructions_template')
+    opponent_prompt = d.get('opponent_prompt', {}) or {}
+    opp_prompt_cfg = None
+    if opponent_prompt:
+        opp_prompt_mode = opponent_prompt.get('mode', prompt_mode)
+        opp_starting_context_enabled = opponent_prompt.get('starting_context_enabled', starting_context_enabled)
+        opp_instruction_line = opponent_prompt.get('instruction_line', instruction_line)
+        opp_instruction_template = opponent_prompt.get('instructions_template', instruction_template)
+        opp_prompt_cfg = PromptConfig(mode=opp_prompt_mode, starting_context_enabled=opp_starting_context_enabled, instruction_line=opp_instruction_line, extra_instructions=opp_instruction_template)
 
     # Conversation/history logs will be placed under the run's output directory
     conv_every = True
 
-    pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line)
+    pcfg = PromptConfig(mode=prompt_mode, starting_context_enabled=starting_context_enabled, instruction_line=instruction_line, extra_instructions=instruction_template)
     # Always enable console game log and per-turn conversation/history logging.
-    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), max_illegal_moves=int(max_illegal), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), color=str(color_cfg if color_cfg != 'both' else 'white').lower(), prompt_cfg=pcfg, game_log=True)
+    gcfg = GameConfig(max_plies=int(max_plies), pgn_tail_plies=int(pgn_tail), verbose_llm=bool(verbose_llm), conversation_log_path=None, conversation_log_every_turn=bool(conv_every), color=str(color_cfg if color_cfg != 'both' else 'white').lower(), prompt_cfg=pcfg, opponent_prompt_cfg=opp_prompt_cfg, game_log=True, provider=provider, provider_options=provider_options, opponent_provider_options=opponent_provider_options)
+
+    if opponent not in ('llm', 'user'):
+        raise ValueError("Unsupported opponent. Use 'llm' or 'user'.")
+    if opponent == 'llm' and (not opponent_model or not str(opponent_model).strip()):
+        raise ValueError("When opponent='llm', provide a non-empty 'opponent_model'.")
 
     return {
         'model': model,
+        'provider': provider,
+        'opponent_model': opponent_model,
+        'opponent_provider': opponent_provider,
+        'opponent_provider_options': opponent_provider_options,
+        'opponent_name': opponent_name,
         'opponent': opponent,
-        'depth': depth,
-        'movetime': movetime,
-        'engine': engine,
         'out_dir': out_dir,
         'games': games,
-        'mode': mode,
         'gcfg': gcfg,
-    'color': str(color_cfg).lower(),
+        'color': str(color_cfg).lower(),
 
     }
 
@@ -117,10 +129,11 @@ def _override_output_paths(gcfg: GameConfig, config_name: str, base_out_dir: str
 
 def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | None):
     model = cfg_entry['model']
+    provider = cfg_entry.get('provider')
     opponent = cfg_entry['opponent']
-    depth = cfg_entry['depth']
-    movetime = cfg_entry['movetime']
-    engine = cfg_entry['engine']
+    opponent_model = cfg_entry.get('opponent_model')
+    opponent_provider = cfg_entry.get('opponent_provider') or provider
+    opponent_name = cfg_entry.get('opponent_name')
     games = cfg_entry['games']
     color_cfg = str(cfg_entry.get('color', 'white')).lower()
     gcfg: GameConfig = cfg_entry['gcfg']
@@ -143,6 +156,7 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
         # Clone per game and make output unique
         gcfg_i = copy.deepcopy(base_gcfg)
         gcfg_i.color = color_for_index_str(i)
+        gcfg_i.provider = provider or gcfg_i.provider
         p = gcfg_i.conversation_log_path
         if p:
             try:
@@ -159,13 +173,15 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
                     gcfg_i.conversation_log_path = os.path.join(os.path.dirname(p), new_base)
             except Exception:
                 pass
-        if opponent == 'random':
-            opp = RandomOpponent()
+        if opponent == 'llm':
+            if not opponent_model:
+                raise ValueError("opponent_model is required when opponent='llm'.")
+            opp_cfg = gcfg_i.opponent_prompt_cfg or gcfg_i.prompt_cfg
+            opp = LLMOpponent(model=opponent_model, provider=opponent_provider, prompt_cfg=opp_cfg, name=opponent_name)
+        elif opponent == 'user':
+            opp = UserOpponent()
         else:
-            # Stockfish only; path resolved via env in EngineOpponent
-            if engine and str(engine).lower() != 'stockfish':
-                raise ValueError(f"Unsupported engine '{engine}'. Only 'Stockfish' is supported.")
-            opp = EngineOpponent(depth=depth, movetime_ms=movetime, engine_path=None)
+            raise ValueError("Unsupported opponent. Use 'llm' or 'user'.")
         runner = GameRunner(model=model, opponent=opp, cfg=gcfg_i)
         res = runner.play()
         m = runner.summary()
@@ -177,47 +193,6 @@ def run_sequential(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str
             jsonl_f.write(json.dumps(m) + '\n')
             jsonl_f.flush()
         opp.close()
-    return all_metrics
-
-
-def run_batched(cfg_entry: Dict, config_name: str, jsonl_f, base_out_dir: str | None, prefer_batches: bool | None = None, items_per_batch: int | None = None):
-    model = cfg_entry['model']
-    opponent = cfg_entry['opponent']
-    depth = cfg_entry['depth']
-    movetime = cfg_entry['movetime']
-    engine = cfg_entry['engine']
-    games = cfg_entry['games']
-    color_cfg = str(cfg_entry.get('color', 'white')).lower()
-    gcfg: GameConfig = cfg_entry['gcfg']
-
-    # Override output paths per config if requested
-    gcfg = _override_output_paths(gcfg, config_name, base_out_dir, force_every_turn=True)
-
-    # Prepare per-game color assignment for efficient batching
-    per_game_colors = None
-    num_games = games
-    if color_cfg == 'both':
-        num_games = games * 2
-        # First half white, second half black
-        per_game_colors = [True] * games + [False] * games
-    elif color_cfg == 'white':
-        per_game_colors = [True] * games
-    elif color_cfg == 'black':
-        per_game_colors = [False] * games
-
-    # batch orchestrator == multi-game loop; prefer_batches decides transport (Batches API vs parallel /responses)
-    orch = BatchOrchestrator(model=model, num_games=num_games, opponent=opponent, depth=depth, movetime_ms=movetime, engine=engine, base_cfg=gcfg, prefer_batches=prefer_batches, items_per_batch=items_per_batch, per_game_colors=per_game_colors)
-    summaries = orch.run()
-    all_metrics = []
-    for i, m in enumerate(summaries):
-        m['config'] = config_name
-        m['game_index'] = i
-        all_metrics.append(m)
-        res = m.get('result', '*')
-        print(f"[{config_name} Game {i+1}] result={res} reason={m.get('termination_reason')} plies={m.get('plies_total')}")
-        if jsonl_f:
-            jsonl_f.write(json.dumps(m) + '\n')
-            jsonl_f.flush()
     return all_metrics
 
 
@@ -256,18 +231,7 @@ def main():
         # Per-config JSONL file under the config-provided out_dir
         jsonl_path = os.path.join(base_out_dir, 'results.jsonl')
         jsonl_f = open(jsonl_path, 'a', encoding='utf-8') if jsonl_path else None
-        # Determine mode strictly from config (accept legacy 'parallel' as sequential)
-        mode_cfg = entry.get('mode', 'sequential')
-        mode = 'sequential' if str(mode_cfg).lower() in ('sequential','parallel') else 'batch'
-
-        if mode == 'batch':
-            # In the new model, batch mode always uses the OpenAI Batches API transport
-            prefer_batches = True
-            # Chunk size is read from env LLMCHESS_ITEMS_PER_BATCH inside the provider when None
-            items_per_batch = None
-            metrics = run_batched(entry, config_name, jsonl_f, base_out_dir, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
-        else:
-            metrics = run_sequential(entry, config_name, jsonl_f, base_out_dir)
+        metrics = run_sequential(entry, config_name, jsonl_f, base_out_dir)
         grand_metrics.extend(metrics)
 
         if jsonl_f:

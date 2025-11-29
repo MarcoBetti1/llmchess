@@ -48,15 +48,15 @@ The LLM could reply with `Nc3` or something longer like `I will play Nc3`—down
 
 We aim for a single natural move token, but the pipeline is tolerant:
 
-1. **Guard agent** (`MoveGuard`, see `docs/agent-normalizer.md`) converts raw replies into a lowercase UCI move when `LLMCHESS_USE_GUARD_AGENT` is on. It falls back to a regex match or a first token otherwise.
+1. **Quick extraction** – a regex/first-token pass picks a move-like string from the raw reply.
 2. **Move validator** (`move_validator.normalize_move`) checks the candidate against the actual board. It accepts both UCI and SAN and computes the final SAN string using `python-chess`.
-3. **Salvage path** – if the guard agent fails, we attempt to parse the whole raw reply directly; if a legal move name appears anywhere, we still extract it.
+3. **Salvage path** – if the first pass fails, we attempt to parse the whole raw reply directly; if a legal move name appears anywhere, we still extract it.
 
 The result stored in the turn record contains:
 
 - `uci`: canonical lowercase move (e.g., `e2e4`).
 - `san`: notation from `python-chess` (e.g., `e4`).
-- `ok`: legality flag. Illegal outputs count toward `max_illegal` and can terminate the game.
+- `ok`: legality flag. Any illegal output immediately ends the game with a loss for the side that produced it.
 - `meta.raw`: original LLM text for auditability.
 
 This makes the communication robust even if the model occasionally adds prose, punctuation, or alternative notation.
@@ -75,8 +75,6 @@ By comparing the conversation log to the structured history you can trace how ea
 Want the model to emit UCI instead of SAN? Two knobs matter:
 
 1. Update `prompt.instruction_line` in your JSON config (e.g., `"Respond with a single move in UCI."`).
-2. Optionally disable the guard agent (`LLMCHESS_USE_GUARD_AGENT=false`) if you trust the model to obey, though leaving it on simply normalizes the UCI string.
-
 Because legality is still enforced via `python-chess`, you can experiment with multiple representations without touching the core referee logic.
 
 ## 6. Future FEN experiments
@@ -92,4 +90,4 @@ The `fen` and `fen+plaintext` modes are ready for experiments that rely on exact
 - LLM replies are normalized to UCI, validated for legality, and then logged with full context.
 - Conversation and structured history logs give you a verbatim record of the textual interface.
 
-Armed with this overview you can safely modify prompts, try alternate notations, or investigate why a model behaved unexpectedly. For deeper details on the guard agent itself, see [`docs/agent-normalizer.md`](agent-normalizer.md).
+Armed with this overview you can safely modify prompts, try alternate notations, or investigate why a model behaved unexpectedly.

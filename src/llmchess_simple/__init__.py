@@ -3,9 +3,9 @@ LLM Chess (Simplified) package.
 
 Components:
 - game: single-game orchestration and metrics
-- batch_orchestrator: multi-game batching over Responses/Batches APIs
-- engine_opponent/random_opponent: opponents (Stockfish or random)
-- prompting/move_validator/agent_normalizer: prompt build and move normalization
-- llm_client/providers: provider-agnostic facade and OpenAI transport
+- batch_orchestrator: multi-game orchestration over chat/completions (LLM-vs-LLM)
+- llm_opponent/user_opponent: opponents (another LLM or an interactive human)
+- prompting/move_validator: prompt build and move normalization
+- llm_client: minimal OpenAI-compatible transport (base_url configurable for AI Gateway)
 """
 # Package exports are intentionally minimal; import modules directly as needed.

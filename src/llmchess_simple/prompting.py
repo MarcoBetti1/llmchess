@@ -38,6 +38,8 @@ class PromptConfig:
     )
     # Instruction line appended to the user message
     instruction_line: str = "Provide only your best legal move in SAN."
+    # Optional extra instructions inserted before the instruction_line
+    extra_instructions: str | None = None
 
 
 def build_plaintext_messages(side: str, history_text: str, is_starting: bool, cfg: PromptConfig) -> list[dict]:
@@ -60,6 +62,8 @@ def build_plaintext_messages(side: str, history_text: str, is_starting: bool, cf
         lines.append(history_text.strip())
     else:
         lines.append("(none)")
+    if cfg.extra_instructions:
+        lines.append(str(cfg.extra_instructions).strip())
     lines.append(cfg.instruction_line)
 
     user_content = "\n".join(lines)
@@ -81,6 +85,8 @@ def build_fen_messages(fen: str, pgn_tail: str, side: str, is_starting: bool, cf
     if pgn_tail:
         lines.append("Recent moves (PGN tail):")
         lines.append(pgn_tail)
+    if cfg.extra_instructions:
+        lines.append(str(cfg.extra_instructions).strip())
     lines.append(cfg.instruction_line)
     user_content = "\n".join(lines)
     return [
@@ -114,6 +120,8 @@ def build_fen_plaintext_messages(fen: str, side: str, history_text: str, is_star
         lines.append(history_text.strip())
     else:
         lines.append("(none)")
+    if cfg.extra_instructions:
+        lines.append(str(cfg.extra_instructions).strip())
     lines.append(cfg.instruction_line)
     user_content = "\n".join(lines)
     return [

@@ -1,0 +1,25 @@
+{
+  "model": "gpt-4o-mini",
+  "provider": "openai",
+  "opponent": "llm",
+  "opponent_model": "gpt-3.5-turbo",
+  "opponent_name": "baseline-3.5",
+  "games": 2,
+  "color": "both",
+  "mode": "orchestrated",
+  "max_plies": 120,
+  "pgn_tail": 12,
+  "out_dir": "runs/demo/llm_vs_llm",
+  "prompt": {
+    "mode": "fen+plaintext",
+    "starting_context_enabled": true,
+    "instruction_line": "Return a single legal move in UCI.",
+    "instructions_template": "Be concise. Do not add justification or commentary."
+  },
+  "opponent_prompt": {
+    "mode": "plaintext",
+    "starting_context_enabled": true,
+    "instruction_line": "Respond with a legal move in SAN.",
+    "instructions_template": "Stay terse and avoid chit-chat."
+  }
+}

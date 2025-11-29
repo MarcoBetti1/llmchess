@@ -1,79 +1,131 @@
 from __future__ import annotations
 """
-LLM client facade over provider transports.
+LLM client facade over a single OpenAI-compatible transport (configurable base URL).
 
-- Parallel Responses API (interactive): low latency per turn, good for live games.
-- OpenAI Batches API (offline): submit N requests as one job for large sweeps.
-
-Selection: prefer parallel by default; set prefer_batches=True to force batches.
-Chunking controlled by env LLMCHESS_ITEMS_PER_BATCH. Stable API delegates to provider.
-
+The rest of the code should not care which SDK is in use. This module talks to
+an OpenAI-compatible endpoint (e.g., Vercel AI Gateway) with `model` + `messages`
+and returns raw text responses.
 """
 from typing import Optional, List, Dict
 import logging
-from .providers.openai_provider import OpenAIProvider
+import random
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Provider registry: in the future, we can add Anthropic, Azure OpenAI, etc.
-_PROVIDER = OpenAIProvider()
+from openai import OpenAI
+
+from .config import SETTINGS
+
 log = logging.getLogger("llm_client")
 
 SYSTEM = "You are a strong chess player. When asked for a move, decide the best move."
 # Conversation mode system prompt (no FEN provided)
 SYSTEM_CONV = (
-    "You are playing as White in a chess game against a strong engine.\n"
+    "You are playing as White in a chess game against a strong opponent.\n"
     "Respond with a single legal chess move that benefits you most.\n"
 )
 
-def ask_for_best_move_raw(fen: str, pgn_tail: str = "", side: str = "", model: Optional[str]=None) -> str:
-    """Ask the target LLM for the best move in free-form text (no strict JSON)."""
-    return _PROVIDER.ask_for_best_move_raw(fen, pgn_tail=pgn_tail, side=side, model=model)
+
+_CLIENT = OpenAI(api_key=SETTINGS.llm_api_key or None, base_url=SETTINGS.api_base or None)
 
 
-def ask_for_best_move_conversation(messages: List[Dict[str, str]], model: Optional[str] = None) -> str:
-    """Given an accumulating chat-style conversation (already includes system), ask for next move.
-
-    messages: list of {role, content} dicts. Caller is responsible for appending the latest
-    user prompt requesting the move. This function simply sends them and returns raw text.
-    """
-    return _PROVIDER.ask_for_best_move_conversation(messages, model=model)
-
-def ask_for_best_move_plain(side: str, history_text: str = "", model: Optional[str] = None) -> str:
-    """Plain text prompt without FEN. history_text should be a multiline string of past moves.
-
-    Example history_text:
-      1. White Pawn e4  Black Knight f6
-      2. White Pawn e5  Black Pawn g6
-    """
-    return _PROVIDER.ask_for_best_move_plain(side, history_text=history_text, model=model)
-
-
-# ------------------------- Transport facade -------------------------
-
-
-def _extract_output_text_from_response_obj(resp_obj: dict) -> str:
-    """Deprecated: kept for backward compat if any callers import it. Delegates to provider."""
-    return OpenAIProvider._extract_output_text_from_response_obj(resp_obj)
-
-
-def submit_responses_parallel(items: List[Dict], max_concurrency: int = None, request_timeout_s: float = None) -> Dict[str, str]:
-    return _PROVIDER.submit_responses_parallel(items, max_concurrency=max_concurrency, request_timeout_s=request_timeout_s)
+# ------------------------- Chat wrappers -------------------------
+def ask_for_best_move_conversation(messages: List[Dict[str, str]], model: Optional[str] = None, provider: Optional[str] = None, provider_options: Optional[Dict] = None) -> str:
+    """Given a chat-style conversation (including system message), request the next move."""
+    if not model:
+        raise ValueError("Model is required; set it in your JSON config (key 'model') or CLI.")
+    delay = 0.5
+    timeout = SETTINGS.responses_timeout_s
+    for attempt in range(SETTINGS.responses_retries + 1):
+        try:
+            rsp = _CLIENT.chat.completions.create(
+                model=model,
+                messages=messages,
+                timeout=timeout,
+                extra_body={"provider_options": provider_options} if provider_options else None,
+            )
+            text = _extract_text(rsp)
+            if text:
+                return text.strip()
+        except Exception:
+            if attempt >= SETTINGS.responses_retries:
+                log.exception("Chat request failed after %d attempts", attempt + 1)
+                break
+            sleep_s = delay * (2 ** attempt) * (0.8 + 0.4 * random.random())
+            time.sleep(min(sleep_s, 10.0))
+    return ""
 
 
-def submit_responses_batch(items: List[Dict], poll_interval_s: float | None = None, timeout_s: float | None = None) -> Dict[str, str]:
-    return _PROVIDER.submit_responses_batch(items, poll_interval_s=poll_interval_s, timeout_s=timeout_s)
+def submit_turns(items: List[Dict], provider: Optional[str] = None, max_concurrency: int | None = None, request_timeout_s: float | None = None) -> Dict[str, str]:
+    """Submit multiple chat prompts concurrently. Each item must include custom_id, messages, model."""
+    if not items:
+        return {}
+    results: Dict[str, str] = {}
+    max_concurrency = max_concurrency or SETTINGS.max_concurrency
+    timeout = request_timeout_s or SETTINGS.responses_timeout_s
+
+    def _one(it: Dict) -> tuple[str, str]:
+        cid = str(it["custom_id"])
+        model = it.get("model")
+        msgs = it["messages"]
+        text = ask_for_best_move_conversation(msgs, model=model, provider_options=it.get("provider_options"))
+        return cid, text
+
+    with ThreadPoolExecutor(max_workers=min(max_concurrency, max(1, len(items)))) as ex:
+        futs = [ex.submit(_one, it) for it in items]
+        for fut in as_completed(futs):
+            try:
+                cid, text = fut.result()
+                if text:
+                    results[cid] = text
+            except Exception:
+                log.exception("Parallel chat future failed")
+    return results
 
 
-def submit_responses_batch_chunked(items: List[Dict], items_per_batch: Optional[int] = None) -> Dict[str, str]:
-    return _PROVIDER.submit_responses_batch_chunked(items, items_per_batch=items_per_batch)
+# Convenience wrappers retained for compatibility (plaintext/FEN prompts constructed elsewhere)
+def ask_for_best_move_plain(side: str, history_text: str = "", model: Optional[str] = None, provider: Optional[str] = None) -> str:
+    messages = [
+        {"role": "system", "content": SYSTEM},
+        {"role": "user", "content": f"Side to move: {side}\nMove history:\n{history_text or '(none)'}\nRespond with the best legal chess move."},
+    ]
+    return ask_for_best_move_conversation(messages, model=model, provider=provider)
 
 
-def submit_responses_transport(items: List[Dict], prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None) -> Dict[str, str]:
-    return _PROVIDER.submit_responses_transport(items, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
+def ask_for_best_move_raw(fen: str, pgn_tail: str = "", side: str = "", model: Optional[str] = None, provider: Optional[str] = None) -> str:
+    parts = [f"Position (FEN): {fen}"]
+    if side:
+        parts.append(f"Side to move: {side}")
+    if pgn_tail:
+        parts.append(f"Recent moves (PGN tail):\n{pgn_tail}")
+    parts.append("Respond with the best chess move.")
+    messages = [
+        {"role": "system", "content": SYSTEM},
+        {"role": "user", "content": "\n".join(parts)},
+    ]
+    return ask_for_best_move_conversation(messages, model=model, provider=provider)
 
 
-def submit_responses(items: List[Dict]) -> Dict[str, str]:
-    return _PROVIDER.submit_responses(items)
-
-
-def submit_responses_blocking_all(items: List[Dict], max_wait_s: float = None, prefer_batches: Optional[bool] = None, items_per_batch: Optional[int] = None) -> Dict[str, str]:
-    return _PROVIDER.submit_responses_blocking_all(items, max_wait_s=max_wait_s, prefer_batches=prefer_batches, items_per_batch=items_per_batch)
+def _extract_text(rsp) -> str:
+    try:
+        if hasattr(rsp, "choices") and rsp.choices:
+            msg = rsp.choices[0].message
+            content = getattr(msg, "content", None)
+            if isinstance(content, str):
+                return content
+            if isinstance(content, list):
+                parts = []
+                for c in content:
+                    if isinstance(c, dict):
+                        if c.get("type") == "text" and isinstance(c.get("text"), str):
+                            parts.append(c["text"])
+                        continue
+                    if hasattr(c, "text"):
+                        t = getattr(c, "text", None)
+                        if isinstance(t, str):
+                            parts.append(t)
+                if parts:
+                    return "\n".join(parts)
+    except Exception:
+        log.exception("Failed to extract text from response")
+    return ""
