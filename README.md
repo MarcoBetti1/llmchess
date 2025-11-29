@@ -16,76 +16,34 @@ An overview of the text interface (prompts, notation, normalization) lives in [`
 
 - **`GameRunner`** orchestrates single games and collects metrics such as legal rate and latency.
 - **`LLMOpponent` / `UserOpponent`** supply the adversary for LLM-vs-LLM or human-vs-LLM games.
-- **`SimulationOrchestrator`** multiplexes many games at once using one chat request per active turn (no batch uploads).
 - **`PromptConfig` & builders** (plaintext, FEN, FEN+plaintext) provide the textual scaffolding for each request.
 - **`move_validator`** bridges between free-form replies and `python-chess`, ensuring the final move is legal before applying it.
 
 ## Configuration surface
 
-Runtime configuration values (API keys, base URL, provider selection, guard toggles, etc.) load from `settings.yml`, environment variables, or defaults in `config.py`. The LLM layer talks to OpenAI-compatible endpoints (`/models`, `/chat/completions`, `/embeddings`), so pointing at Vercel AI Gateway or another SDK simply means updating `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`. The precedence rules and full catalogue are covered in [`docs/configuration.md`](docs/configuration.md).
+Runtime configuration values (API keys, base URL, provider selection, etc.) load from `settings.yml`, environment variables, or defaults in `config.py`. The LLM layer talks to OpenAI-compatible endpoints (`/models`, `/chat/completions`, `/embeddings`), so pointing at Vercel AI Gateway or another SDK simply means updating `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`. The precedence rules and full catalogue are covered in [`docs/configuration.md`](docs/configuration.md).
 
-## Experiment configs (JSON)
+## Minimal usage
 
-All experiments are described with JSON files passed to `scripts/run.py`. Each file can control the model, color, opponent, prompt mode, logging verbosity, and more. The complete schema, defaults, and helpful tips are maintained in [`docs/test-configs.md`](docs/test-configs.md).
+There is no CLI runner in this trimmed version. Create a game in Python:
 
-Typical commands:
+```python
+from src.llmchess_simple.game import GameRunner, GameConfig
+from src.llmchess_simple.llm_opponent import LLMOpponent
 
-```bash
-# Run a single config file
-python -u scripts/run.py --configs tests/demo-tests/config.json
-
-# Sweep multiple configs (files, directories, or globs)
-python -u scripts/run_tests.py --configs "tests/*.json"
-
-# Preview without executing
-python -u scripts/run_tests.py --configs "tests/*.json" --dry-run
+opp = LLMOpponent(model="openai/gpt-4o")  # or "anthropic/claude-..." via gateway
+runner = GameRunner(model="openai/gpt-4o", opponent=opp, cfg=GameConfig())
+result = runner.play()
+print("Result:", result, runner.summary())
 ```
 
-Every config writes its outputs under the provided `out_dir`:
-
-- `results.jsonl` appends per-game summaries (legal rate, latency, termination reason, PGN).
-- `conv_*.json` captures the exact prompt/response conversation for the LLM.
-- `hist_*.json` stores the structured move history with UCI/SAN, legality flags, and FEN snapshots.
-
-To run competitive model-vs-model games, set `opponent` to `llm` in your config and provide `opponent_model` (and optional `opponent_provider` / `opponent_prompt`). Both sides' raw replies are captured in the structured history so a UI can surface every move and response. Use `opponent: "user"` for interactive human play; human inputs are validated and must be legal.
+To play against a human, swap `LLMOpponent` for `UserOpponent()`.
 
 ## Prompting modes & notation
 
-You can switch between natural-language histories, FEN-only prompts, or hybrids by editing the `prompt` block in your config (and optionally supply an `instructions_template` to inject custom guidance). The effect of each mode, plus guidance on requesting SAN vs UCI outputs, is detailed in [`docs/chess-text-representation.md`](docs/chess-text-representation.md). Because legality is ultimately enforced by `python-chess`, you can experiment freely with different textual representations.
-
-## Orchestrated runs & transports
-
-`SimulationOrchestrator` keeps many games in lockstep. Set `mode` to `sequential` (default) to run games one after another, or `mode` to `orchestrated` to advance many LLM-vs-LLM games together while dispatching one chat/completions request per turn (with configurable concurrency). Transport details are handled by the provider layer, so swapping SDKs or pointing at an OpenAI-compatible gateway only requires changing configuration.
-
-During runs, progress and status updates are logged to the console. Each `results.jsonl` can be analyzed post-hoc with tools like `scripts/summarize_results.py` (WIP) or the browser-based viewer described below.
-
-## Web viewer (inspect/web_viewer.py)
-
-Launch a local Flask app for browsing runs:
-
-```bash
-python -u inspect/web_viewer.py --port 8000
-```
-
-Features include:
-
-- **Games tab** – replay logged games with a board timeline and move metadata.
-- **Live Runs tab** – start new sweeps, tail stdout, watch progress bars, and cancel runs via SSE-backed streams.
-- **Analysis tab** – slice and aggregate results across all `runs/` directories by model, config, color, or opponent.
-
-The app uses a lightweight in-memory run manager (`inspect/run_manager.py`) that launches `scripts/run.py`, tails logs, and polls `results.jsonl` files to estimate progress. Because the manager is ephemeral, restarting the server clears active-run state.
+You can switch between natural-language histories, FEN-only prompts, or hybrids by editing the `prompt_cfg` in `GameConfig` (and optionally supply `instructions_template` to inject custom guidance). The effect of each mode is detailed in [`docs/chess-text-representation.md`](docs/chess-text-representation.md). Because legality is enforced by `python-chess`, you can experiment freely with different textual representations.
 
 ## Documentation map
 
 - [`docs/configuration.md`](docs/configuration.md) – environment and settings reference.
-- [`docs/test-configs.md`](docs/test-configs.md) – JSON config schema for experiments.
 - [`docs/chess-text-representation.md`](docs/chess-text-representation.md) – how prompts and replies encode the game.
-
-Refer to these pages for deeper dives; the README stays focused on the overall architecture and workflow.
-
-## Roadmap / open questions
-
-- Support a single config that automatically alternates colors (rather than duplicating entries).
-- Streamline config files by moving rarely touched toggles into shared defaults.
-- Slim down or relocate the legacy logging hooks that are currently unused.
-- Explore a “play one” interactive mode for human-vs-LLM experiments.

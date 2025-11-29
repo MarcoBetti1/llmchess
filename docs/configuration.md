@@ -26,7 +26,6 @@ This project loads configuration from code in `src/llmchess_simple/config.py`. T
 ```yaml
 # Top-level keys mirror the environment variable names exactly.
 LLMCHESS_LLM_API_KEY: sk-your-ai-gateway-or-openai-key
-LLMCHESS_PROVIDER: openai
 LLMCHESS_LLM_BASE_URL: https://ai-gateway.vercel.sh/v1
 LLMCHESS_MAX_CONCURRENCY: 4
 LLMCHESS_RESPONSES_TIMEOUT_S: 120
