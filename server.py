@@ -42,7 +42,8 @@ def load_state() -> Dict[str, dict]:
     if not STATE_PATH.exists():
         return {}
     try:
-        return json.loads(STATE_PATH.read_text())
+        raw = json.loads(STATE_PATH.read_text())
+        return raw if isinstance(raw, dict) else {}
     except Exception:
         logging.exception("Failed to load state; starting fresh")
         return {}
@@ -58,16 +59,51 @@ def save_state(state: Dict[str, dict]) -> None:
 STATE: Dict[str, dict] = load_state()
 
 
+def _prune_state_from_logs(state: Dict[str, dict]) -> Dict[str, dict]:
+    """Drop experiments or game rows whose log folders/files no longer exist."""
+    if not state:
+        return {}
+    refreshed: Dict[str, dict] = {}
+    for exp_id, exp in state.items():
+        exp_dir = LOG_ROOT / exp_id
+        if not exp_dir.exists():
+            continue  # skip experiments that no longer have logs
+        game_rows = []
+        for g in exp.get("game_rows", []):
+            path = g.get("history_path")
+            if path and Path(path).exists():
+                game_rows.append(g)
+        exp_copy = dict(exp)
+        exp_copy["game_rows"] = game_rows
+        # keep completed count in sync with surviving rows
+        try:
+            exp_copy.setdefault("games", {})
+            exp_copy["games"]["completed"] = len(game_rows)
+        except Exception:
+            pass
+        refreshed[exp_id] = exp_copy
+    # persist pruned state
+    try:
+        STATE_PATH.write_text(json.dumps(refreshed, indent=2))
+    except Exception:
+        logging.exception("Failed to persist pruned state")
+    return refreshed
+
+
+STATE = _prune_state_from_logs(STATE)
+
+
 def snapshot_state() -> Dict[str, dict]:
     """
     Return a fresh copy of the persisted state. Falls back to in-memory state if load fails.
     This helps the UI reflect manual deletions or restarts without needing a server reboot.
     """
     try:
-        return load_state()
+        loaded = load_state()
+        return _prune_state_from_logs(loaded)
     except Exception:
         logging.exception("Failed to snapshot state from disk; using in-memory STATE")
-        return STATE.copy()
+        return _prune_state_from_logs(STATE.copy())
 
 
 def _ensure_prompt_mode(mode: Optional[str]) -> str:

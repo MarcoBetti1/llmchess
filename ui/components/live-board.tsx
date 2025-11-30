@@ -9,6 +9,7 @@ type Props = {
   gameId: string;
   whiteModel: string;
   blackModel: string;
+  size?: number;
 };
 
 type MoveEntry = {
@@ -90,7 +91,7 @@ function deriveSnapshot(startFen: string, mvs: MoveEntry[]) {
   return { fen, lastMove };
 }
 
-export function LiveBoard({ gameId, whiteModel, blackModel }: Props) {
+export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props) {
   const [moves, setMoves] = useState<MoveEntry[]>([]);
   const [initialFen, setInitialFen] = useState<string>(new Chess().fen());
   const [liveFen, setLiveFen] = useState<string>(new Chess().fen());
@@ -284,12 +285,12 @@ export function LiveBoard({ gameId, whiteModel, blackModel }: Props) {
   }, [displayFen]);
 
   return (
-    <div className="card p-3 space-y-2">
+    <div className="card p-3 space-y-2 inline-block" style={{ width: size + 32 }}>
       <div className="flex items-center justify-between text-sm text-white/70">
         <div>
           <p className="text-white text-sm font-semibold">{gameId}</p>
-          <p>
-            {whiteModel} <span className="text-white/50">vs</span> {blackModel}
+          <p className="text-xs text-white/70">
+            White: {whiteModel} <span className="text-white/50">•</span> Black: {blackModel}
           </p>
         </div>
         {waitingOn && !termination && (
@@ -306,7 +307,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel }: Props) {
 
       <div className="relative">
         <div>
-          <ChessBoard key={boardKey} fen={displayFen} lastMove={displayLastMove} size={260} />
+          <ChessBoard key={boardKey} fen={displayFen} lastMove={displayLastMove} size={size} />
         </div>
         {mode === "replay" && (
           <div className="absolute top-2 right-2 chip bg-black/60 border border-white/20 text-white">Replaying</div>
@@ -314,7 +315,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel }: Props) {
         {termination && mode === "live" && (
           <button className="absolute inset-0 grid place-items-center text-white" onClick={startReplay}>
             <div className="px-4 py-2 rounded-full bg-black/60 border border-white/20">
-              Game finished: {termination.result || "?"} - {termination.reason || "ended"}. Tap to replay.
+              Tap to replay
             </div>
           </button>
         )}

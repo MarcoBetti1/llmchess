@@ -65,7 +65,8 @@ export default function ExperimentsPage() {
         .then(setResults)
         .catch((err) => {
           console.error(err);
-          setError("Failed to fetch experiment results.");
+          // If an experiment isn't found (e.g., fresh start with no runs), just clear results without surfacing an error.
+          setResults(null);
         });
     load();
     pollResultsRef.current = setInterval(load, 5000);
@@ -270,31 +271,32 @@ export default function ExperimentsPage() {
 
       {selectedExperiment && (
         <div className="card p-5 space-y-3">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-white/60 uppercase tracking-[0.25em]">Experiment detail</p>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-3 flex-wrap">
               <h3 className="text-xl font-semibold text-white">
                 {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} -{" "}
                 {selectedExperiment.games.total} games
               </h3>
+              <span className="chip">{selectedExperiment.status}</span>
             </div>
-            <span className="chip">{selectedExperiment.status}</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <button className="btn secondary" onClick={() => setLiveMode((v) => !v)}>
-              {liveMode ? "Back to dashboard" : "Watch live boards"}
-            </button>
-            <div className="flex items-center gap-2 text-sm text-white/70">
-              <span className="chip">Boards</span>
-              {[1, 2, 4].map((n) => (
-                <button
-                  key={n}
-                  className={`chip ${liveBoardCount === n ? "bg-accent text-canvas-900" : ""}`}
-                  onClick={() => setLiveBoardCount(n)}
-                >
-                  {n}
-                </button>
-              ))}
+            <div className="flex items-center gap-2 flex-wrap">
+              <button className="btn secondary" onClick={() => setLiveMode((v) => !v)}>
+                {liveMode ? "Back to dashboard" : "Watch chess"}
+              </button>
+              {liveMode && (
+                <div className="flex items-center gap-2 text-sm text-white/70">
+                  <span className="chip">Boards</span>
+                  {[1, 2, 4].map((n) => (
+                    <button
+                      key={n}
+                      className={`chip ${liveBoardCount === n ? "bg-accent text-canvas-900" : ""}`}
+                      onClick={() => setLiveBoardCount(n)}
+                    >
+                      {n}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           {!liveMode && (
@@ -304,13 +306,23 @@ export default function ExperimentsPage() {
                   <p className="text-white text-lg font-semibold">
                     {results?.wins.player_a ?? selectedExperiment.wins?.player_a ?? 0}
                   </p>
-                  <p className="text-white/60">Player A wins</p>
+                  <p className="text-white/60">
+                    Player A wins{" "}
+                    <span className="text-white/50 block text-xs">
+                      {selectedExperiment.players.a.model}
+                    </span>
+                  </p>
                 </div>
                 <div className="glass rounded-xl p-3 border border-white/10">
                   <p className="text-white text-lg font-semibold">
                     {results?.wins.player_b ?? selectedExperiment.wins?.player_b ?? 0}
                   </p>
-                  <p className="text-white/60">Player B wins</p>
+                  <p className="text-white/60">
+                    Player B wins{" "}
+                    <span className="text-white/50 block text-xs">
+                      {selectedExperiment.players.b.model}
+                    </span>
+                  </p>
                 </div>
                 <div className="glass rounded-xl p-3 border border-white/10">
                   <p className="text-white text-lg font-semibold">
@@ -371,24 +383,59 @@ function LiveBoardsPanel({
   games: ExperimentResults["games"];
   count: number;
 }) {
-  const [gameIds, setGameIds] = useState<string[]>([]);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   useEffect(() => {
-    const ids = (games || []).slice(0, count).map((g) => g.game_id);
-    setGameIds(ids);
+    const defaults = (games || []).slice(0, count).map((g) => g.game_id);
+    setSelectedIds((prev) => {
+      const filtered = prev.filter((id) => defaults.includes(id));
+      const fill = [...filtered, ...defaults.filter((id) => !filtered.includes(id))].slice(0, count);
+      return fill;
+    });
   }, [games, count]);
 
   if (!games?.length) {
     return <p className="text-white/60 text-sm">No games yet to display. Wait for games to start.</p>;
   }
 
+  const toggleSelect = (id: string) => {
+    setSelectedIds((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((x) => x !== id);
+      }
+      const next = [...prev, id];
+      if (next.length > count) {
+        next.splice(0, next.length - count);
+      }
+      return next;
+    });
+  };
+
+  const baseSize = 520; // larger baseline
+  const boardSize = count === 1 ? baseSize * 2 : baseSize;
+  const displayIds = selectedIds.length ? selectedIds.slice(0, count) : (games || []).slice(0, count).map((g) => g.game_id);
+
   return (
     <div className="space-y-3">
-      <p className="text-white/70 text-sm">
-        Watching {Math.min(count, games.length)} board{count > 1 ? "s" : ""} from {experimentId}
-      </p>
-      <div className={`grid gap-4 ${count >= 4 ? "md:grid-cols-4" : count === 2 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
-        {gameIds.map((gameId) => {
+      <div className="flex flex-wrap gap-2 items-center">
+        <p className="text-white/70 text-sm">
+          Watching {Math.min(count, games.length)} board{count > 1 ? "s" : ""} from {experimentId}
+        </p>
+        <span className="text-white/50 text-xs">(select up to {count} game{count > 1 ? "s" : ""})</span>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {games.map((g) => (
+          <button
+            key={g.game_id}
+            className={`chip ${displayIds.includes(g.game_id) ? "bg-accent text-canvas-900" : ""}`}
+            onClick={() => toggleSelect(g.game_id)}
+          >
+            {g.game_id} · {g.white_model} vs {g.black_model}
+          </button>
+        ))}
+      </div>
+      <div className={`grid gap-4 ${count >= 2 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
+        {displayIds.slice(0, count).map((gameId) => {
           const meta = games.find((g) => g.game_id === gameId);
           if (!meta) return null;
           return (
@@ -397,6 +444,7 @@ function LiveBoardsPanel({
               gameId={gameId}
               whiteModel={meta.white_model}
               blackModel={meta.black_model}
+              size={boardSize}
             />
           );
         })}
