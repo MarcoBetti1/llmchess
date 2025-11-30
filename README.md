@@ -88,6 +88,8 @@ Supported endpoints:
   ```
   Returns: `{ "experiment_id": "exp_..." }`
 
+- `POST /api/human-games` - start a human vs AI session (kept in-memory; no logs written).
+- `POST /api/human-games/{id}/move` - submit a human move (SAN or UCI) and receive the AI reply.
 - `GET /api/experiments` – summaries with status, wins, and completed counts.
 - `GET /api/experiments/{id}/results` – aggregated wins/illegal-move averages and per-game rows.
 - `GET /api/games/{game_id}/conversation` – returns the saved conversation log if present.

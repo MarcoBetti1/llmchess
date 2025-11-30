@@ -1,10 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Chess, Move, Square } from "chess.js";
 import clsx from "clsx";
 import { CSSProperties } from "react";
+import { createHumanGame, postHumanMove } from "@/lib/api";
 
 const InteractiveBoard = dynamic(
   () =>
@@ -26,21 +27,64 @@ export default function PlayPage() {
   const [promptMode, setPromptMode] = useState("fen+plaintext");
   const [status, setStatus] = useState("Ready to start a game.");
   const [waitingOnAI, setWaitingOnAI] = useState(false);
+  const [starting, setStarting] = useState(false);
   const [inGame, setInGame] = useState(false);
+  const [gameId, setGameId] = useState<string | null>(null);
   const [gameOverReason, setGameOverReason] = useState<string | null>(null);
+  const [aiIllegalMoveCount, setAiIllegalMoveCount] = useState(0);
+  const [error, setError] = useState<string | null>(null);
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [moveHints, setMoveHints] = useState<Square[]>([]);
+  const [boardWidth, setBoardWidth] = useState(720);
+  const boardContainerRef = useRef<HTMLDivElement | null>(null);
+  const inGameRef = useRef(inGame);
 
-  const startGame = (side: Side) => {
-    const next = new Chess();
-    gameRef.current = next;
-    setFen(next.fen());
-    setStatus(side === "white" ? "Your move." : "AI to open.");
-    setWaitingOnAI(false);
-    setGameOverReason(null);
-    setInGame(true);
-    if (side === "black") {
-      setTimeout(() => makeAIMove(), 450);
+  useEffect(() => {
+    const computeWidth = () => {
+      const containerWidth = boardContainerRef.current?.getBoundingClientRect().width ?? window.innerWidth - 48;
+      const maxBoard = inGame ? 1100 : 900;
+      const nextWidth = Math.max(320, Math.min(containerWidth, maxBoard));
+      setBoardWidth(nextWidth);
+    };
+
+    computeWidth();
+    const observer = new ResizeObserver(() => computeWidth());
+    const node = boardContainerRef.current;
+    if (node) observer.observe(node);
+    window.addEventListener("resize", computeWidth);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", computeWidth);
+    };
+  }, [inGame]);
+
+  useEffect(() => {
+    inGameRef.current = inGame;
+  }, [inGame]);
+
+  const resetSelection = () => {
+    setSelectedSquare(null);
+    setMoveHints([]);
+  };
+
+  const sideToMoveFromFen = (value: string): Side => {
+    try {
+      const chess = new Chess(value);
+      return chess.turn() === "w" ? "white" : "black";
+    } catch {
+      return "white";
+    }
+  };
+
+  const resetBoardToFen = (value: string) => {
+    try {
+      const next = new Chess(value);
+      gameRef.current = next;
+      setFen(next.fen());
+      return true;
+    } catch {
+      setError("Received invalid FEN from backend.");
+      return false;
     }
   };
 
@@ -51,30 +95,73 @@ export default function PlayPage() {
     setWaitingOnAI(false);
     setSelectedSquare(null);
     setMoveHints([]);
+    setGameId(null);
   };
 
-  const handleGameEndIfNeeded = (winner: string) => {
-    const game = gameRef.current;
-    const over = typeof game.isGameOver === "function" ? game.isGameOver() : (game as any).game_over?.();
-    if (!over) return false;
-    const reason = game.isCheckmate()
-      ? `${winner} won by checkmate.`
-      : game.isStalemate()
-      ? "Draw by stalemate."
-      : game.isThreefoldRepetition()
-      ? "Draw by repetition."
-      : game.isInsufficientMaterial()
-      ? "Draw by material."
-      : game.isDraw()
-      ? "Drawn game."
-      : "Game finished.";
-    concludeGame(reason);
+  const finishFromResponse = (
+    resp: { game_status?: string; status?: string; winner?: string | null; termination_reason?: string | null },
+    aiMoveLabel?: string
+  ) => {
+    const done = (resp.game_status || resp.status) === "finished";
+    if (!done) return false;
+    let label = "Game finished";
+    if (resp.winner === "human") label = "You won";
+    else if (resp.winner === "ai") label = "AI won";
+    else if (resp.winner === "draw") label = "Draw";
+    if (resp.termination_reason) {
+      label += ` (${resp.termination_reason.replace(/_/g, " ")})`;
+    } else if (aiMoveLabel && resp.winner === "ai") {
+      label += ` after ${aiMoveLabel}`;
+    }
+    concludeGame(label);
     return true;
   };
 
-  const resetSelection = () => {
+  const startGame = async (side: Side) => {
+    setStarting(true);
+    setHumanSide(side);
+    setError(null);
     setSelectedSquare(null);
     setMoveHints([]);
+    setGameOverReason(null);
+    setAiIllegalMoveCount(0);
+    const fresh = new Chess();
+    gameRef.current = fresh;
+    setFen(fresh.fen());
+    setStatus("Starting game...");
+    setWaitingOnAI(true);
+    try {
+      const res = await createHumanGame({
+        model: aiModel,
+        prompt: { mode: promptMode as any, instruction_template_id: "san_only_default" },
+        human_plays: side
+      });
+      const nextFen = res.fen_after_ai || res.current_fen || res.initial_fen || gameRef.current.fen();
+      resetBoardToFen(nextFen);
+      setGameId(res.human_game_id);
+      setAiIllegalMoveCount(res.ai_illegal_move_count ?? 0);
+      setInGame(true);
+      const aiLabel = res.ai_move?.san || res.ai_move?.uci || undefined;
+      if (!finishFromResponse(res, aiLabel)) {
+        const humanToMove = sideToMoveFromFen(nextFen) === side;
+        setWaitingOnAI(!humanToMove);
+        if (aiLabel) {
+          setStatus(`AI (${aiModel}) opened with ${aiLabel}`);
+        } else {
+          setStatus(humanToMove ? "Your move." : "AI thinking...");
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("Failed to start game.");
+      setError("Could not reach backend. Check API base and server logs.");
+      setInGame(false);
+      setWaitingOnAI(false);
+      setGameId(null);
+      resetBoardToFen(new Chess().fen());
+    } finally {
+      setStarting(false);
+    }
   };
 
   const loadHints = (square: Square) => {
@@ -89,39 +176,49 @@ export default function PlayPage() {
     return turnSide === humanSide;
   };
 
-  const canInteract = () => inGame && !waitingOnAI && !gameOverReason && isHumanTurn();
+  const canInteract = () => inGame && !waitingOnAI && !gameOverReason && !!gameId && isHumanTurn();
 
-  const makeAIMove = () => {
-    const game = gameRef.current;
-    if (!inGame) return;
-    if (handleGameEndIfNeeded("AI")) return;
-    const moves = game.moves({ verbose: true }) as Move[];
-    if (!moves.length) {
-      concludeGame("No legal moves left.");
+  const sendMoveToBackend = async (move: Move, rollbackFen: string, afterHumanFen: string) => {
+    if (!gameId) {
+      setWaitingOnAI(false);
       return;
     }
-    const choice = moves[Math.floor(Math.random() * moves.length)];
-    game.move(choice.san);
-    setFen(game.fen());
-    setWaitingOnAI(false);
-    if (handleGameEndIfNeeded("AI")) return;
-    setStatus(`AI (${aiModel}) played ${choice.san}`);
+    try {
+      const uci = `${move.from}${move.to}${move.promotion || ""}`;
+      const res = await postHumanMove(gameId, { human_move: uci });
+      setAiIllegalMoveCount(res.ai_illegal_move_count ?? 0);
+      const nextFen = res.fen_after_ai || res.current_fen || res.fen_after_human || afterHumanFen;
+      resetBoardToFen(nextFen);
+      const aiLabel = res.ai_move?.san || res.ai_move?.uci;
+      if (!finishFromResponse(res, aiLabel)) {
+        setStatus(aiLabel ? `AI (${aiModel}) played ${aiLabel}` : `AI (${aiModel}) moved`);
+        setWaitingOnAI(false);
+      }
+    } catch (err) {
+      console.error(err);
+      if (!inGameRef.current) return;
+      setError("Failed to submit move. Reverting.");
+      setStatus("Move failed; reverted to previous position.");
+      resetBoardToFen(rollbackFen);
+      setWaitingOnAI(false);
+    }
   };
 
   const attemptMove = (source: Square, target: Square) => {
-    if (gameOverReason || !inGame || waitingOnAI || !isHumanTurn()) return false;
+    if (gameOverReason || !inGame || waitingOnAI || !isHumanTurn() || !gameId) return false;
     const game = gameRef.current;
+    const rollbackFen = game.fen();
     const move = game.move({ from: source, to: target, promotion: "q" });
     if (move === null) {
       setStatus("Illegal move. Try again.");
       return false;
     }
-    setFen(game.fen());
+    const afterHumanFen = game.fen();
+    setFen(afterHumanFen);
     resetSelection();
-    if (handleGameEndIfNeeded("You")) return true;
     setStatus(`You played ${move.san}. Waiting for AI...`);
     setWaitingOnAI(true);
-    setTimeout(() => makeAIMove(), 500);
+    void sendMoveToBackend(move, rollbackFen, afterHumanFen);
     return true;
   };
 
@@ -184,7 +281,7 @@ export default function PlayPage() {
   }, [selectedSquare, moveHints]);
 
   const promptSummary = useMemo(
-    () => `POST /api/human-games with model=${aiModel}, mode=${promptMode}`,
+    () => `POST /api/human-games -> /api/human-games/:id/move (model=${aiModel}, mode=${promptMode})`,
     [aiModel, promptMode]
   );
 
@@ -199,37 +296,45 @@ export default function PlayPage() {
         <p className="text-sm uppercase tracking-[0.3em] text-white/60">Human vs LLM</p>
         <h1 className="text-3xl font-semibold text-white font-display">Play a game</h1>
         <p className="text-white/70 text-sm">
-          The board enforces legality locally via chess.js. Wire move submissions to POST `/api/human-games/:gameId/move`
-          and hydrate replies to animate AI moves.
+          Moves are executed through the backend: games start at POST `/api/human-games` and each turn is sent to
+          `/api/human-games/:gameId/move` to fetch the AI reply.
         </p>
+        {error && <p className="text-sm text-red-300">{error}</p>}
       </div>
 
-      <div
-        className={clsx(
-          "grid gap-6 items-start transition-all duration-500",
-          inGame ? "md:grid-cols-[minmax(0,3fr)_minmax(0,0.9fr)]" : "md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]"
-        )}
-      >
+      {inGame && (
+        <div className="flex justify-end">
+          <button className="btn secondary" onClick={resign}>
+            Resign
+          </button>
+        </div>
+      )}
+
+      <div className={clsx("grid gap-6 items-start transition-all duration-500", !inGame && "md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]")}>
         <div
           className={clsx(
-            "card p-4 flex flex-col gap-4 transition-all duration-500",
-            inGame && "md:p-6 md:scale-[1.02]"
+            "card p-4 flex flex-col gap-4 transition-all duration-500 w-full",
+            inGame ? "md:p-7 lg:p-8 md:scale-[1.01] max-w-6xl mx-auto" : ""
           )}
         >
-          <div className="relative">
+          <div ref={boardContainerRef} className={clsx("relative", inGame && "mx-auto max-w-6xl w-full")}>
             <InteractiveBoard
               position={fen}
               boardOrientation={humanSide}
               onSquareClick={(square: Square) => onSquareClick(square)}
               animationDuration={200}
               arePiecesDraggable={false}
+              boardWidth={boardWidth}
               customSquareStyles={squareStyles}
               customBoardStyle={{
                 borderRadius: "24px",
-                boxShadow: "0 10px 35px rgba(0, 0, 0, 0.45)"
+                boxShadow: "0 10px 35px rgba(0, 0, 0, 0.45)",
+                width: "100%",
+                maxWidth: "1100px",
+                margin: "0 auto"
               }}
               customLightSquareStyle={{ backgroundColor: "#f7f7fb" }}
-              customDarkSquareStyle={{ backgroundColor: "#1d253a" }}
+              customDarkSquareStyle={{ backgroundColor: "#24304f" }}
             />
             {gameOverReason && (
               <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center text-center px-6">
@@ -247,22 +352,12 @@ export default function PlayPage() {
             <span className={clsx("chip", waitingOnAI && "bg-accent text-canvas-900")}>
               {waitingOnAI ? "Waiting for AI" : "Your turn"}
             </span>
+            {aiIllegalMoveCount > 0 && <span className="chip">AI illegal moves: {aiIllegalMoveCount}</span>}
           </div>
-          </div>
+        </div>
 
-        <div
-          className={clsx(
-            "card transition-all duration-500",
-            inGame ? "p-4 md:max-w-xs md:ml-auto md:scale-[0.95]" : "p-5 space-y-4 md:max-w-md"
-          )}
-        >
-          {inGame ? (
-            <div className="flex flex-col items-stretch gap-3">
-              <button className="btn secondary w-full" onClick={resign}>
-                Resign
-              </button>
-            </div>
-          ) : (
+        {!inGame && (
+          <div className="card transition-all duration-500 w-full p-5 space-y-4 md:max-w-md">
             <div className="space-y-4">
               <p className="text-lg font-semibold text-white">Configure the AI</p>
               <div className="space-y-3">
@@ -309,14 +404,14 @@ export default function PlayPage() {
                 </select>
               </div>
               <div className="flex gap-2">
-                <button className="btn flex-1" onClick={() => startGame(humanSide)}>
-                  Start game
+                <button className="btn flex-1" onClick={() => startGame(humanSide)} disabled={starting}>
+                  {starting ? "Starting..." : "Start game"}
                 </button>
               </div>
               <p className="text-xs text-white/60">{promptSummary}</p>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

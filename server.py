@@ -5,6 +5,8 @@ Endpoints:
 - POST /api/experiments              -> create/start an experiment (runs games in background)
 - GET  /api/experiments              -> list experiment summaries
 - GET  /api/experiments/<id>/results -> aggregate results and per-game rows
+- POST /api/human-games              -> start a human vs AI game (no disk logging)
+- POST /api/human-games/<id>/move    -> submit a human move and receive the AI reply
 - GET  /api/games/<game_id>/conversation -> return the saved conversation log (if present)
 - GET  /api/games/<game_id>/history       -> return the saved structured history (if present)
 - GET  /api/games/live               -> placeholder (empty list)
@@ -22,20 +24,25 @@ import uuid
 from pathlib import Path
 from typing import Dict, List, Optional
 
+import chess
 from flask import Flask, jsonify, request
 
 from src.llmchess_simple.game import GameConfig, GameRunner
 from src.llmchess_simple.llm_opponent import LLMOpponent
 from src.llmchess_simple.prompting import PromptConfig
+from src.llmchess_simple.user_opponent import UserOpponent
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 app = Flask(__name__)
 lock = threading.Lock()
+human_lock = threading.Lock()
 
 STATE_PATH = Path("experiments_state.json")
 LOG_ROOT = Path(os.environ.get("EXPERIMENT_LOG_DIR", "runs/demo"))
 LOG_ROOT.mkdir(parents=True, exist_ok=True)
+HUMAN_GAMES: Dict[str, dict] = {}
+HUMAN_GAME_TTL_S = 3600  # drop inactive human games after an hour to avoid leaks
 
 
 def load_state() -> Dict[str, dict]:
@@ -128,6 +135,51 @@ def _game_winner_from_result(result: str) -> Optional[str]:
     return None
 
 
+def _ai_color_for_human(human_side: str) -> str:
+    return "black" if str(human_side).lower() == "white" else "white"
+
+
+def _winner_label_from_result(result: str, human_side: str) -> Optional[str]:
+    color = _game_winner_from_result(result)
+    if color == "draw":
+        return "draw"
+    if color is None:
+        return None
+    return "human" if color == human_side else "ai"
+
+
+def _board_termination_reason(board: chess.Board) -> Optional[str]:
+    """Derive a readable termination reason from a finished board."""
+    try:
+        if board.is_checkmate():
+            return "checkmate"
+        if board.is_stalemate():
+            return "stalemate"
+        if board.is_insufficient_material():
+            return "insufficient_material"
+        if board.is_seventyfive_moves():
+            return "seventyfive_move_rule"
+        if board.is_fivefold_repetition():
+            return "fivefold_repetition"
+        if board.is_fifty_moves():
+            return "fifty_move_rule"
+        if board.is_repetition():
+            return "threefold_repetition"
+    except Exception:
+        pass
+    if board.is_game_over():
+        return "game_over"
+    return None
+
+
+def _cleanup_stale_human_games(max_age_s: int = HUMAN_GAME_TTL_S):
+    now = time.time()
+    with human_lock:
+        expired = [gid for gid, sess in HUMAN_GAMES.items() if now - sess.get("updated_at", now) > max_age_s]
+        for gid in expired:
+            HUMAN_GAMES.pop(gid, None)
+
+
 def _init_experiment_record(payload: dict) -> dict:
     total = int(payload.get("games", {}).get("total", 0) or 0)
     a_as_white = int(payload.get("games", {}).get("a_as_white", total // 2))
@@ -153,6 +205,119 @@ def _init_experiment_record(payload: dict) -> dict:
 
 def _persist_update() -> None:
     save_state(STATE)
+
+
+def _side_to_move(board: chess.Board) -> str:
+    return "white" if board.turn == chess.WHITE else "black"
+
+
+def _mark_finished(session: dict, result: str, reason: str):
+    runner: GameRunner = session["runner"]
+    session["status"] = "finished"
+    session["termination_reason"] = reason
+    session["winner"] = _winner_label_from_result(result, session["human_side"])
+    runner.termination_reason = reason
+    try:
+        runner.ref.set_result(result, reason)
+    except Exception:
+        runner.ref.set_result(result or "*", reason)
+
+
+def _serialize_human_session(session: dict, fen_after_human: Optional[str] = None, ai_move: Optional[dict] = None, fen_after_ai: Optional[str] = None) -> dict:
+    board_fen = session["runner"].ref.board.fen()
+    return {
+        "status": "finished" if session.get("status") == "finished" else "ok",
+        "game_status": session.get("status", "running"),
+        "fen_after_human": fen_after_human,
+        "ai_move": ai_move,
+        "fen_after_ai": fen_after_ai,
+        "ai_reply_raw": session.get("last_ai_raw"),
+        "ai_illegal_move_count": session.get("ai_illegal_move_count", 0),
+        "winner": session.get("winner"),
+        "termination_reason": session.get("termination_reason"),
+        "current_fen": board_fen,
+        "side_to_move": _side_to_move(session["runner"].ref.board),
+    }
+
+
+def _human_to_move(session: dict) -> bool:
+    side = _side_to_move(session["runner"].ref.board)
+    return side == session["human_side"]
+
+
+def _ai_to_move(session: dict) -> bool:
+    side = _side_to_move(session["runner"].ref.board)
+    return side == session["ai_side"]
+
+
+def _play_ai_turn(session: dict) -> tuple[Optional[dict], str]:
+    """Execute one AI turn using the runner; returns (ai_move_dict, fen_after_ai)."""
+    runner: GameRunner = session["runner"]
+    try:
+        ok, uci, san, ms, meta = runner._llm_turn_standard()
+    except Exception as exc:  # noqa: BLE001
+        logging.exception("AI move failed for human game %s", session.get("id"))
+        session["ai_illegal_move_count"] = session.get("ai_illegal_move_count", 0) + 1
+        result = "0-1" if session["ai_side"] == "white" else "1-0"
+        _mark_finished(session, result, f"ai_move_error:{exc}")
+        return None, runner.ref.board.fen()
+    session["last_ai_raw"] = meta.get("raw") if meta else None
+    runner.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
+    runner._global_ply = getattr(runner, "_global_ply", 0) + 1
+    session["updated_at"] = time.time()
+
+    if not ok:
+        session["ai_illegal_move_count"] = session.get("ai_illegal_move_count", 0) + 1
+        result = "0-1" if session["ai_side"] == "white" else "1-0"
+        _mark_finished(session, result, "illegal_ai_move")
+        return {"uci": uci, "san": san}, runner.ref.board.fen()
+
+    if runner.ref.board.is_game_over():
+        result = runner.ref.status()
+        if result == "*":
+            try:
+                result = runner.ref.board.result()
+            except Exception:
+                result = "*"
+        reason = _board_termination_reason(runner.ref.board) or "normal_game_end"
+        _mark_finished(session, result, reason)
+    return {"uci": uci, "san": san}, runner.ref.board.fen()
+
+
+def _apply_human_move(session: dict, raw_move: str) -> tuple[Optional[str], bool, Optional[str]]:
+    """Apply a human move in SAN or UCI. Returns (san, ok, error_reason)."""
+    runner: GameRunner = session["runner"]
+    board = runner.ref.board
+    mv = None
+    raw_move = (raw_move or "").strip()
+    if not raw_move:
+        return None, False, "missing_move"
+    try:
+        candidate = chess.Move.from_uci(raw_move)
+        if candidate in board.legal_moves:
+            mv = candidate
+    except Exception:
+        mv = None
+    if mv is None:
+        try:
+            candidate = board.parse_san(raw_move)
+            if candidate in board.legal_moves:
+                mv = candidate
+        except Exception:
+            mv = None
+    if mv is None or mv not in board.legal_moves:
+        return None, False, "illegal_move"
+
+    san = runner.ref.engine_apply(mv)
+    runner.records.append({"actor": "OPP", "uci": mv.uci(), "ok": True, "san": san, "meta": {"actor": "human", "raw": raw_move}})
+    runner._global_ply = getattr(runner, "_global_ply", 0) + 1
+    session["updated_at"] = time.time()
+
+    if runner.ref.board.is_game_over():
+        result = runner.ref.board.result()
+        reason = _board_termination_reason(runner.ref.board) or "normal_game_end"
+        _mark_finished(session, result, reason)
+    return san, True, None
 
 
 def _run_experiment(exp_id: str) -> None:
@@ -382,6 +547,101 @@ def experiment_results(exp_id: str):
         }
     )
 
+
+@app.route("/api/human-games", methods=["POST"])
+def create_human_game():
+    """Start a human vs AI session without writing logs to disk."""
+    _cleanup_stale_human_games()
+    data = request.get_json(force=True) or {}
+    model = data.get("model")
+    if not model:
+        return jsonify({"error": "model is required"}), 400
+    human_side = "black" if str(data.get("human_plays", "white")).lower() == "black" else "white"
+    ai_side = _ai_color_for_human(human_side)
+    prompt_mode = _ensure_prompt_mode(data.get("prompt", {}).get("mode"))
+    prompt_cfg = PromptConfig(mode=prompt_mode)
+    cfg = GameConfig(
+        color=ai_side,  # AI plays this color
+        prompt_cfg=prompt_cfg,
+        opponent_prompt_cfg=prompt_cfg,
+        conversation_log_path=None,  # disable file logging for human games
+        conversation_log_every_turn=False,
+        game_log=False,
+    )
+    runner = GameRunner(model=model, opponent=UserOpponent(), cfg=cfg)
+    start_fen = runner.ref.board.fen()
+    game_id = data.get("human_game_id") or f"human_{int(time.time())}_{uuid.uuid4().hex[:6]}"
+    session = {
+        "id": game_id,
+        "runner": runner,
+        "model": model,
+        "human_side": human_side,
+        "ai_side": ai_side,
+        "status": "running",
+        "winner": None,
+        "termination_reason": None,
+        "ai_illegal_move_count": 0,
+        "last_ai_raw": None,
+        "start_fen": start_fen,
+        "created_at": time.time(),
+        "updated_at": time.time(),
+        "lock": threading.Lock(),
+    }
+
+    ai_move = None
+    fen_after_ai = None
+    if _ai_to_move(session):
+        with session["lock"]:
+            ai_move, fen_after_ai = _play_ai_turn(session)
+    with human_lock:
+        HUMAN_GAMES[game_id] = session
+
+    return jsonify(
+        {
+            "human_game_id": game_id,
+            "initial_fen": start_fen,
+            "side_to_move": _side_to_move(runner.ref.board),
+            "ai_move": ai_move,
+            "fen_after_ai": fen_after_ai,
+            "ai_reply_raw": session.get("last_ai_raw"),
+            "ai_illegal_move_count": session.get("ai_illegal_move_count", 0),
+            "status": session.get("status", "running"),
+            "winner": session.get("winner"),
+            "termination_reason": session.get("termination_reason"),
+            "current_fen": runner.ref.board.fen(),
+        }
+    )
+
+
+@app.route("/api/human-games/<game_id>/move", methods=["POST"])
+def human_game_move(game_id: str):
+    _cleanup_stale_human_games()
+    with human_lock:
+        session = HUMAN_GAMES.get(game_id)
+    if not session:
+        return jsonify({"error": "not found"}), 404
+
+    data = request.get_json(force=True) or {}
+    raw_move = data.get("human_move")
+    if raw_move is None:
+        return jsonify({"error": "human_move is required"}), 400
+
+    with session["lock"]:
+        if session.get("status") == "finished":
+            return jsonify(_serialize_human_session(session, fen_after_human=session["runner"].ref.board.fen()))
+        if not _human_to_move(session):
+            return jsonify({"error": "not_human_turn", "side_to_move": _side_to_move(session["runner"].ref.board)}), 400
+
+        san, ok, err = _apply_human_move(session, raw_move)
+        if not ok:
+            return jsonify({"error": err or "invalid_move"}), 400
+        fen_after_human = session["runner"].ref.board.fen()
+
+        ai_move = None
+        fen_after_ai = None
+        if session.get("status") != "finished" and _ai_to_move(session):
+            ai_move, fen_after_ai = _play_ai_turn(session)
+        return jsonify(_serialize_human_session(session, fen_after_human=fen_after_human, ai_move=ai_move, fen_after_ai=fen_after_ai))
 
 @app.route("/api/games/<game_id>/conversation", methods=["GET"])
 def game_conversation(game_id: str):

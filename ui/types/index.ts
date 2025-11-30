@@ -120,6 +120,14 @@ export type HumanGameCreateResponse = {
   human_game_id: string;
   initial_fen: string;
   side_to_move: "white" | "black";
+  ai_move?: { uci?: string; san?: string } | null;
+  fen_after_ai?: string;
+  ai_reply_raw?: string | null;
+  ai_illegal_move_count?: number;
+  status?: "running" | "finished";
+  winner?: "human" | "ai" | "draw" | null;
+  termination_reason?: string | null;
+  current_fen?: string;
 };
 
 export type HumanMoveRequest = {
@@ -136,6 +144,8 @@ export type HumanMoveResponse = {
   game_status: "running" | "finished";
   winner: "human" | "ai" | "draw" | null;
   termination_reason: string | null;
+  current_fen?: string;
+  side_to_move?: "white" | "black";
 };
 
 export type ExperimentCreateRequest = {
