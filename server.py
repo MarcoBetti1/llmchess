@@ -70,8 +70,11 @@ def _prune_state_from_logs(state: Dict[str, dict]) -> Dict[str, dict]:
             continue  # skip experiments that no longer have logs
         game_rows = []
         for g in exp.get("game_rows", []):
+            game_id = g.get("game_id")
             path = g.get("history_path")
-            if path and Path(path).exists():
+            # Keep rows if their game directory exists, or if a history file already exists.
+            game_dir = exp_dir / game_id if game_id else None
+            if (game_dir and game_dir.exists()) or (path and Path(path).exists()):
                 game_rows.append(g)
         exp_copy = dict(exp)
         exp_copy["game_rows"] = game_rows

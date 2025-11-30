@@ -169,13 +169,16 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
           result: m.result,
           fen_after: m.fen_after
         }));
-        const termMove = [...mvs].reverse().find((m) => m.event === "termination");
+        const termIdx = mvs.findIndex((m) => m.event === "termination");
+        const termMove = termIdx >= 0 ? mvs[termIdx] : undefined;
         const histResult = (hist as any).result;
         const histReason = (hist as any).termination_reason;
+        const terminatedFlag = (hist as any).terminated;
         const derivedTermination =
-          termMove ||
-          (histResult && histResult !== "*") ||
-          (histReason && String(histReason).trim().length > 0)
+          terminatedFlag &&
+          ((termMove && termIdx === mvs.length - 1) ||
+            (histResult && histResult !== "*") ||
+            (histReason && String(histReason).trim().length > 0))
             ? {
                 result: (termMove && termMove.result) || (histResult !== "*" ? histResult : undefined),
                 reason: (termMove && termMove.reason) || histReason
