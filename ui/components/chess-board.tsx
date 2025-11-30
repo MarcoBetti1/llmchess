@@ -45,7 +45,7 @@ export function ChessBoard({ fen, lastMove, orientation = "white", size = 360 }:
         }}
         customLightSquareStyle={{ backgroundColor: "#f7f7fb" }}
         customDarkSquareStyle={{ backgroundColor: "#0f172a" }}
-        animationDuration={250}
+        animationDuration={400}
       />
     </div>
   );

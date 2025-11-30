@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { ExperimentResults, ExperimentSummary } from "@/types";
 import { createExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
 import { ProgressBar } from "@/components/progress-bar";
+import { LiveBoard } from "@/components/live-board";
 
 const modelOptions = [
   "openai/gpt-4o",
@@ -19,16 +20,20 @@ export default function ExperimentsPage() {
   const [results, setResults] = useState<ExperimentResults | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showAllExperiments, setShowAllExperiments] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [liveMode, setLiveMode] = useState(false);
+  const [liveBoardCount, setLiveBoardCount] = useState(2);
   const pollExperimentsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollResultsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [form, setForm] = useState({
     name: "gpt4o_vs_claude",
     playerA: modelOptions[0],
     playerB: modelOptions[1],
-    total: 20,
-    aAsWhite: 10,
+    total: 4,
+    aAsWhite: 2,
     promptMode: "fen+plaintext",
-    illegalLimit: 3
+    illegalLimit: 1
   });
 
   useEffect(() => {
@@ -45,6 +50,13 @@ export default function ExperimentsPage() {
       if (pollExperimentsRef.current) clearInterval(pollExperimentsRef.current);
     };
   }, []);
+
+  // auto-select a running experiment if none selected
+  useEffect(() => {
+    if (selectedId) return;
+    const running = experiments.find((e) => e.status === "running") || experiments[0];
+    if (running) setSelectedId(running.experiment_id);
+  }, [experiments, selectedId]);
 
   useEffect(() => {
     if (!selectedId) return;
@@ -106,27 +118,22 @@ export default function ExperimentsPage() {
   return (
     <div className="space-y-8 fade-in">
       <div className="flex flex-col gap-2">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Experiment lab</p>
-        <h1 className="text-3xl font-semibold text-white font-display">Model tournaments</h1>
+        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Game master</p>
+        <h1 className="text-3xl font-semibold text-white font-display">Run and watch games</h1>
         <p className="text-white/70 text-sm">
-          Start a batch of games and monitor progress. POST `/api/experiments` on submit, poll
-          `/api/experiments/:id/status` or subscribe to `/api/stream/experiments/:id`.
+          Start batches of games and monitor them live. POST `/api/experiments` on submit and poll `/api/experiments/:id/results`.
         </p>
         {error && <p className="text-sm text-red-300">{error}</p>}
       </div>
 
-      <div className="card p-6">
-        <h2 className="section-title mb-4">New experiment</h2>
+      <div className="card p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="section-title">New games</h2>
+          <button className="btn secondary" onClick={() => setShowAdvanced((v) => !v)}>
+            {showAdvanced ? "Hide extras" : "More settings"}
+          </button>
+        </div>
         <form className="grid gap-4 md:grid-cols-4" onSubmit={handleSubmit}>
-          <div className="md:col-span-2 space-y-2">
-            <label className="text-sm text-white/70">Experiment name</label>
-            <input
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-              value={form.name}
-              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              required
-            />
-          </div>
           <div className="space-y-2">
             <label className="text-sm text-white/70">Player A model</label>
             <select
@@ -156,18 +163,6 @@ export default function ExperimentsPage() {
             </select>
           </div>
           <div className="space-y-2">
-            <label className="text-sm text-white/70">Prompt mode</label>
-            <select
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-              value={form.promptMode}
-              onChange={(e) => setForm((f) => ({ ...f, promptMode: e.target.value }))}
-            >
-              <option value="plaintext">plaintext</option>
-              <option value="fen">fen</option>
-              <option value="fen+plaintext">fen+plaintext</option>
-            </select>
-          </div>
-          <div className="space-y-2">
             <label className="text-sm text-white/70">Games total</label>
             <input
               type="number"
@@ -177,38 +172,68 @@ export default function ExperimentsPage() {
               onChange={(e) => setForm((f) => ({ ...f, total: Number(e.target.value) }))}
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm text-white/70">Player A as white</label>
-            <input
-              type="number"
-              min={0}
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-              value={form.aAsWhite}
-              onChange={(e) => setForm((f) => ({ ...f, aAsWhite: Number(e.target.value) }))}
-            />
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm text-white/70">Illegal move limit</label>
-            <input
-              type="number"
-              min={1}
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-              value={form.illegalLimit}
-              onChange={(e) => setForm((f) => ({ ...f, illegalLimit: Number(e.target.value) }))}
-            />
-          </div>
           <div className="flex items-end">
             <button className="btn w-full" type="submit" disabled={submitting}>
-              {submitting ? "Scheduling..." : "Start experiment"}
+              {submitting ? "Scheduling..." : "Start games"}
             </button>
           </div>
+
+          {showAdvanced && (
+            <>
+              <div className="space-y-2">
+                <label className="text-sm text-white/70">Experiment name</label>
+                <input
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+                  value={form.name}
+                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-white/70">Prompt mode</label>
+                <select
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+                  value={form.promptMode}
+                  onChange={(e) => setForm((f) => ({ ...f, promptMode: e.target.value }))}
+                >
+                  <option value="plaintext">plaintext</option>
+                  <option value="fen">fen</option>
+                  <option value="fen+plaintext">fen+plaintext</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-white/70">Player A as white</label>
+                <input
+                  type="number"
+                  min={0}
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+                  value={form.aAsWhite}
+                  onChange={(e) => setForm((f) => ({ ...f, aAsWhite: Number(e.target.value) }))}
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-white/70">Illegal move limit</label>
+                <input
+                  type="number"
+                  min={1}
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+                  value={form.illegalLimit}
+                  onChange={(e) => setForm((f) => ({ ...f, illegalLimit: Number(e.target.value) }))}
+                />
+              </div>
+            </>
+          )}
         </form>
       </div>
 
       <div className="space-y-3">
-        <h2 className="section-title">Experiments</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="section-title">Experiments</h2>
+          <button className="btn secondary" onClick={() => setShowAllExperiments((v) => !v)}>
+            {showAllExperiments ? "Show fewer" : "Show all"}
+          </button>
+        </div>
         <div className="grid gap-3 md:grid-cols-2">
-          {experiments.map((exp) => {
+          {(showAllExperiments ? experiments : experiments.slice(0, 1)).map((exp) => {
             const progress = (exp.games.completed / exp.games.total) * 100;
             return (
               <div
@@ -249,62 +274,133 @@ export default function ExperimentsPage() {
             <div>
               <p className="text-sm text-white/60 uppercase tracking-[0.25em]">Experiment detail</p>
               <h3 className="text-xl font-semibold text-white">
-                {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} —{" "}
+                {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} -{" "}
                 {selectedExperiment.games.total} games
               </h3>
             </div>
             <span className="chip">{selectedExperiment.status}</span>
           </div>
-          <div className="grid gap-3 md:grid-cols-3 text-sm text-white/80">
-            <div className="glass rounded-xl p-3 border border-white/10">
-              <p className="text-white text-lg font-semibold">
-                {results?.wins.player_a ?? selectedExperiment.wins?.player_a ?? 0}
-              </p>
-              <p className="text-white/60">Player A wins</p>
-            </div>
-            <div className="glass rounded-xl p-3 border border-white/10">
-              <p className="text-white text-lg font-semibold">
-                {results?.wins.player_b ?? selectedExperiment.wins?.player_b ?? 0}
-              </p>
-              <p className="text-white/60">Player B wins</p>
-            </div>
-            <div className="glass rounded-xl p-3 border border-white/10">
-              <p className="text-white text-lg font-semibold">
-                {results?.wins.draws ?? selectedExperiment.wins?.draws ?? 0}
-              </p>
-              <p className="text-white/60">Draws</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <button className="btn secondary" onClick={() => setLiveMode((v) => !v)}>
+              {liveMode ? "Back to dashboard" : "Watch live boards"}
+            </button>
+            <div className="flex items-center gap-2 text-sm text-white/70">
+              <span className="chip">Boards</span>
+              {[1, 2, 4].map((n) => (
+                <button
+                  key={n}
+                  className={`chip ${liveBoardCount === n ? "bg-accent text-canvas-900" : ""}`}
+                  onClick={() => setLiveBoardCount(n)}
+                >
+                  {n}
+                </button>
+              ))}
             </div>
           </div>
-          {results?.games?.length ? (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm text-left text-white/80">
-                <thead className="text-white/60 uppercase text-xs tracking-wide">
-                  <tr>
-                    <th className="py-2">Game ID</th>
-                    <th className="py-2">White</th>
-                    <th className="py-2">Black</th>
-                    <th className="py-2">Result</th>
-                    <th className="py-2">Illegal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {results.games.map((g) => (
-                    <tr key={g.game_id} className="border-t border-white/5">
-                      <td className="py-2">{g.game_id}</td>
-                      <td className="py-2">{g.white_model}</td>
-                      <td className="py-2">{g.black_model}</td>
-                      <td className="py-2 capitalize">{g.winner || "running"}</td>
-                      <td className="py-2">{g.illegal_moves}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <p className="text-white/60 text-sm">No per-game rows yet.</p>
+          {!liveMode && (
+            <>
+              <div className="grid gap-3 md:grid-cols-3 text-sm text-white/80">
+                <div className="glass rounded-xl p-3 border border-white/10">
+                  <p className="text-white text-lg font-semibold">
+                    {results?.wins.player_a ?? selectedExperiment.wins?.player_a ?? 0}
+                  </p>
+                  <p className="text-white/60">Player A wins</p>
+                </div>
+                <div className="glass rounded-xl p-3 border border-white/10">
+                  <p className="text-white text-lg font-semibold">
+                    {results?.wins.player_b ?? selectedExperiment.wins?.player_b ?? 0}
+                  </p>
+                  <p className="text-white/60">Player B wins</p>
+                </div>
+                <div className="glass rounded-xl p-3 border border-white/10">
+                  <p className="text-white text-lg font-semibold">
+                    {results?.wins.draws ?? selectedExperiment.wins?.draws ?? 0}
+                  </p>
+                  <p className="text-white/60">Draws</p>
+                </div>
+              </div>
+              {results?.games?.length ? (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm text-left text-white/80">
+                    <thead className="text-white/60 uppercase text-xs tracking-wide">
+                      <tr>
+                        <th className="py-2">Game ID</th>
+                        <th className="py-2">White</th>
+                        <th className="py-2">Black</th>
+                        <th className="py-2">Result</th>
+                        <th className="py-2">Illegal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {results.games.map((g) => (
+                        <tr key={g.game_id} className="border-t border-white/5">
+                          <td className="py-2">{g.game_id}</td>
+                          <td className="py-2">{g.white_model}</td>
+                          <td className="py-2">{g.black_model}</td>
+                          <td className="py-2 capitalize">{g.winner || "running"}</td>
+                          <td className="py-2">{g.illegal_moves}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <p className="text-white/60 text-sm">No per-game rows yet.</p>
+              )}
+            </>
+          )}
+          {liveMode && (
+            <LiveBoardsPanel
+              experimentId={selectedExperiment.experiment_id}
+              games={results?.games || []}
+              count={liveBoardCount}
+            />
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function LiveBoardsPanel({
+  experimentId,
+  games,
+  count
+}: {
+  experimentId: string;
+  games: ExperimentResults["games"];
+  count: number;
+}) {
+  const [gameIds, setGameIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    const ids = (games || []).slice(0, count).map((g) => g.game_id);
+    setGameIds(ids);
+  }, [games, count]);
+
+  if (!games?.length) {
+    return <p className="text-white/60 text-sm">No games yet to display. Wait for games to start.</p>;
+  }
+
+  return (
+    <div className="space-y-3">
+      <p className="text-white/70 text-sm">
+        Watching {Math.min(count, games.length)} board{count > 1 ? "s" : ""} from {experimentId}
+      </p>
+      <div className={`grid gap-4 ${count >= 4 ? "md:grid-cols-4" : count === 2 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
+        {gameIds.map((gameId) => {
+          const meta = games.find((g) => g.game_id === gameId);
+          if (!meta) return null;
+          return (
+            <LiveBoard
+              key={gameId}
+              gameId={gameId}
+              whiteModel={meta.white_model}
+              blackModel={meta.black_model}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

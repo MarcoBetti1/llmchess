@@ -36,3 +36,4 @@ node_modules/
 ui/.next/
 ui/node_modules/
 ui/.env.local
+experiments_state.json

@@ -31,7 +31,7 @@ class GameConfig:
     salvage_with_validator: bool = True  # attempt salvage if agent output illegal
     # Conversation/trace logging
     conversation_log_path: str | None = None  # optional path or directory to dump reconstructed conversation JSON
-    conversation_log_every_turn: bool = False # write conversation and structured history after every ply
+    conversation_log_every_turn: bool = True  # write conversation and structured history after every ply
     # Side and validation
     # Preferred color configuration: 'white' | 'black'.
     # Back-compat: if older configs set llm_is_white, we derive color from it via a helper in GameRunner.

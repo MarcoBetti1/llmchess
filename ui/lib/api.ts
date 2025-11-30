@@ -19,7 +19,7 @@ const USE_MOCKS = (process.env.NEXT_PUBLIC_USE_MOCKS || "false").toLowerCase() =
 async function fetchJson<T>(path: string, init?: RequestInit): Promise<T | null> {
   if (typeof fetch === "undefined") return null;
   try {
-    const res = await fetch(`${API_BASE}${path}`, init);
+    const res = await fetch(`${API_BASE}${path}`, { cache: "no-store", ...(init || {}) });
     if (!res.ok) throw new Error(`Request failed ${res.status}`);
     return (await res.json()) as T;
   } catch (err) {
@@ -55,7 +55,7 @@ export async function fetchGameConversation(gameId: string): Promise<Conversatio
 
 export async function fetchGameHistory(gameId: string): Promise<GameHistory> {
   try {
-    const data = await fetchJson<GameHistory>(`/api/games/${gameId}/history`);
+    const data = await fetchJson<GameHistory>(`/api/games/${gameId}/history?t=${Date.now()}`);
     if (data) return data;
   } catch (err) {
     console.error("Failed to fetch history", err);
@@ -66,7 +66,7 @@ export async function fetchGameHistory(gameId: string): Promise<GameHistory> {
 
 export async function fetchExperiments(): Promise<ExperimentSummary[]> {
   try {
-    const data = await fetchJson<ExperimentSummary[]>(`/api/experiments`);
+    const data = await fetchJson<ExperimentSummary[]>(`/api/experiments?t=${Date.now()}`);
     if (data && Array.isArray(data)) return data;
   } catch (err) {
     console.error("Failed to fetch experiments", err);
@@ -77,7 +77,7 @@ export async function fetchExperiments(): Promise<ExperimentSummary[]> {
 
 export async function fetchExperimentResults(experimentId: string): Promise<ExperimentResults> {
   try {
-    const data = await fetchJson<ExperimentResults>(`/api/experiments/${experimentId}/results`);
+    const data = await fetchJson<ExperimentResults>(`/api/experiments/${experimentId}/results?t=${Date.now()}`);
     if (data) return data;
   } catch (err) {
     console.error("Failed to fetch experiment results", err);

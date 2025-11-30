@@ -15,11 +15,8 @@ export default function HomePage() {
               monitor model tournaments, or play a human game while inspecting every prompt and reply.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/live" className="btn">
-                Open Live Games
-              </Link>
-              <Link href="/experiments" className="btn secondary">
-                Experiments
+              <Link href="/experiments" className="btn">
+                Open Game Master
               </Link>
               <Link href="/play" className="btn secondary">
                 Play vs AI
@@ -32,14 +29,10 @@ export default function HomePage() {
               <ul className="space-y-2 text-sm text-white/80">
                 <li className="flex items-center gap-2">
                   <span className="chip">GET</span>
-                  <span>/api/games/live</span>
+                  <span>/api/experiments</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="chip">SSE</span>
-                  <span>/api/stream/games</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="chip">GET</span>
+                  <span className="chip">POST</span>
                   <span>/api/experiments</span>
                 </li>
                 <li className="flex items-center gap-2">

@@ -105,6 +105,24 @@ export const mockHistory: GameHistory = {
       llm_latency_s: 0.82,
       timestamp: new Date().toISOString(),
       conversation_id: "conv_0001_turn_002"
+    },
+    {
+      ply: 3,
+      turn: "white",
+      player_model: "openai/gpt-4o",
+      fen_before: "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      uci: "g1f3",
+      san: "Nf3",
+      is_legal: true,
+      illegal_attempts_before: 0,
+      llm_latency_s: 0.9,
+      timestamp: new Date().toISOString(),
+      conversation_id: "conv_0001_turn_003"
+    },
+    {
+      event: "termination",
+      result: "1-0",
+      reason: "checkmate"
     }
   ]
 };
