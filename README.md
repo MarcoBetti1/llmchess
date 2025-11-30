@@ -1,49 +1,83 @@
-# LLM Chess
+# LLM Chess (Gateway-ready, head-to-head)
 
-LLM Chess is a benchmarking harness that asks large language models to play legal games of chess. It balances structure and flexibility: `python-chess` enforces the rules, while lightweight agents and prompts translate every position into text that models can understand. The goal is not to build a chess grandmaster, but to measure whether different prompting strategies, model families, and transports can keep games legal and coherent over many plies.
+A minimal chess harness for pitting language models against each other (or a human) one move at a time. Everything runs through a single OpenAI-compatible `POST /chat/completions` endpoint, making it easy to point at Vercel AI Gateway or any OpenAI-compatible backend by changing the base URL and API key.
 
-## How a turn works (high-level flow)
+## Goals
 
-1. **State capture** – `GameRunner` (see `src/llmchess_simple/game.py`) queries `python-chess` for the current FEN, recent SAN history, and an annotated natural-language history.
-2. **Prompt assembly** – `PromptConfig` chooses the textual format (plaintext, FEN, or hybrid). The resulting chat messages are sent through `llm_client` using a provider-agnostic chat/completions call.
-3. **Guarded parsing** – Raw replies are parsed into a candidate move (simple regex/first-token). `move_validator.normalize_move` double-checks it against the board and salvages legal SAN if needed.
-4. **Referee decision** – `Referee` applies the move, tracks illegal attempts, and keeps PGN/metrics up to date. Any illegal response immediately ends the game with a loss for the side that produced it.
-5. **Logging** – Every turn records the raw LLM reply, the normalized move, and legality metadata. `conv_*.json` and `hist_*.json` snapshots are regenerated immediately for downstream inspection.
+- Competitive model evaluation: run LLM vs LLM games with per-move legality enforcement.
+- Simple, provider-agnostic transport: one chat request per turn; no batching.
+- Gateway-ready: configure `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY` to use Vercel AI Gateway.
+- UI-ready logs: structured history and conversation snapshots for downstream visualization.
 
-An overview of the text interface (prompts, notation, normalization) lives in [`docs/chess-text-representation.md`](docs/chess-text-representation.md).
+## How a turn works
+
+1. **State capture** – `GameRunner` reads the current FEN, SAN history, and a natural-language history from `python-chess`.
+2. **Prompt assembly** – `PromptConfig` builds chat messages (plaintext, FEN, or hybrid). The messages are sent via `llm_client` to the configured `/chat/completions` endpoint.
+3. **Parsing & validation** – A simple regex/first-token extractor pulls a move candidate; `move_validator.normalize_move` checks legality against the board and salvages SAN/UCI if possible.
+4. **Referee decision** – `Referee` applies moves, tracks termination, and ends the game immediately on any illegal move.
+5. **Logging** – Each ply records raw LLM text, normalized move, legality, and metadata. Structured history and conversation JSON are emitted for downstream UI/analysis.
 
 ## Core components
 
-- **`GameRunner`** orchestrates single games and collects metrics such as legal rate and latency.
-- **`LLMOpponent` / `UserOpponent`** supply the adversary for LLM-vs-LLM or human-vs-LLM games.
-- **`PromptConfig` & builders** (plaintext, FEN, FEN+plaintext) provide the textual scaffolding for each request.
-- **`move_validator`** bridges between free-form replies and `python-chess`, ensuring the final move is legal before applying it.
+- `src/llmchess_simple/game.py` – `GameRunner` orchestrates a single game, collects metrics, and exports logs.
+- `src/llmchess_simple/llm_opponent.py` – `LLMOpponent` for head-to-head model play.
+- `src/llmchess_simple/user_opponent.py` – `UserOpponent` for interactive human moves (validated before applying).
+- `src/llmchess_simple/prompting.py` – `PromptConfig` and builders for plaintext/FEN/hybrid prompts with optional instruction templates.
+- `src/llmchess_simple/llm_client.py` – Thin OpenAI-compatible client; configurable `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`.
+- `src/llmchess_simple/move_validator.py` – Bridges free-form replies to legal UCI/SAN moves.
+- `src/llmchess_simple/referee.py` – Applies moves, maintains PGN, and handles termination.
 
-## Configuration surface
+## Configuration
 
-Runtime configuration values (API keys, base URL, provider selection, etc.) load from `settings.yml`, environment variables, or defaults in `config.py`. The LLM layer talks to OpenAI-compatible endpoints (`/models`, `/chat/completions`, `/embeddings`), so pointing at Vercel AI Gateway or another SDK simply means updating `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`. The precedence rules and full catalogue are covered in [`docs/configuration.md`](docs/configuration.md).
+Set environment variables (or `settings.yml`) for the transport:
 
-## Minimal usage
+```bash
+export LLMCHESS_LLM_BASE_URL=https://ai-gateway.vercel.sh/v1   # default: https://api.openai.com/v1
+export LLMCHESS_LLM_API_KEY=your_gateway_or_openai_key
+export LLMCHESS_MAX_CONCURRENCY=4
+export LLMCHESS_RESPONSES_TIMEOUT_S=120
+```
 
-There is no CLI runner in this trimmed version. Create a game in Python:
+Model strings can be any OpenAI-compatible IDs (e.g., `openai/gpt-4o`, `anthropic/claude-3-sonnet` when routed through Gateway).
+
+## Minimal usage (Python)
 
 ```python
 from src.llmchess_simple.game import GameRunner, GameConfig
 from src.llmchess_simple.llm_opponent import LLMOpponent
+from src.llmchess_simple.user_opponent import UserOpponent
 
-opp = LLMOpponent(model="openai/gpt-4o")  # or "anthropic/claude-..." via gateway
+# LLM vs LLM
+opp = LLMOpponent(model="openai/gpt-4o", provider_options={"gateway": {"order": ["openai"]}})
 runner = GameRunner(model="openai/gpt-4o", opponent=opp, cfg=GameConfig())
 result = runner.play()
-print("Result:", result, runner.summary())
+print("Result:", result)
+print("Metrics:", runner.summary())
+
+# LLM vs human (interactive)
+# human_opp = UserOpponent()
+# runner = GameRunner(model="openai/gpt-4o", opponent=human_opp, cfg=GameConfig())
+# runner.play()
 ```
 
-To play against a human, swap `LLMOpponent` for `UserOpponent()`.
+Generated artifacts (if `conversation_log_path` is set in `GameConfig`):
 
-## Prompting modes & notation
+- `conv_*.json` – chat messages and raw replies (with actor/model tags).
+- `hist_*.json` – structured move history with UCI/SAN, legality, FEN snapshots, and participant metadata.
 
-You can switch between natural-language histories, FEN-only prompts, or hybrids by editing the `prompt_cfg` in `GameConfig` (and optionally supply `instructions_template` to inject custom guidance). The effect of each mode is detailed in [`docs/chess-text-representation.md`](docs/chess-text-representation.md). Because legality is enforced by `python-chess`, you can experiment freely with different textual representations.
+## Prompting modes & customization
 
-## Documentation map
+`PromptConfig` supports:
 
-- [`docs/configuration.md`](docs/configuration.md) – environment and settings reference.
-- [`docs/chess-text-representation.md`](docs/chess-text-representation.md) – how prompts and replies encode the game.
+- `mode`: `"plaintext"`, `"fen"`, or `"fen+plaintext"`.
+- `starting_context_enabled`: include a first-move hint when the LLM starts as White.
+- `instruction_line`: final instruction (e.g., ask for SAN or UCI).
+- `extra_instructions`: optional freeform template inserted before `instruction_line`.
+
+Pass a customized `PromptConfig` into `GameConfig(prompt_cfg=...)` or set `opponent_prompt_cfg` for the opponent side.
+
+## Notes
+
+- Any illegal move immediately forfeits the game for the side that produced it.
+- One chat request per turn; no batching or orchestration layer is included.
+- Logs and outputs are structured to plug into a UI for replay/analysis.
