@@ -32,8 +32,7 @@ export default function ExperimentsPage() {
     playerB: modelOptions[1],
     total: 4,
     aAsWhite: 2,
-    promptMode: "fen+plaintext",
-    illegalLimit: 1
+    promptMode: "fen+plaintext"
   });
 
   useEffect(() => {
@@ -88,8 +87,7 @@ export default function ExperimentsPage() {
       name: form.name,
       players: { a: { model: form.playerA }, b: { model: form.playerB } },
       games: { total: form.total, a_as_white: form.aAsWhite, b_as_white: Math.max(form.total - form.aAsWhite, 0) },
-      prompt: { mode: form.promptMode as any, instruction_template_id: "san_only_default" },
-      illegal_move_limit: form.illegalLimit
+      prompt: { mode: form.promptMode as any, instruction_template_id: "san_only_default" }
     } as const;
 
     try {
@@ -209,16 +207,6 @@ export default function ExperimentsPage() {
                   className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
                   value={form.aAsWhite}
                   onChange={(e) => setForm((f) => ({ ...f, aAsWhite: Number(e.target.value) }))}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm text-white/70">Illegal move limit</label>
-                <input
-                  type="number"
-                  min={1}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-                  value={form.illegalLimit}
-                  onChange={(e) => setForm((f) => ({ ...f, illegalLimit: Number(e.target.value) }))}
                 />
               </div>
             </>

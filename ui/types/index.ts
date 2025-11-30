@@ -113,7 +113,6 @@ export type HumanGameCreateRequest = {
     mode: "plaintext" | "fen" | "fen+plaintext";
     instruction_template_id?: string;
   };
-  illegal_move_limit: number;
   human_plays: "white" | "black";
 };
 
@@ -154,7 +153,6 @@ export type ExperimentCreateRequest = {
     mode: "plaintext" | "fen" | "fen+plaintext";
     instruction_template_id?: string;
   };
-  illegal_move_limit: number;
 };
 
 export type ExperimentCreateResponse = {

@@ -94,7 +94,7 @@ Supported endpoints:
 - `GET /api/games/{game_id}/history` – returns the saved structured history if present.
 - `GET /api/games/live` – placeholder (empty array).
 
-Note: GameRunner ends a game on the first illegal move. The UI sends `illegal_move_limit`, but it is not enforced beyond that behavior.
+Note: GameRunner ends a game on the first illegal move; there is no configurable illegal-move limit in the UI.
 
 ## Prompting modes and customization
 
