@@ -1,8 +1,8 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { ExperimentResults, ExperimentSummary } from "@/types";
-import { fetchExperimentResults, fetchExperiments } from "@/lib/api";
+import { createExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
 import { ProgressBar } from "@/components/progress-bar";
 
 const modelOptions = [
@@ -19,6 +19,8 @@ export default function ExperimentsPage() {
   const [results, setResults] = useState<ExperimentResults | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const pollExperimentsRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pollResultsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [form, setForm] = useState({
     name: "gpt4o_vs_claude",
     playerA: modelOptions[0],
@@ -30,22 +32,34 @@ export default function ExperimentsPage() {
   });
 
   useEffect(() => {
-    fetchExperiments()
-      .then(setExperiments)
-      .catch((err) => {
-        console.error(err);
-        setError("Failed to fetch experiments. Check NEXT_PUBLIC_API_BASE or enable mocks.");
-      });
+    const load = () =>
+      fetchExperiments()
+        .then(setExperiments)
+        .catch((err) => {
+          console.error(err);
+          setError("Failed to fetch experiments. Check NEXT_PUBLIC_API_BASE or enable mocks.");
+        });
+    load();
+    pollExperimentsRef.current = setInterval(load, 4000);
+    return () => {
+      if (pollExperimentsRef.current) clearInterval(pollExperimentsRef.current);
+    };
   }, []);
 
   useEffect(() => {
     if (!selectedId) return;
-    fetchExperimentResults(selectedId)
-      .then(setResults)
-      .catch((err) => {
-        console.error(err);
-        setError("Failed to fetch experiment results.");
-      });
+    const load = () =>
+      fetchExperimentResults(selectedId)
+        .then(setResults)
+        .catch((err) => {
+          console.error(err);
+          setError("Failed to fetch experiment results.");
+        });
+    load();
+    pollResultsRef.current = setInterval(load, 5000);
+    return () => {
+      if (pollResultsRef.current) clearInterval(pollResultsRef.current);
+    };
   }, [selectedId]);
 
   const selectedExperiment = useMemo(
@@ -53,22 +67,40 @@ export default function ExperimentsPage() {
     [experiments, selectedId]
   );
 
-  const handleSubmit = (evt: FormEvent) => {
+  const handleSubmit = async (evt: FormEvent) => {
     evt.preventDefault();
     setSubmitting(true);
-    const experiment_id = `exp_${Date.now()}`;
-    const next: ExperimentSummary = {
-      experiment_id,
+    setError(null);
+    const payload = {
       name: form.name,
-      status: "queued",
       players: { a: { model: form.playerA }, b: { model: form.playerB } },
-      games: { total: form.total, completed: 0 },
-      wins: { player_a: 0, player_b: 0, draws: 0 }
-    };
-    setExperiments((prev) => [next, ...prev]);
-    setSelectedId(experiment_id);
-    setResults(null);
-    setTimeout(() => setSubmitting(false), 300);
+      games: { total: form.total, a_as_white: form.aAsWhite, b_as_white: Math.max(form.total - form.aAsWhite, 0) },
+      prompt: { mode: form.promptMode as any, instruction_template_id: "san_only_default" },
+      illegal_move_limit: form.illegalLimit
+    } as const;
+
+    try {
+      const { experiment_id } = await createExperiment(payload);
+      const optimistic: ExperimentSummary = {
+        experiment_id,
+        name: form.name,
+        status: "queued",
+        players: { a: { model: form.playerA }, b: { model: form.playerB } },
+        games: { total: form.total, completed: 0 },
+        wins: { player_a: 0, player_b: 0, draws: 0 }
+      };
+      setExperiments((prev) => {
+        const filtered = prev.filter((p) => p.experiment_id !== experiment_id);
+        return [optimistic, ...filtered];
+      });
+      setSelectedId(experiment_id);
+      setResults(null);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to start experiment. Check backend logs and NEXT_PUBLIC_API_BASE.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -78,7 +110,7 @@ export default function ExperimentsPage() {
         <h1 className="text-3xl font-semibold text-white font-display">Model tournaments</h1>
         <p className="text-white/70 text-sm">
           Start a batch of games and monitor progress. POST `/api/experiments` on submit, poll
-          `/api/experiments/{id}/status` or subscribe to `/api/stream/experiments/{id}`.
+          `/api/experiments/:id/status` or subscribe to `/api/stream/experiments/:id`.
         </p>
         {error && <p className="text-sm text-red-300">{error}</p>}
       </div>

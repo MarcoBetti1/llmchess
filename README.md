@@ -40,12 +40,41 @@ export LLMCHESS_RESPONSES_TIMEOUT_S=120
 
 Model strings can be any OpenAI-compatible IDs (e.g., `openai/gpt-4o`, `anthropic/claude-3-sonnet` when routed through Gateway).
 
-## Minimal usage (Python)
 
+
+Generated artifacts (if `conversation_log_path` is set in `GameConfig`):
+
+- `conv_*.json` – chat messages and raw replies (with actor/model tags).
+- `hist_*.json` – structured move history with UCI/SAN, legality, FEN snapshots, and participant metadata.
+
+## Running an experiment 
+Because the project is library-only, you run experiments with a tiny Python script: 
+1) Set env for your endpoint/key (e.g., Vercel AI Gateway):
+```bash
+export LLMCHESS_LLM_BASE_URL=https://ai-gateway.vercel.sh/v1
+export LLMCHESS_LLM_API_KEY=$AI_GATEWAY_API_KEY
+```
+2) Create run_game.py:
 ```python
+### Imports
 from src.llmchess_simple.game import GameRunner, GameConfig
 from src.llmchess_simple.llm_opponent import LLMOpponent
 from src.llmchess_simple.user_opponent import UserOpponent
+
+### pick two models; can be the same for mirror matches
+white = LLMOpponent(model="openai/gpt-4o")
+black = LLMOpponent(model="openai/gpt-4o-mini")
+
+cfg = GameConfig(conversation_log_path="runs/demo")  # optional logging
+runner = GameRunner(model=white.model, opponent=black, cfg=cfg)
+result = runner.play()
+print(result)
+print(runner.summary())
+
+# LLM vs human (interactive)
+human_opp = UserOpponent()
+runner = GameRunner(model="openai/gpt-4o", opponent=human_opp, cfg=GameConfig())
+runner.play()
 
 # LLM vs LLM
 opp = LLMOpponent(model="openai/gpt-4o", provider_options={"gateway": {"order": ["openai"]}})
@@ -53,17 +82,12 @@ runner = GameRunner(model="openai/gpt-4o", opponent=opp, cfg=GameConfig())
 result = runner.play()
 print("Result:", result)
 print("Metrics:", runner.summary())
-
-# LLM vs human (interactive)
-# human_opp = UserOpponent()
-# runner = GameRunner(model="openai/gpt-4o", opponent=human_opp, cfg=GameConfig())
-# runner.play()
 ```
-
-Generated artifacts (if `conversation_log_path` is set in `GameConfig`):
-
-- `conv_*.json` – chat messages and raw replies (with actor/model tags).
-- `hist_*.json` – structured move history with UCI/SAN, legality, FEN snapshots, and participant metadata.
+3) Run it:
+```bash
+python run_game.py
+```
+Outputs: console logs plus optional runs/demo/conv_*.json and runs/demo/hist_*.json if you set conversation_log_path. Adjust PromptConfig via GameConfig(prompt_cfg=...) for different modes/instructions.
 
 ## Prompting modes & customization
 

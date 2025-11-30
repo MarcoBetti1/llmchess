@@ -138,3 +138,25 @@ export type HumanMoveResponse = {
   winner: "human" | "ai" | "draw" | null;
   termination_reason: string | null;
 };
+
+export type ExperimentCreateRequest = {
+  name?: string;
+  players: {
+    a: { model: string };
+    b: { model: string };
+  };
+  games: {
+    total: number;
+    a_as_white: number;
+    b_as_white: number;
+  };
+  prompt: {
+    mode: "plaintext" | "fen" | "fen+plaintext";
+    instruction_template_id?: string;
+  };
+  illegal_move_limit: number;
+};
+
+export type ExperimentCreateResponse = {
+  experiment_id: string;
+};

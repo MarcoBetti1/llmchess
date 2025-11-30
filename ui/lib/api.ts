@@ -1,6 +1,8 @@
 import { mockConversation, mockExperimentResults, mockExperiments, mockGames, mockHistory } from "@/lib/mockData";
 import {
   ConversationLog,
+  ExperimentCreateRequest,
+  ExperimentCreateResponse,
   ExperimentResults,
   ExperimentSummary,
   GameHistory,
@@ -105,6 +107,19 @@ export function subscribeToGameStream(onUpdate: GameUpdateHandler): () => void {
     source.close();
   };
   return () => source.close();
+}
+
+export async function createExperiment(payload: ExperimentCreateRequest): Promise<ExperimentCreateResponse> {
+  const res = await fetchJson<ExperimentCreateResponse>("/api/experiments", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if (res) return res;
+  if (USE_MOCKS) {
+    return { experiment_id: `exp_${Date.now()}` };
+  }
+  throw new Error("Failed to create experiment");
 }
 
 export async function createHumanGame(req: HumanGameCreateRequest): Promise<HumanGameCreateResponse> {
