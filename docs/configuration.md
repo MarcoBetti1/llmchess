@@ -8,7 +8,6 @@ This project loads configuration from code in `src/llmchess_simple/config.py`. T
 2. **Environment variables** – read from the OS _after_ `dotenv.load_dotenv()` runs, so a local `.env` file is honoured.
 3. **Code defaults** – the constants defined inside `config.py` are used when no other source provides a value.
 
-> Tip: Boolean flags use a permissive parser. Strings like `"0"`, `"false"`, `"no"`, `"off"`, and `"none"` map to `False`; any other non-empty string maps to `True`.
 
 ## Settings catalogue
 

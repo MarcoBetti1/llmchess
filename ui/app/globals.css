@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-gradient: radial-gradient(circle at 20% 20%, rgba(124, 231, 172, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(163, 191, 250, 0.18), transparent 40%),
+    linear-gradient(145deg, #0b1024, #111735 60%, #0b1024);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  color: #e5e7eb;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}
+
+.chip {
+  @apply px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium transition-transform duration-150;
+  background: linear-gradient(120deg, #7ce7ac, #a3bffa);
+  color: #0b1024;
+  box-shadow: 0 10px 40px -25px rgba(124, 231, 172, 0.75);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 72px;
+}
+
+.section-title {
+  @apply text-lg font-semibold tracking-wide text-white;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

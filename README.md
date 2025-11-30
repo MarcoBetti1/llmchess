@@ -32,7 +32,7 @@ A minimal chess harness for pitting language models against each other (or a hum
 Set environment variables (or `settings.yml`) for the transport:
 
 ```bash
-export LLMCHESS_LLM_BASE_URL=https://ai-gateway.vercel.sh/v1   # default: https://api.openai.com/v1
+export LLMCHESS_LLM_BASE_URL=https://ai-gateway.vercel.sh/v1
 export LLMCHESS_LLM_API_KEY=your_gateway_or_openai_key
 export LLMCHESS_MAX_CONCURRENCY=4
 export LLMCHESS_RESPONSES_TIMEOUT_S=120
@@ -79,5 +79,30 @@ Pass a customized `PromptConfig` into `GameConfig(prompt_cfg=...)` or set `oppon
 ## Notes
 
 - Any illegal move immediately forfeits the game for the side that produced it.
-- One chat request per turn; no batching or orchestration layer is included.
+- One chat request per turn
 - Logs and outputs are structured to plug into a UI for replay/analysis.
+
+## Frontend UI (Next.js + Tailwind)
+
+A Next.js UI lives in `ui/` with three primary surfaces:
+
+- `/live` – Live LLM vs LLM games with boards, last-move highlights, and a conversation dialog fed by `/api/games/live` and `/api/games/{id}/conversation`.
+- `/experiments` – Start experiments and browse progress snapshots from `/api/experiments` and `/api/experiments/{id}/results`.
+- `/play` – Human vs LLM board that enforces legality locally (chess.js) and is wired to the `POST /api/human-games` flow.
+
+Run it locally (Node 18+):
+
+```bash
+cd ui
+npm install
+npm run dev
+```
+
+Configure the backend host via `ui/.env.local`:
+
+```
+NEXT_PUBLIC_API_BASE=http://localhost:8000
+NEXT_PUBLIC_USE_MOCKS=false   # set true to fall back to mock data
+```
+
+The UI falls back to mock data when endpoints are unavailable so you can explore the layout before wiring the backend.
