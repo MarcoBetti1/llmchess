@@ -97,14 +97,8 @@ class GameRunner:
                 ts = datetime.now().strftime("%Y%m%d-%H%M%S")
                 side = "w" if self._llm_is_white() else "b"
                 # Include prompting mode in filename for clarity
-                pmode = (self.cfg.prompt_cfg.mode or "plaintext").lower()
-                if pmode == "fen":
-                    mode_tag = "fen"
-                elif pmode in ("fen+plaintext", "fen_plaintext", "fen-and-plaintext"):
-                    mode_tag = "fenpl"
-                else:
-                    mode_tag = "std"
-                fname = f"conv_{ts}_{mode_tag}_{side}.json"
+                pmode = (self.cfg.prompt_cfg.mode or "custom").lower()
+                fname = f"conv_{ts}_{pmode}_{side}.json"
                 resolved = os.path.join(dir_path, fname)
             else:
                 dir_path = os.path.dirname(p)
@@ -286,7 +280,13 @@ class GameRunner:
             salvage_with_validator=self.cfg.salvage_with_validator,
             verbose_llm=self.cfg.verbose_llm,
             log=self.log,
-            meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode},
+            meta_extra={
+                "mode": "standard",
+                "prompt": user_prompt_text,
+                "system": sys_prompt_text,
+                "prompt_mode": self.cfg.prompt_cfg.mode,
+                "prompt_template": getattr(self.cfg.prompt_cfg, "template", None),
+            },
         )
         self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
         # Console-friendly log of LLM action

@@ -15,6 +15,14 @@ const modelOptions = [
   "mistral-large"
 ];
 
+const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
+const DEFAULT_TEMPLATE = `Side to move: {SIDE_TO_MOVE}
+Position (FEN): {FEN}
+SAN history: {SAN_HISTORY}
+Plaintext history:
+{PLAINTEXT_HISTORY}
+Respond with only your best legal move in SAN.`;
+
 export default function ExperimentsPage() {
   const [experiments, setExperiments] = useState<ExperimentSummary[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -34,7 +42,7 @@ export default function ExperimentsPage() {
     playerB: modelOptions[1],
     total: 4,
     aAsWhite: 2,
-    promptMode: "fen+plaintext"
+    prompt: { system_instructions: DEFAULT_SYSTEM, template: DEFAULT_TEMPLATE }
   });
 
   useEffect(() => {
@@ -89,7 +97,7 @@ export default function ExperimentsPage() {
       name: form.name,
       players: { a: { model: form.playerA }, b: { model: form.playerB } },
       games: { total: form.total, a_as_white: form.aAsWhite, b_as_white: Math.max(form.total - form.aAsWhite, 0) },
-      prompt: { mode: form.promptMode as any, instruction_template_id: "san_only_default" }
+      prompt: { system_instructions: form.prompt.system_instructions, template: form.prompt.template }
     } as const;
 
     try {
@@ -192,7 +200,11 @@ export default function ExperimentsPage() {
               </div>
               <div className="space-y-2">
                 <label className="text-sm text-[var(--ink-700)]">Prompt</label>
-                <button className="btn secondary w-full justify-center" onClick={() => setPromptDialogOpen(true)}>
+                <button
+                  type="button"
+                  className="btn secondary w-full justify-center"
+                  onClick={() => setPromptDialogOpen(true)}
+                >
                   Edit prompt
                 </button>
               </div>
@@ -358,8 +370,17 @@ export default function ExperimentsPage() {
     </div>
     <PromptDialog
       open={promptDialogOpen}
-      mode={form.promptMode as any}
-      onModeChange={(value) => setForm((f) => ({ ...f, promptMode: value }))}
+      systemInstructions={form.prompt.system_instructions}
+      template={form.prompt.template}
+      onChange={(value) =>
+        setForm((f) => ({
+          ...f,
+          prompt: {
+            system_instructions: value.systemInstructions ?? f.prompt.system_instructions,
+            template: value.template ?? f.prompt.template
+          }
+        }))
+      }
       onClose={() => setPromptDialogOpen(false)}
     />
     </>

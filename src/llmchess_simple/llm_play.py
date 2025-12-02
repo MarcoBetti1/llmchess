@@ -13,7 +13,7 @@ from typing import Callable
 import chess
 
 from .move_validator import normalize_move
-from .prompting import PromptConfig, build_plaintext_messages, build_fen_messages, build_fen_plaintext_messages
+from .prompting import PromptConfig, render_custom_prompt
 
 
 def annotated_history_from_board(board: chess.Board) -> str:
@@ -49,17 +49,24 @@ def pgn_tail_from_board(board: chess.Board, max_plies: int) -> str:
 
 
 def build_prompt_messages_for_board(board: chess.Board, side: str, prompt_cfg: PromptConfig, pgn_tail_plies: int, is_starting: bool) -> list[dict]:
-    """Construct prompt messages for the given board/side using the configured mode."""
+    """Construct prompt messages for the given board/side using the configured template."""
     history = annotated_history_from_board(board)
-    mode = (prompt_cfg.mode or "plaintext").lower()
-    if mode == "fen":
-        fen = board.fen()
-        pgn_tail = pgn_tail_from_board(board, pgn_tail_plies)
-        return build_fen_messages(fen=fen, pgn_tail=pgn_tail, side=side, is_starting=is_starting, cfg=prompt_cfg)
-    if mode in ("fen+plaintext", "fen_plaintext", "fen-and-plaintext"):
-        fen = board.fen()
-        return build_fen_plaintext_messages(fen=fen, side=side, history_text=history, is_starting=is_starting, cfg=prompt_cfg)
-    return build_plaintext_messages(side=side, history_text=history, is_starting=is_starting, cfg=prompt_cfg)
+    fen = board.fen()
+    san_history = pgn_tail_from_board(board, pgn_tail_plies) or "(none)"
+    values = {
+        "SIDE_TO_MOVE": side,
+        "FEN": fen,
+        "SAN_HISTORY": san_history,
+        "PLAINTEXT_HISTORY": history or "(none)",
+    }
+    user_content = render_custom_prompt(prompt_cfg.template, values)
+    # Optionally add starting context if desired and it's the first move
+    if is_starting and prompt_cfg.starting_context_enabled and side.lower() == "white":
+        user_content = "Game start. You are White. Make the first move of the game.\n" + user_content
+    return [
+        {"role": "system", "content": prompt_cfg.system_instructions},
+        {"role": "user", "content": user_content},
+    ]
 
 
 def _extract_candidate(raw: str) -> str:

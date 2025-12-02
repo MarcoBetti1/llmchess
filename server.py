@@ -29,7 +29,7 @@ from flask import Flask, jsonify, request
 
 from src.llmchess_simple.game import GameConfig, GameRunner
 from src.llmchess_simple.llm_opponent import LLMOpponent
-from src.llmchess_simple.prompting import PromptConfig
+from src.llmchess_simple.prompting import DEFAULT_SYSTEM_INSTRUCTIONS, DEFAULT_TEMPLATE, PromptConfig
 from src.llmchess_simple.user_opponent import UserOpponent
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -117,12 +117,18 @@ def snapshot_state() -> Dict[str, dict]:
 
 
 def _ensure_prompt_mode(mode: Optional[str]) -> str:
-    if not mode:
-        return "fen+plaintext"
-    mode = mode.lower()
-    if mode not in {"plaintext", "fen", "fen+plaintext"}:
-        return "fen+plaintext"
-    return mode
+    # Legacy helper retained for compatibility; no longer used in new prompt flow.
+    return "custom"
+
+
+def _prompt_cfg_from_payload(payload: Optional[dict]) -> PromptConfig:
+    payload = payload or {}
+    return PromptConfig(
+        mode="custom",
+        system_instructions=payload.get("system_instructions") or DEFAULT_SYSTEM_INSTRUCTIONS,
+        template=payload.get("template") or DEFAULT_TEMPLATE,
+        starting_context_enabled=payload.get("starting_context_enabled", True),
+    )
 
 
 def _game_winner_from_result(result: str) -> Optional[str]:
@@ -217,7 +223,10 @@ def _init_experiment_record(payload: dict) -> dict:
         "players": payload.get("players") or {"a": {"model": "openai/gpt-4o"}, "b": {"model": "openai/gpt-4o-mini"}},
         "games": {"total": total, "completed": 0, "a_as_white": a_as_white, "b_as_white": b_as_white},
         "wins": {"player_a": 0, "player_b": 0, "draws": 0},
-        "prompt": {"mode": _ensure_prompt_mode(payload.get("prompt", {}).get("mode"))},
+        "prompt": {
+            "system_instructions": payload.get("prompt", {}).get("system_instructions", DEFAULT_SYSTEM_INSTRUCTIONS),
+            "template": payload.get("prompt", {}).get("template", DEFAULT_TEMPLATE),
+        },
         "illegal_move_limit": int(payload.get("illegal_move_limit", 1)),  # GameRunner ends on first illegal
         "game_rows": [],
         "avg_plies": 0,
@@ -360,8 +369,7 @@ def _run_experiment(exp_id: str) -> None:
     total = exp["games"]["total"]
     a_as_white = exp["games"].get("a_as_white", total // 2)
     b_as_white = exp["games"].get("b_as_white", total - a_as_white)
-    prompt_mode = exp.get("prompt", {}).get("mode", "fen+plaintext")
-    prompt_cfg = PromptConfig(mode=prompt_mode)
+    prompt_cfg = _prompt_cfg_from_payload(exp.get("prompt"))
     game_rows: List[dict] = exp.get("game_rows") or []
     wins = exp.get("wins") or {"player_a": 0, "player_b": 0, "draws": 0}
 
@@ -586,8 +594,7 @@ def create_human_game():
         return jsonify({"error": "model is required"}), 400
     human_side = "black" if str(data.get("human_plays", "white")).lower() == "black" else "white"
     ai_side = _ai_color_for_human(human_side)
-    prompt_mode = _ensure_prompt_mode(data.get("prompt", {}).get("mode"))
-    prompt_cfg = PromptConfig(mode=prompt_mode)
+    prompt_cfg = _prompt_cfg_from_payload(data.get("prompt"))
     cfg = GameConfig(
         color=ai_side,  # AI plays this color
         prompt_cfg=prompt_cfg,

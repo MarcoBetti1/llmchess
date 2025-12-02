@@ -124,8 +124,8 @@ export type HumanGameState = {
 export type HumanGameCreateRequest = {
   model: string;
   prompt: {
-    mode: "plaintext" | "fen" | "fen+plaintext";
-    instruction_template_id?: string;
+    system_instructions: string;
+    template: string;
   };
   human_plays: "white" | "black";
 };
@@ -176,8 +176,8 @@ export type ExperimentCreateRequest = {
     b_as_white: number;
   };
   prompt: {
-    mode: "plaintext" | "fen" | "fen+plaintext";
-    instruction_template_id?: string;
+    system_instructions: string;
+    template: string;
   };
 };
 

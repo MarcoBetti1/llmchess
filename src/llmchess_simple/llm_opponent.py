@@ -40,6 +40,7 @@ class LLMOpponent:
             "prompt": messages[-1]["content"] if messages else "",
             "system": messages[0]["content"] if messages else "",
             "prompt_mode": cfg.mode,
+            "prompt_template": getattr(cfg, "template", None),
             "model": self.model,
         }
         ok, uci, san, ms, meta, _ = process_llm_raw_move(

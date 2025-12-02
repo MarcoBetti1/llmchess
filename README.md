@@ -98,16 +98,15 @@ Supported endpoints:
 
 Note: GameRunner ends a game on the first illegal move; there is no configurable illegal-move limit in the UI.
 
-## Prompting modes and customization
+## Prompting customization
 
-`PromptConfig` supports:
+`PromptConfig` is now template-driven:
 
-- `mode`: `"plaintext"`, `"fen"`, or `"fen+plaintext"`.
-- `starting_context_enabled`: include a first-move hint when the LLM starts as White.
-- `instruction_line`: final instruction (for example, ask for SAN or UCI).
-- `extra_instructions`: optional freeform template inserted before `instruction_line`.
+- `system_instructions`: system message text.
+- `template`: freeform user message with placeholders like `{FEN}`, `{SAN_HISTORY}`, `{PLAINTEXT_HISTORY}`, `{SIDE_TO_MOVE}`.
+- `starting_context_enabled`: optionally prepend a “Game start” hint when the LLM opens as White.
 
-Pass a customized `PromptConfig` into `GameConfig(prompt_cfg=...)` or set `opponent_prompt_cfg` for the opponent side.
+Pass a customized `PromptConfig` into `GameConfig(prompt_cfg=...)` or set `opponent_prompt_cfg` for the opponent side. The UI exposes an “Edit prompt” dialog on Play and Experiments to edit these fields.
 
 ## Notes
 

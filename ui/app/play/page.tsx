@@ -19,6 +19,13 @@ const InteractiveBoard = dynamic(
 );
 
 const models = ["openai/gpt-4o", "anthropic/claude-4.5", "meta/llama-3.1-70b"];
+const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
+const DEFAULT_TEMPLATE = `Side to move: {SIDE_TO_MOVE}
+Position (FEN): {FEN}
+SAN history: {SAN_HISTORY}
+Plaintext history:
+{PLAINTEXT_HISTORY}
+Respond with only your best legal move in SAN.`;
 
 type Side = "white" | "black";
 
@@ -27,7 +34,7 @@ export default function PlayPage() {
   const [fen, setFen] = useState(gameRef.current.fen());
   const [humanSide, setHumanSide] = useState<Side>("white");
   const [aiModel, setAiModel] = useState(models[0]);
-  const [promptMode, setPromptMode] = useState("fen+plaintext");
+  const [promptConfig, setPromptConfig] = useState({ systemInstructions: DEFAULT_SYSTEM, template: DEFAULT_TEMPLATE });
   const [status, setStatus] = useState("Ready to start a game.");
   const [waitingOnAI, setWaitingOnAI] = useState(false);
   const [starting, setStarting] = useState(false);
@@ -140,7 +147,7 @@ export default function PlayPage() {
     try {
       const res = await createHumanGame({
         model: aiModel,
-        prompt: { mode: promptMode as any, instruction_template_id: "san_only_default" },
+        prompt: { system_instructions: promptConfig.systemInstructions, template: promptConfig.template },
         human_plays: side
       });
       setConversation(res.conversation || []);
@@ -292,8 +299,9 @@ export default function PlayPage() {
   }, [selectedSquare, moveHints]);
 
   const promptSummary = useMemo(
-    () => `POST /api/human-games -> /api/human-games/:id/move (model=${aiModel}, mode=${promptMode})`,
-    [aiModel, promptMode]
+    () =>
+      `POST /api/human-games -> /api/human-games/:id/move (model=${aiModel}, prompt=custom template with {FEN}/{SAN_HISTORY})`,
+    [aiModel, promptConfig.template]
   );
 
   const resign = () => {
@@ -303,10 +311,10 @@ export default function PlayPage() {
 
   return (
     <>
-    <div className="space-y-6 fade-in">
-      <div className="flex flex-col gap-2">
-        <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Human vs LLM</p>
-        <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Play a game</h1>
+      <div className="space-y-6 fade-in">
+        <div className="flex flex-col gap-2">
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Human vs LLM</p>
+          <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Play a game</h1>
         <p className="text-[var(--ink-700)] text-sm">
           Moves are executed through the backend: games start at POST `/api/human-games` and each turn is sent to
           `/api/human-games/:gameId/move` to fetch the AI reply.
@@ -423,7 +431,11 @@ export default function PlayPage() {
                   </div>
                   <div className="space-y-3">
                     <label className="text-sm text-[var(--ink-700)]">Prompt</label>
-                    <button className="btn secondary w-full justify-center" onClick={() => setPromptDialogOpen(true)}>
+                    <button
+                      type="button"
+                      className="btn secondary w-full justify-center"
+                      onClick={() => setPromptDialogOpen(true)}
+                    >
                       Edit prompt
                     </button>
                   </div>
@@ -442,13 +454,19 @@ export default function PlayPage() {
           )}
         </div>
       </div>
-    </div>
-    <PromptDialog
-      open={promptDialogOpen}
-      mode={promptMode as any}
-      onModeChange={(value) => setPromptMode(value)}
-      onClose={() => setPromptDialogOpen(false)}
-    />
+      </div>
+      <PromptDialog
+        open={promptDialogOpen}
+        systemInstructions={promptConfig.systemInstructions}
+        template={promptConfig.template}
+        onChange={(value) =>
+          setPromptConfig((prev) => ({
+            systemInstructions: value.systemInstructions ?? prev.systemInstructions,
+            template: value.template ?? prev.template
+          }))
+        }
+        onClose={() => setPromptDialogOpen(false)}
+      />
     </>
   );
 }
