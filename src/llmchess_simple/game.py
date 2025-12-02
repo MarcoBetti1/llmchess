@@ -37,7 +37,7 @@ class GameConfig:
     # Back-compat: if older configs set llm_is_white, we derive color from it via a helper in GameRunner.
     color: str = "white"
     llm_is_white: bool = True            # DEPRECATED
-    # Provider override (e.g., "openai"); falls back to SETTINGS.provider when None.
+    # Optional provider label for logging/routing when using a multi-target Vercel Gateway.
     provider: str | None = None
     provider_options: dict | None = None
     opponent_provider_options: dict | None = None

@@ -1,6 +1,6 @@
 # LLM Chess (Gateway-ready, head-to-head)
 
-A minimal chess harness for pitting language models against each other (or a human) one move at a time. Everything runs through a single OpenAI-compatible `POST /chat/completions` endpoint, making it easy to point at Vercel AI Gateway or any OpenAI-compatible backend by changing the base URL and API key.
+A minimal chess harness for pitting language models against each other (or a human) one move at a time. Everything runs through a single Vercel AI Gateway `POST /chat/completions` endpoint—configure your gateway base URL and key and go.
 
 ## Goals
 
@@ -23,7 +23,7 @@ A minimal chess harness for pitting language models against each other (or a hum
 - `src/llmchess_simple/llm_opponent.py` – `LLMOpponent` for head-to-head model play.
 - `src/llmchess_simple/user_opponent.py` – `UserOpponent` for interactive human moves.
 - `src/llmchess_simple/prompting.py` – `PromptConfig` and builders for plaintext/FEN/hybrid prompts.
-- `src/llmchess_simple/llm_client.py` – Thin OpenAI-compatible client; configurable `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`.
+- `src/llmchess_simple/llm_client.py` – Thin Vercel AI Gateway client (OpenAI-compatible wire format); configurable `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`.
 - `src/llmchess_simple/move_validator.py` – Bridges free-form replies to legal UCI/SAN moves.
 - `src/llmchess_simple/referee.py` – Applies moves, maintains PGN, and handles termination.
 
@@ -33,12 +33,12 @@ Set environment variables (or `settings.yml`) for the transport:
 
 ```bash
 export LLMCHESS_LLM_BASE_URL=https://ai-gateway.vercel.sh/v1
-export LLMCHESS_LLM_API_KEY=your_gateway_or_openai_key
+export LLMCHESS_LLM_API_KEY=your_vercel_gateway_key
 export LLMCHESS_MAX_CONCURRENCY=4
 export LLMCHESS_RESPONSES_TIMEOUT_S=120
 ```
 
-Model strings can be any OpenAI-compatible IDs (for example, `openai/gpt-4o`, `anthropic/claude-3-sonnet` when routed through Gateway).
+Model strings should match the routes you configured in your Vercel AI Gateway (for example, `openai/gpt-4o`, `anthropic/claude-3-sonnet` when routed through Gateway).
 
 Generated artifacts (if `conversation_log_path` is set in `GameConfig`):
 
@@ -61,7 +61,7 @@ print(result)
 print(runner.summary())
 ```
 
-Set `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY` beforehand to point at your OpenAI-compatible endpoint.
+Set `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY` beforehand to point at your Vercel AI Gateway endpoint.
 
 ## Backend API (Flask)
 

@@ -1,10 +1,9 @@
 from __future__ import annotations
 """
-LLM client facade over a single OpenAI-compatible transport (configurable base URL).
+LLM client facade over the Vercel AI Gateway (OpenAI-compatible transport; configurable base URL).
 
 The rest of the code should not care which SDK is in use. This module talks to
-an OpenAI-compatible endpoint (e.g., Vercel AI Gateway) with `model` + `messages`
-and returns raw text responses.
+the Gateway with `model` + `messages` and returns raw text responses.
 """
 from typing import Optional, List, Dict
 import logging

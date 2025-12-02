@@ -13,9 +13,8 @@ This project loads configuration from code in `src/llmchess_simple/config.py`. T
 
 | Key | Default | Type | Used in | Purpose |
 | --- | --- | --- | --- | --- |
-| `LLMCHESS_PROVIDER` | `"openai"` | string | `llm_client.py` | Selects which provider adapter to use. Remains `"openai"` for OpenAI-compatible backends (including the AI Gateway). |
-| `LLMCHESS_LLM_BASE_URL` | `"https://api.openai.com/v1"` | string | `llm_client.py` | Base URL for OpenAI-compatible gateways. Set to `https://ai-gateway.vercel.sh/v1` to use Vercel AI Gateway. |
-| `LLMCHESS_LLM_API_KEY` | `""` | string | `llm_client.py` | Authentication token for the configured base URL (AI Gateway key or OpenAI key). |
+| `LLMCHESS_LLM_BASE_URL` | `"https://ai-gateway.vercel.sh/v1"` | string | `llm_client.py` | Base URL for the Vercel AI Gateway. Override if your team-specific gateway URL differs. |
+| `LLMCHESS_LLM_API_KEY` | `""` | string | `llm_client.py` | Authentication token for the configured Vercel AI Gateway base URL. |
 | `LLMCHESS_RESPONSES_TIMEOUT_S` | `300.0` | float seconds | `llm_client.py` | Per-request timeout used by chat/completions calls. Raising this helps with slower models; lowering it can speed up retries. |
 | `LLMCHESS_RESPONSES_RETRIES` | `4` | int | `llm_client.py` | Number of automatic retries around chat/completions requests. Failures after the final retry are logged and bubble up as empty answers. |
 | `LLMCHESS_MAX_CONCURRENCY` | `8` | int | `llm_client.py` | Maximum number of concurrent chat/completions calls (thread-pool workers). Tune to respect rate limits or to better utilise available quota. |
@@ -24,7 +23,7 @@ This project loads configuration from code in `src/llmchess_simple/config.py`. T
 
 ```yaml
 # Top-level keys mirror the environment variable names exactly.
-LLMCHESS_LLM_API_KEY: sk-your-ai-gateway-or-openai-key
+LLMCHESS_LLM_API_KEY: sk-your-vercel-gateway-key
 LLMCHESS_LLM_BASE_URL: https://ai-gateway.vercel.sh/v1
 LLMCHESS_MAX_CONCURRENCY: 4
 LLMCHESS_RESPONSES_TIMEOUT_S: 120
@@ -35,7 +34,7 @@ Place this file at the repository root (next to `requirements.txt`). Any key omi
 
 ## When to adjust each knob
 
-- **Pointing at a gateway** – Set `LLMCHESS_LLM_BASE_URL` to the base URL of your OpenAI-compatible AI Gateway.
+- **Pointing at a gateway** – Set `LLMCHESS_LLM_BASE_URL` to your Vercel AI Gateway base URL (team-specific if applicable).
 - **Scaling load tests** – Lower `LLMCHESS_MAX_CONCURRENCY` to respect rate limits; raise it to improve throughput when quotas allow.
 - **Long-running models** – Raise `LLMCHESS_RESPONSES_TIMEOUT_S` so complex models (or self-hosted endpoints) have enough time to respond.
 
