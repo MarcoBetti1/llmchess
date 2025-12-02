@@ -61,6 +61,20 @@ export type ConversationLog = {
   conversation: ConversationTurn[];
 };
 
+export type ConversationMessage = {
+  role: "system" | "user" | "assistant" | "human";
+  content: string;
+  actor?: string;
+  model?: string;
+  side?: "white" | "black";
+};
+
+export type ConversationData = {
+  game_id?: string;
+  conversation?: ConversationTurn[];
+  messages?: ConversationMessage[];
+};
+
 export type ExperimentSummary = {
   experiment_id: string;
   name?: string;
@@ -128,6 +142,7 @@ export type HumanGameCreateResponse = {
   winner?: "human" | "ai" | "draw" | null;
   termination_reason?: string | null;
   current_fen?: string;
+  conversation?: ConversationMessage[];
 };
 
 export type HumanMoveRequest = {
@@ -146,6 +161,7 @@ export type HumanMoveResponse = {
   termination_reason: string | null;
   current_fen?: string;
   side_to_move?: "white" | "black";
+  conversation?: ConversationMessage[];
 };
 
 export type ExperimentCreateRequest = {

@@ -6,6 +6,9 @@ import { Chess, Move, Square } from "chess.js";
 import clsx from "clsx";
 import { CSSProperties } from "react";
 import { createHumanGame, postHumanMove } from "@/lib/api";
+import { ConversationMessage } from "@/types";
+import { ConversationThread } from "@/components/conversation-thread";
+import { PromptDialog } from "@/components/prompt-dialog";
 
 const InteractiveBoard = dynamic(
   () =>
@@ -33,17 +36,20 @@ export default function PlayPage() {
   const [gameOverReason, setGameOverReason] = useState<string | null>(null);
   const [aiIllegalMoveCount, setAiIllegalMoveCount] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [conversation, setConversation] = useState<ConversationMessage[]>([]);
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [moveHints, setMoveHints] = useState<Square[]>([]);
-  const [boardWidth, setBoardWidth] = useState(720);
+  const [boardWidth, setBoardWidth] = useState(560);
   const boardContainerRef = useRef<HTMLDivElement | null>(null);
   const inGameRef = useRef(inGame);
+  const [promptDialogOpen, setPromptDialogOpen] = useState(false);
 
   useEffect(() => {
     const computeWidth = () => {
-      const containerWidth = boardContainerRef.current?.getBoundingClientRect().width ?? window.innerWidth - 48;
+      const containerWidth = boardContainerRef.current?.clientWidth ?? window.innerWidth - 48;
       const maxBoard = inGame ? 1100 : 900;
-      const nextWidth = Math.max(320, Math.min(containerWidth, maxBoard));
+      const usableWidth = Math.max(0, containerWidth - 16); // leave room for borders/padding
+      const nextWidth = Math.max(320, Math.min(usableWidth, maxBoard));
       setBoardWidth(nextWidth);
     };
 
@@ -125,6 +131,7 @@ export default function PlayPage() {
     setMoveHints([]);
     setGameOverReason(null);
     setAiIllegalMoveCount(0);
+    setConversation([]);
     const fresh = new Chess();
     gameRef.current = fresh;
     setFen(fresh.fen());
@@ -136,6 +143,7 @@ export default function PlayPage() {
         prompt: { mode: promptMode as any, instruction_template_id: "san_only_default" },
         human_plays: side
       });
+      setConversation(res.conversation || []);
       const nextFen = res.fen_after_ai || res.current_fen || res.initial_fen || gameRef.current.fen();
       resetBoardToFen(nextFen);
       setGameId(res.human_game_id);
@@ -187,6 +195,9 @@ export default function PlayPage() {
       const uci = `${move.from}${move.to}${move.promotion || ""}`;
       const res = await postHumanMove(gameId, { human_move: uci });
       setAiIllegalMoveCount(res.ai_illegal_move_count ?? 0);
+      if (res.conversation) {
+        setConversation(res.conversation);
+      }
       const nextFen = res.fen_after_ai || res.current_fen || res.fen_after_human || afterHumanFen;
       resetBoardToFen(nextFen);
       const aiLabel = res.ai_move?.san || res.ai_move?.uci;
@@ -291,15 +302,16 @@ export default function PlayPage() {
   };
 
   return (
+    <>
     <div className="space-y-6 fade-in">
       <div className="flex flex-col gap-2">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Human vs LLM</p>
-        <h1 className="text-3xl font-semibold text-white font-display">Play a game</h1>
-        <p className="text-white/70 text-sm">
+        <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Human vs LLM</p>
+        <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Play a game</h1>
+        <p className="text-[var(--ink-700)] text-sm">
           Moves are executed through the backend: games start at POST `/api/human-games` and each turn is sent to
           `/api/human-games/:gameId/move` to fetch the AI reply.
         </p>
-        {error && <p className="text-sm text-red-300">{error}</p>}
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
 
       {inGame && (
@@ -310,14 +322,22 @@ export default function PlayPage() {
         </div>
       )}
 
-      <div className={clsx("grid gap-6 items-start transition-all duration-500", !inGame && "md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]")}>
+      <div
+        className={clsx(
+          "grid gap-6 items-start transition-all duration-500",
+          inGame ? "grid-cols-1" : "md:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]"
+        )}
+      >
         <div
           className={clsx(
             "card p-4 flex flex-col gap-4 transition-all duration-500 w-full",
             inGame ? "md:p-7 lg:p-8 md:scale-[1.01] max-w-6xl mx-auto" : ""
           )}
         >
-          <div ref={boardContainerRef} className={clsx("relative", inGame && "mx-auto max-w-6xl w-full")}>
+          <div
+            ref={boardContainerRef}
+            className={clsx("relative w-full overflow-hidden flex justify-center", inGame && "mx-auto max-w-6xl")}
+          >
             <InteractiveBoard
               position={fen}
               boardOrientation={humanSide}
@@ -327,19 +347,23 @@ export default function PlayPage() {
               boardWidth={boardWidth}
               customSquareStyles={squareStyles}
               customBoardStyle={{
-                borderRadius: "24px",
-                boxShadow: "0 10px 35px rgba(0, 0, 0, 0.45)",
-                width: "100%",
-                maxWidth: "1100px",
-                margin: "0 auto"
+                borderRadius: "16px",
+                border: "1px solid var(--board-border)",
+                boxShadow: "var(--board-shadow)",
+                background: "var(--board-surface)",
+                margin: "0 auto",
+                maxWidth: "100%",
+                width: `${boardWidth}px`,
+                height: `${boardWidth}px`,
+                boxSizing: "border-box"
               }}
-              customLightSquareStyle={{ backgroundColor: "#f7f7fb" }}
-              customDarkSquareStyle={{ backgroundColor: "#24304f" }}
+              customLightSquareStyle={{ backgroundColor: "var(--board-light)" }}
+              customDarkSquareStyle={{ backgroundColor: "var(--board-dark)" }}
             />
             {gameOverReason && (
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center text-center px-6">
+              <div className="absolute inset-0 bg-[var(--overlay-bg)] backdrop-blur-[2px] flex items-center justify-center text-center px-6">
                 <div className="space-y-3">
-                  <p className="text-lg font-semibold text-white">{gameOverReason}</p>
+                  <p className="text-lg font-semibold text-[var(--ink-900)]">{gameOverReason}</p>
                   <button className="btn" onClick={() => startGame(humanSide)}>
                     Play again
                   </button>
@@ -347,7 +371,7 @@ export default function PlayPage() {
               </div>
             )}
           </div>
-          <div className="flex flex-wrap gap-2 text-sm text-white/70">
+          <div className="flex flex-wrap gap-2 text-sm text-[var(--ink-700)]">
             <span className="chip">{status}</span>
             <span className={clsx("chip", waitingOnAI && "bg-accent text-canvas-900")}>
               {waitingOnAI ? "Waiting for AI" : "Your turn"}
@@ -356,63 +380,75 @@ export default function PlayPage() {
           </div>
         </div>
 
-        {!inGame && (
-          <div className="card transition-all duration-500 w-full p-5 space-y-4 md:max-w-md">
-            <div className="space-y-4">
-              <p className="text-lg font-semibold text-white">Configure the AI</p>
-              <div className="space-y-3">
-                <label className="text-sm text-white/70">AI model</label>
-                <select
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-                  value={aiModel}
-                  onChange={(e) => setAiModel(e.target.value)}
-                >
-                  {models.map((m) => (
-                    <option key={m} value={m}>
-                      {m}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="space-y-3">
-                <label className="text-sm text-white/70">You play</label>
-                <div className="flex gap-2">
-                  {(["white", "black"] as Side[]).map((side) => (
-                    <button
-                      key={side}
-                      className={clsx(
-                        "flex-1 rounded-xl px-4 py-2 border border-white/10",
-                        humanSide === side ? "bg-accent text-canvas-900" : "bg-white/5 text-white/80"
-                      )}
-                      onClick={() => setHumanSide(side)}
+        <div className={clsx("transition-all duration-500 w-full h-full space-y-4", inGame && "max-w-6xl mx-auto")}>
+          {inGame ? (
+            <ConversationThread messages={conversation} className="h-full md:min-h-[600px]" title="Conversation" />
+          ) : (
+            <>
+              <div className="card transition-all duration-500 w-full p-5 space-y-4">
+                <div className="space-y-4">
+                  <p className="text-lg font-semibold text-[var(--ink-900)]">Configure the AI</p>
+                  <div className="space-y-3">
+                    <label className="text-sm text-[var(--ink-700)]">AI model</label>
+                    <select
+                      className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)] shadow-sm"
+                      value={aiModel}
+                      onChange={(e) => setAiModel(e.target.value)}
                     >
-                      {side}
+                      {models.map((m) => (
+                        <option key={m} value={m}>
+                          {m}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="space-y-3">
+                    <label className="text-sm text-[var(--ink-700)]">You play</label>
+                    <div className="flex gap-2">
+                      {(["white", "black"] as Side[]).map((side) => (
+                        <button
+                          key={side}
+                          className={clsx(
+                            "flex-1 rounded-xl px-4 py-2 border border-[var(--border-soft)]",
+                            humanSide === side
+                              ? "bg-accent text-canvas-900 shadow-sm"
+                              : "bg-[var(--field-bg)] text-[var(--ink-700)]"
+                          )}
+                          onClick={() => setHumanSide(side)}
+                        >
+                          {side}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <label className="text-sm text-[var(--ink-700)]">Prompt</label>
+                    <button className="btn secondary w-full justify-center" onClick={() => setPromptDialogOpen(true)}>
+                      Edit prompt
                     </button>
-                  ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <button className="btn flex-1" onClick={() => startGame(humanSide)} disabled={starting}>
+                      {starting ? "Starting..." : "Start game"}
+                    </button>
+                  </div>
+                  <p className="text-xs text-[var(--ink-500)]">{promptSummary}</p>
                 </div>
               </div>
-              <div className="space-y-3">
-                <label className="text-sm text-white/70">Prompt mode</label>
-                <select
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-                  value={promptMode}
-                  onChange={(e) => setPromptMode(e.target.value)}
-                >
-                  <option value="plaintext">plaintext</option>
-                  <option value="fen">fen</option>
-                  <option value="fen+plaintext">fen+plaintext</option>
-                </select>
-              </div>
-              <div className="flex gap-2">
-                <button className="btn flex-1" onClick={() => startGame(humanSide)} disabled={starting}>
-                  {starting ? "Starting..." : "Start game"}
-                </button>
-              </div>
-              <p className="text-xs text-white/60">{promptSummary}</p>
-            </div>
-          </div>
-        )}
+              {conversation.length > 0 && (
+                <ConversationThread messages={conversation} className="md:min-h-[400px]" title="Conversation" />
+              )}
+            </>
+          )}
+        </div>
       </div>
     </div>
+    <PromptDialog
+      open={promptDialogOpen}
+      mode={promptMode as any}
+      onModeChange={(value) => setPromptMode(value)}
+      onClose={() => setPromptDialogOpen(false)}
+    />
+    </>
   );
 }

@@ -2,8 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Chess } from "chess.js";
-import { fetchGameHistory } from "@/lib/api";
+import { fetchGameConversation, fetchGameHistory } from "@/lib/api";
 import { ChessBoard } from "./chess-board";
+import { ConversationDialog } from "./conversation-dialog";
+import { ConversationData } from "@/types";
 
 type Props = {
   gameId: string;
@@ -101,6 +103,9 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
   const [termination, setTermination] = useState<{ result?: string; reason?: string } | null>(null);
   const [mode, setMode] = useState<Mode>("live");
   const [boardKey, setBoardKey] = useState(0);
+  const [conversationOpen, setConversationOpen] = useState(false);
+  const [conversation, setConversation] = useState<ConversationData | null>(null);
+  const [convLoading, setConvLoading] = useState(false);
 
   const replayIdxRef = useRef(0);
   const replayTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -139,6 +144,9 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
     setLiveLastMove(undefined);
     setDisplayLastMove(undefined);
     setBoardKey((k) => k + 1);
+    setConversation(null);
+    setConversationOpen(false);
+    setConvLoading(false);
     if (replayTimerRef.current) {
       clearInterval(replayTimerRef.current);
       replayTimerRef.current = null;
@@ -287,42 +295,68 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
     }
   }, [displayFen]);
 
+  const loadConversation = async () => {
+    setConvLoading(true);
+    setConversationOpen(true);
+    try {
+      const data = await fetchGameConversation(gameId);
+      setConversation(data);
+    } catch {
+      setConversation({ game_id: gameId, messages: [] });
+    } finally {
+      setConvLoading(false);
+    }
+  };
+
   return (
     <div className="card p-3 space-y-2 inline-block" style={{ width: size + 32 }}>
-      <div className="flex items-center justify-between text-sm text-white/70">
+      <div className="flex items-center justify-between gap-2 text-sm text-[var(--ink-700)]">
         <div>
-          <p className="text-white text-sm font-semibold">{gameId}</p>
-          <p className="text-xs text-white/70">
-            White: {whiteModel} <span className="text-white/50">•</span> Black: {blackModel}
+          <p className="text-[var(--ink-900)] text-sm font-semibold">{gameId}</p>
+          <p className="text-xs text-[var(--ink-500)]">
+            White: {whiteModel} | Black: {blackModel}
           </p>
         </div>
-        {waitingOn && !termination && (
-          <div className="chip">
-            Waiting on <span className="font-semibold text-white ml-1">{waitingOn}</span>
-          </div>
-        )}
-        {termination && (
-          <div className="chip bg-accent text-canvas-900">
-            {termination.result || "?"} - {termination.reason || "ended"}
-          </div>
-        )}
+        <div className="flex items-center gap-2">
+          <button className="btn secondary text-xs" onClick={loadConversation}>
+            Conversation
+          </button>
+          {waitingOn && !termination && (
+            <div className="chip">
+              Waiting on <span className="font-semibold text-[var(--ink-900)] ml-1">{waitingOn}</span>
+            </div>
+          )}
+          {termination && (
+            <div className="chip bg-accent text-canvas-900">
+              {termination.result || "?"} - {termination.reason || "ended"}
+            </div>
+          )}
+        </div>
       </div>
+
 
       <div className="relative">
         <div>
           <ChessBoard key={boardKey} fen={displayFen} lastMove={displayLastMove} size={size} />
         </div>
         {mode === "replay" && (
-          <div className="absolute top-2 right-2 chip bg-black/60 border border-white/20 text-white">Replaying</div>
+          <div className="absolute top-2 right-2 chip bg-[var(--overlay-bg)] border border-[var(--border-soft)] text-[var(--ink-900)] shadow-sm">
+            Replaying
+          </div>
         )}
         {termination && mode === "live" && (
-          <button className="absolute inset-0 grid place-items-center text-white" onClick={startReplay}>
-            <div className="px-4 py-2 rounded-full bg-black/60 border border-white/20">
+          <button className="absolute inset-0 grid place-items-center text-[var(--ink-900)]" onClick={startReplay}>
+            <div className="px-4 py-2 rounded-full bg-[var(--overlay-bg)] border border-[var(--border-soft)] shadow-sm">
               Tap to replay
             </div>
           </button>
         )}
       </div>
+      <ConversationDialog
+        open={conversationOpen}
+        onClose={() => setConversationOpen(false)}
+        log={convLoading ? null : conversation}
+      />
     </div>
   );
 }

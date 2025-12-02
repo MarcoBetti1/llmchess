@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { ExperimentResults, ExperimentSummary } from "@/types";
 import { createExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
 import { ProgressBar } from "@/components/progress-bar";
 import { LiveBoard } from "@/components/live-board";
+import { PromptDialog } from "@/components/prompt-dialog";
 
 const modelOptions = [
   "openai/gpt-4o",
@@ -24,6 +25,7 @@ export default function ExperimentsPage() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [liveMode, setLiveMode] = useState(false);
   const [liveBoardCount, setLiveBoardCount] = useState(2);
+  const [promptDialogOpen, setPromptDialogOpen] = useState(false);
   const pollExperimentsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollResultsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [form, setForm] = useState({
@@ -115,14 +117,15 @@ export default function ExperimentsPage() {
   };
 
   return (
+    <>
     <div className="space-y-8 fade-in">
       <div className="flex flex-col gap-2">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Game master</p>
-        <h1 className="text-3xl font-semibold text-white font-display">Run and watch games</h1>
-        <p className="text-white/70 text-sm">
+        <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Game master</p>
+        <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Run and watch games</h1>
+        <p className="text-[var(--ink-700)] text-sm">
           Start batches of games and monitor them live. POST `/api/experiments` on submit and poll `/api/experiments/:id/results`.
         </p>
-        {error && <p className="text-sm text-red-300">{error}</p>}
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
 
       <div className="card p-6 space-y-4">
@@ -134,9 +137,9 @@ export default function ExperimentsPage() {
         </div>
         <form className="grid gap-4 md:grid-cols-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <label className="text-sm text-white/70">Player A model</label>
+            <label className="text-sm text-[var(--ink-700)]">Player A model</label>
             <select
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+              className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
               value={form.playerA}
               onChange={(e) => setForm((f) => ({ ...f, playerA: e.target.value }))}
             >
@@ -148,9 +151,9 @@ export default function ExperimentsPage() {
             </select>
           </div>
           <div className="space-y-2">
-            <label className="text-sm text-white/70">Player B model</label>
+            <label className="text-sm text-[var(--ink-700)]">Player B model</label>
             <select
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+              className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
               value={form.playerB}
               onChange={(e) => setForm((f) => ({ ...f, playerB: e.target.value }))}
             >
@@ -162,11 +165,11 @@ export default function ExperimentsPage() {
             </select>
           </div>
           <div className="space-y-2">
-            <label className="text-sm text-white/70">Games total</label>
+            <label className="text-sm text-[var(--ink-700)]">Games total</label>
             <input
               type="number"
               min={2}
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+              className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
               value={form.total}
               onChange={(e) => setForm((f) => ({ ...f, total: Number(e.target.value) }))}
             />
@@ -180,31 +183,25 @@ export default function ExperimentsPage() {
           {showAdvanced && (
             <>
               <div className="space-y-2">
-                <label className="text-sm text-white/70">Experiment name</label>
+                <label className="text-sm text-[var(--ink-700)]">Experiment name</label>
                 <input
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+                  className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
                   value={form.name}
                   onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm text-white/70">Prompt mode</label>
-                <select
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
-                  value={form.promptMode}
-                  onChange={(e) => setForm((f) => ({ ...f, promptMode: e.target.value }))}
-                >
-                  <option value="plaintext">plaintext</option>
-                  <option value="fen">fen</option>
-                  <option value="fen+plaintext">fen+plaintext</option>
-                </select>
+                <label className="text-sm text-[var(--ink-700)]">Prompt</label>
+                <button className="btn secondary w-full justify-center" onClick={() => setPromptDialogOpen(true)}>
+                  Edit prompt
+                </button>
               </div>
               <div className="space-y-2">
-                <label className="text-sm text-white/70">Player A as white</label>
+                <label className="text-sm text-[var(--ink-700)]">Player A as white</label>
                 <input
                   type="number"
                   min={0}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-white/90"
+                  className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
                   value={form.aAsWhite}
                   onChange={(e) => setForm((f) => ({ ...f, aAsWhite: Number(e.target.value) }))}
                 />
@@ -232,17 +229,17 @@ export default function ExperimentsPage() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <div>
-                    <p className="text-sm text-white/60">{exp.experiment_id}</p>
-                    <p className="text-lg font-semibold text-white">
+                    <p className="text-sm text-[var(--ink-500)]">{exp.experiment_id}</p>
+                    <p className="text-lg font-semibold text-[var(--ink-900)]">
                       {exp.players.a.model} vs {exp.players.b.model}
                     </p>
                   </div>
                   <span className="chip">{exp.status}</span>
                 </div>
                 <ProgressBar value={progress} />
-                <div className="mt-3 flex flex-wrap gap-2 text-sm text-white/70">
+                <div className="mt-3 flex flex-wrap gap-2 text-sm text-[var(--ink-700)]">
                   <span className="chip">
-                    Completed <strong className="ml-1 text-white">{exp.games.completed}</strong> /{" "}
+                    Completed <strong className="ml-1 text-[var(--ink-900)]">{exp.games.completed}</strong> /{" "}
                     {exp.games.total}
                   </span>
                   {exp.wins && (
@@ -261,7 +258,7 @@ export default function ExperimentsPage() {
         <div className="card p-5 space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3 flex-wrap">
-              <h3 className="text-xl font-semibold text-white">
+              <h3 className="text-xl font-semibold text-[var(--ink-900)]">
                 {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} -{" "}
                 {selectedExperiment.games.total} games
               </h3>
@@ -272,7 +269,7 @@ export default function ExperimentsPage() {
                 {liveMode ? "Back to dashboard" : "Watch chess"}
               </button>
               {liveMode && (
-                <div className="flex items-center gap-2 text-sm text-white/70">
+                <div className="flex items-center gap-2 text-sm text-[var(--ink-700)]">
                   <span className="chip">Boards</span>
                   {[1, 2, 4].map((n) => (
                     <button
@@ -289,40 +286,40 @@ export default function ExperimentsPage() {
           </div>
           {!liveMode && (
             <>
-              <div className="grid gap-3 md:grid-cols-3 text-sm text-white/80">
-                <div className="glass rounded-xl p-3 border border-white/10">
-                  <p className="text-white text-lg font-semibold">
+              <div className="grid gap-3 md:grid-cols-3 text-sm text-[var(--ink-700)]">
+                <div className="glass rounded-xl p-3 border border-[var(--border-soft)]">
+                  <p className="text-[var(--ink-900)] text-lg font-semibold">
                     {results?.wins.player_a ?? selectedExperiment.wins?.player_a ?? 0}
                   </p>
-                  <p className="text-white/60">
+                  <p className="text-[var(--ink-500)]">
                     Player A wins{" "}
-                    <span className="text-white/50 block text-xs">
+                    <span className="text-[var(--ink-500)] block text-xs">
                       {selectedExperiment.players.a.model}
                     </span>
                   </p>
                 </div>
-                <div className="glass rounded-xl p-3 border border-white/10">
-                  <p className="text-white text-lg font-semibold">
+                <div className="glass rounded-xl p-3 border border-[var(--border-soft)]">
+                  <p className="text-[var(--ink-900)] text-lg font-semibold">
                     {results?.wins.player_b ?? selectedExperiment.wins?.player_b ?? 0}
                   </p>
-                  <p className="text-white/60">
+                  <p className="text-[var(--ink-500)]">
                     Player B wins{" "}
-                    <span className="text-white/50 block text-xs">
+                    <span className="text-[var(--ink-500)] block text-xs">
                       {selectedExperiment.players.b.model}
                     </span>
                   </p>
                 </div>
-                <div className="glass rounded-xl p-3 border border-white/10">
-                  <p className="text-white text-lg font-semibold">
+                <div className="glass rounded-xl p-3 border border-[var(--border-soft)]">
+                  <p className="text-[var(--ink-900)] text-lg font-semibold">
                     {results?.wins.draws ?? selectedExperiment.wins?.draws ?? 0}
                   </p>
-                  <p className="text-white/60">Draws</p>
+                  <p className="text-[var(--ink-500)]">Draws</p>
                 </div>
               </div>
               {results?.games?.length ? (
                 <div className="overflow-x-auto">
-                  <table className="w-full text-sm text-left text-white/80">
-                    <thead className="text-white/60 uppercase text-xs tracking-wide">
+                  <table className="w-full text-sm text-left text-[var(--ink-700)]">
+                    <thead className="text-[var(--ink-500)] uppercase text-xs tracking-wide">
                       <tr>
                         <th className="py-2">Game ID</th>
                         <th className="py-2">White</th>
@@ -345,7 +342,7 @@ export default function ExperimentsPage() {
                   </table>
                 </div>
               ) : (
-                <p className="text-white/60 text-sm">No per-game rows yet.</p>
+                <p className="text-[var(--ink-500)] text-sm">No per-game rows yet.</p>
               )}
             </>
           )}
@@ -359,6 +356,13 @@ export default function ExperimentsPage() {
         </div>
       )}
     </div>
+    <PromptDialog
+      open={promptDialogOpen}
+      mode={form.promptMode as any}
+      onModeChange={(value) => setForm((f) => ({ ...f, promptMode: value }))}
+      onClose={() => setPromptDialogOpen(false)}
+    />
+    </>
   );
 }
 
@@ -383,7 +387,7 @@ function LiveBoardsPanel({
   }, [games, count]);
 
   if (!games?.length) {
-    return <p className="text-white/60 text-sm">No games yet to display. Wait for games to start.</p>;
+    return <p className="text-[var(--ink-500)] text-sm">No games yet to display. Wait for games to start.</p>;
   }
 
   const toggleSelect = (id: string) => {
@@ -406,10 +410,10 @@ function LiveBoardsPanel({
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap gap-2 items-center">
-        <p className="text-white/70 text-sm">
+        <p className="text-[var(--ink-700)] text-sm">
           Watching {Math.min(count, games.length)} board{count > 1 ? "s" : ""} from {experimentId}
         </p>
-        <span className="text-white/50 text-xs">(select up to {count} game{count > 1 ? "s" : ""})</span>
+        <span className="text-[var(--ink-500)] text-xs">(select up to {count} game{count > 1 ? "s" : ""})</span>
       </div>
       <div className="flex flex-wrap gap-2">
         {games.map((g) => (
@@ -418,7 +422,7 @@ function LiveBoardsPanel({
             className={`chip ${displayIds.includes(g.game_id) ? "bg-accent text-canvas-900" : ""}`}
             onClick={() => toggleSelect(g.game_id)}
           >
-            {g.game_id} · {g.white_model} vs {g.black_model}
+            {g.game_id} ┬╖ {g.white_model} vs {g.black_model}
           </button>
         ))}
       </div>

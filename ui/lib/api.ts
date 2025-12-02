@@ -1,6 +1,7 @@
 import { mockConversation, mockExperimentResults, mockExperiments, mockGames, mockHistory } from "@/lib/mockData";
 import {
-  ConversationLog,
+  ConversationData,
+  ConversationMessage,
   ExperimentCreateRequest,
   ExperimentCreateResponse,
   ExperimentResults,
@@ -42,15 +43,47 @@ export async function fetchLiveGames(): Promise<GameSummary[]> {
   return mockGames;
 }
 
-export async function fetchGameConversation(gameId: string): Promise<ConversationLog> {
+function normalizeConversationMessages(payload: any, gameId?: string): ConversationData {
+  const empty: ConversationData = { game_id: gameId, messages: [] };
+  if (!payload) return empty;
+
+  // Already normalized
+  if (Array.isArray(payload)) {
+    return { game_id: gameId, messages: payload as ConversationMessage[] };
+  }
+
+  const hasMessages = Array.isArray(payload.messages);
+  const hasTurns = Array.isArray(payload.conversation);
+  const messages: ConversationMessage[] = [];
+
+  if (hasMessages) {
+    messages.push(...(payload.messages as ConversationMessage[]));
+  } else if (hasTurns) {
+    // Flatten turns into simple messages for easier rendering
+    (payload.conversation as any[]).forEach((turn) => {
+      const turnMsgs: any[] = turn.messages || [];
+      turnMsgs.forEach((msg) =>
+        messages.push({
+          ...msg,
+          side: turn.side,
+          model: turn.model
+        })
+      );
+    });
+  }
+
+  return { game_id: payload.game_id || gameId, conversation: payload.conversation, messages };
+}
+
+export async function fetchGameConversation(gameId: string): Promise<ConversationData> {
   try {
-    const data = await fetchJson<ConversationLog>(`/api/games/${gameId}/conversation`);
-    if (data) return data;
+    const data = await fetchJson<any>(`/api/games/${gameId}/conversation`);
+    if (data) return normalizeConversationMessages(data, gameId);
   } catch (err) {
     console.error("Failed to fetch conversation", err);
     if (!USE_MOCKS) throw err;
   }
-  return mockConversation;
+  return normalizeConversationMessages(mockConversation, gameId);
 }
 
 export async function fetchGameHistory(gameId: string): Promise<GameHistory> {

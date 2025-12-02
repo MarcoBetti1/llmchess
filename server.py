@@ -180,6 +180,31 @@ def _cleanup_stale_human_games(max_age_s: int = HUMAN_GAME_TTL_S):
             HUMAN_GAMES.pop(gid, None)
 
 
+def _append_conversation(session: dict, msg: dict):
+    if not msg or not msg.get("content"):
+        return
+    session.setdefault("conversation", []).append(msg)
+    session["updated_at"] = time.time()
+
+
+def _record_ai_conversation(session: dict, meta: dict | None, raw_fallback: str | None = None):
+    """Store system/user/assistant messages for the AI turn."""
+    meta = meta or {}
+    raw = meta.get("raw") or meta.get("assistant_raw") or raw_fallback
+    sys_prompt = meta.get("system")
+    prompt = meta.get("prompt")
+    model = session.get("model")
+    side = session.get("ai_side")
+
+    if sys_prompt and not session.get("ai_system_logged"):
+        _append_conversation(session, {"role": "system", "content": sys_prompt, "actor": "ai", "model": model, "side": side})
+        session["ai_system_logged"] = True
+    if prompt:
+        _append_conversation(session, {"role": "user", "content": prompt, "actor": "ai_prompt", "model": model, "side": side})
+    if raw:
+        _append_conversation(session, {"role": "assistant", "content": raw, "actor": "ai", "model": model, "side": side})
+
+
 def _init_experiment_record(payload: dict) -> dict:
     total = int(payload.get("games", {}).get("total", 0) or 0)
     a_as_white = int(payload.get("games", {}).get("a_as_white", total // 2))
@@ -237,6 +262,7 @@ def _serialize_human_session(session: dict, fen_after_human: Optional[str] = Non
         "termination_reason": session.get("termination_reason"),
         "current_fen": board_fen,
         "side_to_move": _side_to_move(session["runner"].ref.board),
+        "conversation": session.get("conversation", []),
     }
 
 
@@ -255,6 +281,7 @@ def _play_ai_turn(session: dict) -> tuple[Optional[dict], str]:
     runner: GameRunner = session["runner"]
     try:
         ok, uci, san, ms, meta = runner._llm_turn_standard()
+        _record_ai_conversation(session, meta)
     except Exception as exc:  # noqa: BLE001
         logging.exception("AI move failed for human game %s", session.get("id"))
         session["ai_illegal_move_count"] = session.get("ai_illegal_move_count", 0) + 1
@@ -309,6 +336,7 @@ def _apply_human_move(session: dict, raw_move: str) -> tuple[Optional[str], bool
         return None, False, "illegal_move"
 
     san = runner.ref.engine_apply(mv)
+    _append_conversation(session, {"role": "human", "content": f"You played {san} ({mv.uci()})", "actor": "human", "side": session.get("human_side")})
     runner.records.append({"actor": "OPP", "uci": mv.uci(), "ok": True, "san": san, "meta": {"actor": "human", "raw": raw_move}})
     runner._global_ply = getattr(runner, "_global_ply", 0) + 1
     session["updated_at"] = time.time()
@@ -585,6 +613,8 @@ def create_human_game():
         "start_fen": start_fen,
         "created_at": time.time(),
         "updated_at": time.time(),
+        "conversation": [],
+        "ai_system_logged": False,
         "lock": threading.Lock(),
     }
 
@@ -609,6 +639,7 @@ def create_human_game():
             "winner": session.get("winner"),
             "termination_reason": session.get("termination_reason"),
             "current_fen": runner.ref.board.fen(),
+            "conversation": session.get("conversation", []),
         }
     )
 

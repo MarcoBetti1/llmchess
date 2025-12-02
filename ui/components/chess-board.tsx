@@ -32,7 +32,7 @@ export function ChessBoard({ fen, lastMove, orientation = "white", size = 360 }:
   }, [lastMove]);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 shadow-glow">
+    <div className="overflow-hidden rounded-2xl border border-[var(--border-soft)] shadow-glow bg-[var(--card-bg)]">
       <DynamicBoard
         position={fen}
         boardOrientation={orientation}
@@ -40,11 +40,14 @@ export function ChessBoard({ fen, lastMove, orientation = "white", size = 360 }:
         boardWidth={size}
         customSquareStyles={customSquareStyles}
         customBoardStyle={{
-          borderRadius: "20px",
-          boxShadow: "0 10px 35px rgba(0, 0, 0, 0.45)"
+          borderRadius: "16px",
+          padding: "10px",
+          border: "1px solid var(--board-border)",
+          boxShadow: "var(--board-shadow)",
+          background: "var(--board-surface)"
         }}
-        customLightSquareStyle={{ backgroundColor: "#f7f7fb" }}
-        customDarkSquareStyle={{ backgroundColor: "#0f172a" }}
+        customLightSquareStyle={{ backgroundColor: "var(--board-light)" }}
+        customDarkSquareStyle={{ backgroundColor: "var(--board-dark)" }}
         animationDuration={400}
       />
     </div>

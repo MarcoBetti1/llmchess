@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { ConversationLog, GameSummary } from "@/types";
+import { ConversationData, GameSummary } from "@/types";
 import { fetchGameConversation, fetchLiveGames, subscribeToGameStream } from "@/lib/api";
 import { GameCard } from "@/components/game-card";
 import { ConversationDialog } from "@/components/conversation-dialog";
 
 export default function LiveGamesPage() {
   const [games, setGames] = useState<GameSummary[]>([]);
-  const [conversation, setConversation] = useState<ConversationLog | null>(null);
+  const [conversation, setConversation] = useState<ConversationData | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -53,13 +53,13 @@ export default function LiveGamesPage() {
   return (
     <div className="space-y-6 fade-in">
       <div className="flex flex-col gap-2">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Live monitor</p>
-        <h1 className="text-3xl font-semibold text-white font-display">LLM vs LLM games in flight</h1>
-        <p className="text-white/70 text-sm">
+        <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Live monitor</p>
+        <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">LLM vs LLM games in flight</h1>
+        <p className="text-[var(--ink-700)] text-sm">
           Fetched from `/api/games/live` with SSE updates from `/api/stream/games`. Running now:{" "}
-          <strong className="text-white">{runningCount}</strong>
+          <strong className="text-[var(--ink-900)]">{runningCount}</strong>
         </p>
-        {error && <p className="text-sm text-red-300">{error}</p>}
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
