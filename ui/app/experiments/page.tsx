@@ -284,7 +284,7 @@ export default function ExperimentsPage() {
             {showAllExperiments ? "Show fewer" : "Show all"}
           </button>
         </div>
-        <div className="grid gap-3 md:grid-cols-4">
+        <div className="grid gap-3 md:grid-cols-4 items-stretch">
           {displayedExperiments.map((exp) => {
             const displayName = exp.name || exp.experiment_id;
             const folderName = exp.log_dir_name || exp.experiment_id;
@@ -310,7 +310,7 @@ export default function ExperimentsPage() {
               <div
                 key={exp.experiment_id}
                 className={clsx(
-                  "card p-5 transition-all duration-300 ease-out cursor-pointer border h-full",
+                  "card p-5 transition-all duration-300 ease-out cursor-pointer border h-full flex flex-col gap-3 min-h-[230px]",
                   isSelected ? "border-accent bg-accent/5" : "border-[var(--border-soft)] hover:border-accent/50"
                 )}
                 style={
@@ -319,15 +319,17 @@ export default function ExperimentsPage() {
                     : undefined
                 }
                 onClick={() => setSelectedId(exp.experiment_id)}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <p className="text-sm text-[var(--ink-500)] break-words">{displayName}</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="chip text-xs">{completed}/{total || "?"}</span>
-                    <button
-                      type="button"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <p className="text-sm text-[var(--ink-500)] break-words leading-tight line-clamp-2 min-h-[32px]">
+                    {displayName}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="chip text-xs">{completed}/{total || "?"}</span>
+                  <button
+                    type="button"
                       className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
                       aria-label={`Delete experiment ${displayName}`}
                       title="Delete experiment and logs"
@@ -344,16 +346,30 @@ export default function ExperimentsPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className={clsx("rounded-xl border p-3 space-y-2 h-full min-h-[88px] flex flex-col justify-between", classFor("a"))}>
-                    <p className="font-semibold leading-tight line-clamp-2">{shortName(exp.players?.a?.model || "A")}</p>
+                  <div
+                    className={clsx(
+                      "rounded-xl border p-3 h-full min-h-[104px] max-h-[104px] flex flex-col justify-between",
+                      classFor("a")
+                    )}
+                  >
+                    <p className="font-semibold leading-tight line-clamp-2 overflow-hidden text-ellipsis">
+                      {shortName(exp.players?.a?.model || "A")}
+                    </p>
                     <p className="text-lg font-bold text-right">{winsA}</p>
                   </div>
-                  <div className={clsx("rounded-xl border p-3 space-y-2 h-full min-h-[88px] flex flex-col justify-between", classFor("b"))}>
-                    <p className="font-semibold text-right leading-tight line-clamp-2">{shortName(exp.players?.b?.model || "B")}</p>
-                    <p className="text-lg font-bold">{winsB}</p>
+                  <div
+                    className={clsx(
+                      "rounded-xl border p-3 h-full min-h-[104px] max-h-[104px] flex flex-col justify-between",
+                      classFor("b")
+                    )}
+                  >
+                    <p className="font-semibold text-right leading-tight line-clamp-2 overflow-hidden text-ellipsis">
+                      {shortName(exp.players?.b?.model || "B")}
+                    </p>
+                    <p className="text-lg font-bold text-right">{winsB}</p>
                   </div>
                 </div>
-                <div className="mt-3 flex items-center justify-between text-xs text-[var(--ink-600)]">
+                <div className="mt-3 flex items-center justify-between text-xs text-[var(--ink-600)] min-h-[28px]">
                   <span>{pctA}%</span>
                   {draws > 0 && <span className="chip text-xs">Draws {draws}</span>}
                   <span>{pctB}%</span>
