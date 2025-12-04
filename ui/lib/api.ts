@@ -120,6 +120,25 @@ export async function fetchExperimentResults(experimentId: string): Promise<Expe
   return { ...mockExperimentResults, experiment_id: experimentId };
 }
 
+export async function cancelExperiment(experimentId: string): Promise<void> {
+  if (typeof fetch === "undefined") throw new Error("fetch unavailable");
+  const res = await fetch(`${API_BASE}/api/experiments/${experimentId}/cancel`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    cache: "no-store"
+  });
+  if (!res.ok) {
+    let message = `Request failed ${res.status}`;
+    try {
+      const body = await res.json();
+      message = (body as any)?.message || (body as any)?.error || message;
+    } catch {
+      /* ignore */
+    }
+    throw new Error(message);
+  }
+}
+
 type GameUpdateHandler = (summary: Partial<GameSummary> & { game_id: string }) => void;
 
 export function subscribeToGameStream(onUpdate: GameUpdateHandler): () => void {

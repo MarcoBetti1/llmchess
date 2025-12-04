@@ -61,8 +61,8 @@ def build_prompt_messages_for_board(board: chess.Board, side: str, prompt_cfg: P
     }
     user_content = render_custom_prompt(prompt_cfg.template, values)
     # Optionally add starting context if desired and it's the first move
-    if is_starting and prompt_cfg.starting_context_enabled and side.lower() == "white":
-        user_content = "Game start. You are White. Make the first move of the game.\n" + user_content
+    # if is_starting and prompt_cfg.starting_context_enabled and side.lower() == "white":
+    #     user_content = "Game start. You are White. Make the first move of the game.\n" + user_content
     return [
         {"role": "system", "content": prompt_cfg.system_instructions},
         {"role": "user", "content": user_content},

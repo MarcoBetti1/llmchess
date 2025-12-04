@@ -30,21 +30,27 @@ export type GameSummary = {
 
 export type MoveHistoryEntry = {
   ply: number;
-  turn: "white" | "black";
-  player_model: string;
-  fen_before: string;
-  uci: string;
-  san: string;
-  is_legal: boolean;
-  illegal_attempts_before: number;
-  llm_latency_s: number;
-  timestamp: string;
+  side?: "white" | "black";
+  player_model?: string;
+  fen?: string;
+  uci?: string;
+  san?: string | null;
+  legal?: boolean;
+  illegal_attempts_before?: number;
+  llm_latency_s?: number;
+  timestamp?: string;
   conversation_id?: string;
+  actor?: string;
+  raw?: string;
+  event?: string;
+  reason?: string;
+  result?: string;
 };
 
 export type GameHistory = {
   game_id: string;
-  initial_fen: string;
+  initial_fen?: string;
+  start_fen?: string;
   moves: MoveHistoryEntry[];
 };
 
@@ -79,7 +85,7 @@ export type ExperimentSummary = {
   experiment_id: string;
   name?: string;
   log_dir_name?: string;
-  status: "queued" | "running" | "finished";
+  status: "queued" | "running" | "finished" | "cancelled";
   players: {
     a: { model: string };
     b: { model: string };

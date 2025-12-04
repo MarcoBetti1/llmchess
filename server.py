@@ -40,6 +40,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 app = Flask(__name__)
 lock = threading.Lock()
 human_lock = threading.Lock()
+CANCEL_EVENTS: Dict[str, threading.Event] = {}
 
 STATE_PATH = Path("experiments_state.json")
 LOG_ROOT = Path(os.environ.get("EXPERIMENT_LOG_DIR", "runs/demo"))
@@ -119,8 +120,24 @@ def load_state() -> Dict[str, dict]:
     if not STATE_PATH.exists():
         return {}
     try:
-        raw = json.loads(STATE_PATH.read_text())
-        return raw if isinstance(raw, dict) else {}
+        text = STATE_PATH.read_text().strip()
+        if not text:
+            logging.warning("State file is empty; starting fresh.")
+            return {}
+        raw = json.loads(text)
+        if isinstance(raw, dict):
+            return raw
+        logging.warning("State file was not a dict; resetting to empty.")
+        return {}
+    except json.JSONDecodeError:
+        logging.exception("State file is corrupt JSON; backing up and starting fresh.")
+        try:
+            backup = STATE_PATH.with_suffix(".corrupt")
+            STATE_PATH.replace(backup)
+            logging.warning("Backed up corrupt state to %s", backup)
+        except Exception:
+            logging.exception("Failed to back up corrupt state file.")
+        return {}
     except Exception:
         logging.exception("Failed to load state; starting fresh")
         return {}
@@ -433,7 +450,11 @@ def _apply_human_move(session: dict, raw_move: str) -> tuple[Optional[str], bool
 def _run_experiment(exp_id: str) -> None:
     with lock:
         exp = STATE.get(exp_id)
+        cancel_event = CANCEL_EVENTS.get(exp_id)
     if not exp:
+        return
+    if exp.get("status") == "cancelled":
+        CANCEL_EVENTS.pop(exp_id, None)
         return
     exp["status"] = "running"
     exp["started_at"] = time.time()
@@ -482,6 +503,8 @@ def _run_experiment(exp_id: str) -> None:
     max_workers = max(1, min(total, MAX_PARALLEL_GAMES))
 
     def _play_game(row: dict):
+        if cancel_event and cancel_event.is_set():
+            return None
         game_id = row["game_id"]
         white_model = row["white_model"]
         black_model = row["black_model"]
@@ -494,6 +517,7 @@ def _run_experiment(exp_id: str) -> None:
             conversation_log_path=str(log_dir),
             conversation_log_every_turn=True,
             game_log=False,
+            cancel_event=cancel_event,
         )
         opp = LLMOpponent(model=black_model, prompt_cfg=prompt_cfg)
         runner = GameRunner(model=white_model, opponent=opp, cfg=cfg)
@@ -521,6 +545,9 @@ def _run_experiment(exp_id: str) -> None:
             logging.exception("Experiment %s game %s failed", exp_id, game_id)
             termination_reason = f"error:{exc}"
 
+        if cancel_event and cancel_event.is_set():
+            return None
+
         winner_color = _game_winner_from_result(result)
         row_update = {
             "game_id": game_id,
@@ -542,6 +569,8 @@ def _run_experiment(exp_id: str) -> None:
             exp_local = STATE.get(exp_id)
             if not exp_local:
                 return
+            if exp_local.get("status") == "cancelled":
+                return
             wins_local = exp_local.get("wins") or {"player_a": 0, "player_b": 0, "draws": 0}
             if winner_color == "white":
                 wins_local["player_a" if white_is_a else "player_b"] += 1
@@ -557,14 +586,34 @@ def _run_experiment(exp_id: str) -> None:
             exp_local["games"]["completed"] = exp_local["games"].get("completed", 0) + 1
             _persist_update()
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(_play_game, row) for row in game_rows]
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=max_workers)
+    futures = [executor.submit(_play_game, row) for row in game_rows]
+    try:
         for future in concurrent.futures.as_completed(futures):
             future.result()
+            if cancel_event and cancel_event.is_set():
+                for f in futures:
+                    f.cancel()
+                executor.shutdown(wait=False, cancel_futures=True)
+                with lock:
+                    exp = STATE.get(exp_id)
+                    if exp:
+                        exp["status"] = "cancelled"
+                        exp["cancelled_at"] = time.time()
+                        _persist_update()
+                CANCEL_EVENTS.pop(exp_id, None)
+                return
+    finally:
+        executor.shutdown(wait=True)
 
     with lock:
         exp = STATE.get(exp_id)
         if not exp:
+            CANCEL_EVENTS.pop(exp_id, None)
+            return
+        if exp.get("status") == "cancelled":
+            CANCEL_EVENTS.pop(exp_id, None)
+            _persist_update()
             return
         rows = exp.get("game_rows", [])
         avg_plies = sum(g.get("plies_total", 0) for g in rows) / len(rows) if rows else 0
@@ -574,9 +623,13 @@ def _run_experiment(exp_id: str) -> None:
         exp["avg_duration_s"] = avg_duration
         exp["finished_at"] = time.time()
         _persist_update()
+    CANCEL_EVENTS.pop(exp_id, None)
 
 
 def _start_experiment_thread(exp_id: str) -> None:
+    # Initialize or reset a cancellation event for this experiment
+    with lock:
+        CANCEL_EVENTS.setdefault(exp_id, threading.Event()).clear()
     t = threading.Thread(target=_run_experiment, args=(exp_id,), daemon=True)
     t.start()
 
@@ -653,6 +706,7 @@ def delete_experiment(exp_id: str):
             return jsonify({"error": "experiment_running", "message": "Cannot delete a running experiment."}), 400
         log_dir_name = exp.get("log_dir_name") or exp_id
         STATE.pop(exp_id, None)
+        CANCEL_EVENTS.pop(exp_id, None)
         _persist_update()
     removed_paths = []
     for dir_name in {log_dir_name, exp_id}:
@@ -662,6 +716,19 @@ def delete_experiment(exp_id: str):
         if _safe_remove_dir(path):
             removed_paths.append(str(path))
     return jsonify({"status": "deleted", "experiment_id": exp_id, "removed_paths": removed_paths})
+
+
+@app.route("/api/experiments/<exp_id>/cancel", methods=["POST"])
+def cancel_experiment(exp_id: str):
+    with lock:
+        exp = STATE.get(exp_id)
+        if not exp:
+            return jsonify({"error": "not_found"}), 404
+        exp["status"] = "cancelled"
+        exp["cancelled_at"] = time.time()
+        CANCEL_EVENTS.setdefault(exp_id, threading.Event()).set()
+        _persist_update()
+    return jsonify({"status": "cancelled", "experiment_id": exp_id})
 
 
 @app.route("/api/experiments/<exp_id>/results", methods=["GET"])
@@ -873,4 +940,18 @@ def cors_preflight(path: str):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    import signal
+    import sys
+
+    def _graceful_shutdown(signum, frame):
+        logging.info("Received signal %s, shutting down...", signum)
+        # Trigger cancellation for any running experiments
+        with lock:
+            for ev in CANCEL_EVENTS.values():
+                ev.set()
+        sys.exit(0)
+
+    signal.signal(signal.SIGINT, _graceful_shutdown)
+    signal.signal(signal.SIGTERM, _graceful_shutdown)
+    # Disable the auto-reloader so Ctrl+C cleanly stops the single process on Windows
+    app.run(host="0.0.0.0", port=8000, debug=False, use_reloader=False)

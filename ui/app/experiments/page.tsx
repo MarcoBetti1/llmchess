@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { ExperimentResults, ExperimentSummary } from "@/types";
-import { createExperiment, deleteExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
+import { cancelExperiment, createExperiment, deleteExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
 import { ProgressBar } from "@/components/progress-bar";
 import { LiveBoard } from "@/components/live-board";
 import { PromptDialog } from "@/components/prompt-dialog";
@@ -42,6 +42,7 @@ export default function ExperimentsPage() {
   const [liveBoardCount, setLiveBoardCount] = useState(4);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [cancellingId, setCancellingId] = useState<string | null>(null);
   const pollExperimentsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollResultsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const deriveName = (a: string, b: string, total: number) =>
@@ -166,6 +167,26 @@ export default function ExperimentsPage() {
       setError(err instanceof Error ? err.message : "Failed to delete experiment. Check backend logs and NEXT_PUBLIC_API_BASE.");
     } finally {
       setDeletingId(null);
+    }
+  };
+
+  const handleCancel = async (exp: ExperimentSummary) => {
+    if (exp.status === "cancelled" || exp.status === "finished") return;
+    setError(null);
+    setCancellingId(exp.experiment_id);
+    try {
+      await cancelExperiment(exp.experiment_id);
+      setExperiments((prev) =>
+        prev.map((e) => (e.experiment_id === exp.experiment_id ? { ...e, status: "cancelled" } : e))
+      );
+      if (selectedId === exp.experiment_id) {
+        setResults(null);
+      }
+    } catch (err) {
+      console.error(err);
+      setError(err instanceof Error ? err.message : "Failed to cancel experiment. Check backend logs and NEXT_PUBLIC_API_BASE.");
+    } finally {
+      setCancellingId(null);
     }
   };
 
@@ -327,11 +348,28 @@ export default function ExperimentsPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
+                  {(exp.status === "running" || exp.status === "queued") && (
+                    <button
+                      type="button"
+                      className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
+                      aria-label={`Cancel experiment ${displayName}`}
+                      title="Cancel experiment"
+                      disabled={cancellingId === exp.experiment_id}
+                      onClick={(evt) => {
+                        evt.stopPropagation();
+                        handleCancel(exp);
+                      }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m6 6 12 12M18 6 6 18" />
+                      </svg>
+                    </button>
+                  )}
                   <span className="chip text-xs">{completed}/{total || "?"}</span>
                   <button
                     type="button"
-                      className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
-                      aria-label={`Delete experiment ${displayName}`}
+                    className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
+                    aria-label={`Delete experiment ${displayName}`}
                       title="Delete experiment and logs"
                       disabled={deletingId === exp.experiment_id}
                       onClick={(evt) => {

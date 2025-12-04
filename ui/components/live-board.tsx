@@ -21,6 +21,7 @@ type MoveEntry = {
   event?: string;
   reason?: string;
   result?: string;
+  fen?: string;
   fen_after?: string;
 };
 
@@ -80,9 +81,21 @@ function deriveSnapshot(startFen: string, mvs: MoveEntry[]) {
       applied = applyMoveToBoard(chess, mv);
       fen = chess.fen();
     }
-    if (!applied && mv.fen_after) {
-      // Fallback to provided fen in case SAN/UCI parsing fails
+    if (!applied && mv.fen) {
+      // Preferred stored snapshot of the resulting board
+      fen = mv.fen;
+      if (mv.uci && mv.uci.length >= 4) {
+        applied = { from: mv.uci.slice(0, 2), to: mv.uci.slice(2, 4) };
+      }
+    } else if (!applied && mv.fen_after) {
+      // Back-compat for older history logs
       fen = mv.fen_after;
+      if (mv.uci && mv.uci.length >= 4) {
+        applied = { from: mv.uci.slice(0, 2), to: mv.uci.slice(2, 4) };
+      }
+    }
+    if (!applied && mv.fen) {
+      fen = mv.fen;
       if (mv.uci && mv.uci.length >= 4) {
         applied = { from: mv.uci.slice(0, 2), to: mv.uci.slice(2, 4) };
       }
@@ -178,7 +191,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
           event: m.event,
           reason: m.reason,
           result: m.result,
-          fen_after: m.fen_after
+          fen: m.fen || m.fen_after
         }));
         const termIdx = mvs.findIndex((m) => m.event === "termination");
         const termMove = termIdx >= 0 ? mvs[termIdx] : undefined;

@@ -10,7 +10,7 @@ Single-game runner and config.
 
 """
 from __future__ import annotations
-import time, logging, statistics, json
+import time, logging, statistics, json, threading
 import chess
 from dataclasses import dataclass, field
 import os
@@ -46,6 +46,7 @@ class GameConfig:
     opponent_prompt_cfg: PromptConfig | None = None
     # Console logging of moves as they happen
     game_log: bool = False
+    cancel_event: threading.Event | None = None
 
 
 class GameRunner:
@@ -57,6 +58,7 @@ class GameRunner:
         self.provider = getattr(self.cfg, "provider", None)
         self.provider_options = getattr(self.cfg, "provider_options", None)
         self.ref = Referee()
+        self.cancel_event = getattr(self.cfg, "cancel_event", None)
         
         # Helper: determine if LLM plays white (prefers cfg.color, falls back to cfg.llm_is_white)
         def _derive_is_white() -> bool:
@@ -76,6 +78,9 @@ class GameRunner:
         # Prepare conversation log path: treat path as directory or file
         self._prepare_conv_log_path()
         self._global_ply = 0  # counts total plies executed in this runner
+
+    def _cancelled(self) -> bool:
+        return bool(self.cancel_event and self.cancel_event.is_set())
 
     def _llm_is_white(self) -> bool:
         """Return True if the LLM plays White, based on cfg.color (preferred) or legacy cfg.llm_is_white."""
@@ -123,7 +128,6 @@ class GameRunner:
             uci = rec.get("uci")
             if not uci:
                 continue
-            fen_before = board.fen()
             try:
                 mv = chess.Move.from_uci(uci)
             except Exception:
@@ -141,12 +145,9 @@ class GameRunner:
                 "uci": uci,
                 "san": san,
                 "legal": bool(legal),
-                "fen_before": fen_before,
-                "fen_after": fen_after,
-                "actor": rec.get("actor"),
+                "fen": fen_after,
                 "raw": meta.get("raw"),
                 "model": meta.get("model") or (self.model if rec.get("actor") == "LLM" else getattr(self.opp, "model", None)),
-                "provider": meta.get("provider") or (self.provider if rec.get("actor") == "LLM" else getattr(self.opp, "provider", None)),
             })
             ply_idx += 1
         # After building moves list, derive last_illegal_raw from records
@@ -157,7 +158,7 @@ class GameRunner:
                 break
         data = {
             "headers": getattr(self.ref, "_headers", {}),
-            "start_fen": start_fen,
+            "initial_fen": start_fen,
             "result": self.ref.status(),
             "termination_reason": self.termination_reason,
             "moves": moves,
@@ -172,10 +173,9 @@ class GameRunner:
         if isinstance(self.opp, LLMOpponent):
             opp_prompt_mode = (self.cfg.opponent_prompt_cfg or self.cfg.prompt_cfg).mode
         data["participants"] = {
-            "LLM": {"model": self.model, "provider": self.provider, "prompt_mode": self.cfg.prompt_cfg.mode},
+            "LLM": {"model": self.model, "prompt_mode": self.cfg.prompt_cfg.mode},
             "OPP": {
                 "model": getattr(self.opp, "model", self._opp_name()),
-                "provider": getattr(self.opp, "provider", None) if isinstance(self.opp, LLMOpponent) else None,
                 "prompt_mode": opp_prompt_mode,
                 "type": self._opp_type(),
             },
@@ -337,6 +337,8 @@ class GameRunner:
 
     # ---------------- LLM Turn (modular prompt modes) -----------------
     def _llm_turn_standard(self):
+        if self._cancelled():
+            return False, None, None, None, {}
         messages = self.build_llm_messages()
         raw = ask_for_best_move_conversation(messages, model=self.model, provider=self.provider, provider_options=self.provider_options)
         fen = self.ref.board.fen()
@@ -355,6 +357,8 @@ class GameRunner:
 
     # ---------------- Opponent Turn -----------------
     def _opp_turn(self):
+        if self._cancelled():
+            return False, None, None, {}
         if isinstance(self.opp, LLMOpponent):
             ok, uci, san, meta = self.opp.choose_llm(
                 board=self.ref.board,
@@ -393,19 +397,19 @@ class GameRunner:
 
             if actor == "LLM":
                 if not llm_sys_added:
-                    messages.append({"role": "system", "content": sys_text or SYSTEM, "actor": "LLM", "model": model_name})
+                    messages.append({"role": "system", "content": sys_text or SYSTEM, "model": model_name})
                     llm_sys_added = True
                 if prompt:
-                    messages.append({"role": "user", "content": prompt, "actor": "LLM", "model": model_name})
+                    messages.append({"role": "user", "content": prompt})
                 if raw:
-                    messages.append({"role": "assistant", "content": raw, "actor": "LLM", "model": model_name})
+                    messages.append({"role": "assistant", "content": raw, "model": model_name})
             elif actor == "OPP" and raw:
                 if not opp_sys_added and sys_text:
-                    messages.append({"role": "system", "content": sys_text, "actor": "OPP", "model": model_name})
+                    messages.append({"role": "system", "content": sys_text, "model": model_name})
                     opp_sys_added = True
                 if prompt:
-                    messages.append({"role": "user", "content": prompt, "actor": "OPP", "model": model_name})
-                messages.append({"role": "assistant", "content": raw, "actor": "OPP", "model": model_name})
+                    messages.append({"role": "user", "content": prompt})
+                messages.append({"role": "assistant", "content": raw, "model": model_name})
         return messages
 
     def dump_conversation_json(self):
@@ -472,6 +476,9 @@ class GameRunner:
     def play(self) -> str:
         ply = 0
         while self.ref.status() == "*" and ply < self.cfg.max_plies:
+            if self._cancelled():
+                self.termination_reason = self.termination_reason or "cancelled"
+                break
             llm_turn_now = (self.ref.board.turn == chess.WHITE and self._llm_is_white()) or (self.ref.board.turn == chess.BLACK and not self._llm_is_white())
             if llm_turn_now:
                 ok, uci, san, ms, meta = self._llm_turn_standard()
@@ -482,6 +489,9 @@ class GameRunner:
                     self.dump_conversation_json()
                     self.dump_structured_history_json()
                 if not ok:
+                    if self._cancelled():
+                        self.termination_reason = self.termination_reason or "cancelled"
+                        break
                     self.termination_reason = "illegal_llm_move"
                     result = "0-1" if self._llm_is_white() else "1-0"
                     self.ref.force_result(result, self.termination_reason)
@@ -493,6 +503,9 @@ class GameRunner:
                 self.records.append({"actor": "OPP", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
                 self.log.debug("Ply %d OPP move %s san=%s", ply+1, uci, san)
                 if not ok and not self.termination_reason:
+                    if self._cancelled():
+                        self.termination_reason = self.termination_reason or "cancelled"
+                        break
                     self.termination_reason = "illegal_opponent_move"
                     result = "1-0" if self._llm_is_white() else "0-1"
                     self.ref.force_result(result, self.termination_reason)
@@ -503,7 +516,10 @@ class GameRunner:
                     self.dump_structured_history_json()
             ply += 1
         result = self.ref.status()
-        if self.termination_reason == "illegal_llm_move" and result == "*":
+        if self.termination_reason == "cancelled":
+            result = self.ref.status() if self.ref.status() != "*" else "*"
+            self.ref.set_result(result, self.termination_reason)
+        elif self.termination_reason == "illegal_llm_move" and result == "*":
             # LLM loses regardless of color
             result = "0-1" if self._llm_is_white() else "1-0"
             self.ref.force_result(result, self.termination_reason)
@@ -544,11 +560,9 @@ class GameRunner:
             "termination_reason": self.termination_reason,
             "duration_s": round(time.time() - self.start_ts, 2),
             "mode": self.cfg.prompt_cfg.mode,
-            "provider": self.provider,
             "opponent_type": self._opp_type(),
             "opponent_label": self._opp_name(),
             "opponent_model": getattr(self.opp, "model", None) if isinstance(self.opp, LLMOpponent) else None,
-            "opponent_provider": getattr(self.opp, "provider", None) if isinstance(self.opp, LLMOpponent) else None,
             "opponent_illegal_moves": len(opp_illegal),
         }
 
