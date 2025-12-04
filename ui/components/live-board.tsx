@@ -12,6 +12,7 @@ type Props = {
   whiteModel: string;
   blackModel: string;
   size?: number;
+  winner?: "white" | "black" | "draw" | null;
 };
 
 type MoveEntry = {
@@ -93,7 +94,7 @@ function deriveSnapshot(startFen: string, mvs: MoveEntry[]) {
   return { fen, lastMove };
 }
 
-export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props) {
+export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }: Props) {
   const [moves, setMoves] = useState<MoveEntry[]>([]);
   const [initialFen, setInitialFen] = useState<string>(new Chess().fen());
   const [liveFen, setLiveFen] = useState<string>(new Chess().fen());
@@ -106,6 +107,8 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
   const [conversationOpen, setConversationOpen] = useState(false);
   const [conversation, setConversation] = useState<ConversationData | null>(null);
   const [convLoading, setConvLoading] = useState(false);
+  const [renderSize, setRenderSize] = useState(size);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   const replayIdxRef = useRef(0);
   const replayTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -229,6 +232,17 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
     };
   }, []);
 
+  useEffect(() => {
+    const recalc = () => {
+      const width = wrapperRef.current?.clientWidth || size;
+      const inner = Math.max(220, width - 32); // account for padding
+      setRenderSize(Math.min(size, inner));
+    };
+    recalc();
+    window.addEventListener("resize", recalc);
+    return () => window.removeEventListener("resize", recalc);
+  }, [size]);
+
   const stopReplay = () => {
     if (replayTimerRef.current) {
       clearInterval(replayTimerRef.current);
@@ -295,6 +309,51 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
     }
   }, [displayFen]);
 
+  const winnerSide = useMemo(() => {
+    if (winner === "white" || winner === "black") return winner;
+    if (termination?.result) {
+      if (termination.result === "1-0") return "white";
+      if (termination.result === "0-1") return "black";
+      if (termination.result === "1/2-1/2") return "draw";
+    }
+    return null;
+  }, [winner, termination]);
+
+  const gameDone = useMemo(() => Boolean(winnerSide) || Boolean(termination), [winnerSide, termination]);
+
+  const formattedTerminationReason = useMemo(() => {
+    const reason = termination?.reason;
+    if (!reason) return "ended";
+    if (reason === "illegal_opponent_move") return "illegal_llm_move";
+    return reason;
+  }, [termination]);
+
+  const sideClasses = (side: "white" | "black") => {
+    const isWinner = winnerSide === side;
+    const isTurn = waitingOn === side && !winnerSide;
+    if (isWinner) return "bg-emerald-500/20 text-emerald-900 dark:text-emerald-100 border border-emerald-400/50 shadow-sm";
+    if (isTurn) return "bg-accent/20 text-[var(--ink-900)] border border-accent/40 shadow-sm";
+    return "bg-[var(--field-bg)] text-[var(--ink-700)] border border-[var(--border-soft)]";
+  };
+
+  const sideHighlight = (side: "white" | "black") => {
+    const isWinner = winnerSide === side;
+    const isLoser = winnerSide && winnerSide !== side;
+    const isTurn = waitingOn === side && !gameDone;
+    if (!isWinner && !isLoser && !isTurn) return null;
+
+    let color = "rgba(148,163,184,0.2)"; // subtle neutral, slightly stronger
+    if (isWinner) color = "rgba(16,185,129,0.32)"; // emerald
+    if (isLoser) color = "rgba(248,113,113,0.26)"; // red
+
+    const gradient =
+      side === "black"
+        ? `linear-gradient(180deg, ${color} 0%, rgba(0,0,0,0) 90%)`
+        : `linear-gradient(0deg, ${color} 0%, rgba(0,0,0,0) 90%)`;
+    const posClass = side === "black" ? "-top-8" : "-bottom-8";
+    return { gradient, posClass };
+  };
+
   const loadConversation = async () => {
     setConvLoading(true);
     setConversationOpen(true);
@@ -309,7 +368,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
   };
 
   return (
-    <div className="card p-3 space-y-2 inline-block" style={{ width: size + 32 }}>
+    <div className="card p-4 space-y-3 w-full" ref={wrapperRef}>
       <div className="flex items-center justify-between gap-2 text-sm text-[var(--ink-700)]">
         <div>
           <p className="text-[var(--ink-900)] text-sm font-semibold">{gameId}</p>
@@ -318,9 +377,6 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="btn secondary text-xs" onClick={loadConversation}>
-            Conversation
-          </button>
           {waitingOn && !termination && (
             <div className="chip">
               Waiting on <span className="font-semibold text-[var(--ink-900)] ml-1">{waitingOn}</span>
@@ -328,17 +384,41 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260 }: Props)
           )}
           {termination && (
             <div className="chip bg-accent text-canvas-900">
-              {termination.result || "?"} - {termination.reason || "ended"}
+              {formattedTerminationReason}
             </div>
           )}
+          <button className="btn secondary text-xs" onClick={loadConversation}>
+            Conversation
+          </button>
         </div>
       </div>
 
-
-      <div className="relative">
-        <div>
-          <ChessBoard key={boardKey} fen={displayFen} lastMove={displayLastMove} size={size} />
+      <div className="relative flex flex-col items-center space-y-3">
+        <div className={`chip text-xs ${sideClasses("black")}`}>{blackModel}</div>
+        <div className="relative w-full flex justify-center py-2">
+          {(() => {
+            const h = sideHighlight("black");
+            if (!h) return null;
+            return (
+              <div
+                className={`pointer-events-none absolute left-6 right-6 ${h.posClass} h-20 rounded-full blur-[12px] transition-all`}
+                style={{ backgroundImage: h.gradient }}
+              />
+            );
+          })()}
+          <ChessBoard key={boardKey} fen={displayFen} lastMove={displayLastMove} size={renderSize} />
+          {(() => {
+            const h = sideHighlight("white");
+            if (!h) return null;
+            return (
+              <div
+                className={`pointer-events-none absolute left-6 right-6 ${h.posClass} h-20 rounded-full blur-[12px] transition-all`}
+                style={{ backgroundImage: h.gradient }}
+              />
+            );
+          })()}
         </div>
+        <div className={`chip text-xs ${sideClasses("white")}`}>{whiteModel}</div>
         {mode === "replay" && (
           <div className="absolute top-2 right-2 chip bg-[var(--overlay-bg)] border border-[var(--border-soft)] text-[var(--ink-900)] shadow-sm">
             Replaying

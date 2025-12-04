@@ -78,6 +78,7 @@ export type ConversationData = {
 export type ExperimentSummary = {
   experiment_id: string;
   name?: string;
+  log_dir_name?: string;
   status: "queued" | "running" | "finished";
   players: {
     a: { model: string };
@@ -96,6 +97,8 @@ export type ExperimentSummary = {
 
 export type ExperimentResults = {
   experiment_id: string;
+  name?: string;
+  log_dir_name?: string;
   wins: { player_a: number; player_b: number; draws: number };
   total_games: number;
   avg_game_length_plies: number;
@@ -183,4 +186,6 @@ export type ExperimentCreateRequest = {
 
 export type ExperimentCreateResponse = {
   experiment_id: string;
+  name?: string;
+  log_dir_name?: string;
 };

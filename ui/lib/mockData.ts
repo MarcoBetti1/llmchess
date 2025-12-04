@@ -131,6 +131,7 @@ export const mockExperiments: ExperimentSummary[] = [
   {
     experiment_id: "exp_alpha",
     name: "gpt4o_vs_claude45_20",
+    log_dir_name: "exp_alpha",
     status: "running",
     players: { a: { model: "openai/gpt-4o" }, b: { model: "anthropic/claude-4.5" } },
     games: { total: 20, completed: 8 },
@@ -139,6 +140,7 @@ export const mockExperiments: ExperimentSummary[] = [
   {
     experiment_id: "exp_beta",
     name: "llama_vs_gpt4omini",
+    log_dir_name: "exp_beta",
     status: "finished",
     players: { a: { model: "meta/llama-3.1-70b" }, b: { model: "openai/gpt-4o-mini" } },
     games: { total: 12, completed: 12 },
@@ -148,6 +150,8 @@ export const mockExperiments: ExperimentSummary[] = [
 
 export const mockExperimentResults: ExperimentResults = {
   experiment_id: "exp_beta",
+  name: "llama_vs_gpt4omini",
+  log_dir_name: "exp_beta",
   wins: { player_a: 7, player_b: 4, draws: 1 },
   total_games: 12,
   avg_game_length_plies: 62,

@@ -143,16 +143,55 @@ export function subscribeToGameStream(onUpdate: GameUpdateHandler): () => void {
 }
 
 export async function createExperiment(payload: ExperimentCreateRequest): Promise<ExperimentCreateResponse> {
-  const res = await fetchJson<ExperimentCreateResponse>("/api/experiments", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-  if (res) return res;
-  if (USE_MOCKS) {
-    return { experiment_id: `exp_${Date.now()}` };
+  if (typeof fetch === "undefined") throw new Error("fetch unavailable");
+  try {
+    const res = await fetch(`${API_BASE}/api/experiments`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      return (await res.json()) as ExperimentCreateResponse;
+    }
+    let message = `Request failed ${res.status}`;
+    try {
+      const body = await res.json();
+      message = (body as any)?.message || (body as any)?.error || message;
+    } catch (err) {
+      console.warn("Failed to parse experiment create error body", err);
+    }
+    throw new Error(message);
+  } catch (err) {
+    if (USE_MOCKS) {
+      const fallbackId = `exp_${Date.now()}`;
+      const fallbackName = payload.name || fallbackId;
+      return { experiment_id: fallbackId, name: fallbackName, log_dir_name: fallbackName };
+    }
+    throw err;
   }
-  throw new Error("Failed to create experiment");
+}
+
+export async function deleteExperiment(experimentId: string): Promise<void> {
+  if (typeof fetch === "undefined") throw new Error("fetch unavailable");
+  try {
+    const res = await fetch(`${API_BASE}/api/experiments/${experimentId}`, {
+      method: "DELETE",
+      cache: "no-store"
+    });
+    if (res.ok) return;
+    let message = `Failed to delete experiment (${res.status})`;
+    try {
+      const body = await res.json();
+      message = (body as any)?.message || (body as any)?.error || message;
+    } catch (err) {
+      console.warn("Failed to parse delete experiment error body", err);
+    }
+    throw new Error(message);
+  } catch (err) {
+    if (USE_MOCKS) return;
+    throw err;
+  }
 }
 
 export async function createHumanGame(req: HumanGameCreateRequest): Promise<HumanGameCreateResponse> {

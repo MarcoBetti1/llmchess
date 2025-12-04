@@ -19,6 +19,7 @@ type Props = {
 };
 
 export function ChessBoard({ fen, lastMove, orientation = "white", size = 360 }: Props) {
+  const boardSize = Math.max(200, Math.floor(size));
   const customSquareStyles = useMemo<Record<string, CSSProperties>>(() => {
     if (!lastMove) return {};
     return {
@@ -32,18 +33,20 @@ export function ChessBoard({ fen, lastMove, orientation = "white", size = 360 }:
   }, [lastMove]);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[var(--border-soft)] shadow-glow bg-[var(--card-bg)]">
+    <div
+      className="rounded-2xl border border-[var(--border-soft)] bg-[var(--card-bg)] overflow-hidden"
+      style={{ maxWidth: boardSize, width: "100%", margin: "0 auto", boxShadow: "none" }}
+    >
       <DynamicBoard
         position={fen}
         boardOrientation={orientation}
         arePiecesDraggable={false}
-        boardWidth={size}
+        boardWidth={boardSize}
         customSquareStyles={customSquareStyles}
         customBoardStyle={{
-          borderRadius: "16px",
-          padding: "10px",
+          borderRadius: "14px",
           border: "1px solid var(--board-border)",
-          boxShadow: "var(--board-shadow)",
+          boxShadow: "none",
           background: "var(--board-surface)"
         }}
         customLightSquareStyle={{ backgroundColor: "var(--board-light)" }}

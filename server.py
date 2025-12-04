@@ -18,6 +18,8 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
+import shutil
 import threading
 import time
 import uuid
@@ -43,6 +45,72 @@ LOG_ROOT = Path(os.environ.get("EXPERIMENT_LOG_DIR", "runs/demo"))
 LOG_ROOT.mkdir(parents=True, exist_ok=True)
 HUMAN_GAMES: Dict[str, dict] = {}
 HUMAN_GAME_TTL_S = 3600  # drop inactive human games after an hour to avoid leaks
+
+
+def _slugify_experiment_name(name: str) -> str:
+    """Return a slug suitable for IDs and folder names (no spaces)."""
+    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "_", name.strip())
+    cleaned = re.sub(r"_+", "_", cleaned).strip("._-")
+    return cleaned
+
+
+def _safe_experiment_dir_name(name: str) -> str:
+    """Return a readable yet filesystem-safe directory name (keeps spaces)."""
+    cleaned = re.sub(r"[<>:\"/\\\\|?*]+", "_", name.strip())
+    cleaned = re.sub(r"\s+", " ", cleaned).strip().strip(".")
+    if cleaned in {"", ".", ".."}:
+        return ""
+    return cleaned
+
+
+def _experiment_identity_from_payload(payload: dict) -> tuple[str, str, str]:
+    """
+    Derive (experiment_id, display_name, log_dir_name) from the incoming payload.
+    - experiment_id: used in API responses/URLs
+    - display_name: user-facing name (may contain spaces)
+    - log_dir_name: folder on disk; sanitized but keeps spaces when possible
+    """
+    raw_name = (payload.get("name") or "").strip()
+    requested_id = payload.get("experiment_id")
+    slug = _slugify_experiment_name(raw_name) if raw_name else ""
+    exp_id = requested_id or slug or f"exp_{int(time.time())}_{uuid.uuid4().hex[:6]}"
+    folder_source = payload.get("log_dir_name") or raw_name or exp_id
+    log_dir_name = _safe_experiment_dir_name(folder_source) or exp_id
+    display_name = raw_name or log_dir_name or exp_id
+    return exp_id, display_name, log_dir_name
+
+
+def _experiment_dir_in_use(log_dir_name: str) -> bool:
+    """Return True if the log directory already holds any files (existing results)."""
+    exp_dir = LOG_ROOT / log_dir_name
+    if not exp_dir.exists():
+        return False
+    try:
+        next(exp_dir.iterdir())
+        return True
+    except StopIteration:
+        return False
+    except Exception:
+        logging.exception("Failed to inspect experiment dir %s", exp_dir)
+        return True
+
+
+def _safe_remove_dir(path: Path) -> bool:
+    """Remove a directory under LOG_ROOT safely. Returns True on deletion attempt."""
+    try:
+        root = LOG_ROOT.resolve()
+        target = path.resolve()
+        try:
+            target.relative_to(root)
+        except ValueError:
+            logging.warning("Refusing to delete path outside log root: %s", target)
+            return False
+        if target.exists():
+            shutil.rmtree(target, ignore_errors=True)
+            return True
+    except Exception:
+        logging.exception("Failed to delete directory %s", path)
+    return False
 
 
 def load_state() -> Dict[str, dict]:
@@ -72,7 +140,7 @@ def _prune_state_from_logs(state: Dict[str, dict]) -> Dict[str, dict]:
         return {}
     refreshed: Dict[str, dict] = {}
     for exp_id, exp in state.items():
-        exp_dir = LOG_ROOT / exp_id
+        exp_dir = LOG_ROOT / (exp.get("log_dir_name") or exp_id)
         if not exp_dir.exists():
             continue  # skip experiments that no longer have logs
         game_rows = []
@@ -85,6 +153,7 @@ def _prune_state_from_logs(state: Dict[str, dict]) -> Dict[str, dict]:
                 game_rows.append(g)
         exp_copy = dict(exp)
         exp_copy["game_rows"] = game_rows
+        exp_copy.setdefault("log_dir_name", exp.get("log_dir_name") or exp_id)
         # keep completed count in sync with surviving rows
         try:
             exp_copy.setdefault("games", {})
@@ -215,10 +284,11 @@ def _init_experiment_record(payload: dict) -> dict:
     total = int(payload.get("games", {}).get("total", 0) or 0)
     a_as_white = int(payload.get("games", {}).get("a_as_white", total // 2))
     b_as_white = int(payload.get("games", {}).get("b_as_white", total - a_as_white))
-    exp_id = payload.get("experiment_id") or f"exp_{int(time.time())}_{uuid.uuid4().hex[:6]}"
+    exp_id, display_name, log_dir_name = _experiment_identity_from_payload(payload)
     record = {
         "experiment_id": exp_id,
-        "name": payload.get("name") or exp_id,
+        "name": display_name,
+        "log_dir_name": log_dir_name,
         "status": "queued",
         "players": payload.get("players") or {"a": {"model": "openai/gpt-4o"}, "b": {"model": "openai/gpt-4o-mini"}},
         "games": {"total": total, "completed": 0, "a_as_white": a_as_white, "b_as_white": b_as_white},
@@ -369,6 +439,7 @@ def _run_experiment(exp_id: str) -> None:
     total = exp["games"]["total"]
     a_as_white = exp["games"].get("a_as_white", total // 2)
     b_as_white = exp["games"].get("b_as_white", total - a_as_white)
+    log_dir_name = exp.get("log_dir_name") or exp_id
     prompt_cfg = _prompt_cfg_from_payload(exp.get("prompt"))
     game_rows: List[dict] = exp.get("game_rows") or []
     wins = exp.get("wins") or {"player_a": 0, "player_b": 0, "draws": 0}
@@ -378,7 +449,7 @@ def _run_experiment(exp_id: str) -> None:
         white_model = exp["players"]["a"]["model"] if white_is_a else exp["players"]["b"]["model"]
         black_model = exp["players"]["b"]["model"] if white_is_a else exp["players"]["a"]["model"]
         game_id = f"{exp_id}_g{idx+1:04d}"
-        log_dir = LOG_ROOT / exp_id / game_id
+        log_dir = LOG_ROOT / log_dir_name / game_id
         log_dir.mkdir(parents=True, exist_ok=True)
         game_row = {
             "game_id": game_id,
@@ -509,13 +580,30 @@ def create_experiment():
     total = int(data.get("games", {}).get("total", 0) or 0)
     if total <= 0:
         return jsonify({"error": "games.total must be > 0"}), 400
-    record = _init_experiment_record(data)
+
+    raw_name = (data.get("name") or "").strip()
+    exp_id, display_name, log_dir_name = _experiment_identity_from_payload(data)
+    dir_key = (log_dir_name or exp_id).lower()
+    name_key = raw_name.lower() if raw_name else None
+    with lock:
+        for exp in STATE.values():
+            existing_dir = (exp.get("log_dir_name") or exp.get("experiment_id") or "").lower()
+            existing_name = (exp.get("name") or "").strip().lower()
+            if existing_dir == dir_key or (name_key and existing_name and existing_name == name_key):
+                return jsonify({"error": "experiment_exists", "message": f"Experiment '{display_name}' already exists."}), 400
+    if _experiment_dir_in_use(log_dir_name):
+        return (
+            jsonify({"error": "experiment_exists", "message": f"Results already exist for experiment '{display_name}'. Pick a new name."}),
+            400,
+        )
+
+    record = _init_experiment_record({**data, "experiment_id": exp_id, "name": display_name, "log_dir_name": log_dir_name})
     exp_id = record["experiment_id"]
     with lock:
         STATE[exp_id] = record
         _persist_update()
     _start_experiment_thread(exp_id)
-    return jsonify({"experiment_id": exp_id})
+    return jsonify({"experiment_id": exp_id, "name": display_name, "log_dir_name": log_dir_name})
 
 
 @app.route("/api/experiments", methods=["GET"])
@@ -525,6 +613,7 @@ def list_experiments():
         {
             "experiment_id": exp["experiment_id"],
             "name": exp.get("name"),
+            "log_dir_name": exp.get("log_dir_name") or exp.get("experiment_id"),
             "status": exp.get("status", "queued"),
             "players": exp.get("players", {}),
             "games": {
@@ -536,6 +625,27 @@ def list_experiments():
         for exp in values
     ]
     return jsonify(summaries)
+
+
+@app.route("/api/experiments/<exp_id>", methods=["DELETE"])
+def delete_experiment(exp_id: str):
+    with lock:
+        exp = STATE.get(exp_id)
+        if not exp:
+            return jsonify({"error": "not_found"}), 404
+        if exp.get("status") == "running":
+            return jsonify({"error": "experiment_running", "message": "Cannot delete a running experiment."}), 400
+        log_dir_name = exp.get("log_dir_name") or exp_id
+        STATE.pop(exp_id, None)
+        _persist_update()
+    removed_paths = []
+    for dir_name in {log_dir_name, exp_id}:
+        if not dir_name:
+            continue
+        path = LOG_ROOT / dir_name
+        if _safe_remove_dir(path):
+            removed_paths.append(str(path))
+    return jsonify({"status": "deleted", "experiment_id": exp_id, "removed_paths": removed_paths})
 
 
 @app.route("/api/experiments/<exp_id>/results", methods=["GET"])
@@ -566,6 +676,8 @@ def experiment_results(exp_id: str):
     return jsonify(
         {
             "experiment_id": exp_id,
+            "name": exp.get("name"),
+            "log_dir_name": exp.get("log_dir_name") or exp_id,
             "wins": wins,
             "total_games": total_games,
             "avg_game_length_plies": avg_plies,
@@ -728,7 +840,7 @@ def add_cors_headers(response):
     response.headers["Access-Control-Allow-Origin"] = request.headers.get("Origin", "*")
     response.headers["Access-Control-Allow-Credentials"] = "true"
     response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, DELETE, OPTIONS"
     # Prevent caching so the UI always sees the freshest state/history
     response.headers["Cache-Control"] = "no-store, max-age=0"
     return response
@@ -740,7 +852,7 @@ def cors_preflight(path: str):
     resp.headers["Access-Control-Allow-Origin"] = request.headers.get("Origin", "*")
     resp.headers["Access-Control-Allow-Credentials"] = "true"
     resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, DELETE, OPTIONS"
     return resp
 
 
