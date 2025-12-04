@@ -17,7 +17,7 @@ export function ConversationThread({ messages, className, title, height = "min-h
         <p className="text-sm font-semibold text-[var(--ink-900)]">{title || "Conversation"}</p>
         <span className="chip text-xs">{messages.length} msg</span>
       </div>
-      <div className="space-y-3 max-h-[70vh] overflow-y-auto pr-1">
+      <div className="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
         {messages.length === 0 && <p className="text-[var(--ink-500)] text-sm">No conversation yet.</p>}
         {messages.map((msg, idx) => (
           <div key={idx} className="glass rounded-lg p-3 border border-[var(--border-soft)] text-sm text-[var(--ink-700)]">

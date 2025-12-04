@@ -55,7 +55,7 @@ export default function PlayPage() {
   const [conversation, setConversation] = useState<ConversationMessage[]>([]);
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [moveHints, setMoveHints] = useState<Square[]>([]);
-  const [boardWidth, setBoardWidth] = useState(560);
+  const [boardWidth, setBoardWidth] = useState(540);
   const boardContainerRef = useRef<HTMLDivElement | null>(null);
   const inGameRef = useRef(inGame);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
@@ -63,8 +63,8 @@ export default function PlayPage() {
   useEffect(() => {
     const computeWidth = () => {
       const containerWidth = boardContainerRef.current?.clientWidth ?? window.innerWidth - 48;
-      const maxBoard = inGame ? 1100 : 900;
-      const usableWidth = Math.max(0, containerWidth - 16); // leave room for borders/padding
+      const maxBoard = inGame ? 900 : 920;
+      const usableWidth = Math.max(0, containerWidth - 24); // leave room for borders/padding
       const nextWidth = Math.max(320, Math.min(usableWidth, maxBoard));
       setBoardWidth(nextWidth);
     };
@@ -342,7 +342,7 @@ export default function PlayPage() {
       <div
         className={clsx(
           "grid gap-6 items-start transition-all duration-500",
-          inGame ? "grid-cols-1" : "md:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]"
+          inGame ? "md:grid-cols-[minmax(0,1.15fr)_minmax(340px,1fr)]" : "md:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]"
         )}
       >
         <div
@@ -406,7 +406,11 @@ export default function PlayPage() {
 
         <div className={clsx("transition-all duration-500 w-full h-full space-y-4", inGame && "max-w-6xl mx-auto")}>
           {inGame ? (
-            <ConversationThread messages={conversation} className="h-full md:min-h-[600px]" title="Conversation" />
+            <ConversationThread
+              messages={conversation}
+              className="md:min-h-[500px] max-h-[70vh]"
+              title="Conversation"
+            />
           ) : (
             <>
               <div className="card transition-all duration-500 w-full p-5 space-y-4">
