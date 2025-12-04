@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import clsx from "clsx";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { ExperimentResults, ExperimentSummary } from "@/types";
 import { createExperiment, deleteExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
@@ -37,25 +38,27 @@ export default function ExperimentsPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showAllExperiments, setShowAllExperiments] = useState(false);
-  const [showAdvanced, setShowAdvanced] = useState(false);
   const [liveMode, setLiveMode] = useState(false);
   const [liveBoardCount, setLiveBoardCount] = useState(4);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const pollExperimentsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollResultsRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const deriveName = (a: string, b: string, total: number) =>
+    `${a.split("/").pop() || a}_vs_${b.split("/").pop() || b}_${total}`.replace(/\s+/g, "_");
   const [form, setForm] = useState({
-    name: "gpt4o_vs_claude",
     playerA: modelOptions[0],
     playerB: modelOptions[1],
     total: 4,
     aAsWhite: 2,
+    name: deriveName(modelOptions[0], modelOptions[1], 4),
     prompt: { system_instructions: DEFAULT_SYSTEM, template: DEFAULT_TEMPLATE }
   });
 
   useEffect(() => {
     const load = () =>
       fetchExperiments()
+        .then((exps) => exps ? exps.slice().reverse() : [])
         .then(setExperiments)
         .catch((err) => {
           console.error(err);
@@ -96,6 +99,14 @@ export default function ExperimentsPage() {
     () => experiments.find((exp) => exp.experiment_id === selectedId),
     [experiments, selectedId]
   );
+
+  const displayedExperiments = useMemo(() => {
+    const selected = selectedId ? experiments.find((e) => e.experiment_id === selectedId) : null;
+    const rest = experiments.filter((e) => e.experiment_id !== selectedId);
+    const ordered = selected ? [selected, ...rest] : rest;
+    if (showAllExperiments) return ordered;
+    return ordered.slice(0, 4);
+  }, [experiments, showAllExperiments, selectedId]);
 
   const handleSubmit = async (evt: FormEvent) => {
     evt.preventDefault();
@@ -173,9 +184,6 @@ export default function ExperimentsPage() {
       <div className="card p-6 space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="section-title">New games</h2>
-          <button className="btn secondary" onClick={() => setShowAdvanced((v) => !v)}>
-            {showAdvanced ? "Hide extras" : "More settings"}
-          </button>
         </div>
         <form className="grid gap-4 md:grid-cols-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
@@ -183,7 +191,12 @@ export default function ExperimentsPage() {
             <select
               className="select-field w-full px-3 py-2 text-[var(--ink-900)] shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
               value={form.playerA}
-              onChange={(e) => setForm((f) => ({ ...f, playerA: e.target.value }))}
+              onChange={(e) =>
+                setForm((f) => {
+                  const playerA = e.target.value;
+                  return { ...f, playerA, name: deriveName(playerA, f.playerB, f.total) };
+                })
+              }
             >
               {modelOptions.map((opt) => (
                 <option key={opt} value={opt}>
@@ -197,7 +210,12 @@ export default function ExperimentsPage() {
             <select
               className="select-field w-full px-3 py-2 text-[var(--ink-900)] shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
               value={form.playerB}
-              onChange={(e) => setForm((f) => ({ ...f, playerB: e.target.value }))}
+              onChange={(e) =>
+                setForm((f) => {
+                  const playerB = e.target.value;
+                  return { ...f, playerB, name: deriveName(f.playerA, playerB, f.total) };
+                })
+              }
             >
               {modelOptions.map((opt) => (
                 <option key={opt} value={opt}>
@@ -213,7 +231,13 @@ export default function ExperimentsPage() {
               min={2}
               className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
               value={form.total}
-              onChange={(e) => setForm((f) => ({ ...f, total: Number(e.target.value) }))}
+              onChange={(e) =>
+                setForm((f) => {
+                  const total = Number(e.target.value);
+                  const aAsWhite = Math.ceil(total / 2);
+                  return { ...f, total, aAsWhite, name: deriveName(f.playerA, f.playerB, total) };
+                })
+              }
             />
           </div>
           <div className="flex items-end">
@@ -222,38 +246,34 @@ export default function ExperimentsPage() {
             </button>
           </div>
 
-          {showAdvanced && (
-            <>
-              <div className="space-y-2">
-                <label className="text-sm text-[var(--ink-700)]">Experiment name</label>
-                <input
-                  className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
-                  value={form.name}
-                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm text-[var(--ink-700)]">Prompt</label>
-                <button
-                  type="button"
-                  className="btn secondary w-full justify-center"
-                  onClick={() => setPromptDialogOpen(true)}
-                >
-                  Edit prompt
-                </button>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm text-[var(--ink-700)]">Player A as white</label>
-                <input
-                  type="number"
-                  min={0}
-                  className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
-                  value={form.aAsWhite}
-                  onChange={(e) => setForm((f) => ({ ...f, aAsWhite: Number(e.target.value) }))}
-                />
-              </div>
-            </>
-          )}
+          <div className="space-y-2">
+            <label className="text-sm text-[var(--ink-700)]">Experiment name</label>
+            <input
+              className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
+              value={form.name}
+              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm text-[var(--ink-700)]">Prompt</label>
+            <button
+              type="button"
+              className="btn secondary w-full justify-center"
+              onClick={() => setPromptDialogOpen(true)}
+            >
+              Edit prompt
+            </button>
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm text-[var(--ink-700)]">Player A as white</label>
+            <input
+              type="number"
+              min={0}
+              className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
+              value={form.aAsWhite}
+              onChange={(e) => setForm((f) => ({ ...f, aAsWhite: Number(e.target.value) }))}
+            />
+          </div>
         </form>
       </div>
 
@@ -264,26 +284,48 @@ export default function ExperimentsPage() {
             {showAllExperiments ? "Show fewer" : "Show all"}
           </button>
         </div>
-        <div className="grid gap-3 md:grid-cols-2">
-          {(showAllExperiments ? experiments : experiments.slice(0, 1)).map((exp) => {
-            const progress = (exp.games.completed / exp.games.total) * 100;
+        <div className="grid gap-3 md:grid-cols-4">
+          {displayedExperiments.map((exp) => {
             const displayName = exp.name || exp.experiment_id;
             const folderName = exp.log_dir_name || exp.experiment_id;
+            const isSelected = selectedId === exp.experiment_id;
+            const total = exp.games?.total ?? 0;
+            const completed = exp.games?.completed ?? 0;
+            const winsA = exp.wins?.player_a ?? 0;
+            const winsB = exp.wins?.player_b ?? 0;
+            const draws = exp.wins?.draws ?? 0;
+            const totalFinished = Math.max(1, completed || total || winsA + winsB + draws);
+            const pctA = Math.round((winsA / totalFinished) * 100);
+            const pctB = Math.round((winsB / totalFinished) * 100);
+            const shortName = (m: string) => m.split("/").pop() || m;
+            const decided = completed === total && total > 0;
+            const winner =
+              decided && winsA !== winsB ? (winsA > winsB ? "a" : "b") : null;
+            const classFor = (side: "a" | "b") => {
+              if (winner === side) return "border-emerald-500/50 bg-emerald-900/30 text-emerald-100";
+              if (winner && winner !== side) return "border-red-500/40 bg-red-900/30 text-red-100";
+              return "border-[var(--border-soft)] bg-[var(--surface-weak)] text-[var(--ink-900)]";
+            };
             return (
               <div
                 key={exp.experiment_id}
-                className="card p-5 hover:border-accent/50 transition-colors cursor-pointer"
+                className={clsx(
+                  "card p-5 transition-all duration-300 ease-out cursor-pointer border h-full",
+                  isSelected ? "border-accent bg-accent/5" : "border-[var(--border-soft)] hover:border-accent/50"
+                )}
+                style={
+                  isSelected
+                    ? { boxShadow: "0 0 0 2px rgba(124,231,172,0.9), 0 14px 40px rgba(124,231,172,0.28)" }
+                    : undefined
+                }
                 onClick={() => setSelectedId(exp.experiment_id)}
               >
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-start justify-between mb-3">
                   <div>
                     <p className="text-sm text-[var(--ink-500)] break-words">{displayName}</p>
-                    <p className="text-xs text-[var(--ink-400)] break-all">Folder: {folderName}</p>
-                    <p className="text-lg font-semibold text-[var(--ink-900)] mt-1">
-                      {exp.players.a.model} vs {exp.players.b.model}
-                    </p>
                   </div>
                   <div className="flex items-center gap-2">
+                    <span className="chip text-xs">{completed}/{total || "?"}</span>
                     <button
                       type="button"
                       className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
@@ -299,20 +341,22 @@ export default function ExperimentsPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.5 4h5l.75 2H19M7 4h4m2 0h4m-9 4v9.5a1.5 1.5 0 0 0 1.5 1.5h4A1.5 1.5 0 0 0 15 17.5V8M5 6h14" />
                       </svg>
                     </button>
-                    <span className="chip">{exp.status}</span>
                   </div>
                 </div>
-                <ProgressBar value={progress} />
-                <div className="mt-3 flex flex-wrap gap-2 text-sm text-[var(--ink-700)]">
-                  <span className="chip">
-                    Completed <strong className="ml-1 text-[var(--ink-900)]">{exp.games.completed}</strong> /{" "}
-                    {exp.games.total}
-                  </span>
-                  {exp.wins && (
-                    <span className="chip">
-                      Wins A/B/D: {exp.wins.player_a}/{exp.wins.player_b}/{exp.wins.draws}
-                    </span>
-                  )}
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <div className={clsx("rounded-xl border p-3 space-y-2 h-full min-h-[88px] flex flex-col justify-between", classFor("a"))}>
+                    <p className="font-semibold leading-tight line-clamp-2">{shortName(exp.players?.a?.model || "A")}</p>
+                    <p className="text-lg font-bold text-right">{winsA}</p>
+                  </div>
+                  <div className={clsx("rounded-xl border p-3 space-y-2 h-full min-h-[88px] flex flex-col justify-between", classFor("b"))}>
+                    <p className="font-semibold text-right leading-tight line-clamp-2">{shortName(exp.players?.b?.model || "B")}</p>
+                    <p className="text-lg font-bold">{winsB}</p>
+                  </div>
+                </div>
+                <div className="mt-3 flex items-center justify-between text-xs text-[var(--ink-600)]">
+                  <span>{pctA}%</span>
+                  {draws > 0 && <span className="chip text-xs">Draws {draws}</span>}
+                  <span>{pctB}%</span>
                 </div>
               </div>
             );
