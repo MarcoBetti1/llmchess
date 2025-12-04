@@ -15,6 +15,7 @@ Experiments are persisted to experiments_state.json and logs land under runs/<ex
 """
 from __future__ import annotations
 
+import concurrent.futures
 import json
 import logging
 import os
@@ -43,6 +44,7 @@ human_lock = threading.Lock()
 STATE_PATH = Path("experiments_state.json")
 LOG_ROOT = Path(os.environ.get("EXPERIMENT_LOG_DIR", "runs/demo"))
 LOG_ROOT.mkdir(parents=True, exist_ok=True)
+MAX_PARALLEL_GAMES = max(1, int(os.environ.get("EXPERIMENT_MAX_CONCURRENCY", 4)))
 HUMAN_GAMES: Dict[str, dict] = {}
 HUMAN_GAME_TTL_S = 3600  # drop inactive human games after an hour to avoid leaks
 
@@ -441,9 +443,10 @@ def _run_experiment(exp_id: str) -> None:
     b_as_white = exp["games"].get("b_as_white", total - a_as_white)
     log_dir_name = exp.get("log_dir_name") or exp_id
     prompt_cfg = _prompt_cfg_from_payload(exp.get("prompt"))
-    game_rows: List[dict] = exp.get("game_rows") or []
+    game_rows: List[dict] = []
     wins = exp.get("wins") or {"player_a": 0, "player_b": 0, "draws": 0}
 
+    # Seed all game rows first so the UI can show pending games.
     for idx in range(total):
         white_is_a = idx < a_as_white
         white_model = exp["players"]["a"]["model"] if white_is_a else exp["players"]["b"]["model"]
@@ -466,12 +469,23 @@ def _run_experiment(exp_id: str) -> None:
             "conversation_path": str(log_dir / "conversation.json"),
             "history_path": str(log_dir / "history.json"),
         }
-        with lock:
-            game_rows.append(game_row)
-            if exp := STATE.get(exp_id):
-                exp["game_rows"] = game_rows
-                _persist_update()
+        game_rows.append(game_row)
 
+    with lock:
+        exp = STATE.get(exp_id)
+        if exp:
+            exp["game_rows"] = game_rows
+            exp["games"]["completed"] = exp["games"].get("completed", 0)
+            _persist_update()
+
+    max_workers = max(1, min(total, MAX_PARALLEL_GAMES))
+
+    def _play_game(row: dict):
+        game_id = row["game_id"]
+        white_model = row["white_model"]
+        black_model = row["black_model"]
+        white_is_a = row["white_player"] == "a"
+        log_dir = Path(row.get("conversation_path") or (LOG_ROOT / log_dir_name / game_id)).parent
         cfg = GameConfig(
             color="white",  # main model plays white for this game instance
             prompt_cfg=prompt_cfg,
@@ -507,57 +521,58 @@ def _run_experiment(exp_id: str) -> None:
             termination_reason = f"error:{exc}"
 
         winner_color = _game_winner_from_result(result)
-        if winner_color == "white":
-            wins["player_a" if white_is_a else "player_b"] += 1
-        elif winner_color == "black":
-            wins["player_b" if white_is_a else "player_a"] += 1
-        elif winner_color == "draw":
-            wins["draws"] += 1
-
-        # update the row we seeded earlier
-        game_rows = [g for g in game_rows if g.get("game_id") != game_id]
-        game_rows.append(
-            {
-                "game_id": game_id,
-                "white_model": white_model,
-                "black_model": black_model,
-                "white_player": "a" if white_is_a else "b",
-                "winner": winner_color,
-                "illegal_moves": illegal_white + illegal_black,
-                "illegal_white": illegal_white,
-                "illegal_black": illegal_black,
-                "termination_reason": termination_reason,
-                "plies_total": plies_total,
-                "duration_s": duration_s,
-                "conversation_path": conversation_path,
-                "history_path": history_path,
-            }
-        )
+        row_update = {
+            "game_id": game_id,
+            "white_model": white_model,
+            "black_model": black_model,
+            "white_player": "a" if white_is_a else "b",
+            "winner": winner_color,
+            "illegal_moves": illegal_white + illegal_black,
+            "illegal_white": illegal_white,
+            "illegal_black": illegal_black,
+            "termination_reason": termination_reason,
+            "plies_total": plies_total,
+            "duration_s": duration_s,
+            "conversation_path": conversation_path,
+            "history_path": history_path,
+        }
 
         with lock:
-            exp = STATE.get(exp_id)
-            if not exp:
+            exp_local = STATE.get(exp_id)
+            if not exp_local:
                 return
-            exp["games"]["completed"] = idx + 1
-            exp["wins"] = wins
-            exp["game_rows"] = game_rows
+            wins_local = exp_local.get("wins") or {"player_a": 0, "player_b": 0, "draws": 0}
+            if winner_color == "white":
+                wins_local["player_a" if white_is_a else "player_b"] += 1
+            elif winner_color == "black":
+                wins_local["player_b" if white_is_a else "player_a"] += 1
+            elif winner_color == "draw":
+                wins_local["draws"] += 1
+
+            rows = [g for g in exp_local.get("game_rows", []) if g.get("game_id") != game_id]
+            rows.append(row_update)
+            exp_local["wins"] = wins_local
+            exp_local["game_rows"] = rows
+            exp_local["games"]["completed"] = exp_local["games"].get("completed", 0) + 1
             _persist_update()
 
-    avg_plies = 0
-    avg_duration = 0
-    if game_rows:
-        avg_plies = sum(g.get("plies_total", 0) for g in game_rows) / len(game_rows)
-        avg_duration = sum(g.get("duration_s", 0) for g in game_rows) / len(game_rows)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = [executor.submit(_play_game, row) for row in game_rows]
+        for future in concurrent.futures.as_completed(futures):
+            future.result()
 
     with lock:
         exp = STATE.get(exp_id)
-        if exp:
-            exp["status"] = "finished"
-            exp["wins"] = wins
-            exp["avg_plies"] = avg_plies
-            exp["avg_duration_s"] = avg_duration
-            exp["finished_at"] = time.time()
-            _persist_update()
+        if not exp:
+            return
+        rows = exp.get("game_rows", [])
+        avg_plies = sum(g.get("plies_total", 0) for g in rows) / len(rows) if rows else 0
+        avg_duration = sum(g.get("duration_s", 0) for g in rows) / len(rows) if rows else 0
+        exp["status"] = "finished"
+        exp["avg_plies"] = avg_plies
+        exp["avg_duration_s"] = avg_duration
+        exp["finished_at"] = time.time()
+        _persist_update()
 
 
 def _start_experiment_thread(exp_id: str) -> None:

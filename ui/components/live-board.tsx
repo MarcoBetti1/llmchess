@@ -331,9 +331,9 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
   const sideClasses = (side: "white" | "black") => {
     const isWinner = winnerSide === side;
     const isTurn = waitingOn === side && !winnerSide;
-    if (isWinner) return "bg-emerald-500/20 text-emerald-900 dark:text-emerald-100 border border-emerald-400/50 shadow-sm";
-    if (isTurn) return "bg-accent/20 text-[var(--ink-900)] border border-accent/40 shadow-sm";
-    return "bg-[var(--field-bg)] text-[var(--ink-700)] border border-[var(--border-soft)]";
+    if (isWinner) return "bg-emerald-500/20 border border-emerald-400/50 shadow-sm";
+    if (isTurn) return "bg-accent/20 border border-accent/40 shadow-sm";
+    return "bg-[var(--field-bg)] border border-[var(--border-soft)]";
   };
 
   const sideHighlight = (side: "white" | "black") => {
@@ -394,7 +394,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
       </div>
 
       <div className="relative flex flex-col items-center space-y-3">
-        <div className={`chip text-xs ${sideClasses("black")}`}>{blackModel}</div>
+        <div className={`chip text-xs text-[var(--ink-900)] ${sideClasses("black")}`}>{blackModel}</div>
         <div className="relative w-full flex justify-center py-2">
           {(() => {
             const h = sideHighlight("black");
@@ -418,7 +418,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
             );
           })()}
         </div>
-        <div className={`chip text-xs ${sideClasses("white")}`}>{whiteModel}</div>
+        <div className={`chip text-xs text-[var(--ink-900)] ${sideClasses("white")}`}>{whiteModel}</div>
         {mode === "replay" && (
           <div className="absolute top-2 right-2 chip bg-[var(--overlay-bg)] border border-[var(--border-soft)] text-[var(--ink-900)] shadow-sm">
             Replaying

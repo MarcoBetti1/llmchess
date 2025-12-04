@@ -47,7 +47,15 @@ export function ChessBoard({ fen, lastMove, orientation = "white", size = 360 }:
           borderRadius: "14px",
           border: "1px solid var(--board-border)",
           boxShadow: "none",
-          background: "var(--board-surface)"
+          background: "var(--board-surface)",
+          color: "var(--ink-900)",
+          fontWeight: 600
+        }}
+        customNotationStyle={{
+          color: "var(--ink-900)",
+          fontWeight: 600,
+          fontSize: 12,
+          mixBlendMode: "difference"
         }}
         customLightSquareStyle={{ backgroundColor: "var(--board-light)" }}
         customDarkSquareStyle={{ backgroundColor: "var(--board-dark)" }}
