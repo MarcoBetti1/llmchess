@@ -18,7 +18,16 @@ const InteractiveBoard = dynamic(
   { ssr: false }
 );
 
-const models = ["openai/gpt-4o", "anthropic/claude-4.5", "meta/llama-3.1-70b"];
+const models = [
+  "openai/gpt-5-chat",
+  "openai/gpt-5-mini",
+  "openai/gpt-4o",
+  "openai/gpt-4.1",
+  "anthropic/claude-3.7-sonnet",
+  "anthropic/claude-haiku-4.5",
+  "google/gemini-2.5-pro",
+  "mistral/mistral-large-3"
+];
 const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
 const DEFAULT_TEMPLATE = `Side to move: {SIDE_TO_MOVE}
 Position (FEN): {FEN}
@@ -351,23 +360,30 @@ export default function PlayPage() {
               boardOrientation={humanSide}
               onSquareClick={(square: Square) => onSquareClick(square)}
               animationDuration={200}
-              arePiecesDraggable={false}
-              boardWidth={boardWidth}
-              customSquareStyles={squareStyles}
-              customBoardStyle={{
-                borderRadius: "16px",
-                border: "1px solid var(--board-border)",
-                boxShadow: "var(--board-shadow)",
-                background: "var(--board-surface)",
-                margin: "0 auto",
-                maxWidth: "100%",
-                width: `${boardWidth}px`,
-                height: `${boardWidth}px`,
-                boxSizing: "border-box"
-              }}
-              customLightSquareStyle={{ backgroundColor: "var(--board-light)" }}
-              customDarkSquareStyle={{ backgroundColor: "var(--board-dark)" }}
-            />
+            arePiecesDraggable={false}
+            boardWidth={boardWidth}
+            customSquareStyles={squareStyles}
+            customBoardStyle={{
+              borderRadius: "16px",
+              border: "1px solid var(--board-border)",
+              boxShadow: "var(--board-shadow)",
+              background: "var(--board-surface)",
+              color: "var(--board-notation)",
+              margin: "0 auto",
+              maxWidth: "100%",
+              width: `${boardWidth}px`,
+              height: `${boardWidth}px`,
+              boxSizing: "border-box"
+            }}
+            customLightSquareStyle={{ backgroundColor: "var(--board-light)" }}
+            customDarkSquareStyle={{ backgroundColor: "var(--board-dark)" }}
+            customNotationStyle={{
+              color: "var(--board-notation)",
+              fontWeight: 700,
+              fontSize: 12,
+              textShadow: "0 0 3px rgba(0,0,0,0.4), 0 0 2px rgba(255,255,255,0.15)"
+            }}
+          />
             {gameOverReason && (
               <div className="absolute inset-0 bg-[var(--overlay-bg)] backdrop-blur-[2px] flex items-center justify-center text-center px-6">
                 <div className="space-y-3">
@@ -399,7 +415,7 @@ export default function PlayPage() {
                   <div className="space-y-3">
                     <label className="text-sm text-[var(--ink-700)]">AI model</label>
                     <select
-                      className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)] shadow-sm"
+                      className="select-field w-full px-3 py-2 text-[var(--ink-900)] shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
                       value={aiModel}
                       onChange={(e) => setAiModel(e.target.value)}
                     >

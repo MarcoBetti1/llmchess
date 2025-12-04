@@ -48,14 +48,14 @@ export function ChessBoard({ fen, lastMove, orientation = "white", size = 360 }:
           border: "1px solid var(--board-border)",
           boxShadow: "none",
           background: "var(--board-surface)",
-          color: "var(--ink-900)",
+          color: "var(--board-notation)",
           fontWeight: 600
         }}
         customNotationStyle={{
-          color: "var(--ink-900)",
-          fontWeight: 600,
+          color: "var(--board-notation)",
+          fontWeight: 700,
           fontSize: 12,
-          mixBlendMode: "difference"
+          textShadow: "0 0 3px rgba(0,0,0,0.4), 0 0 2px rgba(255,255,255,0.15)"
         }}
         customLightSquareStyle={{ backgroundColor: "var(--board-light)" }}
         customDarkSquareStyle={{ backgroundColor: "var(--board-dark)" }}

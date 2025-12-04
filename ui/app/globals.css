@@ -37,6 +37,7 @@
   --board-surface: linear-gradient(145deg, #fdfbf6, #edf4ff);
   --board-border: rgba(15, 23, 42, 0.08);
   --board-shadow: 0 20px 60px rgba(23, 42, 89, 0.12);
+  --board-notation: #0f172a;
   --badge-queued-bg: #eef2ff;
   --badge-queued-text: #27324d;
   --badge-finished-bg: #e6f7ef;
@@ -76,6 +77,7 @@
   --board-surface: linear-gradient(145deg, #0e152f, #141c3c);
   --board-border: rgba(255, 255, 255, 0.08);
   --board-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --board-notation: #94a3b8;
   --badge-queued-bg: rgba(255, 255, 255, 0.08);
   --badge-queued-text: #e5e7eb;
   --badge-finished-bg: rgba(124, 231, 172, 0.16);
@@ -121,6 +123,31 @@ a {
   background: var(--chip-bg);
   border: 1px solid var(--chip-border);
   color: var(--chip-text);
+}
+
+.select-field {
+  background: var(--field-bg);
+  color: var(--ink-900);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  border-radius: 12px;
+}
+
+[data-theme="dark"] .select-field {
+  background: var(--surface-strong);
+  color: var(--ink-900);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.select-field option {
+  color: inherit;
+  background: var(--field-bg);
+}
+
+[data-theme="dark"] .select-field option {
+  color: var(--ink-900);
+  background: var(--surface-strong);
 }
 
 .btn {

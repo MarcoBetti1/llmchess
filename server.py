@@ -292,7 +292,8 @@ def _init_experiment_record(payload: dict) -> dict:
         "name": display_name,
         "log_dir_name": log_dir_name,
         "status": "queued",
-        "players": payload.get("players") or {"a": {"model": "openai/gpt-4o"}, "b": {"model": "openai/gpt-4o-mini"}},
+        "players": payload.get("players")
+        or {"a": {"model": "openai/gpt-5-chat"}, "b": {"model": "anthropic/claude-3.7-sonnet"}},
         "games": {"total": total, "completed": 0, "a_as_white": a_as_white, "b_as_white": b_as_white},
         "wins": {"player_a": 0, "player_b": 0, "draws": 0},
         "prompt": {

@@ -8,11 +8,18 @@ import { LiveBoard } from "@/components/live-board";
 import { PromptDialog } from "@/components/prompt-dialog";
 
 const modelOptions = [
+  "openai/gpt-5-chat",
+  "openai/gpt-5-mini",
+  "openai/gpt-5.1-thinking",
+  "openai/gpt-5.1-instant",
   "openai/gpt-4o",
-  "anthropic/claude-4.5",
-  "openai/gpt-4o-mini",
-  "meta/llama-3.1-70b",
-  "mistral-large"
+  "openai/gpt-4.1",
+  "anthropic/claude-3.7-sonnet",
+  "anthropic/claude-haiku-4.5",
+  "anthropic/claude-opus-4.5",
+  "google/gemini-2.5-pro",
+  "google/gemini-2.5-flash",
+  "mistral/mistral-large-3"
 ];
 
 const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
@@ -32,7 +39,7 @@ export default function ExperimentsPage() {
   const [showAllExperiments, setShowAllExperiments] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [liveMode, setLiveMode] = useState(false);
-  const [liveBoardCount, setLiveBoardCount] = useState(2);
+  const [liveBoardCount, setLiveBoardCount] = useState(4);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const pollExperimentsRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -174,7 +181,7 @@ export default function ExperimentsPage() {
           <div className="space-y-2">
             <label className="text-sm text-[var(--ink-700)]">Player A model</label>
             <select
-              className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
+              className="select-field w-full px-3 py-2 text-[var(--ink-900)] shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
               value={form.playerA}
               onChange={(e) => setForm((f) => ({ ...f, playerA: e.target.value }))}
             >
@@ -188,7 +195,7 @@ export default function ExperimentsPage() {
           <div className="space-y-2">
             <label className="text-sm text-[var(--ink-700)]">Player B model</label>
             <select
-              className="w-full rounded-xl bg-[var(--field-bg)] border border-[var(--border-soft)] px-3 py-2 text-[var(--ink-900)]/90"
+              className="select-field w-full px-3 py-2 text-[var(--ink-900)] shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
               value={form.playerB}
               onChange={(e) => setForm((f) => ({ ...f, playerB: e.target.value }))}
             >
@@ -340,8 +347,7 @@ export default function ExperimentsPage() {
                   className="btn secondary flex items-center justify-center text-sm w-16 h-10"
                   onClick={() =>
                     setLiveBoardCount((prev) => {
-                      if (prev === 1) return 2;
-                      if (prev === 2) return 4;
+                      if (prev === 1) return 4;
                       return 1;
                     })
                   }
@@ -349,7 +355,6 @@ export default function ExperimentsPage() {
                   title="Toggle number of boards"
                 >
                   {liveBoardCount === 1 && <span className="inline-block text-base leading-none">▢</span>}
-                  {liveBoardCount === 2 && <span className="inline-block text-base leading-none">▢ ▢</span>}
                   {liveBoardCount === 4 && (
                     <span className="inline-block">
                       <div className="grid grid-cols-2 gap-0.5 leading-none text-base">
@@ -467,73 +472,34 @@ function LiveBoardsPanel({
   games: ExperimentResults["games"];
   count: number;
 }) {
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
-
-  useEffect(() => {
-    const defaults = (games || []).slice(0, count).map((g) => g.game_id);
-    setSelectedIds((prev) => {
-      const filtered = prev.filter((id) => defaults.includes(id));
-      const fill = [...filtered, ...defaults.filter((id) => !filtered.includes(id))].slice(0, count);
-      return fill;
-    });
-  }, [games, count]);
-
   if (!games?.length) {
     return <p className="text-[var(--ink-500)] text-sm">No games yet to display. Wait for games to start.</p>;
   }
 
-  const toggleSelect = (id: string) => {
-    setSelectedIds((prev) => {
-      if (prev.includes(id)) {
-        return prev.filter((x) => x !== id);
-      }
-      const next = [...prev, id];
-      if (next.length > count) {
-        next.splice(0, next.length - count);
-      }
-      return next;
-    });
-  };
-
   const baseSize = 520; // larger baseline
-  const boardSize = count === 1 ? baseSize * 2 : baseSize;
-  const displayIds = selectedIds.length ? selectedIds.slice(0, count) : (games || []).slice(0, count).map((g) => g.game_id);
+  const boardSize = count === 1 ? baseSize * 2 : Math.floor(baseSize * 0.85);
 
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap gap-2 items-center">
         <p className="text-[var(--ink-700)] text-sm">
-          Watching {Math.min(count, games.length)} board{count > 1 ? "s" : ""} from{" "}
-          {experimentName || experimentId}
+          {experimentName || experimentId} - {games.length} game{games.length === 1 ? "" : "s"}
         </p>
-        <span className="text-[var(--ink-500)] text-xs">(select up to {count} game{count > 1 ? "s" : ""})</span>
+        <span className="text-[var(--ink-500)] text-xs">Scroll to browse all boards ({count}-board view size)</span>
       </div>
-      <div className="flex flex-wrap gap-2">
-        {games.map((g) => (
-          <button
-            key={g.game_id}
-            className={`chip ${displayIds.includes(g.game_id) ? "bg-accent text-canvas-900" : ""}`}
-            onClick={() => toggleSelect(g.game_id)}
-          >
-            {g.game_id} ┬╖ {g.white_model} vs {g.black_model}
-          </button>
-        ))}
-      </div>
-      <div className={`grid gap-6 ${count >= 2 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
-        {displayIds.slice(0, count).map((gameId) => {
-          const meta = games.find((g) => g.game_id === gameId);
-          if (!meta) return null;
-          return (
+      <div className="max-h-[80vh] overflow-y-auto pb-3 pr-1">
+        <div className={`grid gap-4 ${count >= 2 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
+          {games.map((g) => (
             <LiveBoard
-              key={gameId}
-              gameId={gameId}
-              whiteModel={meta.white_model}
-              blackModel={meta.black_model}
+              key={g.game_id}
+              gameId={g.game_id}
+              whiteModel={g.white_model}
+              blackModel={g.black_model}
               size={boardSize}
-              winner={meta.winner}
+              winner={g.winner}
             />
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -6,8 +6,8 @@ export const mockGames: GameSummary[] = [
     experiment_id: "exp_alpha",
     status: "running",
     players: {
-      white: { type: "llm", model: "openai/gpt-4o" },
-      black: { type: "llm", model: "anthropic/claude-4.5" }
+      white: { type: "llm", model: "openai/gpt-5-chat" },
+      black: { type: "llm", model: "anthropic/claude-3.7-sonnet" }
     },
     current_fen: "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
     last_move: { from: "e7", to: "e5", san: "e5" },
@@ -21,8 +21,8 @@ export const mockGames: GameSummary[] = [
     experiment_id: "exp_beta",
     status: "finished",
     players: {
-      white: { type: "llm", model: "meta/llama-3.1-70b" },
-      black: { type: "llm", model: "openai/gpt-4o-mini" }
+      white: { type: "llm", model: "mistral/mistral-large-3" },
+      black: { type: "llm", model: "openai/gpt-5-mini" }
     },
     current_fen: "6k1/5ppp/8/8/8/8/5PPP/6K1 w - - 0 45",
     last_move: { from: "e7", to: "e8", san: "e8=Q+" },
@@ -36,7 +36,7 @@ export const mockGames: GameSummary[] = [
     experiment_id: null,
     status: "queued",
     players: {
-      white: { type: "llm", model: "mistral-large" },
+      white: { type: "llm", model: "google/gemini-2.5-pro" },
       black: { type: "llm", model: "openai/gpt-4o" }
     },
     current_fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
@@ -130,10 +130,10 @@ export const mockHistory: GameHistory = {
 export const mockExperiments: ExperimentSummary[] = [
   {
     experiment_id: "exp_alpha",
-    name: "gpt4o_vs_claude45_20",
+    name: "gpt5chat_vs_claude37_20",
     log_dir_name: "exp_alpha",
     status: "running",
-    players: { a: { model: "openai/gpt-4o" }, b: { model: "anthropic/claude-4.5" } },
+    players: { a: { model: "openai/gpt-5-chat" }, b: { model: "anthropic/claude-3.7-sonnet" } },
     games: { total: 20, completed: 8 },
     wins: { player_a: 5, player_b: 2, draws: 1 }
   },
@@ -142,7 +142,7 @@ export const mockExperiments: ExperimentSummary[] = [
     name: "llama_vs_gpt4omini",
     log_dir_name: "exp_beta",
     status: "finished",
-    players: { a: { model: "meta/llama-3.1-70b" }, b: { model: "openai/gpt-4o-mini" } },
+    players: { a: { model: "mistral/mistral-large-3" }, b: { model: "openai/gpt-5-mini" } },
     games: { total: 12, completed: 12 },
     wins: { player_a: 7, player_b: 4, draws: 1 }
   }
