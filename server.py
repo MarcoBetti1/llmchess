@@ -212,10 +212,9 @@ def _ensure_prompt_mode(mode: Optional[str]) -> str:
 def _prompt_cfg_from_payload(payload: Optional[dict]) -> PromptConfig:
     payload = payload or {}
     return PromptConfig(
-        mode="custom",
         system_instructions=payload.get("system_instructions") or DEFAULT_SYSTEM_INSTRUCTIONS,
         template=payload.get("template") or DEFAULT_TEMPLATE,
-        starting_context_enabled=payload.get("starting_context_enabled", True),
+        expected_notation=payload.get("expected_notation") or "san",
     )
 
 
@@ -316,6 +315,7 @@ def _init_experiment_record(payload: dict) -> dict:
         "prompt": {
             "system_instructions": payload.get("prompt", {}).get("system_instructions", DEFAULT_SYSTEM_INSTRUCTIONS),
             "template": payload.get("prompt", {}).get("template", DEFAULT_TEMPLATE),
+            "expected_notation": payload.get("prompt", {}).get("expected_notation", "san"),
         },
         "illegal_move_limit": int(payload.get("illegal_move_limit", 1)),  # GameRunner ends on first illegal
         "game_rows": [],

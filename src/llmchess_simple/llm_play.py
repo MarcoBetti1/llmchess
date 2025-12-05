@@ -6,13 +6,12 @@ These utilities keep GameRunner and LLM-based opponents symmetric and
 provider-agnostic.
 """
 import logging
-import re
 import time
 from typing import Callable
 
 import chess
 
-from .move_validator import normalize_move
+from .move_validator import parse_expected_move, Notation
 from .prompting import PromptConfig, render_custom_prompt
 
 
@@ -69,60 +68,46 @@ def build_prompt_messages_for_board(board: chess.Board, side: str, prompt_cfg: P
     ]
 
 
-def _extract_candidate(raw: str) -> str:
-    # Try to pick a sensible move-like token from the raw reply
-    m = re.search(r"\b([a-h][1-8][a-h][1-8][qrbnQ R B N]?)\b", raw, re.IGNORECASE)
-    if m:
-        return m.group(1).strip().lower()
-    tokens = re.findall(r"[A-Za-z0-9=+-]+", raw)
-    return tokens[0].lower() if tokens else ""
+def _strip_code_fence(raw: str) -> str:
+    raw = raw.strip()
+    if raw.startswith("```") and raw.endswith("```"):
+        inner = raw.split("\n", 1)
+        if len(inner) == 2:
+            return inner[1].rsplit("\n", 1)[0].strip()
+    return raw
 
 
-def process_llm_raw_move(raw: str, fen: str, apply_uci_fn: Callable[[str], tuple[bool, str | None]], salvage_with_validator: bool, verbose_llm: bool, log: logging.Logger, meta_extra: dict | None = None):
+def process_llm_raw_move(
+    raw: str,
+    fen: str,
+    apply_uci_fn: Callable[[str], tuple[bool, str | None]],
+    log: logging.Logger,
+    meta_extra: dict | None = None,
+    expected_notation: Notation = "san",
+):
     """Normalize, validate, and apply an LLM move reply against the current board.
 
-    Returns (ok, uci, san, parse_ms, meta, salvage_used)
+    Returns (ok, uci, san, parse_ms, meta, salvage_used) -- salvage_used always False.
     """
     t0 = time.time()
-    candidate = _extract_candidate(raw)
+    cleaned = _strip_code_fence(raw)
     parse_ms = int((time.time() - t0) * 1000)
 
-    salvage_used = False
-    validator_info = None
-
+    validator_info = parse_expected_move(cleaned, fen, expected_notation)
     ok = False
     san = None
     uci = ""
-    if candidate:
-        validator_info = normalize_move(candidate, fen)
-        if validator_info.get("ok"):
-            uci = validator_info["uci"]
-            ok, san = apply_uci_fn(uci)
-        else:
-            log.debug("Candidate not legal: %s", validator_info.get("reason"))
+    if validator_info.get("ok"):
+        uci = validator_info["uci"]
+        ok, san = apply_uci_fn(uci)
     else:
-        log.warning("No candidate extracted from LLM reply")
-
-    if (not ok) and salvage_with_validator:
-        # Try salvage on full raw reply
-        v2 = normalize_move(raw, fen)
-        if v2.get("ok"):
-            salvage_used = True
-            uci = v2["uci"]
-            ok, san = apply_uci_fn(uci)
-            if ok:
-                log.info("Salvaged move from raw reply: %s", uci)
-        else:
-            validator_info = v2
-
-    if verbose_llm:
-        log.info("LLM raw='%s' candidate='%s' ok=%s", raw, uci, ok)
+        log.debug("Move not valid: %s", validator_info.get("reason"))
 
     meta = {
         "raw": raw,
-        "salvage_used": salvage_used,
         "validator": validator_info,
+        "expected_notation": expected_notation,
     }
     if meta_extra:
         meta.update(meta_extra)
-    return ok, uci, san, parse_ms, meta, salvage_used
+    return ok, uci, san, parse_ms, meta, False
