@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
-import { ExperimentResults, ExperimentSummary } from "@/types";
+import { ExperimentResults, ExperimentSummary, MoveNotation } from "@/types";
 import { cancelExperiment, createExperiment, deleteExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
 import { ProgressBar } from "@/components/progress-bar";
 import { LiveBoard } from "@/components/live-board";
@@ -24,8 +24,7 @@ const modelOptions = [
 ];
 
 const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
-const DEFAULT_TEMPLATE = `Position (FEN): {FEN}
-Respond with only your best legal move in SAN.`;
+const DEFAULT_TEMPLATE = `{FEN}`;
 
 export default function ExperimentsPage() {
   const [experiments, setExperiments] = useState<ExperimentSummary[]>([]);
@@ -49,7 +48,7 @@ export default function ExperimentsPage() {
     total: 4,
     aAsWhite: 2,
     name: deriveName(modelOptions[0], modelOptions[1], 4),
-    prompt: { system_instructions: DEFAULT_SYSTEM, template: DEFAULT_TEMPLATE }
+    prompt: { system_instructions: DEFAULT_SYSTEM, template: DEFAULT_TEMPLATE, expected_notation: "san" as MoveNotation }
   });
 
   useEffect(() => {
@@ -113,7 +112,11 @@ export default function ExperimentsPage() {
       name: form.name,
       players: { a: { model: form.playerA }, b: { model: form.playerB } },
       games: { total: form.total, a_as_white: form.aAsWhite, b_as_white: Math.max(form.total - form.aAsWhite, 0) },
-      prompt: { system_instructions: form.prompt.system_instructions, template: form.prompt.template }
+      prompt: {
+        system_instructions: form.prompt.system_instructions,
+        template: form.prompt.template,
+        expected_notation: form.prompt.expected_notation
+      }
     } as const;
 
     try {
@@ -540,12 +543,14 @@ export default function ExperimentsPage() {
       open={promptDialogOpen}
       systemInstructions={form.prompt.system_instructions}
       template={form.prompt.template}
+      expectedNotation={form.prompt.expected_notation}
       onChange={(value) =>
         setForm((f) => ({
           ...f,
           prompt: {
             system_instructions: value.systemInstructions ?? f.prompt.system_instructions,
-            template: value.template ?? f.prompt.template
+            template: value.template ?? f.prompt.template,
+            expected_notation: (value.expectedNotation as MoveNotation | undefined) ?? f.prompt.expected_notation
           }
         }))
       }

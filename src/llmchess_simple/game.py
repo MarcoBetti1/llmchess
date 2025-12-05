@@ -271,6 +271,13 @@ class GameRunner:
         fen = self.ref.board.fen()
         # Recover prompts for metadata
         msgs = self.build_llm_messages()
+        if self.cfg.conversation_log_path:
+            pending_prompt = {
+                "system": msgs[0]["content"] if msgs else "",
+                "prompt": msgs[-1]["content"] if msgs else "",
+                "model": self.model,
+            }
+            self.dump_conversation_json(pending_prompt=pending_prompt)
         user_prompt_text = msgs[-1]["content"] if msgs else ""
         sys_prompt_text = msgs[0]["content"] if msgs else ""
         ok, uci, san, ms, meta, _ = process_llm_raw_move(
@@ -287,6 +294,7 @@ class GameRunner:
                 "prompt_mode": self.cfg.prompt_cfg.mode,
                 "prompt_template": getattr(self.cfg.prompt_cfg, "template", None),
             },
+            expected_notation=getattr(self.cfg.prompt_cfg, "expected_notation", "san"),
         )
         self.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
         # Console-friendly log of LLM action
@@ -340,6 +348,13 @@ class GameRunner:
         if self._cancelled():
             return False, None, None, None, {}
         messages = self.build_llm_messages()
+        if self.cfg.conversation_log_path:
+            pending_prompt = {
+                "system": messages[0]["content"] if messages else "",
+                "prompt": messages[-1]["content"] if messages else "",
+                "model": self.model,
+            }
+            self.dump_conversation_json(pending_prompt=pending_prompt)
         raw = ask_for_best_move_conversation(messages, model=self.model, provider=self.provider, provider_options=self.provider_options)
         fen = self.ref.board.fen()
         user_prompt_text = messages[-1]["content"] if messages else ""
@@ -351,7 +366,13 @@ class GameRunner:
             salvage_with_validator=self.cfg.salvage_with_validator,
             verbose_llm=self.cfg.verbose_llm,
             log=self.log,
-            meta_extra={"mode": "standard", "prompt": user_prompt_text, "system": sys_prompt_text, "prompt_mode": self.cfg.prompt_cfg.mode},
+            meta_extra={
+                "mode": "standard",
+                "prompt": user_prompt_text,
+                "system": sys_prompt_text,
+                "prompt_mode": self.cfg.prompt_cfg.mode,
+            },
+            expected_notation=getattr(self.cfg.prompt_cfg, "expected_notation", "san"),
         )
         return ok, uci, san, agent_ms, meta
 
@@ -369,6 +390,7 @@ class GameRunner:
                 log=self.log,
                 prompt_cfg=self.cfg.opponent_prompt_cfg or self.cfg.prompt_cfg,
                 provider_options=self.cfg.opponent_provider_options,
+                on_prompt=(lambda pending: self.dump_conversation_json(pending_prompt=pending)) if self.cfg.conversation_log_path else None,
             )
             return ok, uci, san, meta
         if isinstance(self.opp, UserOpponent):
@@ -380,7 +402,7 @@ class GameRunner:
         return True, mv.uci(), san, {}
 
     # ---------------- Export / Verification -----------------
-    def export_conversation(self) -> list[dict]:
+    def export_conversation(self, pending_prompt: dict | None = None) -> list[dict]:
         """Return a chat-style list of messages representing the interaction.
         Reconstruct from stored prompts and raw replies collected in meta for each actor.
         """
@@ -410,9 +432,18 @@ class GameRunner:
                 if prompt:
                     messages.append({"role": "user", "content": prompt})
                 messages.append({"role": "assistant", "content": raw, "model": model_name})
+        if pending_prompt:
+            sys_text = pending_prompt.get("system")
+            prompt_text = pending_prompt.get("prompt")
+            model_name = pending_prompt.get("model") or self.model
+            # Only add system once per model
+            if sys_text and not any(m.get("role") == "system" and m.get("model") == model_name for m in messages):
+                messages.append({"role": "system", "content": sys_text, "model": model_name})
+            if prompt_text:
+                messages.append({"role": "user", "content": prompt_text, "model": model_name})
         return messages
 
-    def dump_conversation_json(self):
+    def dump_conversation_json(self, pending_prompt: dict | None = None):
         path = self.cfg.conversation_log_path
         if not path:
             return
@@ -421,7 +452,7 @@ class GameRunner:
             if dir_path:
                 os.makedirs(dir_path, exist_ok=True)
             with open(path, "w", encoding="utf-8") as f:
-                json.dump(self.export_conversation(), f, ensure_ascii=False, indent=2)
+                json.dump(self.export_conversation(pending_prompt=pending_prompt), f, ensure_ascii=False, indent=2)
             self.log.info("Wrote conversation log to %s", path)
         except Exception:
             self.log.exception("Failed writing conversation log")

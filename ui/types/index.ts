@@ -81,6 +81,8 @@ export type ConversationData = {
   messages?: ConversationMessage[];
 };
 
+export type MoveNotation = "san" | "uci" | "fen";
+
 export type ExperimentSummary = {
   experiment_id: string;
   name?: string;
@@ -135,6 +137,7 @@ export type HumanGameCreateRequest = {
   prompt: {
     system_instructions: string;
     template: string;
+    expected_notation?: MoveNotation;
   };
   human_plays: "white" | "black";
 };
@@ -187,6 +190,7 @@ export type ExperimentCreateRequest = {
   prompt: {
     system_instructions: string;
     template: string;
+    expected_notation?: MoveNotation;
   };
 };
 
