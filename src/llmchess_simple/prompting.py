@@ -10,11 +10,7 @@ from dataclasses import dataclass
 from typing import Dict
 
 DEFAULT_SYSTEM_INSTRUCTIONS = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN."
-DEFAULT_TEMPLATE = """Side to move: {SIDE_TO_MOVE}
-Position (FEN): {FEN}
-SAN history: {SAN_HISTORY}
-Plaintext history:
-{PLAINTEXT_HISTORY}
+DEFAULT_TEMPLATE = """Position (FEN): {FEN}
 Respond with only your best legal move in SAN."""
 
 

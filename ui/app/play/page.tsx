@@ -29,11 +29,7 @@ const models = [
   "mistral/mistral-large-3"
 ];
 const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
-const DEFAULT_TEMPLATE = `Side to move: {SIDE_TO_MOVE}
-Position (FEN): {FEN}
-SAN history: {SAN_HISTORY}
-Plaintext history:
-{PLAINTEXT_HISTORY}
+const DEFAULT_TEMPLATE = `Position (FEN): {FEN}
 Respond with only your best legal move in SAN.`;
 
 type Side = "white" | "black";

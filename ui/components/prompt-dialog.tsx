@@ -11,7 +11,8 @@ type Props = {
   className?: string;
 };
 
-const helperText = "Use placeholders like {FEN}, {SAN_HISTORY}, {PLAINTEXT_HISTORY}, {SIDE_TO_MOVE}. Variables will be injected at runtime.";
+const helperText =
+  "Placeholders available: {FEN}, {SIDE_TO_MOVE}, {SAN_HISTORY}, {PLAINTEXT_HISTORY}. The default uses only FEN, but you can include any of these.";
 
 export function PromptDialog({ open, systemInstructions, template, onChange, onClose, className }: Props) {
   if (!open) return null;
