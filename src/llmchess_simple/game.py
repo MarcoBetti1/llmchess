@@ -4,7 +4,7 @@ Single-game runner and config.
 - GameConfig: knobs for max plies, side, prompting mode, and logging.
 - GameRunner: orchestrates one game between an LLM and an opponent (LLM or human) using python-chess.
   - Builds prompts (plaintext/FEN) via prompting.py, calls llm_client, normalizes via agent_normalizer,
-    validates/salvages with move_validator, and applies moves through Referee.
+    validates with move_validator, and applies moves through Referee.
   - Logs per-turn conversation and structured history JSON for visualization.
   - Exposes step_* helpers for orchestrated runs and summary/metrics at the end.
 
@@ -27,7 +27,6 @@ from .prompting import PromptConfig
 class GameConfig:
     max_plies: int = 240
     pgn_tail_plies: int = 20 
-    salvage_with_validator: bool = False  # kept for legacy toggle; defaults to strict
     # Conversation/trace logging
     conversation_log_path: str | None = None  # optional path or directory to dump reconstructed conversation JSON
     conversation_log_every_turn: bool = True  # write conversation and structured history after every ply
@@ -256,7 +255,6 @@ class GameRunner:
             raw,
             fen,
             apply_uci_fn=self.ref.apply_uci,
-            salvage_with_validator=self.cfg.salvage_with_validator,
             log=self.log,
             meta_extra={
                 "mode": "standard",
@@ -333,7 +331,6 @@ class GameRunner:
             raw,
             fen,
             apply_uci_fn=self.ref.apply_uci,
-            salvage_with_validator=self.cfg.salvage_with_validator,
             log=self.log,
             meta_extra={
                 "mode": "standard",
@@ -353,7 +350,6 @@ class GameRunner:
                 board=self.ref.board,
                 apply_uci_fn=self.ref.apply_uci,
                 pgn_tail_plies=self.cfg.pgn_tail_plies,
-                salvage_with_validator=self.cfg.salvage_with_validator,
                 log=self.log,
                 prompt_cfg=self.cfg.opponent_prompt_cfg or self.cfg.prompt_cfg,
                 on_prompt=(lambda pending: self.dump_conversation_json(pending_prompt=pending)) if self.cfg.conversation_log_path else None,

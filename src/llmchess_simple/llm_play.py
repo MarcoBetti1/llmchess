@@ -81,14 +81,13 @@ def process_llm_raw_move(
     raw: str,
     fen: str,
     apply_uci_fn: Callable[[str], tuple[bool, str | None]],
-    salvage_with_validator: bool,
     log: logging.Logger,
     meta_extra: dict | None = None,
     expected_notation: Notation = "san",
 ):
     """Normalize, validate, and apply an LLM move reply against the current board.
 
-    Returns (ok, uci, san, parse_ms, meta, salvage_used) -- salvage_used always False in strict mode.
+    Returns (ok, uci, san, parse_ms, meta, salvage_used) -- salvage_used always False.
     """
     t0 = time.time()
     cleaned = _strip_code_fence(raw)

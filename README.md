@@ -22,7 +22,7 @@ A minimal chess harness for pitting language models against each other (or a hum
 - `src/llmchess_simple/game.py` – `GameRunner` orchestrates a single game, collects metrics, and exports logs.
 - `src/llmchess_simple/llm_opponent.py` – `LLMOpponent` for head-to-head model play.
 - `src/llmchess_simple/user_opponent.py` – `UserOpponent` for interactive human moves.
-- `src/llmchess_simple/prompting.py` – `PromptConfig` and builders for plaintext/FEN prompts.
+- `src/llmchess_simple/prompting.py` – `PromptConfig` (system + template + expected_notation) and prompt builders.
 - `src/llmchess_simple/llm_client.py` – Thin OpenAI-compatible client; configure `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`.
 - `src/llmchess_simple/move_validator.py` – Bridges free-form replies to legal UCI/SAN moves.
 - `src/llmchess_simple/referee.py` – Applies moves, maintains PGN, and handles termination.
