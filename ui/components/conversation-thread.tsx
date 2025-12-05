@@ -2,17 +2,19 @@
 
 import { ConversationMessage } from "@/types";
 import clsx from "clsx";
+import { CSSProperties } from "react";
 
 type Props = {
   messages: ConversationMessage[];
   className?: string;
   title?: string;
   height?: string;
+  styleOverride?: CSSProperties;
 };
 
-export function ConversationThread({ messages, className, title, height = "min-h-[520px]" }: Props) {
+export function ConversationThread({ messages, className, title, height = "min-h-[520px]", styleOverride }: Props) {
   return (
-    <div className={clsx("card h-full flex flex-col overflow-hidden", height, className)}>
+    <div className={clsx("card h-full flex flex-col overflow-hidden", height, className)} style={styleOverride}>
       <div className="flex items-center justify-between gap-3 border-b border-[var(--border-soft)] px-5 py-4">
         <div className="space-y-1">
           <p className="text-sm font-semibold text-[var(--ink-900)]">{title || "Conversation"}</p>

@@ -169,8 +169,8 @@ a {
 }
 
 .page-shell {
-  width: min(1500px, 96vw);
-  max-width: 1500px;
+  width: min(1750px, 98vw);
+  max-width: 1750px;
   margin: 0 auto;
   padding: 32px 28px 80px;
 }

@@ -60,6 +60,8 @@ export default function PlayPage() {
   const boardContainerRef = useRef<HTMLDivElement | null>(null);
   const inGameRef = useRef(inGame);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
+  const appendConversation = (msg: ConversationMessage) =>
+    setConversation((prev) => [...prev, msg]);
 
   useEffect(() => {
     const computeWidth = () => {
@@ -250,6 +252,12 @@ export default function PlayPage() {
     setFen(afterHumanFen);
     resetSelection();
     setStatus(`You played ${move.san}. Waiting for AI...`);
+    appendConversation({
+      role: "human",
+      content: `You played ${move.san} (${move.from}${move.to}${move.promotion || ""})`,
+      side: humanSide,
+      actor: "human"
+    });
     setWaitingOnAI(true);
     void sendMoveToBackend(move, rollbackFen, afterHumanFen);
     return true;
@@ -324,6 +332,8 @@ export default function PlayPage() {
     concludeGame("You resigned. Reset to play again.");
   };
 
+  const chatHeight = Math.max(520, Math.round(boardWidth + 240));
+
   return (
     <>
       <div className="flex flex-col gap-6 fade-in">
@@ -353,8 +363,8 @@ export default function PlayPage() {
           </div>
         )}
 
-        <div className="grid items-start gap-5 lg:gap-6 xl:gap-8 lg:grid-cols-[minmax(640px,1.2fr)_minmax(420px,1fr)] xl:grid-cols-[minmax(760px,1.3fr)_minmax(460px,1fr)] min-h-[70vh]">
-          <div className="card p-5 lg:p-6 xl:p-7 flex flex-col gap-5 h-full">
+        <div className="grid items-start gap-5 lg:gap-6 xl:gap-8 lg:grid-cols-[minmax(700px,1.35fr)_minmax(480px,1fr)] xl:grid-cols-[minmax(840px,1.4fr)_minmax(520px,1fr)] min-h-[70vh]">
+          <div className="card p-5 lg:p-6 xl:p-7 flex flex-col gap-5 h-full self-start">
             <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
               <div className="flex flex-wrap items-center gap-2 text-[var(--ink-700)]">
                 <span className="chip">{status}</span>
@@ -421,9 +431,16 @@ export default function PlayPage() {
 
           <div className="flex flex-col gap-4 h-full">
             {inGame ? (
-              <ConversationThread messages={conversation} className="flex-1 min-h-[620px]" title="Live conversation" />
+              <ConversationThread
+                messages={conversation}
+                className="w-full"
+                height="min-h-[520px]"
+                title="Live conversation"
+                /* Keep chat aligned with board height */
+                styleOverride={{ minHeight: chatHeight, maxHeight: chatHeight }}
+              />
             ) : (
-              <div className="card transition-all duration-500 w-full p-5 lg:p-6 space-y-5 h-full">
+              <div className="card transition-all duration-500 w-full p-5 lg:p-6 space-y-5 h-full self-start">
                 <div className="flex items-start justify-between gap-3">
                   <div className="space-y-1">
                     <p className="text-lg font-semibold text-[var(--ink-900)]">Configure the AI</p>
@@ -485,15 +502,22 @@ export default function PlayPage() {
                     {starting ? "Starting..." : "Start game"}
                   </button>
                 </div>
+                {conversation.length > 0 && (
+                  <div className="space-y-3 pt-2">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm font-semibold text-[var(--ink-900)]">Last conversation</p>
+                      <span className="chip text-xs">{conversation.length} msgs</span>
+                    </div>
+                    <ConversationThread
+                      messages={conversation}
+                      className="w-full"
+                      height="min-h-[260px]"
+                      styleOverride={{ maxHeight: 360 }}
+                      title="Previous"
+                    />
+                  </div>
+                )}
               </div>
-            )}
-            {!inGame && conversation.length > 0 && (
-              <ConversationThread
-                messages={conversation}
-                className="flex-1"
-                title="Last conversation"
-                height="min-h-[420px]"
-              />
             )}
           </div>
         </div>
