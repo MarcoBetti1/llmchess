@@ -77,48 +77,38 @@ def _strip_code_fence(raw: str) -> str:
     return raw
 
 
-def process_llm_raw_move(raw: str, fen: str, apply_uci_fn: Callable[[str], tuple[bool, str | None]], salvage_with_validator: bool, verbose_llm: bool, log: logging.Logger, meta_extra: dict | None = None, expected_notation: Notation = "san"):
+def process_llm_raw_move(
+    raw: str,
+    fen: str,
+    apply_uci_fn: Callable[[str], tuple[bool, str | None]],
+    salvage_with_validator: bool,
+    log: logging.Logger,
+    meta_extra: dict | None = None,
+    expected_notation: Notation = "san",
+):
     """Normalize, validate, and apply an LLM move reply against the current board.
 
-    Returns (ok, uci, san, parse_ms, meta, salvage_used)
+    Returns (ok, uci, san, parse_ms, meta, salvage_used) -- salvage_used always False in strict mode.
     """
     t0 = time.time()
     cleaned = _strip_code_fence(raw)
     parse_ms = int((time.time() - t0) * 1000)
 
-    salvage_used = False
-    validator_info = None
-
+    validator_info = parse_expected_move(cleaned, fen, expected_notation)
     ok = False
     san = None
     uci = ""
-    validator_info = parse_expected_move(cleaned, fen, expected_notation)
     if validator_info.get("ok"):
         uci = validator_info["uci"]
         ok, san = apply_uci_fn(uci)
     else:
         log.debug("Move not valid: %s", validator_info.get("reason"))
 
-    if (not ok) and salvage_with_validator and raw != cleaned:
-        # Try salvage using the raw text (same notation expectation)
-        v2 = parse_expected_move(raw, fen, expected_notation)
-        if v2.get("ok"):
-            salvage_used = True
-            uci = v2["uci"]
-            ok, san = apply_uci_fn(uci)
-            if ok:
-                log.info("Salvaged move from raw reply: %s", uci)
-        validator_info = v2
-
-    if verbose_llm:
-        log.info("LLM raw='%s' parsed='%s' ok=%s", raw, uci, ok)
-
     meta = {
         "raw": raw,
-        "salvage_used": salvage_used,
         "validator": validator_info,
         "expected_notation": expected_notation,
     }
     if meta_extra:
         meta.update(meta_extra)
-    return ok, uci, san, parse_ms, meta, salvage_used
+    return ok, uci, san, parse_ms, meta, False

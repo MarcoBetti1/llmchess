@@ -33,11 +33,9 @@ DEFAULT_TEMPLATE = DEFAULT_SAN_TEMPLATE
 class PromptConfig:
     """Configuration for shaping move prompts using a custom template."""
 
-    mode: str = "custom"  # retained for logging/metadata only
     system_instructions: str = DEFAULT_SAN_SYSTEM
     template: str = DEFAULT_SAN_TEMPLATE
     expected_notation: str = "san"  # "san" | "uci" | "fen"
-    starting_context_enabled: bool = True
 
 
 def render_custom_prompt(template: str, values: Dict[str, str]) -> str:
