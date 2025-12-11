@@ -4,8 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Chess } from "chess.js";
 import { fetchGameConversation, fetchGameHistory } from "@/lib/api";
 import { ChessBoard } from "./chess-board";
-import { ConversationDialog } from "./conversation-dialog";
 import { ConversationData } from "@/types";
+import { ConversationDialog } from "./conversation-dialog";
 
 type Props = {
   gameId: string;
@@ -117,10 +117,10 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
   const [termination, setTermination] = useState<{ result?: string; reason?: string } | null>(null);
   const [mode, setMode] = useState<Mode>("live");
   const [boardKey, setBoardKey] = useState(0);
-  const [conversationOpen, setConversationOpen] = useState(false);
   const [conversation, setConversation] = useState<ConversationData | null>(null);
   const [convLoading, setConvLoading] = useState(false);
   const [renderSize, setRenderSize] = useState(size);
+  const [conversationOpen, setConversationOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   const replayIdxRef = useRef(0);
@@ -161,8 +161,8 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
     setDisplayLastMove(undefined);
     setBoardKey((k) => k + 1);
     setConversation(null);
-    setConversationOpen(false);
     setConvLoading(false);
+    setConversationOpen(false);
     if (replayTimerRef.current) {
       clearInterval(replayTimerRef.current);
       replayTimerRef.current = null;
@@ -336,9 +336,9 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
 
   const formattedTerminationReason = useMemo(() => {
     const reason = termination?.reason;
-    if (!reason) return "ended";
-    if (reason === "illegal_opponent_move") return "illegal_llm_move";
-    return reason;
+    const label = reason || "ended";
+    if (label === "illegal_opponent_move" || label === "illegal_llm_move") return "Illegal";
+    return label.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
   }, [termination]);
 
   const sideClasses = (side: "white" | "black") => {
@@ -368,8 +368,8 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
   };
 
   const loadConversation = async () => {
-    setConvLoading(true);
     setConversationOpen(true);
+    setConvLoading(true);
     try {
       const data = await fetchGameConversation(gameId);
       setConversation(data);
@@ -385,9 +385,6 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
       <div className="flex items-center justify-between gap-2 text-sm text-[var(--ink-700)]">
         <div>
           <p className="text-[var(--ink-900)] text-sm font-semibold">{gameId}</p>
-          <p className="text-xs text-[var(--ink-500)]">
-            White: {whiteModel} | Black: {blackModel}
-          </p>
         </div>
         <div className="flex items-center gap-2">
           {waitingOn && !termination && (
@@ -396,7 +393,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
             </div>
           )}
           {termination && (
-            <div className="chip bg-accent text-canvas-900">
+            <div className="chip text-xs bg-[var(--surface-weak)] border border-[var(--border-soft)] text-[var(--ink-800)]">
               {formattedTerminationReason}
             </div>
           )}
@@ -445,11 +442,7 @@ export function LiveBoard({ gameId, whiteModel, blackModel, size = 260, winner }
           </button>
         )}
       </div>
-      <ConversationDialog
-        open={conversationOpen}
-        onClose={() => setConversationOpen(false)}
-        log={convLoading ? null : conversation}
-      />
+      <ConversationDialog open={conversationOpen} onClose={() => setConversationOpen(false)} log={convLoading ? null : conversation} />
     </div>
   );
 }

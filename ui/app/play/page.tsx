@@ -51,6 +51,7 @@ export default function PlayPage() {
   const [inGame, setInGame] = useState(false);
   const [gameId, setGameId] = useState<string | null>(null);
   const [gameOverReason, setGameOverReason] = useState<string | null>(null);
+  const [lastMoveLabel, setLastMoveLabel] = useState<string | null>(null);
   const [aiIllegalMoveCount, setAiIllegalMoveCount] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [conversation, setConversation] = useState<ConversationMessage[]>([]);
@@ -60,8 +61,6 @@ export default function PlayPage() {
   const boardContainerRef = useRef<HTMLDivElement | null>(null);
   const inGameRef = useRef(inGame);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
-  const appendConversation = (msg: ConversationMessage) =>
-    setConversation((prev) => [...prev, msg]);
 
   useEffect(() => {
     const computeWidth = () => {
@@ -150,6 +149,7 @@ export default function PlayPage() {
     setSelectedSquare(null);
     setMoveHints([]);
     setGameOverReason(null);
+    setLastMoveLabel(null);
     setAiIllegalMoveCount(0);
     setConversation([]);
     const fresh = new Chess();
@@ -174,6 +174,7 @@ export default function PlayPage() {
       setAiIllegalMoveCount(res.ai_illegal_move_count ?? 0);
       setInGame(true);
       const aiLabel = res.ai_move?.san || res.ai_move?.uci || undefined;
+      setLastMoveLabel(aiLabel || null);
       if (!finishFromResponse(res, aiLabel)) {
         const humanToMove = sideToMoveFromFen(nextFen) === side;
         setWaitingOnAI(!humanToMove);
@@ -225,6 +226,9 @@ export default function PlayPage() {
       const nextFen = res.fen_after_ai || res.current_fen || res.fen_after_human || afterHumanFen;
       resetBoardToFen(nextFen);
       const aiLabel = res.ai_move?.san || res.ai_move?.uci;
+      if (aiLabel) {
+        setLastMoveLabel(aiLabel);
+      }
       if (!finishFromResponse(res, aiLabel)) {
         setStatus(aiLabel ? `AI (${aiModel}) played ${aiLabel}` : `AI (${aiModel}) moved`);
         setWaitingOnAI(false);
@@ -252,12 +256,7 @@ export default function PlayPage() {
     setFen(afterHumanFen);
     resetSelection();
     setStatus(`You played ${move.san}. Waiting for AI...`);
-    appendConversation({
-      role: "human",
-      content: `You played ${move.san} (${move.from}${move.to}${move.promotion || ""})`,
-      side: humanSide,
-      actor: "human"
-    });
+    setLastMoveLabel(move.san);
     setWaitingOnAI(true);
     void sendMoveToBackend(move, rollbackFen, afterHumanFen);
     return true;
@@ -321,12 +320,6 @@ export default function PlayPage() {
     return styles;
   }, [selectedSquare, moveHints]);
 
-  const promptSummary = useMemo(
-    () =>
-      `POST /api/human-games -> /api/human-games/:id/move (model=${aiModel}, notation=${promptConfig.expectedNotation.toUpperCase()}, prompt includes {FEN}/{SAN_HISTORY})`,
-    [aiModel, promptConfig.expectedNotation, promptConfig.template]
-  );
-
   const resign = () => {
     if (!inGame) return;
     concludeGame("You resigned. Reset to play again.");
@@ -336,25 +329,19 @@ export default function PlayPage() {
 
   return (
     <>
-      <div className="flex flex-col gap-6 fade-in">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="space-y-2">
-            <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Human vs LLM</p>
-            <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Play a game</h1>
-            <p className="text-[var(--ink-700)] text-sm max-w-3xl">
-              Moves are executed through the backend: start with POST `/api/human-games`, then send each turn to
-              `/api/human-games/:gameId/move`. Configure a model, choose your side, and keep the chat open while you
-              play.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="chip text-xs">{inGame ? "Live game" : "Ready"}</span>
-            {inGame && (
-              <button className="btn secondary" onClick={resign}>
-                Resign
-              </button>
-            )}
-          </div>
+        <div className="flex flex-col gap-6 fade-in">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="space-y-2">
+              <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Human vs LLM</p>
+              <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Play a game</h1>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              {inGame && (
+                <button className="btn secondary" onClick={resign}>
+                  Resign
+                </button>
+              )}
+            </div>
         </div>
 
         {error && (
@@ -365,24 +352,24 @@ export default function PlayPage() {
 
         <div className="grid items-start gap-5 lg:gap-6 xl:gap-8 lg:grid-cols-[minmax(700px,1.35fr)_minmax(480px,1fr)] xl:grid-cols-[minmax(840px,1.4fr)_minmax(520px,1fr)] min-h-[70vh]">
           <div className="card p-5 lg:p-6 xl:p-7 flex flex-col gap-5 h-full self-start">
-            <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
-              <div className="flex flex-wrap items-center gap-2 text-[var(--ink-700)]">
-                <span className="chip">{status}</span>
-                <span className={clsx("chip", waitingOnAI && "bg-accent text-canvas-900")}>
-                  {waitingOnAI ? "Waiting for AI" : "Your move"}
-                </span>
-                {aiIllegalMoveCount > 0 && <span className="chip">AI illegal moves: {aiIllegalMoveCount}</span>}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="space-y-1">
+                <p className="text-lg font-semibold text-[var(--ink-900)]">
+                  {aiModel} ({humanSide === "white" ? "B" : "W"}
+                  {lastMoveLabel ? `, ${lastMoveLabel}` : ""})
+                </p>
+                <p className="text-xs text-[var(--ink-600)]">
+                  {status} • You play {humanSide} • {waitingOnAI ? "AI thinking" : "Your move"}
+                  {aiIllegalMoveCount > 0 ? ` • AI illegal: ${aiIllegalMoveCount}` : ""}
+                </p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="chip text-xs bg-[var(--surface-weak)] text-[var(--ink-700)]">{aiModel}</span>
+                {inGame && <span className="chip text-xs">Live game</span>}
                 {gameId && <span className="chip text-xs">Game {gameId.slice(0, 6)}...</span>}
               </div>
             </div>
 
-            <div
-              ref={boardContainerRef}
-              className="relative flex-1 w-full overflow-hidden rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-weak)]/80 shadow-inner"
-            >
+            <div ref={boardContainerRef} className="relative flex-1 w-full">
               <div className="flex h-full w-full items-center justify-center p-3 md:p-4">
                 <div className="relative" style={{ width: boardWidth, height: boardWidth }}>
                   <InteractiveBoard
@@ -423,10 +410,6 @@ export default function PlayPage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 text-sm text-[var(--ink-700)]">
-              <span className="chip">You play {humanSide}</span>
-              <p className="text-xs text-[var(--ink-500)]">{promptSummary}</p>
-            </div>
           </div>
 
           <div className="flex flex-col gap-4 h-full">
@@ -446,7 +429,6 @@ export default function PlayPage() {
                     <p className="text-lg font-semibold text-[var(--ink-900)]">Configure the AI</p>
                     <p className="text-sm text-[var(--ink-500)]">Pick a model, choose your color, and adjust the prompt.</p>
                   </div>
-                  <span className="chip text-xs">Setup</span>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-3">
@@ -469,20 +451,20 @@ export default function PlayPage() {
                       {(["white", "black"] as Side[]).map((side) => (
                         <button
                           key={side}
-                          className={clsx(
-                            "flex-1 rounded-xl px-4 py-3 border border-[var(--border-soft)] transition",
-                            humanSide === side
-                              ? "bg-accent text-canvas-900 shadow-sm"
-                              : "bg-[var(--field-bg)] text-[var(--ink-700)] hover:border-[var(--border-strong)]"
-                          )}
-                          onClick={() => setHumanSide(side)}
-                        >
-                          {side === "white" ? "White (move first)" : "Black (respond)"}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                      className={clsx(
+                        "flex-1 rounded-xl px-4 py-3 border border-[var(--border-soft)] transition",
+                        humanSide === side
+                          ? "bg-accent text-canvas-900 shadow-sm"
+                          : "bg-[var(--field-bg)] text-[var(--ink-700)] hover:border-[var(--border-strong)]"
+                      )}
+                      onClick={() => setHumanSide(side)}
+                    >
+                      {side === "white" ? "White" : "Black"}
+                    </button>
+                  ))}
                 </div>
+              </div>
+            </div>
                 <div className="space-y-3">
                   <label className="text-sm text-[var(--ink-700)]">Prompt</label>
                   <div className="rounded-xl border border-[var(--border-soft)] bg-[var(--surface-weak)]/80 p-3 space-y-2">
@@ -497,7 +479,6 @@ export default function PlayPage() {
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-xs text-[var(--ink-500)]">{promptSummary}</p>
                   <button className="btn" onClick={() => startGame(humanSide)} disabled={starting}>
                     {starting ? "Starting..." : "Start game"}
                   </button>
