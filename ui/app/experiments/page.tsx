@@ -33,8 +33,8 @@ export default function ExperimentsPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showAllExperiments, setShowAllExperiments] = useState(false);
-  const [liveMode, setLiveMode] = useState(false);
-  const [liveBoardCount, setLiveBoardCount] = useState(4);
+  const [liveMode, setLiveMode] = useState(true);
+  const [liveBoardCount, setLiveBoardCount] = useState(12);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [cancellingId, setCancellingId] = useState<string | null>(null);
@@ -195,9 +195,6 @@ export default function ExperimentsPage() {
       <div className="flex flex-col gap-2">
         <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Game master</p>
         <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Run and watch games</h1>
-        <p className="text-[var(--ink-700)] text-sm">
-          Start batches of games and monitor them live. POST `/api/experiments` on submit and poll `/api/experiments/:id/results`.
-        </p>
         {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
 
@@ -307,7 +304,6 @@ export default function ExperimentsPage() {
         <div className="grid gap-3 md:grid-cols-4 items-stretch">
           {displayedExperiments.map((exp) => {
             const displayName = exp.name || exp.experiment_id;
-            const folderName = exp.log_dir_name || exp.experiment_id;
             const isSelected = selectedId === exp.experiment_id;
             const total = exp.games?.total ?? 0;
             const completed = exp.games?.completed ?? 0;
@@ -423,47 +419,32 @@ export default function ExperimentsPage() {
             <div className="flex items-center gap-3 flex-wrap">
               <div className="flex flex-col">
                 <h3 className="text-xl font-semibold text-[var(--ink-900)]">
-                  {selectedExperiment.name || selectedExperiment.experiment_id}
+                  {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} · {selectedExperiment.games.total} games
                 </h3>
-                <p className="text-sm text-[var(--ink-600)]">
-                  {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} ·{" "}
-                  {selectedExperiment.games.total} games
-                </p>
-                <p className="text-xs text-[var(--ink-500)]">
-                  Folder: {selectedExperiment.log_dir_name || selectedExperiment.experiment_id}
-                </p>
               </div>
-              <span className="chip">{selectedExperiment.status}</span>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
-              <button className="btn secondary" onClick={() => setLiveMode((v) => !v)}>
-                {liveMode ? "Back to dashboard" : "Watch chess"}
-              </button>
               {liveMode && (
                 <button
-                  className="btn secondary flex items-center justify-center text-sm w-16 h-10"
+                  className="btn secondary flex items-center justify-center text-sm"
                   onClick={() =>
                     setLiveBoardCount((prev) => {
                       if (prev === 1) return 4;
+                      if (prev === 4) return 12;
                       return 1;
                     })
                   }
                   aria-label="Toggle number of boards"
                   title="Toggle number of boards"
                 >
-                  {liveBoardCount === 1 && <span className="inline-block text-base leading-none">▢</span>}
-                  {liveBoardCount === 4 && (
-                    <span className="inline-block">
-                      <div className="grid grid-cols-2 gap-0.5 leading-none text-base">
-                        <span>▢</span>
-                        <span>▢</span>
-                        <span>▢</span>
-                        <span>▢</span>
-                      </div>
-                    </span>
-                  )}
+                  {liveBoardCount === 1 && <span className="text-sm font-semibold">1x</span>}
+                  {liveBoardCount === 4 && <span className="text-sm font-semibold">4x</span>}
+                  {liveBoardCount === 12 && <span className="text-sm font-semibold">12x</span>}
                 </button>
               )}
+              <button className="btn secondary" onClick={() => setLiveMode((v) => !v)}>
+                {liveMode ? "Results" : "Watch"}
+              </button>
             </div>
           </div>
           {!liveMode && (
@@ -531,7 +512,6 @@ export default function ExperimentsPage() {
           {liveMode && (
             <LiveBoardsPanel
               experimentId={selectedExperiment.experiment_id}
-              experimentName={selectedExperiment.name || selectedExperiment.experiment_id}
               games={results?.games || []}
               count={liveBoardCount}
             />
@@ -562,12 +542,10 @@ export default function ExperimentsPage() {
 
 function LiveBoardsPanel({
   experimentId,
-  experimentName,
   games,
   count
 }: {
   experimentId: string;
-  experimentName?: string;
   games: ExperimentResults["games"];
   count: number;
 }) {
@@ -575,20 +553,22 @@ function LiveBoardsPanel({
     return <p className="text-[var(--ink-500)] text-sm">No games yet to display. Wait for games to start.</p>;
   }
 
-  const baseSize = 520; // larger baseline
-  const boardSize = count === 1 ? baseSize * 2 : Math.floor(baseSize * 0.85);
+  const orderedGames = [...games].sort((a, b) => a.game_id.localeCompare(b.game_id)).slice(0, Math.max(1, count));
+  const boardSize = count <= 4 ? 360 : 240;
+  const gridCols =
+    count <= 2
+      ? "md:grid-cols-2"
+      : count <= 4
+        ? "md:grid-cols-2 lg:grid-cols-2"
+        : count <= 8
+          ? "sm:grid-cols-2 lg:grid-cols-3"
+          : "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
 
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap gap-2 items-center">
-        <p className="text-[var(--ink-700)] text-sm">
-          {experimentName || experimentId} - {games.length} game{games.length === 1 ? "" : "s"}
-        </p>
-        <span className="text-[var(--ink-500)] text-xs">Scroll to browse all boards ({count}-board view size)</span>
-      </div>
       <div className="max-h-[80vh] overflow-y-auto pb-3 pr-1">
-        <div className={`grid gap-4 ${count >= 2 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
-          {games.map((g) => (
+        <div className={`grid gap-4 grid-cols-1 ${gridCols}`}>
+          {orderedGames.map((g) => (
             <LiveBoard
               key={g.game_id}
               gameId={g.game_id}
