@@ -25,3 +25,15 @@ tests/test_2_alrcomp/
 saves/
 
 .vscode/
+
+test.py
+
+settings.yml
+
+# Frontend artifacts
+node_modules/
+.next/
+ui/.next/
+ui/node_modules/
+ui/.env.local
+experiments_state.json

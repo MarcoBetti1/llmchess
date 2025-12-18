@@ -7,30 +7,28 @@ This document explains how the project turns live chess positions into text prom
 `GameRunner` owns a `python-chess.Board` instance through `Referee`. For every turn we derive:
 
 - **FEN** via `board.fen()` for precise reconstruction of legal moves.
-- **PGN tail** – the last *N* plies (default 20, configurable by `pgn_tail`) formatted as SAN, used when building mixed prompts.
-- **Annotated history** – a human-readable list built by `_annotated_history()` in `game.py`, one move per line: `"White Pawn e4"`, `"Black Knight f6"`, etc. This is the primary context string in plaintext prompts.
+- **PGN tail** – the last *N* plies (default 20, configurable by `pgn_tail_plies`) formatted as SAN.
+- **Annotated history** – a human-readable list built by `annotated_history_from_board()` in `llm_play.py`, one move per line: `"White Pawn e4"`, `"Black Knight f6"`, etc. This powers plaintext prompts.
 
 These artifacts are never guessed; they come directly from the evolving board, so the textual representation always matches the real position enforced by `python-chess`.
 
 ## 2. Prompt structure sent to the LLM
 
-All prompt builders live in `src/llmchess_simple/prompting.py`. A `PromptConfig` chooses the format:
+All prompt builders live in `src/llmchess_simple/prompting.py`. A `PromptConfig` is simple:
 
-| Mode | Function | Textual ingredients |
-| --- | --- | --- |
-| `plaintext` | `build_plaintext_messages` | Annotated history + side to move. Optional first-move reminder when the LLM starts as White. |
-| `fen` | `build_fen_messages` | Current FEN, optional PGN tail, and side to move. |
-| `fen+plaintext` | `build_fen_plaintext_messages` | Combination of FEN, side to move, and the annotated history block. |
+- `system_instructions`
+- `template` (with placeholders like `{FEN}`, `{SAN_HISTORY}`, `{PLAINTEXT_HISTORY}`, `{SIDE_TO_MOVE}`)
+- `expected_notation` (`san` | `uci` | `fen`)
 
-Regardless of mode, the system prompt defaults to:
+The system prompt defaults to:
 
 ```
 You are a strong chess player. When asked for a move, provide only the best legal move.
 ```
 
-The final line of every user prompt comes from `PromptConfig.instruction_line`. By default we ask for SAN: `"Provide only your best legal move in SAN."` Change that string in your JSON config if you want pure UCI or algebraic notation.
+By default we ask for SAN in the template. Change the template/system pair if you want UCI or FEN output.
 
-### Example (plaintext mode, LLM playing White on move 3)
+### Example (plaintext template, LLM playing White on move 3)
 
 ```
 System: You are a strong chess player. When asked for a move, provide only the best legal move.
@@ -42,24 +40,23 @@ Black Pawn c5
 Provide only your best legal move in SAN.
 ```
 
-The LLM could reply with `Nc3` or something longer like `I will play Nc3`—downstream normalization strips the extra text.
+The LLM could reply with `Nc3`; downstream parsing enforces the expected notation.
 
 ## 3. Expected LLM output and normalization
 
-We aim for a single natural move token, but the pipeline is tolerant:
+We aim for a single move token, parsed strictly by the chosen notation:
 
-1. **Guard agent** (`MoveGuard`, see `docs/agent-normalizer.md`) converts raw replies into a lowercase UCI move when `LLMCHESS_USE_GUARD_AGENT` is on. It falls back to a regex match or a first token otherwise.
-2. **Move validator** (`move_validator.normalize_move`) checks the candidate against the actual board. It accepts both UCI and SAN and computes the final SAN string using `python-chess`.
-3. **Salvage path** – if the guard agent fails, we attempt to parse the whole raw reply directly; if a legal move name appears anywhere, we still extract it.
+1. Parse the first line/token (or entire FEN string) according to `expected_notation`.
+2. `move_validator.parse_expected_move` checks legality against the current board; any illegal or format error fails the turn.
 
 The result stored in the turn record contains:
 
 - `uci`: canonical lowercase move (e.g., `e2e4`).
 - `san`: notation from `python-chess` (e.g., `e4`).
-- `ok`: legality flag. Illegal outputs count toward `max_illegal` and can terminate the game.
+- `ok`: legality flag. Any illegal output immediately ends the game with a loss for the side that produced it.
 - `meta.raw`: original LLM text for auditability.
 
-This makes the communication robust even if the model occasionally adds prose, punctuation, or alternative notation.
+Any illegal output immediately forfeits the game for that side.
 
 ## 4. Textual outputs for analysis
 
@@ -72,16 +69,11 @@ By comparing the conversation log to the structured history you can trace how ea
 
 ## 5. Switching notation styles
 
-Want the model to emit UCI instead of SAN? Two knobs matter:
-
-1. Update `prompt.instruction_line` in your JSON config (e.g., `"Respond with a single move in UCI."`).
-2. Optionally disable the guard agent (`LLMCHESS_USE_GUARD_AGENT=false`) if you trust the model to obey, though leaving it on simply normalizes the UCI string.
-
-Because legality is still enforced via `python-chess`, you can experiment with multiple representations without touching the core referee logic.
+Want the model to emit UCI or FEN instead of SAN? Update `expected_notation` and the prompt template/system to match. Legality is still enforced via `python-chess`.
 
 ## 6. Future FEN experiments
 
-The `fen` and `fen+plaintext` modes are ready for experiments that rely on exact board state tokens. The `PGN tail` snippet keeps context short while retaining tactical history. These modes are useful when you want to avoid ambiguity inherent to natural-language histories.
+FEN-driven prompts are useful when you want to avoid ambiguity inherent to natural-language histories; the PGN tail keeps context short while retaining tactical history.
 
 ---
 
@@ -92,4 +84,4 @@ The `fen` and `fen+plaintext` modes are ready for experiments that rely on exact
 - LLM replies are normalized to UCI, validated for legality, and then logged with full context.
 - Conversation and structured history logs give you a verbatim record of the textual interface.
 
-Armed with this overview you can safely modify prompts, try alternate notations, or investigate why a model behaved unexpectedly. For deeper details on the guard agent itself, see [`docs/agent-normalizer.md`](agent-normalizer.md).
+Armed with this overview you can safely modify prompts, try alternate notations, or investigate why a model behaved unexpectedly.
