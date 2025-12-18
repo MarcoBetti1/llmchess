@@ -17,7 +17,7 @@ This project loads configuration from code in `src/llmchess_simple/config.py`. T
 | `LLMCHESS_LLM_API_KEY` | `""` | string | `llm_client.py` | Authentication token for the configured Vercel AI Gateway base URL. |
 | `LLMCHESS_RESPONSES_TIMEOUT_S` | `300.0` | float seconds | `llm_client.py` | Per-request timeout used by chat/completions calls. Raising this helps with slower models; lowering it can speed up retries. |
 | `LLMCHESS_RESPONSES_RETRIES` | `4` | int | `llm_client.py` | Number of automatic retries around chat/completions requests. Failures after the final retry are logged and bubble up as empty answers. |
-| `LLMCHESS_MAX_CONCURRENCY` | `8` | int | `llm_client.py` | Maximum number of concurrent chat/completions calls (thread-pool workers). Tune to respect rate limits or to better utilise available quota. |
+| `LLMCHESS_MAX_CONCURRENCY` | `8` | int | (not actively used) | Retained for legacy config; requests are issued one at a time in the current flow. |
 
 ## Sample `settings.yml`
 
@@ -35,7 +35,7 @@ Place this file at the repository root (next to `requirements.txt`). Any key omi
 ## When to adjust each knob
 
 - **Pointing at a gateway** – Set `LLMCHESS_LLM_BASE_URL` to your Vercel AI Gateway base URL (team-specific if applicable).
-- **Scaling load tests** – Lower `LLMCHESS_MAX_CONCURRENCY` to respect rate limits; raise it to improve throughput when quotas allow.
+- **Scaling load tests** – Single-game flows issue one request per turn; adjust `LLMCHESS_MAX_CONCURRENCY` only if you reintroduce batched runs.
 - **Long-running models** – Raise `LLMCHESS_RESPONSES_TIMEOUT_S` so complex models (or self-hosted endpoints) have enough time to respond.
 
 ## Troubleshooting quick reference

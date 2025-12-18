@@ -12,8 +12,8 @@ A minimal chess harness for pitting language models against each other (or a hum
 ## How a turn works
 
 1. **State capture** – `GameRunner` reads the current FEN, SAN history, and a natural-language history from `python-chess`.
-2. **Prompt assembly** – `PromptConfig` builds chat messages (plaintext, FEN, or hybrid). Messages are sent via `llm_client` to the configured `/chat/completions` endpoint.
-3. **Parsing and validation** – A regex/first-token extractor pulls a move candidate; `move_validator.normalize_move` checks legality and salvages SAN/UCI if possible.
+2. **Prompt assembly** - `PromptConfig` builds chat messages (plaintext or FEN-driven). Messages are sent via `llm_client` to the configured `/chat/completions` endpoint.
+3. **Parsing and validation** - The reply is parsed strictly as SAN, UCI, or FEN (based on `expected_notation`) and applied if legal.
 4. **Referee decision** – `Referee` applies moves, tracks termination, and ends the game immediately on any illegal move.
 5. **Logging** – Each ply records raw LLM text, normalized move, legality, and metadata. Structured history and conversation JSON are emitted for downstream UI/analysis.
 
@@ -22,8 +22,8 @@ A minimal chess harness for pitting language models against each other (or a hum
 - `src/llmchess_simple/game.py` – `GameRunner` orchestrates a single game, collects metrics, and exports logs.
 - `src/llmchess_simple/llm_opponent.py` – `LLMOpponent` for head-to-head model play.
 - `src/llmchess_simple/user_opponent.py` – `UserOpponent` for interactive human moves.
-- `src/llmchess_simple/prompting.py` – `PromptConfig` and builders for plaintext/FEN/hybrid prompts.
-- `src/llmchess_simple/llm_client.py` – Thin Vercel AI Gateway client (OpenAI-compatible wire format); configurable `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`.
+- `src/llmchess_simple/prompting.py` – `PromptConfig` (system + template + expected_notation) and prompt builders.
+- `src/llmchess_simple/llm_client.py` – Thin OpenAI-compatible client; configure `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`.
 - `src/llmchess_simple/move_validator.py` – Bridges free-form replies to legal UCI/SAN moves.
 - `src/llmchess_simple/referee.py` – Applies moves, maintains PGN, and handles termination.
 
@@ -100,11 +100,11 @@ Note: GameRunner ends a game on the first illegal move; there is no configurable
 
 ## Prompting customization
 
-`PromptConfig` is now template-driven:
+`PromptConfig` is template-driven:
 
 - `system_instructions`: system message text.
 - `template`: freeform user message with placeholders like `{FEN}`, `{SAN_HISTORY}`, `{PLAINTEXT_HISTORY}`, `{SIDE_TO_MOVE}`.
-- `starting_context_enabled`: optionally prepend a “Game start” hint when the LLM opens as White.
+- `expected_notation`: `"san" | "uci" | "fen"` controls how the reply is parsed.
 
 Pass a customized `PromptConfig` into `GameConfig(prompt_cfg=...)` or set `opponent_prompt_cfg` for the opponent side. The UI exposes an “Edit prompt” dialog on Play and Experiments to edit these fields.
 

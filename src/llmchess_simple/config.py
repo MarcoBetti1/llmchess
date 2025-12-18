@@ -44,17 +44,6 @@ def _load_yaml(path: str) -> dict:
 _cfg = _load_yaml(os.path.join(_repo_root(), "settings.yml"))
 
 
-def _parse_bool(v: Any) -> bool:
-    if isinstance(v, bool):
-        return v
-    if isinstance(v, (int, float)):
-        return v != 0
-    if isinstance(v, str):
-        s = v.strip().lower()
-        return s not in ("", "0", "false", "no", "off", "none")
-    return bool(v)
-
-
 def _get(name: str, default: Any, cast: Callable[[Any], Any] | None = None) -> Any:
     if name in _cfg:
         val = _cfg[name]

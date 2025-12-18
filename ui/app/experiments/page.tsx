@@ -2,8 +2,8 @@
 
 import clsx from "clsx";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
-import { ExperimentResults, ExperimentSummary } from "@/types";
-import { createExperiment, deleteExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
+import { ExperimentResults, ExperimentSummary, MoveNotation } from "@/types";
+import { cancelExperiment, createExperiment, deleteExperiment, fetchExperimentResults, fetchExperiments } from "@/lib/api";
 import { ProgressBar } from "@/components/progress-bar";
 import { LiveBoard } from "@/components/live-board";
 import { PromptDialog } from "@/components/prompt-dialog";
@@ -24,12 +24,7 @@ const modelOptions = [
 ];
 
 const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
-const DEFAULT_TEMPLATE = `Side to move: {SIDE_TO_MOVE}
-Position (FEN): {FEN}
-SAN history: {SAN_HISTORY}
-Plaintext history:
-{PLAINTEXT_HISTORY}
-Respond with only your best legal move in SAN.`;
+const DEFAULT_TEMPLATE = `{FEN}`;
 
 export default function ExperimentsPage() {
   const [experiments, setExperiments] = useState<ExperimentSummary[]>([]);
@@ -38,10 +33,11 @@ export default function ExperimentsPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showAllExperiments, setShowAllExperiments] = useState(false);
-  const [liveMode, setLiveMode] = useState(false);
-  const [liveBoardCount, setLiveBoardCount] = useState(4);
+  const [liveMode, setLiveMode] = useState(true);
+  const [liveBoardCount, setLiveBoardCount] = useState(12);
   const [promptDialogOpen, setPromptDialogOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [cancellingId, setCancellingId] = useState<string | null>(null);
   const pollExperimentsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollResultsRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const deriveName = (a: string, b: string, total: number) =>
@@ -52,7 +48,7 @@ export default function ExperimentsPage() {
     total: 4,
     aAsWhite: 2,
     name: deriveName(modelOptions[0], modelOptions[1], 4),
-    prompt: { system_instructions: DEFAULT_SYSTEM, template: DEFAULT_TEMPLATE }
+    prompt: { system_instructions: DEFAULT_SYSTEM, template: DEFAULT_TEMPLATE, expected_notation: "san" as MoveNotation }
   });
 
   useEffect(() => {
@@ -116,7 +112,11 @@ export default function ExperimentsPage() {
       name: form.name,
       players: { a: { model: form.playerA }, b: { model: form.playerB } },
       games: { total: form.total, a_as_white: form.aAsWhite, b_as_white: Math.max(form.total - form.aAsWhite, 0) },
-      prompt: { system_instructions: form.prompt.system_instructions, template: form.prompt.template }
+      prompt: {
+        system_instructions: form.prompt.system_instructions,
+        template: form.prompt.template,
+        expected_notation: form.prompt.expected_notation
+      }
     } as const;
 
     try {
@@ -169,15 +169,32 @@ export default function ExperimentsPage() {
     }
   };
 
+  const handleCancel = async (exp: ExperimentSummary) => {
+    if (exp.status === "cancelled" || exp.status === "finished") return;
+    setError(null);
+    setCancellingId(exp.experiment_id);
+    try {
+      await cancelExperiment(exp.experiment_id);
+      setExperiments((prev) =>
+        prev.map((e) => (e.experiment_id === exp.experiment_id ? { ...e, status: "cancelled" } : e))
+      );
+      if (selectedId === exp.experiment_id) {
+        setResults(null);
+      }
+    } catch (err) {
+      console.error(err);
+      setError(err instanceof Error ? err.message : "Failed to cancel experiment. Check backend logs and NEXT_PUBLIC_API_BASE.");
+    } finally {
+      setCancellingId(null);
+    }
+  };
+
   return (
     <>
     <div className="space-y-8 fade-in">
       <div className="flex flex-col gap-2">
         <p className="text-sm uppercase tracking-[0.3em] text-[var(--ink-500)]">Game master</p>
         <h1 className="text-3xl font-semibold text-[var(--ink-900)] font-display">Run and watch games</h1>
-        <p className="text-[var(--ink-700)] text-sm">
-          Start batches of games and monitor them live. POST `/api/experiments` on submit and poll `/api/experiments/:id/results`.
-        </p>
         {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
 
@@ -287,7 +304,6 @@ export default function ExperimentsPage() {
         <div className="grid gap-3 md:grid-cols-4 items-stretch">
           {displayedExperiments.map((exp) => {
             const displayName = exp.name || exp.experiment_id;
-            const folderName = exp.log_dir_name || exp.experiment_id;
             const isSelected = selectedId === exp.experiment_id;
             const total = exp.games?.total ?? 0;
             const completed = exp.games?.completed ?? 0;
@@ -327,11 +343,28 @@ export default function ExperimentsPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
+                  {(exp.status === "running" || exp.status === "queued") && (
+                    <button
+                      type="button"
+                      className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
+                      aria-label={`Cancel experiment ${displayName}`}
+                      title="Cancel experiment"
+                      disabled={cancellingId === exp.experiment_id}
+                      onClick={(evt) => {
+                        evt.stopPropagation();
+                        handleCancel(exp);
+                      }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m6 6 12 12M18 6 6 18" />
+                      </svg>
+                    </button>
+                  )}
                   <span className="chip text-xs">{completed}/{total || "?"}</span>
                   <button
                     type="button"
-                      className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
-                      aria-label={`Delete experiment ${displayName}`}
+                    className="p-2 rounded-lg hover:bg-[var(--field-bg)] text-[var(--ink-500)] disabled:opacity-50"
+                    aria-label={`Delete experiment ${displayName}`}
                       title="Delete experiment and logs"
                       disabled={deletingId === exp.experiment_id}
                       onClick={(evt) => {
@@ -386,47 +419,32 @@ export default function ExperimentsPage() {
             <div className="flex items-center gap-3 flex-wrap">
               <div className="flex flex-col">
                 <h3 className="text-xl font-semibold text-[var(--ink-900)]">
-                  {selectedExperiment.name || selectedExperiment.experiment_id}
+                  {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} · {selectedExperiment.games.total} games
                 </h3>
-                <p className="text-sm text-[var(--ink-600)]">
-                  {selectedExperiment.players.a.model} vs {selectedExperiment.players.b.model} ·{" "}
-                  {selectedExperiment.games.total} games
-                </p>
-                <p className="text-xs text-[var(--ink-500)]">
-                  Folder: {selectedExperiment.log_dir_name || selectedExperiment.experiment_id}
-                </p>
               </div>
-              <span className="chip">{selectedExperiment.status}</span>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
-              <button className="btn secondary" onClick={() => setLiveMode((v) => !v)}>
-                {liveMode ? "Back to dashboard" : "Watch chess"}
-              </button>
               {liveMode && (
                 <button
-                  className="btn secondary flex items-center justify-center text-sm w-16 h-10"
+                  className="btn secondary flex items-center justify-center text-sm"
                   onClick={() =>
                     setLiveBoardCount((prev) => {
                       if (prev === 1) return 4;
+                      if (prev === 4) return 12;
                       return 1;
                     })
                   }
                   aria-label="Toggle number of boards"
                   title="Toggle number of boards"
                 >
-                  {liveBoardCount === 1 && <span className="inline-block text-base leading-none">▢</span>}
-                  {liveBoardCount === 4 && (
-                    <span className="inline-block">
-                      <div className="grid grid-cols-2 gap-0.5 leading-none text-base">
-                        <span>▢</span>
-                        <span>▢</span>
-                        <span>▢</span>
-                        <span>▢</span>
-                      </div>
-                    </span>
-                  )}
+                  {liveBoardCount === 1 && <span className="text-sm font-semibold">1x</span>}
+                  {liveBoardCount === 4 && <span className="text-sm font-semibold">4x</span>}
+                  {liveBoardCount === 12 && <span className="text-sm font-semibold">12x</span>}
                 </button>
               )}
+              <button className="btn secondary" onClick={() => setLiveMode((v) => !v)}>
+                {liveMode ? "Results" : "Watch"}
+              </button>
             </div>
           </div>
           {!liveMode && (
@@ -494,7 +512,6 @@ export default function ExperimentsPage() {
           {liveMode && (
             <LiveBoardsPanel
               experimentId={selectedExperiment.experiment_id}
-              experimentName={selectedExperiment.name || selectedExperiment.experiment_id}
               games={results?.games || []}
               count={liveBoardCount}
             />
@@ -506,12 +523,14 @@ export default function ExperimentsPage() {
       open={promptDialogOpen}
       systemInstructions={form.prompt.system_instructions}
       template={form.prompt.template}
+      expectedNotation={form.prompt.expected_notation}
       onChange={(value) =>
         setForm((f) => ({
           ...f,
           prompt: {
             system_instructions: value.systemInstructions ?? f.prompt.system_instructions,
-            template: value.template ?? f.prompt.template
+            template: value.template ?? f.prompt.template,
+            expected_notation: (value.expectedNotation as MoveNotation | undefined) ?? f.prompt.expected_notation
           }
         }))
       }
@@ -523,12 +542,10 @@ export default function ExperimentsPage() {
 
 function LiveBoardsPanel({
   experimentId,
-  experimentName,
   games,
   count
 }: {
   experimentId: string;
-  experimentName?: string;
   games: ExperimentResults["games"];
   count: number;
 }) {
@@ -536,20 +553,22 @@ function LiveBoardsPanel({
     return <p className="text-[var(--ink-500)] text-sm">No games yet to display. Wait for games to start.</p>;
   }
 
-  const baseSize = 520; // larger baseline
-  const boardSize = count === 1 ? baseSize * 2 : Math.floor(baseSize * 0.85);
+  const orderedGames = [...games].sort((a, b) => a.game_id.localeCompare(b.game_id)).slice(0, Math.max(1, count));
+  const boardSize = count <= 4 ? 360 : 240;
+  const gridCols =
+    count <= 2
+      ? "md:grid-cols-2"
+      : count <= 4
+        ? "md:grid-cols-2 lg:grid-cols-2"
+        : count <= 8
+          ? "sm:grid-cols-2 lg:grid-cols-3"
+          : "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
 
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap gap-2 items-center">
-        <p className="text-[var(--ink-700)] text-sm">
-          {experimentName || experimentId} - {games.length} game{games.length === 1 ? "" : "s"}
-        </p>
-        <span className="text-[var(--ink-500)] text-xs">Scroll to browse all boards ({count}-board view size)</span>
-      </div>
       <div className="max-h-[80vh] overflow-y-auto pb-3 pr-1">
-        <div className={`grid gap-4 ${count >= 2 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
-          {games.map((g) => (
+        <div className={`grid gap-4 grid-cols-1 ${gridCols}`}>
+          {orderedGames.map((g) => (
             <LiveBoard
               key={g.game_id}
               gameId={g.game_id}
