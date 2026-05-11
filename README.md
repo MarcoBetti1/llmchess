@@ -1,5 +1,4 @@
-# LLM Chess (Gateway-ready, head-to-head)
-
+# LLM Chess 
 A minimal chess harness for pitting language models against each other (or a human) one move at a time. Everything runs through a single Vercel AI Gateway `POST /chat/completions` endpoint—configure your gateway base URL and key and go.
 
 ## Goals
