@@ -90,3 +90,31 @@ def test_custom_position_roundtrips_pgn_and_history():
 def test_engine_cannot_apply_illegal_move():
     r=Referee()
     with pytest.raises(ValueError):r.engine_apply(chess.Move.from_uci('e2e5'))
+
+
+def test_move_cap_is_unfinished_not_a_draw():
+    from llmchess_simple.game import GameRunner, GameConfig
+    from llmchess_simple.llm_opponent import LLMOpponent
+    runner=GameRunner(model='offline',opponent=LLMOpponent(model='offline'),cfg=GameConfig(max_plies=0))
+    assert runner.play()=='*'
+    assert runner.ref.status()=='*'
+    assert runner.termination_reason=='max_plies_reached'
+
+
+def test_provider_failure_is_not_a_human_win(monkeypatch):
+    import server
+    class FailedRunner:
+        ref=Referee()
+        def _llm_turn_standard(self):raise TimeoutError('offline timeout')
+    session={'runner':FailedRunner(),'human_side':'white','ai_side':'black','ai_illegal_move_count':0}
+    move,fen=server._play_ai_turn(session)
+    assert move is None and session['runner'].ref.status()=='*'
+    assert session['ai_illegal_move_count']==0
+
+
+def test_local_browser_origin_restriction():
+    import server
+    c=server.app.test_client()
+    assert c.get('/api/experiments',headers={'Origin':'https://unrelated.example'}).status_code==403
+    r=c.get('/api/experiments',headers={'Origin':'http://127.0.0.1:3000'})
+    assert r.status_code==200 and r.headers['Access-Control-Allow-Origin']=='http://127.0.0.1:3000'

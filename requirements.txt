@@ -1,7 +1,2 @@
-openai
-python-chess
-pydantic
-python-dotenv
-PyYAML
-tqdm
-flask
+# Core app and laboratory; install with pip install -e '.[dev,video]' for extras.
+-e .

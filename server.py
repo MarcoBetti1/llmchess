@@ -383,9 +383,8 @@ def _play_ai_turn(session: dict) -> tuple[Optional[dict], str]:
         _record_ai_conversation(session, meta)
     except Exception as exc:  # noqa: BLE001
         logging.exception("AI move failed for human game %s", session.get("id"))
-        session["ai_illegal_move_count"] = session.get("ai_illegal_move_count", 0) + 1
-        result = "0-1" if session["ai_side"] == "white" else "1-0"
-        _mark_finished(session, result, f"ai_move_error:{exc}")
+        # Provider/transport errors are unfinished games, not illegal moves or wins.
+        _mark_finished(session, "*", f"ai_move_error:{type(exc).__name__}")
         return None, runner.ref.board.fen()
     session["last_ai_raw"] = meta.get("raw") if meta else None
     runner.records.append({"actor": "LLM", "uci": uci, "ok": ok, "ms": ms, "san": san, "meta": meta})
@@ -918,25 +917,28 @@ def games_live():
     return jsonify([])
 
 
+UI_ORIGINS = set(os.environ.get("LLMCHESS_UI_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","))
+
+@app.before_request
+def restrict_browser_origin():
+    origin = request.headers.get("Origin")
+    if origin and origin not in UI_ORIGINS:
+        return jsonify({"error": "browser_origin_not_allowed"}), 403
+
 @app.after_request
-def add_cors_headers(response):
-    response.headers["Access-Control-Allow-Origin"] = request.headers.get("Origin", "*")
-    response.headers["Access-Control-Allow-Credentials"] = "true"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, DELETE, OPTIONS"
-    # Prevent caching so the UI always sees the freshest state/history
+def add_local_cors_headers(response):
+    origin = request.headers.get("Origin")
+    if origin in UI_ORIGINS:
+        response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Vary"] = "Origin"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, DELETE, OPTIONS"
     response.headers["Cache-Control"] = "no-store, max-age=0"
     return response
 
-
 @app.route("/api/<path:path>", methods=["OPTIONS"])
 def cors_preflight(path: str):
-    resp = app.make_response(("", 204))
-    resp.headers["Access-Control-Allow-Origin"] = request.headers.get("Origin", "*")
-    resp.headers["Access-Control-Allow-Credentials"] = "true"
-    resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, DELETE, OPTIONS"
-    return resp
+    return app.make_response(("", 204))
 
 
 if __name__ == "__main__":

@@ -1,138 +1,62 @@
-# LLM Chess 
-A minimal chess harness for pitting language models against each other (or a human) one move at a time. Everything runs through a single Vercel AI Gateway `POST /chat/completions` endpoint—configure your gateway base URL and key and go.
+# LLM Chess
 
-## Goals
+Run language models through real chess games with exact board state, strict move validation, PGN replays, raw responses, and a durable API budget ledger.
 
-- Competitive model evaluation: run LLM vs LLM games with per-move legality enforcement.
-- Simple, provider-agnostic transport: one chat request per turn; no batching.
-- Gateway-ready: configure `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY` to use Vercel AI Gateway.
-- UI-ready logs: structured history and conversation snapshots for downstream visualization.
+The repository has two interfaces:
 
-## How a turn works
+- **`llmchess-lab`** is the reproducible runner used for [GPT Learning episode 02](docs/episode-02/PROTOCOL.md). It calls the official OpenAI Responses API and records model-specific token counts, usage, settings, and every move.
+- **The Flask / Next.js app** is the older interactive control room. It supports direct OpenAI or an explicitly configured OpenAI-compatible gateway. For an editable prompt-graph playground, see [llm-chess-lite-2](https://github.com/MarcoBetti1/llm-chess-lite-2).
 
-1. **State capture** – `GameRunner` reads the current FEN, SAN history, and a natural-language history from `python-chess`.
-2. **Prompt assembly** - `PromptConfig` builds chat messages (plaintext or FEN-driven). Messages are sent via `llm_client` to the configured `/chat/completions` endpoint.
-3. **Parsing and validation** - The reply is parsed strictly as SAN, UCI, or FEN (based on `expected_notation`) and applied if legal.
-4. **Referee decision** – `Referee` applies moves, tracks termination, and ends the game immediately on any illegal move.
-5. **Logging** – Each ply records raw LLM text, normalized move, legality, and metadata. Structured history and conversation JSON are emitted for downstream UI/analysis.
+## Experiment runner
 
-## Core components
+Python 3.11+ and a local Stockfish installation are required for engine games. Stockfish is not needed for the 12-position puzzle suite or offline tests.
 
-- `src/llmchess_simple/game.py` – `GameRunner` orchestrates a single game, collects metrics, and exports logs.
-- `src/llmchess_simple/llm_opponent.py` – `LLMOpponent` for head-to-head model play.
-- `src/llmchess_simple/user_opponent.py` – `UserOpponent` for interactive human moves.
-- `src/llmchess_simple/prompting.py` – `PromptConfig` (system + template + expected_notation) and prompt builders.
-- `src/llmchess_simple/llm_client.py` – Thin OpenAI-compatible client; configure `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`.
-- `src/llmchess_simple/move_validator.py` – Bridges free-form replies to legal UCI/SAN moves.
-- `src/llmchess_simple/referee.py` – Applies moves, maintains PGN, and handles termination.
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+cp .env.example .env
+# Add your OPENAI_API_KEY. Never commit it.
 
-## Configuration
-
-Set environment variables (or `settings.yml`) for the transport:
-
-```bash
-export LLMCHESS_LLM_BASE_URL=https://ai-gateway.vercel.sh/v1
-export LLMCHESS_LLM_API_KEY=your_vercel_gateway_key
-export LLMCHESS_MAX_CONCURRENCY=4
-export LLMCHESS_RESPONSES_TIMEOUT_S=120
+llmchess-lab prepare
+# Review evidence/episode-02/protocol.json and docs/episode-02/PROTOCOL.md first.
+llmchess-lab puzzles
+llmchess-lab games --engine /path/to/stockfish
+python -m llmchess_lab.analyze
 ```
 
-Model strings should match the routes you configured in your Vercel AI Gateway (for example, `openai/gpt-4o`, `anthropic/claude-3-sonnet` when routed through Gateway).
+The supplied episode protocol caps all experiment requests at **$17**, leaving $3 of the episode's $20 budget for narration and QA. These are explicit planning caps, not a statement that running the example is free. Calls reserve their maximum input/output allowance before dispatch. Actual API usage reduces the reservation afterward. Cache discounts are not assumed. An uncertain request retains its reservation and is never retried automatically. Use a fresh `--out` directory for a new experiment; do not overwrite published evidence.
 
-Generated artifacts (if `conversation_log_path` is set in `GameConfig`):
+The supplied protocol uses GPT-6 Astra, GPT-5.6 Sol and GPT-5.6 Luna at low reasoning effort, 2,048 total output tokens. Prompts provide FEN, an ASCII board, move history, and an unranked legal-move list. Responses contain an exact JSON move plus a short public comment. No engine hints, repairs, or substituted moves. A legal move is not necessarily a good move.
 
-- `conv_*.json` – chat messages and raw replies (with actor/model tags).
-- `hist_*.json` – structured move history with UCI/SAN, legality, FEN snapshots, and participant metadata.
+Files include a fixed protocol, deterministic cases, raw provider responses, usage, a budget ledger, per-game JSON, and PGN. Rules draws and checkmates remain separate from invalid replies, transport errors, and unfinished games. The small constructed puzzle set and three games do **not** support an Elo rating or broad model ranking.
 
-## Running an experiment (single game example)
+## Interactive control room
 
-```python
-from src.llmchess_simple.game import GameRunner, GameConfig
-from src.llmchess_simple.llm_opponent import LLMOpponent
-
-white = LLMOpponent(model="openai/gpt-4o")
-black = LLMOpponent(model="openai/gpt-4o-mini")
-
-cfg = GameConfig(conversation_log_path="runs/demo")  # optional logging
-runner = GameRunner(model=white.model, opponent=black, cfg=cfg)
-result = runner.play()
-print(result)
-print(runner.summary())
-```
-
-Set `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY` beforehand to point at your Vercel AI Gateway endpoint.
-
-## Backend API (Flask)
-
-Run a minimal API that the Next.js UI consumes and that executes real games:
-
-```bash
-python server.py  # listens on http://localhost:8000
-```
-
-Logs are written under `runs/<experiment_id>/<game_id>/` by default (configurable via `EXPERIMENT_LOG_DIR`). State persists to `experiments_state.json`.
-
-Supported endpoints:
-
-- `POST /api/experiments`
-
-  Payload fields (only supported ones):
-  ```json
-  {
-    "name": "gpt4o_vs_gpt4omini",
-    "players": { "a": { "model": "openai/gpt-4o" }, "b": { "model": "openai/gpt-4o-mini" } },
-    "games": { "total": 2, "a_as_white": 1, "b_as_white": 1 },
-    "prompt": { "mode": "fen+plaintext" }
-  }
-  ```
-  Returns: `{ "experiment_id": "exp_..." }`
-
-- `POST /api/human-games` - start a human vs AI session (kept in-memory; no logs written).
-- `POST /api/human-games/{id}/move` - submit a human move (SAN or UCI) and receive the AI reply.
-- `GET /api/experiments` – summaries with status, wins, and completed counts.
-- `GET /api/experiments/{id}/results` – aggregated wins/illegal-move averages and per-game rows.
-- `GET /api/games/{game_id}/conversation` – returns the saved conversation log if present.
-- `GET /api/games/{game_id}/history` – returns the saved structured history if present.
-- `GET /api/games/live` – placeholder (empty array).
-
-Note: GameRunner ends a game on the first illegal move; there is no configurable illegal-move limit in the UI.
-
-## Prompting customization
-
-`PromptConfig` is template-driven:
-
-- `system_instructions`: system message text.
-- `template`: freeform user message with placeholders like `{FEN}`, `{SAN_HISTORY}`, `{PLAINTEXT_HISTORY}`, `{SIDE_TO_MOVE}`.
-- `expected_notation`: `"san" | "uci" | "fen"` controls how the reply is parsed.
-
-Pass a customized `PromptConfig` into `GameConfig(prompt_cfg=...)` or set `opponent_prompt_cfg` for the opponent side. The UI exposes an “Edit prompt” dialog on Play and Experiments to edit these fields.
-
-## Notes
-
-- Any illegal move immediately forfeits the game for the side that produced it.
-- One chat request per turn.
-- Logs and outputs are structured to plug into a UI for replay/analysis.
-
-## Frontend UI (Next.js + Tailwind)
-
-A Next.js UI lives in `ui/` with three primary surfaces:
-
-- `/experiments` (Game master) – Start experiments, monitor progress, and watch live board replays from `/api/experiments` and `/api/experiments/{id}/results` plus `/api/games/{id}/history`.
-- `/play` – Human vs LLM board that enforces legality locally (chess.js).
-
-Run it locally (Node 18+):
-
-```bash
+```sh
+pip install -e .
+python server.py
+# In another terminal:
 cd ui
-npm install
+npm ci
+printf 'NEXT_PUBLIC_API_BASE=http://127.0.0.1:8000\n' > .env.local
 npm run dev
 ```
 
-Configure the backend host via `ui/.env.local`:
+Open http://127.0.0.1:3000. The API binds to localhost and accepts browser requests from the local UI. `OPENAI_API_KEY` selects the direct OpenAI endpoint. For a gateway, explicitly set `LLMCHESS_LLM_BASE_URL` and `LLMCHESS_LLM_API_KEY`; model route names must match that gateway. The interactive legacy UI does not use the laboratory's dollar ledger. Use the lab for measured, budgeted experiments.
 
-```
-NEXT_PUBLIC_API_BASE=http://localhost:8000
-NEXT_PUBLIC_USE_MOCKS=false   # set true to fall back to mock data
+Mock data is off by default and is only shown when `NEXT_PUBLIC_USE_MOCKS=true`; a visible banner identifies synthetic demo data. A failed backend cannot silently become a mock experiment result.
+
+## Validation and film source
+
+```sh
+python -m pytest -q
+cd ui
+npm run lint
+npm run build
+npm audit
 ```
 
-The UI falls back to mock data when endpoints are unavailable so you can explore the layout before wiring the backend.
+The [production notes](docs/episode-02/PRODUCTION.md) specify the short film's pacing, phone composition, exact quotes, and readability requirements. Original procedural chess artwork and production code live in `video/chess/`; the video extras require FFmpeg, Pillow, and NumPy. Stock voices are explicitly synthetic. No engine binaries, API keys, or private project settings are published.
+
+The original gateway configuration and notation reference remain in [docs/configuration.md](docs/configuration.md) and [docs/chess-text-representation.md](docs/chess-text-representation.md).

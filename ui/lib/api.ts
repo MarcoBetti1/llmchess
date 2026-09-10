@@ -40,7 +40,7 @@ export async function fetchLiveGames(): Promise<GameSummary[]> {
     console.error("Failed to fetch live games", err);
     if (!USE_MOCKS) return [];
   }
-  return mockGames;
+  return USE_MOCKS ? mockGames : [];
 }
 
 function normalizeConversationMessages(payload: any, gameId?: string): ConversationData {
@@ -83,6 +83,7 @@ export async function fetchGameConversation(gameId: string): Promise<Conversatio
     console.error("Failed to fetch conversation", err);
     if (!USE_MOCKS) throw err;
   }
+  if (!USE_MOCKS) throw new Error("No conversation returned by the backend");
   return normalizeConversationMessages(mockConversation, gameId);
 }
 
@@ -94,6 +95,7 @@ export async function fetchGameHistory(gameId: string): Promise<GameHistory> {
     console.error("Failed to fetch history", err);
     if (!USE_MOCKS) throw err;
   }
+  if (!USE_MOCKS) throw new Error("No game history returned by the backend");
   return mockHistory;
 }
 
@@ -105,7 +107,7 @@ export async function fetchExperiments(): Promise<ExperimentSummary[]> {
     console.error("Failed to fetch experiments", err);
     if (!USE_MOCKS) return [];
   }
-  return mockExperiments;
+  return USE_MOCKS ? mockExperiments : [];
 }
 
 export async function fetchExperimentResults(experimentId: string): Promise<ExperimentResults> {
@@ -116,6 +118,7 @@ export async function fetchExperimentResults(experimentId: string): Promise<Expe
     console.error("Failed to fetch experiment results", err);
     if (!USE_MOCKS) throw err;
   }
+  if (!USE_MOCKS) throw new Error("No experiment results returned by the backend");
   if (experimentId === mockExperimentResults.experiment_id) return mockExperimentResults;
   return { ...mockExperimentResults, experiment_id: experimentId };
 }

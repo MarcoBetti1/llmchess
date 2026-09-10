@@ -13,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className="min-h-screen">
           <NavBar />
+          {process.env.NEXT_PUBLIC_USE_MOCKS === "true" && <div role="status" style={{background:"#ffd275",color:"#172130",padding:"12px",textAlign:"center"}}>Synthetic demo data — these are not experiment results.</div>}
           <main className="page-shell">{children}</main>
         </div>
       </body>

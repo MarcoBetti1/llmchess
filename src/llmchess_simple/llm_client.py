@@ -7,8 +7,6 @@ the Gateway with `model` + `messages` and returns raw text responses.
 """
 from typing import Optional, List, Dict
 import logging
-import random
-import time
 
 from openai import OpenAI
 
@@ -38,8 +36,10 @@ def ask_for_best_move_conversation(messages: List[Dict[str, str]], model: Option
     """Given a chat-style conversation (including system message), request the next move."""
     if not model:
         raise ValueError("Model is required; set it in your JSON config (key 'model') or CLI.")
+    modern = model.split("/")[-1].startswith(("gpt-5", "gpt-6"))
+    limits = {"reasoning_effort": "low", "max_completion_tokens": 2048} if modern else {"max_tokens": 2048}
     rsp = _client().chat.completions.create(
-        model=model, messages=messages, timeout=SETTINGS.responses_timeout_s,
+        model=model, messages=messages, timeout=SETTINGS.responses_timeout_s, **limits,
     )
     text = _extract_text(rsp)
     if not text:

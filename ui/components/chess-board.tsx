@@ -5,9 +5,7 @@ import { CSSProperties, useMemo } from "react";
 
 const DynamicBoard = dynamic(
   () =>
-    import("react-chessboard").then((mod: any) => {
-      return mod.Chessboard || mod.default;
-    }),
+    import("react-chessboard").then((mod) => mod.Chessboard),
   { ssr: false }
 );
 

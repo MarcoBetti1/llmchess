@@ -525,7 +525,7 @@ class GameRunner:
         elif ply >= self.cfg.max_plies and self.termination_reason is None:
             self.termination_reason = "max_plies_reached"
             self.ref.set_result("*", self.termination_reason)  # unfinished: a move cap is not a rules draw
-            result = "1/2-1/2"
+            result = "*"
         self.log.info("Game finished result=%s reason=%s plies=%d", result, self.termination_reason, ply)
         self.dump_conversation_json()
         self.dump_structured_history_json()

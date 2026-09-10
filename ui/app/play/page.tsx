@@ -12,22 +12,11 @@ import { PromptDialog } from "@/components/prompt-dialog";
 
 const InteractiveBoard = dynamic(
   () =>
-    import("react-chessboard").then((mod: any) => {
-      return mod.Chessboard || mod.default;
-    }),
+    import("react-chessboard").then((mod) => mod.Chessboard),
   { ssr: false }
 );
 
-const models = [
-  "openai/gpt-5-chat",
-  "openai/gpt-5-mini",
-  "openai/gpt-4o",
-  "openai/gpt-4.1",
-  "anthropic/claude-3.7-sonnet",
-  "anthropic/claude-haiku-4.5",
-  "google/gemini-2.5-pro",
-  "mistral/mistral-large-3"
-];
+const models = ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-6-astra"];
 const DEFAULT_SYSTEM_SAN = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
 const DEFAULT_TEMPLATE_SAN = `{FEN}`;
 

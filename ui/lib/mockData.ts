@@ -120,9 +120,10 @@ export const mockHistory: GameHistory = {
       conversation_id: "conv_0001_turn_003"
     },
     {
+      ply: 3,
       event: "termination",
-      result: "1-0",
-      reason: "checkmate"
+      result: "*",
+      reason: "demo_excerpt"
     }
   ]
 };

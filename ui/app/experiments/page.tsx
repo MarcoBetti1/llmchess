@@ -8,20 +8,7 @@ import { ProgressBar } from "@/components/progress-bar";
 import { LiveBoard } from "@/components/live-board";
 import { PromptDialog } from "@/components/prompt-dialog";
 
-const modelOptions = [
-  "openai/gpt-5-chat",
-  "openai/gpt-5-mini",
-  "openai/gpt-5.1-thinking",
-  "openai/gpt-5.1-instant",
-  "openai/gpt-4o",
-  "openai/gpt-4.1",
-  "anthropic/claude-3.7-sonnet",
-  "anthropic/claude-haiku-4.5",
-  "anthropic/claude-opus-4.5",
-  "google/gemini-2.5-pro",
-  "google/gemini-2.5-flash",
-  "mistral/mistral-large-3"
-];
+const modelOptions = ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-6-astra"];
 
 const DEFAULT_SYSTEM = "You are a strong chess player. When asked for a move, provide only the best legal move in SAN.";
 const DEFAULT_TEMPLATE = `{FEN}`;

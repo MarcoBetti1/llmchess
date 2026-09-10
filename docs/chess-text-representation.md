@@ -1,4 +1,6 @@
-# Chess text representation guide
+# Legacy interactive notation reference
+
+The measured episode runner uses strict JSON instead. See [the fixed episode protocol](episode-02/PROTOCOL.md) for its exact input, output and scoring rules.
 
 This document explains how the project turns live chess positions into text prompts for language models and how it interprets their replies. The underlying rules engine is handled by [`python-chess`](https://python-chess.readthedocs.io/), but every move request still travels through natural-language messages. Understanding this flow helps when you tweak prompts, switch notation styles, or inspect run logs.
 
@@ -75,13 +77,3 @@ Want the model to emit UCI or FEN instead of SAN? Update `expected_notation` and
 
 FEN-driven prompts are useful when you want to avoid ambiguity inherent to natural-language histories; the PGN tail keeps context short while retaining tactical history.
 
----
-
-**Quick recap**
-
-- `python-chess` maintains the truth; text prompts are derived from it every turn.
-- Prompts contain either conversational NL history, FEN, or both depending on `PromptConfig`.
-- LLM replies are normalized to UCI, validated for legality, and then logged with full context.
-- Conversation and structured history logs give you a verbatim record of the textual interface.
-
-Armed with this overview you can safely modify prompts, try alternate notations, or investigate why a model behaved unexpectedly.

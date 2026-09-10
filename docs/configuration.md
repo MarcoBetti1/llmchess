@@ -1,44 +1,29 @@
-# Configuration Reference
+# Configuration
 
-This project loads configuration from code in `src/llmchess_simple/config.py`. The loader favors a YAML file named `settings.yml` in the repository root, falls back to environment variables, and finally uses sensible defaults baked into the code. The resulting values are exposed through the frozen dataclass `Settings`, available as `SETTINGS` across the codebase.
+The measured runner and the older interactive app have different transports. Use `llmchess-lab` for recorded, budgeted experiments.
 
-## Load order and precedence
+## Laboratory
 
-1. **`settings.yml`** – if present in the repo root (sibling to `README.md`). Values here override everything else.
-2. **Environment variables** – read from the OS _after_ `dotenv.load_dotenv()` runs, so a local `.env` file is honoured.
-3. **Code defaults** – the constants defined inside `config.py` are used when no other source provides a value.
+Set `OPENAI_API_KEY` in a local `.env`, or pass `--env-file /path/to/.env`. Run `llmchess-lab prepare --out /path/to/new/run` to create the fixed episode protocol, then inspect it before `puzzles` or `games`. Use the same `--out` for all commands in a run. Reusing an already received request replays its saved response without billing; an unresolved reservation stops instead of retrying.
 
+The episode has a cumulative $17 experiment cap. Model IDs, verified planning prices, low reasoning effort, and the 2,048 total output-token limit are defined in `src/llmchess_lab/core.py` and recorded in the protocol. A fresh experiment requires a fresh output directory. The separate film production ledger has a $3 cap.
 
-## Settings catalogue
+## Interactive Flask app
 
-| Key | Default | Type | Used in | Purpose |
-| --- | --- | --- | --- | --- |
-| `LLMCHESS_LLM_BASE_URL` | `"https://ai-gateway.vercel.sh/v1"` | string | `llm_client.py` | Base URL for the Vercel AI Gateway. Override if your team-specific gateway URL differs. |
-| `LLMCHESS_LLM_API_KEY` | `""` | string | `llm_client.py` | Authentication token for the configured Vercel AI Gateway base URL. |
-| `LLMCHESS_RESPONSES_TIMEOUT_S` | `300.0` | float seconds | `llm_client.py` | Per-request timeout used by chat/completions calls. Raising this helps with slower models; lowering it can speed up retries. |
-| `LLMCHESS_RESPONSES_RETRIES` | `4` | int | `llm_client.py` | Number of automatic retries around chat/completions requests. Failures after the final retry are logged and bubble up as empty answers. |
-| `LLMCHESS_MAX_CONCURRENCY` | `8` | int | (not actively used) | Retained for legacy config; requests are issued one at a time in the current flow. |
+`src/llmchess_simple/config.py` loads `settings.yml` first, then the process environment (including `.env`), then defaults. Do not commit keys or private settings.
 
-## Sample `settings.yml`
+| Setting | Behavior |
+| --- | --- |
+| `OPENAI_API_KEY` | Uses the direct OpenAI endpoint when no explicit transport overrides are set. |
+| `LLMCHESS_LLM_API_KEY` | Explicit key for the configured transport; takes precedence. |
+| `LLMCHESS_LLM_BASE_URL` | Explicit OpenAI-compatible endpoint; for example `https://api.openai.com/v1`. |
+| `AI_GATEWAY_API_KEY`, `AI_GATEWAY_BASE_URL` | Legacy gateway aliases. |
+| `LLMCHESS_RESPONSES_TIMEOUT_S` | Per-request timeout, default 300 seconds. |
+| `LLMCHESS_RESPONSES_RETRIES` | Retained for configuration compatibility, but ignored. Automatic retries are disabled. |
+| `LLMCHESS_UI_ORIGINS` | Comma-separated browser origins; defaults to `http://localhost:3000,http://127.0.0.1:3000`. |
 
-```yaml
-# Top-level keys mirror the environment variable names exactly.
-LLMCHESS_LLM_API_KEY: sk-your-vercel-gateway-key
-LLMCHESS_LLM_BASE_URL: https://ai-gateway.vercel.sh/v1
-LLMCHESS_MAX_CONCURRENCY: 4
-LLMCHESS_RESPONSES_TIMEOUT_S: 120
-LLMCHESS_USE_GUARD_AGENT: true
-```
+GPT-5 and GPT-6 interactive requests use low reasoning effort and 2,048 maximum completion tokens. Other compatible models use a 2,048-token output cap. The interactive app does not use the lab's dollar ledger.
 
-Place this file at the repository root (next to `requirements.txt`). Any key omitted will continue to derive from the environment or default values shown above.
+The Next.js UI proxies `/api` to the local backend on port 8000. Set `NEXT_PUBLIC_API_BASE` only to override this. Synthetic data requires `NEXT_PUBLIC_USE_MOCKS=true` and is labeled with a visible banner.
 
-## When to adjust each knob
-
-- **Pointing at a gateway** – Set `LLMCHESS_LLM_BASE_URL` to your Vercel AI Gateway base URL (team-specific if applicable).
-- **Scaling load tests** – Single-game flows issue one request per turn; adjust `LLMCHESS_MAX_CONCURRENCY` only if you reintroduce batched runs.
-- **Long-running models** – Raise `LLMCHESS_RESPONSES_TIMEOUT_S` so complex models (or self-hosted endpoints) have enough time to respond.
-
-## Troubleshooting quick reference
-
-- **Blank responses from models** – Look at the logs for final retry failures. Increasing `LLMCHESS_RESPONSES_RETRIES` and `LLMCHESS_RESPONSES_TIMEOUT_S` often helps with throttling.
-- **Slow responses** – Bump `LLMCHESS_RESPONSES_TIMEOUT_S` and reduce `LLMCHESS_MAX_CONCURRENCY` to ease pressure on slower or rate-limited backends.
+A transport failure leaves the game unfinished. It is not a chess loss. Check the request/provider state before manually making another paid attempt.

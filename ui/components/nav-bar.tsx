@@ -31,7 +31,6 @@ export function NavBar() {
     const prefersDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initial = stored === "dark" || stored === "light" ? stored : prefersDark ? "dark" : "light";
     applyTheme(initial);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleTheme = () => {
