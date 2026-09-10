@@ -37,3 +37,10 @@ ui/.next/
 ui/node_modules/
 ui/.env.local
 experiments_state.json
+
+.venv/
+artifacts/
+.pytest_cache/
+*.egg-info/
+*.tsbuildinfo
+evidence/**/budget.lock

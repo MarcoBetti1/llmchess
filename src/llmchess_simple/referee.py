@@ -56,6 +56,8 @@ class Referee:
         return True, san
 
     def engine_apply(self, mv: chess.Move) -> str:
+        if mv not in self.board.legal_moves:
+            raise ValueError("Engine supplied an illegal move")
         san = self.board.san(mv)
         self.board.push(mv)
         return san
@@ -63,6 +65,7 @@ class Referee:
     # ---------------- PGN / Status -----------------
     def pgn(self) -> str:
         game = chess.pgn.Game()
+        game.setup(self.board.root())
         # headers
         for k, v in self._headers.items():
             game.headers[k] = v

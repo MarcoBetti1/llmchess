@@ -18,7 +18,7 @@ from .prompting import PromptConfig, render_custom_prompt
 def annotated_history_from_board(board: chess.Board) -> str:
     """Return history as one move per line: 'White Pawn e4' / 'Black Knight f6'. No numbering."""
     lines: list[str] = []
-    replay = chess.Board()
+    replay = board.root()
     for mv in board.move_stack:
         piece = replay.piece_at(mv.from_square)
         san = replay.san(mv)
@@ -33,13 +33,13 @@ def pgn_tail_from_board(board: chess.Board, max_plies: int) -> str:
     """Produce a clean SAN move list without headers, truncated to the last max_plies."""
     if max_plies <= 0:
         return ""
-    replay = chess.Board()  # start pos
+    replay = board.root()  # start pos
     sans: list[str] = []
     for idx, mv in enumerate(board.move_stack):
         san = replay.san(mv)
         replay.push(mv)
-        move_no = (idx // 2) + 1
-        if idx % 2 == 0:  # white move, include move number
+        move_no = (board.root().ply() + idx) // 2 + 1
+        if (board.root().ply() + idx) % 2 == 0:  # white move, include move number
             sans.append(f"{move_no}. {san}")
         else:
             sans.append(san)

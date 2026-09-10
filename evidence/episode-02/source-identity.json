@@ -1,0 +1,6 @@
+{
+  "src/llmchess_lab/__init__.py": "f441a62383c2bd633dd40e6a25672f6fcad206a5f483d89bfed563d7fbeee71e",
+  "src/llmchess_lab/core.py": "321ace2517d8b6fd56aa54eb6d315d0aaae20bcc6b019272031b42c177ee9f49",
+  "src/llmchess_lab/run.py": "6b8024020f2625453ef804454cb014c4372a3cc5ff614052721eddb92e916da7",
+  "src/llmchess_simple/referee.py": "d77148768fed5c0867ca268ab57b3f441e661ed43a2680aea21de3c80ae62574"
+}

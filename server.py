@@ -954,4 +954,4 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, _graceful_shutdown)
     signal.signal(signal.SIGTERM, _graceful_shutdown)
     # Disable the auto-reloader so Ctrl+C cleanly stops the single process on Windows
-    app.run(host="0.0.0.0", port=8000, debug=False, use_reloader=False)
+    app.run(host="127.0.0.1", port=8000, debug=False, use_reloader=False)

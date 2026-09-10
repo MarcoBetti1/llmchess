@@ -70,6 +70,6 @@ SETTINGS = Settings(
     llm_api_key=_get("LLMCHESS_LLM_API_KEY", _get("AI_GATEWAY_API_KEY", "")),
     api_base=_get("LLMCHESS_LLM_BASE_URL", _get("AI_GATEWAY_BASE_URL", "https://ai-gateway.vercel.sh/v1")),
     responses_timeout_s=float(_get("LLMCHESS_RESPONSES_TIMEOUT_S", 300.0, cast=float)),
-    responses_retries=int(_get("LLMCHESS_RESPONSES_RETRIES", 4, cast=int)),
+    responses_retries=int(_get("LLMCHESS_RESPONSES_RETRIES", 0, cast=int)),
     max_concurrency=int(_get("LLMCHESS_MAX_CONCURRENCY", 8, cast=int)),
 )

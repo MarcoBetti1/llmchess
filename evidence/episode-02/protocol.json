@@ -1,0 +1,68 @@
+{
+  "protocol": "episode-02-v1",
+  "date": "2026-09-09",
+  "cases_sha256": "604a72b45d0d83c127c99de7407675666f1707a5959889bcf3188d78f264bac8",
+  "models": [
+    "gpt-6-astra",
+    "gpt-5.6-sol",
+    "gpt-5.6-luna"
+  ],
+  "reasoning_effort": "low",
+  "max_output_tokens": 2048,
+  "prompt": "FEN + ASCII + history + alphabetically sorted legal UCI moves",
+  "puzzle_repeats": 1,
+  "puzzle_outcome": "Returned move gives immediate rules checkmate, exhaustively verified",
+  "repair_policy": "None; malformed/illegal/incomplete outputs reported as separate failures; no automatic retries",
+  "games": [
+    {
+      "id": "astra-white",
+      "white": "gpt-6-astra",
+      "black": "stockfish"
+    },
+    {
+      "id": "astra-black",
+      "white": "stockfish",
+      "black": "gpt-6-astra"
+    },
+    {
+      "id": "astra-self",
+      "white": "gpt-6-astra",
+      "black": "gpt-6-astra"
+    }
+  ],
+  "engine": {
+    "name": "Stockfish 18",
+    "nodes_per_move": 2000,
+    "Threads": 1,
+    "Hash": 16,
+    "skill_level": 20,
+    "limit_strength": false,
+    "opening_book": false,
+    "tablebases": false
+  },
+  "engine_analysis_nodes": 100000,
+  "game_max_plies": 240,
+  "rules": "Automatic draw claim when available, including intended move; no resignations; caps are unfinished, not draws",
+  "game_order": "astra-white, astra-black, astra-self; shared $17 cap; $3 reserved for production",
+  "film_selection": "Longest rules-completed game; ties use protocol order. Report all games, no Elo estimate.",
+  "pricing_verified": "2026-09-09",
+  "prices_per_million": {
+    "gpt-6-astra": {
+      "input": "10",
+      "output": "50"
+    },
+    "gpt-5.6-sol": {
+      "input": "4",
+      "output": "20"
+    },
+    "gpt-5.6-luna": {
+      "input": "0.20",
+      "output": "1.20"
+    }
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+    "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+  ]
+}
