@@ -36,3 +36,7 @@ Pricing and model IDs verified from official documentation on 2026-09-09:
 - [Input-token endpoint](https://developers.openai.com/api/reference/typescript/resources/responses/subresources/input_tokens).
 
 No film claims are written before seeing results. Narration must use plain sentences, few analogies, exact board demonstrations, and a clearly closed ending. Both landscape and separately composed vertical editions must remain below 180 seconds.
+
+## Documented follow-up (added after the primary engine games)
+
+After seeing all 36 puzzle successes and Astra's two Stockfish losses, we added the identical two-color engine challenge for Sol and Luna. Astra's self-play was still in progress. The four games are defined in `evidence/episode-02/followup-protocol.json`, committed before their first request. Prompts, reasoning setting, token cap, engine settings, opening position, draw policy and existing cumulative dollar cap remain identical. These additional games are descriptive follow-up evidence, not part of a preregistered ranking. The original film-selection rule remains unchanged. Every attempt and game is retained.

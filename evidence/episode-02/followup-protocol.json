@@ -1,0 +1,32 @@
+{
+  "protocol": "episode-02-engine-followup-v1",
+  "date": "2026-09-09",
+  "created_after": "Primary 36 puzzle responses and two Astra vs Stockfish games; Astra self-play still running",
+  "purpose": "Apply the same engine challenge to the other two models, not only compare simple endgame puzzles",
+  "games": [
+    {
+      "id": "sol-white",
+      "white": "gpt-5.6-sol",
+      "black": "stockfish"
+    },
+    {
+      "id": "sol-black",
+      "white": "stockfish",
+      "black": "gpt-5.6-sol"
+    },
+    {
+      "id": "luna-white",
+      "white": "gpt-5.6-luna",
+      "black": "stockfish"
+    },
+    {
+      "id": "luna-black",
+      "white": "stockfish",
+      "black": "gpt-5.6-luna"
+    }
+  ],
+  "settings": "Identical prompt, low reasoning, 2048 total output tokens, legal-list assistance, no repairs, Stockfish 18 2000 nodes/move, initial position",
+  "budget": "Same shared $17 experiment cap; $3 production allocation remains unchanged",
+  "interpretation": "Four additional descriptive games, planned after the primary Astra outcomes; not a preregistered model ranking",
+  "film_selection": "Primary longest-complete-game selection rule remains unchanged; report every follow-up game"
+}
