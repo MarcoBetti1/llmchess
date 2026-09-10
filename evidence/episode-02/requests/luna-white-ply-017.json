@@ -1,0 +1,165 @@
+{
+  "key": "luna-white-ply-017",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/1pp2ppp/2n1p1n1/8/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 0 9\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\n. p p . . p p p\n. . n . p . n .\n. . . . . . . .\n. p . . P . . .\n. . P . . N . .\nP P . . . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 d4 axb5 dxe5 b4 c3 Ng6 e6 dxe6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b2b3, c1d2, c1e3, c1f4, c1g5, c1h6, c3b4, c3c4, d1a4, d1b3, d1c2, d1d2, d1d3, d1d4, d1d5, d1d6, d1d7, d1d8, d1e1, d1e2, e4e5, f1e1, f3d2, f3d4, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "242cbd353c3c280bb7644a7a4c367d94d2aaee586805e13585b3639b26efe55a",
+  "fen": "r1bqkb1r/1pp2ppp/2n1p1n1/8/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 0 9",
+  "preflight": {
+    "input_tokens": 538,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_f89340b1994b4667a89537edf39d7159"
+  },
+  "reserved_usd": "0.0025921",
+  "raw": {
+    "id": "resp_0a2c72a8f5eb9ac7016aa1ff533ac887d1a25a4fa93023ac6f",
+    "object": "response",
+    "created_at": 1789001555,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001568,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a2c72a8f5eb9ac7016aa1ff53d33887d18efb7b16f61871c6",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof9gKpkcPNJPmqVEfm7R1_cu5XE3nt7tv_16eQemOtOTsIhb3okmEKXr_Mw6YUWy90eoQ_r2Bua_V-ovVPESlcDI93Hr0EGcBcE8P5a6Xv50Rg_eY-TlqSOyByrP-qBEBlygVSp5QpuQa3yls1D3Q8enw3RzVHmcQvGV4pgNLW7W8G05SJOcX_Gdmd8tAqrSJSTFj6rzHxgsIwMW2EGMuReAOK5Iqnn8GYT3TaJItkQ-POYStdauhj6WErUudVB9F6naWm846inESk90CtdwJ8lpjWfMb13gDp3cci4JiNxP4zTwjTwX1uvq05wKkMCliyMsfeaCiYuYshAFJlImm-rorfcmD7oSkJy947AyWv4g6Ropjrhl4W6BXorJLsUJF1FiD-xy5fK0hc-48oFi0K9tEsAAhVIz9b5RiA_CO-DxnQFqBuxFwdqEWtIgqyZ07gWYjPt8MpdqxW2HTTZTsZ7V5GHUK-eK5D73_zEXHnQ4nSNGFX_J1frAPqV69Y52nvNHdqjwMwNp_VqROpXjSPNzhslTB4jxQnoQmrBG6nVt4rehS2UCSa2rJqLdLOGlt8uCpMNtt_9AYtkXuOxjkD7pCrn-BSvtGB65X9k2QYUGM3yhXPKVUrUVjCgJv_wkR90L15lcLNjfPN2CK-KXvnV_aGW50JmjRDqCJ5KTqLfHhjAVcuQdwGHclnCpM9W7--W9rjsfltp7fyTgWl8IMfHQGSjAef1Zn-MSQForMyxtIvFAsBnH8SogSmUgxYOPkeg3ewPwR8vSmiGYf5SSdcCDLklB2HfO5-5d-iKpu5rbNrUMLcsGRH6liEewtDhw6b9PPdW2a_67txgTLQT3lIxm5kEnGRT-J7lGQCefgRAnvSLj3RREq04renqjEVoo8r3MEdJRDS8ZzYVWCds8dR4Wk-QLscOcnSd0RekCLH__kPwdw_iq2bP4yumg8R0gCDKHGT7xuYJwTySVQ6ZXaWmr15864Kz9KyXksRUrYOtP5XrkWQu-fykH8Ehbl_Wj0P-PPIyZKOwIf1jeYdYzCvs1PKem30Kz5NItLl0diS1gN2KNKqcUrMrb11UgKLfsUcGT-XSbCtm2guGGYx3_EUdUdb4ONB0cm5SF7zJW6JUu-OqpRzEGDGPhPh1Yb7P9zZw-HvZdQ4eUBHo44EljrDaxY8kSS077cT6u0YYFBtHnbB76CswrWdoLRyDSKsRB4qHnP_Vi8JHOhXnjCRwx8NLSL5rS46NlVu--VwVmZ4QC4TOzZeTfsnmIDpDDiOVlYbCm6_XmaT0e1Z1PTRe9Y3uXOz2ShWhhD9eioRRC1hlvHOlLojpKCkzaUTowFM5xdm9228F-mBoVqZ_LaBhWFCC01UXvkc10YEdr2DTiCzZ-mmQKUkJpLAzzRY2f71aXN10St7K1FEdnE5um_f2CeIQpP99a3uW1j2wWWpKS1GSwJTd0PIwU2mgxRbS6daml_t8S9juuCau7QhiWcThon6wX32NXgbpmp9b88K1OClaTnh6tedpiiLsiIQy72MX7mDop88C8njjd768urbIgHyyOVnLsK8gRdhBotodlGAHWJBIWuNnNu4jsjAzrQle_o4Fa-2MeOw4TbIET96-lM4jbbn3eJx50rHnG1CCwM5Tn1hJLexxMwP9TctPR6Lx34qNMlCP4FBxOpeY_XLf1o2iQXfnBeIMnYwmtarmTQM3g_JKcVRzrx39x3-SF5tMKIrE6oAWnN1GCFFvvk1ijzIeV-uTkQ0CoUudIEYBpC3YkKQIYnufzYAAYqy-ywj4uSFt9sq_7ZNSLqYJYGHC-0A90O_wQHcpRn8Js0-8k9fZa44yYK_oSTO2W4wVs-UBO_zYqibd_hT0c72TxJOUw7mztm3fAs7oVdd3EDUXOuAQZI6sCLN6gMq0XMHXmmKxoqZY-tytLUuNJK8Yeo_dLrHfh9yWxw4gmXABdmJYTwidF7DSIanhRpf_thmhS2KM1FTRdaDsDhoYi8BvOZtOPNpr6tLd-wxh4x7T-dew9pUrhGR7elXht39030ABdOltllpS_2Jwxvg_u0xgRmNDzOR_f7cf_i2ocYcP-OxSNLC7qUCenUBonvEKa3zrL2ImkwEHLlQhp9l9J0Ob2yhk3be9OKhql2yRJ1HaL34l4vnUnL8QvEuh_09EmQ8STWpj7nMVvaSkE176xXTwfqla5LtY-oJOIUrgescaF8fAVTg-6R-nszaPPRbBFqxYsCopXuuIPVd89FZOcWuU-Hj9wPVUuSyFA7qO_g3L4J2gI6d0NwD_eW9bPGA-iQWY2ngk4OpyQSYAVKU0a2wRVN14YJyAwia6M8OUk8RQ4IEkTB20R7rDFNlQWvSQmL5MP7YK2NkRzoIqF-4slMsfc1zj0j92IeLiaEhzuvOGKRxXu-BD0ecZLVqgGzjuVMmLmHp6vy9u4aQO3UesxMaSH-vcynXEn6BJTSrw_dmXdxVCmRbi17XBj8zsXoaIc9bssz6bZch_Oga253JyLlaUiJmAz02wrX1M6y_LHijQkXw2nR5uFiAFyxtTe2Meglwez_R5NqpRJRDxhIMqn5YzdFtukLdmvziIzKXaT6HVIneJDMGqHMklo_xI-NOMGXVxPoGEgObPnZmjmnumiHCdPfgy1l9ZIAdTHoTzPKd6hbNjXc_TbTQeSrNa-RqPOnLmP-M2ligV6gfvUpj84InyRpOPea8qsOeWINbDxBATp3gkWSBzT-rPpJYGKyfKf-4CaYhbn4v9xdqMEiVsi2QyGOOhtXr79GF0X98wYqKQLeuDD96NmfGfnWwU-oSkPMt-uoQl0f3s1jCwtX5o_2wjRm5TqJYP7RjiClqUevADjX4dhA0tevdXjP8ZVYVMFib-oDNgUu6SugoSZI9KR-X7KNAS-OnnI6oJxYRRowlpWFH6nxMGTj19BHZuzRfVt4rAt2yCGLpcfijYlbJu7mRrq3DSSVn6vElw7vpevp2b3QdQULrVAlpIVIb6k-gDY7QOmCOMPHwa6fhEk2lqTqJq6nWJ1az4AumfBo5jal4_13kM_1cFRDi1mkGfkLnkbF64YamoNmW7Qn0AZpEmn-OqjifRag1cQDj8nNIa22V3dII6ZczCSnykFq4ZDIqNZ85OFMrOgCyHTMgRys8jr1iXB-l0SaKWchzcbH1TPslRNPE2H3-lMFdzrmqTNc9SDQg-lQ0hlXkkZwOEBG_l_YxKdDLmw0A9c8-mjcUwiSF5zfzfUI9t9ohTYtH2v-cLcdshdv7YAx9ygCK7EOu2PUMOaK8EBknv6FfedQ9fIQhqC_DsTWVv8tD4=",
+        "summary": []
+      },
+      {
+        "id": "rs_0a2c72a8f5eb9ac7016aa1ff59392887d1984d345afaa8a06f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof9gZPlN2JAV5XntgH5YPGslogdBA7PFWpBKPNqIOM32_H2VjLCibFsjoHDQb_od4SorCgeMNb2PweUWDnywgZiloun6I6UiHPQhnhsByIVdKzs9Ftk9iEDOFcv9TV0m_66aKyIJPu1G3T8606_ERv1JDb7BKRtjJMgL5r5tWDwGrTPl4rvgoVKiT_AlBwf0n-RoO_h8PHs6YqeR3GHME75T8QAUQ_P36gwl1kjiz9b_88gVMTX0mXrOuYNsjjW4dfZP0856rvEJNekJwj5XAj3xAOkbkrpbp8mqJQDDtXNYjnsPPWVuPJgUQKiZMqm_FIpYeZ1pZHM8-gDWhDmTL1djrAabJ8DR375mjuOAdFbi15TrHCGriLVRQdPXMsNKg7DhX82NTAqHOxzkcpWp-X-RLcI4Gk5c3WYNW2e0FZbi385pUEqdBVcUzoCiMW5qp7h_GQ2G8_myGnABHAAAHAtj1sEtm9l5W1lGPOEcVZuo9DA534A9yNFWeXDEZ9e51ZULw0hVuZZhexuH4TYPNBGKPE-I7wHTx1gWGvnq2iEd5f6FZS9RZ2OuP50S26q4UgBc1eS0-AniIaUgCWWt1JoGoNzHpufOYQlENAHRoCiByznHWnDkqmXffUxNUnICaSEwJ2JyL85LtzTMir8Cw-7fmPA8nq3-afzmEBKUjys8kE50c__RqVR7klA8qP0K8N4MWsTiKgF7mJM5xCRVC_UI_bzudFMRbAqZ6yHcYUcNJmRC6OS6CMI4ZlidFu9h8JfZWq8Rjlsb2cerMtB-YOfYdc9_osOLW4l--OJyvP1WxzLsxdC_cvscMICSLlk2p6Qg8IeqagXYZAc9Rv4HVsPpvrxV5YVE0umSt9s-oBhOd7PsSGyBjtIzyg-_BmYf7BkNjDvVhlEKxp3GJUuIpqkutihot-2XDlgwOcAM1wbHzTK7_6JYJzgT1BoNyNth7HokrDAQSBiRhlk09rossLRTsWULVKeMFcRS4VK4zk737CuXxRIEqC31YZ94zbbXdg62qeorbHYHL8Q_jHvf0Wi2qpgoIYL-0cLrXYBD2kEuDMMfzFXpkq6EV1zWp9ktQ1JEoik_IMcXZO8hX6x3b2vC5Mpp47LXeFdqeNE-ssKK3Hc1fjitynw1ZSs_uy_MjnqKJu1edts4DThT2VBjXTB8AKAwPX62fDSZ1aDhN-hbVzwS9L3UrXbv1BOhawcLAZHAhFawgWTOSyyGXjMnQKAnSa0wr9muXrTtb3Zm2wnZuiHg6XWPhjKP-IAjeWT-STNhH_M5q6FTa8H0Xcmc8McT2tW4umIBtTwIaNtzM6mVyCTTgyuCr9UgBBmE3q1I5P6v4bI8m4k6AQun9ndKcofYgJseqBfrNb2fe3oXwPUDhJFp4P0miCTGgBhRV9_X03wA9TOnYAndOGn-tCEx2AjCJnGdp16g3bugOqSRb7VPUxZVNXt8P14x3XPyHa5xJ5ul33BV9BkpXZIEJAqaM0-oYAvVD91qWT7CsuEFxAiSa28pwHaYOKqzPMyjRvxZk8q6kGcZmXkucaVxLC4p5a52Nzei7qYQP0xaAZm28Nv4D7wJsDmTtMbeh__v_89BDqLZc680ib5RYySoIprMTGQhyCgeJz6qJMW_1gPaL9HOWx_ULcr8gZ1LltkfJIFkROHAckvDY1D7lnaPqlwFSWP-KbuqPQDJ_m5TuoXwzFu60KaO0SGr3s8iLqx06DxvWUaScT0RWflwyRCXiHpZghYL-hXmS5SIUnf-RbAuz23SZgdxKo0UuKDEe8eCgznFGI9UdeaUxa2e2DFtpc9jX93CtwSoU_P42E10RGSfambN9yabzrmYwHRFuySt53ZDHYccUf11EgumeFsZ-TUXrZrlaXREjkclW7dInhtQr5-ifRs4S3jEL27fMdhWQdOM0XjIgI53V9ZD4XslVTmYp7A81fShrUlZV7Ty9N_dYdYPn1YVjmt6ZjnBSs7OGB7PuaqslcBncL_wlPWe9mZ4y8n2JJOhg-LLKb1AP1VIyzoHWgdv3Qpf038jHSkE7MR0LQB6Vh8WQW1ycsWuQEPp71HR2RCDOLrFo0Dyl9d9__E1TbFBO1ObAWUT4vqDaSHvN_AmlESeWTMQDmkZEeO3yLC_nizl77Z4QJGh5Mu0VbjA4nlg5BHWd7HqCC5RMqjr2UuqbmfhkdvQDIeSnUkYoAgdwlbwFLtoRDNaB7dt7iFbGxla8gXwEAS7FhFJJLsHs3sZmeAwQ-H7SsUOPddyNIwnRavzU4GMnw6GWda3gWHsAj6h8sBuPB_Q6ZKN4LGj-8rhsgxTL2TyD8LXAg6nh3X0aXQShuK2YXZiOG6GGMsSaRhiXd0oOCy2DKs-68kKq8t89mPXLnFq-Z8d_yl15utDqKL8BC263o6wK0t6KHMjMoEMC3MP3T2RfFSWu7jSSZ1UQgG39A69fXS3HBTezU-RIL_mGLqjvRUTSNB2ibqeQT4qv1WF4k3Xq58ioQfG06xLHCG1TpRzYYxu2jbR8X8Nkto-0_K8arlwtsizqjmWTvaJ2l8oBpbUZvJadTYV8AJh0S1pZjY0SgO5zzMIOTM_Ag_ZIVFptHhD6nMsWyqzvR1ZCuGY0hKmHOIZ-_-iqPETOT9uBqBnNe79UfLzwcAimZ0ibsZhwHmreogEnXr0-hBU-BbqEFHWwJ9A9kdlM1Iz9MCxeLrG-EpK0VVOv0Jy6IOnW32aDaWf0OrrK7sf59jwPz68DKtZQuJTTJbhECDzwuvtsPmUlgPZVV6z1kbQVNwSsz76Vi--tPeSypqEhAWlShby3bPYYyrFR8G4FQ1nVoE54ibMlys5fz9XuT_G1bZCZFL3_2KhI72Rqdb7D8VU-Vr1LiK7IE4-choKkw3UuYor3pHZPfpfrxO6DgPJmUtXpOGH1PfSlK1SjhNXiAVU_INej2xzkXVXwBVh5rJtBkvqtzZCgnfiZzXJONaesnOx_0eRZg1BZQBSRmJY47gsQT3lGzeeWXTR7Z6ZEYhhnOk4GWIQk9pLjqST5zyWYMV4vmBPBa2yvlazJ2POVoWoWGKrbxRFxgJoQMFLKXrlKC-4D6y1IUUnnpJamDX4s_ZbxBPaMzTLtAuz2AoOoQpMrmU-LAkiQzUecv4NYEwEXvU5VmJsT-a7CgKjgecvsVCtT2UZlzbE6EYxIIezMeaF6wUVdbI5LeauxCzAwOpklWBrwJB24OOBUJ5A9cWq901er6kd2PONvz_f525K6z4ENw4o14iCwHtoQI52-3vff1e8tEecdsYZt2qXbWSXZExxoL8IrTvUEL2uWLYKRNIciOam4LSGY3qnt2pQHB8E2ApBUAJTS5BbMMjOCIB9lxjSmdryuOoc0aJFiv43PvoUgOdHIwdUbdv94KfBYWwjrMAD2Q_tk-MqbUb40LPOkA==",
+        "summary": []
+      },
+      {
+        "id": "rs_0a2c72a8f5eb9ac7016aa1ff5d3d7487d1bc507626bf4b445d",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof9gXRXqBVpx0Ftq5q6ivnzMnt2c6gr0HwsP4wEIb1cReokKo55jGcMW9KbRdoXYgNCMvc8d-6tontrpO36scm4PM6sekQ2hYfAknGQ_K3R2NSVFiZzIicsu153TxpwguiTmVU56-8J8NyDG5JBAEA6ltjnIOJS6JGdUTm7waG0Ouipkk-qVsz8UlrABI5Y7s8aSyLVrFIZRQu7n3syXl-jLBQg9b2xVz1mzp0CJAusH-VRIDF6g_na1MgVFS7CTCzb9hUmiL4HyhFS1pf0H8ju6r9b7pmjNlRiRwRGSy98JY6SU8he8RoYpkwptE603eu1cgHDawsKasD87vlaDQQ0mBHDdtAfJj0KXA2xwiKopMf4M5z1_d-SNLfn3dcIZ_x0_4D8KloAZS7bLC0rtNz_492_Zyykcp7AS0RiON_iMk-dHa0mH8IipzywSCae04D0I-jS4MYcm-h3hT1FsHDsNQn9xHEYEDOf4MVmiBIZbna0sq5FhK5tXdrKgGVoBRIpfRMydkVuHM1hpFRBD2nOTBK9z-l76Cio1lxbXrslVeq9b-1i3K9cpQMRLwmeVvA_POLqNlVU58gZKkxDZ4MChW7ncFB8m9tdz7MAnc5gOsyPSljSaDyXFLOwRKGYL9efSeQWdXio_Ko7X76wfHbB3xC1UPogDz_Fhh8Mezt1LQEaFfnNWLFgt1jsiL5oZAkhwXlkaKNklhQBPEDWtuUrF4HlrI4tM5EwIHCfBntlG1M25gf6is5x29WFUKnsqajSnnsKeo_O39PViwfk-WH3Rljw0lpCPOaO6S5Abpauw-V5FgSgTRytVI9KQsb3DGogCxIO6vvxdNdnCb4feUhvJqdOnQ5Vk6exRhRJejkX7PVs8Gzf4pcZ7oN77em7dxC6rVnS36lLyMqf5Jla2C2P8unqiqf7S9i3Im47XKXQSjXZ10VXFelNEokv2vcjdwfISotWEA8favq71LO1jzu5Uk19w1vWZREhS0NbbBi-Qs7hTDmAQhjbvUwQoLN00UjPn62-FDSndCmSXCAWcvlMGemrozwNxrgMePBI3jt9CH9p5v0gocv96IqDcePRwdYkTXmhsjHBiL_cqJr0qFQiWAfyIyPkwXDl4mo5fCQWdgYuaNGfMa7UM-2_b7Zrur1HDAIhaXXRGMfaAoPLEfBaORZE3NwJFmrGyuSPmjsYbhZhe5L95SenJ5HqVIIreB7s8z-lkaT0H7C_T5IkjLB1zIcU28YcA-jRrl4cQPcei5XGqO4SGgnx2yd8EMIenK5SDDDobu-t8n3W_gTsYSf1QA07HcFNB4PRAB4wW-W2XGmtuKyi-FQs0zjqoUtAZuMuipL9Zb7fpDQEbH3wPVQpz99QK7e-syjX6LMquIw8GuB6ZKH4KmViYx1z-8MgzEzkaApqqcmXUULl5H3q7JZtxl_QxKFzlg6SglBaMiTm5A42EgPyZLBUxdXsP1pu4qemTjb9OBDulVt37AnrGW9-z_4LNK4olYtvJuGc5jVrUng5dVa9FBb7QHUAMujmBBJr3GyQsGgRVlpaRFiLJq2lgg_toT2T-JW8JQi1uPIY1_9aZ2RR-NOkycAG1fZSmV0syqxjtamc8bFtRTGThnM-DZaG5jw9GyfRtyPmuA0CydAUnJQUYCn6Im4KBIQfhmbcx4Ub9a3veFSqCOhPNhUKrzRlD7j4r8c7CULaTyhhF10x69KNB56KxHG7qGmlshOVktr9DUG7oHPKP6RMo3HYFk1vULL8rRBlWz5vudllIZPHK-Fgo58qmYOdEGNTB7TninzEaeYtp8l2TRfxkaVyP9aSMXzqAOG01tIii3EO6HDeIDzQ7h45F8WIhXmo9O6ux76WYayO-z4ZfJRFB-SWvY47CJSAovhC3ugUb16LGycR8F0e-Ad5F6WWHZPJ62oA63BG6q6Bu62dWgMmsIesTX3eX5WyjEqcWucBkJYjEPttZi1FeOr0hVVOnD8xnJnQwfrnnRWz55dWXfjD0z4RhyU6tP6jVJC6DsPmq0PaVV7bc6SqUuwaUgEAgm_A0Xy2VzrMerEXMa0l1X8RjoatwKi8WGePSO-yTk49Dorl-nRxXtM4ohdEDR3qhrCIoqnGAGa0KtVBERfMkangU6KsxR0AgfM6RTc2fQFHLChsgiPaa9oUal7kr8ggsf9ZCnLtK3ssqe5uMY-C45PbgDJdRsF4FQ1_7ndaMRKoRSYf7fFqis1Hg7Ttk9WMgagTaJ5NJ9iDiLP1RJK2h-SROweKHhpm90FKxAmZZOsMD6AyG8LfQOcFCPHxo8loQJm4QeKzK2xiQ7Dxxjg1kq2-u9rICGm7zlbtChYumG9evWLJfZFnQiHuYPChL7ynTe7py48_H3boP7CTlAixCuDOToZLWPJdb3Wsvo_PvLW75dhLvwkt5CzwrBlM1F8c-xTvBRJRHhVlSZ9wNU9luhdJHX8-8_cSQPbxLq8qQfJq4-qhs-0yb86VVMk2PMLZ1PJj_V3FlqK3PO3VmYzLmMtDS8irvuXhPUfSLWoynAQ_cRp0f-PZV36g1qfDdM6oI6fVwaFDsRn5rxHzpSYO0qQjSPQbVyGNl8JR11FoaFXQsHkN3dsCvSVizGLiGvwGTQcqmGy2efWjvf-E18QZ7KUSlr8bGQCr1iLs5qmZ4fq0eTNEV6G_40WgpjYLyugQbQfrEDgff",
+        "summary": []
+      },
+      {
+        "id": "msg_0a2c72a8f5eb9ac7016aa1ff606d2487d1bc7bd4248e8f93a3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c3b4\",\"comment\":\"Recaptures the advanced pawn and restores some lost material.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 538,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1428,
+      "output_tokens_details": {
+        "reasoning_tokens": 1399
+      },
+      "total_tokens": 1966
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 13.961138248443604,
+  "request_id": "req_8220fe89a00b4ed8ab221dcfec48c384",
+  "text": "{\"move\":\"c3b4\",\"comment\":\"Recaptures the advanced pawn and restores some lost material.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "cxb4",
+    "move": "c3b4",
+    "comment": "Recaptures the advanced pawn and restores some lost material."
+  },
+  "usage": {
+    "input_tokens": 538,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1428,
+    "output_tokens_details": {
+      "reasoning_tokens": 1399
+    },
+    "total_tokens": 1966
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0018481",
+  "input_count_delta": 0
+}

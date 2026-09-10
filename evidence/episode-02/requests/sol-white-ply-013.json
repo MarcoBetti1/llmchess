@@ -1,0 +1,151 @@
+{
+  "key": "sol-white-ply-013",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/1ppp1ppp/p1n3n1/8/B2pP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 7\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\n. p p p . p p p\np . n . . . n .\n. . . . . . . .\nB . . p P . . .\n. . . . . N . .\nP P P . . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, b1a3, b1c3, b1d2, b2b3, b2b4, c1d2, c1e3, c1f4, c1g5, c1h6, c2c3, c2c4, d1d2, d1d3, d1d4, d1e1, d1e2, e4e5, f1e1, f3d2, f3d4, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "c9f5e57ea297aaa3145ecf088dcf31aa9f39f8d7e0523ff084a672cd3a6b980c",
+  "fen": "r1bqkb1r/1ppp1ppp/p1n3n1/8/B2pP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 7",
+  "preflight": {
+    "input_tokens": 509,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_a37c0b1e80f649228dd4d083f6b090ca"
+  },
+  "reserved_usd": "0.043505",
+  "raw": {
+    "id": "resp_0c74a4ef3afadee6016aa1fb679df487d197c22a5bf11f82c9",
+    "object": "response",
+    "created_at": 1789000551,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000554,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0c74a4ef3afadee6016aa1fb684d9c87d194c36a97e1c439c7",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoftqxHJEYuF_i2gTfK8Z1XjZ3wzzCwWFN8iT9PqV8S5QLCRlNZK4DO7j93HFoXUjnC61LLL9d25L6WKfIlT1pDxvUrle2M8AZUwuVBDhcao8UHkraOuizstJHqCwtIT9rQk9vSOKvsp5ygJkG_zTM7zkBXqqJHmIX2M1ChA4k7jzhZZICn2W9T8nlSfAPn24XhntoPy08OY2TH5ohrmEXzyOrIM5M9Px-ucom0GaMzcEfZ2C9edY37wCvNsAFNa8C0VC-JDdwmLExLfjD2QHGRCudm-Cqbak0YdH_D1aZgKXZ77kP5EyBsjNIo6sH8sdhmIRUVIWbqmZBtv0LWcn8QISF8LfeAXFVgu0ll0WBsKA5CKeEtvjXz7FWkHnRU6cHRDk916I3WTuE9ep1-_YjY3jKdwsotm1H-Q71ohuKAnBlo1FvWw617QDitv8zOSE12xmxhxHx1OH5kaolHXU2OI50NeyxEPo56xEr12DGFsuamdqBphaRqsqdzKEDF5Vb50pOwb6LKr0qErGVJKNCiPUSoyNbKLJRnnNw3oC1SAa6OYapQnkYUJYfMzVu3ruKLHYcvHkV50crsz-3G-NJEIoKKI6YTLcngkeX3BgDxXhE-yuQNa_rnyA7mFHLyZ7EdUA5HyNoHFgqSneyR9zK-YoA5EyuSyj6Z7xRDAzPb228hJa3QnxqZVIURd7u0isnWLaMmmUQGoDt8v1BfQbJtpSXAp79PvrFSbqAPV-Oqbmo-r0ttQKQh7QkgVYK_wbKKKjhnK8V7HjGa8Evg_uxxmbRkH2PVKuW5o4iWjJqjN_od0E7HveqF7G9A80b5dxyv0a26O7QAdTB3BcdgjKEs35JYn4X8ftPvrFeZmt9-75et7rJ8ncr8VUdn9PB__8XkJ-J127tYKPf3vpfQDwFj33qZRof9kMGhLFxYcBaiaiBmEfh0RBEkGnDBe_scrd2o_JHQksH4e0BbuFVa7x8Keur4bR7q7IYPWi7WgwqUySCIfZ2BK81j5VDcAEpVKDh64SY9sIzWpnDtYId_-ZcYSjAklNcdXzJdTdGxvH01o37QTvxHzdzQDVE8xojXn9TPhtBky22eFMD04IG-yq_pJmZUZw4kNwWQtx7WeT6Ky_cW2Ew_qV862DKt9M-w9CqjeKqdBcKDEcjuf-Y06DEgV3rHb8g9YwaNvRKLr1Cu41i0v5qK4b0oc3-aoV4RZsCNTOMLUXNJP9cYiit30DGqw8XVdYih4w3ynfnl0XZX9dnrXSnw99kdbQVG1VAIg8Mk2sma-apzA1Q7n84nY1C6fEwTR6bVPL-CxQxJz8B4PqpLQom0hh_-ap4xKc9A5vt8NfF6jRE-Y5ul6KOtpemEF9NdHtnXZBHnYyPxiRqoQc-32Se0jx0tScgpQSKub10bm9OjWuXAx0ESxGbBrqkqi4izvDzJES_1R8bDVGQE2fffCJaPHw2Dj2JHG4GaLXEc7rmhYCgTLzk_DxCHiMPzqlSZBAJujnr7LcY09SbA6aM24gBtEro_uU-4O0AnD7XZfW",
+        "summary": []
+      },
+      {
+        "id": "msg_0c74a4ef3afadee6016aa1fb6a2b0c87d195b07b39846f58df",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f3d4\",\"comment\":\"Recapture the central pawn and develop with tempo.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 509,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 133,
+      "output_tokens_details": {
+        "reasoning_tokens": 106
+      },
+      "total_tokens": 642
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.5105338096618652,
+  "request_id": "req_aae0e7d952344e3e909bb1b182a3e644",
+  "text": "{\"move\":\"f3d4\",\"comment\":\"Recapture the central pawn and develop with tempo.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nxd4",
+    "move": "f3d4",
+    "comment": "Recapture the central pawn and develop with tempo."
+  },
+  "usage": {
+    "input_tokens": 509,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 133,
+    "output_tokens_details": {
+      "reasoning_tokens": 106
+    },
+    "total_tokens": 642
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.005205",
+  "input_count_delta": 0
+}

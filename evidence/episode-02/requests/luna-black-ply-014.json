@@ -1,0 +1,151 @@
+{
+  "key": "luna-black-ply-014",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1b1kbnr/pp3ppp/2p5/2pPN3/8/8/PPPPQPPP/RNB1K2R b KQkq - 0 7\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . k b n r\np p . . . p p p\n. . p . . . . .\n. . p P N . . .\n. . . . . . . .\n. . . . . . . .\nP P P P Q P P P\nR N B . K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 Nc6 Bb5 e6 Bxc6 dxc6 Qe2 e5 Nxe5 Qd5 exd5\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, a8b8, b7b5, b7b6, c5c4, c6d5, c8d7, c8e6, c8f5, c8g4, c8h3, e8d8, e8e7, f7f5, f7f6, f8d6, f8e7, g7g5, g7g6, g8e7, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "1ad0ee0c370178ca4d54bc630d9096dc5d4bd87c98fe436577f548a9b4f33335",
+  "fen": "r1b1kbnr/pp3ppp/2p5/2pPN3/8/8/PPPPQPPP/RNB1K2R b KQkq - 0 7",
+  "preflight": {
+    "input_tokens": 468,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_1c2f27cd26fa4bb2b95da3ea480ff760"
+  },
+  "reserved_usd": "0.0025746",
+  "raw": {
+    "id": "resp_02c663d02a22bbb3016aa1ffa23b1487d1b7af40ad117c5193",
+    "object": "response",
+    "created_at": 1789001634,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001638,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_02c663d02a22bbb3016aa1ffa30aa887d199824cd0c7bf3ebd",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof-mWe9Kyqcnv5XElmlsAt87yk3OD_ka_ELeS22GxJApwDbV911tFu_rf97NASX5vtd7r5lBxk1XUNLabgUYEwxey0AiYIHi2lWKnUAA5GLZs7EKVEHxDSCDhEJdeQ9n2QP_XeJqPegD_VNDhWex7C_bVU47y1vxosD5qZhoKhOIrDLJqWsH6jBUSjHTiWNcjNFU7dbbmqVp9q5VupVgcJ5zVWg1m8ky1l9M1DKzo0dCTrH2_ON27ROS3PSFoUNmKUEPrqKlACWzeE6N34uA0IDCadRR1zl3qnsZB-mapmq5pdBby5L5mLnl4n4DTwAWyDsgreHnHNU710dmeh2Q8dMmWasoSqqnxgmDlNjusPaEKiC-l4oOVtygndKse7dj6cEMR2p7cn-PcpnS_mRADT3S-fCV3n6R0CvFk0mRAM_rfOXv7IQ-lkBgu8pLtr7Fj3Xni0FpxYcPvUV8qPQ_2aOzKYhc2dW4ANYx5qyhFy6bv3JaN5zVfu7iHEHf5ZjhWuusO5Nrzmgldq2SRSqsjFXV2wfmzfQuzjcdYYETW9LMhv6rw9z4VzhmV1pBm5yE5QI_vY7XmWKkJZqB68xcRGeq4XwmMDI1Tgb83e7AXkKiLyEIAOhmSl0SpKt47Zoqagg_lMU85PHMk_jHIi2dwsGeyjZtvvbLyHUC1ZoWy-ijhkwOElx2tMUZaxeRa1Y_MUIaKF3YfFepH8p5_669AhD0FYHROhvGEJG2AW7AxIKZ4Zdi1joGNSbySS5UVptFolMYD7PYXeoEELRi5rzNw5NNxPVbrH4BVinpa4Sm88p_yPHdyIMqKmaYSrikNE17FyQQi49vMm5lzzVkQcGMM1NwJs9xHVvjfJMl3LrjXL809Z6eXFnyW6aPe2H7AbkvhdKnCGM_DcXwL0sAcxeuq9rflcXHUkkj-KhC4KEDow6ROLErQ-695WkZSvl8EqbvxeHQF3PM_WVteka89cn8iUcaYhZcF0XLxe6nNA9qiyR9sZj1LreVcIBPMT3If395jzGIGIjOnoK4F0GyIFueKq7BQQfPcPuvGbHUm7VLOnrmjWQwibgAl7fdopXh989ZaXac0iso0Xc8gE9mKcmkYIm9G06d-I6yJOVOGZJBuIcz1r3zpW6LtUDfsejv0fJMRffAnj_1D66bZ-pe9ev2H9M5TFQcQBy7OP-KsSjv_nx1lXkJ551Nyy8ESjlZ-n5NcPwWl13gOuHO4IGg4HeV7WOkZ7elp86NY0JV5kFV_Bwlo8Ruu_iCDs4bkrb7_v8IQ47VncEC-b5e67Km_G_s5EucyUg-0qSN6IYkjEb9rbbO0vtBD7DwLYlc7fteLcvzz_HMyX5NCIAYXKfEy5mqblLUZTJxyQpUEyLdstQ-D5oq1P4i-QRKeSLbfJbw3ByjtVbgt2qCztH6pk5qvXkXRzv-fuKPg_k6fyjTkSwmZyGtF6Ipy1YoejPniQuv7iH6W_PUUQWqUwQm66YcO8RxDlIkgZKaTQPhH-tCoLiHmg-EkDd6KJxsCeXgCuA5FdSGTo5KFiynz63FE2XplxsDz1ej1tdw8aL2EZID7-amwHFbreNvH2Y3oEgB4JkWh5a-thZtWy9ibg7KkpkA_1JpE6D4fSDP4_1_-3FnwBLQ35i2vsY2OAM6YgpaFeynTeNkmscGzMQibJ28wKd90wE7OWFqkJzl6cc6Qhfsx3xpI0Cn9tK-jY8FF5m5mSX8s_hWNfKEYwwVAusndRd2uDd_IlONVqw04bibtkHtiz_Yd-q7JuCTB1TRgG4lEcpj0gcngIrnoGCAg-ppMOiODi4jXhOBscefyPZNLGyQ9Ol4LI8OuIUx5iiotllcwQAqDLXGnAxqqE0Gg6zLw7SGaRbsn-82GQiEhxLNQZr59fy0X_EoDtg_O_Ci_zlMm6Q8-stPxEXiFgZrY_K57B_MuY4rTxQKEtnWuhoiN-D3g3_PcyI0QLMe4wOaLd440FSGdakkEz0vYBZS_GltKYCzp_C856edp4XhuYMQwnOPqlKCqZcCCu-TukAO0iNGCz929Nyj1xhCOWz72kWqLc5cEDtxoGZzIALLQ2Rve42maGo8wq-VOeB_N7WcFjSa7edrYqg1ZQVEzM9tyVO55NdUtHkW7wtjht6oqN9vCPJ-Zws42VE-aNDVdk8nfJz6T8GU-8V7S1NUslw4Iwxs0oecaJzmvVYZOGEW8WApOhQAGGxE-BffpN62EFETl3KLsmrDEr2VMhO3daHm35A0NkHxAsuvyR48buC8KoqUjUFfOISMl8M7GyupNxPdJrRvhVm3WprKlkCYGyqTWNTKNtq44lPx_pwmP_9S51mSWxo7zjc7_k0Aw2qoZ1KVyALyXTiZ78Pw5rJLGAnsaWeVK6L1o-ePWnWjTniipO3a_xRbT8tGLA6uUvWP0uVwETNhymxt6W6cqJdjbaMabKaskg-Lp2k1XT7kE-2_Lv_GOkWPOo4egoOBle5to8QIfziOA96lB81zFRKJtIL1OSA8pAAzZZ7q2R9ossvRn0yBpQklCxA5zJHRs7-2sXnYkL4gLnxGP6Qin8mJ0-0JdPF_o0JSeSXMg4EK-YGxz8S-acpk7n2LPtNr2ZGAgi_CwfCV0BDMzQ1SFtvZWt8de2gjRhtD-lCVcvETCA==",
+        "summary": []
+      },
+      {
+        "id": "msg_02c663d02a22bbb3016aa1ffa5e81487d18bcd2cc960a767e7",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c6d5\",\"comment\":\"Recapture the advanced pawn and restore material balance as much as possible.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 468,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 349,
+      "output_tokens_details": {
+        "reasoning_tokens": 318
+      },
+      "total_tokens": 817
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.478729248046875,
+  "request_id": "req_e012c5a7c2fc4afd839b2d9980198718",
+  "text": "{\"move\":\"c6d5\",\"comment\":\"Recapture the advanced pawn and restore material balance as much as possible.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "cxd5",
+    "move": "c6d5",
+    "comment": "Recapture the advanced pawn and restore material balance as much as possible."
+  },
+  "usage": {
+    "input_tokens": 468,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 349,
+    "output_tokens_details": {
+      "reasoning_tokens": 318
+    },
+    "total_tokens": 817
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0005358",
+  "input_count_delta": 0
+}

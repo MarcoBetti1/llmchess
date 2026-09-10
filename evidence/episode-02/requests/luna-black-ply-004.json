@@ -1,0 +1,151 @@
+{
+  "key": "luna-black-ply-004",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr n b q k b n r\np p . p p p p p\n. . . . . . . .\n. . p . . . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K B . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, b7b5, b7b6, b8a6, b8c6, c5c4, d7d5, d7d6, d8a5, d8b6, d8c7, e7e5, e7e6, f7f5, f7f6, g7g5, g7g6, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "611dbf7ed945825a2f5b8b344b4080b7f963a87b04f6915da67c76cafc36fbb8",
+  "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+  "preflight": {
+    "input_tokens": 428,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_403f0bae3e5b491db7b9a47030e0903c"
+  },
+  "reserved_usd": "0.0025646",
+  "raw": {
+    "id": "resp_098bbfdd93b3c2d4016aa1ff91bd6c87d1a41a5a4a5d7ffd9c",
+    "object": "response",
+    "created_at": 1789001617,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001619,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_098bbfdd93b3c2d4016aa1ff92526c87d1ab39247c68e88776",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof-Tj90QI6MsXGtvv4K7b0rrKsCtSzGQQoCAZqcspkn7Z_dAkEzn2HLBQKDxH9RMGGxNR5h4ZIb0_vww3RMdOgtJKlmfN-hdnn3ftsuZrntyU5DZqesEL2ttkEaDI2cHyWHmW5pKzhAyhHQr89NS292D_CNSVAX7VnkGBQm8Ddmwfnyj9l1IijXdKiMK4nQ_urjZGLbV17lznfpKzQw_7w9UiHcRiR5h6Gr2Xp3ITNAomlmNGQwvqzRZ2wrZl6R91HJ9v2z0KVgP2EoiKPCM8S7foXrfjFXAe9bd93HK4A3LFLHJxkByTyXtqCa648c9Z3_PBPGuTnYrSSthJxS7dPTipbizxe-WH149mkSMOmTiUVluUEPxsJbov2e2fzFqNfZ_8hKXIq2CnlEXsfpi5f2tJKxwJckyzHwFZFm3HNevRVb_4twfkhcHZb9oe50vAciMzJdzW5YqVLWPDUhWKNzU2xttR7jeJLE29c_yO_SHms8a_bOueui0inXDrm2V7myctgBdn6wGW8AkuuLat8ERVWvqBblCbBzwBP2GaDR6S39hrvq9Fn72c9wPBNCbBWQdxpNStV3knorf0nFRO-RRkS-NWalD8lr6o0wKMbjPhUtie9cQmfYKqK5KuwE_5JUImTFjc-Onmhut32YIC5q4y8xajPFq1CwHvrMs8r24-hSRiNY-KZc8PnVjfBAXIHGi7yus-G_GUhEVBTKSc0sAraTyba3NxCC7UM2zBJkvbCgRVx7CGjXJWozVPSGFv3EDIOm2nq-ZcQ0D8OYzqiPz6HzkUa396xpPL6DEUCpOGz8T0tDGOnGOWCZsJXcZl8MUdSWX2ppxpU6h6Ix67CGraNtAZfZW5yGZTXrmw_aGzGeFVhGai2lNnY_WOgfO7n0rnHmJJC7Pb-3r3y2Xh5NWmvB7U6VMtVhzQSgmSpdaMLwpUA8EphlKo46LKAB00XO8RZRtyEub2uig9Mv1RPbF6ofJCq6LNdTBuSk9UOutLLaE6kEnPpH6cPNsO8vWcHvlrwFiJAIeKruLXrIHvG1g5CBa2f-eb5DLPCDwZjgJXKFA6ZoB6s1FnftiLueDtTpCzsMcwcvTfH98-VoQ1ECxN7OOyMevM7mofhyXc15Y6LTW71q68nNVxHNfV2bLJmPmjuTw7HtrfPF3RcnH-msYisRwJ7AmJV-0AQ_5oYuouqN0oxy6nHR1H0UKrKtubiqy-NMA0zTjmIj43j_dProJKK-ChPTtMZSjAVu-FtlcQeV-57kQ4tF6R7IBstXMlby7mr4H27k9vdSzeYIBjbosXYIgVW9_PNaiHu4dHOugnGDGRxFpTdWgZPvR5h2SX50tySJ98eaDpcaoiGY_hmYqrw==",
+        "summary": []
+      },
+      {
+        "id": "msg_098bbfdd93b3c2d4016aa1ff92bd0487d18a8a1a5e0d714fe3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b8c6\",\"comment\":\"Develops the knight, supports the center, and prepares active Sicilian play.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 428,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 87,
+      "output_tokens_details": {
+        "reasoning_tokens": 54
+      },
+      "total_tokens": 515
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 1.7127370834350586,
+  "request_id": "req_1f1088c69db7469bbeb0a41a5f66cb42",
+  "text": "{\"move\":\"b8c6\",\"comment\":\"Develops the knight, supports the center, and prepares active Sicilian play.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nc6",
+    "move": "b8c6",
+    "comment": "Develops the knight, supports the center, and prepares active Sicilian play."
+  },
+  "usage": {
+    "input_tokens": 428,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 87,
+    "output_tokens_details": {
+      "reasoning_tokens": 54
+    },
+    "total_tokens": 515
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0002114",
+  "input_count_delta": 0
+}

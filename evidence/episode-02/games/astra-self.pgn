@@ -1,0 +1,15 @@
+[Event "GPT Learning episode 02"]
+[Site "?"]
+[Date "2026.09.09"]
+[Round "astra-self"]
+[White "gpt-6-astra"]
+[Black "gpt-6-astra"]
+[Result "1-0"]
+
+{ Termination: checkmate } 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7
+6. Re1 b5 7. Bb3 O-O 8. c3 d5 9. exd5 Nxd5 10. Nxe5 Nxe5 11. Rxe5 c6 12. d4 Bd6
+13. Re1 Qh4 14. g3 Qh3 15. Be3 Bxg3 16. fxg3 Nxe3 17. Rxe3 Bg4 18. Qf1 Qh6 19.
+Re1 Rae8 20. Rxe8 Rxe8 21. Nd2 Be6 22. Bxe6 Rxe6 23. Nf3 Rf6 24. Re1 g6 25.
+Re8+ Kg7 26. Qe2 Qc1+ 27. Kg2 Qxc3 28. bxc3 Rf5 29. Qe7 Kh6 30. Qf8+ Kh5 31.
+g4+ Kxg4 32. Re4+ Rf4 33. Qh6 Kf5 34. Rxf4+ Ke6 35. Qg5 f6 36. Qxf6+ Kd7 37.
+Qf7+ Kc8 38. Qa7 Kd8 39. Rf8# 1-0

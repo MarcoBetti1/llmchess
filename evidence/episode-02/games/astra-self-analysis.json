@@ -1,0 +1,1811 @@
+{
+  "engine": {
+    "name": "Stockfish 18",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "nodes_per_position": 100000,
+  "rows": [
+    {
+      "after_ply": 0,
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "score_cp": 47,
+      "mate": null,
+      "score_for_graph": 47,
+      "nodes": 100054,
+      "depth": 16,
+      "pv": [
+        "e2e4",
+        "c7c5"
+      ]
+    },
+    {
+      "after_ply": 1,
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "score_cp": 35,
+      "mate": null,
+      "score_for_graph": 35,
+      "nodes": 100053,
+      "depth": 15,
+      "pv": [
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6",
+        "b5c6",
+        "d7c6",
+        "e1g1",
+        "g8e7",
+        "f3e5",
+        "d8d4",
+        "d1h5",
+        "g7g6",
+        "h5g5",
+        "f8g7"
+      ]
+    },
+    {
+      "after_ply": 2,
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "score_cp": 34,
+      "mate": null,
+      "score_for_graph": 34,
+      "nodes": 100009,
+      "depth": 15,
+      "pv": [
+        "g1f3",
+        "b8c6"
+      ]
+    },
+    {
+      "after_ply": 3,
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "score_cp": 38,
+      "mate": null,
+      "score_for_graph": 38,
+      "nodes": 100010,
+      "depth": 15,
+      "pv": [
+        "b8c6"
+      ]
+    },
+    {
+      "after_ply": 4,
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "score_cp": 42,
+      "mate": null,
+      "score_for_graph": 42,
+      "nodes": 100011,
+      "depth": 15,
+      "pv": [
+        "f1b5"
+      ]
+    },
+    {
+      "after_ply": 5,
+      "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "score_cp": 43,
+      "mate": null,
+      "score_for_graph": 43,
+      "nodes": 100093,
+      "depth": 14,
+      "pv": [
+        "a7a6",
+        "b5a4"
+      ]
+    },
+    {
+      "after_ply": 6,
+      "fen": "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+      "score_cp": 42,
+      "mate": null,
+      "score_for_graph": 42,
+      "nodes": 100073,
+      "depth": 14,
+      "pv": [
+        "b5a4"
+      ]
+    },
+    {
+      "after_ply": 7,
+      "fen": "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 4",
+      "score_cp": 49,
+      "mate": null,
+      "score_for_graph": 49,
+      "nodes": 100239,
+      "depth": 14,
+      "pv": [
+        "f8e7",
+        "e1g1",
+        "g8f6",
+        "f1e1",
+        "d7d6",
+        "a4c6",
+        "b7c6",
+        "d2d4",
+        "f6d7",
+        "d1e2",
+        "e8g8",
+        "d4e5",
+        "d7e5",
+        "f3e5",
+        "d6e5"
+      ]
+    },
+    {
+      "after_ply": 8,
+      "fen": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5",
+      "score_cp": 49,
+      "mate": null,
+      "score_for_graph": 49,
+      "nodes": 100043,
+      "depth": 15,
+      "pv": [
+        "e1g1",
+        "f6e4",
+        "d2d4",
+        "b7b5",
+        "a4b3",
+        "d7d5",
+        "d4e5",
+        "c8e6",
+        "c2c3",
+        "f8c5",
+        "b1d2",
+        "e8g8",
+        "b3c2",
+        "f7f5",
+        "e5f6",
+        "e4f6",
+        "d2b3",
+        "c5b6",
+        "a2a4"
+      ]
+    },
+    {
+      "after_ply": 9,
+      "fen": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 3 5",
+      "score_cp": 42,
+      "mate": null,
+      "score_for_graph": 42,
+      "nodes": 100062,
+      "depth": 13,
+      "pv": [
+        "f6e4",
+        "d2d4"
+      ]
+    },
+    {
+      "after_ply": 10,
+      "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6",
+      "score_cp": 58,
+      "mate": null,
+      "score_for_graph": 58,
+      "nodes": 100080,
+      "depth": 14,
+      "pv": [
+        "f1e1"
+      ]
+    },
+    {
+      "after_ply": 11,
+      "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq - 5 6",
+      "score_cp": 49,
+      "mate": null,
+      "score_for_graph": 49,
+      "nodes": 100150,
+      "depth": 16,
+      "pv": [
+        "b7b5",
+        "a4b3"
+      ]
+    },
+    {
+      "after_ply": 12,
+      "fen": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq - 0 7",
+      "score_cp": 48,
+      "mate": null,
+      "score_for_graph": 48,
+      "nodes": 100091,
+      "depth": 15,
+      "pv": [
+        "a4b3"
+      ]
+    },
+    {
+      "after_ply": 13,
+      "fen": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq - 1 7",
+      "score_cp": 54,
+      "mate": null,
+      "score_for_graph": 54,
+      "nodes": 100035,
+      "depth": 16,
+      "pv": [
+        "e8g8",
+        "c2c3",
+        "c6a5",
+        "b3c2",
+        "d7d5",
+        "d2d4",
+        "d5e4",
+        "f3e5",
+        "c7c5",
+        "b1d2",
+        "c5d4",
+        "d2e4",
+        "d4c3",
+        "d1e2",
+        "c8b7"
+      ]
+    },
+    {
+      "after_ply": 14,
+      "fen": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8",
+      "score_cp": 48,
+      "mate": null,
+      "score_for_graph": 48,
+      "nodes": 100109,
+      "depth": 16,
+      "pv": [
+        "c2c3",
+        "c6a5"
+      ]
+    },
+    {
+      "after_ply": 15,
+      "fen": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 8",
+      "score_cp": 55,
+      "mate": null,
+      "score_for_graph": 55,
+      "nodes": 100036,
+      "depth": 14,
+      "pv": [
+        "d7d6",
+        "h2h3"
+      ]
+    },
+    {
+      "after_ply": 16,
+      "fen": "r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9",
+      "score_cp": 57,
+      "mate": null,
+      "score_for_graph": 57,
+      "nodes": 100131,
+      "depth": 16,
+      "pv": [
+        "e4d5",
+        "f6d5"
+      ]
+    },
+    {
+      "after_ply": 17,
+      "fen": "r1bq1rk1/2p1bppp/p1n2n2/1p1Pp3/8/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 9",
+      "score_cp": 68,
+      "mate": null,
+      "score_for_graph": 68,
+      "nodes": 100002,
+      "depth": 14,
+      "pv": [
+        "f6d5",
+        "f3e5"
+      ]
+    },
+    {
+      "after_ply": 18,
+      "fen": "r1bq1rk1/2p1bppp/p1n5/1p1np3/8/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 10",
+      "score_cp": 51,
+      "mate": null,
+      "score_for_graph": 51,
+      "nodes": 100080,
+      "depth": 15,
+      "pv": [
+        "f3e5"
+      ]
+    },
+    {
+      "after_ply": 19,
+      "fen": "r1bq1rk1/2p1bppp/p1n5/1p1nN3/8/1BP5/PP1P1PPP/RNBQR1K1 b - - 0 10",
+      "score_cp": 62,
+      "mate": null,
+      "score_for_graph": 62,
+      "nodes": 100010,
+      "depth": 15,
+      "pv": [
+        "c6e5",
+        "e1e5"
+      ]
+    },
+    {
+      "after_ply": 20,
+      "fen": "r1bq1rk1/2p1bppp/p7/1p1nn3/8/1BP5/PP1P1PPP/RNBQR1K1 w - - 0 11",
+      "score_cp": 69,
+      "mate": null,
+      "score_for_graph": 69,
+      "nodes": 100057,
+      "depth": 15,
+      "pv": [
+        "e1e5",
+        "d5f6"
+      ]
+    },
+    {
+      "after_ply": 21,
+      "fen": "r1bq1rk1/2p1bppp/p7/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 b - - 0 11",
+      "score_cp": 71,
+      "mate": null,
+      "score_for_graph": 71,
+      "nodes": 100047,
+      "depth": 14,
+      "pv": [
+        "d5f6",
+        "d2d4"
+      ]
+    },
+    {
+      "after_ply": 22,
+      "fen": "r1bq1rk1/4bppp/p1p5/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 w - - 0 12",
+      "score_cp": 73,
+      "mate": null,
+      "score_for_graph": 73,
+      "nodes": 100030,
+      "depth": 16,
+      "pv": [
+        "d2d4"
+      ]
+    },
+    {
+      "after_ply": 23,
+      "fen": "r1bq1rk1/4bppp/p1p5/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 b - - 0 12",
+      "score_cp": 78,
+      "mate": null,
+      "score_for_graph": 78,
+      "nodes": 100016,
+      "depth": 14,
+      "pv": [
+        "e7d6",
+        "e5e1",
+        "d8h4",
+        "g2g3",
+        "h4h3",
+        "e1e4",
+        "h3f5",
+        "b3c2",
+        "f5g6",
+        "e4e1",
+        "c8f5",
+        "c2f5",
+        "g6f5",
+        "b1d2",
+        "a8e8",
+        "a2a4",
+        "h7h6",
+        "e1e8",
+        "f8e8",
+        "d2f1",
+        "f5e4"
+      ]
+    },
+    {
+      "after_ply": 24,
+      "fen": "r1bq1rk1/5ppp/p1pb4/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 w - - 1 13",
+      "score_cp": 71,
+      "mate": null,
+      "score_for_graph": 71,
+      "nodes": 100085,
+      "depth": 15,
+      "pv": [
+        "e5e1",
+        "d8h4"
+      ]
+    },
+    {
+      "after_ply": 25,
+      "fen": "r1bq1rk1/5ppp/p1pb4/1p1n4/3P4/1BP5/PP3PPP/RNBQR1K1 b - - 2 13",
+      "score_cp": 75,
+      "mate": null,
+      "score_for_graph": 75,
+      "nodes": 100092,
+      "depth": 14,
+      "pv": [
+        "d8h4",
+        "g2g3",
+        "h4h3",
+        "e1e4",
+        "h3f5",
+        "b3c2",
+        "f5g6",
+        "e4e1",
+        "c8f5",
+        "c2f5",
+        "g6f5",
+        "b1d2",
+        "f8e8",
+        "e1e8",
+        "a8e8",
+        "d2f1"
+      ]
+    },
+    {
+      "after_ply": 26,
+      "fen": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP5/PP3PPP/RNBQR1K1 w - - 3 14",
+      "score_cp": 68,
+      "mate": null,
+      "score_for_graph": 68,
+      "nodes": 100063,
+      "depth": 15,
+      "pv": [
+        "g2g3",
+        "h4h3"
+      ]
+    },
+    {
+      "after_ply": 27,
+      "fen": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP3P1/PP3P1P/RNBQR1K1 b - - 0 14",
+      "score_cp": 45,
+      "mate": null,
+      "score_for_graph": 45,
+      "nodes": 100059,
+      "depth": 16,
+      "pv": [
+        "h4h3",
+        "e1e4",
+        "g7g5",
+        "d1f1",
+        "h3f1",
+        "g1f1",
+        "c8f5",
+        "b1d2",
+        "h7h6",
+        "e4e2"
+      ]
+    },
+    {
+      "after_ply": 28,
+      "fen": "r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP3Pq/PP3P1P/RNBQR1K1 w - - 1 15",
+      "score_cp": 36,
+      "mate": null,
+      "score_for_graph": 36,
+      "nodes": 100069,
+      "depth": 15,
+      "pv": [
+        "e1e4",
+        "g7g5"
+      ]
+    },
+    {
+      "after_ply": 29,
+      "fen": "r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP1B1Pq/PP3P1P/RN1QR1K1 b - - 2 15",
+      "score_cp": 0,
+      "mate": null,
+      "score_for_graph": 0,
+      "nodes": 100049,
+      "depth": 16,
+      "pv": [
+        "a8a7",
+        "b1d2",
+        "c8g4",
+        "f2f3",
+        "d6g3",
+        "h2g3",
+        "h3g3",
+        "g1h1",
+        "a7e7",
+        "b3d5",
+        "g3h3",
+        "h1g1",
+        "h3g3"
+      ]
+    },
+    {
+      "after_ply": 30,
+      "fen": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1bq/PP3P1P/RN1QR1K1 w - - 0 16",
+      "score_cp": 312,
+      "mate": null,
+      "score_for_graph": 312,
+      "nodes": 100087,
+      "depth": 18,
+      "pv": [
+        "f2g3",
+        "c8g4",
+        "d1c2",
+        "a8e8",
+        "c2f2",
+        "e8e6",
+        "b1d2",
+        "f8e8",
+        "e3f4",
+        "g4e2",
+        "f4e5",
+        "e2g4",
+        "c3c4",
+        "b5c4",
+        "b3c4",
+        "h3h5",
+        "a2a3",
+        "f7f6",
+        "e5f4",
+        "g7g5",
+        "f4c7",
+        "d5c7",
+        "c4e6",
+        "c7e6",
+        "f2f6"
+      ]
+    },
+    {
+      "after_ply": 31,
+      "fen": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1Pq/PP5P/RN1QR1K1 b - - 0 16",
+      "score_cp": 312,
+      "mate": null,
+      "score_for_graph": 312,
+      "nodes": 100085,
+      "depth": 17,
+      "pv": [
+        "f8e8",
+        "b3d5",
+        "c6d5",
+        "d1f3",
+        "c8g4",
+        "f3f2",
+        "e8e7",
+        "b1d2",
+        "a8e8",
+        "e3f4",
+        "g4e2",
+        "f4e5",
+        "e2g4",
+        "e1e3",
+        "f7f6",
+        "e5f4",
+        "g7g5",
+        "e3e7"
+      ]
+    },
+    {
+      "after_ply": 32,
+      "fen": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1n1Pq/PP5P/RN1QR1K1 w - - 0 17",
+      "score_cp": 364,
+      "mate": null,
+      "score_for_graph": 364,
+      "nodes": 100083,
+      "depth": 16,
+      "pv": [
+        "e1e3",
+        "c8b7",
+        "d1f1",
+        "h3h6",
+        "f1f4",
+        "h6f4",
+        "g3f4",
+        "f8e8",
+        "e3e5",
+        "c6c5",
+        "b1d2",
+        "c5c4"
+      ]
+    },
+    {
+      "after_ply": 33,
+      "fen": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1R1Pq/PP5P/RN1Q2K1 b - - 0 17",
+      "score_cp": 394,
+      "mate": null,
+      "score_for_graph": 394,
+      "nodes": 100094,
+      "depth": 17,
+      "pv": [
+        "c6c5",
+        "b1d2",
+        "h3d7",
+        "d1f1",
+        "c5c4",
+        "b3c2",
+        "c8b7",
+        "f1f2",
+        "a8e8"
+      ]
+    },
+    {
+      "after_ply": 34,
+      "fen": "r4rk1/5ppp/p1p5/1p6/3P2b1/1BP1R1Pq/PP5P/RN1Q2K1 w - - 1 18",
+      "score_cp": 390,
+      "mate": null,
+      "score_for_graph": 390,
+      "nodes": 100134,
+      "depth": 17,
+      "pv": [
+        "d1e1",
+        "a6a5",
+        "a2a4",
+        "c6c5",
+        "e1f2",
+        "c5c4"
+      ]
+    },
+    {
+      "after_ply": 35,
+      "fen": "r4rk1/5ppp/p1p5/1p6/3P2b1/1BP1R1Pq/PP5P/RN3QK1 b - - 2 18",
+      "score_cp": 406,
+      "mate": null,
+      "score_for_graph": 406,
+      "nodes": 100103,
+      "depth": 16,
+      "pv": [
+        "h3f1",
+        "g1f1",
+        "c6c5",
+        "b1a3",
+        "a8d8",
+        "a1e1",
+        "c5d4",
+        "c3d4",
+        "d8d4",
+        "a3b1",
+        "g4h3",
+        "f1g1"
+      ]
+    },
+    {
+      "after_ply": 36,
+      "fen": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP1R1P1/PP5P/RN3QK1 w - - 3 19",
+      "score_cp": 428,
+      "mate": null,
+      "score_for_graph": 428,
+      "nodes": 100010,
+      "depth": 17,
+      "pv": [
+        "f1f4",
+        "h6f4",
+        "g3f4",
+        "a8d8",
+        "b1d2",
+        "c6c5",
+        "d2f3",
+        "g4f3",
+        "e3f3",
+        "c5d4",
+        "c3d4",
+        "d8d4",
+        "f3f2",
+        "f8d8"
+      ]
+    },
+    {
+      "after_ply": 37,
+      "fen": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 b - - 4 19",
+      "score_cp": 372,
+      "mate": null,
+      "score_for_graph": 372,
+      "nodes": 100100,
+      "depth": 18,
+      "pv": [
+        "c6c5",
+        "f1f2",
+        "c5c4",
+        "b3c2",
+        "f7f5",
+        "f2f4",
+        "g7g5",
+        "f4f2",
+        "f8f6",
+        "b1d2",
+        "a8f8",
+        "e1e5",
+        "f5f4",
+        "c2e4",
+        "f4g3",
+        "f2g3",
+        "f6f2",
+        "e4d5",
+        "g8h8"
+      ]
+    },
+    {
+      "after_ply": 38,
+      "fen": "4rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 w - - 5 20",
+      "score_cp": 621,
+      "mate": null,
+      "score_for_graph": 621,
+      "nodes": 100045,
+      "depth": 16,
+      "pv": [
+        "e1e8",
+        "g4h5",
+        "e8e1",
+        "c6c5",
+        "f1f2",
+        "c5c4",
+        "b3d1",
+        "h5d1",
+        "e1d1",
+        "f7f5",
+        "d1f1",
+        "f5f4",
+        "b1d2",
+        "f4f3"
+      ]
+    },
+    {
+      "after_ply": 39,
+      "fen": "4Rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN3QK1 b - - 0 20",
+      "score_cp": 640,
+      "mate": null,
+      "score_for_graph": 640,
+      "nodes": 100034,
+      "depth": 17,
+      "pv": [
+        "g4h5",
+        "e8e1",
+        "c6c5",
+        "f1f2",
+        "h6c6",
+        "b1d2",
+        "f8e8",
+        "e1e8",
+        "c6e8",
+        "d4c5",
+        "g8f8",
+        "a1e1"
+      ]
+    },
+    {
+      "after_ply": 40,
+      "fen": "4r1k1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN3QK1 w - - 0 21",
+      "score_cp": null,
+      "mate": 2,
+      "score_for_graph": 9998,
+      "nodes": 16007,
+      "depth": 245,
+      "pv": [
+        "f1f7",
+        "g8h8",
+        "f7e8"
+      ]
+    },
+    {
+      "after_ply": 41,
+      "fen": "4r1k1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP1N3P/R4QK1 b - - 1 21",
+      "score_cp": 256,
+      "mate": null,
+      "score_for_graph": 256,
+      "nodes": 100033,
+      "depth": 16,
+      "pv": [
+        "h6e3",
+        "g1h1"
+      ]
+    },
+    {
+      "after_ply": 42,
+      "fen": "4r1k1/5ppp/p1p1b2q/1p6/3P4/1BP3P1/PP1N3P/R4QK1 w - - 2 22",
+      "score_cp": 456,
+      "mate": null,
+      "score_for_graph": 456,
+      "nodes": 100122,
+      "depth": 18,
+      "pv": [
+        "f1f2",
+        "e6b3",
+        "d2b3",
+        "h6e6",
+        "b3c5",
+        "e6c4",
+        "a1e1",
+        "e8e1",
+        "f2e1",
+        "h7h6",
+        "b2b3",
+        "c4d5",
+        "e1e8",
+        "g8h7",
+        "e8e4",
+        "d5e4",
+        "c5e4",
+        "h7h8"
+      ]
+    },
+    {
+      "after_ply": 43,
+      "fen": "4r1k1/5ppp/p1p1B2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 b - - 0 22",
+      "score_cp": 449,
+      "mate": null,
+      "score_for_graph": 449,
+      "nodes": 100110,
+      "depth": 16,
+      "pv": [
+        "e8e6",
+        "f1f2",
+        "e6f6",
+        "f2e2",
+        "f6e6",
+        "e2d3",
+        "e6e3",
+        "d3f5",
+        "e3e6",
+        "d2f1",
+        "h6g6",
+        "f5g6",
+        "h7g6",
+        "a2a4",
+        "e6e2",
+        "a4b5",
+        "a6b5"
+      ]
+    },
+    {
+      "after_ply": 44,
+      "fen": "6k1/5ppp/p1p1r2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 w - - 0 23",
+      "score_cp": 433,
+      "mate": null,
+      "score_for_graph": 433,
+      "nodes": 100009,
+      "depth": 16,
+      "pv": [
+        "d2f3",
+        "h6h5",
+        "f1f2",
+        "e6f6",
+        "a1f1",
+        "h5d5",
+        "a2a3",
+        "g7g5",
+        "f2e2",
+        "f6e6",
+        "e2g2",
+        "e6f6",
+        "g3g4"
+      ]
+    },
+    {
+      "after_ply": 45,
+      "fen": "6k1/5ppp/p1p1r2q/1p6/3P4/2P2NP1/PP5P/R4QK1 b - - 1 23",
+      "score_cp": 449,
+      "mate": null,
+      "score_for_graph": 449,
+      "nodes": 100004,
+      "depth": 16,
+      "pv": [
+        "h6h5",
+        "a1e1",
+        "e6e1",
+        "f3e1",
+        "h5d1",
+        "e1f3",
+        "d1f1",
+        "g1f1",
+        "f7f6",
+        "g3g4",
+        "g8f7",
+        "g4g5",
+        "f6g5"
+      ]
+    },
+    {
+      "after_ply": 46,
+      "fen": "6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/R4QK1 w - - 2 24",
+      "score_cp": 461,
+      "mate": null,
+      "score_for_graph": 461,
+      "nodes": 100069,
+      "depth": 16,
+      "pv": [
+        "a1e1",
+        "g7g6",
+        "f1d3",
+        "h6f8",
+        "e1f1",
+        "f6e6",
+        "g3g4",
+        "f8e8",
+        "d3d1",
+        "f7f6"
+      ]
+    },
+    {
+      "after_ply": 47,
+      "fen": "6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/4RQK1 b - - 3 24",
+      "score_cp": 456,
+      "mate": null,
+      "score_for_graph": 456,
+      "nodes": 100121,
+      "depth": 17,
+      "pv": [
+        "g7g5",
+        "f1g2",
+        "g5g4",
+        "f3e5",
+        "h6g5",
+        "g2e2",
+        "f6e6",
+        "e2f2",
+        "e6f6",
+        "f2e3",
+        "g5e3",
+        "e1e3",
+        "f6e6",
+        "e5g4",
+        "a6a5",
+        "e3e6",
+        "f7e6",
+        "g4e3"
+      ]
+    },
+    {
+      "after_ply": 48,
+      "fen": "6k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/4RQK1 w - - 0 25",
+      "score_cp": 470,
+      "mate": null,
+      "score_for_graph": 470,
+      "nodes": 100021,
+      "depth": 15,
+      "pv": [
+        "e1e8",
+        "g8g7",
+        "g1g2",
+        "a6a5",
+        "f1e2",
+        "f6f3",
+        "e2f3",
+        "a5a4",
+        "f3e2"
+      ]
+    },
+    {
+      "after_ply": 49,
+      "fen": "4R1k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 b - - 1 25",
+      "score_cp": 462,
+      "mate": null,
+      "score_for_graph": 462,
+      "nodes": 100122,
+      "depth": 17,
+      "pv": [
+        "g8g7",
+        "g1g2",
+        "g6g5",
+        "f1e2",
+        "b5b4",
+        "e8e5",
+        "b4b3",
+        "a2a3",
+        "g5g4",
+        "f3h4",
+        "h6c1",
+        "h4f5",
+        "f6f5",
+        "e2g4",
+        "g7f8",
+        "e5f5",
+        "c1b2",
+        "f5f2"
+      ]
+    },
+    {
+      "after_ply": 50,
+      "fen": "4R3/5pkp/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 w - - 2 26",
+      "score_cp": 453,
+      "mate": null,
+      "score_for_graph": 453,
+      "nodes": 100041,
+      "depth": 17,
+      "pv": [
+        "e8e5",
+        "a6a5",
+        "g1g2",
+        "g6g5",
+        "f1e2",
+        "g5g4",
+        "f3e1",
+        "b5b4",
+        "e1d3",
+        "f6f3"
+      ]
+    },
+    {
+      "after_ply": 51,
+      "fen": "4R3/5pkp/p1p2rpq/1p6/3P4/2P2NP1/PP2Q2P/6K1 b - - 3 26",
+      "score_cp": 368,
+      "mate": null,
+      "score_for_graph": 368,
+      "nodes": 100036,
+      "depth": 17,
+      "pv": [
+        "h6c1",
+        "g1g2",
+        "h7h5",
+        "a2a3",
+        "b5b4",
+        "h2h4",
+        "c1b1",
+        "c3c4",
+        "b1a2",
+        "b2b3",
+        "a2e2",
+        "e8e2",
+        "b4a3"
+      ]
+    },
+    {
+      "after_ply": 52,
+      "fen": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q2P/2q3K1 w - - 4 27",
+      "score_cp": 398,
+      "mate": null,
+      "score_for_graph": 398,
+      "nodes": 100089,
+      "depth": 18,
+      "pv": [
+        "g1g2",
+        "c1a1",
+        "g3g4",
+        "h7h5",
+        "g4g5",
+        "f6f5",
+        "a2a3",
+        "h5h4",
+        "e8e5",
+        "a1a2",
+        "e5f5",
+        "g6f5",
+        "e2e5",
+        "g7f8",
+        "e5f5",
+        "a2b2",
+        "g2h3",
+        "b2c3"
+      ]
+    },
+    {
+      "after_ply": 53,
+      "fen": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q1KP/2q5 b - - 5 27",
+      "score_cp": 392,
+      "mate": null,
+      "score_for_graph": 392,
+      "nodes": 100108,
+      "depth": 18,
+      "pv": [
+        "b5b4",
+        "e8e3",
+        "c1a1",
+        "b2b3",
+        "b4c3",
+        "e2c2",
+        "a6a5",
+        "e3c3",
+        "f6e6",
+        "c2d2",
+        "a5a4",
+        "d4d5",
+        "a4b3",
+        "d5e6",
+        "b3b2",
+        "d2d4",
+        "g7f8"
+      ]
+    },
+    {
+      "after_ply": 54,
+      "fen": "4R3/5pkp/p1p2rp1/1p6/3P4/2q2NP1/PP2Q1KP/8 w - - 0 28",
+      "score_cp": 969,
+      "mate": null,
+      "score_for_graph": 969,
+      "nodes": 100118,
+      "depth": 17,
+      "pv": [
+        "b2c3",
+        "c6c5",
+        "e2e7",
+        "f6c6",
+        "e7f8",
+        "g7f6",
+        "f8h8",
+        "f6f5",
+        "h8e5",
+        "f5g4"
+      ]
+    },
+    {
+      "after_ply": 55,
+      "fen": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/P3Q1KP/8 b - - 0 28",
+      "score_cp": 995,
+      "mate": null,
+      "score_for_graph": 995,
+      "nodes": 100013,
+      "depth": 17,
+      "pv": [
+        "f6e6",
+        "e8e6",
+        "f7e6",
+        "e2e5",
+        "g7f8",
+        "e5c7",
+        "g6g5"
+      ]
+    },
+    {
+      "after_ply": 56,
+      "fen": "4R3/5pkp/p1p3p1/1p3r2/3P4/2P2NP1/P3Q1KP/8 w - - 1 29",
+      "score_cp": null,
+      "mate": 6,
+      "score_for_graph": 9994,
+      "nodes": 100020,
+      "depth": 28,
+      "pv": [
+        "g3g4",
+        "f5d5",
+        "e2e7",
+        "g6g5",
+        "f3g5",
+        "d5f5",
+        "g5e6",
+        "g7h6",
+        "e7f8",
+        "h6g6",
+        "f8g7"
+      ]
+    },
+    {
+      "after_ply": 57,
+      "fen": "4R3/4Qpkp/p1p3p1/1p3r2/3P4/2P2NP1/P5KP/8 b - - 2 29",
+      "score_cp": null,
+      "mate": 5,
+      "score_for_graph": 9995,
+      "nodes": 98565,
+      "depth": 31,
+      "pv": [
+        "g6g5",
+        "g3g4",
+        "f5d5",
+        "f3e5",
+        "d5e5",
+        "d4e5",
+        "h7h5",
+        "e7f6",
+        "g7h7",
+        "e8h8"
+      ]
+    },
+    {
+      "after_ply": 58,
+      "fen": "4R3/4Qp1p/p1p3pk/1p3r2/3P4/2P2NP1/P5KP/8 w - - 3 30",
+      "score_cp": null,
+      "mate": 4,
+      "score_for_graph": 9996,
+      "nodes": 100089,
+      "depth": 38,
+      "pv": [
+        "e8g8",
+        "f7f6",
+        "e7g7",
+        "h6h5",
+        "g7h7",
+        "h5g4",
+        "h7h4"
+      ]
+    },
+    {
+      "after_ply": 59,
+      "fen": "4RQ2/5p1p/p1p3pk/1p3r2/3P4/2P2NP1/P5KP/8 b - - 4 30",
+      "score_cp": null,
+      "mate": 4,
+      "score_for_graph": 9996,
+      "nodes": 96390,
+      "depth": 44,
+      "pv": [
+        "h6h5",
+        "g3g4",
+        "h5g4",
+        "e8e4",
+        "f5f4",
+        "f8h6",
+        "f4e4",
+        "h6g5"
+      ]
+    },
+    {
+      "after_ply": 60,
+      "fen": "4RQ2/5p1p/p1p3p1/1p3r1k/3P4/2P2NP1/P5KP/8 w - - 5 31",
+      "score_cp": null,
+      "mate": 4,
+      "score_for_graph": 9996,
+      "nodes": 100057,
+      "depth": 41,
+      "pv": [
+        "g3g4",
+        "h5g4",
+        "e8e4",
+        "f5f4",
+        "f8h6",
+        "f4e4",
+        "h6g5"
+      ]
+    },
+    {
+      "after_ply": 61,
+      "fen": "4RQ2/5p1p/p1p3p1/1p3r1k/3P2P1/2P2N2/P5KP/8 b - - 0 31",
+      "score_cp": null,
+      "mate": 3,
+      "score_for_graph": 9997,
+      "nodes": 99289,
+      "depth": 107,
+      "pv": [
+        "h5g4",
+        "e8e4",
+        "f5f4",
+        "f8h6",
+        "f4e4",
+        "h6g5"
+      ]
+    },
+    {
+      "after_ply": 62,
+      "fen": "4RQ2/5p1p/p1p3p1/1p3r2/3P2k1/2P2N2/P5KP/8 w - - 0 32",
+      "score_cp": null,
+      "mate": 3,
+      "score_for_graph": 9997,
+      "nodes": 100053,
+      "depth": 96,
+      "pv": [
+        "e8e4",
+        "f5f4",
+        "f8h6",
+        "f4e4",
+        "h6g5"
+      ]
+    },
+    {
+      "after_ply": 63,
+      "fen": "5Q2/5p1p/p1p3p1/1p3r2/3PR1k1/2P2N2/P5KP/8 b - - 1 32",
+      "score_cp": null,
+      "mate": 2,
+      "score_for_graph": 9998,
+      "nodes": 20318,
+      "depth": 245,
+      "pv": [
+        "f5f4",
+        "f8h6",
+        "f4e4",
+        "h6g5"
+      ]
+    },
+    {
+      "after_ply": 64,
+      "fen": "5Q2/5p1p/p1p3p1/1p6/3PRrk1/2P2N2/P5KP/8 w - - 2 33",
+      "score_cp": null,
+      "mate": 2,
+      "score_for_graph": 9998,
+      "nodes": 27083,
+      "depth": 245,
+      "pv": [
+        "f8h6",
+        "f4e4",
+        "h6g5"
+      ]
+    },
+    {
+      "after_ply": 65,
+      "fen": "8/5p1p/p1p3pQ/1p6/3PRrk1/2P2N2/P5KP/8 b - - 3 33",
+      "score_cp": null,
+      "mate": 1,
+      "score_for_graph": 9999,
+      "nodes": 4005,
+      "depth": 245,
+      "pv": [
+        "f4e4",
+        "h6g5"
+      ]
+    },
+    {
+      "after_ply": 66,
+      "fen": "8/5p1p/p1p3pQ/1p3k2/3PRr2/2P2N2/P5KP/8 w - - 4 34",
+      "score_cp": null,
+      "mate": 1,
+      "score_for_graph": 9999,
+      "nodes": 8590,
+      "depth": 245,
+      "pv": [
+        "h6f4"
+      ]
+    },
+    {
+      "after_ply": 67,
+      "fen": "8/5p1p/p1p3pQ/1p3k2/3P1R2/2P2N2/P5KP/8 b - - 0 34",
+      "score_cp": null,
+      "mate": 4,
+      "score_for_graph": 9996,
+      "nodes": 94469,
+      "depth": 38,
+      "pv": [
+        "f5e6",
+        "f3g5",
+        "e6d5",
+        "h6f8",
+        "d5c4",
+        "f4f3",
+        "f7f5",
+        "f8f7"
+      ]
+    },
+    {
+      "after_ply": 68,
+      "fen": "8/5p1p/p1p1k1pQ/1p6/3P1R2/2P2N2/P5KP/8 w - - 1 35",
+      "score_cp": null,
+      "mate": 4,
+      "score_for_graph": 9996,
+      "nodes": 100009,
+      "depth": 31,
+      "pv": [
+        "h6f8",
+        "f7f5",
+        "f3e5",
+        "c6c5",
+        "d4c5",
+        "e6e5",
+        "f8d6"
+      ]
+    },
+    {
+      "after_ply": 69,
+      "fen": "8/5p1p/p1p1k1p1/1p4Q1/3P1R2/2P2N2/P5KP/8 b - - 2 35",
+      "score_cp": null,
+      "mate": 6,
+      "score_for_graph": 9994,
+      "nodes": 96703,
+      "depth": 32,
+      "pv": [
+        "f7f5",
+        "g5d8",
+        "h7h6",
+        "f3e5",
+        "b5b4",
+        "d8d7",
+        "e6f6",
+        "d7d6",
+        "f6g5",
+        "e5f3",
+        "g5h5",
+        "f4h4"
+      ]
+    },
+    {
+      "after_ply": 70,
+      "fen": "8/7p/p1p1kpp1/1p4Q1/3P1R2/2P2N2/P5KP/8 w - - 0 36",
+      "score_cp": null,
+      "mate": 4,
+      "score_for_graph": 9996,
+      "nodes": 100037,
+      "depth": 41,
+      "pv": [
+        "f4f6",
+        "e6e7",
+        "g5e5",
+        "e7d7",
+        "f6f7",
+        "d7c8",
+        "e5e8"
+      ]
+    },
+    {
+      "after_ply": 71,
+      "fen": "8/7p/p1p1kQp1/1p6/3P1R2/2P2N2/P5KP/8 b - - 0 36",
+      "score_cp": null,
+      "mate": 3,
+      "score_for_graph": 9997,
+      "nodes": 99071,
+      "depth": 93,
+      "pv": [
+        "e6d7",
+        "f6g7",
+        "d7d6",
+        "g7f7",
+        "c6c5",
+        "f4f6"
+      ]
+    },
+    {
+      "after_ply": 72,
+      "fen": "8/3k3p/p1p2Qp1/1p6/3P1R2/2P2N2/P5KP/8 w - - 1 37",
+      "score_cp": null,
+      "mate": 3,
+      "score_for_graph": 9997,
+      "nodes": 100024,
+      "depth": 76,
+      "pv": [
+        "f6e5",
+        "b5b4",
+        "f4f7",
+        "d7c8",
+        "e5c7"
+      ]
+    },
+    {
+      "after_ply": 73,
+      "fen": "8/3k1Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 2 37",
+      "score_cp": null,
+      "mate": 2,
+      "score_for_graph": 9998,
+      "nodes": 23107,
+      "depth": 245,
+      "pv": [
+        "d7d8",
+        "f7g7",
+        "h7h6",
+        "f4f8"
+      ]
+    },
+    {
+      "after_ply": 74,
+      "fen": "2k5/5Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 3 38",
+      "score_cp": null,
+      "mate": 2,
+      "score_for_graph": 9998,
+      "nodes": 22896,
+      "depth": 245,
+      "pv": [
+        "f7h7",
+        "c8b8",
+        "f4f8"
+      ]
+    },
+    {
+      "after_ply": 75,
+      "fen": "2k5/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 4 38",
+      "score_cp": null,
+      "mate": 1,
+      "score_for_graph": 9999,
+      "nodes": 3398,
+      "depth": 245,
+      "pv": [
+        "c8d8",
+        "f4f8"
+      ]
+    },
+    {
+      "after_ply": 76,
+      "fen": "3k4/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 5 39",
+      "score_cp": null,
+      "mate": 1,
+      "score_for_graph": 9999,
+      "nodes": 9071,
+      "depth": 245,
+      "pv": [
+        "f4f8"
+      ]
+    },
+    {
+      "after_ply": 77,
+      "fen": "3k1R2/Q6p/p1p3p1/1p6/3P4/2P2N2/P5KP/8 b - - 6 39",
+      "score_cp": null,
+      "mate": 0,
+      "score_for_graph": 10000,
+      "nodes": null,
+      "depth": 0,
+      "pv": []
+    }
+  ],
+  "largest_cp_losses": [
+    {
+      "ply": 54,
+      "san": "Qxc3",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 577,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Win a pawn and intensify pressure on the knight."
+    },
+    {
+      "ply": 30,
+      "san": "Bxg3",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 312,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Sacrifice the bishop to expose White's king and create mating threats."
+    },
+    {
+      "ply": 38,
+      "san": "Rae8",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 249,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Contest the open file and intensify pressure against White's king."
+    },
+    {
+      "ply": 42,
+      "san": "Be6",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 200,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Block the bishop\u2019s attack on f7 while maintaining pressure on d2."
+    },
+    {
+      "ply": 51,
+      "san": "Qe2",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 85,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Unpin the knight and prepare active threats with queen and rook."
+    },
+    {
+      "ply": 37,
+      "san": "Re1",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 56,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Withdraw the attacked rook and prepare to develop the knight."
+    },
+    {
+      "ply": 32,
+      "san": "Nxe3",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 52,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Capture the bishop and threaten a knight-supported mate on g2."
+    },
+    {
+      "ply": 29,
+      "san": "Be3",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 36,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Develop the bishop, reinforce d4, and prepare queenside coordination."
+    },
+    {
+      "ply": 52,
+      "san": "Qc1+",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 30,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Activate the queen with check and pressure White's queenside pawns."
+    },
+    {
+      "ply": 27,
+      "san": "g3",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 23,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Defend h2 and drive the queen back in the Marshall Attack."
+    },
+    {
+      "ply": 36,
+      "san": "Qh6",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 22,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Preserve the queen with tempo by attacking the rook on e3."
+    },
+    {
+      "ply": 10,
+      "san": "Be7",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": 16,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Develop the bishop and prepare castling in the Closed Ruy Lopez."
+    }
+  ],
+  "mate_transitions": [
+    {
+      "ply": 40,
+      "san": "Rxe8",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": null,
+      "mate_after": 2,
+      "comment": "Recapture the rook and maintain pressure against White's exposed king."
+    },
+    {
+      "ply": 41,
+      "san": "Nd2",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 2,
+      "mate_after": null,
+      "comment": "Develop the knight, reinforce the kingside, and connect the rooks' back rank."
+    },
+    {
+      "ply": 56,
+      "san": "Rf5",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": null,
+      "mate_after": 6,
+      "comment": "Keep the rook active and control key checking squares."
+    },
+    {
+      "ply": 57,
+      "san": "Qe7",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 6,
+      "mate_after": 5,
+      "comment": "Threaten Qf8+ and a decisive kingside mating attack."
+    },
+    {
+      "ply": 58,
+      "san": "Kh6",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 5,
+      "mate_after": 4,
+      "comment": "Escape the mating net before White plays Qf8."
+    },
+    {
+      "ply": 59,
+      "san": "Qf8+",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 4,
+      "mate_after": 4,
+      "comment": "Force the king to h5, tightening the mating net."
+    },
+    {
+      "ply": 60,
+      "san": "Kh5",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 4,
+      "mate_after": 4,
+      "comment": "The only legal move escapes check."
+    },
+    {
+      "ply": 61,
+      "san": "g4+",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 4,
+      "mate_after": 3,
+      "comment": "Force the king forward into a decisive mating net."
+    },
+    {
+      "ply": 62,
+      "san": "Kxg4",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 3,
+      "mate_after": 3,
+      "comment": "Capture the checking pawn; the only legal move."
+    },
+    {
+      "ply": 63,
+      "san": "Re4+",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 3,
+      "mate_after": 2,
+      "comment": "Force the king to h5 and deliver Rh4 mate."
+    },
+    {
+      "ply": 64,
+      "san": "Rf4",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 2,
+      "mate_after": 2,
+      "comment": "Block the check and delay the mating attack."
+    },
+    {
+      "ply": 65,
+      "san": "Qh6",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 2,
+      "mate_after": 1,
+      "comment": "Threaten decisive mate with Qg5 or Qh4."
+    },
+    {
+      "ply": 66,
+      "san": "Kf5",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 1,
+      "mate_after": 1,
+      "comment": "Escape the mating net and avoid Qg5 mate."
+    },
+    {
+      "ply": 67,
+      "san": "Rxf4+",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 1,
+      "mate_after": 4,
+      "comment": "Capture the rook and deliver checkmate."
+    },
+    {
+      "ply": 68,
+      "san": "Ke6",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 4,
+      "mate_after": 4,
+      "comment": "The only legal move escapes check."
+    },
+    {
+      "ply": 69,
+      "san": "Qg5",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 4,
+      "mate_after": 6,
+      "comment": "Centralize the queen and prepare a decisive mating net."
+    },
+    {
+      "ply": 70,
+      "san": "f6",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 6,
+      "mate_after": 4,
+      "comment": "Attack the queen and disrupt White's coordinated attack."
+    },
+    {
+      "ply": 71,
+      "san": "Qxf6+",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 4,
+      "mate_after": 3,
+      "comment": "Capture with check, maintaining overwhelming pressure on the exposed king."
+    },
+    {
+      "ply": 72,
+      "san": "Kd7",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 3,
+      "mate_after": 3,
+      "comment": "Retreat toward the queenside to maximize escape squares."
+    },
+    {
+      "ply": 73,
+      "san": "Qf7+",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 3,
+      "mate_after": 2,
+      "comment": "Restrict the king and threaten a decisive mating net."
+    },
+    {
+      "ply": 74,
+      "san": "Kc8",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 2,
+      "mate_after": 2,
+      "comment": "Head toward the queenside to prolong resistance."
+    },
+    {
+      "ply": 75,
+      "san": "Qa7",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 2,
+      "mate_after": 1,
+      "comment": "Cut off the seventh rank, threatening Rf8 checkmate."
+    },
+    {
+      "ply": 76,
+      "san": "Kd8",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 1,
+      "mate_after": 1,
+      "comment": "Seek escape toward the center, though White has unavoidable mate."
+    },
+    {
+      "ply": 77,
+      "san": "Rf8#",
+      "actor": "gpt-6-astra",
+      "cp_loss_estimate": null,
+      "mate_before": 1,
+      "mate_after": 0,
+      "comment": "Deliver checkmate with the rook; queen seals the seventh rank."
+    }
+  ]
+}

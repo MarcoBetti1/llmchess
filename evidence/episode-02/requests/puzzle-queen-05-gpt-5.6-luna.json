@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-queen-05-gpt-5.6-luna",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 8/8/8/8/7Q/2K5/8/2k5 w - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . Q\n. . K . . . . .\n. . . . . . . .\n. . k . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN 8/8/8/8/7Q/2K5/8/2k5 w - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): c3b3, c3b4, c3c4, c3d3, c3d4, h4a4, h4b4, h4c4, h4d4, h4d8, h4e1, h4e4, h4e7, h4f2, h4f4, h4f6, h4g3, h4g4, h4g5, h4h1, h4h2, h4h3, h4h5, h4h6, h4h7, h4h8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "a7729899d252391540fd1e55c360f4a1ef72cbb37630a947c140c338bfc8ef48",
+  "fen": "8/8/8/8/7Q/2K5/8/2k5 w - - 0 1",
+  "preflight": {
+    "input_tokens": 409,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_883167ae33d9470aba7a12f7149c1258"
+  },
+  "reserved_usd": "0.00255985",
+  "raw": {
+    "id": "resp_0f9680de15df3cc2016aa1f514e30087d1b1c4b9d88250de91",
+    "object": "response",
+    "created_at": 1788998933,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788998938,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0f9680de15df3cc2016aa1f515de6c87d19f4b3c7657b01127",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofUaYiCW5Rt0_9v0NM8Hxjy8O9Ykwqc6IZRv8f7s1hzoGqZHZanyuyYcEr4kFQz8RW_x-A3eDLKUeLwqJ9wlbH4MV96d_M78oNEoROeHIcnGK_s94TMFMw7HTtSxHWWM_W5IvOAlfokXazq5lqNt8qNU3eQEjJLEpS94NdDRBRxPFOONtMbPGvONKaHXs-JTGJgagywUTMtn3F_Y4zYmL30ApK9-z6wJoJNbdHY6SSRA5rV_pdNb2ZpPBfp0gxYi2qqOXH34wfRS4ffqs7UWMT774ElnT4I8rdhZTX4owBzCbLZT2HzArSqULlLiaic8HYiS7qCVvoZGHjjl-ekJAL-iyM30FzdCtRE8X-vsrZ0eHsqUrYTXdg3qduK9Y-EyrntWsJi-vrzM9eKF46pVYe6xd5wvwhIYBoCYkAbzxXAElqv2c2f7Hq-Ds_skLXJ2q_Wi60kKuKkxpwVmAGcqOZHBbKFr9PGcgB6Uc6M9MPJX_Is-MrjvthGsqLsG53IgC8QcJJTZhFJfHf8f-rEhK5gFFD10ocabfIJXPo6RLoHPIUdVLNGq5NkwNSucQYwIIoAPicMvbQeFRgolSaYIY9j9z_GAxfoWuf7jSIVgsGA2IqYGNVfm94bZxmKSGoK_CVYztyAFEvDJYc8d3XJ85IzZKBHoP5CasQNQr37GAsFoLbs-xvxcNkyDp7ZOpiAa_VYTJvkMFJ9fj0--Ip5VH9pfx_5oct6dB-V5FtTY8SO5eGp0rIKz3BaxfvegarJ8hMY9VADIJuqfVr9NtNSzEsp5nzAYtY76-4mYM4fcRFTIzT6VEEbWVCHIjFkbdNhNU2rxDWulz8HC02eHQGjLSRardBpSIlo9lzoYAsmMJ3psXPBD3SDDiaJFNv0txBRhkgCZ-08Zbt2XwVoq5kd6VcMPkQO6U-quPEs7oYGYHzA0jN4a0PoYuMa4UOaKiKpK4YOfl8Z1shwplexzPl0iti3M28emQ2CHXPdfS50dFjW7EdZvsqw2Xvdg2ThpOMrTw5DW5bTuqOEw_43Vg6cZzqZJQtVXsYfeSFru6aRAo4HaybJO3fpSR34uOL5nNDpGVLA5G08sy2-k5bRl8Wd80nV-YkDZlJcYzVCufskCv3OpPoFLxuMG8nPJr8mXlH3peyVWqKFSjAH8GJk33YHTIsdlmJn8NDpX9Zf7SL-tk_BnL95k893JfyWTjlJK43QhEF1gl_gICXBTQz8DF_PqMod07sSFu8y2TQdmWxFLR6hnuj0_3XpeL8P3UsVm7aAzC5tJf7mbbL12oSEl33ItlQvVha9YgqYzEIrhjA3niaV0tKe8KUZq7xrEy5_NL19nsG8I8xJXiDbkXs3Bzl8NMYxlHEsE-qObGdOVLWGfwOLhxLKrj71fhUwz_hxwiEmfEShmnE_W4u6DXOlWnacM8tXMkT8N8yIz_W5lH5XBoPDR5GlI-vagoGvukx1v6SyuS45pyD6qyLjB-d8VP0kP4fxtAQzkcYd7tynMuuvgJGVeMj641GSMwU7BkrshVtAUbf6PRG1XnRhJk8oRk_G__lSCjJPrFF84532BnuXREkfaOUy7pi4pspXkrGaMl5WLgWFBPZwX3c0YkZfIr0v50E1IxYxC2Hy4ipyhw2aBRgb5BZroYLxU-0ooEWEVSwbzyZnrjFoezLrclcOlLBXCUZm4zUyEsaLkh5OieyPqHyg5-jCXkUUK3l1omyIh8HrNkmGeckoJLTbT0JGlheIEZIOsJ0d0m-YpkevdTggkBCKDKKhCc0jql5mpTR8j5CWtPDigp1MrJ-ElvrKDbGXHygdBN_TmjgAnC6dghUHP2il4e3w2sQxYfi3jXN4C4w6kufsZ1QJ6Vx2T-iL19wvgfT95_oG4_NHwYU1UCKfDStirX0wmIPN80krCxfFC4_c58TJ_1uZd0AxUUGf8W6lOew0wsh_hbyUOFARgsMinWVc1XH3_OD7DSXj3OiLeglx26BpOMj0LU6uY1eBuXJHlmy1N2q7V3ID4s9U3BEqktgMyZ-E9v7NvB0Y72nuYJNik_tZ2w_EOgB7lPut0hAMi1r4wjtQHMOv9eSU9r3QXTx2bD94id_PvwNfCuBGHDRjg5qpSTkhRou_PLo-la9Y9MsUIutsBKxxUW0UQqrAzeKIxRmlMF6HUBExnfCvvbIpBUYsjpC78BEZFyeBh4HJmrf4n68iAO6MG18Gtd7m64H1W2L1Okp-jnp2jCyuR-d8CTpWR1NGRnGgiuVBheqw5cA64C29nh_lmc219cwZgwLj-Xlh47IP5GCMWLrDEF9Tjbl8pfv4THIVEjB0baCzlAxLtBrJRwXtcPKmZhseuwnDfzmfPFImMBHdegBggRHnrjYcHf338Wg4g0PlYMc6bmYzeHhWyf8F6-GzvBN85otOWRtM=",
+        "summary": []
+      },
+      {
+        "id": "msg_0f9680de15df3cc2016aa1f519a27887d1aa99ec925fef4a1a",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"h4e1\",\"comment\":\"Checkmate: queen controls every escape square around the black king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 409,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 333,
+      "output_tokens_details": {
+        "reasoning_tokens": 303
+      },
+      "total_tokens": 742
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.235806941986084,
+  "request_id": "req_45818b98806442ae9c4e745fa4f20c69",
+  "text": "{\"move\":\"h4e1\",\"comment\":\"Checkmate: queen controls every escape square around the black king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qe1#",
+    "move": "h4e1",
+    "comment": "Checkmate: queen controls every escape square around the black king."
+  },
+  "usage": {
+    "input_tokens": 409,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 333,
+    "output_tokens_details": {
+      "reasoning_tokens": 303
+    },
+    "total_tokens": 742
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00050185",
+  "input_count_delta": 0
+}

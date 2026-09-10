@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-056",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/P3Q1KP/8 b - - 0 28\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . R . . .\n. . . . . p k p\np . p . . r p .\n. p . . . . . .\n. . . P . . . .\n. . P . . N P .\nP . . . Q . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3\nLegal UCI moves (alphabetical, unranked): a6a5, b5b4, c6c5, f6d6, f6e6, f6f3, f6f4, f6f5, g6g5, g7h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "87e64f76435459a3442d00f4c08cae6ff8943e246bbd98a1568bb319596d3388",
+  "fen": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/P3Q1KP/8 b - - 0 28",
+  "preflight": {
+    "input_tokens": 502,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_ab4707815c7648b980a1466e497821fc"
+  },
+  "reserved_usd": "0.108675",
+  "raw": {
+    "id": "resp_098237e08c6132e1016aa1fbf2d01c87d1b080261b98a4b643",
+    "object": "response",
+    "created_at": 1789000690,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000700,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_098237e08c6132e1016aa1fbf3a77487d1848280688bffde23",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofv8D2Dk1UGBvGxg4PWhEU0v0bcey50Ly-Lnhksqss710jplIlJ94hRYxJwMRtsFCvgHOk-ul6GeiLT-yBoSPgVIalTCD2r0xzqU-slgP4dKEIEJdt__XVe8bv4CQKL6zK4bzKTr2NJRvzH2a_cI7n4f64BSH7SFRnO6FGtDqjGNMSJmBNodGiXL9E7zfSlo6JLbIF7JS7XJYvsbjC2UKI_pJRM046_nF8t_IqZ3kC9IMr5k0c_AHfHr0Uq1jAR1J9ELSDfXYTPB6N7_O4_QNJsaCuV3V7xX2_EP9kwfguYyafN1QPwbFbpgByZa4DdeVe_n9UVIQ_KhW1c3X54y1_YdVi1yUjqFvyZAihEtJTyqQEoPwPK3CCw1s2T8l253A6bzQQgwID2nSuRlEHbNz3UNCA2I0k06T7wiBp5n7KFGsN6p_4vCz8Kngavrua5tG8o1ia7tFTV8wtwLTExVeeYxx2wkmqVqZVPCJSypT_hzbg4SQYsJGFi_F_6mJ9rQlxwn5tph0oQBQwG_Zh8QhW8EICHg9tf1zhE3_cYGl5rPbraTu-NF5xYibA31_QUCQLGLAb4V9Q56H1qF6z8VBiRpyjzYIVAGbw_Gk-oIDUkxJ_XCY4y49RAQKJVGW5VQchl9iszKzX32-mahlyEZWKNe9xecj1OaO7-mzBABx2VLMMTOlxxiQ_1E7Wlf6MTEKjhTP_OlQNHPHh8S5rStO8s-cAdMZ3T-lG7WxD0XdJeKKeuwzvbTdbV_KUVt9XNdezPB1Td4nnYZr7ekVZJms25PoIgsiEOJcQI_etgO9wuH1Y8tw0WcSIu53x_U9O1rwUYFfBxsfsDnLBPkoiiFXIIABxNyx_g3yU8Q3RkoxzECCNFV0H9rbw0lugdSUuRJK4a5WEXm-CNPDLmgeq0n6JbxDT4TYfpNLH4pdWWg3TDuLi_ZJ-GHo8b7vEI7iJRRPd9gTOGfRmWF0IPKVnBwnJl-_mcUD0rcLsq948X2Qm3H9Gqv3BmIzY-o4KCHCvoPBhwfejEkJLpRm03RfGxKdYsuT1uhU9i7BLe13Lh0bVKwncMJRBattFETLqz7X85IcJFvxZHAQ4YBf1WzQeWe0cy7y9eLSY4lqIG9OfX-UNVQSWTyGTVAX2HSxg1S06RMaA-b7MdNFNhxmoNi6otR2Mpm8925AnkYiwB5zC3z1C3fMKj7k1EXzjigjVMzfIUlWVADic7POl5K3IlhKDsOxGcS05m9h8jd45JbsmKyHG3pDNzP2j4DIdU1_o5KyD82gB8qV9aERDvuCi4oazNLX27gupRN8T-iE9VcuYFQ1QlIeQomDbwgAMsB_76ODbQheehJ1GbrQ1vjEsYuieRACYtQGSgyCGCn5rVn1V0yEKKxF9uhBRINq1XCEV5oJjt7eYzaa_sEqQMVYDLpssKW9j5UH2_9k5oJXB05AOqZq-BPOqboZ09Ab9rPxEtrPJLaowKhJvzpUg17IwMzflzuTUrv0b6TnvmU7AEJe68SZU3q1UFDw9j6Ehoh-cMqrGFcCSlmTp4uwX_9kLmL6AfqtzO5eHPyQ4nPFe24Vkp6tromUeyL_AoMl0TAiFSB_YBdeZwAcEopCxmQNVeGwygRPdfFeXluA1nXLrXuxJTNoPQXZUhlBovVheWL48Wzal-Joo2WCRzIogLA6BBi1Q0tFxnnjfR-dEIrczR5sCKGgsUchuusd9HpnmoGmeUpI1FgV92QY2sMJ5d4MnD3HBDwR5xtQk2Zle6jxXJCYLFDSWzfn39xrMVjx-0BWP274RW4MZrKEhsCMgwbA5EuPJvh4OMthbtg6mLsTmUu7cJJxnfLZVF8CXjkkPXPCSlBmV9_hgNfJO-l3Hix7o0W8GglU0Dt12ZsMZ8vZvC5x5htjEXfFbkioFgDXCrh7JWIv-FRd9bgrDSpkBsbcZH-EsU7zU4INXjwIKF0ISr-nTdTYQKWGTEWDez_uL03aSMBgD_ssWNqz0EHgvsTgQaWChZI3RUak7py3idIEidBS-DhApB5xRZYyhB3bYhxlzxK92Njq7qySUvxQ2UMWTNANEpiYOV-ulqTT0rEPWG5TfprJgvmu6MMHHFzCzto2iqnYuA0TY7iRmNoZ_FFMEO1UFrZewnTb5Xa1vpkt-H_XsnyqYA8-v1LqcUZ61dXKGtub_f8jnrterjOqJWl6ZHvCTAbSh_sEFHAEKY723rSijLWg7m2aocIoV5yhGCpuBDz0SzZTGdT",
+        "summary": []
+      },
+      {
+        "id": "msg_098237e08c6132e1016aa1fbfb74d087d18268fc994c66b4cb",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f6f5\",\"comment\":\"Keep the rook active and control key checking squares.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 502,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 283,
+      "output_tokens_details": {
+        "reasoning_tokens": 256
+      },
+      "total_tokens": 785
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 9.427489995956421,
+  "request_id": "req_72e1583fd5d4411dad62ce51561adb95",
+  "text": "{\"move\":\"f6f5\",\"comment\":\"Keep the rook active and control key checking squares.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rf5",
+    "move": "f6f5",
+    "comment": "Keep the rook active and control key checking squares."
+  },
+  "usage": {
+    "input_tokens": 502,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 283,
+    "output_tokens_details": {
+      "reasoning_tokens": 256
+    },
+    "total_tokens": 785
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.020425",
+  "input_count_delta": 0
+}

@@ -1,0 +1,11 @@
+[Event "GPT Learning episode 02"]
+[Site "?"]
+[Date "2026.09.09"]
+[Round "luna-black"]
+[White "stockfish"]
+[Black "gpt-5.6-luna"]
+[Result "1-0"]
+
+{ Termination: protocol_forfeit_provider_incomplete } 1. e4 c5 2. Nf3 Nc6 3.
+Bb5 e6 4. Bxc6 dxc6 5. Qe2 e5 6. Nxe5 Qd5 7. exd5 cxd5 8. Qb5+ Kd8 9. Nxf7+ Kc7
+10. Qe2 1-0

@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-queen-02-gpt-6-astra",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 8/8/8/4q3/8/8/K1k5/8 b - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . q . . .\n. . . . . . . .\n. . . . . . . .\nK . k . . . . .\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN 8/8/8/4q3/8/8/K1k5/8 b - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): c2c1, c2c3, c2d1, c2d2, c2d3, e5a1, e5a5, e5b2, e5b5, e5b8, e5c3, e5c5, e5c7, e5d4, e5d5, e5d6, e5e1, e5e2, e5e3, e5e4, e5e6, e5e7, e5e8, e5f4, e5f5, e5f6, e5g3, e5g5, e5g7, e5h2, e5h5, e5h8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "22fbfa0dc32741053f78eca53db7fe24d8a9acc1df8e5c7834daa47cffbdf913",
+  "fen": "8/8/8/4q3/8/8/K1k5/8 b - - 0 1",
+  "preflight": {
+    "input_tokens": 436,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_aacf838a77d74441b45777ec1e0242d5"
+  },
+  "reserved_usd": "0.10785",
+  "raw": {
+    "id": "resp_033b1bd1d6c140e9016aa1f4d720cc87d1b3f0772b4c18baa7",
+    "object": "response",
+    "created_at": 1788998871,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788998873,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_033b1bd1d6c140e9016aa1f4d8085087d182d4ed86819d60fe",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofTZP7u_Lr9qoSvkKh-3J-KtDg1no6VIAosXtbIOlpbtJY0ULn4E4vVJGnr4tbdeMQWKXWwKnNU5Sg63rZbiWjr5M_3lgToh2HkcNvWjZEDtieLL-0_i-Un6NyVcakdGCsxU6ZZagvVfrKjWaoLgxLWDeiBMX4Ld_i0wI9LbQSPIhIvc-F7AqMGKKPWsgoeX538AoLt5ti5E0Lxv5TVRsO-DzjHcu5Fsj0qgd2NiJ-JmF3ql86RlQiBVd_98chgO6RiWO7afE5UUxfXLHqa2VYwGfw43tpG6LFIlk0YwPZ4lOkYRxL6zQ9mrDqGQ9q0Jgd7I7av9n5rERwkHa-KqaIHTOu5wuZdgMJnTai2gRLvd1i-3dRXFgLFRZndTWQeRrE16pjQ3pewHehyqVagbo2bw4vZ_PO9uRK9kH6eWinSURO_TMuMQxyfaoVKUfmgqcOPX3_hzHmv6NFAXDaZB9FR9qTpMNMYrzrmzDYv0br1oH1MZmr2tJPxLYkX2qletGdORGPfueu4SiAKieBMU0j-4FP-xQk1h6LrEVJlaCehJ6Yvim9efTPEKZIxXUJYlyorfoE9IDEDO3Mek5McaGa-zdOumkLJctc1HZaR4ZJB_DBMMH9jF20YTO0CNyYwurgp6sJ4tnhBeFXLZCFpXJXpmMje1NLfSv5uWF8rtJovhLC-KMJ-Z7kEGH42-CRrJPPT4d-0V_FvKptpBCOGcchH9eciX9mwLs1uoBJ4Z03SZLHFyeaK6cZUJGfOPOJCkW47ZyIXDdCPmMrpHe_h-Qtydy0fEaNK8tCmhfHYFXSkMkephCxkBNIFqeNSXff1r9GXifB-tRKecitmtE2a0QCLbsPixTbixHbBtst8uiPNsuYOfnJom4vRaaCXu2RO524sygrN2hGYC4ZvOm36NU6rTFT91s5ZaQpOHo9Shh3eI6B0rJpY2cH5_t1F39tiEoTLk8UhyY0ERV7pnxRkU7tKeSwhXSjheCPgJ0BVrAaBPA-T0-I_WUC4gsrC96F_e2d50GH8ivdzBZU3qimgU9yOZgCBbsqI1WBb2GdpmkToKhNwfIDmWBu3tXpLZAQfEEtomaq51UvsHVocSGW-s84gKY5wup-IEEN8-FjeFWFGVrwjX6jRGkEX0WXwV7PmeEzsod7saUm1KNeqol09vf_DFob-QPwOHOnnDYxk1rnwf0fWPDyg3dxdsLw1kiYXJAZaXK1AjjS6fMc63M_ZSSNPyps2B13ISv2dBtMxGfWGAIR4FbSN4UVFx5nmqILdw_Fw83IWquibtuTrVHtZc1HV4W3OqBLjMpYUTnhQRikEuOfmlUhyPwsfXNf2Ut8xx_AcJMjuKqQopaafo7Ut6smQjsQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_033b1bd1d6c140e9016aa1f4d8f8dc87d19321eb8ea9f58572",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e5b2\",\"comment\":\"Deliver checkmate with the queen protected by the king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 436,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 75,
+      "output_tokens_details": {
+        "reasoning_tokens": 47
+      },
+      "total_tokens": 511
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 2.87345290184021,
+  "request_id": "req_3db97afc2619438dbf1c7772ad89a5e7",
+  "text": "{\"move\":\"e5b2\",\"comment\":\"Deliver checkmate with the queen protected by the king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qb2#",
+    "move": "e5b2",
+    "comment": "Deliver checkmate with the queen protected by the king."
+  },
+  "usage": {
+    "input_tokens": 436,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 75,
+    "output_tokens_details": {
+      "reasoning_tokens": 47
+    },
+    "total_tokens": 511
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0092",
+  "input_count_delta": 0
+}

@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-047",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 3r1rk1/2p1qp1p/pp1pb1pQ/8/4P3/1B4R1/PPP3PP/6K1 w - - 0 24\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . r . r k .\n. . p . q p . p\np p . p b . p Q\n. . . . . . . .\n. . . . P . . .\n. B . . . . R .\nP P P . . . P P\n. . . . . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7 Bb3 Qg5 f4 Nxf4 Rxf4 Qxf4 Nd5 Qg5 Ne7+ Qxe7 Qd5 Rab8 Qh5 Be6 Rd3 Rbd8 Rg3 b6 Qh6 g6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b3a4, b3c4, b3d5, b3e6, c2c3, c2c4, e4e5, g1f1, g1f2, g1h1, g3c3, g3d3, g3e3, g3f3, g3g4, g3g5, g3g6, g3h3, h2h3, h2h4, h6c1, h6d2, h6e3, h6f4, h6f8, h6g5, h6g6, h6g7, h6h3, h6h4, h6h5, h6h7\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "fbb3a0d1e1c2b5399e798bb77e61cae006055ec2b0ae1106b37767e11fa499ab",
+  "fen": "3r1rk1/2p1qp1p/pp1pb1pQ/8/4P3/1B4R1/PPP3PP/6K1 w - - 0 24",
+  "preflight": {
+    "input_tokens": 593,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_e3b6ddc4d3ba45e5b6baa6808b94df04"
+  },
+  "reserved_usd": "0.1098125",
+  "raw": {
+    "id": "resp_0d60f6c25c261ffe016aa1f71cdc1887d1941424ec3de11797",
+    "object": "response",
+    "created_at": 1788999452,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999472,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0d60f6c25c261ffe016aa1f71dc9cc87d19c1395a14c30247a",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofcw1ESZ6rV_LNyXshgoUn4a0AjdKBgYqYSFDajrFvqgPAtS1NuSlQSbS-dvhq4dhjgySppBvqvtmgw8DwhWr1EtyrRG74S8ju7da6WI62WDErvSVwj4hcZmB7kD6umY2gYyEHp9GzrHuGa8n4LvYQqlazT47Ku0Vi0N3oClL6Z7HaZBc14c6039rU9hshftTmd-CkzwtQybLhwuApWvMdslrjXUDpH38PUIgKsG-JqghR1nkk549z1ZT5Gd8vjbAhySL0CtcQNBcZEBsGKKsuTtIJrrqtaOJiCUwsoFYLZlRKdbOwpmg4fYP4ww3zvXg8XYSQADG215u18duu5OAqQewzB8JynwSEx7c4KIen6Zb8lJF0sxzuG4zhArQtWoh1Gifw8RsCt5UAG8ejrNvYOJ1ZSz81-gRBzDbBe4nWS6OLmO3-rnMkkRbF9rxTL-nJ5Stq4hyx6XddSpHytNhAoRse_mW3DbaL-rtmSS2ZfUZMUEQHmtW1zXVDwtVBN2K-58JNjLe7-o-9q-pa2kCEMYJl8_pnBmyujEjCj7G-_XKI266xa88fzrTYvnSjmFaOuTn8eBn05Cnb3GQ3Q4cELetpm2xsLMnHu23y7qEcPo9URfs3bnQst4guoK0220NkpSmVRLmy2JrNFsAvvfR38SIeEjUfmBPbAJlssFm4-O7FYRTbehgkzLbF7El7AuOY2yp2_HsNHjL1eu2xec1jY-dHm5u0rik2uFoIH0BKpwFJ067ldthKlqCGYdA10cUK3gKoZH0JMFC6_-_mqQC0rWZy7p82InuVtQWpR5H0I7l9a0zsUh0k6IU0M2ZU2WmKDFZvT2qOfV_IY3sCI5zPqHibr_0-27eYgbRRemMQ1andun5ldz4qrPAo4ZZz-D7hBwqfnK1Zsvmh0BqknGv3WGfBYknODdZHrqzQffzF54ix9_2SJyCaT3TuCl6YzxfcPDk_nbZq1IO7RIWGJiEg7H4AzlCPJ_7tWn5e3rqumm9PZ5fOXKT7CI626cupRZFJ6P_zsUmMUoRLP8Jj6unRflIolwDTmouE29nUNqhxcIb2aQgg1OQlt_KPrTHCyrKLE4SDQVVJxuGEdSnkVfzHN614L2kXl41rHoDEcSxmxxvigyPvJCLdGjqCU8akgeG0SJ2ogfcDSTAPTikpE5HvVZyjggm-J8lpyi28_-AeNIDa64H5OyIfkfPWV0Rcz5aZgF-dhpEkhEAcIid8VawRX7EPrYx_OigXHQLmWVTgcMCRCuxbOWIKnXYZQzGDTe9c8cHXevIjebxlRzesamtTq9vAcEFZu4tYG9l1sJ6eDpmgF63nBRUSGh4Ldugk9oaJ8o_PNm2PzGuHYJEElzYqWDxPKBmrpeGglr-xaNkw9N4aaCFsUrc09YwaHaimmtpO1ZTvgemdcvzgllqz0H0f2-cOaxfik8nI8xfasXIE5GcAFXawWdPFxSk-3EkW9-zE0HzKRzgSKxViwyUPGMUqvEO-FmP8i0JuT_PAz_SW-QrJ0zAESZ3mjdEeGADLW0nAyFSLtoLPyYrN2CJL70CBffN8f22uLdRUty8eHKZnsNoplvjF08SOK3CFYHe08IvcnTfZ6NYzJfFMOD35tuAgHB2FG8ki29CmS8Y5pH_UtePzgtEe85ADvLitAmty_w-aFhafBO9OGMUI0IVz-MmZPIvD8P3JhA_6jDWI_Mev4-41WCS-vU7_37lVGRVNdjixTbccDQ7B2jJQhwj5qM6JZ7YbyHvQFG_djUPL3AeeWvSjPqL5Ih1PtRxr9UYhYtM7aInTPMerWtQPSl6S9pnr7exvO57wi3gaX3q7Nu5tzMK5Z-gRXwvDaIFDCgCw3zf-Fa2OpSgdoduehqX_RStyp45rcYmptkxNvxric3favfryqcT5Sc1f3bA-VGAXQkHoT92Ll7Zw2c8hs8hfao_94xY-fl8YmPrSsMxOa20GbYxgch_y2DA5xGbUAM-FgB1RL8_DGlc70Bi48gaNa0tkSpThWmoo_5mym8HC7DoHOkLHeZRlvtr1PsFqiP2msvIUJYFfvK0kjjkKaNPeYUj8MdVuc-IS_naspD_DyNov0Z7gJqsIbbwN4x6sohT-NtGqjTQJ2mZKtKu3aqvlDnbzsPaBAyqUugiqgQq9esi48Fs-Hxxgm0CcaUJNLXuG2Gf57jPeMzolbblRkwDPznSGkiHkYaH3epzUP6Wg_7V_myTzXanco_kDAJ-_f7G84wSjbsjXplUoaYeJNJROpz5pA8UdFnPEjTy5ps5g2fL5EoUu0qTFut_i2L1bhlZvf9t_2EcGdS59Nrybm5PGoq58P_CKqnCOjwN5UiUly9N5bzQFdATOis4-6du11K5ijbPsvFPSQeC_riLVrK3016pxiQvYswHUQJG9FHdichsUbXiBpCbcAIOtP9oV_ln_3veQvdziS_YHGtjI8hZO-qyOjL3ui8mLwQVVknVrCsb2O4zKeb8DtyF83Xid-HCKpbiDnvRqd7LgIa6sYyn2Y_mptZ3BU4C-ZCH79zJ2Gi9KJSAp5iE1PlFtBWAkYU59zWiIgJw0c02Vwcqa6U6iEFG36zLFOk3z8z22CCSsARnDm2InX4jTaKBiIA5VbLTHJs-I-ID1egxNyIgoltXhPWQHK36BOKEeZ8sHhSuuM81QaEzV7RbtID6EHAQAvOQSBbmXxStwKt2EiJSzc1pRG05De9f2TG6piD2gUtVVTGoLhQybjOkmMXsWkcYRTghC-mCNAF-QBFt5pJ74WYpXcI63o4DF9PXppPEek3ygNqyc9M_7k=",
+        "summary": []
+      },
+      {
+        "id": "msg_0d60f6c25c261ffe016aa1f72f6e5087d1ad2eb68fb8e134d1",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g3g6\",\"comment\":\"Sacrifice the rook to force perpetual check and secure a draw.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 593,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 507,
+      "output_tokens_details": {
+        "reasoning_tokens": 477
+      },
+      "total_tokens": 1100
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 19.518043041229248,
+  "request_id": "req_9dbed026b1424c2196e2fad0f9bd2c72",
+  "text": "{\"move\":\"g3g6\",\"comment\":\"Sacrifice the rook to force perpetual check and secure a draw.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rxg6+",
+    "move": "g3g6",
+    "comment": "Sacrifice the rook to force perpetual check and secure a draw."
+  },
+  "usage": {
+    "input_tokens": 593,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 507,
+    "output_tokens_details": {
+      "reasoning_tokens": 477
+    },
+    "total_tokens": 1100
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0327625",
+  "input_count_delta": 0
+}

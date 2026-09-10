@@ -1,0 +1,144 @@
+{
+  "key": "astra-self-ply-004",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr n b q k b n r\np p p p . p p p\n. . . . . . . .\n. . . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K B . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, b7b5, b7b6, b8a6, b8c6, c7c5, c7c6, d7d5, d7d6, d8e7, d8f6, d8g5, d8h4, e8e7, f7f5, f7f6, f8a3, f8b4, f8c5, f8d6, f8e7, g7g5, g7g6, g8e7, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "cf62544da37483da5736c8d421179fec0440a246e123093daf4bce9dd543357e",
+  "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+  "preflight": {
+    "input_tokens": 463,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_66b6dec7c5dd4e27b1f8ea97c008144d"
+  },
+  "reserved_usd": "0.1081875",
+  "raw": {
+    "id": "resp_0e4cfc66ae3d227d016aa1f98789a087d1adb5637fca53abe3",
+    "object": "response",
+    "created_at": 1789000071,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000073,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "msg_0e4cfc66ae3d227d016aa1f988e2b087d1854d25c6ae977e09",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b8c6\",\"comment\":\"Develop the knight, defend e5, and control the center.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 463,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 28,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 491
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 2.8078091144561768,
+  "request_id": "req_2ffea4c25b674653a74b3ed9555f7095",
+  "text": "{\"move\":\"b8c6\",\"comment\":\"Develop the knight, defend e5, and control the center.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nc6",
+    "move": "b8c6",
+    "comment": "Develop the knight, defend e5, and control the center."
+  },
+  "usage": {
+    "input_tokens": 463,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 28,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 491
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0071875",
+  "input_count_delta": 0
+}

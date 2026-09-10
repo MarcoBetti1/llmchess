@@ -1,0 +1,151 @@
+{
+  "key": "sol-white-ply-029",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r6r/1ppbkpp1/p1p3n1/7p/B2RP3/2N1P3/PPP3PP/R5K1 w - - 2 15\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . . . . r\n. p p b k p p .\np . p . . . n .\n. . . . . . . p\nB . . R P . . .\n. . N . P . . .\nP P P . . . P P\nR . . . . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Nxc6 dxc6 Qxd8+ Kxd8 Rd1+ Ke7 Be3 Bxe3 fxe3 Bg4 Rd4 h5 Nc3 Bd7\nLegal UCI moves (alphabetical, unranked): a1b1, a1c1, a1d1, a1e1, a1f1, a2a3, a4b3, a4b5, a4c6, b2b3, b2b4, c3b1, c3b5, c3d1, c3d5, c3e2, d4b4, d4c4, d4d1, d4d2, d4d3, d4d5, d4d6, d4d7, e4e5, g1f1, g1f2, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "af3dbfe3589c5ab6efd891726402feaac02d37889fe9c1fda786ca4b99f79e7c",
+  "fen": "r6r/1ppbkpp1/p1p3n1/7p/B2RP3/2N1P3/PPP3PP/R5K1 w - - 2 15",
+  "preflight": {
+    "input_tokens": 535,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_e83137417c4e4384be742698e16de831"
+  },
+  "reserved_usd": "0.043635",
+  "raw": {
+    "id": "resp_07e531d0b0c3b193016aa1fc09c4c087d1bab755ada7f6e24a",
+    "object": "response",
+    "created_at": 1789000713,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000720,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07e531d0b0c3b193016aa1fc0a8b3c87d1a0dd24aa2679367e",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofwQTse1dpHngFJG5cHtUWv4nCTUyRzWTKT7OLTuz5MmwSIVB_ilrmYMn6UrHm45X2xFuhW-nrjK6k6yKw_x6oHAtTgVbZfBz2BiAG7Khco4vAKbRUIYCOCbIHVq6WhVd1k6lXFs9Ogj9oP_SNEXAVPkdedRmiuPrVDgavXYFSGIhTwo-O3D72GO4nQcTrhbF7-vdcUm52QQipCHPxlplpXdkUDrel7oDnMKZokgpQXH5OXA_XqdWrM0Pg1P_ZCsynCgk50-SqIOlaJ-LENolHp3mKrL4fROgctMiZU74Ve4COCPMFDL85U_7DCYY80OKzZRpRpSuRi6hkE0gJCesuJNcCB_Lj34cZ0bFgwKq04V4z0yGmWQpbYmGsCXmDf443YHdzKhdou75YvAAs4Eu1FPRi3TgE1zDVDtY6HveUy58xCDV3Y5EcR8vg1oBSlVG1kvHfVuHHdy-NvJj-Z5N78PXPo9GI407LYqI91AztfNRIvJU6U_BYMaNpHk_6klrAjB0zAAR5-0Tvs6OvYspwUkZSOga0iimoSkL4FvKOzx_kOaKldo99C7iSpQmD7UMKNDFft5V-h0KJsrRnhPcU3WGwpFrTE58WUYK8fvbo9Acu01oXzH387W27PvxfyunK6Kg-qtcMeOKs2vNovLxDpcmpCiEBHK2BdqMM0KE6zzbw3L3amm-QXaSHvEslZsVbAn_49I_tkX3zFmDItjrlVlsZToNwLxeXI23ptnAxTirfxvCMFtZL6xjhXPg-1wjDEBDOb6DidqSksY7kR0jFSIlQKxfNOZ7TEiv767-YZqOR98GnqV5st17ESSXjjcb10ej3VpXzZlLoPndAEG4T5nGaKyfKoyvZiScgonWL8W_ntA9TS5LI--x-k2pp83rTGcjS_kyRpbQDXIRKbtADb32Xqzh-eXSHhXlpiUoz6tI6x_2Xz4ZvS6x9Dj9CosUSj51Fa5MSAtzcxRYS4jvSxvsWqvd-Ws0HHoeVfCj10vS3pxAWu6xgHSSJIJ4eeD2U1-GBMNu9lvecA1Mx_sVrUlE2ZTZN1q4JLwphGHrVGGid7JRpgz-C2qwvKonxwkIfrW642Gy7anoNfdFShhVEwR8rqFxrDrLgpYBRjMBFAXRKGoH_58Qo3vQfGYy4u_9Dhw85cXj9unlgn16seNBv5EuQe8bKTMQd6BOIIhdYd_4xdu7WSum7qkNVc1W2X8doCQGDqQl4BWoE9AQTChTvJZWdWsBgcvZrk-b2LQr0rY8qOu4CfXFaa5io-DKyFUY5E2oE0oC9XD2l2AJtmH2d4A221qUtFfBnNzdk4NMwo8FovAFxcJOUYyH9qUcsuosAXEDl9ca-ciJh5sY-q-EmVx348AOcdmfzhsYKLkWdJva6qs5CGs597J2p3RQx76ZCCKjD53crW1oNhUkkyxUc913Iwdhh6tt6tp4UAWkWw6cUSewpZVqdGUW07UUcl9AZDdZ2-AD-ozd0287PK6chGsL1KphEjLSeAztappJgsI_QwUAMHifgat2nWtbGv5cFCMS8mBwlNk6deU-caAzIYrIxfCqbGTfMEE90Jigy8oB6CHyh2QGJR_360vDXEij91b6hdy1faY3I-e6zWiO-hLpK9OvKLTg3IjMQmQUVVu1maj1fsMvvMPw3l2s_FWbke0Kt2y8ZDeQFThwilwtByPecwoYetWa8eo9PnatO-HHX9goMG2cqyd5bmubIMwQCrJQe_tuPQJICKTovrgsBYHBm_Qwjla_sokCSHheb3ndijb7-xPiw8mJbSkZSk0z-6CxHLDGlSljmOBIY97kzhloMC_SFnXA2UjN6L95ppdNe3lpTbozb82PdrOVUX6V4CQI2YpVqwG06cQVlp_rqGdny4jexxDyx2ud87kT3BJUBVCqmosQrRYvbX7rT5Ir990wpctVTWRDPlzfaUufYWotFREBbLKyYLAl-kmqVRX_2cPY2CQavW950xwwu4Jg1jc0OyJRr3eWM-dBDfsqOC875FiupTu4PujDdtaesvYEJd98bBv_695qeQdrboS8J5-DfceApax-qhr4Q7NHtmPRwzwosOiGigpL1tP-syitL4KPN8IrzbTRszwOJenNLjlj3x5psDQcuUpvj9Br_vCTJSaBoao84D71jIkq1o9O5caDjsiJDqy3yGfg3zJvyG_W_ztnY1U9FOIKweu1YbrRKQr2vv_U_d4pOI8irFX_bFxfuaODBUvILEi3r2chdN-fhLsuGwycj9dYRiv32h3ShJguSlTPkwic3JTMoSqi8ULpGkFo1--Oir3eyGXOX0ej2irIduJf67ptqgKzcHpVx8Dm0ERNZUNgf6idj0OujZRj0UmOdZi4XjZBcjINZmx1pVvB1SLQZVyD8cZvT6hTmEgU7Remf4TQyZGQYZz6PyYhBAXGQ9a1MF6_IAvbckJ",
+        "summary": []
+      },
+      {
+        "id": "msg_07e531d0b0c3b193016aa1fc0ff17c87d180534ffcf714056d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d4d7\",\"comment\":\"Capture the bishop with check; the rook is protected.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 535,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 286,
+      "output_tokens_details": {
+        "reasoning_tokens": 258
+      },
+      "total_tokens": 821
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 7.006043195724487,
+  "request_id": "req_88d4e74834e0429b9fa2fb419130d0e4",
+  "text": "{\"move\":\"d4d7\",\"comment\":\"Capture the bishop with check; the rook is protected.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rxd7+",
+    "move": "d4d7",
+    "comment": "Capture the bishop with check; the rook is protected."
+  },
+  "usage": {
+    "input_tokens": 535,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 286,
+    "output_tokens_details": {
+      "reasoning_tokens": 258
+    },
+    "total_tokens": 821
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.008395",
+  "input_count_delta": 0
+}

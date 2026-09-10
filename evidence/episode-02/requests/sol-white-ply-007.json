@@ -1,0 +1,151 @@
+{
+  "key": "sol-white-ply-007",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\np p p p n p p p\n. . n . . . . .\n. B . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, b5a4, b5a6, b5c4, b5c6, b5d3, b5e2, b5f1, c2c3, c2c4, d1e2, d2d3, d2d4, e1e2, e1f1, e1g1, f3d4, f3e5, f3g1, f3g5, f3h4, g2g3, g2g4, h1f1, h1g1, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "51cbc1da31d446f0a2e88edeb2b8a4ac044d5cde32a1b72f5b49b2b5b27304fe",
+  "fen": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+  "preflight": {
+    "input_tokens": 490,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_b02def3f6f444d36838bde87c0e39a5b"
+  },
+  "reserved_usd": "0.04341",
+  "raw": {
+    "id": "resp_01a47758280fd2f5016aa1fb5b522887d19f63c7b2ffee8c71",
+    "object": "response",
+    "created_at": 1789000539,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000541,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01a47758280fd2f5016aa1fb5be94c87d196aad23096412832",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoftdrMpPmfRhwLEZ-EvP8ME48hnj2ERubUQEJshehSMQ6LPbNFd7NE-lcpumwXGShqLVdgdC12xMlRpa8NAFI_kLkIMixDDtrBSTbaves-nIBBttFg1B87-YzZql6lx0Dp-jY6B0_gQEtul8R3d7eUXfzcyncFcI49x9aPbuNc5l3bj2AD6DNBpQXWyzUKnuwCSz--NZcxqlGRpiEdvbF_HPuOxXZaxq4QX_dvjOobjLtNfTyFUXugXAacnm-5IJ4yTNmLE8G5b7nC5wwj599_GIi4SctwKpAzJvVEtmKG5_EXoFiwFBF3P4EnNtS2tlDjNYzYY22hpRI0zToBTShC5h-hVf11gfEwzOv8B_G7GyvI1eHlrd5hoFpRFKL9W9q44yQMDHhOiJInehl-su2MfQYsx6E_-PSL-Ac9EmA0llfxUl62-b5yN-mN56qp76_KYzd5V8c98fPYs1Abv5ihv2I-z8my4A3VfO-7Jg56k1OCk93KxeQYmZZY92oyIKjF-18wPqLAClDhtW_SLIbp7tFwh5taFsnxepRZqm4LdhoWgym1rzgRP2z60rMf3efdQKUUUe_m4fQc11mKfZ3LS5kpz8pJmpcgwM4j0Q7EHz4YZtwzK39-BzfO9TBUqMTbq5gezl8olUg2pMvQGqwoDslFN6P8L2KIs28JrZxQDmuIxzNIIXUMttvSCu2PqziXDv_irml9lBecrul7nx74T84mdr_toarrljSpWYiclg0rJDLlAUEKPKJ-LExmCssO3KS7LueZzbFMHPN-OxgeYTsEQDHHNRCE8XJqlgyY70AsyCidbuq3Mi6Y2JFS6bz0_MWeFZ-N1OFJMMwgcijK--YTzs7Rk4yPMAJKmDkGuPM71kzG8r9Xsn0jNAHr-9PcdRffAy9YjSdO9yJnb9pY4fK2Uk25eQbPRLg_DJbpGbmemMXRvcO8YAXqxL6j7Vp0N77i6cE_WhbZz3Ah1mwvboTw8gXMpeHYrSNcbwPbuDwSu5ahVaum4mlMPMG9bwQqNr_VD_D9Hbvq1KI5GNWfdxtmPUIAcPVimm-cEOq-Jsz7RVJKbor0Y7uO3_O0eNzkhsxFRUM3uQ_RVu9kcUaKgtdZTlb5M-OMTZIOX_Ue4dzNYlwnBu_e4dvdRoOKTi7lmu7A-sJbKV7qlVTPjZ72Td5t3j9GDbngmg9TuHRCNI_Mpnoiid43_Z4d9PNmoKgq35j3sp8vvqPKlAKc8HnujATSSNUJrIMrDR6_DtDfUWEdDveuYqGuGBnA2mVYSgMvjwJHWlVftUqpv1WM2oBI_4Uo3F9b4Ntbo_Skf5nms7NSI_AVq60rOyV9U36RNd5ucjCrqge1M7yOm6Y5ifn7mmdppzb5V6nbEtAzROPYvL-XNJj_v7E6c2jrQ9Es2v6SpVsNXzcE1pl_x0-9FaEvonxw==",
+        "summary": []
+      },
+      {
+        "id": "msg_01a47758280fd2f5016aa1fb5d2cdc87d1a029885a70618e5d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e1g1\",\"comment\":\"Castle safely while preserving flexible central development.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 490,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 98,
+      "output_tokens_details": {
+        "reasoning_tokens": 73
+      },
+      "total_tokens": 588
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 2.817229986190796,
+  "request_id": "req_b213417b9f4b4a1c91133d92e7f007c3",
+  "text": "{\"move\":\"e1g1\",\"comment\":\"Castle safely while preserving flexible central development.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "O-O",
+    "move": "e1g1",
+    "comment": "Castle safely while preserving flexible central development."
+  },
+  "usage": {
+    "input_tokens": 490,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 98,
+    "output_tokens_details": {
+      "reasoning_tokens": 73
+    },
+    "total_tokens": 588
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00441",
+  "input_count_delta": 0
+}

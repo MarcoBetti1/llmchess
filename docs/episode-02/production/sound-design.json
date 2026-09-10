@@ -1,0 +1,113 @@
+{
+  "original_synthesis": true,
+  "events": [
+    {
+      "at": 3.683333333333333,
+      "kind": "capture"
+    },
+    {
+      "at": 7.833333333333333,
+      "kind": "move"
+    },
+    {
+      "at": 58.599999999999994,
+      "kind": "move"
+    },
+    {
+      "at": 60.099999999999994,
+      "kind": "move"
+    },
+    {
+      "at": 61.599999999999994,
+      "kind": "move"
+    },
+    {
+      "at": 63.099999999999994,
+      "kind": "move"
+    },
+    {
+      "at": 67.6,
+      "kind": "move"
+    },
+    {
+      "at": 69.1,
+      "kind": "move"
+    },
+    {
+      "at": 70.6,
+      "kind": "move"
+    },
+    {
+      "at": 72.1,
+      "kind": "move"
+    },
+    {
+      "at": 80.35,
+      "kind": "capture"
+    },
+    {
+      "at": 86.38333333333333,
+      "kind": "capture"
+    },
+    {
+      "at": 92.33333333333333,
+      "kind": "move"
+    },
+    {
+      "at": 93.83333333333333,
+      "kind": "move"
+    },
+    {
+      "at": 95.33333333333333,
+      "kind": "move"
+    },
+    {
+      "at": 96.83333333333333,
+      "kind": "move"
+    },
+    {
+      "at": 100.08333333333333,
+      "kind": "capture"
+    },
+    {
+      "at": 108.95666666666666,
+      "kind": "move"
+    },
+    {
+      "at": 120.36666666666667,
+      "kind": "move"
+    },
+    {
+      "at": 121.86666666666667,
+      "kind": "move"
+    },
+    {
+      "at": 123.36666666666667,
+      "kind": "move"
+    },
+    {
+      "at": 124.86666666666667,
+      "kind": "move"
+    },
+    {
+      "at": 127.36666666666667,
+      "kind": "move"
+    },
+    {
+      "at": 133.46666666666667,
+      "kind": "check"
+    }
+  ],
+  "pre_normalization": {
+    "input_i": "-15.51",
+    "input_tp": "-2.20",
+    "input_lra": "5.40",
+    "input_thresh": "-27.22",
+    "output_i": "-15.82",
+    "output_tp": "-1.50",
+    "output_lra": "5.40",
+    "output_thresh": "-27.50",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.18"
+  }
+}

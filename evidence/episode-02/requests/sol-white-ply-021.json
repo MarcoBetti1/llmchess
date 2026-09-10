@@ -1,0 +1,158 @@
+{
+  "key": "sol-white-ply-021",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1b4r/1pp1kppp/p1p3n1/2b5/B3P3/8/PPP2PPP/RNBR2K1 w - - 2 11\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . . . r\n. p p . k p p p\np . p . . . n .\n. . b . . . . .\nB . . . P . . .\n. . . . . . . .\nP P P . . P P P\nR N B R . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Nxc6 dxc6 Qxd8+ Kxd8 Rd1+ Ke7\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, b1a3, b1c3, b1d2, b2b3, b2b4, c1d2, c1e3, c1f4, c1g5, c1h6, c2c3, c2c4, d1d2, d1d3, d1d4, d1d5, d1d6, d1d7, d1d8, d1e1, d1f1, e4e5, g1f1, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "34dc2283f6fd75caa0eda4dec0dc89f90f1e0f16cda8a42a2a915e1275277dda",
+  "fen": "r1b4r/1pp1kppp/p1p3n1/2b5/B3P3/8/PPP2PPP/RNBR2K1 w - - 2 11",
+  "preflight": {
+    "input_tokens": 519,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_52e0d9a556734677b93a7d1acdfd122e"
+  },
+  "reserved_usd": "0.043555",
+  "raw": {
+    "id": "resp_027dcf6f16072b7f016aa1fbaa249c87d1809c56c4d430baba",
+    "object": "response",
+    "created_at": 1789000618,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000633,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_027dcf6f16072b7f016aa1fbaaf52487d19e1fa9d1e22855eb",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofu56VRiQxBuWTm-tZNKuMYKkzbhbvw6NUX1-myj0g7w8ppXM65Pz3PB6sMWr7dHwAaGJFJUjGzhwldNHnMrUkG5xQoiJKrQJ4fSYegXLKY_6nVtKyPGwIFgG5wvVgKUMJnbAX0At_Xu17n4-VDIvE-NR8gOXYxAYOF2fb63fKsqbpwm4_wtuC6npbnQjZrbTqU5m8YJoT6nARuwQN2rl-MHNjf8KcKz9C_XfB260up-SANQRk8oYTvGzRdvT56G2aCE99qFwRcjFktoBCZK7KSWkL3XJUuYSNMXmaVX-rObC-NZKmFo69o2M2gZ2VRH3gggI-S_-iVRz2mLExgYmF-D30fTeE4ckq2Ees7unLXYU5v-UNuMGBNj8EiJjsi2IgZhKv7Jjy__s7zq5WrTny0y9wR5RFd-HG5bpzsz2xLr02BoXzlVTB84b0G2eXG-L2vKXtahtrtAY8EvtvenZrEkk_B-ulM-b2ZREniJaijvy2py3l9T8mCsJS4f7oO6m5AONXFby4M0cdgwDATkM7jw_uzxDmyeR1o3eHMks1L9XsI8zmO1obkYIeyIC5gCqjhHpxbl-lulZYa0Agjsp5sdaZL7oakLYmHpBTaN4WdsTpnPb1aV6Yhi80CehXer3Gu5OLghh8MhlmkVxFywD0WluH5EFtUiuxctVGuPku7Bf2naaNg1mfZKqRUzMa-3Pft6MtUwxPu7wowvGL7Txb25IWEy7AJxvWUblDJ6-dVccJWE7ItYrIxgo6g0-DDyhJ-EnhuiWsUWqW7yevR4-Eb37OkJpgL79ok_8FQag4zioRwdsHhsFXBjA69NVZvXYkwhauyqLqIx4sStbxddiDkJKYFUmZUwfRoc5R_mULt9HBpbuGuspd0hYK7_elwx_YzkpeJ7paKYYc1kMjEQrnI7QSgqWhsfArgLLHfh3pBBNY6t7xFK9KFADR0oNI-gpgM-ZqvcwcTIXeKO-YqASvAEjo2cQbW5p7g4rBsvcFopfqwTp5oIjyJuItXwnPHaXpKzY_0frv0-PoAe67_bYjcQbPYef-mK9B2s8kuFqGeAlnkKq9val-KqC1t8Q6WT5IzS7Jk5LZmLpj0Xp-9CbGaczVVfp6fpuUbFrhwx_xHG4Y6c7wBknQxszNo48wzPK7UHb_jUELKEvK1EuJh6mNx2PICSvqNa-EEzuhzzN6c7f1Tz_gnXNgaFKMwus5PzfOBqCmGox1ceEQQSUvTDQ0LWue8mKp4gOk3gQz4yrBMQuuEP-riDRyfO5a7Wpy3xe8scBOJ24RFVlxIqgOxHdJDeq0Vcfx7XOUcUnq4quL0u7gpA9GGjGv7Jr-uCxEZGTaWBOE0o74fwKw47olDyhYhLqEDrPZD0TD-nCpkiOG2wnHApSDpCR1_U87SfU8NzTqM26j5wAPpq4TLzaPaEIvLg7aZMHKKa0X2Pk_ZjQm9wzxG-ZtVHStddKFHkiPBPKDydVXLU_Lv_AnFGUCeFyl4IZokH7B1uL8Eo9Yb96nQyL5YBvzdROKw0BlmFRo1BjulVumhW4VXj0e35MTxhPjeKUKvPx8BBYVm8JQxqu0foXzI_uTquX8l6QctNcntJclsMhnNNXRp0D-YKY_zTeV6slASRXA6GJYD-w-X7XpE6rCOOdMivi4eurF74WOwadFeQZVe5t7D6kM_UHvcsDv1v5CQtf5xcHjbJ2GhpTjux8cCzQTwrlh--2nyD1qvOykatRDJTt6XQ9jIv_hAxjiVh1luSurbV3N5tL8Ul50fExhZvvzrcN3FP9-g0_wdWn9P3W9JlN5OLHDIaP8KDQ2ZF_VHZcyUeYtiYWyjbqieyf80hREwfBNju0Xv3Zpz31EljMITA-TbfxVTaEirsG9nYZG8dHJm5Fv-VqjuMHyksFK5NrVIpr_0CKJQYZnvKVr4DEjsSplR2mVXmbTj_obwxK8M1x3eQ8J4KY0xMAZFshxpIyRgDpKiPSoKBlFGIcwxXIr-sGeRgYlDX1WxIfv9ZSHrqvfIKUQJ7zgyKY9eTSdS5vLxp3mNKG6VbhQIPQvNcBa-uQd1m8-4LWSrXs4M91VC-byih42sdt2br8ugjaPYwNLuq5lBe3ho5yNTdm6vyr3M21jpgCJwUfCXbpfxc3H7zBFbzIqhTiD0nG8BpF7BvIGKCzzYlh5Rv1J2yRgL-ETAnKqO2h_a9n5KRAKfwGYq4hcYfb8m3SQIrRwk5Pgt_A70qSaep_1zSBdtU50-9mA6Cqr6vf87Vi5sMmT_hGlKq0-tiDLBGUFq1FLFj4_-ZJo-ahgCCRcv2vZLOV1-7TwWdY2c8oGItOy0_0kGkCqXeL8P-N5pXGQ1ELh0oDl8z39IpVm8SlGKj7ih5Z0PvUMBhCXVbbQ7EZmqONrfFDit5oPmb6f7cwFeHZ6GBr4B6UnCaz1mwfMp2vIReBmlm0SQk7DVP4N46TDTklhCLrEF5s0tS30Wu7yfj3J8yh2BzHTIfGyKl_GtRNo7zrbl4W4CsrFFXTzOWV9g4KjnSo9-kMe8vLeIaoSa6ZW6cluhE714CfM2w9JdgOVAQDZDADbBjBA01t1AjTVsKooyNiftwZFKRh1mD0o9lfTARWrkBdzJFQ4u3wsjQSh8tRsNdLi5va9gWwWa1W6EZmVTHgox48f9Kg1xx2WTh1lGaEVVfPqVLToZhTkBq06Y2hU68oYHBVhKaESoR75LoMgRaS9vXmItEs2n6sJh0FDo2JlL_vlN3tXxNlLaAEZ0KF7w48jCf0q4Vey5AectDn6HIyBocbO9fVtZSqvCt8HIOkGvZAZ1x8UyPGVLcoaiMv8xnHLwEu2P8m79IzP0f2DvYvnjkBZsgSD0SYSzefEbZpDi6WiptNj_0v0dYfh-dccY0Iovc9dQA1O_9LcHSidJgYf797aVXeLZaCGTAddjyYsTl14RQy71Yi4RlmS3oML3Ysjn0xYZWrgd87X-PJhWyHF4UK3PLiBNT03WAmNRAmF6aPNLmsEcPvo0QxqESyJsKNWbz52OKpT6-lc4gsT5wrlLe4cIvP1su0iRDNETJvYUKBeqKF8wjii2oHkpga7Ap8pUAB6rpxOLoAE8nl0XYzvM1r-rfWkgX5y_yOhWioNVySvy_PlVhA1iINVNTHWA5aaT7ZZ5d284zauNLM6Ox6M98LzxSPgFXaCy8e3oP9Tf0KwgtymXRTmL8n-qZgkBvBx2BCck_5g9FT-AscqW5JQAltnw7KbuKd85ZNJuz9YXgGy4Yf6N3ifHNJjFe_sOSzQXthoT5Pf32doF1Y4rgHlIHgjQSzaj8WVtNCeuWn8a3PGURL00jV9D6X6Ls7V0OlZmCuxzk981MMTZbtHzbxnITx_33LL99O-YVbXMrPxNO8ioGHTItLWkB1JHu7E4egtisbKTcAs8hlpMpoiGQO4OEu9zIgQxTWVDTw-Ay-P0=",
+        "summary": []
+      },
+      {
+        "id": "rs_027dcf6f16072b7f016aa1fbb5cf6887d194dc07dd56300fe4",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofu5-z3ts0WFYkSZYbPnP2mlm9eyj_WuGoytlxHhdb3V_7S9ZupejyGDhQw6ov_R5cwjbxZFG3hcfFjO2wn5rLVmWp0bqoXW8Q4xkioiqWqxli6RhEnb2ARhcGfqfzjVuTupWbN8y_NhnuhT5nap_FTa3AJb0O4CJtNsO5I0YPd_aBwCX0xO_si9iJ4msxVTGtBgiZM00yqePcWBSjSOQ5IgDBUG0MnvkuqCbIiMVVKGeeTZbE-FDQlkZ35zj2pusSJr-uBodGRND1uGfCi4o7oyo8qw4deeHy3FyzxCPIxmUFU3oSqqE_v4JMGp_mz1g__xY42G6pKtIJLDrpvMoSOveTv8j2yP6D0CGnAQvN8lkBj0eUwRBHLg9o0dLDZjCJGtT9YNHh_BqxTIJ-4m-BrIh4xOKnrXUJgBDyjkS8mSDzWswJYaUNMxmkKSAAbv9Bw8dkVUyTTL-Eri123DvhPHzOTCN-DAxUeLeS3RgDCPN3yb_9HAn3Ov4yBj5WJB7Y0_4UoyXSAC-OU6rSBaUbdBcqRYD899CeWoHjkGGeHMK-Zeqfkl4xALCumQpR1mKjR7aBxGAF_nicQkRiGac_mOyIgCJsetbyaYxZJ3BqTplPVyxIh8zbSmuHfKS65_vZDouPL2WNA6e8hMOMGsmNKCSLNWh5Mchw_eWkcLNNFfkKc1H_vUfPgjaLjvLyR4tYo3MO_5S4nq2NcTNgoRiBnl6JH2NkPAAsp4lRrTfbKdLuNsYMDmm4HsuuqOTd7SAZOwQdMEAqFQZAPPKo_T52wNqP2xYToGLjS6zZQavWWaM6-YpCMDXlmNuko0BYHtj84Xps87i4TDefERnQHZAdW-OR4yIFJD6X5ikUmOssrCOLiflITws1Ig8k6XOK6eH3a_Cbmq-NQ_BYUy532tSYu_Y2bSnvzTs9sqI04oPt6-rRiRHKtYaFbGf5TTFL9z9keTn112s8DkYoBHDRL8TqVgOHWwfLNEFY5XKe6v_bDgYmBkFm2ffzJ2XcYJmmMEkQoegdSz4NOlj9rtoQsVfjeuTMzXYwtZDhwEPV4kRmjGJQQ-lrxbMKKKJb5IJTnYM2dcXNR8i-jhZbxSwM0bjhEgmlNBJD3tnEE2FAm0Rzl_0GWO5VZBCf70u03Hu_kXYXvpi6wQLaKdZNL8vkz80dXADq-R_VicgdgM9Vj5uEr4Q3uLmOFkkI6_NnQXSpuEP1q7IbLNylomzrlofzlmj-KKlboH8JAVMP-W7UMnEmB7UGnO-KF7GQPx3_HU88PGtvRmo8S_2-o0uFICcG3iZnwW_Y3Y2oXxZbEx4rrlONzT5pa_gs0VaTjXukN4FNjezQ7kPYw-pgUYcNGzymPGdOBbi4eltIUaFCqJtmOYWBcirprOS-19nhi7UlphS19dlVJfUcXuuv9vn3QD-zyZC8EeJVAyGt5zxB83-ADe5ZpHrax6xywy7peqDe5ms_nTREVbUog2a45tYcnj8QjErv4XI5UCXUMMDnJtW5KZXhvxln57spKhmPCJV5jwFzHfn1Elq0h_tC9Hdv9gwwgkNHjSmJUwO5d2EQ5MVPmDstfGMJYo08tt4t9hU3V2J1MkWjpEtIZTI_uXd2JvWpUENzB262yEL0OxtKE0LUPPGux9Rad5oE_n2HRhGStsPAEuf-pgH1rB34ufWVZfnmxMQiSE-UrwIoZPyO_WzqMP8mnzyaEOqPUJMYOwCSGpcMysIf29hyM240TCH1QO2ezUpkaoXbWWWKHjA1NpxutS5sKdPfDjdL9yXPNkP2nIHo33aKCBadCq5xxFfD6LRpbz-vsHf3Z1ZLGiIiMP1zgX2xzY81LsNUTY0uWfrRTaCVW0C24dnyAFPXpV-7xAoVRRB8_9pbcxRyZttZjZJYeg5U1MsmY=",
+        "summary": []
+      },
+      {
+        "id": "msg_027dcf6f16072b7f016aa1fbb90d0487d19cf847f5f4b42561",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c1e3\",\"comment\":\"Develops with tempo, challenging Black's active bishop.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 519,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 690,
+      "output_tokens_details": {
+        "reasoning_tokens": 662
+      },
+      "total_tokens": 1209
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 15.740710973739624,
+  "request_id": "req_47895b60e0b74041ada8e22fcdb01a90",
+  "text": "{\"move\":\"c1e3\",\"comment\":\"Develops with tempo, challenging Black's active bishop.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Be3",
+    "move": "c1e3",
+    "comment": "Develops with tempo, challenging Black's active bishop."
+  },
+  "usage": {
+    "input_tokens": 519,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 690,
+    "output_tokens_details": {
+      "reasoning_tokens": 662
+    },
+    "total_tokens": 1209
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.016395",
+  "input_count_delta": 0
+}

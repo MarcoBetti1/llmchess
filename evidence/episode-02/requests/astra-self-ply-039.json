@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-039",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 4rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 w - - 5 20\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . r r k .\n. . . . . p p p\np . p . . . . q\n. p . . . . . .\n. . . P . . b .\n. B P . . . P .\nP P . . . . . P\nR N . . R Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b3a4, b3c2, b3c4, b3d1, b3d5, b3e6, b3f7, c3c4, d4d5, e1c1, e1d1, e1e2, e1e3, e1e4, e1e5, e1e6, e1e7, e1e8, f1b5, f1c4, f1d3, f1e2, f1f2, f1f3, f1f4, f1f5, f1f6, f1f7, f1g2, f1h3, g1f2, g1g2, g1h1, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "8b598c184ff682580be660a9f27c0a39d2077997fe32ff09e162a374b4617ce3",
+  "fen": "4rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 w - - 5 20",
+  "preflight": {
+    "input_tokens": 597,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_cb590971e6074a15b61e2a1b8fea71a6"
+  },
+  "reserved_usd": "0.1098625",
+  "raw": {
+    "id": "resp_01768e47e2e9868b016aa1fab4a39487d1bcd6ad596e688897",
+    "object": "response",
+    "created_at": 1789000372,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000394,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01768e47e2e9868b016aa1fab56f7887d187a1bbb4b91523a7",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofrK9Y-GCpOQVZMRSW3w2uuq9EtklpLoNNKjJSjpOVYnIBcY6-3f2mJ3UhAfjkG2XKi3W1BwOD10i7jits65zYQ-poJrgD1gdvL52lHurjx9JYAknQrKlh2akRfYpnfbbABWqE-EunXJYvtig0YjjpclJ174DXIIsKp520Gvl7tcSeWySkvDSbOo6OSIAEEDYtUtFwyR01T_Ko_By0qQEMTvMvofb8VEkRLPMjAmubcPG6ipVQ7RRMZd-lceHW3GPzW5emyBoOWWPIMXuNfYpq98-DkeTRhUiHVf-87y5vCjfDcyv6ELdbILH0Muig5ko9cf9u9dKIkH246QmfIqLscOH1Dm8YKYVVVaZOrpXSGWjTu8Dyl11UYbyPe59j95VcjqI5e-oSoQdzNEQoVduZdLd8D5nAQyj4IPJ2CbbnqpmGJXSZ2kB9PZqv9gW3bjUKiTC_Cgwmfq-19feiXqHCf5EmNyEPsUfyrtMPGdwTWlTokvFv7Fp23mejI0wR1AmJNgpfjY3QkO8irgdJV5YtEDr2p6VEhZptBIyofUt4HCm1_rOaWoIyv0FjwScVhrZ4wG2-RF_3GUPgyZW_ihqR3w24HL03a4wK4bLKd7gIo1BLcCuczGI2xZod0e_xHjzDFeCnxqupaz-GKVFV8gOh14cjjgtxEM_Rsah9NUJRLMwyDr61RpZv8qpAEN0OwETJ5CxSTrYHKprneQmpI9W-2kIcvcaKCqmqWrDxveKNHWmPwXhK9y2_8kuxUdp4vqSDS7iNwrOD-oL91rtExhoOZbhWE3jQYBX-TVyt4V1XqMhFWMHu8UNJqtxrxSdlgcaRoST979TVA9F15wGlgX9ygC-XnGOjOMWa4GtWFUi5aHa1Cm4qHrCDhgQ_snYsdhkWJ8pgDJI7XRtclIptIMW_9chEIJg6NzGEaNtKrysUDQFxUMFCFfC8B8uDv1mJZa5YGUCki405glEaz_thHlsB3fKZyZKT9Zauw1QhW-l1yki3ACg8hZjnZwCFQ91MI5bnAU2a5MGZaVbu33wLf3mMw0cTjIDvpdqRpzYbsuhifGh-OeC4Ni3039O7RfMyhz0IX1aw9SwhvprO5kuwQJHiGgmZZGCm6o6MWx3jxL_8HzaAm1KuhwVusFNNfSxLyPxcUxqRL_UesBEEKU5dvxDW1b6SC1Z4KnzxmpVNTeAi39Ockrbr6AFABENVFjfM8f7C5cSSkMOZVUVMFlOS95aMoRbwX_I3i1NiIoIv6qIcGx3zAHOk4fRdaTo9dcDim_zoB31ShdRLKrJmJ9l4T5kkkJ17ZERsz6ISNQXPMWOyw5Paxh3JwoBWLYcpCS2UJrk5FOQy8CheIGF2_helc8ikYDPj7LF1IoAWllywGA8RIR7u0WGxHCSVXCb7LuzcEhDHO5igq6_F0q4LtJcpZdywfKOJtQvQPraCIjy5SrEc9o7rHeR4sXOmvdGzC8luMD3BuCBCw45OmlPTCakPcIy6fEujFq_8PhMNrKhiCboiukiyinlvWH6-xLActOs0PFtqfh-8HDnHCuTqv05-Vl642uz029py08fjqSisIzvmRfFl04TPsLSeVaaZnsM723s9NGusbD4xoTDZcs_2ccV7lm_rPjPGkYBAMq1GcLMRI77VmuRnQag6G6SDfcooblnQ9GzUiUxwlu82xaqhZsk62yaC1tYgomqH4YFqZ4Bk7huD70kbfbVSVIBTSP0Thl98cpKgWhvGk1kRZ2uoxP8ezaTjScYDQpC5UzHKByBaoJmmQCqKmn9c_T9LBLMyWc-gw9XLxJKjyd-6ND3mI4-Wwh4ifzhv8NJFMNYtugI39RZ_4D1y9pV7K_SbtG7cYWjwfI7JVK7Pe_U7zrHD1jDsvXBJvrP-SlDVRMUNtlGguGsDWO1lFwKY0H1MTiOWg9sT5t3dqWb9ul6pKnLs61tbhGpTbBqInNkMXNCGcWYi61S_ui-EzguOWZNecU8E7YBRGN0Jt6V2_hIGqJLdO9jH9auOgW4sUehAgaQfuGjbmonhAKIPppd3714u8zteMQwvsgtd3OH4Q93e7L-5tL9IJ2IidJDaYSYSm05q5MvWvrPqBmHqmzeSwJA6ov6_85sDySwgeDKhX7K4BfkSnjHkU_f98sAxP1ObHvsPOzKck8JJSI76WnHqgpBfpJ6I3udZjWoHJoOl7suk7mKAjH_CDxagGewOs8n8J7iZbhxNg4bIq12CZJrPM6ED-sP_9BKWde1rLPQ5cPN2iDRHz23moNUyvOjRqZJ_lN0QLg6-39h2ctY0poxG2oN4swtmjrdUquGRkAlcEm5W7q1ZYudeWWrQdyRlJSHDBgMw6bFLEA-o4_eaUY1psP0DCBq_hRYmPfODtVF-a53bzb60fE63KOEea4OKUXsWQWuut9P4zVOUk9ARX1RMfKdGvtuxSs4VE0jHWp_Si0IFYtnqRvWLjTg5K6pq_3XHAuK7aYFNAv0lOWXBEbKvM8nsTEcmuxiziKMPDTGcmI5Kw0i3v-b7AdZup0PmK4E4IsSXqbwfvBXbagTUo34lKCuX72V014j4wVP2lKgMteRqORzpJtT3YPqKolnBr32E03TsaWQ-GvyMwa_fpAHIPm9h0U_1dPEKXP1aQwq93lm3nyifztLfKqAA1juHAx4te6lv-bkeQ_wqTK1yqGc1fJ1PG4i5gh3qimpvDNvlS_7hHy_QaBPgzbbcz3ssnsJI7hYznUWiFfZurJefQzmGeqUOXB74QNLsU58dk3gScVbY5cauaf4eWLK4RGA_g9ErGoNdlJcRGXihJhV6dxt5JpqQkTdS2kHKPyYCY0tozpWgC8y39HFzad7GOwknhWRvbzpQEZRXBes_8kjNlMD_-HhCn0TBK5Tldu4gTPw9UN5VfG3nBOG7Eas03zTo-jokfYoX5RSZGx62aiua_4bkzoYuOSeBrEowKq1fHI1y_Td1c3UOKXFXhBhlElWiJr6CIXgaDYUwcRn-pbA4iD4IevJ873glz4luh6pWTmR2IT5k9xRDYz-pys85X7GoDesl4ID-vQpbrTlQdtJC9v60UijwL116p1mUugiGPaFxTZjPAv0dkR2HPQD29NXsZsoCLeVQUkYrugTxYu0SR3pqBQlhh87OQrX0z6",
+        "summary": []
+      },
+      {
+        "id": "msg_01768e47e2e9868b016aa1fac91e1887d1a6322064796246f3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e1e8\",\"comment\":\"Exploit back-rank weaknesses; recapturing allows a decisive queen invasion.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 597,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 549,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1146
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 22.318586826324463,
+  "request_id": "req_dd4d4b74ed55444bbdf16e5fbc6f0c63",
+  "text": "{\"move\":\"e1e8\",\"comment\":\"Exploit back-rank weaknesses; recapturing allows a decisive queen invasion.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rxe8",
+    "move": "e1e8",
+    "comment": "Exploit back-rank weaknesses; recapturing allows a decisive queen invasion."
+  },
+  "usage": {
+    "input_tokens": 597,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 549,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1146
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0349125",
+  "input_count_delta": 0
+}

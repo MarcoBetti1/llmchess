@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-queen-04-gpt-5.6-sol",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 5K2/1q6/6k1/8/8/8/8/8 b - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . K . .\n. q . . . . . .\n. . . . . . k .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN 5K2/1q6/6k1/8/8/8/8/8 b - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): b7a6, b7a7, b7a8, b7b1, b7b2, b7b3, b7b4, b7b5, b7b6, b7b8, b7c6, b7c7, b7c8, b7d5, b7d7, b7e4, b7e7, b7f3, b7f7, b7g2, b7g7, b7h1, b7h7, g6f5, g6f6, g6g5, g6h5, g6h6, g6h7\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "c7d548133106d35631ab44f878778da0e8bec354cba9f3a7f378f224e0ee8a06",
+  "fen": "5K2/1q6/6k1/8/8/8/8/8 b - - 0 1",
+  "preflight": {
+    "input_tokens": 425,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_8ee3f5b55165470e8e0b0273a2fa6aa2"
+  },
+  "reserved_usd": "0.043085",
+  "raw": {
+    "id": "resp_0fe21ea788831fc1016aa1f4fc9ed487d19c09be66e7299bab",
+    "object": "response",
+    "created_at": 1788998908,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788998912,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0fe21ea788831fc1016aa1f4fd2d3087d1a361d21dcfd4c70f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofUAyKJT36jUwYC6L2hHH4msrO85SEjuKOyR8-X4tSmfa94a-ak9_1jbZok4-eEdVYRZYKuoD_PHc0ZFZr5HQ-L_7trmuG7WkRKmM5V2T_oQu4j3lP2qhoIHeDzhMcFpQ6lSfAtJxHB2pRTdSncFlO7dNeXSyOqD2evHg8_aQpIweiRZLVAndLBbmnShylR9ZsOMOqOT_UiHGNoxUruXFo907VN8efujIFUVsdx9gwlg-0BnKb-oKGUvVAburPVMW29kR8R2JszZK0miS68sssVo5GKBWNYaXVbQkNW4XKfQ_npzXjDaivhf60bQjLbQQU-pl705fZVwgpsVmivZJcw2AF7Y0S5xOeOjuLvgby1Ety14n20prrMvwA5qaKsEPLiKvwn3IN_Ec_7vQYo8j6Y0Tl6_ugIE3QZCkndvfUuJTcjqbHQQwQdhWH-Aa4rb5AZNUP9IztiomrQVkQ5-gHVktSawoQkcRcYlLWzB8l3JdNU1DGEnBZAMIxJJs3ZwxtdtAfI626nFxCUyKE0yEnfuchPcXMDIAUEZdL8FTmebEQD_jB25GeaYUtr9xDNqhIWD6CH1S7z5Ixh75Ua_CyI9QtT6PfbIJ9gwUB3tcsmy5D1t4GjknDo6Vr9DbNK42LjS1bf90fiyAFeF9GndK0jxgJmYLnS2ha7HY4dgU1QLnVsPYTGxPWcu1czWfbNJ4BfE-EOXmRFbn-q93VTg2GonwxXzgCEFMuJvoqmgxWu3Wt8QNjwKgTmL_qI3DbvWfLR5lv08rfTxsN2UcPC-UfSnEfZgynT7U-AoYe5zdk1jcgJwOhdv8EtUvvsjldjSlESvkg5TAGqr1b69v8oB046VQ1WMkunJ0pHpXL0y9uY84QthQeHgkrvTiRICZilywInGR33zNvgcPso6_dAQVhdqd1XTcKaKRvfW6LeVbokGdYsWxsUSm3tu6TMzMsHvwzxDS60sw4Ode8fu0e8ofnRbG7HLlbEaDG5juwps0LyfcXYtwlNrvnsDha5JHOE1zaKEW7KBcU2I-3ycDgxavthL221ETNO2pHAENcQkmdzuj8VBEFaiBXtUVUEiSVvoybrEblUf9lCnt1NQQ5lzl5XvVKONRwpZJ9_L1FMcLFUzdpYfOljQg0LleXUNMF-6xI0S8w7qnP3FG8eFfkXCsZbbLECFJnM_rCT76W40ph0c9AY_nssnpSynyUUi684EGnCyDiLZKnwafpoNGN1oh-dKVxAoDo_ZNGOIt-kv1fj9tJtawAtsEUT8iPasxK5LX9ihdm6EnaBq8AczB0mgEiBvfqG_uax1CwEKdAxXSE1gnB684LY07_K17Btxtd4d0T-ZBKnXm5bnvVAxPIcmIJyg4rsgGk62BOc2Dxk63pgdTaWZI9MmUvCYwpDOOnvTpdvVouGK7bNRzw-4C5SFHMthNqbriaLUFvI_0afuy1n9akPMkMi6d0p-2tLy6VtZJPLnoGjgODny4kV46veUi4xZoPXbU8sqg4cW7_orN9xYos4jYHkXDUiZRgH7zrS5sXQEsHFPSGO0XATlLPYoumkz_p2DQxVEef06F7dRIDIaHK7waExlFgY9F12iIBYEE7oLaE0SlF4B4xFBb1KNvslo3KB3rdAa8RwQp8eMsVfNJk8nUg3SlFVaqw7XZrSa9BTlqRpNrPmQQ3vGa8lfyfKs_9CpV-wd-I3Sb5Jp_OLjpB1-2P9fQP_hbr25ZdwDf_otGzGPsERCb_yczti-2nXsmHF2KH7wFPpFrX-RK7VbKzMQI_iQgbHo9-Tz6rywLZ5AOcEqfQGDLRnK3V3i0By2TJdQ-TbZkrzGabm8yasCpy0z__K51oHH4fq6P7wUDXon",
+        "summary": []
+      },
+      {
+        "id": "msg_0fe21ea788831fc1016aa1f500261c87d198d0e7cbc737817c",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b7f7\",\"comment\":\"Checkmate: queen covers all escapes and is protected.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 425,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 174,
+      "output_tokens_details": {
+        "reasoning_tokens": 146
+      },
+      "total_tokens": 599
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.255271911621094,
+  "request_id": "req_65fd061ca75c44fbb745251ce1050ca6",
+  "text": "{\"move\":\"b7f7\",\"comment\":\"Checkmate: queen covers all escapes and is protected.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qf7#",
+    "move": "b7f7",
+    "comment": "Checkmate: queen covers all escapes and is protected."
+  },
+  "usage": {
+    "input_tokens": 425,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 174,
+    "output_tokens_details": {
+      "reasoning_tokens": 146
+    },
+    "total_tokens": 599
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.005605",
+  "input_count_delta": 0
+}

@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-070",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 8/5p1p/p1p1k1p1/1p4Q1/3P1R2/2P2N2/P5KP/8 b - - 2 35\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . . .\n. . . . . p . p\np . p . k . p .\n. p . . . . Q .\n. . . P . R . .\n. . P . . N . .\nP . . . . . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3 Rf5 Qe7 Kh6 Qf8+ Kh5 g4+ Kxg4 Re4+ Rf4 Qh6 Kf5 Rxf4+ Ke6 Qg5\nLegal UCI moves (alphabetical, unranked): a6a5, b5b4, c6c5, e6d6, e6d7, f7f5, f7f6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "d5e937cdd946f06e2e0ab7d5128e709072b2d1108312d0886708ce66a587892d",
+  "fen": "8/5p1p/p1p1k1p1/1p4Q1/3P1R2/2P2N2/P5KP/8 b - - 2 35",
+  "preflight": {
+    "input_tokens": 532,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_0b3cd7a9c86547469e6054f4c5dd25cf"
+  },
+  "reserved_usd": "0.10905",
+  "raw": {
+    "id": "resp_03f89b25bf3be62c016aa1fcb9413887d19e40aef4d647271c",
+    "object": "response",
+    "created_at": 1789000889,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000899,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_03f89b25bf3be62c016aa1fcba2c3887d182d8f94de3e580d9",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofzD1Kp-9AatOwDFBvwYxaT2RDJZvqT2i_bzmOvdiuwU7GqDuY-J8SvIK3NgmO9xnY493W9CcPeHViwdCyCuA45Fw8JNDrNwcBSud4-_5eyUGVSt9ezVhs1W5myEAPm9q3kYup9_MOn-y0-zOYL24PtQd58b0HqoitDP5qWgCgz3-2Mb0vRzk3K_kFGg0X6rUDG3OFhDKOSm2i7Me-UlI0Yh-KlY_HwMOMRaPuxVrOV35fn6TAUDQbM6Vifw8cttiwE5E5gwLZBjSNfVhxkh8glzN3XouneQ5uTT2XRG0lYiPeLH2b-ZCq0OVKKs8-rpSLn9XdhT8XJsS-sT7lMMyi2TlvxE2EnMKqkyu_nnZhmY_RriAc3TkuiUbFyfVAa3BKJHeXwsF-Q7J4dWWiMeATYon19y1X2m58sJoUG_np_3V334TVIcol8uZ7h8WFsZgTwjPlaXXxfDxfrJh_mSfcIDixOB0iADs3x9qBbHCA2q0lMmktjYQbyAKZVlt9jgIVyhKNbvju0VQQ7J8ChdfC2loMDO6HZ2CUBjuF0Nh7mR1jXkgif1Xn8yfXhcYvUbCk2qInzzh6FWbVlTqkfx-IW7pXnrv8p2sr95WTm0XE0GmfSaRLsdjdGJ7TPHMMtfNlPVvc8bR2d9t9w0mBk4V8h5bnbY75IeVzI6QzDRGxO47teYB5Zrm3ms5bF6_VEMydAxGxwEhTp4WTET7GYtIkJ-BQvF5kVCtgLkNnOkfHTUOLRAIcXWJNebFlMGwQ88rQyaJxwtUBUTB63QU2xI2xkBec6wGzg5p-YofWKLBxf6XExVrtegvnjv1dZn-cc4Vz8zgtq2UMnMBaWbIiWVn4KfioYea0PzFlrc3-2Rba36EAjMcXyGONTulDh3Ll7MCwCrA86tcggju14ppX56oMS3mAT1fYN9Db4rwZXwhoQe0vegmTG0u8x1HIya2pTIuN-PRoIKlf2f4mXkAQgRgZ10kyUcO_VbmehqSDkUMsIFNqGXZeP7CoRmqZ0SO3B00pc82Rt9HZk-r4QgtEHBlyWXgIDGpArHaRdbGAwRW12woIGD-Sbp0rzsnujiqFY7q4Wd9jVo2xiSCo1R7hwe5lzfJOc6MpNrmRTP6BxySCc5ho7qS7_hrsyjJ2I2rA_-cyO-g0yzHPkvqK2KNdUUw91KGW1RhSeNyWUls4iAFlUuWPiBq3OwUz4itT5VGVPmyDMXQRh38Qve7QvQJyssK42jpiXaGlOt9hlOUR52uKjSpyMJaiLJx1IINYTGXErm6ds6buBwJiVB6_bBUeRec_6d3roH4yF-ULhxYjtWZQwlP-EyJI8J5YTcc05FdORE3YCr27svryLousoomipk8QvfyAv4gBW33sTOKWX9YetCSiqYlgz8eC9yvS24HX1xHb1LBE6MWaV1BTAH8AeJgsyYTkk87hPv0Mqlv7xPl--okvUMc5nas7c6PKr87nWSjixDlhCnlboQIZ5lunh6s6C_BcHpuv2O3QGQDLr2qt2LcuhAnzp7xpzT-E2YBQY3WgKAIEK2NISF0AfqLxcIfMeTBP84e_FVrVH791bXS1L0Fix76n-ab67ik0kCvlenNaiLzPmMxb3Q3_1NUtblB93lxZccu43ywt88XEeQykVFO-WBWcPEYmIgiGpu0fw99UC-OBFQrRLNeGTr9Kf2ul4YAHPhdDJOqIUZJi3I3wexFcSjLQBoxCGHalC1meMiMCK1ZEphsbDOzc2IJBf7zF4iawxSgd1607E6550AVYtIaqSkgnvMXLWZdAP23gYPHaPqOcSd9p4B9pb7QUgzFT0C5XB2qsrZGOCryrl7IIC0jRavo9ct9Gis6QHt7AcbnG5erevk8CKFw1tbwDU4Ls-ASVCGnu3-_mky41K4W8S4I2pGj3z4e3uClXn_vBugRbaEPrlnNeh72bz6tyEV9gKxpe425Xlvkit26ZM7JOIyvXwtG6VwjyQtyYyxHnnO360Qt-uWVBkDQAJSONlVGKaUUC9znJOvgaj09b5oeuEDb0WLZ_EQlzmCoYZlz54LYmby",
+        "summary": []
+      },
+      {
+        "id": "msg_03f89b25bf3be62c016aa1fcc27a9887d1a292831c94a7e69b",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f7f6\",\"comment\":\"Attack the queen and disrupt White's coordinated attack.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 532,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 256,
+      "output_tokens_details": {
+        "reasoning_tokens": 229
+      },
+      "total_tokens": 788
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 9.952252864837646,
+  "request_id": "req_e717de7258584e21a98d399e8d77051a",
+  "text": "{\"move\":\"f7f6\",\"comment\":\"Attack the queen and disrupt White's coordinated attack.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "f6",
+    "move": "f7f6",
+    "comment": "Attack the queen and disrupt White's coordinated attack."
+  },
+  "usage": {
+    "input_tokens": 532,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 256,
+    "output_tokens_details": {
+      "reasoning_tokens": 229
+    },
+    "total_tokens": 788
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01945",
+  "input_count_delta": 0
+}

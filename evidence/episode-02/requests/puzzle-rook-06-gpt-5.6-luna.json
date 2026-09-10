@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-rook-06-gpt-5.6-luna",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: K1k5/8/8/8/8/6r1/8/8 b - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nK . k . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . r .\n. . . . . . . .\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN K1k5/8/8/8/8/6r1/8/8 b - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): c8c7, c8d7, c8d8, g3a3, g3b3, g3c3, g3d3, g3e3, g3f3, g3g1, g3g2, g3g4, g3g5, g3g6, g3g7, g3g8, g3h3\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "03b1e12a2e972fa154e538a041e08a5c121e7930042f82888c1666bbba723335",
+  "fen": "K1k5/8/8/8/8/6r1/8/8 b - - 0 1",
+  "preflight": {
+    "input_tokens": 361,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_29fa1dea48f241978fd093d1c1dcbd9f"
+  },
+  "reserved_usd": "0.00254785",
+  "raw": {
+    "id": "resp_0437b693dc505c07016aa1f592493487d18034caf1de6ed396",
+    "object": "response",
+    "created_at": 1788999058,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999064,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0437b693dc505c07016aa1f592f8c487d1b733d06bb5eb9cb1",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofWYomMauClP_HRIcILyrFhaJ-wGkkMA0JssrI9J4LDFM8iaaPJTWhlAC-q0DtjWgzUre65C-HFsFU0DtrsMJF4Qis95AXTftfwVVGkgW_5FOv-aL9pWisrIxQ6SBDTxR9MS72W3fY_qCv5MwGaS2vwkXwhcpxLZ33Qpj-b8QomIvMDGAyMnZjeBHV_o3xFm54WmesIIz9F7aSZzCtInRH1_9c2hGRmR77Pg9TXoaTgsuGKQfTDZ9doAj3epaQkBYDV5TNUc3pob5bv1PAGbFMbozXU6GdlHR1vN1123ABz2g_cAPIhWsSLF8KAceym_0yQCQLUCiW814Fv4wPHp5whRogViVCXE8coe_s7bAeOWkfdBRWotPLHEIs50rbBhN_cpWIw-kT8fvPYfSMpNYWFBpYfCR95WMKGkgqiqI_AB5nXXEjkfGiW3qmmv_JYpjESnaUr1c0DaGI2--lTYJXN2KkZlDiQ7e68ldCoPJk_kn-tArpIAVfk-XJ6CuKBNk58DwnmFW9LXPC_CmZO36euhAii52HcR68PKW4AY9Z1zyj7VL5XPsMVG9Dl3LW7JH-uOVxAHwzRqdvFefR5iOWiFLXVhjTM6mioc9t1DzDHcMl0ugSWtxBqnRpLKUo-Ga6BZcPFGyk_UE-ZEq0etMR_DGorqxHK7OiYJixk7Uy5vN8S2UTak5xZBLaiTx0JHk6YRL994f-oNCyD-ul91eabwL-PEu2fdZKm0LWiH_BLy4hhVVXimQuHfbf1q0XdR5QyVan0m9tCJwdLJgCVDaV1ZOOU27_wwKjCCOYM7EHTDtsIAyEe5kEaVn-SX_U_-iVQfiGVC9kEuI5fdPFb6vDxS2-c0_GEF4kc9IxxoMFzJ9tRAX4wJCAz5-9mAAFhJmXwQ59KUlkkv4cpTI-0OPAPVpphvQmeRnMrORPfbpzuP1us_xKx7wzkFwDJjU5PJPJHNQccSEHApMp-mOWhQ11e9RLplqsuU_PnnAHzubw--URjybRC7TOmTRaV48FHXxQiLB516DlNWSSzU_7jhcunUPw9jyFp89RP-vqb1KNVPh378GACTeotA2gkddBbUu82zAILxenMMVWVYprp7Dlp-K3jH-PcyRyLVHMD50_OMy1DsAdJfvZpj8t1l1BnU7c67aoE6vFT_mWKg1XF12cWq1pW59J7_Hl4am_mfpV3rX6GZdSzxihgaZoQyD8ukK3MumX3K9GphSwQ9-S7dWRQYFlUdMNLaApbW5ew15333f9LO-a5_V3tUeWD1D0-NtWbdxC7arrBuVUhUZFZtZww-BfGvbOmIMF_9NjHvMOVSFcnWusR43rVYX43d6kURQUT1hO5lyx_9RMEKGlq4AK_00NwluOAFOGEnWvx1gQQKmt80J79DHeHGkxqJmUhLDGDcx3dl7jBB9yxygyEu4GrA2SYVk6rFnlHdvv574KIhxLN4dTSze6kKv9umLI0ZXEpmWRtODuH9ey0Odi25Nn2MPnkkLhhBsBqBZay5r82gJMwMXeuf1wNBVLO1TpSROo_nz-QOhQE4pJJKAceoSTezp6iEq-0Snlwxi14iyUh2Z3G0KM4sn8ZHvPoUcbJBy3i2saQM1x8RdiYxVFESN_45kAaCgkm4Zyq6Bdsu0qeDDD2XP60m_4EFtOeTIRkEfvhZqkGM_HdzyVLslZ_FwMUFYcxRqVsZGBNyf3MRp6qh_Y8EuIf9d9SomvnK7n7nSP2AFtnYmr43Iiuvi-2dNapKpSkOdpA5hcV3uiGesHX5RBkyqeYYX2h0ogVH6vVCjV3lUSGqcoY_e1NldPiBOoDbmuaG5iKPW76PA2B1sDawP551HAYbyjJlCMiShudlzTjlomglM_4nfeJ57JK0M-CadBksQAuPkFB0PqJLgbxYKA0mqp89b1Q_J9OvrB6iGjkYLORAAdnklbnAQ0o5pEe1RZtqxPjZvJy_k0f8DfpkQXV8sUVmti3FFVK7HFI8HTtcRhOyIsDy6wQl2VjG10ulz-L6Tx_qafNMA7bRzEPSRxDvNkcFT-5k6WaNDZHEoZHFGpcLXiyvBtZpvaZ2RBomO2cuElBTwzWoiNGs5Wf6OeuGSvV_kLALYrd7Q1OcC8KmOQVR1bBKhk6t2psRBYV1DfqzHBZf4ubzsCILm-Jcjhf79qg7wEUNKgg6QPsGt2KVM9D_y6zPJy5-LJ14ERGtS1kzHiXfol46BTnAWTxbP8tOq7QVBOIMvHXJfvUG2aK9Cr1tXosGeKEo4NDlSMeqE5WBQlOFkyB_ShmG9XGAJcUwykQwhR5KKlx0tMAST6O-vlMkZ7PsWjrjjvngc8KP2evqmc_A0cvfRAsQ7meZDDDVWgG29jjfJM4uUIapu3HsrewmLte7EMagGnE9AYq4R0o-EmtGRO-uofVCDYr-1eLHiIlvUYcLU7FJbgujEgDup3ge6VEi1hSBHZxg9XA7DsE85mDweFLOmT0Fa-8UW78HEIUdqpOGo88IFO-wHKMFESYhBSNkvmofgCGFn1kI2fCZ57caf5YTPh_Vrb6FLiLiTllHtIPwjXbPpgOEMh0AONGhGflrvgisLgittgqHIGhNhtq7cvIBIHE_I_iLHei7WVFDTifrzgMXxlbpb1H-RiyCOxbQCA15paBIPuZYkX1sWmr3yE3z3gbDS-oIRKCNvFyfzPEUOL4ZpZ9iKXtJSSrGZQ1zOGFVX6vd-e_DJQwVqxjOR2If3UjNhTFc3XOA-yOq5gfrA-kUO_YMeAQ8_2DDXg-E-SIyt-xl0M_IjCHxzBYuzgDjNj-4yhEmUo8bGL0iVVJgXjURM27M9foTridZax_dGjWpBZeaRBxrq39TVA4LTVIcF2pcLebTLdetpP2eQiLEw3Ll_h61_ATm",
+        "summary": []
+      },
+      {
+        "id": "msg_0437b693dc505c07016aa1f597b9dc87d19f7d4c8ce44dc991",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g3a3\",\"comment\":\"Ra3 delivers checkmate, sealing every escape square around the white king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 361,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 406,
+      "output_tokens_details": {
+        "reasoning_tokens": 374
+      },
+      "total_tokens": 767
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.240777015686035,
+  "request_id": "req_dc416b4b75024a4fa9aaed68348db5b8",
+  "text": "{\"move\":\"g3a3\",\"comment\":\"Ra3 delivers checkmate, sealing every escape square around the white king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Ra3#",
+    "move": "g3a3",
+    "comment": "Ra3 delivers checkmate, sealing every escape square around the white king."
+  },
+  "usage": {
+    "input_tokens": 361,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 406,
+    "output_tokens_details": {
+      "reasoning_tokens": 374
+    },
+    "total_tokens": 767
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00057745",
+  "input_count_delta": 0
+}

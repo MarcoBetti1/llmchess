@@ -1,0 +1,133 @@
+{
+  "requests": 239,
+  "requests_by_model": {
+    "gpt-6-astra": 149,
+    "gpt-5.6-luna": 34,
+    "gpt-5.6-sol": 56
+  },
+  "usage_by_model": {
+    "gpt-6-astra": {
+      "input_tokens": 78234,
+      "output_tokens": 45520,
+      "reasoning_tokens_included_in_output": 41244,
+      "cost_bound_usd": "3.2539250"
+    },
+    "gpt-5.6-luna": {
+      "input_tokens": 15148,
+      "output_tokens": 17080,
+      "reasoning_tokens_included_in_output": 16079,
+      "cost_bound_usd": "0.02428300"
+    },
+    "gpt-5.6-sol": {
+      "input_tokens": 27983,
+      "output_tokens": 43298,
+      "reasoning_tokens_included_in_output": 41785,
+      "cost_bound_usd": "1.005875"
+    }
+  },
+  "experiment_cost_bound_usd": "4.28408300",
+  "token_usage": {
+    "input_tokens": 121365,
+    "output_tokens": 105898,
+    "reasoning_tokens_included_in_output": 99108,
+    "cached_input_tokens": 0
+  },
+  "official_input_count_deltas": {
+    "0": 239
+  },
+  "failures": [
+    "luna-black-ply-020",
+    "luna-white-ply-023",
+    "sol-black-ply-050",
+    "sol-white-ply-037"
+  ],
+  "puzzles": {
+    "gpt-6-astra": {
+      "attempts": 12,
+      "legal": 12,
+      "mate_in_one": 12
+    },
+    "gpt-5.6-sol": {
+      "attempts": 12,
+      "legal": 12,
+      "mate_in_one": 12
+    },
+    "gpt-5.6-luna": {
+      "attempts": 12,
+      "legal": 12,
+      "mate_in_one": 12
+    }
+  },
+  "games": [
+    {
+      "id": "astra-black",
+      "white": "stockfish",
+      "black": "gpt-6-astra",
+      "plies": 59,
+      "result": "1-0",
+      "termination": "checkmate",
+      "rules_completed": true,
+      "finished": true
+    },
+    {
+      "id": "astra-self",
+      "white": "gpt-6-astra",
+      "black": "gpt-6-astra",
+      "plies": 77,
+      "result": "1-0",
+      "termination": "checkmate",
+      "rules_completed": true,
+      "finished": true
+    },
+    {
+      "id": "astra-white",
+      "white": "gpt-6-astra",
+      "black": "stockfish",
+      "plies": 62,
+      "result": "0-1",
+      "termination": "checkmate",
+      "rules_completed": true,
+      "finished": true
+    },
+    {
+      "id": "luna-black",
+      "white": "stockfish",
+      "black": "gpt-5.6-luna",
+      "plies": 19,
+      "result": "1-0",
+      "termination": "provider_incomplete",
+      "rules_completed": false,
+      "finished": true
+    },
+    {
+      "id": "luna-white",
+      "white": "gpt-5.6-luna",
+      "black": "stockfish",
+      "plies": 22,
+      "result": "0-1",
+      "termination": "provider_incomplete",
+      "rules_completed": false,
+      "finished": true
+    },
+    {
+      "id": "sol-black",
+      "white": "stockfish",
+      "black": "gpt-5.6-sol",
+      "plies": 49,
+      "result": "1-0",
+      "termination": "provider_incomplete",
+      "rules_completed": false,
+      "finished": true
+    },
+    {
+      "id": "sol-white",
+      "white": "gpt-5.6-sol",
+      "black": "stockfish",
+      "plies": 36,
+      "result": "0-1",
+      "termination": "provider_incomplete",
+      "rules_completed": false,
+      "finished": true
+    }
+  ]
+}

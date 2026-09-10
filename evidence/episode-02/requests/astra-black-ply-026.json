@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-026",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r2q1rk1/2p1bppp/3p1n2/1R2p3/4P3/1B1P1N2/1PP2PPP/2BQ1RK1 b - - 0 13\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . q . r k .\n. . p . b p p p\n. . . p . n . .\n. R . . p . . .\n. . . . P . . .\n. B . P . N . .\n. P P . . P P P\n. . B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5\nLegal UCI moves (alphabetical, unranked): a8a1, a8a2, a8a3, a8a4, a8a5, a8a6, a8a7, a8b8, a8c8, c7c5, c7c6, d6d5, d8b8, d8c8, d8d7, d8e8, f6d5, f6d7, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "0206ca2413913248bf24144e768ee32a75f13cf083be5d660df40fedb8fe23ba",
+  "fen": "r2q1rk1/2p1bppp/3p1n2/1R2p3/4P3/1B1P1N2/1PP2PPP/2BQ1RK1 b - - 0 13",
+  "preflight": {
+    "input_tokens": 515,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_325b22f6ad9f476da6a4b3d2134636d9"
+  },
+  "reserved_usd": "0.1088375",
+  "raw": {
+    "id": "resp_0ce94c35153ec128016aa1f8411c4487d1bf45bcf413fbb591",
+    "object": "response",
+    "created_at": 1788999745,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999760,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ce94c35153ec128016aa1f8420f4487d19a7cfcae4e49ffe8",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofhQ2_Jcp7Qp_wJJC-dWUzmEMCce7iznNMwozuzQh_Sy4h3xt12ngGz5siXq48R3m-XvG0mfpj7NMjPJJgEvqr53-jMGxcfXXZjURbNt5W_VA6RBHk7-BfL9jLaHSdoKqAyBFnmMPrrNEesTaTND5i_Uy-b3lyH4XYN1bAamulyox3f08DTNXN0fliaa4WllmgEb5Y-9ibDgCJvU0wpPRKOzXwiiAOkQaAg2GiSPqicvIvh11ypWZhiEkGQWDFA1cHIhiGM3w34hou5RpeT5m9sXppiD3W8fofmQ9sLrp9u8epdyyMsUQsSpg8sCWn9US3LRy1iVa3vL50Rcn_zFv7epER2ew06S9v4MjhHJDaqdmaOP5wqvyoBoVUjPj7n5PRmLaPToIq-Akd_sQjDayjKV4mRNWIz6DzVVZxq9FD888D8rM1dVw5TK2lqiN81LhkXbBymQCEDM1yi1DK3RqzZv7jKVsdfydmbUSlwUzNKOKjDVxmHDxnF-3kGoxg-a02ZM5HjLN0bY2I_4QT6hmTbt9DwOUwcCniSt7j3aoEeWwUj7bXSJfeLzBQJ5YIX_JTS2sWhskE5cq9a13Po8bm0tN4Zlkm70-SKjrSQk-oSWkrl3jhvxS087d_uD3GORwOQTktra2AxP1tbzF3ye0BQYbZt9P8gUqnyCWzOnu774sht0WJjrRvt5jrG7y6O5ipuMHi3pwLMZToijhHI12xdHeMvIDw783f33xaVpMBrFj3w-HNdP0XCBE0l1FdRcbmNqyjzjTPr-l9mVN87Dai-3hd7ZZCAaoQg1yeycQP8HNsE0o7J13cpPM0bBUEEinJ4--q33wCU0fp3yWDytTXXCbhNOGGG4RzXidYkz3kqG3XhdavZ5hEDd2tTdTnhKtwHw3u9F3irI-jPnVe5CEpyDElY5O6KxpG8w7rLOOGco-qgSIJrI8q8ko1ErNbYjiwe11g5TFXMgSW9asaS02lABEJuEyZsAqwZX_XQygWee8cPdSe9_fg2jos8I3bGHJpxEpufHGpvyjrpDBB8Mywo14noBLwq35SGkazYp4mzmpuhZIIyHCQebYM-tDHnAwW-BrWm7eczu7CvWLnR5FS3dtPFQURQQ8-daoyq4yfkSK2zrLXQ7OIu8EHNXfvqwJqmXl42aO2mF7Awvk8uwjVpCLi4sc7uaWyf2TTKyK15DgKqYq9Oi6ue_kmo1_setfFGfqwWvBaZ8Ts_wEPQji7fM1jDivHx_O64hEjGP5-Mylwv53tTz9Vux5BUQTYbYjqzeTcCfQbpMeg0B9R5GPWc7y5LJkVmdBi3CKsX-mpIrNPDYWsDXeu2Cy4MOYkrvIG6lHLogiujRAUNoO7i5Hjhz4XYqu8fvo83OHoaX2k6FbCsfRI_fvPCcAEnO3IioarCtY3pvTTbNo-Jyijd36OJw75D1-HWnySQf-o7M_9aMBvJewb01vdqF5y-UoQQR5HpNtkWYO-IAf8d3FaJLrnb_kDpEVSPoL486m_73dT55gfy_0x4h9jBWNlIuaMPofqGLPiV9QfkAUNjsI1LFs-6YxD8nKA7EeBIEK8jwnHek4GXflthqpsWwMO4hjqzOogO0U6vK0ogGGg8DUJPEPup06wsM3LdqYj5nvfcvqCfLJpZwmVj5HXIFMr3wh4emSYTjGIjMhL22czw36JKxzNcL6tMzOkAIHOQ7eXRIVJ1nuBd4twNAR5-jBA7z15Nv_4F5DlpTLSNJouXHxHO4d_Xoux228BGjSK1R_-HHHXIAUnSg8xC5MyW_JCWWdevafk-gDXEcLQB0fqVB_drEDsFLONHU-W7uAhhEHqWJtbNEm1SZNc7KRpafsak1QeeJEdbFXoQEj7Fm81wAy4lioXuGyq3T3rn559kERej_EklAUjiKvkcUypcxB-yBo-2pGuzdGCxHn0dyUXN7Kgs_nW05t_CJcHclE5GOYJvJSis8YrJnU2jqZ1dPoVkdqBp_V6ZY16VouziXYaUjMd54NYXETziCtAM--98RhV6gHqyiu8XGQ2NWXG1tgZ7xCeEk-t_W4bANVoHgb0lQLlhDhNZ25LjXeHogjGUx2n7tWr_k9sWbY6g8DXAYhXsXyI3BmXAl5Y8Z-5PI2vY31etC7C--z91BT2kRlI45H94XZxhlGg2hq3HVWreEFqeXJ1LKIpxL3IArXuA9NPsGgoEpNFZsP7c0tXny9zAH71WihjX59qpNjJ2r_aQ3lgd6xOIKxHznjp-ZdXU71la-GJhMZ_PmrQGZmSBZP6Cw11ooWUH2e47Lhnd41tKnYnfgKp0A98Ramh3OBdyQc9vKTKa8TI0FLgstBJzTuo12SyQEQZlySlOm_mHLueJbguuJctgY4QJdCwhOszhGMR5mm2A3KVKC5Aw4J9JFm549JRn3us_BYq_pcygFdv5ukR4n3eSfNQG1uqzqtnZRSmnXJpBHsJ4o_761OyDYKglfrjG60JKV0zlnNqABQKVS5LiSYK94aN4ZSR9G80bppveNM7kvNVbES213lfFhqPZRYFKGaEsACnsnN_DJcDc58OZ-QTw6mq9q",
+        "summary": []
+      },
+      {
+        "id": "msg_0ce94c35153ec128016aa1f84f90a887d19bb08786e159a0cf",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a8b8\",\"comment\":\"Challenge the active rook and gain control of the b-file.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 515,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 354,
+      "output_tokens_details": {
+        "reasoning_tokens": 325
+      },
+      "total_tokens": 869
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 15.663633823394775,
+  "request_id": "req_e6415464a1f1499093eb185d2babd0e3",
+  "text": "{\"move\":\"a8b8\",\"comment\":\"Challenge the active rook and gain control of the b-file.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rb8",
+    "move": "a8b8",
+    "comment": "Challenge the active rook and gain control of the b-file."
+  },
+  "usage": {
+    "input_tokens": 515,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 354,
+    "output_tokens_details": {
+      "reasoning_tokens": 325
+    },
+    "total_tokens": 869
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0241375",
+  "input_count_delta": 0
+}

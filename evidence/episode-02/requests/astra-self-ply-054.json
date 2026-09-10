@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-054",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q1KP/2q5 b - - 5 27\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . R . . .\n. . . . . p k p\np . p . . r p .\n. p . . . . . .\n. . . P . . . .\n. . P . . N P .\nP P . . Q . K P\n. . q . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2\nLegal UCI moves (alphabetical, unranked): a6a5, b5b4, c1a1, c1b1, c1b2, c1c2, c1c3, c1d1, c1d2, c1e1, c1e3, c1f1, c1f4, c1g1, c1g5, c1h1, c1h6, c6c5, f6d6, f6e6, f6f3, f6f4, f6f5, g6g5, g7h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "1c92be7019712b11334071dca137bafade3fb486094ce61798a1fa00991d8407",
+  "fen": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q1KP/2q5 b - - 5 27",
+  "preflight": {
+    "input_tokens": 574,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_10a650a64e004519a524b574254dfb27"
+  },
+  "reserved_usd": "0.109575",
+  "raw": {
+    "id": "resp_01f32ea99143087a016aa1fbdaec8c87d1b6d2064cfa941808",
+    "object": "response",
+    "created_at": 1789000666,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000684,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01f32ea99143087a016aa1fbdbb66887d1a00820799c6c4807",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofvsLfgMbvfSUojgZkl1_25axpaKmbN9sUmNXCd88LLtYp1q7jxWV4O2VvCxJylJbkymo40i-gKDEHLYsWBTstmK-tmKWm_ykIAc2zPCfYm8TNmc__j3PVBokPdb6oUAz8jKwImtExJuY775NOVzlWGOD_67MkI6xjzssZfN3PwfDXx4jjTAoqN6msIqCt7Y_NkmVzYFXV_moyfwqCcmdOzlqE5blfHPdQIePewtLzTEsEdOLwOKD-bS7KfCGSt7x4sZpEgQEeCF5aSEuqZNJuFpGoCs7l3RfNIbD5PWF4ITyw4Tvba7esrkAVSw5UM9OYGW_sEQsVCdtvwHe5uHLjx3kCdLT49HyEgweQiYoWbU9jEqGUcCtqZcq1PEK630588Ihm3D812AY2U7aefoFcZtGQ9f2UT1HaJkUu0DnePcnKVBpL6tJvYefZYwqLrj5_HOQOsFkPHUt8Gzhq1Xjs_skGQHYPHADoVyQ_tSTysh6rg29H3CGaApTAkvHjzlMPnOepha9kXzjHKzLiyKwvyLRXEM22kGjLeI3XUbVs42rjKj3mNvZ4Kz86hKmIeWxFGzEhyatETKwmP2zMcF57GfEdEUcIVI_jlSO4niwQMaQ8K1t6sfAE1G97v4xj077BGHDTL_niHS9HR4S8sWgAg5tD8ZEey9peIzalWAA7Y0ao8jUn6NGecf4IL1znBGZmDhJ8fja6gQmicHJ7pFjR0SLCnAsqMCITKFoIP-DSS955TbK2kP2zDlKc-TAQSIDy8K_vMzc1vNHkHzxPo2IpRotJriVWuLp8XjSb-Oxvqs-xPxa62U_KFtOC8CqsYhx1DTFCgUzSNyXSCYAnylMaWlM5BNyMQ27w1moaB9pW_W5pG40Tsqu5rna0zDkzANZWOTvJEtfXTW2APlD3QJrbpXoRYKXddQqOQf1FzutxxrRTZEQlxBzNsbxRRXwV-RkJzM_ChV848UQasG1r2lmR_Fe1FMVv2RyazK6zIau5TPx7IGvmGQKUo79aivIeWfo1Pk4yrCuEzUmPm65AvINKTdm9GMDdcTYXhM41PmGWIN0NY9SYzD2PgzHvsSIfaP_55WIMI9sfeVg9Tr77FIMKY1buHGbc2FsSlFllGtj9YW3Fb-PS8t71WBVBSLGLY8HoRriIoIC2C2piipXyoMoYi37ZvpogSXLMzH6yPZnoMYeXQJ4hIiDECn2qePyRUE4-Kv5L7oNGfkvswF8UwB5lawc6fFllQndurYBQf_xC9NikzHILRtw_G65karFNP1p8WU7-skLWkJEASKtLLO3y8un-JjTYTn2a7Jg7oXymB8NTTIPNc6kHQuwVs0KCWfRD7wLu4MbvKwLCNtC2pAyLtKeBHOdwGGRTcioEEixSFZOhsbMifSrfGC0tNBD1eQ9aKUHj8UddwFpQdzkMkl5p0yCKpocNM-MlEldgJiKqyJUsiCjKHhSlzAoAcn7Bbp2eid6gLjT_uTCHSIlfM3hirIIlMdO4wylzfgdle36erjHe8KPYDp96RR1VloRX-ELpXPJ3xvQKovq9DNi9PqFoaoZbq_Mg9eYDwJvkx3pGPwdkBdl9l4J4K_SzxGdp6mJkqNPlvLV8mTazcd_wk617MN85c-kUHqTWH1W4K1ncRyED_vx65ymPzkL-bTdemmVZausVCzDRqBSxIoN6u6Ux8d6-2vewpgsBUtoqJMjbbvJl7mmmjYqDv4-S5YYBDP0YgKjHjnEwETEirK-zru58EQK-oHeYq3OOViFbkPqY-P2C3-y1OIAdF7NRsqY-hVOL44u-I6T-0cRkWQavgPB37CJyaG9a_PMglHyY0OyaVLaKgxf8D6e9O2wlnZX6oOoY_GX0S3cZV9JEPnbM3ZK0bKf2aLYFbcMyZKHOTfWr6K75COpO63o-_sY3E-tc2K3oNm1VMNnkLDpZPLSS2-nouy9Pjzx9jdr0H9B4prn6_3RDeh_ov4lKY9puBTaE-p6Z-JLPIU5Zoshi_ASBM6lfIcQRxl9jQi_2TfOPaEzv11r6D-Q6Lh1T0MmYrzQvft_cIqDWhPYj13IiPhyRC_dFddx_87oV8sLgW_WSXailb1GrDVVKP-uzUDZgA4xpEaaMTejuxDWVeDCDMjTr-25i87mxFrHYttRH8XtASDY8qutUPG-ximsOeS5_vIbeyHe-wTtTETwgv0UbXQanGK8O1Tgqe0mVSmaj9z6Zp9nEaIHqX2LleeCBiII8Y8Wfd_BA3MKs7tMzC1qhZw0XH1liQXdGxznBEafzU-oyfUlExakp09TQnbOhOhZmIhben2TZSibyxDgE3NGkADuAncvYkWQ649-I_hzqHobK01V20qhU1OpKkjb9U0SAg4EpGMDRsOTiMh4DNDq9zDGYeEzOBF21ggC78Kc40sN8qBhlEVSBk_gyLYn6niYHV82krXIdDUBJh8FeeLUtkveUZfXZdviyn18s05eDmGtAVg0TkWJ-28eRfN5brbpEe-o0xtWNfkRjqpQ9RiEgkKCrBRTF_7KqmJKXuPJYv92CuZ0ggOZNFUfUeMv2duZjR4b7MZ8_x2c9SUus1z3ZhBBX074nbZoTvgekKY0s0S6C8NT3zLYVH50bwPVHQshqSAXM5s24aflUrOHx4JzIw7LM5Ww72Ke2hk1EXE5tD2bMXyGwai-JNpwcukMeBajI6EUJaqdufIyVuitClliP5cXG18KX_mhMVMZKtfXbIJKmkML4e5_xuNMLBa3DjI87untEOAhCuY0iRLBVC7KCQqYM8-PLWml9neSnGMraxzx2Au7dd0fQUfB0OJ5Xlwu0u0PQ6bit3E2wzie_zno6g6POOX-9C6iia2Q-gnS8RaRc0lHKrq0-4lvaOmt9cRUK_1uncSfw_i2rPUWQlK9H-odreCCN3hLQ7Rr3bXghtn654USenCtOWAbSp9yE9yz6Rjpr8wChKewvS8Nx7bkagYtQ73Hx5_b-pLOxb5yOg4BtN4gGSAfiZUMlSZQ2zU3hHZPT5IGKHevq0jjKbn0m9jY4vKOQSbzuffXbtfLrv4e-BlBr9bUZLli5lv0UJyruMkkZnbj9dcpkTUw4tr1W-hcn_bzUm-_Q==",
+        "summary": []
+      },
+      {
+        "id": "msg_01f32ea99143087a016aa1fbeb940087d1a2e8e3228ac4debc",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c1c3\",\"comment\":\"Win a pawn and intensify pressure on the knight.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 574,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 511,
+      "output_tokens_details": {
+        "reasoning_tokens": 483
+      },
+      "total_tokens": 1085
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 17.58445382118225,
+  "request_id": "req_dda5724d38bb47828cffce341b81fcaa",
+  "text": "{\"move\":\"c1c3\",\"comment\":\"Win a pawn and intensify pressure on the knight.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qxc3",
+    "move": "c1c3",
+    "comment": "Win a pawn and intensify pressure on the knight."
+  },
+  "usage": {
+    "input_tokens": 574,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 511,
+    "output_tokens_details": {
+      "reasoning_tokens": 483
+    },
+    "total_tokens": 1085
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.032725",
+  "input_count_delta": 0
+}

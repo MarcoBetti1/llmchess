@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-046",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1r4k1/5ppp/3b4/2p5/4B3/B2Q1NP1/2P2P1P/4R1K1 b - - 0 23\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. r . . . . k .\n. . . . . p p p\n. . . b . . . .\n. . p . . . . .\n. . . . B . . .\nB . . Q . N P .\n. . P . . P . P\n. . . . R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8 Qxb8 d4 Nxe4 Re1 d5 Qe2 Bd6 Bxd5 exd4 Bxe4 Qxb2 Bxb2 c5 g3 Rb8 Ba3 d3 Qxd3\nLegal UCI moves (alphabetical, unranked): b8a8, b8b1, b8b2, b8b3, b8b4, b8b5, b8b6, b8b7, b8c8, b8d8, b8e8, b8f8, c5c4, d6c7, d6e5, d6e7, d6f4, d6f8, d6g3, f7f5, f7f6, g7g5, g7g6, g8f8, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "5cb4d7feb800e6a02ddb38b889901aed17dd63468ffc263b0760d4595c960122",
+  "fen": "1r4k1/5ppp/3b4/2p5/4B3/B2Q1NP1/2P2P1P/4R1K1 b - - 0 23",
+  "preflight": {
+    "input_tokens": 555,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_78fe17af2c88452b947aacf6f11814a1"
+  },
+  "reserved_usd": "0.1093375",
+  "raw": {
+    "id": "resp_01e43d039e231b47016aa1f91887d087d1a3c6156280ee2e90",
+    "object": "response",
+    "created_at": 1788999960,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999977,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01e43d039e231b47016aa1f919903887d1bc8da6b2aebe282e",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofkp8b2p2SYDxYd_x01o9FwovJNfLO-eF2ZQxhVpU5bqwwIBZJ5KY0bKMbG5dP19lfKs8_gKsxnXGTVKfRp3dSDi2N4SnrDKC7lNcpMuUn0BE_7-jQHOghWLJsjb_N2RPdHYLfrfu_q6BUt50qes94LnKflga7_0lBMKb9oieZrQnWSCtMzgmkGEMeB1AfpeBsyK_b3YQezcpoNSyamCtr43DfwcXBOLOaiVkI5PMLTr3vUE9m5Pp57-ykRDn_u9KtUaxFNKaNcviv26GkNvrbc3cb9wWG8wSJm3s-0FGRK8C-sdYncaVcq4kGL-eyNqdnUyc_wjZKTgmGwsXqCHJbHo3DyLs6hAVLqLtiO0Kv_khC5h3Fa098rjNJiUqeGzfPkyK7uZVgEw_4h1NgKhSd0aYm6l1gSgmrAbRPk_OIXBBQHCXOd7HkCeC7jMrPyVWscDoprhUDc1mnOL6fZkuOxSY0IkoJD_uyA31eM6Z5W3mYo7D7k2U49CpxjqwgdaboJTWjI4ACPQqIOk9wTKEzsbI0X5Pl3yU8GwH0zp-lPriYAvqfwE5VkZ9Xn_YMSr03ZvrHQnTe7Ot2MLlzJoE9G-KDxjSEj-SXSG-li1ektWpexgVt0RR-s3pVhkleURpFNJrbrulQVeB165dr5mh7w59lmnebp1dejQ-Vf2fQhsv-pmMmqJU6TxYFjA8B52O0-G-r3eAOPCQwEwO4FstegLcbLvoyGaTHleaOHBnAp0MtFOelU5y3ZWpVQ3vbzFhhyDJsXaIQa7ge667jQRK-UFdh3QFvYLdTptdzggqzbbM51tL5XJKWA-hbJehWjy8pR2W1MgZCGhlTT0SFm1XssiF_MVf3_Zs6RsSnEUIpOBU6v2TslLnYpejJX3o6P2Nq7-LbovxB0N7b5p4N6QOxvUDbRYgU5x_mFfZ9mOrLFp5hrmcW4G56rBhAtOl3o0lPsElNAxjqkSpGLbEb-fK76EQeoj9uy2sgGfABO8FYgaRSu0-SGwpZwmXETLBC_swQr1aKeMVyEgHSBB3mWYcR7UdBL6AQIYgmWBgh6ifxqxJbdBRYT_5Vhls-FfCI-K_dTO0KFOm6hiqyzXv30MehO7X4VQmkNfSxd-I4QeitXpLORB7x2vcWq3JD0-w52yMaXHpeNKjBOripxB9I8ITlzLddRtZAvOJlxlKkjkWFM9rlZ4JGMOLbbWOBnFuF2zplXoAYsfw5aj-3edoZZT8JEw_dkQSEPayi0i1_CMxbO5IR4ZefjkRdsi4oVsV-E1hItnZMO0kSzyidJTPtCQSLAg-5hCC8uGm6PiZXjAhjSg8Yd9CFombbQpqgb1PmeobPVZKu1ocdhn3pQCqNeg8tycfH9P2vgz7bh1Vc9RNxoYJx6ZDbxVbxu5XZYTsfyP9V-pYoS0-TlfTBYEiz64TFEbh1jykLN4FUfLzpMo4bIMbOgXexidDmIKZ5peB10zxMBDvMUwCo9Z7haDqNs6Hyb15Bz1OqllqLxuywi22BknJHFEpFFwcpTy0KWRO5SdRoTHYWFbeXC1YBSrzI_LhsD4XUWnnPWUiio3e-5Cdjg4NJyH5gfIUvSL7opHlXEmeVjYsS4rG_n_nuMjAqgQ7_WleIzlkks9auvEM4N4uG-AH8QIzEGTidlxQ18Y7k0Ku9StHqwb2r50BEZQJRdf6rq9V77Wub0Gb5GGT8Y6_uH08jxNAsMxCZ8fYR9mTQx3djTsXTuAcnuwgrNKBzBTO88j2nKclwWZgIgRXo6URCV8daUqmLaw9EAn3BX-1eLSiVJbTD82fmJ1RGReewM8Jc4rhhaggjse-43nehDaho7knlAoQ5X_u-jLE3TTxWA5cnTMlYQ8UbNqeyxA3r4Lo9Lo8JqcTnfshsrLfKPTtcqBsaj43DMQKcMPzYwPzadhxoAwPcG_fm4lYcKTPPiyX7i1-tIxU5c1Qu4ArxNm_jmd1zOb0CyNdqDjiYlPhFPssojsH0hxUyiWdeGHydRW25YHo-2pry7HbmFESIhH-LNOo4L6g0sRxUN2fVZ1MrPvEiEDfiOTZI-WcWIUobzKxbZ-cAX40TxwbCygTjDAIyoFezflK8zfulNs7MG8KSQki4Dxz_0o3vHHe_BCnU2m3FPXDb3zrB96J3azwRWyIy5rbrpNBsTK92Ivd0GGsl-Oy1m_8msvQsnw3VSAaUz5_ad8QLzSvPIniz9vPovqQraqGnWsFjigKEKI7iny4ClzEH_T7vY7cfKgHR49JyxOs6vlwTXeFj_RHgMTzCEK2q-s1UetYTEw1eB93-tlrGQnbBzXG7c3PnakPJOETREdYggxMYIRudyhb5J_sUrWb6ZaIMGW-Ms54e-OPh-2-Q3BGvdHdwVAQ9cNlc_4HFGp4TNmrsIyXJa1gPBFPb2GbrUEKc6tIBYbDCi-bj6dTwy4x4C-CgfOEi9Orgf0AhoxVDhx19zA9UsG8FYGFpoOTzEuLddB-UTsX1_T2zV9baYVVJZ7n-rLU8UUPgtcaHF84jF3FjcmFo-S8wVfJW-OS9TaLbiRpoIIpWs7UhJFDOhSCedZfNBYdUzCZFvAmx7CVhNd4oNMVmPZmG-tKdNd2q9J3_F7wVpuetTLGtx97YZ0DSYyfNkjDEIPB8theh-4ZvwKJiEXZJOf0jFFQDPrvn8XUSPXgD1C0hgtRBh5PHBjCI3VBGSIdp-apwz7Pl-7zLFFC2h_jD1nmje84s_ZDb8T8Tu8k8moEPJoGjgFLDNAoxQ0XqORAyGbfXpni9CnxscBbTlcTvJxiW61kUihMlSKIKZXekevhG_FNsQtFFFdUIBojojcOJWPLgoI_vIkmtWzv4ONROj3Kan_UuJQsAtYFXM=",
+        "summary": []
+      },
+      {
+        "id": "msg_01e43d039e231b47016aa1f928d4fc87d1a79d77480a0ade57",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d6f8\",\"comment\":\"Save the bishop while defending c5 and reinforcing the kingside.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 555,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 426,
+      "output_tokens_details": {
+        "reasoning_tokens": 396
+      },
+      "total_tokens": 981
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 17.270255088806152,
+  "request_id": "req_00de061c92954b49b4591945ada0e49f",
+  "text": "{\"move\":\"d6f8\",\"comment\":\"Save the bishop while defending c5 and reinforcing the kingside.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bf8",
+    "move": "d6f8",
+    "comment": "Save the bishop while defending c5 and reinforcing the kingside."
+  },
+  "usage": {
+    "input_tokens": 555,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 426,
+    "output_tokens_details": {
+      "reasoning_tokens": 396
+    },
+    "total_tokens": 981
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0282375",
+  "input_count_delta": 0
+}

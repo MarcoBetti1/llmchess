@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-047",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/R4QK1 w - - 2 24\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . k .\n. . . . . p p p\np . p . . r . q\n. p . . . . . .\n. . . P . . . .\n. . P . . N P .\nP P . . . . . P\nR . . . . Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6\nLegal UCI moves (alphabetical, unranked): a1b1, a1c1, a1d1, a1e1, a2a3, a2a4, b2b3, b2b4, c3c4, d4d5, f1b1, f1b5, f1c1, f1c4, f1d1, f1d3, f1e1, f1e2, f1f2, f1g2, f1h3, f3d2, f3e1, f3e5, f3g5, f3h4, g1f2, g1g2, g1h1, g3g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "26d7347162e1929b99afd3a1029b8d19d2822739ccced6455fc8a8e64050fc5a",
+  "fen": "6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/R4QK1 w - - 2 24",
+  "preflight": {
+    "input_tokens": 582,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_cef15a92ab87470092a2e8a3b004c857"
+  },
+  "reserved_usd": "0.109675",
+  "raw": {
+    "id": "resp_0b0a856c3092917d016aa1fb65f7c087d19e5e055ec6d2a05c",
+    "object": "response",
+    "created_at": 1789000550,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000562,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b0a856c3092917d016aa1fb66e9b487d197e8a617ae4bd05d",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoftyTVTrXPha6uCVZMd3H-B938yE61hjRZom8rwI-yO_Z_HRjoaXxHrLaaRvsNHO0Pr37g1MSGJaeKY0MM-s5nLywKgJ5-7hztii2983dTY2wNDxCyA5DYISrX_5eMvjVXDb1v9F_lZgElsDDxCjSTqySFr2xfnFRu_zA-OYKSSN2Kz8rzanDYAk64g93InHql5ln7YfUn381q-zhY5P7JiFBnhEOZQ0_-J2RXuZSZxjt4rksWwuriVwmOQWULfali2tNkiXcTMqbKNpJJlF4bR7r1auckCUseiBWn2seoke95BftSRAtPjt8M-GvwrwiAgg7PW5pnNvTrs4W80eRGnDJoGG8P7Vh12SP7KL8zaHRKJn2vtOXC3TQVcuJn3oqZLy1OLOc3tlCUEqL8BVFyXgd5_Y75GGQQQojxZWighnwX01K4FHXZUiDoc1fOBs-HEsYP6QCFN6V2iA32y9mN9cnPOCkJ26MGG0d_rGl1OtEiricR5o-qsXqeNzyaLLhAqOKHzc3J0Cnsx9W86jpK_kvgGGovMucsPUiOIM1ZQlAvWlMV_qa3bomC9ApmoUSolI5qX-6dwEAlw_SGI2H44sHgrxhLZs4-p5rynGCrjRxtaR3F3T2TTCbtke58qLNS_3RoKstMb946EAdiMPsoDKW8WA0p9pdV3McxzzeSRi3WzsjUFSPA1aE8DzSzuS3yvMQBbEnt3tlmQUE2Zsff3wXkYzoGaX885PDQ_2GKhSzpQqW7kSEZJUymTJ6y0NVtpWX5yu-kpLsnKVRLCp_OPb1xzfG-i1EfUUkJqnqmjgBoOXpKljMC9TUSuYCDVgiafuZsMPI-CJsQ6w23QITnSpwR3mIXV7m5CO5vU5LWmjdTzBVHODuVgu2NWRbt7_V2fzxSq7WEfT9VdeFPHouQrn_EuU8bt6VTKISxaNkvNKFE14fYKveop6NcnVQcxLz8H_WiFWsEVyDjPSW8gRZ-n-ceomjO8NpuCGoFSkVOG31F9vE5ArLENUTWdndNBpuubdBuav0-_wxAyKoofY2Nrir9IyPh3nnUo0249zcZ_eJ9sXa_uHSFp0SD6hi5Cft6hmpU7L7ZqdLKF74XnYi7dUEsraBgfCTaeuVJuf7aaLVYXJPlcRZ1KFF5sWLfSPZ-8VdIWCFG-ykLZHovKH9yeK3SFc4ngRimCH5m1edPhKC_HPDxcoD9S3n6s0esGvsPpc1gHM6Il8YPRzeCtr6w1M9bPxFD9z2Ld2LPhk2BTNnj1cVCvrWErvz6LEpkXvoPKW49tnaIbjUFWfkNS6JpAeOXmWvCOXyv-jVh9eps3zqH5Ekdt2e4IL2HZSCSOM3iNFAqR3cj5v3kLUV2qsZl126pWEjE_J634aAMiqPe2cHzzYpkl3ASix4Gb-37P57s1GayiZKOqgdgdHC03_Nata679idKi7M4Ui3jeDyS0CSxAJqf7Iwo6eAhZ7Ff--LSzFKbnRvS43F-BHtWWq7R_O-8ivFzy63GFO40lnxm44D46dCoByH8JPyqos5OADTFrw6dtT6w4r8OHCTxc6MLklqSER9Tjy8A9m-XPBUPgleRA-3eH_kn8rHFx2c8dCiVtY3yTnueB-JkNcw2GT_-FlkL73F3OvcjLqFro_T7tqx-XTyLd23cIvQNghQXjhCNnz4D1UfE2TrautFYPpyajy5i-YqJJk0YBzECU2vhnX-vpBKKqlhSqeQEk0DJJLka4hCJ25_qDVMxwGCrrR6FfGMXQZCqmw8WXFoWnh1dXAT9Nni6o01bywA2PGh4KtFtHJIXQVNdpj5-cy6U5DxWXOVh16YKEDiVfkhfoOaalcK8HIwa0FO-iPlIw8Tw_pUEx4u_rBHZNtnFyKLUe72_bDIhWdM9miv4WYiCWBn3GpVPGtXb5QwhWjgc0yL3qsBLq-E10E9BODDWmFvrJhQi94jsBj_rWBRfBc2ZSA6Ps3WEA2YmLL2twZIzGnQtJHdbMwi6QUusSu4d3b5dNlAjf9fr6kxXqlHitGmRb_dRIX7PMuL684-qFuNQOzPIldFK1RvqyMxoV6-ftBD0rF5ZGJP7WJQl2xmUXJB5Z0yr4JWG9pa6SgD9OFGFMzAl0WtRTTGTo3tVMdLMu6jXJdyrYict2z7N9LtP35Yf88O6snYCpWvzg4vbfJVoreYjCPfInPO8bvh6r19qqqLDiBuLcLDXeTj-3l232PxCAAXytZq1WvqztksvqpkUnDTAyXlr6x83NyVMh7kG4LT_iqM1LLZxtb4JisWfWMZReYP7BX47VomiPeP7gneBnAtJnOIOMUnx-FPEzEUj4em4-P0IVwYhiC_NycehB2w__sTe7nb6FZzzwKUjbi3zDekmHHRsFmBuBj45QiShc4YTU7L8dJ6YrrFi4hmCGC3mcHZqhaK29dVBAWsYHBKeNoBjQU-ZgCL0n3IlgtA-g76Oiq4-Rf8vi6B73KVY0RtmIwSEKgw5q5wi2xXc0WBP3mNi1N0ILHY6E3yuQ9RF7JyXv7lZgj8A==",
+        "summary": []
+      },
+      {
+        "id": "msg_0b0a856c3092917d016aa1fb71ae0487d19d13f91983419ccc",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a1e1\",\"comment\":\"Threaten back-rank mate and encourage favorable rook exchanges.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 582,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 365,
+      "output_tokens_details": {
+        "reasoning_tokens": 336
+      },
+      "total_tokens": 947
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 12.454710006713867,
+  "request_id": "req_0ec7ddc28b9b4657b8d0a2fe35035197",
+  "text": "{\"move\":\"a1e1\",\"comment\":\"Threaten back-rank mate and encourage favorable rook exchanges.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Re1",
+    "move": "a1e1",
+    "comment": "Threaten back-rank mate and encourage favorable rook exchanges."
+  },
+  "usage": {
+    "input_tokens": 582,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 365,
+    "output_tokens_details": {
+      "reasoning_tokens": 336
+    },
+    "total_tokens": 947
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.025525",
+  "input_count_delta": 0
+}

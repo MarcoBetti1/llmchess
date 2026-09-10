@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-027",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r2q1rk1/1ppb1ppp/p2p2n1/8/B2QP3/2N2P2/PPP3PP/3R1RK1 w - - 1 14\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . q . r k .\n. p p b . p p p\np . . p . . n .\n. . . . . . . .\nB . . Q P . . .\n. . N . . P . .\nP P P . . . P P\n. . . R . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, a4d7, b2b3, b2b4, c3b1, c3b5, c3d5, c3e2, d1a1, d1b1, d1c1, d1d2, d1d3, d1e1, d4a7, d4b4, d4b6, d4c4, d4c5, d4d2, d4d3, d4d5, d4d6, d4e3, d4e5, d4f2, d4f6, d4g7, e4e5, f1e1, f1f2, f3f4, g1f2, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "1082a6e2361e5d3e71f109556ca971376dbc329a3eecab156882c25d37c26909",
+  "fen": "r2q1rk1/1ppb1ppp/p2p2n1/8/B2QP3/2N2P2/PPP3PP/3R1RK1 w - - 1 14",
+  "preflight": {
+    "input_tokens": 576,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_ad4cf3620f3a49418a86ccf10ace30ca"
+  },
+  "reserved_usd": "0.1096",
+  "raw": {
+    "id": "resp_0f27793b9cc2b2e4016aa1f632d73087d1884670cb2eaa2651",
+    "object": "response",
+    "created_at": 1788999218,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999226,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0f27793b9cc2b2e4016aa1f633c93487d197a4a83f724991ad",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofY6KN-ixHh16atO0-6axOpQutx53c2PbWl3CkXmfmrmooTZk1dClmz_bsoLiMEI3dh6nVH-D7Oq5hUPglSf6sd_zmntmWM85E0cYUWOrrQkLesFHFc-S2MZQNX3IOiz7Ro3zq2_moja8EyRTPQkHb19sF6qyBh3dgoulQNhmcxfUN5fxHRVNcuEEb7covKd840NDi4Jbdg6yBYV79MZcQdSJrQuhkVS_PzoBCZH3IweRkGTL--30fR0ljXjPtMSjHEUg19zI8TVsuKXRsEI669bc79R_jk0gVa8nFMXLgH2pAH-ESeJDV3WIHqLJqAk2aZVsSikr5V3f079qLW5PCcW8R0YMuhY7waiVukkH10v9-SRAeunlV85RmLujdnEiwoEARrVQ6Kr9VGX6TEimyyTmqQMcqi_lz0u3fo9oFcmxdTPu1jTXRyDwVBhplwbla1bZ-bpIZdFGVfKMteNneCC1ABZ20NtFzW8ffT84za4TiU5OrZYh-ee4cCiPyFHjfbownkxn0oW8t4b8IqxZrORLnEsm2IqRc2G-zbn_VzCK6ABt19TnSocTdTLy8E-g4H25Jokv1-K94krbxVEsiUTXPAGu0rcNd5Hk7EBHIZ0rjj6ToFksWiAoRKzTY2v5VAjVvvd3TKwd-nsqMPEjTpXH8raVjeHpUEyVfRr-klEeodf2BMUlqwTsPOBEVljAmxXfAigI22M6_GY2J0PRdHuNLBmLNqoXiUSap1z264qB77FRvxBK2-pn2FGI-pb6xF3DAInOUCAg2kwfK5Onhc4hC6iRva_-uiOYOTTQ6ARtL0ImxccEQ_jaPVFG5Q3lIJLgEVS0AqEmDyFISrPzmQKoaZ_W1PuRMTTBkYTJ4QHLBr1lRx02UQChCqDnz7O9osQwJkmO0zWStCOV-ZH7AjimQq9szIbEqyXqV1bkGgkmdJ4W13sGyuV2xegasBz8jd-gAfex-NuAxOiZgPtjJ6PVLCtR9DsEb5FJPsCD3DUkZ2bh75KdiM3L1RmWPiEYz3eig1XDHtSLGprD7zMRcFCkQKZTN6PcZVI7MPBfFzI2LED4cPrh1Cr7DedlUYG5GxgQu2TJbIuwk2C3Vat6ZvK8aO9n5u0jR6p6SJiwGz4J1Jiegiqm9N1V8NNh0XwsIEtt8s5sdXRwThoZ1tQc3qOlFBaDRJDsj_WgXnZH7XsNFB6ckpN0rdbgsIBpCVTJV0URThgxjYhwR8GCPH6BbIkPsHLZss-I4wJ_4wS84h4GGDiiKA68GJCSbifmRrOJfeFxqobeIaK5iflOaChKD2cwfXxBbEPBRrgmKP3lcdKyvicQY4YzeDytRqH4WrZFb1pf5H1ASLqh-BMjslsZVhCFeWI-C8DIcu4qJcyR4GQTzxiq496tYsbGOlsSYofIXiVXRz3y7pF7fk9hXZ0urp8g63IGhAO4NOAIUCWL7ORkWO1stxIc9AxQGaYLET2ufLoDE8ea-WJulDiDT5YZ6z9wLKwH7dTGzUhZNrhJPtdEXqO4WK4TwR-J-xiztFg_j_o4Ky-fjt6aFTwac9nap4bmYH4eNtEWtFBkbGimlio4xC6IJ8TK2CdLJETRtHDoS3J9SRfnqL4dQjarp9LCMA1EnpOu1e4cwFoNZhw6pzPJG5CEJlSNtm0MiN3m6DuXtdpyldBU6iF1nLtzH4k8weoTYufBsKnLDxg_IJ3-wl_4sEyY1GNoaFuOdy7tLh1Zpj1lOEPHo9O3ui5qnKQAbisOYfvMmQL72TLdYhMh4YPL4w1ugLmKVW9KRspujex9SXOyxUCnsh3Kc_1Qv8nlYNuFVh09nJklQ1TDte_NowriH6r5Agz5KpZibNEtPXbtQ1kiF__lOlKym9Q22du6D9iHA==",
+        "summary": []
+      },
+      {
+        "id": "msg_0f27793b9cc2b2e4016aa1f639781487d19fe8dec7f206feda",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a4b3\",\"comment\":\"Preserve the active bishop and maintain pressure along the a2\u2013g8 diagonal.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 576,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 209,
+      "output_tokens_details": {
+        "reasoning_tokens": 175
+      },
+      "total_tokens": 785
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 7.658202886581421,
+  "request_id": "req_628e0186e03c44c9ae76714318b67ecd",
+  "text": "{\"move\":\"a4b3\",\"comment\":\"Preserve the active bishop and maintain pressure along the a2\u2013g8 diagonal.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bb3",
+    "move": "a4b3",
+    "comment": "Preserve the active bishop and maintain pressure along the a2\u2013g8 diagonal."
+  },
+  "usage": {
+    "input_tokens": 576,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 209,
+    "output_tokens_details": {
+      "reasoning_tokens": 175
+    },
+    "total_tokens": 785
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01765",
+  "input_count_delta": 0
+}

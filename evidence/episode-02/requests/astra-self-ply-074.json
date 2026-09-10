@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-074",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 8/3k1Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 2 37\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . . .\n. . . k . Q . p\np . p . . . p .\n. p . . . . . .\n. . . P . R . .\n. . P . . N . .\nP . . . . . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3 Rf5 Qe7 Kh6 Qf8+ Kh5 g4+ Kxg4 Re4+ Rf4 Qh6 Kf5 Rxf4+ Ke6 Qg5 f6 Qxf6+ Kd7 Qf7+\nLegal UCI moves (alphabetical, unranked): d7c8, d7d6, d7d8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "7e1e1dfd7825e21aaabc5358d1518a5f9f81b5f47653eb1e979283fd86dcc689",
+  "fen": "8/3k1Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 2 37",
+  "preflight": {
+    "input_tokens": 512,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_7bc95cdeecb646b2905e81c77ced96d8"
+  },
+  "reserved_usd": "0.1088",
+  "raw": {
+    "id": "resp_04f2699105db879c016aa1fd0b94e487d1a9d33f14f8e2080f",
+    "object": "response",
+    "created_at": 1789000971,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000981,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_04f2699105db879c016aa1fd0e29ac87d199e96bb57025a0a5",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof0VPEfSH42j33vJlw5Bm2O2AqvJdNzOCWlzuwulpaVR_c1CcY7mt1nCmj3SWeYzZQDha8j09hn2B7Xx8pGywhA3rrIq2MOSB9ILm6dVh7rlpjtm6pS6ZJ_9ZP5crTDjASDx4HIRABnS-CelOUIwqqBq-3kODLyT2tAHqXVtzZAzG4dtVyUYEToIXQG6SJ-lftoHOu6uB0_QI4cKU3dOmKorlvt_1XDQnVqVSkAS8a03_vsMf6V65yMFbBWNHPGraZ2UXkwng07hmoCRsFo4hsiXuk0Wn4fF41UgE4JNP1DQuLV0UWUqwejT-QdnTqT0XZwxg9YFkyan5mDI0NEmgkKBDwRXbeGZdimSnrdwLRFHnC_1taIRL5uMaYhOHKykVnJOeb4cTuGghkC6UD9pwKuo5GjBEKVZEAJvVddeiHZV0lkCYlj9inG9IM-XSfZlWJQGPKk5yVudfOh_tRasT_11cq3vnpXP_14yQDNeUCCk82uPGEy9EX_cq9kUGrA00IVs4tGjuiJvSQ9nOdT41iSE0A4XIXRgJdCgWEK4AlZCa2rsH1Kkc3i6rsjzPtilNC_2XM-a6k81qKFKzFVPR5KVPMTK8Bwnbnd8AfyhdYxcuF11bauEts2AKHXLcZ9smCs39mdzlr3WsL9YAVevgk06ivPOl0m5IkuqiHrJ6ej-Y4d-UlGtPcyJAuQhbaWMlZqPFV03YyOIL84LTx0gQ5o35qe8HSF155vICPdWXN0xvotxB_4y-y5hS1CXSkWl3ca4qSTLEK59v1YHjQQCH7qjc67tykQo01lQw0i32Z1pelFNx8N9Ufy74Xny3uCoe6OzH3VCEkLHnt-OzsFY13nJnBtquSbaALRiJXTW0rGb4DB9PhUKXiVxyynAvvnn5XtYxXyF2GOFS8RR3B6BBHrgK_k1h1fM7ub_Li7v1rADd3tmwdSVu9E-t60oI7YLWYFitAtN-DId1Bn3inUyQn1ASnpIuOa2imL7grkHGCu77EwtOSoRuFNIUdPZEpUBGxQApSQowC7KvuHEVvfohJiwxlroJIyMkrjp09pN09u1C61ViB2fdlXQrLhgy4wT1eDFjBkBi__G5qDWt4dh8kclNoezELWzfReQXmUW4MmH-NI49zbLxGa9xMQIuLujABbY4qnqa6aANarpmkZ1XSxHHcIT1mbKn6-J8xFZMxo46MTvBXjGPsmXe4SCQ-gX6cQ4F7cvYt-G0jLOLAXUOMQYTEhpIT7e2s4AkydsWM3farZ9k_lOJI1Fve9hhSW6zdzdTWkjAMSRun-YLXl_PlRemnNyt4PuHAlJZODnaG5J1gBpEUiEG3cDbHgKwltj7khENszwoe2RjZVs3SLxZCq5DnrdOb7GLcLRPo6mJ53QaSglF8_gB516GqR7S1avCxJAgH0Ci1pZGxYLqiYlsLeE_zxRcw-rZ_TYpOzdzZWEPFQtxbah266rl8hAabOCWn1s0AZOVcwIyL1Ox2QKE1uzU8aini3I7x7Whmi9bhyxeJ2ymq2LK1J91BaCVcX--LMybBL25C4p1Rrqxhcb6smHCTRV37wPOgJutumfhXVKEMMKJnPOIySisdr96gPIAcXe3ys0d8DjjYHqK4IsSYUMIg==",
+        "summary": []
+      },
+      {
+        "id": "msg_04f2699105db879c016aa1fd146c3487d1b8bfa89e32a12df8",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d7c8\",\"comment\":\"Head toward the queenside to prolong resistance.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 512,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 186,
+      "output_tokens_details": {
+        "reasoning_tokens": 160
+      },
+      "total_tokens": 698
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 10.030225038528442,
+  "request_id": "req_ff017393c0064f9dbc5c92acea537d94",
+  "text": "{\"move\":\"d7c8\",\"comment\":\"Head toward the queenside to prolong resistance.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kc8",
+    "move": "d7c8",
+    "comment": "Head toward the queenside to prolong resistance."
+  },
+  "usage": {
+    "input_tokens": 512,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 186,
+    "output_tokens_details": {
+      "reasoning_tokens": 160
+    },
+    "total_tokens": 698
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0157",
+  "input_count_delta": 0
+}

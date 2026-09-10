@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-014",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQ1RK1 b kq - 3 7\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k . . r\n. . p p b p p p\np . n . . n . .\n. p . . p . . .\n. . . . P . . .\n. B N . . N . .\nP P P P . P P P\nR . B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6a5, c6a7, c6b4, c6b8, c6d4, c8b7, d7d5, d7d6, e7a3, e7b4, e7c5, e7d6, e7f8, e8f8, e8g8, f6d5, f6e4, f6g4, f6g8, f6h5, g7g5, g7g6, h7h5, h7h6, h8f8, h8g8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "3ae7cc63561ea43baf1c7008c456a161c3409990ba7c115841ae1f9ab958da7c",
+  "fen": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQ1RK1 b kq - 3 7",
+  "preflight": {
+    "input_tokens": 495,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_4240427deb104156ad2d0611999d5972"
+  },
+  "reserved_usd": "0.1085875",
+  "raw": {
+    "id": "resp_025512b5f5e7f5a7016aa1f7eeff1887d1979a4f3875fbb963",
+    "object": "response",
+    "created_at": 1788999663,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999668,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_025512b5f5e7f5a7016aa1f7f0dda487d18beec25eacb9795d",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoff0BY17eR6vNpCZH2_y4qywRl3ZiTqmkEhC-QhFVu7gpYNB48LzIDdcxr49IYKwYM5GqlPn53VCusshiveo0BF2368Hl1KONzrAIhNKMj-Kb0pjNX8byvj7rQw2Ou9zaA8ss0YnbD7MVpk3IBOUWv9twpTDmJmvJchCm39t2pdGWinZtq-HQqXVSdMXooYkSTBGrqI17bfqINK6-X4imoozRIufG2B5QgUsAjJR99wQwcadUPcClcYnQ-TS_fBZpxJFnkbBVnGfHiH5HUzp9Ka5FCYw5yBElZkP7KgQIdnlivWukqT9qXytl3eBJglGfDVIFAe_5qVgyIntpFtoglgegodfz7CURHC2GmhjNxeN0eTTnOsRa0PSyiH3343R0nu8vSIIwXBkLWXm3Lsx_xKnCTFSooeakF3FJ0smLxru_uS399F75t328cN21fyuwBLWMb6z0If7s-XDwT_Nek6S5LyawRJ2Tc2IBp0cpxVyaaJvyJp2tLstFQKKGzIvicYiAevEEWkheUxnsmmC-zQsiefZvhd3D83jBNQGzLJk3ZiAh-z_zd_tzFuBe1rfOMwB7I_O50AZMqFiLM_bdFlVG4CvVx30HHGfgvc1uhXJoZWGquYTPQ0JobOAumc1nWo5Qexpioy6_29CqGByCuIPoegvQx2m5gb3BNlTDOm1QIEP_1DsHgpdjTksz2jQKhpSABsTpwXJa1Og2ec8Zm_Yrs6J-O2zWSLltBNvOtOz2_OE_wXcqQPv9ydynOd9MhHqYeLG_GeiCsNW6TPPlXDZV9-OUFm6ZD9nZtEaw-P4dTBLetazMn9dSMsJafb3C15ZiO75yJCTrfI4PWHGo408jCqwvfnXcvt4xpwcSyERUCxzmKvn2BrkBVjhqZgYbMGR-ERHKaNBsf84RZ63wCp4aWawQEeX9ZcR4ZrIpCtb48yb90M0fuehOgvHimineSLos8s-oBNleGC7OOSTHF_DgYcmdFjjl57RDCJExsak6iaYRy3MryVU0ZRftnCngaicy5XebGXz5-zL0jsK1LD2ywbHsITMWuLGE6GSBhQ6pFzEAx1DrbS-93LOplvhfEgQfoe472He88jwP7t2V47p3jTK9sCclhxkqBs5C8Cku_-drtTP5rOEH4oswg5Krdc9nj-cPEkGQZdwEsFFeXTob9chU6pTUQt9EG6DD-O6eanyMbWjd9gc5MsjMjYqSQR_UBD4LNVLAlVVhN7Hx1xId8lRSPqpQd6UyuJ-dfbfjBgb1RK9E5-_rLvLHEi-MfxcSv9oTO-cgz2kBaY95cqLv6e7eb6M6JpOGCepa4Ps7z_dL57o540XK00pyn-DYSR6M9vnNcJHfnhfsRkNovfymdGFF_56AeIobPqRGure5qHij1TzhnWIk_1YapG5lHqmUdaF_lVRe9UkLoWXCmxYx78VZ730zLZpNNXRO_i_eSv7yIfRs5Tt7Yd0x4AQ7x38kbZ_hXNIZbLKEHUS_JKUQE7eDSFii0Hn2-UIyw_u3RhaXB5S6KO54X-r7iMbyGQW2WATYAE4ohL9MfkjEi2Zyg==",
+        "summary": []
+      },
+      {
+        "id": "msg_025512b5f5e7f5a7016aa1f7f4220c87d19337dde102dcc56d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e8g8\",\"comment\":\"Secure the king and prepare a central pawn break.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 495,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 104,
+      "output_tokens_details": {
+        "reasoning_tokens": 77
+      },
+      "total_tokens": 599
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.052628993988037,
+  "request_id": "req_059bc6ff141d4a67845e5597f32b4ad9",
+  "text": "{\"move\":\"e8g8\",\"comment\":\"Secure the king and prepare a central pawn break.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "O-O",
+    "move": "e8g8",
+    "comment": "Secure the king and prepare a central pawn break."
+  },
+  "usage": {
+    "input_tokens": 495,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 104,
+    "output_tokens_details": {
+      "reasoning_tokens": 77
+    },
+    "total_tokens": 599
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0113875",
+  "input_count_delta": 0
+}

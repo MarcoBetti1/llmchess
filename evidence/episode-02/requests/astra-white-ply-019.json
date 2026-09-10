@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-019",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bq1rk1/1ppp1ppp/p1n3n1/8/B2BP3/8/PPP2PPP/RN1Q1RK1 w - - 1 10\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. p p p . p p p\np . n . . . n .\n. . . . . . . .\nB . . B P . . .\n. . . . . . . .\nP P P . . P P P\nR N . Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, b1a3, b1c3, b1d2, b2b3, b2b4, c2c3, c2c4, d1c1, d1d2, d1d3, d1e1, d1e2, d1f3, d1g4, d1h5, d4a7, d4b6, d4c3, d4c5, d4e3, d4e5, d4f6, d4g7, e4e5, f1e1, f2f3, f2f4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "d81b2969145784d890394fd42fd44a2cc1c97de8e0930db0f72741ebea38f768",
+  "fen": "r1bq1rk1/1ppp1ppp/p1n3n1/8/B2BP3/8/PPP2PPP/RN1Q1RK1 w - - 1 10",
+  "preflight": {
+    "input_tokens": 531,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_ecc1b2b0469f48b29eb89b6ce97a3b00"
+  },
+  "reserved_usd": "0.1090375",
+  "raw": {
+    "id": "resp_06c6d8a20696c5e9016aa1f617ffc087d18810d725139aa3cb",
+    "object": "response",
+    "created_at": 1788999192,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999200,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_06c6d8a20696c5e9016aa1f6193aa887d1a5edb313376cf34c",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofYgUUOcFZai-qTOIroOqXLRc4iSquQuuo_GDanwZl_X32eyPIXGg1YX34it7MKgbdso1a5BUHmEh-bvPwkqyrmTIZ0z4dNB5S5YNDpPfML3RqZxhhyvHpdYR5LFynwN_nC1itov88mkQUb1uTfiU1I7Ycg77XvTJG6XcMivqwl10dcxcvxepOen46FVTeqeNxA_oC-YPf-0qE5XDhGePusbXONvD5v51AOY8bjnkkO7_tr9_d5i4_JUSO5_N6pJX2CeN8qjpVSwGUIo-p9KAyAxdkSWXD2I44BQ80kBqZrYhgVZS_SN9D7Ef70i6maqFUZa9UTRTlQqOvjljbquy_TNiHhuu57RkUW7_oShDKQrg8SQaHktGdozTfVu1TAF4s7Z0JCm-X_nXtpx-GE2RUdWYf5V8oX1O89RinN-OdXyLITeJDu2dWJq1anV2BQwV_lopu02EtPuDs38qcepPlUv8znSOdePHAmjV9P4ZJ2EXObIlK_0XBJSFjB6pfO7a3uzlkhWqNtUK0e2WF3WlFuYtHtPhxbrxUeKkdFZ0jZwLrAr-Slqy60n7Y4rczD40yGTrWZ5JSRLezCQEofW__7Y6wBqeTSBEBfEUYdxjO-DqSyfjHPVOHbqDo2EAjRSQUU38p3sLlWKXDczgipbjw3BDB27oZS9oEoXmln5PNzyRiSHKZkC2IuNeE29PG5iBxyjdRGsRq8CsRsJVSJnIlHg_FURGRUFdX8WWCDQgKuV3NsKZiNz_Z8VfudaJx_5XnJounFaanV62d7eB47wU3_9vw571UMUsbwAsqjtd4_RvwiB7aqFdSIOcrB4TGG6SkFfxBUqjtqdQozAQAr99jbEnmdi3gKlISm-IuLChKfIhZknyqkQ4jvkjFmFOvGjU5Sn2qnlRx9Msde_F9m_WdhWcQa_L5hwNKNAU3mj8hvJ4FikDtOx2ygutiqaR5kZ-DXQQ2hDTn-sxLuo2zmRjAiZi-4gZ5w1tYykrbci3BEEualM8yiBsWpuiyzEF9t358ge3Y8O_rkv5PjglWu33fXXZGNW_r3OxPIhgq5NJFZDqeyurrgk90VCKtmW2FlUnqphcYmIosFs0uiLQgXb2JVUIyfCWJIBMk9wDiW6Q9Q7lcYjnVFIuHqDMCUOIY06Wj_rgfOvjFNTrNIA_0aA2E5fohdr7WiwanvxzOoArW7TCAeyqxAWE2VoXcYZ6xOTmcue0K0MKcSyNcWfNy48sIsjCCif41-_jAfn1uuWkfWXZrug2SNycTMhLq6TktwSqBL-DUfITXthi2SPA-a3kTjd4OHPcNJOBmKPUOGMk2yW45KwAnltP0AGjlOFy0V_HdKTq2Yqlj9DESiW7R4PHYhDiU_CHiWBeqXC5XpSvU6s7qx9bPq-JLoog1gnYC3sw0ZIM3R2AU-VNFH0JFEuMbPZI8cN_c_PyyJjspHHRWFmp4sIBv6huI8MJpAI-2dsoYvvyD8aOWr2Jbo4XZ8ZmZYQktQULPpBNrx8i0Nv5C_mll6uhogUyZHe_ERs7ba5FmGTjdD_-BE6-VpFOrh4jW-GGVsTS3sTL6VZAzZCBevQ2XSGm42Bfi6oJSLvt_yO7UmPB4-MUc2d9YCC2UqdNBm7Xm4jEJaGl-HAje50te5PNaQL4OOgaU3J-nCdbN6rSEQspPA_acX4iC61AWLXps66SSamFJUQpN7YIm3z9AL-Yr0GzuTxDNGEYlK8UzxQNGSg4A3m6iWBuxXJm8C3H7W9oe_PT15pPE2AbsX_aR0wY0jhpTBRrKMvle2Vu55qYmDRac0AcNxYA0JZ40xiwmx1J9faj65uC8dXzAQdwk6NOX-F0EswsZbCZ9tcUwo-RyboyicFrIkalsatl7NZCmJcL6hi1Q46CI8FfEXhllLsjgNqEgckHhcwogIWfLjHajFzfrh3AsUhu6IrhfWOo1d5COeg0rrSwMiswQpA-AXLyS0yQA9TMPA5e5Z7oER1gskm2d3mpQrcOlZlm9NNOAFSkg==",
+        "summary": []
+      },
+      {
+        "id": "msg_06c6d8a20696c5e9016aa1f61f844887d1b031f2e01ed70b81",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b1c3\",\"comment\":\"Develop the knight, reinforce e4, and increase central control.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 531,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 203,
+      "output_tokens_details": {
+        "reasoning_tokens": 173
+      },
+      "total_tokens": 734
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 8.638227939605713,
+  "request_id": "req_a9d0ec226e2046a38fd29c193c8eb43b",
+  "text": "{\"move\":\"b1c3\",\"comment\":\"Develop the knight, reinforce e4, and increase central control.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nc3",
+    "move": "b1c3",
+    "comment": "Develop the knight, reinforce e4, and increase central control."
+  },
+  "usage": {
+    "input_tokens": 531,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 203,
+    "output_tokens_details": {
+      "reasoning_tokens": 173
+    },
+    "total_tokens": 734
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0167875",
+  "input_count_delta": 0
+}

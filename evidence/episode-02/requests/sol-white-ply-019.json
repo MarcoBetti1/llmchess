@@ -1,0 +1,151 @@
+{
+  "key": "sol-white-ply-019",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bk3r/1pp2ppp/p1p3n1/2b5/B3P3/8/PPP2PPP/RNB2RK1 w - - 0 10\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b k . . . r\n. p p . . p p p\np . p . . . n .\n. . b . . . . .\nB . . . P . . .\n. . . . . . . .\nP P P . . P P P\nR N B . . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Nxc6 dxc6 Qxd8+ Kxd8\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, b1a3, b1c3, b1d2, b2b3, b2b4, c1d2, c1e3, c1f4, c1g5, c1h6, c2c3, c2c4, e4e5, f1d1, f1e1, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "c998581bf67c6b278548a042c8f26208f5655bd40677ba81fdd1b045102a18a4",
+  "fen": "r1bk3r/1pp2ppp/p1p3n1/2b5/B3P3/8/PPP2PPP/RNB2RK1 w - - 0 10",
+  "preflight": {
+    "input_tokens": 472,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_3bdd453f8a7f48ce875bd339f2b26cfb"
+  },
+  "reserved_usd": "0.04332",
+  "raw": {
+    "id": "resp_07146104104777a6016aa1fb9d6fe087d1a5b559d2cbc9cb65",
+    "object": "response",
+    "created_at": 1789000605,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000617,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07146104104777a6016aa1fb9e1c1887d1a976520ee023f28b",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofupecmK0vlHVl7fkz7OFu42hxj2xqtdEGYVIxFZK_ce37l_Ldlm7zQqLK6Ihy9kqrwlaUKcjoIrB6_FTwEUOUENZ7nrSbdqvDgj0wli42MNXruqB1TaYQmHusfVTzb5ajw2KZtG1nYfSszNHFjz9w33l0esxWAivauMFTK2bTcFh8EwXAWmnIB0TEvPiVS-uhO_DrFOVWK1DU2JhQxue1z3dHk9BWTnzdP108OiTAWEAJrJOOvLISwbM-9RfPA36l_Yv2fQ9Nctpk3U-EES1M4GjJm1kP8NS68nZKJaOFeRZD7N4FVrQwhMLCkzWP8RPzcJeYvpAFyv8k5LFw2tQTwRpJtGfDHriR5KYFrbeEVJtGzrj9DRLkC5ThCGSf6n52PaFI3KSLG09pke3HtlTCmR27HkshNjt-jKmsZKJdSIuQqdNxhgL40Qz_R5kdTi6G256awsu2iaNKf_HGIVoiN9lVweqEIDKQ6tC64rpE132G1TY-ABzMpBIT3ZkB2yNKdy5LAAW82Rx8Dg5GC8zDMN0WNESzOcsCKbmIbTspmvK7mzF4HyMlg37YsDtPzwXQv4vDd3myHwyGT4KSMGA8_wIb3RnPj5D0_ElZJSYfV_282QhsCk2wyDaT5L5BuVZX58WbkoBQmHOli4yHDEsKsst4nIB0612MhhI0N4YNObUigcjMLbviup6FLupsDOS5sYPR0r1UWKFiOrZ36B9MB9nIdtHFhAzIKebBrxF9tpNqejuTsQ8e0Gz-xFEEpsb6IuoPEbX1kSOf-D4p9WMdXhybcgGeU9k91uH4mWrLbeGAstTFl8UzTtvrXuYAvSUcYJUvbEpuZQ4SqJE0ubuM886dabSKiVO9-QPSJ5JprFv3L_BrGQqL6ax3do2xw7J1gbsdjCgVebIxfTr-mqlHj6Poy1HLTXdNWHGPJM94AyCLo1RxKg_MiO6RUSTk4ylQtG-YNwU0CF48Gr_bIkOPo7nfg40t3mzjwAOqVhdsigt0rkSWGQQ2O7IL4GBhuHm_Hpz3-yeogR-VBzgLHJMNFOBqIXAfbgp9EdjTweQP2NtcdQHdoTD7nZGmNs2yPHPPfPrXi-ezeINS7FZ_XCY_5tDQWZLWn0xS2SXDbvpHlDTGWjsjYSbTM1ghRqUkmgGaGlPYq7KSERPoFC2J4l5GzqRaf8t-RU9xh5aWVvx2sT7XyizT1hNk2ZpSTM6FM-mHAn7FN7n6mYK_mb5acMEjMZYxo9E6Jjfby015JGGfa7ESfTfvuoGpLweNzqCXu4g0xSFSDYRPYazSySfeBpxLoU1G238SCxIusnphuU4H5wqo0BIvOqPn2aCd6psMLLCPqK8MjAdqlFAwmhRnn7QBGMpw5lK46ag6XRP0lgbXv7Sgppf4h-eapAkINqwEUh29cnKbaectEFgSMoUC8XluDBqF9NeMn9hrfDx0X1zKdzWCjvlrpE9tF8LKxWm0GDRiiTuqwwRIWEHozFSxXIYxEuCSXOqsLuRGAN0T4oZBLH0DRf0uddzTLwLoZiJQJmc4dOcbpBpL3qtT1usiORmacmQujMjociX2EszFndI689SuQG9T8K7QOTHZiuHwmoe0l8EYu0FLqcOO49skhvWcIRFbOMmNrJRt0wHURYiTxcLZBnho8zcK9R1QemwDxnitDMGoLL9qAj6UV3AEUvsNHQsInThX-st5i4xZeJc4TQhX_w89oVUme3kopZR4d_5J7zpgLSX2IFmvVS8c6C3nx3GrUshHaVjZ5PsFaqgxbcBCvRuSlKnbg7yyysvgWilyprd98CkRZ0tFYm7G3l1AHfMknExnT1OO22B8YILcODWpQEdSzQNsu8Gpp8PInmEHDhfEpDn5RdBJHfdhxNJGFbBSBCrKrKsSsxy_gtip1m6OiYyC1q_3V20DRjwztzVAlwl1nNjOVpec3CFKHfK6vRIj0YRl8XrvtcTsUOKa6hg4ogyqzq5_MrTdClVEKif4lHvMvk6v0NayyV_bkH68IFHutyjJFLjUeUWojk7FO3USDlINZas8qIny65qXdAEWmjgB5k13hef_OFkniArBzevAVeY-HO89vBIZVEpi6Gvls-kibOOisLoUd9sEP9KwtqjzBCGpDHWYOmCDsNnvxToO4vT9bLi8bB7fWN2jBHHT0vZNXAN5rARNCH8aUJVnV5STsZENGpeHI-T7iMzUWb3MOkNSiWfP0BO1a5uW6E8RmW10jYfmTpjw_JsoSTQbaKVr31k1LfOgeqqzyIiSH_tBMt2ldm3ROWjhdhSOjq4J4tijUrQu_EP_Kla-rIwlM_6eYE_vhH1l7ovS4Db3w3ABjnkuV-8oDLBE8ZaP-vVOBE6Mshj5xt64CWqohvZ2RfRifFmefb6AS9qNE049s30kp74MzhvfT43YLYUdlKMYN9FDRPwmNAKyoz-6DZMWa9zpXkXWFAipExbFLCtKxU3M4eHhjZiRhAO_A2-m1t2o3OLWzsVH3ObyIvIjNix08BGoYRxJNcJFo54BqKOnKL3ZL8RrUQabIKMyuzf8zSNq_nQWWZPvCVrz0TGqZiNi2NlO808Pt1_icLfmDD6n0TheJ1gkq_P2GQT9k24gaWFuhJ2ceyhJKEoh9MKrHUpR9dBcd_HtLg0YU6eKeESYjjUG26JNmYXmVH0d3eI_NuvNWVboo4p0a0dNmJrTLyLiss4nuNlepPt9EAfQszku5vTzd0LTQwc59DbKOaZVOH0LPYVB2uJfeSHVAZBUqVBrr3w76BQn6pnjsiRIn9sD4KITQ84fWxsg6_eqJEGIOe74v_nu_5O2B-eQ7_ojqwSmn-Dsd_IWKvPeb2X7jC25MzNe7DCEg2UUhtNuB9f4n_WfkvLZxQWJ83IdNWz0lShGlaYsXD8gRfeYBh-prfXJI9TpBfT3JGsyJ6Q_OnQwmjMkHaRWLRGrqWuW9ZN3s51KKQHzX8EWaAoDD2eEkUqmhw_rsjDauzkH5lLM869QnsTlRuwV-KL7ye94qMmjYs_XE9sPV7at2NM8T9LjexfpR6MQVphXnTMNBF8ULFYvt0RRwYhQTzHfXHiCix1ej74ZGci_ssbW2b4Gm8d1JpqfK0bBOfxSi521VM8DS95RXtHXoCWVBd04m9hl5gvIwafGq67ZYNcweh2SmhIe5E8Vek3z7oSFeEtvLk9yqq-uuSexxeoFchBLzU4HqVYtJFsUSlj0P0M5qIwveXjKWAZuTbFxpp8MoatWOSEpaq8_PR7qLALep1wthD6IDM1xGqMPF303ZbPVKCr3XimhqcdBymupflLb0AmN0mI-o4u9ohSP2m9S12IwDbWnJkBHApMcW4A0O0-rvj16PACE08lBNEQbVQVeAmzDmj3jnGSzmEK2Y=",
+        "summary": []
+      },
+      {
+        "id": "msg_07146104104777a6016aa1fba931bc87d1aaaf1c5a74c8afc9",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f1d1\",\"comment\":\"Develop the rook with check and keep Black\u2019s king exposed.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 472,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 545,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1017
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 12.513039112091064,
+  "request_id": "req_0cbe4cefb015463a9d45d0e0165459d9",
+  "text": "{\"move\":\"f1d1\",\"comment\":\"Develop the rook with check and keep Black\u2019s king exposed.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rd1+",
+    "move": "f1d1",
+    "comment": "Develop the rook with check and keep Black\u2019s king exposed."
+  },
+  "usage": {
+    "input_tokens": 472,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 545,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1017
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01326",
+  "input_count_delta": 0
+}

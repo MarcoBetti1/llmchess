@@ -1,0 +1,144 @@
+{
+  "key": "astra-self-ply-062",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 4RQ2/5p1p/p1p3p1/1p3r1k/3P2P1/2P2N2/P5KP/8 b - - 0 31\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . R Q . .\n. . . . . p . p\np . p . . . p .\n. p . . . r . k\n. . . P . . P .\n. . P . . N . .\nP . . . . . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3 Rf5 Qe7 Kh6 Qf8+ Kh5 g4+\nLegal UCI moves (alphabetical, unranked): h5g4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "5a2144e02b1e21febc185c974d6dbe0c706f2f9e3be70f3e44cc255807306e0c",
+  "fen": "4RQ2/5p1p/p1p3p1/1p3r1k/3P2P1/2P2N2/P5KP/8 b - - 0 31",
+  "preflight": {
+    "input_tokens": 468,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_a17d8f5418bf4c55bdd31027e9d05a84"
+  },
+  "reserved_usd": "0.10825",
+  "raw": {
+    "id": "resp_0011e2bc05e6bb04016aa1fc561f4c87d19737a84473e4a96c",
+    "object": "response",
+    "created_at": 1789000790,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000791,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "msg_0011e2bc05e6bb04016aa1fc56c1b487d192e7c2d51e3da98d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"h5g4\",\"comment\":\"Capture the checking pawn; the only legal move.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 468,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 25,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 493
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 1.4531519412994385,
+  "request_id": "req_4d7bcd9c4c584babab5e46de35d1a947",
+  "text": "{\"move\":\"h5g4\",\"comment\":\"Capture the checking pawn; the only legal move.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kxg4",
+    "move": "h5g4",
+    "comment": "Capture the checking pawn; the only legal move."
+  },
+  "usage": {
+    "input_tokens": 468,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 25,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 493
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0071",
+  "input_count_delta": 0
+}

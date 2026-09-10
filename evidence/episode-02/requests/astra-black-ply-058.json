@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-058",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1r3b2/5N2/6pk/2p1QB2/8/B5P1/2P2P1P/4R1K1 b - - 5 29\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. r . . . b . .\n. . . . . N . .\n. . . . . . p k\n. . p . Q B . .\n. . . . . . . .\nB . . . . . P .\n. . P . . P . P\n. . . . R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8 Qxb8 d4 Nxe4 Re1 d5 Qe2 Bd6 Bxd5 exd4 Bxe4 Qxb2 Bxb2 c5 g3 Rb8 Ba3 d3 Qxd3 Bf8 Bxh7+ Kh8 Qe4 f5 Bxf5 g6 Qe5+ Kh7 Ng5+ Kh6 Nf7+\nLegal UCI moves (alphabetical, unranked): h6h5, h6h7\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "2c650e25351a714dba07b8d53aca1c7b347db877f98504e9e4e5a556b37d1167",
+  "fen": "1r3b2/5N2/6pk/2p1QB2/8/B5P1/2P2P1P/4R1K1 b - - 5 29",
+  "preflight": {
+    "input_tokens": 460,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_d4fdf84541d9403fb87b9a50f3991885"
+  },
+  "reserved_usd": "0.10815",
+  "raw": {
+    "id": "resp_0b44d6cc71ea2a90016aa1f971638c87d1b1e1500331d17c1d",
+    "object": "response",
+    "created_at": 1789000049,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000063,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b44d6cc71ea2a90016aa1f9725e4c87d18226e422c2b3d7a8",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofl_nyxM9rIMCYW9DTWkIwFplQyVfG9hnlCQIScoj8R8TA9-o_Hum028Bq6wOoCFi7o8ZB95NP8qi5AgkoV15f2nFJ6oUj-S_EnVIyJdpgU_GYYJEabZ8-MaqJzPwZmL_SqOSIayFE8c83op7xfWV28tP8FQVhGnNqJbk5II69ZbpM4CuOg7MkhIs-a9oCrPIrT7vc52iFUW9gPOq0xCQE5nMCVdbaVm4paF214OWqaRi5vFfe7rctS45Ujm1JqHXGDBWVWhZWawGuP2vqU0o85Wr2J5woA_7wIiJAHokQRTMsQIeLlzrouLYbSsznYWV8yyk0v5iT1B5wUn-xD7rFActqSZjlQWU-qE-Oin1vwy43KTPGVjps8X3odyqPO11YfmVy7yYxBbr1dlzt8LXEB-qpLO1Wm1DeD7WRqeWeYFHEnGH32YCGv1j2GQ_foPXJzk9vf3zImMT_xLoTe7Xu4wmEpEPO9rAFqEmf03T455Hz1o5EpRW0ZSPRKfvj3ZaSuUd3e8PIiTeOO3u2-dUysn2NhE9D7UJ9W8V9B9tsdb8uc6B4nniArxLroUbbdVMPrL5lmZctUdFbcucNVUF3-70F1aldyvyIOQxquM003AhfzuzP9SSonaS2x9daM6DVOtXFOVcokFj3Uh0116M5glDDDcO_eSB-uiO1slq9-HEGaDHX3CCVAXSMrTvgx_LzUNo4W0wFzidVQNQP9ty1rZYS8fOwe9gkv7SNJsNf8sNDWfmw__dVIbhgf2mMOP96RD4mz9oRzYAg4MoZ7_KoF_LHMbelDQGwmhBOf-pca5DnkKgDxbhlBMwvlEpuS-QSLqeAzKCycm7yngLhy0Swaq2Dfj3X51PRz5it0iyrjejqYtEg8TDtbu7PvS-iHblohgz06cSXbQy90ZA64jM8tSsK95I3hZUx-5ttDc46wrK3vZh3sPqYon1DbTW3vAc2aYWbxYKk8PLYXeeng30Ip1oyIi_nBkFuMjVFjaFL66UmciPP2OBMd0WuOM_pvVqXGs-Mbr_HBL8xSl4scHVx8qMCg0juyutNVzDi9pnXCNvIDorrVatYSN76iu41pAdwN56JXlisrn0MJED3sOEXKeeYQkdZEom4t9DkqR_9XlOS89XvtWUe7Y0nIWpzOoAu7vc0Ypu7uBFwUvWlOQ0W6R280_myTRu3c0qxWEdSPXAV6bEA1NdvxxgjYYnlzMCpxw0aRwJeV6mLb-rpcbHXLJfIeXheSr41J1m_4nMnFx6caS9l5YlTvZ6OyXiAckq2VJN3WcslDm6EmOlr70pUfnQZz6RKkZwttwKatLe3onQ4myL3sCMo9nb5UmyQprajHqZ0kMl1PnH_IzXqOgYu_bERropc6FVQJ4mjvtcK-eSTgWcMa0ywvCitrRxJzrQ3BWnmxUP38ojp1hJzVTrfYeljHzUxEvY7cwSwhuzOh_M0NIRvvuf60t-0fj5kX28kksxniVb8K89upWTvAz63gfZrdiAyJGagI--8B20s8EXcgXIZpSlNW88BTtqfXI0IOb9tKcptfelRWXk7buNT5IJWhzVtTSrEcin0CHpoy6_eQeoILYBMfekJ55hQHn2xOFG795AFhzItkhjloNGi3pgPSsbmzaiRGsovFXFjHSlteAfpj-weQYYPY8JBatiBC_y6su1TyK4mjJ_fWgRbBc374K4us87KjR4mBHaTnYz0BfXHTS-PDC8FQWrsb6lSFFMNEfPLGthSNmTmGqiXylkhuaHWT4JuHlPK4m27BcT71NJfT_eSq6Q5oO18jHV4ztjgGsi-TZN5ULEqmPFalJ2z1m-IjEeWbz0cP5Q9hF4dXH0uiTDem3n7ut0DhqFoIQ2ndrcxmXAyuHokRA_H0N6QMvSjkEp5bhvkLmxv1xGeYvyJDLvZYw8wnmORslGKDVK-eHYSgg8DrWim0IDIOxJhLfcJxDystR3tDV-FM43c7MjUZPO0mn7vlwZjS72AJs4V9nKtaPBLqMU_n8oTAzS9QbUcr74a-dol5fT8pamHa0rzq6066WMB_-3zk1aF1wl222BpWBiX16Edty6UwYYCSCs_b3SanTdpQf7vlR47EvCI_bBU1kBRCtPRcfLX2uH9yra3QEv734ZJQi9NuSwomwVrcaMBD2r1pMHo-ruqD9U1Q7_JfvtbOuotvfwc6GULqpEISswao_6gE7UfjfCVbRZ0Ij-8X9a9-zCuTlTvE=",
+        "summary": []
+      },
+      {
+        "id": "msg_0b44d6cc71ea2a90016aa1f97e6db487d18c7254015a8a856d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"h6h5\",\"comment\":\"Avoid immediate mate on h8 and prolong resistance.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 460,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 322,
+      "output_tokens_details": {
+        "reasoning_tokens": 295
+      },
+      "total_tokens": 782
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 14.538371801376343,
+  "request_id": "req_e5cbbbc8f5ff4fb0ade8d973e0705e66",
+  "text": "{\"move\":\"h6h5\",\"comment\":\"Avoid immediate mate on h8 and prolong resistance.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kh5",
+    "move": "h6h5",
+    "comment": "Avoid immediate mate on h8 and prolong resistance."
+  },
+  "usage": {
+    "input_tokens": 460,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 322,
+    "output_tokens_details": {
+      "reasoning_tokens": 295
+    },
+    "total_tokens": 782
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.02185",
+  "input_count_delta": 0
+}

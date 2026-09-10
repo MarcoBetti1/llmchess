@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-050",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 4R1k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 b - - 1 25\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . R . k .\n. . . . . p . p\np . p . . r p q\n. p . . . . . .\n. . . P . . . .\n. . P . . N P .\nP P . . . . . P\n. . . . . Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+\nLegal UCI moves (alphabetical, unranked): g8g7, h6f8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "d75699ebfa42f9b1819d452cbab3bac9ee31a091a91768891ffef94e2a2c224c",
+  "fen": "4R1k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 b - - 1 25",
+  "preflight": {
+    "input_tokens": 440,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_87c7178e21ba4f058b4396b7192e138c"
+  },
+  "reserved_usd": "0.1079",
+  "raw": {
+    "id": "resp_0472134043667480016aa1fba24e6087d1a5883117d8ef2817",
+    "object": "response",
+    "created_at": 1789000610,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000614,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0472134043667480016aa1fba3305087d1b6584915d100ce00",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofumKZjhbx7VF5h3GXD_EuOKVmIOXCzzwn8wOR2UxUgBOFr7JpfejOWAFmc6Hu5kZZByv8WWy5ZceePFzcXqipFOnsss-ORp8mjWyp-bVabv-RQitqnkI5zjdi_aLwk758QKBjsMWqzYazjoKf6oOTAipXCiKyRjYPXXof3-09HwPjq1KgV8_3vb58fdRgXbwFjrBg4uCj4i9Aw85a6Y4AsyYRMmBTZjkBKKo9wcc1HsZQTObIQRqOG1S_sBWCgmlPd94_q5YcTlhjDqg9KUXCs5yUMJhUl1Y2KYUmIHRmHXvOTxfGHF_trvpgK1dVrSW7_4kQQ9zGmMDH1aTTvduh14df5SbyWYyUyCu3w1bqJzHUkYBuGT_CbdotGTJARFDNATNTz_RDYfyTPFgJlkuPtJC6KfuZoTN9zJCvu1nFBzzs2WdvfyswDSmNopan94a9Oq5-aJvYDZ3jD8yRQAAhTwNkGG1CbffyIqAvkS3e5I0soh1NaSMIxngYsIfUF6EOmmCjgR2zjy7tHPxRfHsSP4ueFJ8c3yM59OesT8ggfxNMHmdNd02KyaXl29AUxFH9v8VF27Q8ujoDDtxScfheWkHwdeQSM0QPdsnhHDzI12lOMdBo76Ijf9OWImRU_PYlGieosTJ79ZS2Cvy2BWN2zNMnwIT2Tgys-NkSlZDJTE_1y--gIGxZnb7UjJ6Oqn8wJbFMx2WGxtAXJ_1b5saqgWQHhRYo6j1PH7DrIm0myZJg0KbIzx_9cN7OimZVQLgjvdkndI3EWymFFJrGhthpYwohh-_0NPVYY3Ml1Px6PvxCsja4icZ9sIMHpSqoxL5LxPTED9x9rhex6rFjkddqCnSH6z2C7RCBP-5dLaAS_ijyC2Pd0a8bpytc6LhcHM8rKXlxceRsKAhmlcjMgpZFaBYfW3_wucIpjV6qVzw2OwSoT1b4Iylj3NtEmgjZq-52tTxAUfNaSEhet0dZNU2l8wswdmftf02TaJp-QzUKN2FB_6q1-Od_fDYArzyaRNPkjLwAzQH2h237MDP2Hn9e3L8dPW-K_Lbf3QX8hrqtfFhUY5Czgqc3u4yG4A3A8e0bEIa8_SXoz7l3yDnsJ3iJKCkegr35zf_kBEWaNFDJrvUQ8ZVSctMtDw--BkdOxAfwCEUDUg-x3maQIOx4b6VosNu49rYOyyzOSFHa_YI9mmPOxDXYN_ri6rp09sfH3IuCIt_Oz2sFKP2a74BlTo_XJQMKGZ2TJqM3fFtH2jmQazghUIO6xk5Y8b0SIzOoxD28O8ZZZe7v4M0mmQhVYs3VoIta_P2SsGMn8PFpsXTlMbzP3gxRaoaHn0g9BPslbObc2BL6b8CCkKbMj9Q0ix0RvPMvt0TWNIu0Lrctgo54aeZ9KUQenQJs-I1x1aeZp_-qsF0Cd9uZf1P69SFJxgdDTlMngwFMQcZD8zSWniDxHQLA4e83pd06hB1NkOqJPCsCODO-2LnsaojKb0-wuhwAetyg==",
+        "summary": []
+      },
+      {
+        "id": "msg_0472134043667480016aa1fba5343487d190524fc9b900b23f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g8g7\",\"comment\":\"Escape check while preserving the queen and active rook.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 440,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 100,
+      "output_tokens_details": {
+        "reasoning_tokens": 73
+      },
+      "total_tokens": 540
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.002211093902588,
+  "request_id": "req_a2b5572de9e048faa49e3246572a7036",
+  "text": "{\"move\":\"g8g7\",\"comment\":\"Escape check while preserving the queen and active rook.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kg7",
+    "move": "g8g7",
+    "comment": "Escape check while preserving the queen and active rook."
+  },
+  "usage": {
+    "input_tokens": 440,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 100,
+    "output_tokens_details": {
+      "reasoning_tokens": 73
+    },
+    "total_tokens": 540
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0105",
+  "input_count_delta": 0
+}

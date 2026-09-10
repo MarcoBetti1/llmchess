@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-016",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 8\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p p b p p p\np . n . . n . .\n. p . . p . . .\n. . . . P . . .\n. B P . . N . .\nP P . P . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6a5, c6a7, c6b4, c6b8, c6d4, c8b7, d7d5, d7d6, d8e8, e7a3, e7b4, e7c5, e7d6, f6d5, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "95637f2bebe5cab9d1ad09a1ffc246a4e37508c0eec3eb8ec66cc8ef776c892b",
+  "fen": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 8",
+  "preflight": {
+    "input_tokens": 488,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_d859022edb3d4be29f5ff31face24603"
+  },
+  "reserved_usd": "0.1085",
+  "raw": {
+    "id": "resp_0db3a5c20427b3b5016aa1f9a8ba4887d1bc3881ae0cdd53da",
+    "object": "response",
+    "created_at": 1789000104,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000108,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0db3a5c20427b3b5016aa1f9a9bc5087d1b71ff53d1caa1233",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofmsCz6DHkINPeA5QxuhQbhsEEAM0PLhj3-com3aMB839yvBevMQr48-FC8bRBKr06qQcq9QdVMPsQTkqDIgOLPCa2HGBZebQTr-RgrYJd7uEeJUhvf6UUCutE4rh6LG3uxPfXMJ1Bj3_OKTzKVh9KY9kmQiltq10fZg1XR72fr6gc7Tx7wERE1SIijbRCSKRkV8V6YUshejcvzQFljygwk4aeM0okduLmneo6Y7zsl20w5UXrLKb2sTMmmStjOM23Y_yKoGoaW643TNvNx8bfKDYPnCpLpuLsUTU0JltPgH9gVVrZH8oRWZK99FFVxsC6vmfB8SoEQR49DwpX00mTpW2qiITyypj4PbkMcdRpbnHxe3q1r4pLFxUFzlFOG_2bT_X0_Yj22MA6NWPNrNL2GV7Q3KK_R_pDDASmD-6NJ3anjwlp8a8I1LgJvTc4_Edik670YE8KSipYD6mWqe1NxMeTzPFRZOOfXSThLB3Meg5te5G_Wxlpa3fStGPlTxQKMinuXGkLVpF2HKn2MsRm3gAsUuXNhFDTnkzgEjGjBaUdPbFUz_XPfV0xJImVYdF7M6oqQP3jJvwEOg8NGwMjZfLug0TEng7C8h5SApDmbWNX3JzFvSeGP6WITzzgQXvWm4QzLXOEjTqwvYFnqgIXFhKjbVDUgeu4QADC0Tt9wbabChs6xCpWN79qeXwV7QtRBqWrO3kv7qWAicxM-QbU68P-bYF9O-tIQFuMaSTIkREYC7kk3dmMtGWuRXkmjQ4WgYtPUuiea05bI0oScy5D7EBIjBfrgOii6b4omNJ88g__ruFgMCy8IEq8P-oq_lcP8Q90QX9PrahAZ3EONuLu33PJGjMLbIBFQAJXx-bdgYcqp8IxtpfC1cfIQmvcwd1AsJ0ANbH2xyqzzEfaG0sALVpKI7p3WmCsFAzjW3FS6jwGSuXY7315jZGEJatggbzfalX_GK5UpbMoLvlZ2JOsBK3AkyzlYT-1BN0DMRi_rUQi13yDslc40v0pC90mq6cO7EBE2gOLJ_ZVe-CvTrJZRmGRVKU0JXqmGUS1DFfgWMg75s8BZVBDmHmDz_XO9p50XLuVqs1zciHIt9N0ynPz95BowbZ_Q1OUeJ7mhtrG1So_KAZg-RKQVLwECOSF1Q-S4IHKHjErO_Uccyfc1tXZMXcidORwYKQKZTNzyk0znP0Jvaa0YLx0fxvIAQnrRnsaAvjAzAReG4nP1On4X1xGFRzw3bduR68MZiG2AGB7Shr2eqHbsm2xil56nIbN5aoodRAYKsSLQi4gl80YKYOzq0fI343hiCyoJIz4vj2KIasogDsTod9hLayuuZyxdVVtSPxztzOukUyygYvcp-PDEwn2HvP7Lr1wbZPo3HC4uD7-HW-D30fH9QYT14DJG0LXT-VwyHgtFShwL3YvxLEQuj2g==",
+        "summary": []
+      },
+      {
+        "id": "msg_0db3a5c20427b3b5016aa1f9abb97c87d188b3041f574a23f6",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d7d5\",\"comment\":\"Launch the Marshall Attack, sacrificing a pawn for active kingside play.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 488,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 85,
+      "output_tokens_details": {
+        "reasoning_tokens": 54
+      },
+      "total_tokens": 573
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.8090529441833496,
+  "request_id": "req_d52cb81af6a846b38aee8a2e7755bb36",
+  "text": "{\"move\":\"d7d5\",\"comment\":\"Launch the Marshall Attack, sacrificing a pawn for active kingside play.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "d5",
+    "move": "d7d5",
+    "comment": "Launch the Marshall Attack, sacrificing a pawn for active kingside play."
+  },
+  "usage": {
+    "input_tokens": 488,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 85,
+    "output_tokens_details": {
+      "reasoning_tokens": 54
+    },
+    "total_tokens": 573
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01035",
+  "input_count_delta": 0
+}

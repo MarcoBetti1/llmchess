@@ -1,0 +1,158 @@
+{
+  "key": "sol-black-ply-016",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r3kb1r/pp1npppp/5n2/2pq4/Q7/N1P5/PP1P1PPP/R1B1KB1R b KQkq - 1 8\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . k b . r\np p . n p p p p\n. . . . . n . .\n. . p q . . . .\nQ . . . . . . .\nN . P . . . . .\nP P . P . P P P\nR . B . K B . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 d6 c3 Nf6 e5 dxe5 Nxe5 Qd5 Qa4+ Bd7 Nxd7 Nbxd7 Na3\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, a8b8, a8c8, a8d8, b7b5, b7b6, c5c4, d5a2, d5b3, d5c4, d5c6, d5d2, d5d3, d5d4, d5d6, d5e4, d5e5, d5e6, d5f3, d5f5, d5g2, d5g5, d5h5, e7e5, e7e6, e8c8, e8d8, f6e4, f6g4, f6g8, f6h5, g7g5, g7g6, h7h5, h7h6, h8g8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "fe3e53bf6d6adb0336fc7dabc4030fea2b6667e3833f3cc080db7e05e094cb1d",
+  "fen": "r3kb1r/pp1npppp/5n2/2pq4/Q7/N1P5/PP1P1PPP/R1B1KB1R b KQkq - 1 8",
+  "preflight": {
+    "input_tokens": 535,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_4fea64dbba87486084b7711f41b772dd"
+  },
+  "reserved_usd": "0.043635",
+  "raw": {
+    "id": "resp_0a81f2b34fabea6c016aa1fce2428c87d18da78a69d1963e13",
+    "object": "response",
+    "created_at": 1789000930,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000949,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a81f2b34fabea6c016aa1fce3397c87d1afee5f1b61145e22",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofz143XWRMDw_8DnOIlIbLMZMyLoybwHKFCLyFeueY27FCAFKvyQxpkiQRP8AAA24B-VWHHtJfjbMq7Vl-Aq1L4BdHL7VaBa2452J0ylQ5LI_UuKnkxHMhu-Yvyhvx2ZloHtYk9d8l4SGv1vNV9n28q_LYWs17Fo8XZNjQt7m36_rhfYJTgMfas6o7xxTj0b0BbiA1PePw7JMEMaXZkSslZT--q7KZ8BuzepHWXrrJv3DIGL8xI2i_Pn9Dby6rqRbSbSc_-5qs7ADj7zY2U2s-SQ87AcEcEi9-pn13tvrSlwSnyqwDhjQ71X3reCnBD73zdc9e17g_guCIvNpwsy_BuLShGjBUldnXevuX3ph8IF3pvLx59qslneTPlABQ2LG-ZhzFGWLgEnwHv-EoID30q3wmmLL2BqUUsL_XBWUbjA26UQTwSIqlwoXJ0bAGaPmMiDc-9feorN_pKUyk5mzqXk6PQhK5yiyp4LSbJqloaIeMCVOc7yqjCDWQqGL1MIcs1xJ70kXY0D6LxutSEk7S6R-G3jb5scFkHtkFPBRK3NRTc9nLfmvphk7iHPyBcsLhQjPo_EpFpZ3Rb2u2lKRR_YgVMdaz6v49ZuwdSPqC58K_T1z-RKl_0-GY1cIEP0dd34oUCTWUbyszeBq2DbvMn_MHBitBkMLYxfp-eZ1jK8OPWOslUaGeCtWAQpQ8VnPLC7Yaea79-Sn31ONtq6zyRZwdXRb8n74Agbd2jgZ9G4ELPYYxnVz6gfq8icMvdsjIuZOKJRmSg3Dl3BXPspIp21iHsx3LfThXiiQFG_C0zDAcgEwQ-n8JMaPHwXXglNrreVp5OWZJFb6CDOjLtKzZ2tpzmtKsBDXp9e4LUok36L9c0oJRoX73RFP6iOxLRsJY-8lcO7P6wlMZJGlXQL2gfszUJCVn3CQDP9KxYtdP5LbPK1FvCCd2-1TG4iUpOANrsXgskKylgT8nVehcCVTi9mxzeUd-ikwnfe2UhpeX9rVew6rkAjvA1NvMsFA95jOvFLDl-J2oOUx-GGfUA-o1qshBOGFQokd5XW12FszD6UG3EuPgDF5H9TXqGWzqmeVdzhUNOEPMZZ1rMtGWPXugWCaO-0VtFYiMCNtwSwXNBkVkkTV4QbZ5xjUaABbbDKv3Hw5iehR3fKYZpfdLRF4m2Vvcm_zzyCQNYy0fXP8BCBNedx3Cy5rDA5Tp0DwO1WsoulqV_gvHy3Pjjx_4VXdATB9o2jHaJaq8t7WkKVOX-5TlHwC-_CNQbOOvIuUOZh8L5YGg2KfWqbHZrQQdNuiRhep8ixru545QhRKeP2BM7rEfm6iFYFbOH0ijGMHfLMvV9qjz_t47Zw2XPeKz_gzQ0B-l7YFyqeJVPhjLv-DIcFQwmhTUx1UDZSYLaEdfr9dPiq-WU4k6p2ibC6QhEONd-Y97RuNu4laDodpCbnG5auT2f3_ywV0A00Ps2rcYDXHWSng93-U-eOJHCi963B1cs_d97YjPTTR_duocQLJgewiXQHbvJSaHHsy9BPiQ_7PMm3RyYOSFWHSUYFHblU7kLCPlilVMsDpQ5dA8t8_saD6rIirPIKPVWnCsMxUfciqIyvVezUNA6TFP0xGslF0acCDHQaGofGzdTBMIAfU4FDyMtl5iGM6GKnSKN8HeWjLXxkagORhZbFmpRdwURqYEUP6HP5fgyGiR9mFtn1qUbB4IDOx7oCVFDnSbn1Kwo__C3MpP39-pr4fUvxFmX1pROZUrQP8v8aHNQK1LqArqYSPJ1gsKOWFJy5eyir4_2CRyDGa-6ozxqsHyLoABHLQ4p2TkXWXejrg_zrZLgNXj-sxxxMveL7N0zzOeyCeyd68szqB_CAAEUpBrDuO0OlGXtoCkGcY8TRIZpUeoU0T4yp0rPRzxtw0e4qGWdQD3iDSiVHPyO7zMKaJHFie25SJ03Gwqt24FfrBCPT4XbkNfaDkIrm9k4wqcq5HQux6QCRVAOrhI3xUvlOC5MxBh900WhcK9lEQnbZWknluTGid5UM4Ecnju2mpFV26XmdsyQvxlN70kiQbww9O3HL9aITwVnQvubZFkTJhDWDHIOwARXUpaWLuV2BeWZcTcMTVoEnZFCcJe0nLncvO-Bn0YQyGeKwJgwmu-8N_beTB_SmY-QUdUfCFSN7G_jFlAVSBI_PACPxNkmTums5WTO7ZjI5AT3yZXgj5t5TtsJbU-ITf0G1bop8diadMWDl_DaL5nbf70xMaJFRbkV9Fh6heQyqsr3Ya_EtPeP4bo9HQceKQyRQR8whOLDhifklLyJPuECZL09qMqKTrPPWCraDiDeyWWl4XXuICzDmftAKcLms4Kp4eUcRMdp7C0axHejJBoJXJeAL5gthoQlrNwZGwfWnDUj6FLN-Kx2G7CTEuS6Q6Q3xCkyAsBf_Sswd34hYtIsiPysyW0sluvbmLM_emtPKUwFkp66-4ug7PT502Jb4LiemP6GuI0O_2M9SMonaSQAEYy4eafH9EK171uEpoeAOBjbmrEk66EBoYCqDhhDo9Pxs4G0l_KAHeetVVszNV_Jc8zPFEkqikrkX1aHLuF3XPXK3E7Yd_QC9B3prYvTV8LiD_muPW043Cj81brfq0eU4pF4eZvK2WRb-7HXrqVl_nYeMaCU4M-do0mXLLH3yf-YYztc2Xb6Yw6-4d6_YCED_X6qCcF_sFEoFFH9gLBMfo_o0Hhe0adXCzr6uyq_dGoLlRziLCCy6ZJvOy-bFar79V8G3A-JyhRAEuRR5Ry9DltXqobbrRhw8y9g_rSi7O4o0kfaVZOgk1uokZc_bN5ASZlWIQDBGVTVnzGbhBp47fr20AEFJXumXH1pfGR7FEOhGhkEkHlyjkxJMaLFNVcgSqDWJlKGuc9Sn2nBNioPl7JvKjrJGc6wOvA2O7caw_5F7nxPsC-whrnVlgJiX5_OjFE2QokWgA0J21FyvRt_AJA5Vs_CDfYN-XeYkVQ4n3f0UnvzWUrcB8RcPEbOiKBuszDeo_pjSO8VCqG8Wm4fh5pWliSxQCKqqLB5PFxIHd15_ePx_dRk3Z1du7VztvS2HhdNhURGP-k0DgS-pzQnDMoA9qYpThGz3C3ciKvCMMXqo_nJZwRqciMPXLno9e72YyD63zFVTXSlE5Os9toDFJHzT3LFTZ53SWm_AeT_bG3Q2sltau0goK0ZCBN-P6hoPnRUvzfWdxfJWGeJAlH-HCcHvGZWTNnvAdBaPBTlSMvrCNqEPOijXX5cHLeKhpJ56yJjA5osc3DJaW6fCZcMWHKUuOJs1EReFC8upaBSU8EchOcQ64winOQRO8QVdoXoAEH_oA3e4rOhxWdMetNwz0PH_-BIVIpYdMNtoJNm8zTOiJLmFsumD0QYcWWmrN-rva2g39eo_EuZW7huRGfNveYz90w==",
+        "summary": []
+      },
+      {
+        "id": "rs_0a81f2b34fabea6c016aa1fcee749887d18223f6335ee4c8c2",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofz160hFW1eo0ERzW0kH2qMeeZ77XwGxo839J2v_UbUNcDGi42q2sqrRqS0r53SQVLApb2GLbHKoAbyBXJpapgCpR7gxlQtHvxGD3mkGyV6hSyoXUOI5HJYTKsHV10UXAZrIcfGyhBLpFxtF3flEtfolkRM-IXAJyh566-UA7zhfPzdhfPNjKuJKcEm7ri0DIbBtayBosttKnYcBdYVQr9wfDMd0Vhk1hRpC_QbXG9E5uV5SSiA-miwbCTeujY85lsq9IDCxq8fvl-8OtBuRAZMyb1HXG4oSj4KFjkCWfrM3RpYv5F55FxWR4kPCaY8_06kdn8NzeaWOEKe8nulOyqtDyc4ztaGG58RCK9XikGL2JBRV2EOK0O3gOMRI0lqj_URe3hGdeV3dM6ULTNtd4Df5XeHIxiGphvWPkB4goPOVHVnrGH4JrN8WyyrNqUZ6U7cPIBXR95BzeuFyBSwoZ12TyDoXBCbl_3NVpyMWWsnuxnVTSBvzwS6GIx_cYqm6WYq4o1ZrtBdwiw8L8PiyKTg_y32yrcEU2hxgQXHPjQ0AkAzsG7RA2BNGOlABFDwnaGtfZ_sVYl6D8Z7u97T4ET3sROkTnCbG9QtkpMoLYcO4BXqCnHuZuXWN7p1ccE1h-F3XAlKKOvfNGY14gYteOK_cCO-zRUWPDsrKFZYjWSbYO2jsFJyUnLQ2LpOdZtheNLbRb9R9cTE_NnzUEGl5rxcOmLG7kMbQ85-OQ9gETOXnCuknseBG14aKRrsL6kdXHEOX7ANEJNQ3L7lo82bcaxPxSGx6i5dTrBCscm77YWbSuNX1kWpUZHfa6iO8K8JpzhqMT683fwozPXOp_DxhziggKdIPpYWUjWXP7nuC-_WO920b2EiA9vw6MPh8dpJtngiOwZbOpBmRZhn0uoXqTPJ8NEBU0B6ebNseIVrfdSrLzU8g4PsOx-jZD_aaYcjFSAisXwhI4O1fBr9M-SG6aPyLi1MSUugGPWdxirYw4Q-G5DhaMc1UE7FITS40-eM49vODFGWGt3MMwCAy8FAyGxriFAP5YZe9UydInnawCSslB84CBsyxB_P_AjHLkDYQh36C-Z5daOOQMK4gG3QTBb66avJ9gRibtM_aALnVZCwe6TkmvQayjCvgQRlJKu1NTvBy91y-hGsSqiHSHCqG_-9H2XbHQqcRYRSDIe2RgucvKQ8Mab7jA2_oVTvXrwjeU7_OCybNIZxkz1yvfl2iPSnWWEza_QBlpYlrTbJARKx0TtRsi6378_US8_G8MhRwFEBRK9u-vDJgD4bY9tjd0lQEGAXYk5Wf-x4qVxXRoPjKnas1dKsR-yY2UNguxjwd4v6BkOfV9otgsTIZB5k9hTBPqG-LCvE8c4S7vJyCMXgZp9b2KdQXGw267ZbilZ7hcjJgaQQLB65un2KMRVrwwSFouN9CnPiNy3YdVWbbnq3OYGgBGZF-HTP_OWDqbRlCVEOji_hCroQsIkwpqhGHWY91Sk8gQte-ZdjEgPZw6BEkkHbnpu1v9y-b0q9NKHvf6yZpxl3iwT-l7QN5r28ZR4Jd2q5wDKWfA06xkSOP25PDCLqIXNhbGxxVvXSayTK8DOe281DKPe_1Z-Ey8sQs3-_Qatl4Trls_dypHDl5pS-ir3asAU9ExDfRSRVkzAvaoQk01zhjXAxuwDaLQCAdn7-AOeQbXR9WIUT_K9Mxlqtr2Vb_hip-LZmpB3JrNWXHxjR2xMK0zOanL6ccax1NxSkHnFHuvg98AEgzQVP7BtLxj-l6lbPAQjOmp7o9q1y_Rhy7K3bhLn79jWCvpKYSaaOkIkSzf-Fcrn4z4J_Hkg_ZTBcjNhfgcYuWbywKxQxfyrXBSKOvf9FSraYWJGkEeuM_cUaO-ohbcBmT9PclcLIMfwajESiBAyfJSh0_276I-khse9PFRxLFSEgK6XrnAUBIkUmIjfU1sm1lYxCCYVzVJ5gYBNYgnKxHujZV0-R5whUf6Tyxei8uvs9JkcFo6Eapye-DC9cZb-ZDEfqSI-cV_LDJMy_px-dxHusloM2KGLUpzkGRRU_aXxoVT3O0_Gltn0rRtbfx8OupkOE8lr56G0HcP-hQ0qKZnTWjVXNCwYEKt5moWRVaSpYsNmttw_WSWHs2s7_H4tWLhnOTTgo8K8e8BxyEAJYeEkL-A6NKgqmiGXQZsi4TodOzzpuJ7Ypwf64wWi_vueXoDrirjpK3zZ4jByUT27ENtGAqBgbfv0SEneNioP8O2Xr3GioEyPrB9lg3vMKv7HCKOuNfTWoYrQzNZpg4NhNotUGSjGc_ZZ4XijN39gmzqMqt8kOd58aLicfFYff9SWsf4jOtdaDC_hk84bf_M9RDzPOBGGZkDSRd7zOijv_0Xu-bnp4DY4ghZR5kzqMWSkGUrW-vN3PZ3PtB0-WwCxI6KApdSmRCSwG3FeK3ozXIBdFdkTbGSKNk3TFQb-1LetA14BK2-GgOQKB4g-n-xmGlBAIvkuCvGLEVdZMrZPjya8m_djouEVr-8eMgiksAo6hBGN-Ln3WUb_am9HHmLNOORJHYgoIVr62EETBhiumxqqJ8KWMd66xQHBGYi8RQBR7A5D4wGhqKuzQFjeMMDWRcQGU7dSEBsmwz",
+        "summary": []
+      },
+      {
+        "id": "msg_0a81f2b34fabea6c016aa1fcf492d087d1b04447a44e19bb9d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e7e6\",\"comment\":\"Develop the bishop and prepare solid kingside castling.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 535,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 842,
+      "output_tokens_details": {
+        "reasoning_tokens": 814
+      },
+      "total_tokens": 1377
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 19.091427087783813,
+  "request_id": "req_778c559fb65e4b278ba27d383eb9d63c",
+  "text": "{\"move\":\"e7e6\",\"comment\":\"Develop the bishop and prepare solid kingside castling.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "e6",
+    "move": "e7e6",
+    "comment": "Develop the bishop and prepare solid kingside castling."
+  },
+  "usage": {
+    "input_tokens": 535,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 842,
+    "output_tokens_details": {
+      "reasoning_tokens": 814
+    },
+    "total_tokens": 1377
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.019515",
+  "input_count_delta": 0
+}

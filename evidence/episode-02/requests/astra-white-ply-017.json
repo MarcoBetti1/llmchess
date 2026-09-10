@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-017",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqk2r/1ppp1ppp/p1n3n1/8/B2bP3/4B3/PPP2PPP/RN1Q1RK1 w kq - 0 9\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k . . r\n. p p p . p p p\np . n . . . n .\n. . . . . . . .\nB . . b P . . .\n. . . . B . . .\nP P P . . P P P\nR N . Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, b1a3, b1c3, b1d2, b2b3, b2b4, c2c3, c2c4, d1c1, d1d2, d1d3, d1d4, d1e1, d1e2, d1f3, d1g4, d1h5, e3c1, e3d2, e3d4, e3f4, e3g5, e3h6, e4e5, f1e1, f2f3, f2f4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "8eccf75830f7b639f4d9593c39eb2b132839abc5948d976c6b02f131c94550e7",
+  "fen": "r1bqk2r/1ppp1ppp/p1n3n1/8/B2bP3/4B3/PPP2PPP/RN1Q1RK1 w kq - 0 9",
+  "preflight": {
+    "input_tokens": 526,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_3f07de30efa242c897307779869e8570"
+  },
+  "reserved_usd": "0.108975",
+  "raw": {
+    "id": "resp_0be529abec5b6d0f016aa1f612815487d1a30fdeae5b8b7677",
+    "object": "response",
+    "created_at": 1788999186,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999191,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0be529abec5b6d0f016aa1f613839c87d1b7dbb516c7d7ee60",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofYXD5R5QugPVxxU1mUDQe2slJgTwtDVstAA_c6DAYCcJVb7T-mXLQXAzy3BZr1pyU5KDAEMXRr_rmcM5hfxWwYDspz_-aWy7femebnyDjs4Xm8yH27cMHxPODLbFOKUUci6Uf09n4-R9JPlNpUvwjxUdhWx-zqKjoakMk2nIr9j9-sobx_h2B9448reMy2QdWgX2OZwF8dxMyyv31XWY1eyCSS_FXhplM0gdfXzXrayGNMtpwEtAXP3F8iijLR6yfFkdGW5N3NJoMXCucTu_OQU2lsQSCKodiv-1cmhFtNjgrHu6WrcUwdmN5tD98rfblIxBitPYmMpk0C8Q5YXGqyOBOZzpYCcjv6DKCdG8OazU5J8c3NRZQUsPbBSdGGMupDAHFOcdiCyoMA04rgYwiIhBdoFeWTD9TnQMHmvBZA6vPW7uiLMOJd0b4mTNCsOuiRrsHrBJ4vawHEWJp8iAW_ofUbXr37-mIkm3xXs1f2mc9PMH-qXQfzrhED5J1GaWbmcIvH5Km4k8YQiKQszAcbM-Qy7-snio8G8zcr3bn0wfKoSPU1Dmgd6A0oJ_W-C1OHSd-cRac71bfk0CPM5DZDMIu9dHyua7yK25gDzRDgtN-5V-15iZ6Q8uf7RZ-4yyzwxRifxaWyFzqLLiMyCDz8XHMtxd0b2YdxOb_Cslpyia_98W0UcFTKSfCcDLsZ_mnvhyzSiXuhtBwrU9BZuwSgX8OQD7nw4cIROOrHWcLuqo05ZcRD162iyeeh3fERHHvo9SITHpeZKu9XKMfJy5T7ujbi9V-d2YmY3W3XbNTNHCP34MZ29MKIPkBa1pyCD6mikwIZETCBcTAfRM4Bb9QFxIGLPBAPtMT2uXIrboZp0krA43q2JOqoCfdVGXqg7bUhp0VeYkm4XYb5fluxCIdRWBu6Oc7T-H2WmDYj_I7m88BY_Cy_RuObQLTNgCqYUbgptulP896VsFGc3Xs7Y4tqGBGq1RnayGOEKp8VQ6wgFX_b4CL6_rcFWIxPxVLez2Q1pLHGVr-DGNJeoqqfLmf4XcT1pc0XAsGsX03w_DUH-ck8SlCiBp-poxIZnY7VsxLSOoAdVdl1V-9oYfZtAH3iwtT_36eeiE01rVXEtNRBbtct6-NcPfqqaBGwTMo6ajwgOZUYt0iwlIJOdzw5QGk0KsBxt3dIHUkEM8uWoR5Z_82gn_mSKxXSmzgJteEoSZfYOdhBPwZ1p5bsYADboxcVYjkbueTwqOdVjABb9CCP33VAtUD4L_DPz6xb9hUO4yB9YDnJy-RKYIF7jn3bDdOo_kS1NLAuWn5CUoQFaQk7aZ9IK2g3jPoCLjU6EfW6se1S3cuZJtj1TsFUcP4kqGuf-TDaIaqH_kbRG1Ck0zdPgBl_OEMVvM2VWusME58wGfPAQ_SGTroZmIl9svMLfi0FZThjgl5zah3OqK1mFMlu-ls6gAK36xegtapyZOgrpJToxn5F2rQ7ewf47E0AoxzvgRCKqU0IF6JT3bBiyzVLsYy1vk9-QvxMw8Ey4CRcOFNizSlgM8z4BH8sIZvjoeNw8TdooLK-RGC_ZtFqxNF-HQwT7vv1o5ZMvn_-hFhiFnokUA_HFemXy_AIhzZ-_LBNvIzZZLovy4qDHuIQ4LJPJYg1jL3RHAofPlN7WV8XrTLQq6I7olhodmb1DmuhpM-iIxD3Dh2e6xiL-HLEg5Mm4FtUy82EGIgpWibS7Zv-CUE8zvEDIUFVA2oCmelEVgWzQQQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_0be529abec5b6d0f016aa1f616da1487d199bc27c956cb9541",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e3d4\",\"comment\":\"Recapture the bishop and restore material balance with central control.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 526,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 152,
+      "output_tokens_details": {
+        "reasoning_tokens": 123
+      },
+      "total_tokens": 678
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 5.245704174041748,
+  "request_id": "req_2b46a99d8c714600ba960169ca196374",
+  "text": "{\"move\":\"e3d4\",\"comment\":\"Recapture the bishop and restore material balance with central control.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bxd4",
+    "move": "e3d4",
+    "comment": "Recapture the bishop and restore material balance with central control."
+  },
+  "usage": {
+    "input_tokens": 526,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 152,
+    "output_tokens_details": {
+      "reasoning_tokens": 123
+    },
+    "total_tokens": 678
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.014175",
+  "input_count_delta": 0
+}

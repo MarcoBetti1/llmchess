@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-033",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1n1Pq/PP5P/RN1QR1K1 w - - 0 17\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . r k .\n. . . . . p p p\np . p . . . . .\n. p . . . . . .\n. . . P . . . .\n. B P . n . P q\nP P . . . . . P\nR N . Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b3a4, b3c2, b3c4, b3d5, b3e6, b3f7, c3c4, d1c1, d1c2, d1d2, d1d3, d1e2, d1f3, d1g4, d1h5, d4d5, e1e2, e1e3, e1f1, g1f2, g1h1, g3g4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "2fd757033abe9c48b74396a055e758eec8608aed20fe56e2cda446c1899a0b25",
+  "fen": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1n1Pq/PP5P/RN1QR1K1 w - - 0 17",
+  "preflight": {
+    "input_tokens": 518,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_c423e5ffe7bb47019f23d90c300e51a8"
+  },
+  "reserved_usd": "0.108875",
+  "raw": {
+    "id": "resp_045d9c498d6e2714016aa1fa51b92887d19594eeaf792c5058",
+    "object": "response",
+    "created_at": 1789000273,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000291,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_045d9c498d6e2714016aa1fa52da6887d1a71184c148808279",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofpjAQz-yxL4ggXa9-mQuaGilMyZHgP4hG-OarI46qk4RiqJ7TulqXGg1eQYPK97FpE3p8qXWvyfDiIRVzFcKOYnkUCElxwa6Qhg1OVg3f8lx0iksWS4uPw66gnbUoWWbluxmgaT3doOug8F3zDMnBtBbXd3Mzwotu0W-Ul0GZoP1ImF0sLhZXUuBiLV7l76XIMYdVdk3y33knPPiKnaGRz4NF-GvmT26x9VrGX2T9WLNpD94EH2Ql6zrQ2Qr4Enhii6e_unhgXbyPUXO4bCOdBIWNjHEZEnPEcvueNOdMlRFMq-2s_BYAf5UmznbKwbH_Z3Ncm4AZqdesQ9Jncf65PLiXFajr4aZrQNwDuBIh7FGRUn1FibquDkXQTnkLldekJncJXCpKyGzIoHhOVnbvMiaMAYA8eNr7tKscubTLCs_tuySf8T-7a51H5I20pDQDqEIBT_aS-vhW-O9_ZosVS6OYCjd9Mswa7imWx9k6J2J46ekq0DIfXRmdbUGrOkDxtxV5hkdJo3WT9soqKBriPmYoKWtrbI4PL1nJ3C0n2h2-SGaWSpzfoccQ8TDUnO-PjSsWwz_chd65sU31bhomKYyex06VXydq-F0NPz5wU5N1Tw-9MVKS7ZRvfA67iEUoiXJwPsC3T-w_bBv-WcLQD8xpjm_CsuQkuPpUR1ltT094HS_R19eTw9_yaGu1tD7k6L3wHSM8y4ZJbv8_yYipaZb_F9B9J8jdh5qisB7qZHdHgMog8di4XjyFLzis2WwBlnjjLzmK2iXIZHUOw6Yz5TxzKKuCZUbmIW0cTmJWUS_k4EcnQ0gOtsZEKT_6tvHn1BPWkojR5tb1L3onA3p2niy7tr1nKsMk-5lQ-gHHrdq0KEHPryxfzb2dnf23oQkWc2Ksdludb97tpNP4PRK2xX-D202G6AtQl-F5xYiXzCvUBoC4Mk2a8Z657tKa-RN0sA6307RpiQq0yiw5gyRLr-ojnN0a-fV6HS_y9EOr-74VNRLtNiyT14JNa0PLnuUeSWuuoRjOTaqiZlqp2u6Q8iyoBBoxSPoepRoQ-rJnTs4IU8bF6_OAfvHXcKfOUxSUsJW7pxwh59MdPaZlOCEUY17Fzv6Y_LARzJmUKEmDpabIxxBj3W5lWKzLsvCLDUY7WUnp_yB5QRdQGIK5mgNoUTA_-j7JaGbG71AebehxAsqHtpSBbHcgG98GdUcoSdq4V40XQcWvxUxc9YPje9xX8ZXURz78P-n33JHMeyozuHtMcU2ToQlraot6XVzB2IyigR8maAQnG3Zb_WaIr-oWy125gsq410RztPz1CA_oFxL1CZ3V0Tf1CmIVwEtZNoOxklV8BCHKCGQ8M-mBRks3baCd09J2vZnzfTsSe-l1txRy8JoM47Bjr4xdI2xJ1QlMnnF7PRbn9e94Tzu-nvJhJk_ja6A1MJckPXYWJFjTpyAs_jlY_44Tl37P7eog7jkJ2dqx_uO0OxP6yy1SMy5siHPjNWQvxDzBn6dcAiRRDM_22lh2tXLgdm2jow_m0k7DbMcdZ8OTyO0ipaLeveD4pIYKMCBiOBqUANqel1XUd5nmyast536F1RYZpUDxO1sRFmrv10m-eqwgZ5QE5x5MugA1qN9qm9s2ORZF-VgTta1Xv1plEIsiU24rfzxkjHAx1y6GEY-BFL4z-F2jnGlo34BBCUfoS9LctSeWFDZ775mkhDhzCfM-2pdByP9Sfq23tqsqtViFPsREuMi3jTzd9bUTJFUV1CjjI-KSxEZczb1lqBYa5Sg1WcyVagBIBO-_OahBzhiC-w3TiIApY4K3EQHT42Emkv-tkgaQhFmb272_1lj2oaLPxJmbajmyiBREiYQqK1tA67eA4OkrZH_x6_GwnqENdOeA7Dh6-_sN9Kh9JKIsy1dbcZHXCbkf0Nyqf8NjaU0axruSZY9D82O3GfHDuNo-4IDOmKMAog5pP8uDDBKdIrOjQPVr7hhzpy5wlctYMTnovDqLL8CXlIhVAFTQPcacjrZ2BU3xOc35zYAyUEcd1p92eSiwdUHVLBRUqgAc68f1Z8PUwN7woxJmkH_NOr5KJna1sKdu3y8S-4Enho_mNhN-VM6FFDJYEdd0D0SNOP70ZU92OTiPuC1m70m8jV7WANPybmR89hFCZeCxWQwA8gRB_EWKesKCu5BdJD1hUxMq6ngvEQxWdxlsgm0s-iLPAU8Al8D181Jptc6qfqv5kL54ovNxYOna3pAksHuE-ZMRuAo6bHsV2Io6eQrUE24GKxqtjEFtmZtR0WvVTr5Ka6smSllwD3hpucnvV2E4lFJwmkRN1bV39LnXnVU2v4lHj6a7gcy4HIqYYzr3VfLVKeR0QJQdGKlCYqOoNvlsovvUjO7gXlPjLqZ61VSlhfYG-SZyl-gWYWKfea18P0hgvV2F5LnmdjVEONi8fqdgLKa_2zeSyJtAS94Igrv6ZzQ827j9O5UYSSSWE_IuPGNuDwE0UNDSRjJCbQpbuWJK5wSuTGGVvc6uO5H6VoI-VqBF_ONhWEas9-c7tVHtDBzoKrTMOLwsjFYsDDLgru4y6CoYTsQ4StqW0piG6p3p_tJjkHYlmQ5u81xzxJtqme4MWGh_K0aXNPCf45ntu5HjW7n-1YrA7KTzhpkieCug==",
+        "summary": []
+      },
+      {
+        "id": "msg_045d9c498d6e2714016aa1fa62c8c087d1a55ede011c158f40",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e1e3\",\"comment\":\"Capture the knight, removing its support for the mating threat.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 518,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 442,
+      "output_tokens_details": {
+        "reasoning_tokens": 413
+      },
+      "total_tokens": 960
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 18.254445791244507,
+  "request_id": "req_f06787ced4a44c99898058e6660d3e3c",
+  "text": "{\"move\":\"e1e3\",\"comment\":\"Capture the knight, removing its support for the mating threat.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rxe3",
+    "move": "e1e3",
+    "comment": "Capture the knight, removing its support for the mating threat."
+  },
+  "usage": {
+    "input_tokens": 518,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 442,
+    "output_tokens_details": {
+      "reasoning_tokens": 413
+    },
+    "total_tokens": 960
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.028575",
+  "input_count_delta": 0
+}

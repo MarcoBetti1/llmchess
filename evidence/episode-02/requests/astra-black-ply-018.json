@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-018",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bq1rk1/2p1bppp/p1np1n2/1p2p3/P3P3/1BNP1N2/1PP2PPP/R1BQ1RK1 b - - 0 9\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\np . n p . n . .\n. p . . p . . .\nP . . . P . . .\n. B N P . N . .\n. P P . . P P P\nR . B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5a4, b5b4, c6a5, c6a7, c6b4, c6b8, c6d4, c8b7, c8d7, c8e6, c8f5, c8g4, c8h3, d6d5, d8d7, d8e8, f6d5, f6d7, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "0b72dd29454753d78921bf4fd9b867a59e7b9500c9b7a1a6999721e1e108d382",
+  "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/P3P3/1BNP1N2/1PP2PPP/R1BQ1RK1 b - - 0 9",
+  "preflight": {
+    "input_tokens": 508,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_9760e5ce9e1042cdbbd54e6b1a397127"
+  },
+  "reserved_usd": "0.10875",
+  "raw": {
+    "id": "resp_075185595e6b9a56016aa1f801b07087d1b2a1a9f0e37972d3",
+    "object": "response",
+    "created_at": 1788999681,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999690,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_075185595e6b9a56016aa1f8028b1887d19f9b709216f54118",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofgLZ3FOAMH4sQbAX6fEse4u0spjX3VjIQCefLa-0Uf_kAKXtT1MQLf1Qfxs40AlKhMZKkOcSQpW-WiuamclHDKKVICrKwxrgdk4wT3IUq734W6Ru7Hj9JCJGd9w_agp5AbniVY9kOb5axhfl5XQX3genGZUvLLWKRo9kTdXC6ibL2yz0CxZAgkqFEGbs5SXrgEVGMDkoS0pu9XWp85riFkCwysNSW7HFm5TsA_yY5niNE6O50-Ii6g5VDsGISmpfmHBd59XrhNiVtBQ3SflQNcFHmrneOH9JU-_XZtnwOGZtXlHMRjqe6u4KnKyHs23iWWuBe7KqHFP0q-ABXKkMkH8-eg_m3hQaCypxHQC71ysqLnVikISqj19hneE1yCtOjFbHTtYbt2XL9LeMBHVJQRLaWptQd8BYWaFeSM54T6a5Om2JWGBrW0Yf34slQoxFhdvYo6Oj_SEtTj_8t5ovxJMwcjSloJUmRum16OmlsxjD8A9VyF7wdw-YhLCYRXquWbW99muG-DMEj1XmhyN3dHwyA4rDd5mNGzUFNeMFlAWdApQxyEatKm-0sHX-DSgdjxVNPtA_iIaMr81QFBHSFHCmQGdz1cGn5doT-aWCVQJ2nYOiGlWrrYYlqMV0e3sjMr4XUO0Vf3tIDpC6alUhP80I00Esifn0T4wLdhFXpd_i3HggTlmXDh-pQuLvTJ-cGTe_wHXvFIQPwSEH6-z_0yBqN5HOzjib69_laoBdhVyNyGNPHdBPEi4VYltlMQmLp8O4e_J3C_8CJdYB-A1t5Sc9ySdv7Ri6X6ZywkjLMThhf1IU4W3YsdttrFuQx_E9l3GEaEnF4wWoo5aKbjtqHgujOZRl1NV8jv2RdjgVwgwdWAjBJ1oOl8egQXbXKTOeAWOr_IqQZbeuJKy0IR2Q0MIRxxTDm2bY60feEOjGP3CthIhYFqpxVibYapEeCjkLhWVXlrPsGzkxM27Q03OxlzXlIF7xT0rMKSmdW7InyDJV0TZBc59uMtlpwC0ouheZVhVIdKoWKb1nFTXvCjogkfdMifTUq2xZ00Cmu6SOKo026iNvv3UbPvffrDvDY0dxs4N0g87H5RG8ft29hPK-vaIuENxtoPqj07AfgIKW1l3_6vZob8aRvtu9NQOFwRNxaoUbaIIGA0LR_drf1fGpQmv1wn2avd4hNTwyf23bDJg5LDVurLZVV20lqlpuHnZRwZDZku8tDJA-T-R5TGHmc_KzuXwpg_v-ptFU8A3J1llFv5nGRrQsl4gegHCiyxS34XDethkQjIuUxZu7nut4cUm28vWlqRavZu2h65z1z5f8-SxQHO8jvCSvrtQO64ddvg9pXzJiLpvqlRT43jp_tFLz7u9CAd780AtAbtNHu-Q6hIbkMkhMbTaWw2eKJZ05Mpzaw3jZ-dxLcZhVvqPIh8kBbjTCHiYTNEP_OWh_0fqqk_4CWux8RgMVPtVW014DYiplVPpKNYy4OkPkuRa4xsmCIG7aSYqf2jKh5xg-yBH1pnzlFPUp75PHLffr-2rppwt2wZ9ZGgwX2Lpv_6tqVyECsvo6aYtB7_Ai8xNLYO94L1iA9XDhA94M-BMmkpBKZ-TPH3d1Jw-H5sthmjglJ2Jbr-1kQMEp5e6ry_XKbKKyIoH4cphBRAF_QEWSJYww50HLaK1reMxmhnsNIUnZDfCFcoA1HNkcOzEWXkebQ-aiApSZ-E6Xum8z9zU_sj9lVDLWXF-MzFhbjbrQmcPkC7SnQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_075185595e6b9a56016aa1f8094c7087d191b80d9291f780b2",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c6a5\",\"comment\":\"Challenge White's strong bishop and prepare queenside expansion.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 508,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 206,
+      "output_tokens_details": {
+        "reasoning_tokens": 178
+      },
+      "total_tokens": 714
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 10.485809803009033,
+  "request_id": "req_78bb4a9003fe439ebead4cd87f6a25b5",
+  "text": "{\"move\":\"c6a5\",\"comment\":\"Challenge White's strong bishop and prepare queenside expansion.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Na5",
+    "move": "c6a5",
+    "comment": "Challenge White's strong bishop and prepare queenside expansion."
+  },
+  "usage": {
+    "input_tokens": 508,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 206,
+    "output_tokens_details": {
+      "reasoning_tokens": 178
+    },
+    "total_tokens": 714
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01665",
+  "input_count_delta": 0
+}

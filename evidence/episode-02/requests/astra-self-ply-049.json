@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-049",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 6k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/4RQK1 w - - 0 25\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . k .\n. . . . . p . p\np . p . . r p q\n. p . . . . . .\n. . . P . . . .\n. . P . . N P .\nP P . . . . . P\n. . . . R Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b2b3, b2b4, c3c4, d4d5, e1a1, e1b1, e1c1, e1d1, e1e2, e1e3, e1e4, e1e5, e1e6, e1e7, e1e8, f1b5, f1c4, f1d3, f1e2, f1f2, f1g2, f1h3, f3d2, f3e5, f3g5, f3h4, g1f2, g1g2, g1h1, g3g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "e9d1d4c66f20c074305cf5e318b5856f4331d3640ffb11ed70915135378d1ce0",
+  "fen": "6k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/4RQK1 w - - 0 25",
+  "preflight": {
+    "input_tokens": 596,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_830bb7f25a284da99ecb9ebf48b13c3b"
+  },
+  "reserved_usd": "0.10985",
+  "raw": {
+    "id": "resp_057f9b76faebece9016aa1fb942cf087d1a9198a4bb3d4c6c6",
+    "object": "response",
+    "created_at": 1789000596,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000609,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_057f9b76faebece9016aa1fb94fa3c87d1a5f466ebea608fdf",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofuh024x07RVytENQRqinv8P0Z-4Dorm1FKSAnWG6LhFoJrNpAvtB8d7_aHsRkGj_HUx0BnDf0ZSz0rDFDerNtiMxt1ZKhLHPBMdXyvzObQA23jscs0XURtADYfb6gCi_9Iis2Xk_4UeA5Vvakehs8HQV0haBvp8n-qF1qpqBkbcH5Uo4tpe3DQDgpApQXTAxK5M6mwm9adJ9DL_r1TlcRwGqoHV4UzM0DR1fm3CS_gbTCBa0J5JPL1KAIPbm4bKBLhkhGB3h87LHa9i9jllOKDTdoIlM6-J9H83cc_NOUdsZjOa2W0qn828Y2zGtndqRocP1h2Zi7b4iDE6Ob0IEFuPf0iN0gI9uSgyCAbi4QCVE6XDRAKfo0H2kc1Cpko9OLjt9jS7kPYbm6nRehV4KOXZyMSpunFZeR9ETHvsgyFXz_CtbuEJ5nw7ZmgIYqObOacC73-GH5cNRh_Uh7vCyQ3_j6vVYIkX7ayq0P7zHLhaQNnMWC5hvva_AGirGtEo6PtY7EULH4MkOqGxbOe5wDlrrlZEEDJoFF7cygVh7O4vOA8I5Eeb9HuIgeFni-7Qc3ulfdR4uCBqgFoj6Mle34EnTzq2MxpUXqvdHF1jpjvxXlWuNIXkQideEvRLmaeuVUpWMpT8QSRJLQ3VB7dKMgC7WmcH4QSVl3mbyTnXs-OifrNmWL1mPN4rOMxy7NyNffp7FrrVj5kfS6Ubzg-KuQ47TS7AVzVNudxQx9fCNmK8yXen3HSz1NhiuXKLvRVX5hxyqxv73-z4SzcyDBS_K4aECp45cD3bRVvrYZ3GZl-PAdFhJrSl6MUnGocC5IOnPgYbJ3SXN3O6TUphnm4jBHoC1kJdKiH7nKfM0_f5z64JHdDv4FaOjtEXZ8tr_S4sUuJ8bHiWCb04nRV_vdi3d_pAMZt7JGFSo7vQWEnaTW8jt-i-idFOQZdHTh5AldZlvT_GFYIHr-Hupd7usgn-miMN8d4DhVsMVk7KNTUeRbrK75Bldu3IWvy9YI-O2codr8A6EOItER8nGwvdOwK88C7197dPbkbKWisj-4s_Kt4dtKTzQYOgpEcztMhaE_5bY-2zwmjWUZthHIfFp6EG9qiA9DojIDluDJ0_5gMqus1EQce_QaFSomOcWQO2-JiNyuSNioiBLm9-WW8s4Sxh-SydVGP0AN-orbTstnJv4D54NpA-RG39_xJRPt4f0qFXIxe3L67opiw0pBCTDO9wterlKZfN65bzCrAuYLjU_aKBsPeUso6uYrkYnQEsHZyKt9QoqqWDjGGiEXE7EPmnpigAhtnrhUOsew4oLojUKh3oG8qfNiEQBXCe0PMIztmW-NdUcnHoZZjkrYs_lkplFPqaKCrXrGsya6KNWcgvBo1RgbdDJOSvVqD6mA5Z-zWwifVQVP4HKqVrGQv6zcWvl7rRW88BAlpI9EUUv0Jfkx6P4_pRe3rmQaLyGIouHWIJebkHqEn71M4HSTusOrjUMmJyWDr4iafAFDypF-dC5F2lEectye4m9Stvj2OG9WmDMEpZivEbdjbrJ7xWWKon4dBGqi-oMUesbdrbl5K5XwGvnr6crDQYIbrq6IpIOrpwCM8t0LtLTBbkPvnW7QZACzz56RadTx7fk5nnIHXIY8iGwhYsFlxnVDRe2c1tSwxQSmqQFbkwzLfy-r3K1aL11zEMAeitoS7ljlau9Zo5aNwPDOaKjFtNyPEnY6EZeHGELxmNWyDmNSMktucHXA_nkNMw-UzOk5Cl9_nnLDr_HRMkfLs6xREN3YXZWug6J_vcDTjIlx8Gyuzewtqp2LHsFkr8OReB4G0CqJRStCzJsItSterKMT_5Icjcl1O28asrl3yz3cWd4H2u194nbVDfqg6ON4V81s9Eo0TsrL3LXubbIbLfsGlpd4XIwpxnicYRhf5DHaNr_CyZPa0KUNu9GhiWMGXoe01cX35iu6cavNJfOGWsIQqObSIKU5XJcZN6fepY61TGL_hL6C_wLsehx1QShp2Ke8FKyV0Hxgd-9MQ7zW9ihdrpPuiqFhdDcWr-UJ_oa3afSNpR32uJ03o3gsEcaFjyb1LT2HejHp6DkBkPusLrcBvSeO_9tbztyLhGlFm7ezVBSCwjeMGYpZh3cXw4Gqnwm_gw6jzRxCYMFjRS9MN8bDCnNDmUdKHHSPXB5oJB4SJRMgiHSP2KhtBakMW40w71jZxlCB8eD2OZ-JZZpPrwUuY_PuCIi-S55BZl_My73JHT565m0kzi25Q-wlES3oIVKjgC__9ZLGm89hTIzgQY2AOzxjNle2RwCpZsrtaHQGgeT_aojG2JmZeg9mmXkIY0gFG5zjSB0xeOs7kQAO1pR2kTZmCFAVFuQw6xIdKMJMZc2TJJ4qMrON09tKXX6BdBH-RGCfHmjG3DAcAHv7hfChaqKxSwnYU4ospRNS7W6uRrmcHjMkT8YkasSSFfQjTYGtYB3UH8-YJE9Ds4-JwSK6ezA0r-B0KpodbpyJ8g",
+        "summary": []
+      },
+      {
+        "id": "msg_057f9b76faebece9016aa1fba106e887d1bf8f4a56c73f2256",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e1e8\",\"comment\":\"Activate the rook with check, then unpin the knight.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 596,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 392,
+      "output_tokens_details": {
+        "reasoning_tokens": 363
+      },
+      "total_tokens": 988
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 13.79988408088684,
+  "request_id": "req_95066eff06cd41d48264fcecc6e6d00d",
+  "text": "{\"move\":\"e1e8\",\"comment\":\"Activate the rook with check, then unpin the knight.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Re8+",
+    "move": "e1e8",
+    "comment": "Activate the rook with check, then unpin the knight."
+  },
+  "usage": {
+    "input_tokens": 596,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 392,
+    "output_tokens_details": {
+      "reasoning_tokens": 363
+    },
+    "total_tokens": 988
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.02705",
+  "input_count_delta": 0
+}

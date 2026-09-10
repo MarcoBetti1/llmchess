@@ -1,0 +1,417 @@
+[
+  {
+    "start": 0.12,
+    "end": 2.2000000190734865,
+    "text": "GPT just announced checkmate.",
+    "lines": [
+      "GPT just announced checkmate."
+    ],
+    "shot": "01_plan"
+  },
+  {
+    "start": 3.0533333333333332,
+    "end": 6.0133332284291585,
+    "text": "Capture the rook and deliver checkmate.",
+    "lines": [
+      "Capture the rook and deliver",
+      "checkmate."
+    ],
+    "shot": "02_quote"
+  },
+  {
+    "start": 7.153333333333333,
+    "end": 9.23333335240682,
+    "text": "The only legal move escapes check.",
+    "lines": [
+      "The only legal move escapes check."
+    ],
+    "shot": "03_escape"
+  },
+  {
+    "start": 10.386666666666665,
+    "end": 11.886666642824807,
+    "text": "The king can still move.",
+    "lines": [
+      "The king can still move."
+    ],
+    "shot": "04_question"
+  },
+  {
+    "start": 12.58666671435038,
+    "end": 13.546666609446206,
+    "text": "Let's see how we got here.",
+    "lines": [
+      "Let's see how we got here."
+    ],
+    "shot": "04_question"
+  },
+  {
+    "start": 14.586666666666664,
+    "end": 17.906666695276893,
+    "text": "Each turn: the exact board, and a list of legal moves.",
+    "lines": [
+      "Each turn: the exact board, and a list",
+      "of legal moves."
+    ],
+    "shot": "05_method"
+  },
+  {
+    "start": 18.44666656176249,
+    "end": 20.126666723887123,
+    "text": "No chess engine. One answer.",
+    "lines": [
+      "No chess engine. One answer."
+    ],
+    "shot": "05_method"
+  },
+  {
+    "start": 20.566666685740152,
+    "end": 21.186666666666664,
+    "text": "No retries.",
+    "lines": [
+      "No retries."
+    ],
+    "shot": "05_method"
+  },
+  {
+    "start": 23.186666666666664,
+    "end": 25.906666695276893,
+    "text": "We save the replies and count tokens using",
+    "lines": [
+      "We save the replies and count tokens",
+      "using"
+    ],
+    "shot": "06_tokens"
+  },
+  {
+    "start": 25.906666695276893,
+    "end": 27.44666651407877,
+    "text": "OpenAI's own numbers.",
+    "lines": [
+      "OpenAI's own numbers."
+    ],
+    "shot": "06_tokens"
+  },
+  {
+    "start": 29.186666666666664,
+    "end": 31.326666628519693,
+    "text": "We started with twelve tiny endgames.",
+    "lines": [
+      "We started with twelve tiny",
+      "endgames."
+    ],
+    "shot": "07_puzzle"
+  },
+  {
+    "start": 32.04666656176249,
+    "end": 34.62666681925455,
+    "text": "We didn't tell the models that checkmate was available.",
+    "lines": [
+      "We didn't tell the models that",
+      "checkmate was available."
+    ],
+    "shot": "07_puzzle"
+  },
+  {
+    "start": 35.68666666666666,
+    "end": 38.90666669527689,
+    "text": "Astra, Sol, and Luna all found",
+    "lines": [
+      "Astra, Sol, and Luna all found"
+    ],
+    "shot": "08_results"
+  },
+  {
+    "start": 38.90666669527689,
+    "end": 40.646666800181066,
+    "text": "a mating move in every position.",
+    "lines": [
+      "a mating move in every position."
+    ],
+    "shot": "08_results"
+  },
+  {
+    "start": 41.30666655222574,
+    "end": 42.966666495005285,
+    "text": "Good. Now play a whole game.",
+    "lines": [
+      "Good. Now play a whole game."
+    ],
+    "shot": "08_results"
+  },
+  {
+    "start": 43.71999999999999,
+    "end": 46.20000011444091,
+    "text": "Astra lost both games against Stockfish.",
+    "lines": [
+      "Astra lost both games against",
+      "Stockfish."
+    ],
+    "shot": "09_engine"
+  },
+  {
+    "start": 46.75999996185302,
+    "end": 49.48000022888183,
+    "text": "We gave the engine a small search budget: two thousand",
+    "lines": [
+      "We gave the engine a small search",
+      "budget: two thousand"
+    ],
+    "shot": "09_engine"
+  },
+  {
+    "start": 49.48000022888183,
+    "end": 50.35999996185302,
+    "text": "nodes per move.",
+    "lines": [
+      "nodes per move."
+    ],
+    "shot": "09_engine"
+  },
+  {
+    "start": 51.71999999999999,
+    "end": 54.20000011444091,
+    "text": "Then we made Astra play itself.",
+    "lines": [
+      "Then we made Astra play itself."
+    ],
+    "shot": "10_self"
+  },
+  {
+    "start": 54.97999999046325,
+    "end": 56.80000001907348,
+    "text": "Finally, an opponent with matching credentials.",
+    "lines": [
+      "Finally, an opponent with matching",
+      "credentials."
+    ],
+    "shot": "10_self"
+  },
+  {
+    "start": 57.71999999999999,
+    "end": 61.0599999141693,
+    "text": "Both sides castle. White attacks the center; Black",
+    "lines": [
+      "Both sides castle. White attacks the",
+      "center; Black"
+    ],
+    "shot": "11_opening"
+  },
+  {
+    "start": 61.0599999141693,
+    "end": 62.05999977111816,
+    "text": "goes after the king.",
+    "lines": [
+      "goes after the king."
+    ],
+    "shot": "11_opening"
+  },
+  {
+    "start": 66.72,
+    "end": 70.09999997138976,
+    "text": "A few trades later, Black reaches for a pawn.",
+    "lines": [
+      "A few trades later, Black reaches for",
+      "a pawn."
+    ],
+    "shot": "12_middle"
+  },
+  {
+    "start": 79.72,
+    "end": 82.72,
+    "text": "Win a pawn and intensify",
+    "lines": [
+      "Win a pawn and intensify"
+    ],
+    "shot": "13_pawn"
+  },
+  {
+    "start": 82.72,
+    "end": 84.45999986648559,
+    "text": "pressure on the knight.",
+    "lines": [
+      "pressure on the knight."
+    ],
+    "shot": "13_pawn"
+  },
+  {
+    "start": 85.75333333333333,
+    "end": 87.07333336194355,
+    "text": "Black won a pawn.",
+    "lines": [
+      "Black won a pawn."
+    ],
+    "shot": "14_queen"
+  },
+  {
+    "start": 87.51333332379659,
+    "end": 88.4933334382375,
+    "text": "White won a queen.",
+    "lines": [
+      "White won a queen."
+    ],
+    "shot": "14_queen"
+  },
+  {
+    "start": 89.01333332379659,
+    "end": 90.41333327611287,
+    "text": "Excellent trade... for White.",
+    "lines": [
+      "Excellent trade... for White."
+    ],
+    "shot": "14_queen"
+  },
+  {
+    "start": 91.45333333333333,
+    "end": 93.23333328088124,
+    "text": "White has enough pieces to win.",
+    "lines": [
+      "White has enough pieces to win."
+    ],
+    "shot": "15_attack"
+  },
+  {
+    "start": 93.85333342870076,
+    "end": 95.97333340962727,
+    "text": "But watch the move it calls checkmate.",
+    "lines": [
+      "But watch the move it calls",
+      "checkmate."
+    ],
+    "shot": "15_attack"
+  },
+  {
+    "start": 99.45333333333333,
+    "end": 101.55333333333333,
+    "text": "Rook takes rook. Check.",
+    "lines": [
+      "Rook takes rook. Check."
+    ],
+    "shot": "16_rejoin"
+  },
+  {
+    "start": 102.0533332379659,
+    "end": 103.57333331425984,
+    "text": "We're back at the opening of the video.",
+    "lines": [
+      "We're back at the opening of the",
+      "video."
+    ],
+    "shot": "16_rejoin"
+  },
+  {
+    "start": 104.38666666666667,
+    "end": 107.00666664759318,
+    "text": "Checkmate means check with no legal reply.",
+    "lines": [
+      "Checkmate means check with no",
+      "legal reply."
+    ],
+    "shot": "17_rule"
+  },
+  {
+    "start": 107.6066666952769,
+    "end": 109.6866664759318,
+    "text": "This position has one: king to e6.",
+    "lines": [
+      "This position has one: king to e6."
+    ],
+    "shot": "17_rule"
+  },
+  {
+    "start": 111.08666666666667,
+    "end": 113.02666670004527,
+    "text": "The queen could take instead.",
+    "lines": [
+      "The queen could take instead."
+    ],
+    "shot": "17b_alternative"
+  },
+  {
+    "start": 113.72666677157085,
+    "end": 116.98666685740153,
+    "text": "Then the rook stays here, covering e6.",
+    "lines": [
+      "Then the rook stays here, covering",
+      "e6."
+    ],
+    "shot": "17b_alternative"
+  },
+  {
+    "start": 117.32666643778484,
+    "end": 117.86666649500529,
+    "text": "That's mate.",
+    "lines": [
+      "That's mate."
+    ],
+    "shot": "17b_alternative"
+  },
+  {
+    "start": 119.48666666666668,
+    "end": 122.00666674296062,
+    "text": "Back in the game, the king runs across the board.",
+    "lines": [
+      "Back in the game, the king runs",
+      "across the board."
+    ],
+    "shot": "18_chase"
+  },
+  {
+    "start": 126.78666666666668,
+    "end": 128.20666671911877,
+    "text": "The rook gives check.",
+    "lines": [
+      "The rook gives check."
+    ],
+    "shot": "19_real_mate"
+  },
+  {
+    "start": 128.56666663805646,
+    "end": 130.2466665617625,
+    "text": "The queen covers the escape squares.",
+    "lines": [
+      "The queen covers the escape",
+      "squares."
+    ],
+    "shot": "19_real_mate"
+  },
+  {
+    "start": 130.9666664950053,
+    "end": 132.66666687647503,
+    "text": "Black has no legal move left.",
+    "lines": [
+      "Black has no legal move left."
+    ],
+    "shot": "19_real_mate"
+  },
+  {
+    "start": 135.12,
+    "end": 138.10000011444092,
+    "text": "Astra finished a thirty-nine-move game against itself.",
+    "lines": [
+      "Astra finished a thirty-nine-move",
+      "game against itself."
+    ],
+    "shot": "20_close"
+  },
+  {
+    "start": 138.62,
+    "end": 140.93999979019165,
+    "text": "Its confident commentary wasn't always right.",
+    "lines": [
+      "Its confident commentary wasn't",
+      "always right."
+    ],
+    "shot": "20_close"
+  },
+  {
+    "start": 141.13999998092652,
+    "end": 143.82000038146973,
+    "text": "Check the board. Code and every game are linked.",
+    "lines": [
+      "Check the board. Code and every",
+      "game are linked."
+    ],
+    "shot": "20_close"
+  }
+]

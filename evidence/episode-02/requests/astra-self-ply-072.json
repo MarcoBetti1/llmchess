@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-072",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 8/7p/p1p1kQp1/1p6/3P1R2/2P2N2/P5KP/8 b - - 0 36\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . . .\n. . . . . . . p\np . p . k Q p .\n. p . . . . . .\n. . . P . R . .\n. . P . . N . .\nP . . . . . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3 Rf5 Qe7 Kh6 Qf8+ Kh5 g4+ Kxg4 Re4+ Rf4 Qh6 Kf5 Rxf4+ Ke6 Qg5 f6 Qxf6+\nLegal UCI moves (alphabetical, unranked): e6d5, e6d7\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "a353375669880d6edc64865cb44d912f20c564f9cc9eeb40f70fa89145196b21",
+  "fen": "8/7p/p1p1kQp1/1p6/3P1R2/2P2N2/P5KP/8 b - - 0 36",
+  "preflight": {
+    "input_tokens": 498,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_661c08766d21420cbbb08d06fe171c1b"
+  },
+  "reserved_usd": "0.108625",
+  "raw": {
+    "id": "resp_00ec9dbebe0c6c22016aa1fce6da1887d1b80b4b6c9dc39229",
+    "object": "response",
+    "created_at": 1789000934,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000956,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_00ec9dbebe0c6c22016aa1fce7fcdc87d193939c5457232020",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofz8aiZ_GaEBlBnhsZPVWOlmgew7cRzqYl2zLSCLUunmoLA0Wkg1zFGyVOQc3vxoX5DpDJunV0EH35_T2h7V9ccFmsXlfX9Yy1bslyP7OvsZ8H5bb9LyUsTQn4z5ZbwMR1mwxjqG_YlB3ASeALSU79ohFmL6fnVqFHsM0dMsW4cd_jS__jBI_9PNRqU7mQknXmAah_gP4mcg5cyE3o-_z83j3lfW0UjY7L908fKELEad7lkIwVOsB97Qo96rLhnrSiUG1GT7RVs-EhBbWj05jHa5z7yCUYUUmnTyoL4R5zrY4b69o89mvxcEHIqjBEgSDnDGP56MPXLxW8hCApvBT49jYCQEdEtasnGQkAC-vHeDAKRybyijX9aPKhK-z9kxHi3puLh_6kXpwxQ6ZU6i4zJUng2m6MdNJNuczg0BRL0UL1svBU_htTvyo2luznbn13bkPjeGU91V2YsZKclF9tFgC3KizYPQPHpcm5OnV8w1RLkZd1ULX8RRRdZ955CTNiwHFzpSRllG9BEqZai87SnwVmvhJzhAEcJRNTeZu4T-bHYpsYxCsLSXEpIaa_kRSJnxu0hl7yc1p2VbgR_jZu-jwR--x4C1lzGegA4zY0Avs1Ko1OwxVxGZLNBxfWvrNsBMOeVF4dTYEI2eeSRru2aweYoIWazZslow81S18EBEBwYwe82LWSYYTVkAZlCY-SUFWDPj6Mx5vIJtZnYFA0qzhn3mmDYMmIOepRqJ8hgqSx7BlP7gIMIgtSeyIIoJZu3CVwa7a6l2rXaQ8BlAIF8j3Jzdtr67VyVOgk9vTVX3R8mx-EjdJxkDNqq44l1q-Kd-KzpL_ByQMneU6MxlJH2uwJyQUBXNb3bvZVkz_O3KigRI9EaU7SIRK-iGvbucQmqD0_SgWNnrXQgIWqqTHok1DmkWzsr7AWUP3HuSjp621sQ81S_CZsmWGjjorpzv7iIhkofMReukE5o9BYLisjJcHPB-d5_Zqq2i1O2FRb5khlml9wOCGakf-4lsOq2ohyhzky7mH0xm9W-BGUP3CIBXfkvEOGEO6sCC69sCPqVclsIdc5UxUPnHC0rT7OrJv1L3IN_NhAI4w2yvq_V_kmG_1JHOdudfRPj-axEcLatYua2ILelAg4CKLF_80x4ZOKGJf1nqofSj-CkEmr_rMq7Bc6gWA0bmCXAs0C-C5V5nqblAJLhsRcr7xUmJSWx3hS3VkqWIqhdeI_UAzs6ntBg3K7FhtrJyjquzJ47fOD0cCeml9IjNitchsPMllS1BC8cgsCg4nmvxsStthz8oJ8zjTAMBymgKof8OOxYREGAmiDm-M_o5AE8_s8UuenTOJwC3Mdn8_gIsC3q58Idrb8oKH_jiLt7hZS9tMuk-SR4wriF7QR-yiJ3fMsa9C_BqZM5BUOr86MyVBNMXb4QQ9C9EHYspgkg8FrRKnBA18sOxOQKPWRfMsHrLFgdOhWic4HAWh0XDZ96ptWlKhytAWfF1yLzfcEAMpiMvFBkW_5JPd4fObZtF99pJc_ylcrru2JnTEwx9iBhzjMY_nTvb929x_6tffe84D4R0upzIcUrugKbl1rgc6nJrO-3X7of9xQ-k29D7PaVTqtVDrgZ8aSwQq8n2900xwCqivLBZEiC5u1pDmexj2ZPfr0JHhSskz59GbpPG5DHDzQehMYUUz-WWIijQ5AQWOpmuX6zapf37ALMEmhjpWmW6iCJzdD2WSdv83lqZ7uLoc1XWsfrf7vJGwzwYIwieeGPqXQ3chgJk1EDosOPDCx57b1g0fTvBLi2mPSeqN_gjVbi1uqoQ18G14XNbknB6bqvZ9qMamP539TFNzpkioymZpplB7kcfq1xIWFOFjVObwxwRimPXoCeXOSAz0-i-nCoSmljJV0EE6aOEkntL9qZFoXmd07VGX9KZP2tQtQlAFUy_gWenJmnLn7g8iJNX3_iTKXRfXDHu6dQ68tEJNVJa7VnWTo4-FRr-vRAajWU0KUg7ePGYY9e53QL-1WS75P2m7RJWNw0JoDcVtPfz0urP-Q9UoOBwnKlZ8tdq9XWhfUCo165aAKkfuct3LtMFjQDg12OAxGj7N4bvsLC3x_tbESU4m5qyKTvlcZmK3tv8INVkIOtH0nDnn6g9bgiLnFiCR_ML-JJM6xlBwvetcQrb0OHFjhrfKg6qXFr5brL8oV-ynKxDtXZIAzpudUkKe5q7tk87Ue5n2a0bMwrZ8_9DidAhrEcdacW95y6aHg5_xsiGhMSuoc4QV8q0yWkjgALYRYJwVt2XfcngZWYMarh78fzEbN3rf67V81WqV4A-MK-yV7fkFpXYQn96v8IMGTmyXALETPUqk_RyNnEcnPhF2aXw7KgKsAqnszVBC_z3aZpzCHYz-XuOALqo1FaaQwJB-3P1CII3WRRugLE2GD5d3L4ix4yvCUfgoeOW307Kva6qyv1LhL14Ve1Eq6Rf8XxhlYdgaVgc4hmk-lQVAhTOScBowcid_tXs-p6vlwJZuhjARLjEkm39VjIU9cgyxlUqHoDFpUsSprbTsQXhhyKctKtITqU6grgahhszYYBm0De8VFJG0fNVzBUPIfM66vAAhyp88KBE2YJAuBOHFKytUBcbsoh3UfA2rd1A_HSbsbPKHWKXK-2Uo0nex5VFw4ODgJyrSSxVvD_IsW_wl1kBs7pUaQARK9ZK-UepVsJuw7I_e3I_fIVpbw==",
+        "summary": []
+      },
+      {
+        "id": "msg_00ec9dbebe0c6c22016aa1fcfb9af087d183588ea8cf82d78c",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e6d7\",\"comment\":\"Retreat toward the queenside to maximize escape squares.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 498,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 477,
+      "output_tokens_details": {
+        "reasoning_tokens": 449
+      },
+      "total_tokens": 975
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 22.01954698562622,
+  "request_id": "req_70402e1bf7054a8ca5ce02c63023fc57",
+  "text": "{\"move\":\"e6d7\",\"comment\":\"Retreat toward the queenside to maximize escape squares.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kd7",
+    "move": "e6d7",
+    "comment": "Retreat toward the queenside to maximize escape squares."
+  },
+  "usage": {
+    "input_tokens": 498,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 477,
+    "output_tokens_details": {
+      "reasoning_tokens": 449
+    },
+    "total_tokens": 975
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.030075",
+  "input_count_delta": 0
+}

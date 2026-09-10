@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-023",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bq1rk1/1pp2ppp/p2p2n1/8/B2QP3/2N5/PPP2PPP/R4RK1 w - - 0 12\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. p p . . p p p\np . . p . . n .\n. . . . . . . .\nB . . Q P . . .\n. . N . . . . .\nP P P . . P P P\nR . . . . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6\nLegal UCI moves (alphabetical, unranked): a1b1, a1c1, a1d1, a1e1, a2a3, a4b3, a4b5, a4c6, a4d7, a4e8, b2b3, b2b4, c3b1, c3b5, c3d1, c3d5, c3e2, d4a7, d4b4, d4b6, d4c4, d4c5, d4d1, d4d2, d4d3, d4d5, d4d6, d4e3, d4e5, d4f6, d4g7, e4e5, f1b1, f1c1, f1d1, f1e1, f2f3, f2f4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "d3a01ca13dd2c95dea6b3259eaea31165ed00d9c960ba7725edf26213cfbb0be",
+  "fen": "r1bq1rk1/1pp2ppp/p2p2n1/8/B2QP3/2N5/PPP2PPP/R4RK1 w - - 0 12",
+  "preflight": {
+    "input_tokens": 574,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_b39d20e281f74dd5a7262a8936b63fe1"
+  },
+  "reserved_usd": "0.109575",
+  "raw": {
+    "id": "resp_0ba0b2be0a1a3a35016aa1f62483d887d1a5bbd4ef787a9c0c",
+    "object": "response",
+    "created_at": 1788999204,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999213,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ba0b2be0a1a3a35016aa1f6254eac87d1ac0d1edb638efe4d",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofYt77_vHYVP2hXWhKGKbTq-CwPp_U3ujjIK3Q5uQjb0eUJcSWOkYMLi95HLEzzEJ6Q4wx2e0sIsoarBKyaXRwiIhYCBej-RfGl1S5Y0T5aZ2mFNQGvcuyua4bQ_cIYbc0WE3uVbO9-7LwmJ28O-ZurmGPnIEVUvMgCR3yCph0PUYjmA0ai-9p72o6Ywd8GzR3L3y9gA01Co7uHxNBsTqxR9EVgGDFvmbvfuxygONpdCPCyL377GskLQIqmKYq6ibBR3n8ZW9rM7pB_ZtZmSKBTlv27dfeGNYOCbWYLmD1cb0Hio8JqT1GUs5PUPPG1sLRbZFjPs6vIkIrUGnEESUNRCgKRp3Bi8-jrzH6zVcqIp-lJmZrVl3I3LvGJbp7tfDR8M28-gQcy_wUVaWIrah5HWzKu6gES-qDplYkmXeuIKslU6CIvda7vCJBs6cOvHJ50i4XUACywIeyjeCXCXErSrk4_IkphnAasiCLR59-Xu-jF0LYR4XfXDepVD4HBAljB7vWSwXRX7v3Gyo-KYD3O4Ku04U0ovIACtPRrf9CQNlR1O47LTcquvLI9eztPwE_GV7lJi5Zz_z4aKLd5vzDXiokqwLmYSl4fKRXEEnY6tlZkCrq_QQc8IpyRT7yw7sbNcneShi15fJo6xeJaAPLr_Y0PRktjDgMup7KYwgLyA21o6WZWeFEupi-A6hUoM5c_xjfGnQeedN8mMfA18vj8S9N0egHozW-haXqakFJFMufnJ5oYZHpM2DixnxL7MrgU0RtbhF7w5zCoyneVFerlY-BIl3reVpmxK09wRadUPv9e1Rnsu3X6oGUHp4eWE05s_j0xplVn6lYHT3vQKeiWQape8EdClyHpRibuPbN5vHqaW1QMJi4_XLcswETrKa-fATP1w5CRwX_iCga_0ISt9uQJSZUhMcRIh-g4MUTfkgU7WqCcWdtzEl2lQ-df-VcCUFMPoY-Jy3qqsW-BjfTqn4b58kyxRVxW580-Qspw_4fcXk87wfUboDWe9Ff__RQEjRxyH2QHP0UYoZc0K41Hc2qnJrKkiyQccL-r-IOsRnSYkbSQZgrB5Md2JGam67U_Rz0yD1Y2Oy_8hsSDJpe14dSEIG8ds4VqCZxe1pk5yZhnTADzWszzNvuQkyS5B3DJ_5cO4fdtzQl-QTPs3b_Ozo97E8oKhdJRatfHTSt_xOYo9s2Vp4AbRQKYitapc--O_keNxZYEl32DpblvgW_u9kF7NUfRroioeKtMMfUFdh0bbUEU9Q6omp2cTDewyr_J94x9_c7qLdlI9S85pE5NhRS-qmaztivjrIsF3-XJqrS0KHY-tc4Z7cOgTsyj8jRiIAe0nT9YyKD0z4_cSQQGRJZ9XndzwtS0fVu940dmLK-h-jLLVrhYW5OST6Mz3ndjUrHHmZZQ9h0xJ7bR7QLBba48B1dIIfQune9kr-65Po0pcSzYDebBOHSKn7F89q5omiZhL5gOtVWKRG_8FqXkjFEA2SS44LNJLGNmy8TrhSe_jXUJhfRzzZtz6tXWopcO9EvVB591NOSvrk3C6UJ7EQySjr6OVjXd7yuXbu-6uP02A0ncTvgUdmXgy_g05ae-_Dft4TR1o_jS_xJTlUJWTAUGcjToZBelWV0t4JRR1HOIVV8_3RrIxq-GA8kYMhcPsjbIU1UkRYfTNyfWEdZew1S9VSDQHIm_4dYrBQNudgWyYuoyIMo3p8icKDD1zaH8KxTJ9oehCKvYmCY5IzHOGPpGo2kFzyCX1j8mOJThUWjMbLxN2X-WZgVcHl-5QSNmhnW2Kh_7O37B9r57MpoahJANzWEnTNBafXorTKwEIZ8PyTXx4jb_-z9Ixuhr7D9N9d1yJPWYejbN7BCeaAzB88tmmreOmsO68sRBAUxwt984SiPNEbEdBaspe8S5SCPNl57uyoPdSlqq4KL5t7Vs2xHOCumRKTQzgth7AUKKYA0xI67IOukLcZISLzlWaj4gO7MbIcfnEXVCPL5eD-Zmk9hVgd_QIzoQ85nAthNKawIcOcxZLnnX8alraJs7i2UGZZ1hlTOwAu-Zzq7Jy_uxXkQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_0ba0b2be0a1a3a35016aa1f62cd07887d19ad62d0266f58e31",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a1d1\",\"comment\":\"Centralize the rook and increase pressure along the d-file.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 574,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 250,
+      "output_tokens_details": {
+        "reasoning_tokens": 221
+      },
+      "total_tokens": 824
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 9.20960521697998,
+  "request_id": "req_a2d1a997996c49ee950e94d8459c4cd5",
+  "text": "{\"move\":\"a1d1\",\"comment\":\"Centralize the rook and increase pressure along the d-file.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rad1",
+    "move": "a1d1",
+    "comment": "Centralize the rook and increase pressure along the d-file."
+  },
+  "usage": {
+    "input_tokens": 574,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 250,
+    "output_tokens_details": {
+      "reasoning_tokens": 221
+    },
+    "total_tokens": 824
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.019675",
+  "input_count_delta": 0
+}

@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-042",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 5rk1/5ppp/3b4/2p5/3pB3/5NP1/1BP1QP1P/4R1K1 b - - 0 21\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . r k .\n. . . . . p p p\n. . . b . . . .\n. . p . . . . .\n. . . p B . . .\n. . . . . N P .\n. B P . Q P . P\n. . . . R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8 Qxb8 d4 Nxe4 Re1 d5 Qe2 Bd6 Bxd5 exd4 Bxe4 Qxb2 Bxb2 c5 g3\nLegal UCI moves (alphabetical, unranked): c5c4, d4d3, d6b8, d6c7, d6e5, d6e7, d6f4, d6g3, f7f5, f7f6, f8a8, f8b8, f8c8, f8d8, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "c3e00d62cddd51d46970410a8f862359fcbdfbe320f60de8fa5bdb5879dac4f9",
+  "fen": "5rk1/5ppp/3b4/2p5/3pB3/5NP1/1BP1QP1P/4R1K1 b - - 0 21",
+  "preflight": {
+    "input_tokens": 507,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_4401d026b5e741b9b5acb20f3fe8d56b"
+  },
+  "reserved_usd": "0.1087375",
+  "raw": {
+    "id": "resp_0a53a573675e6a0c016aa1f8ecc7e487d18b50499a21da9b7e",
+    "object": "response",
+    "created_at": 1788999916,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999941,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a53a573675e6a0c016aa1f8edfcc487d19f3336439b6c861f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofkF9lAo7f8zcqa7RH_h0M2VFkwbYcIC84Ecua1ScrNL9Rabq8dEM8mFldyoc4T0WbtnF8cGAVL0Ykey0H6xMiWZ9XW5IggF8DLmhWapqtHr804X2dIdw_vPACmo3JdaV_8vaZHkw2VzsboOTx25W4WXVrVgJ6KKa7bO1Pto0gNhQ1OHpFQNsDEx0_4RCe_E7ozTDQ4iBVDPjLyI-52JNPkkKUQV9a_e0LxMQk81szHEgBh6NgcuRmdMShiidNaaqrfKcnM3DB3bvyz98tcIJpPY3NwKVMZdfRks4YbbVKTkHbn0lmDvGJ90JdLtJYmGq1joMsOBPsH3yEO6vo5Q-Mj8DjWoRTv7_RujlraEcTKAwqmS0qfth3uqPkAdY_1LcGOgFM7wFLejHIi30LD46-WebxhpZJg3VdkOP4cw6LgZR1I3QMoHJ3rNAZ41Te0ctqsDFCbJ75nekgHIGhgY1Va4jrNO8CcKG0hsFAm4JeLlo1vXnIAwMD5NQLBCfcZthwOo_OAgHTgdAYw9XkoqBKFDWRfxYsuOUXJ0p4lY6LX0VmxxCYSKTXw5GZDCi6Gx7oDrIgQ7mtWDEJ61KNjjYbc1kYU1dqJPcIHaxim4Xr3YDD7LBZZ2SSpPUzKe-VX3QSJd3Oy2SzSL_iNiB7-n15m4aGQZqPvvsZ28p1EcrZCzOkKkvgs3K2LB_0GQ12Jr0wAHf2A0BZ4VezrgCrYPJVLt9jhsDn9zldl0oqRQssein3L7U8t63VqL2vEQAgP6qz1M4_60Ch2TYQ3S11QZ7jvZGcM2VECEtdtTTgO4rQ6Xz0EYscZhl2qYPDQ65YLd74W3zgKYC8GVYJHt0nLP4ZQfJRT4_hMpHLU_HpeZv3CWBMTm_o5WO3xP_4TC75oCGzqhDxDWdQFbdJI86K7kyY3uKsqz8ANusBhQdsFeQuWdEWFEG1zc4jz2H8jM-Gzcr58YR2PeHTKRX3L2PjkHf2RSPMZdaYTADP2INf-75ycuDP2O6O_qO_NZEqH-1SdOl1M13nKmbdQWSLTA5BHGdG4EmDUb_4YvB5LpOsjvUlIyoT0TmgpbZUHMRyCy5gGiZr3NdsPEKLCCe53v6QQw2uDYpv24GNw2e7ozjUAWm6pW02BPL9WB1xMG1gHlwBpl-B1j5WHmWLPcwmR-ixeHEv1SWjgaQHpmP2cGd07-8QR8ESrJMaPb9FcC8xdMTMzaoHbILXc1azd6KgxUVhjH5xy-VPMIiFrP8bz11gvoy4Wr04BIS-Tn3fOl5Sj--KYTP7ylO-V1AWR7ihtGAzaZwleAP2tWx-iWKzt6HLYZ3Fv9djzy0RVgrPoYZn20jxpp_o5Oe693ACgOaIJd4X2crT2bI7ISDUM0_ti_4u6QvcnVImwZU0zAPDZ5SaCC1N_y1rXTPlSNqc5VFWxpu3bM3kWMGG_c8ju8zAlSyZ7t914sY18W3cNcd4DOEGGt06uBiNRq5U-XwEnsTcAuvJPyIss9ZACrjS7OeTH22p61UImGIEsFI6AOENrNi3daO5qokLPpPs4ZOIEwjAHNGozLykRtt6qG4Osu0TeSNEorhMlvF-fHF8MFkQwA4ZE3853prxtdpwrTXbRHQKVlOG--VXZ7mbbdJuFwmhvf1WRPKT0tbhIEuCbvn_DX3babTObRzN92kB1kDRBpMRZJcLfZZhByJZP6yDCePMPRDJk2817Oyi12mr5SWnehnkzPs3fC10sbZMVJFwpnggqqb6zlB-zQqf_2wYBnOMzlbt018qJu0EOTDztePvJyipcW53aw_OFll8RG3KG1Immhgv6coXhWvKXNdxYm95PfJniSZWtgEJsbqjePHCjx1cfvYHA91PHVwtT7Ijdtmj3RcLVkzFU8QkgSzfozi4m9Zh85tSo7UyrVhkOsedcB8JQPnenfxjOKv2-vh_Z17C5fw6an674sH6tQdrRDJs7mCWk2ZYa9SPwfg5CGcIXW_iF1VFUVfoE9OyNBGGq77UaFjqbvkshJSpv0Ki7YvFcsgZmWbxR20s9_7bdVeb9ePkIxlIPmOa7juVtb58XfL191wynVAQjvDTOyesUcUDSLmyuAjkMEAuiQz5ktLmK7h_j3HooJP7P4u5nG5PpQ6DqNjfl4eDxTe_e169sgxDrWFjXuLVWzVE0qzRQ4_J-RavJzR2BUEmE5oVweiU_-jcIAaiaaGEzrFT-o9ZP5kCBw4Xn0gjoNFT7LiPNpJ1UvtyqEmxDKWXpD6yGSgCo3i-5MwIx2yE2tznk-k6Ed72LkeONLJIstCYNMOfyd3NPt2xqoq9dTL9a6Xq8vKDbLw0cwPnx3Y64K7Bcbl0Lx4m_o3ysm7hklqSJQchb2M9o5CbOCqHOEZKelMZilgUYtp7e3pq3Su80aFKr9w0jwDHAeBPgs1GaH3x0JYX9wmcWwi6gNlyjRvFAP48bhu3LLprnybikW-yCcrljohS-6Uc-Rpc6-kcomn4j4cbxpqgAlEFkBQQf96pIwJvqnwtfqd3H8sQgoucw9drpyngeQ0L9g4tyJgjaaPVW_2RAWrx0pR1lPr4-U3P7Do5pC_ZmJ3ThkgwYc5_RnUUvic7YuV7AlPRr96XPfz6lhkcMx5XESAUwa6lVKxrPr1q_Itrj2A-zEdaMPgrN59JXcjVlf01Z9bCBR8yFlrtjFnXz8_tm2vt9o6oi1UjBZF9L6ZS8slXiVQcadsrxA9RWTNXgKML0BKd3G4T4kLKLmPPWH03oIVlzi2yrt3hT5cd7Gdu6TeNe0ZvowiX8CM6A7hfYgveJW9xjluRem9gZH0YQRl6wNjvmD3QbWbEAmCF-n0rGKAzkQ2p0py-_Sxs9uIO0j9VesBZ7OTNwocVPvmB0uhV1KLuA2UiNUXr3lPN-4OlbDEoWtN79cYY1eWX0ecpMTsyB5d-VnE7CRX3sBWuCl7saf1Sec9cMB24fEw2AEKKBVipzdWLFFL1NM1Odc15p8HZL25RtxJC5M5BnOOlYMKIZQcWtHwhsVbGRnU7NBaFpRA340R54SR_rRyh9BHw_rY9y5NnNicp8WEBO7bFRhOxvDQzb2glLuyQOhksS2IX2Vsbd4_LE_--e0apaVpRt6WTgZAilrynvDV-khsjefHehDde1fuA7gNxWFcZ0k9fzUE9l1GFmEP4aCC7emOMqQzGEgdLdS0-KQu0bVn-0BFhcnBhSchq1fz5dKHP3qoJS7i9yUvon1uowfJvO1catWnLPdfdMl0pa_84lmyQG9G23b4zYXWLhoid2Ln4w6MB19N6YBrTfX4FFnP35fZ3OWxVcy5gxjnAb6ARxWV0AUg4Z8WHNfKukZXNuEGl-SHnIIrWAo1-dG8gVkKA==",
+        "summary": []
+      },
+      {
+        "id": "msg_0a53a573675e6a0c016aa1f9042efc87d1bc8db904667a147b",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f8b8\",\"comment\":\"Activate the rook with tempo against White's bishop.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 507,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 531,
+      "output_tokens_details": {
+        "reasoning_tokens": 504
+      },
+      "total_tokens": 1038
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 24.560955047607422,
+  "request_id": "req_deae02a9ea9b468b834e92a07651470c",
+  "text": "{\"move\":\"f8b8\",\"comment\":\"Activate the rook with tempo against White's bishop.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rb8",
+    "move": "f8b8",
+    "comment": "Activate the rook with tempo against White's bishop."
+  },
+  "usage": {
+    "input_tokens": 507,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 531,
+    "output_tokens_details": {
+      "reasoning_tokens": 504
+    },
+    "total_tokens": 1038
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0328875",
+  "input_count_delta": 0
+}

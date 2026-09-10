@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-007",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\np p p p n p p p\n. . n . . . . .\n. B . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, b5a4, b5a6, b5c4, b5c6, b5d3, b5e2, b5f1, c2c3, c2c4, d1e2, d2d3, d2d4, e1e2, e1f1, e1g1, f3d4, f3e5, f3g1, f3g5, f3h4, g2g3, g2g4, h1f1, h1g1, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "3c2d99f62e70de4bae5c60bb46cd00492b4acad0382ccad669300da4eb17ef8e",
+  "fen": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+  "preflight": {
+    "input_tokens": 490,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_7f2dd031c5ab4887b409d2f0dbc6a2b4"
+  },
+  "reserved_usd": "0.108525",
+  "raw": {
+    "id": "resp_0ca8050e475fe48f016aa1f5f7499887d1bd2be6fbaa71fe94",
+    "object": "response",
+    "created_at": 1788999159,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999162,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ca8050e475fe48f016aa1f5f82b4487d1882314931808e456",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofX63a2yPdXw2w9R56c5XJ8jDffguP8wlNJze7ugfFfIRbwrru0Z4VGkBxD4Uza30QTT7eBv_tq1CO7Kkmc8BQ-d-T9N9k4KOFTXuy4PLJLOxULvAZk1vN1mIZJEGk7v36nvH1FaZgNv1Yi0PS2XoEBwH1skpEirpEnNxD8ozVa76ZvcRq4QlCF3WPruLbQ6wazObtGEoYsD_l443ZYB57sCvAj2zQw-1VrZJgy8Nj0u1tq3vMEECSqZkXzdPtBymagTVqA1Zku1jufamZTdf8Kzqal2lyTeMYNq06PkdSgv9oEA7otmJnu9V4sTXEJWUlJALP6B2YNZhns_v5T9DEcuk_ON91ZCLL-LX0TEkbjj4QhodggrnG6SuSY8qmM3zRO7HsqrJ4maAMjmD_99o47s17KIg-xSux8-N_hHyOVtssvi3zZLysV5xnXryy-qR-6KCXuAggPEgDt_94gkht8OUdQ9AVIC9SfmniJBJFkPagG66xZlwILzkNl5wh3X4EwaIn3vGsTSxwXrLSrz6C3wL0-UEIw5oHsFQk58oxJaJpwn-K3JZDZD4oo87z3t2eGe6Y-16V36ileQfoYeA1Km1P98hBtV_QrH2Z-KNOOGgSZ4E9dacHbSm4GKt01dERD4hnnxkv2NEWv0GKqQ_IrQQlstQCu7Y9soxkyD2QqAAm7tC1j6coOiZxXjvceVkSYz7EwdxiUMMnpueaRXzF8DAGDMVvR5aan_FlxsKzEx0ADeeBVgTYK-yy91bbZbS0cuh4n6VJX391pKkBt2E5nVXXR2Hk8MmBqCUZoSYC3dF1BUQ2Vy_81sPYDqfurk37lRQ2APSDH7954SFmH7vD4vq54mGHrI43mQO4utG_VRISyfBenl2Y0Tc0SgeVCngv2nfsTfreB5B7eM8THnk-NqbrERfiHUDZf_6OHzS6CZw7pHk26WbR2oTeWW-JJb3QWj7pnnpJRcSAmG3du8Fcpt_5uRkxZg6CKSsVgMYMAC_9pYTjt7CdZ3DXHis-vHMcezpI0Z_ac2dRj17JIoqafbkf1q761RmzOHWUZXMQgYhq2IspzIQzjfTIkIFldoWdmRl8BV1jKY9aX6W2KZso_1_1xPdSeYNfxC6joEYGtZq4VjujpOmBEXr7Wdmv4v5v1dSZ_Fh4ivfIJRAS9xgsM3jy14zDLonPqERno8mGy2Z0EYTsb-Q6y4fPhNHVqIUrDMzx7OU5eZ1RjfWTOeEYfOeYoJCmPr0eP3WJZYp1RJvNuk4_FDljbwo9XIH4VDwswLbZ9Sosa-B9bRiB_pS23cYELHKteaS-K1KrW6iIMQlP51sUH7KNySyb2NFfTtHE509wAP8njtWP22_4nTVJVoFA==",
+        "summary": []
+      },
+      {
+        "id": "msg_0ca8050e475fe48f016aa1f5f9ca3887d1a086b10a51c2e456",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e1g1\",\"comment\":\"Secure the king and prepare a central breakthrough with d4.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 490,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 83,
+      "output_tokens_details": {
+        "reasoning_tokens": 54
+      },
+      "total_tokens": 573
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.469956874847412,
+  "request_id": "req_8c87c5b34daa46fa8805af05feebac8a",
+  "text": "{\"move\":\"e1g1\",\"comment\":\"Secure the king and prepare a central breakthrough with d4.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "O-O",
+    "move": "e1g1",
+    "comment": "Secure the king and prepare a central breakthrough with d4."
+  },
+  "usage": {
+    "input_tokens": 490,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 83,
+    "output_tokens_details": {
+      "reasoning_tokens": 54
+    },
+    "total_tokens": 573
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.010275",
+  "input_count_delta": 0
+}

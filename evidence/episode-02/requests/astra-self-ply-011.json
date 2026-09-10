@@ -1,0 +1,144 @@
+{
+  "key": "astra-self-ply-011",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k . . r\n. p p p b p p p\np . n . . n . .\n. . . . p . . .\nB . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, b1a3, b1c3, b2b3, b2b4, c2c3, c2c4, d1e1, d1e2, d2d3, d2d4, f1e1, f3d4, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "2660630ed14522b58b9799f3f509d08dd774c5e38aa4134d396e963ee297d494",
+  "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6",
+  "preflight": {
+    "input_tokens": 460,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_0197e571d0b44abd8568bff7e4659aaf"
+  },
+  "reserved_usd": "0.10815",
+  "raw": {
+    "id": "resp_0745925deadbe686016aa1f999b22487d18fb3a69a6e4218ba",
+    "object": "response",
+    "created_at": 1789000089,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000091,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "msg_0745925deadbe686016aa1f99ac13c87d1870ffb71a4ae61eb",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f1e1\",\"comment\":\"Defend e4 and prepare central expansion in the Ruy Lopez.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 460,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 29,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 489
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 2.1860759258270264,
+  "request_id": "req_59057a185c5140cb98127aaadc96756d",
+  "text": "{\"move\":\"f1e1\",\"comment\":\"Defend e4 and prepare central expansion in the Ruy Lopez.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Re1",
+    "move": "f1e1",
+    "comment": "Defend e4 and prepare central expansion in the Ruy Lopez."
+  },
+  "usage": {
+    "input_tokens": 460,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 29,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 489
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0072",
+  "input_count_delta": 0
+}

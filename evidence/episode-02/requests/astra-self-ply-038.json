@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-038",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 b - - 4 19\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . . r k .\n. . . . . p p p\np . p . . . . q\n. p . . . . . .\n. . . P . . b .\n. B P . . . P .\nP P . . . . . P\nR N . . R Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, a8c8, a8d8, a8e8, b5b4, c6c5, f8b8, f8c8, f8d8, f8e8, g4c8, g4d1, g4d7, g4e2, g4e6, g4f3, g4f5, g4h3, g4h5, g7g5, g7g6, g8h8, h6c1, h6d2, h6d6, h6e3, h6e6, h6f4, h6f6, h6g5, h6g6, h6h2, h6h3, h6h4, h6h5\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "51cba27c980828188bba0ed6c167ca142dcd12a1120e78efe7a82c3f87fc0eb7",
+  "fen": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 b - - 4 19",
+  "preflight": {
+    "input_tokens": 584,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_7a77579b323440aeb36ac734c7301ebf"
+  },
+  "reserved_usd": "0.1097",
+  "raw": {
+    "id": "resp_0be3699152b1ad11016aa1faa4698487d1828a98718256322d",
+    "object": "response",
+    "created_at": 1789000356,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000372,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0be3699152b1ad11016aa1faa5c91087d1b1b9cec9c4f5dd2e",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofq00IxJ1ZsPmzmKLUnlBZjNSfcGUY_BHqq2N2UaAN74sL81VXz_jhNzVVQrQH-JqiUqaIIpQu1LWVu_S-utB700i0ANkP4Xd1airYu5GLXax4r9n-COnRdd5NmiwGX4zl1QWvrMtBAhRZ2CIH6_AURbTHh8yh-z_tJIBr2-LCxlNM8YLqSmAv-uXb4djX2Hm_msy1NS5Lt28mI-HDJpYg6oAGiBIUj7BosMkQfLjoE_ciKMvOa-OLKuFsHbP_lxpeljveeQZfIL630WY5dpfLn0v-lfmGzj8zHUL6nRLxTdjWHKOghA3QAAnxmdgNkLm_1BaXbPCkeXYV0U9A3NvrdUBmzrR8qUP-MrrwebMfkYvBH-B5n5bYfruThtiZZPtwNoZsuYR_jWE76VCJzn390-k4e7HIGGoqlg8nj2rARxWaQ1e1sUXyaEw1wuMxLYFgC5o0MVtUCFcafIAvuuHnJZnt2hv_lwjHz9jfDtB6Dx6fKjZfPjcqMCANCIzc1-uM-OdKItuRZRpi6gkXXpTGH3bucV3d8nwyM61ZUiC1FxWzhwTJ59dr1wo7P1ySQ-xYolFhPgarMDC8Ol7cHMfiAZXOxSM63mUEpidGhkL9OjTNWxGA656aCHRrz9s3e4AdosLYP-9YCeSyTItmSa6-DkFijhABe3HXA-1u6WBG4k5Cf1K6iM7-T6IDzkhYdTUuA63MHEAc39mx9ZjPDbtAMLeq7zNz-XJZDm_9m-g9_IQVB9X92S6wtVP_IAIJwuD_jaCQhGip6XZpSsdC5C8cYAQqXxeLT0vT2NZShYjK2KXEHOA9kBpP6RlX-pXSG_WyZnve7QFJO1AEfx7Mv0z5eWiN8ecQf-B8iI3KShDap2AZxPwwA98fEJsDzWq_uMo7lkAyb_-NmcbVQ_2TTPuwFxpJIMgbFiUd5GwnYCUdEOmoeiJPxTNtEZZViQP5s2sB-usAbcZFfW0H10e4r_ezKf5hPGdZcCXGjt9EwXuV8tZiFDdoPnVnIQpeyDwKpXir808aevcTGQIpmuKzq2HNda49-6sJc4pK4h3FDUnnhqDedAje6EOhttfjRtoiSMIYggB2yNOOm6rFQhGWiMpCudo1g8maqbhlAVv8dzTyYXWFLsLemgEsIkHn9AwKvIe7TRKLtYZ3SIIDfEAHANyqzjNCS1VS_4tKok5dQ8rJYvZLEitwJ-m9JEASqG8BYFl6ajsovOUXdft-9pW5Ygc00L1G_Tm7iJgq7YOgHTCIQ5399QQtBiNBE4xgkHsR79YtC3W6sQ5ccjZgd8Wjwg_0DiHvYbOj2YUQ0_DMjBnOQyXb9Qps9fjeskZybIDQ_ywCG7JkrH_DDfp2JKdI2ewgEhJ6w3CGgQcJ6bDbs66NlXUt3meDZzgRqbyFS8tFMNYMfV_B3l-e-TqrtsiT9v76YRsMj3G3FSApUgn9baoqz5PQ2xEHCbyuvuXtPIfkpxSS2zm5XZ1PYA7R0kykSpuQl6qmFO2T5JKFYQyU28gx-8jvmYTQvM8U1LORm2O40N-6dpj4wQYQ8LDjwl0Lbh5gNBXp7cXKuHECn9LqO1BImMRcQOeyuvqAxINcFr64leLuh4_3nGtGwTNIIxDn4Go8zmosAsHdhKFUqtbDd1P_BFOApolDkAveYpv3m1OyEWRbN0H3T32DgAR8Vb3wX8jLKEnvs1V-B1g832cfUdgsorXzjtWmvAvc-PVAXnq4DOXBFUxwffxPaV1FF9s41Ek8Ij0jNCo2rc3IJuTxPow3ivZiQsVGt1fsZa2s3vFCpLU_dnorVqlymgDi7JoVgZLv_Bvmiz_j8l_gtcxsT9Ot0QSxumD2YAuBIjLIuiQd4hXbH64uaj0qeOxFag4MJR1jGEaEpGAD_TiI14CeD4QfCb-OxKTco7E94i4y1r4C0kCZ_92clwZa7Jk8W6CjBbC2qbVAReKkmHggs99YZL11jW9n-bTpTlWBkiC54b-S41UC5ekKKhmJKys-Lt8NvsqYIhGJt-h-X1Q9jW0ZOD426Jq85El5e8Ut8u4cM8PRmcrV5FvHNN6DjJGB1SBJV6tJTrcO8yFE0hH70mhrk_RyBwBK3vLRO2bWMsbmxGeBPjUAbHtgr-eiSQ0NL8Qv0k1cineFNepO6RUxjOhIfrjIz9ys1caiVRr9GtOPnFqcl4JXcu5bIzBEw8ywRYWzrYSjly18DMd-Ar_N9XBv95TG4KW4XCAhclPQjMDUxE5Tvmuwe5MK8MOgQwIde8lntuirUc4J0Gd3vdwxc3U4y2fx_QTMnMiAjV9z6oXpLjRTZCVV1xWUblBQaBdM1KwcxMHKu7TRnSz8bLCc5ocO4fcY2ovo2KgXBK6K2DiJKlR1tYiE1uIx8MGJv3oOGwbnk1XlGZpuxK4XpNelGuP09DQJ2iX7A=",
+        "summary": []
+      },
+      {
+        "id": "msg_0be3699152b1ad11016aa1fab3138c87d193cd454251806a06",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a8e8\",\"comment\":\"Contest the open file and intensify pressure against White's king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 584,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 348,
+      "output_tokens_details": {
+        "reasoning_tokens": 318
+      },
+      "total_tokens": 932
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 16.291597843170166,
+  "request_id": "req_e451594530c5498388532a97e0fe779d",
+  "text": "{\"move\":\"a8e8\",\"comment\":\"Contest the open file and intensify pressure against White's king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rae8",
+    "move": "a8e8",
+    "comment": "Contest the open file and intensify pressure against White's king."
+  },
+  "usage": {
+    "input_tokens": 584,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 348,
+    "output_tokens_details": {
+      "reasoning_tokens": 318
+    },
+    "total_tokens": 932
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0247",
+  "input_count_delta": 0
+}

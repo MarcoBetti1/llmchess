@@ -1,0 +1,151 @@
+{
+  "key": "sol-white-ply-031",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r6r/1ppk1pp1/p1p3n1/7p/B3P3/2N1P3/PPP3PP/R5K1 w - - 0 16\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . . . . r\n. p p k . p p .\np . p . . . n .\n. . . . . . . p\nB . . . P . . .\n. . N . P . . .\nP P P . . . P P\nR . . . . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Nxc6 dxc6 Qxd8+ Kxd8 Rd1+ Ke7 Be3 Bxe3 fxe3 Bg4 Rd4 h5 Nc3 Bd7 Rxd7+ Kxd7\nLegal UCI moves (alphabetical, unranked): a1b1, a1c1, a1d1, a1e1, a1f1, a2a3, a4b3, a4b5, a4c6, b2b3, b2b4, c3b1, c3b5, c3d1, c3d5, c3e2, e4e5, g1f1, g1f2, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "3b5435f802aeb582338ddd66564987aea17db1cdc6b493f6182004353c122ab3",
+  "fen": "r6r/1ppk1pp1/p1p3n1/7p/B3P3/2N1P3/PPP3PP/R5K1 w - - 0 16",
+  "preflight": {
+    "input_tokens": 503,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_1c51fd7c82a24cb2925681349b5fc0ee"
+  },
+  "reserved_usd": "0.043475",
+  "raw": {
+    "id": "resp_021b9b49c40e349b016aa1fc11103887d1b7f95548199f97ca",
+    "object": "response",
+    "created_at": 1789000721,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000732,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_021b9b49c40e349b016aa1fc11ba8887d1bacad02ebffd965b",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofwcR1BLJhDe0GrPJsDNPildJITRMVVLuMrciJFJmXrV9oidkiFKh-FcMBu_WfsVo9UQuACp95pKflZu4iAVwzfgky05PBMw54o_m-0Wr5PNR4RYbOYvQki6g2z_xe2Z7sMykdubuIKyMtxfQIOd4rjUOFEUlIg9a00ByMzLJmvdtZb3EzP4NRdAOy3u4aHk_MUF9p0WPicf_wqs1UvLRXQ8eQO7wJFjmocFxyItN6tYV8SrCeEREB4amaSO2ei_Vc7VLZAny4tNlxW8_2eRswzWPCkaaBhAfwNHNgyeoj9CPIdTCv4cTIvp2DxoUmmLDM3C5g8pgHlGwXaV75Wqe4IB9LK2qjfn_3Cfbgkec5hRb3U3glrR9N1vhT6NguYtA3VHFL-LLW9S_pABsjRHTf-aQ2x0muQPEM9EMo7wDxvq3HQXEnk2AdsYigomv4VSobdfuIlaulv6kcqxuQeYzzLPPa1gd4lU0pL6ydtxELLulP0pPKwjXkoKLNWdUsU5-l4LdpawtEu33wAHHz_iCPiCFLFODbN07tHrWz6gFyTYAJX54SMPUkjVp8TyItbQ3r6q4lQlXpG9zLMDer-dhqNVwbNm-PtaCpRvENncmX76gjBNtNucKrWShPHXZ7x7uZyye_QO82waaTgDE8Tp2ROIJou4MLzB722Q8my2_qfj077mt1G1dhK-W_3B0Svu7ZWtv1r6FX-Lve6kz1WGylGnx_OVjW8DJ6dkXKdHcgWymxpKYE5dMX1nXMZ0WJuTVw1Q3P_AuOK8Gqwqj0be-l6dxvQEjrMXUKpPM1DFvY5k9dFOudoX08ki5dayVLSmBmaCSzUVgSWFkJCHlYdoLeI1SgZ-szS4huIN0uTvlA-JHWm7SxSbcPG6m_pFKI6uowAAHlEDDcVS2yJbIxicV8Cncm__Q13tOGhpWAv5aICjfNd7ECqz7Q9yB9Vg86OMPmaUNmDgiS8Nqw1tnTe7GwRHZ2m8-_EHxkfEjwBaVkqhTA3ufAr7UhPGqLzqpDlmFxIXL9wDeOgHYvXpfKP_rzVirGh6cYmgkgbRCq-YcmJJHFJmuvp8je9hqxoDF5JFJFlStcLO_OdLaxV_7SM-xR5MvFgWW6eaX8AILa_MeO1eci012BXzhjx-R2JInf7GGXXzHaYe1PVMCcsWejLb6O78ZsB2MLRmQFYSecmZB8Ie5n_1fY0tlpP2ozZ3gCmfiMJNuM-MppiUyM2Dwb9X7wWKCGdAEV7zaPX3Tyu6XHBSW6iqWil00SP2dTTroh3GnPgGULtGYy-GVHiwdllbhjI6QinqVBeoIj3M6suUkANgMqRqQ-skBCdFx6U_Z6dMGbT1ALr_NACr5A-QyeOwpfnviBOlcgMRfzlxbsbC12IgLmIYiUQo_F0j2CoigvatiGOPb-oOTfllFir_oYIjm1CiL2-PIgO3tHi0YeyPKr2lAbQbFo0PFnhjKndRViEKMIvYLXnWFTZujBTsc_fLDm5E9wtCkV9aCI-w9c7vI6uL-p5qsN97NzH36p_G4V71Zoi8Q9aiLaRxVMn_KW386vyhGFopbklKHL4v14k73jL242RnUu8S9MCLjz9Pd2rE4mRtj2-ctUhUT__5BQD47O1LCpIe1oVc0FZKvjRskhKPGZDQfgcoPWmeReADqkMwRRv4E-7sqDjOFaRXbis-HSwA-PrJo3Ht_-D4fQeriDZtPyNCYGbw6bXylBPeTMum6SOk317BpMY0yF5rN_T5RT3G6JFISW2x_isjt_6i2A-c77gukbKvVS7Kg7doVh8giXKg6QzOR-lW6fe7gqH6XO9BN4KD9QkiB5wSR095gEEXPpW_BjRBJiOrhePF1bVpIMPAkpwWBAYczZVmBTXoEcJ2FBrF6f5mi-S7083yg2DK9_zjOktTRY1sdzBbDtCLRMM-B5X_P_2NqI-jksqDJXuHDIkeUyJO4Z-h5Y6KMn2bO8gADvA3MnEOU9hXitOudvcwtLhFbPPznkg0rvt1RiOXkcW2CpYxzOFwHb2TLFNNTLYsfJ6fRDcW-QsMqbSbDE3Lt5Kacfsumiz7mTrlbel2071AdQGH8kiHvi272AcTqDgFcTHLmVwcCc3Lr7iYUF9WSiMBYvcu0glCgaixdhXak5bsY1lVA2pn2NNkOzuOVS1hVaCjOBCRqt0ajedQUbu18AjY5V408c5zG5Ty2jJGPbyGWeNeQDMl7TtMqXB7SUDy0jq1b-XQxk82qs9Kb6WFRgbl9jwaVvzOlehPD1dVRjNWNydYCVFQGgn8TxYouKcQxyvyL95pwo1MGqpHWVYLeaz4j84LsjMitDpXtSusIopRv-ZBVzn-Swc92kxbUx1IgH2eVU9iO95AtRHJkmT13-1pEuqrDyOubkVE_LjpRQTTLxHljFOIYWZoorxf3_s12QtHRb4H4a-P9g6GbccuQdi9GambEQNdZfMeX-RRAkn83LrBWd-UB23xsDo9n1bAV00tKMJVAnzC0T5A79FTdczNBtn6tdCZI0Oonvw0cl7d2NVY_EXt4D2i-8gIuzHbeGpEAFmvlKhoRTJoPiblTNccq6JGQ_bEF99w6x1Pb8bDdO6z9Q3PwjMUvE__UUZFLTiocb7pdiW4VpdYtiGAsHCpGQH_2j2LxTV8KNSrOe6Hxx84iI-do87LiEXxsYgxyYGPL6tOoFotyrPjIbemGfAmRbQTFUTcb5PAlwyma5SJ9FefK5bVkOYCz5yEXlWplPEIpRj670jbM4cqmNi7nEYKnFq5sgr882KhgZQWDLzAtNoXnF5hRNx1GN0AGu_-G_5_JerodZ5nktFkbVkC_NQV44-HnH_cBD-2k90-oaECQ3QLx8Az--nbNwQdZnM5WeztDz3oKoz2BI7UwAEYsNTJVjukuV4cGwK6aDtblz8TAfVvQd1WePMqAPcKG9vuXszdLUdhMBA5A6oGQC0P559W0SG5eWRjSQe3pzx1PIKvcLBmP5hrzfJvqq-K2LwD3PUNKhHoWBPIKHq8ZYR4wNXfsZcXXNeUskICnsA1fz4T4odCsolLy1WeDA1MCZYf4QUzHzuF-9gHPudLlHJZL6oHgwMY8dQgzduJ51o7gJzx5lzDSH-KYqSFbJ1Ox-r7B-9MOPMRXfB8YBJ1OuOYk5xPldFfUOC-1jbbLGdtpQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_021b9b49c40e349b016aa1fc1c289c87d19642fe7451bd8558",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a1d1\",\"comment\":\"Activate the rook with check against the exposed king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 503,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 482,
+      "output_tokens_details": {
+        "reasoning_tokens": 455
+      },
+      "total_tokens": 985
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 11.924240112304688,
+  "request_id": "req_50558ed843484c0ba1e73ad040f029d5",
+  "text": "{\"move\":\"a1d1\",\"comment\":\"Activate the rook with check against the exposed king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rd1+",
+    "move": "a1d1",
+    "comment": "Activate the rook with check against the exposed king."
+  },
+  "usage": {
+    "input_tokens": 503,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 482,
+    "output_tokens_details": {
+      "reasoning_tokens": 455
+    },
+    "total_tokens": 985
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.012155",
+  "input_count_delta": 0
+}

@@ -1,0 +1,326 @@
+[
+  {
+    "case": "queen-01",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "g8g4",
+    "failure": null,
+    "request": "puzzle-queen-01-gpt-6-astra"
+  },
+  {
+    "case": "queen-01",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "g8g4",
+    "failure": null,
+    "request": "puzzle-queen-01-gpt-5.6-sol"
+  },
+  {
+    "case": "queen-01",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "g8g4",
+    "failure": null,
+    "request": "puzzle-queen-01-gpt-5.6-luna"
+  },
+  {
+    "case": "queen-02",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "e5b2",
+    "failure": null,
+    "request": "puzzle-queen-02-gpt-6-astra"
+  },
+  {
+    "case": "queen-02",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "e5b2",
+    "failure": null,
+    "request": "puzzle-queen-02-gpt-5.6-sol"
+  },
+  {
+    "case": "queen-02",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "e5b2",
+    "failure": null,
+    "request": "puzzle-queen-02-gpt-5.6-luna"
+  },
+  {
+    "case": "queen-03",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "h5h8",
+    "failure": null,
+    "request": "puzzle-queen-03-gpt-6-astra"
+  },
+  {
+    "case": "queen-03",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "h5h8",
+    "failure": null,
+    "request": "puzzle-queen-03-gpt-5.6-sol"
+  },
+  {
+    "case": "queen-03",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "h5h8",
+    "failure": null,
+    "request": "puzzle-queen-03-gpt-5.6-luna"
+  },
+  {
+    "case": "queen-04",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "b7f7",
+    "failure": null,
+    "request": "puzzle-queen-04-gpt-6-astra"
+  },
+  {
+    "case": "queen-04",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "b7f7",
+    "failure": null,
+    "request": "puzzle-queen-04-gpt-5.6-sol"
+  },
+  {
+    "case": "queen-04",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "b7f7",
+    "failure": null,
+    "request": "puzzle-queen-04-gpt-5.6-luna"
+  },
+  {
+    "case": "queen-05",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "h4h1",
+    "failure": null,
+    "request": "puzzle-queen-05-gpt-6-astra"
+  },
+  {
+    "case": "queen-05",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "h4e1",
+    "failure": null,
+    "request": "puzzle-queen-05-gpt-5.6-sol"
+  },
+  {
+    "case": "queen-05",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "h4e1",
+    "failure": null,
+    "request": "puzzle-queen-05-gpt-5.6-luna"
+  },
+  {
+    "case": "queen-06",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "e2g2",
+    "failure": null,
+    "request": "puzzle-queen-06-gpt-6-astra"
+  },
+  {
+    "case": "queen-06",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "e2g2",
+    "failure": null,
+    "request": "puzzle-queen-06-gpt-5.6-sol"
+  },
+  {
+    "case": "queen-06",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "e2g2",
+    "failure": null,
+    "request": "puzzle-queen-06-gpt-5.6-luna"
+  },
+  {
+    "case": "rook-01",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "e6a6",
+    "failure": null,
+    "request": "puzzle-rook-01-gpt-6-astra"
+  },
+  {
+    "case": "rook-01",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "e6a6",
+    "failure": null,
+    "request": "puzzle-rook-01-gpt-5.6-sol"
+  },
+  {
+    "case": "rook-01",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "e6a6",
+    "failure": null,
+    "request": "puzzle-rook-01-gpt-5.6-luna"
+  },
+  {
+    "case": "rook-02",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "b5b8",
+    "failure": null,
+    "request": "puzzle-rook-02-gpt-6-astra"
+  },
+  {
+    "case": "rook-02",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "b5b8",
+    "failure": null,
+    "request": "puzzle-rook-02-gpt-5.6-sol"
+  },
+  {
+    "case": "rook-02",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "b5b8",
+    "failure": null,
+    "request": "puzzle-rook-02-gpt-5.6-luna"
+  },
+  {
+    "case": "rook-03",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "h6h8",
+    "failure": null,
+    "request": "puzzle-rook-03-gpt-6-astra"
+  },
+  {
+    "case": "rook-03",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "h6h8",
+    "failure": null,
+    "request": "puzzle-rook-03-gpt-5.6-sol"
+  },
+  {
+    "case": "rook-03",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "h6h8",
+    "failure": null,
+    "request": "puzzle-rook-03-gpt-5.6-luna"
+  },
+  {
+    "case": "rook-04",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "h3h8",
+    "failure": null,
+    "request": "puzzle-rook-04-gpt-6-astra"
+  },
+  {
+    "case": "rook-04",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "h3h8",
+    "failure": null,
+    "request": "puzzle-rook-04-gpt-5.6-sol"
+  },
+  {
+    "case": "rook-04",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "h3h8",
+    "failure": null,
+    "request": "puzzle-rook-04-gpt-5.6-luna"
+  },
+  {
+    "case": "rook-05",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "f8a8",
+    "failure": null,
+    "request": "puzzle-rook-05-gpt-6-astra"
+  },
+  {
+    "case": "rook-05",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "f8a8",
+    "failure": null,
+    "request": "puzzle-rook-05-gpt-5.6-sol"
+  },
+  {
+    "case": "rook-05",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "f8a8",
+    "failure": null,
+    "request": "puzzle-rook-05-gpt-5.6-luna"
+  },
+  {
+    "case": "rook-06",
+    "model": "gpt-6-astra",
+    "legal": true,
+    "mate": true,
+    "move": "g3a3",
+    "failure": null,
+    "request": "puzzle-rook-06-gpt-6-astra"
+  },
+  {
+    "case": "rook-06",
+    "model": "gpt-5.6-sol",
+    "legal": true,
+    "mate": true,
+    "move": "g3a3",
+    "failure": null,
+    "request": "puzzle-rook-06-gpt-5.6-sol"
+  },
+  {
+    "case": "rook-06",
+    "model": "gpt-5.6-luna",
+    "legal": true,
+    "mate": true,
+    "move": "g3a3",
+    "failure": null,
+    "request": "puzzle-rook-06-gpt-5.6-luna"
+  }
+]

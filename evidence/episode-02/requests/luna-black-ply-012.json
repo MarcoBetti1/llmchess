@@ -1,0 +1,151 @@
+{
+  "key": "luna-black-ply-012",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bqkbnr/pp3ppp/2p5/2p1N3/4P3/8/PPPPQPPP/RNB1K2R b KQkq - 0 6\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b n r\np p . . . p p p\n. . p . . . . .\n. . p . N . . .\n. . . . P . . .\n. . . . . . . .\nP P P P Q P P P\nR N B . K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 Nc6 Bb5 e6 Bxc6 dxc6 Qe2 e5 Nxe5\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, a8b8, b7b5, b7b6, c5c4, c8d7, c8e6, c8f5, c8g4, c8h3, d8a5, d8b6, d8c7, d8d2, d8d3, d8d4, d8d5, d8d6, d8d7, d8e7, d8f6, d8g5, d8h4, e8e7, f7f5, f7f6, f8d6, f8e7, g7g5, g7g6, g8e7, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "2dc7631607c951a078ca295d48459d0efd0dbecd2e8dcb6c8c166478c3a0dea3",
+  "fen": "r1bqkbnr/pp3ppp/2p5/2p1N3/4P3/8/PPPPQPPP/RNB1K2R b KQkq - 0 6",
+  "preflight": {
+    "input_tokens": 520,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_6fc01ce10b2b476e8da2029e4eb85ac3"
+  },
+  "reserved_usd": "0.0025876",
+  "raw": {
+    "id": "resp_0e6ceb124ee76244016aa1ff9c99f087d1b119458e2765f789",
+    "object": "response",
+    "created_at": 1789001628,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001633,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0e6ceb124ee76244016aa1ff9d9bdc87d180ac873a404df958",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof-hZko8ClVxph4Qhoofq5fXJde1cyTC121bx9mfCfa3zqD387dS1JhhiEHTp-HFbhytuWGpeJAIqOGSjwRypj6kmp2foeh2f77WmwQOreUlPMvvJhQgjet5QR6be2rP0TnqqISpy0JUNXEuZif3Q52dVtxSPyPzSkpjff6P0ZoFpfbqMrsI9QA96vvk-VFP3XD3uIeNaUObT_5MdfOMoZZJHD49cRT4bS261lw9CRI6FMVuoUJU6wy6tbOmsQyj9VUVHTYAbwvAMFSu2qjvLB5zEgsRwZvCj6NocwK_RtDTnbfFiDEgxLs9vXYHyNb7NatAZ9-WmRzKwAmtQ4dO4gsThbl2kq684R_NPsGlh2piknYKzHwey977kZAG3FeWFz7dfEG3KQnZIFCXU32KYxajqpd5cMxEH6tcSyf3guN7vCFSEcl_S9qzgLsLaa-EeJgAkPwhmFyd9Sp--IGkrZ4BJIROSGGjEFOvDOM9twdOkJRhdpkVZFBsUTdWuX7sMCFWmFooJ1oxIyMF3o-5hZjWkjJVk8cFR73kjBiYYrbEGcv3xQqGG0lqvurBubpLTeX2L6oEh0U5YdHzhqUvFeUX1I22_Xnv9yvpxLDsQTia9IPE2W9YPndJ95HZQyG_LsTHfzyiDz5kk2SLPpOqovmR6dcJfVImcegF3qOghsjRTToJeKzk9k_9t7EbuuevsQDJpFgliW7ephkbLXXBYbfqF1k_7zU2w_iSU9vKeOql3NlfNljKF_Pxxig7f7fzbYt1x29HTwmAuUmShDrrBUnKdXUet_6VtoF6E-X0JbI9PSDgS6FOdzRGT_NZoyh1utht2_inSc7s3PwOZgYZimVciuuPZ_IGG-733JdVhlrKk_s14RJjGTREDCax6TLwC2XiHL5x912ubnXlVasMlM6o4N7Iv0Jxi45MifDaOzVcgDuMpYiWhhagqUAJka1V_HWpogbEM1ILRGILyIQpALx8BDS1Y9qRXL0RcgRpPP8XiCF62wfrMsSEPbgx6WCjn5TVda-LLFu5R7b08Y-IKVbKFnwDua6dpUi11KdNCCR0qQvZfFvhUFPVFmA500chJVkINuJmcQhSucYSz5crtp5-UGV_v-cGWOWVNByluiX35nvx2X1Yk-pW2vLsss1zkUXWpwGyTO0kecrDynNgigDjIf_XZOdK3ieYXOVueZtcB_-T4kKa6SZR-EGhgKrDb9KQbFGMZp_ugTlLP2--VQP_XsFXU_AEn9HcvMJJAM8LP3ggpb3G1EOLij2KJ9FDDg3MH057UL9fFf9XC5YAFvcY6OH_FdDkdIj7cZsQdBlV0GYknXPpD32ECChyTaJK8pMruijDfmwdMTe8deSZB530in-HyEbOJH-VXquzmHAQOYzk26VzVzTNh0bP5YGWLpwHxm8C6qlTZfXuRs21oBE4VGSdCQxrHfOmrXr--Z8GwyOFbGqJJhWbzelU46ahJdFm0T4CMg0cC_0o3dTm4ojIHsSpvmqz4_kU-gmhIwzN8X5qaBd4oc0NAudMGv0sU82NjgGc0kBQx2t5msVPPqvsqNo-g3RkSPBF9dtoWq-sVu8gVeDAYmk5gwsZjY6a5OYACbqwNoytNc4fVzHQre21VYKPqO0ZVjPXhtKWuPz4F_NLd2pdnVdnraNt-_5LXNTvQEksZ1LB9ffh9M4xrnjpz43QMZCCH0NDTrHsinqNH-dEReBsoBu6Qc9_Tw-qBtFBH_SfxSl6KtTdDH_bciJYrjreGb6-xEFrQFEL_JuS9pCkC8LoTjMoZujGTCGrDDhIc9yOqWLleeVS3-okLuEQ3bJqzazJqVbk1zCIkdpQbXeHhrw9x6OeYXRjOYjSIhFfZAVBMqz_zIZi4BfIn-EbjVJ6mQkdlab_YVWZYVUs6I16z4vFtaImbJYJub81HB8tmsuQnbZXpPafrD1MIMoCrENKXjg8arCGHxeXmEZ3SgaQC7Q6Toz5g9wj3XlE_ZeoBIeqs713dGtT3tHcg8UTKl6mkenysdZV9v7hfYTrk046q13t8zVm_76fTFTF6ZykNn2f4RLacwUvNJbN8Ea9gAU9aInqj8ujD8xjxhTnL7IjHHR4xELG18StE5qsbYDLlWC3gu3ZohDORMDufzU66ICPbaK7jYX7_C5XrPlIcPfL0ja6wS6VaTiztA_Z8CHBvB_zigu_rn9v_VyegHjlQwMhuDO5cwt4_PjC0OQsuGOETeL0yBKtPwqagYYCm93qdxSF3sVybzVJUzIjO9R2F02X3NKtm2rvXnc2qNWHzuQM1WqQ2gq4lXNHWxT_FyIifKVQhV2HKguKXa2d0n0j5l0cs9kbP5VOXZXMw1rGQ8IdK1fVGUX_Y8CbE82RyixAWLQKTsX7hi_J3PERWiTK0c9L-h6YtMjuMMkYnNuNwZT__R4pe2LWmcjHQJYGcugzqQOQ_wJGR_mI7la6AlW-VABT3KljZtP97mXKc5-UDaNPbMf-k0rio5LMjBQIfYeO0VrySnZDuFSERa_wCXgptxpuNJXxLlKccbACrIWID0312Fax4ehOVmClZaHxLY_N1LxJPxRPU0PBehmz9FaDbQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_0e6ceb124ee76244016aa1ffa1363487d1ac811ae0f0fee924",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d8d5\",\"comment\":\"Centralizes the queen, attacks the exposed knight, and regains the sacrificed pawn.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 520,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 394,
+      "output_tokens_details": {
+        "reasoning_tokens": 360
+      },
+      "total_tokens": 914
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 5.394282817840576,
+  "request_id": "req_4e0d26c69b594b1fbcf749efac12e7b1",
+  "text": "{\"move\":\"d8d5\",\"comment\":\"Centralizes the queen, attacks the exposed knight, and regains the sacrificed pawn.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qd5",
+    "move": "d8d5",
+    "comment": "Centralizes the queen, attacks the exposed knight, and regains the sacrificed pawn."
+  },
+  "usage": {
+    "input_tokens": 520,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 394,
+    "output_tokens_details": {
+      "reasoning_tokens": 360
+    },
+    "total_tokens": 914
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0006028",
+  "input_count_delta": 0
+}

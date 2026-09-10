@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-015",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p p b p p p\np . n . . n . .\n. p . . p . . .\n. . . . P . . .\n. B . . . N . .\nP P P P . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b3a4, b3c4, b3d5, b3e6, b3f7, c2c3, c2c4, d1e2, d2d3, d2d4, e1e2, e1e3, e1f1, f3d4, f3e5, f3g5, f3h4, g1f1, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "ffba6307de4fd08dbbddbcffad1a2f7b9031fb0288c7ad5057410ac154209a53",
+  "fen": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8",
+  "preflight": {
+    "input_tokens": 480,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_172328ea19be4dcc9740d5c7ecf31959"
+  },
+  "reserved_usd": "0.1084",
+  "raw": {
+    "id": "resp_090b423a189efa81016aa1f9a5890887d1863f3989e3ac3b1a",
+    "object": "response",
+    "created_at": 1789000101,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000104,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_090b423a189efa81016aa1f9a6abb487d1ad50127972937330",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofmo9TwRTiwVjPSfOslryKDts0wQiFoWWyVB2YXl_5JI0MBGHdbVCPwVMz28aQQYYn7gqzbyHKRKSqt2DuoUGbIbMlZBDUbzjQk3iwdpLC5XW1FlzK_IXn7VG9N4-4F07QW5rweM4ryU_iWc1_YvfA0FOdTBOhDgbS9wvDxy5O0s2t96CxHHZ646F9k48M79-RhXwAPmY4IPdlbyXwKf7TsbWBn2ylDoPjW57SCZawmZEL3A5RqO2hpXQVDZK5n52BM8Bzj_KLIiXWZt2F7gLDaxMIGbOKRgBc_SnIwlr1DxutYmEzJrTCdBqNubIem1jssWd3LKmV1sSmmB-LRWB0EuEYgGxrIq57ee6r1E-tWNNUPsQ0UzbeAmDTkcW2mnL7bcsv6XFEUyIVrREHev0_41cvtvRcH_zncyC7zaPqB_QYfyP3IZHLoGyrWoroJlu0DtPmjFX0Hywjwf39ymmV3LBchuPrmvYguXQS35Duqd_sbAxnlHKyZGjEdIkjOu6n13SFbr2id1qF2MaMXisPV0o9vL7_V5AqXGa1hGNKjJsbTdeY7zJY-4JCATv9OCNXHTeKl_nznKh94NSMvI9a1D0HlXd77DfZla-htP6z-M15c4GbGzlu4Psi_jDTEKDzMTt_ilYQoh0Qin4otycbXEaCkTzqtKsLVkQpmnuz7Zh7gzE4KvNP1wZf7hOAd6P69pgzmN0GjpWIIUhKgBKicMn0SkkNko8bez_S0nfSPbdSFe6hGoKFpR9ARkAlQcJFMslQ1Fp_yrzVTdH3G38_9qiYMmHSZPd-1s5WVJ6iocOPOJAPlBPrlVknZndybeh9--n-Tl6ly3KJbz8xcyccyTmfXdXhEYUv3T8Wi6OGBegmUBf8ItUHQ6BgP_DRj9aBMz0XJzTo0SBV_Pr4We1PlXMrvWM9HCacrUZ7VcksWuSSRTNXGQg9kpqsReK-3VtzlQxOfd1YDCdaQFFBlTtIOX0OwdNOrDlM710S-aQVcUJiaDaIxZwav0Ifv4rRUUtebcDnxbmjEmwZckQb0E34pjh3ScVeOBrEPPy4LniUxcFTGyuAr-sBI6UMPx7_kvnT5tjSFGLHSMgcWk60MGvzr9rFSKUFlcWqo0zhLikGs2-RfTFamu7-skr-ZowwHxNi9bECTVsIDPz9DMF3ihesA1eTrf1D-uD_LStQ9adqjYmyDkM7CS1EmcD8cEI5BcCji1hnlBcul7SeKYXKJrd8JHfxSDd1XlbfS0XgkR3UXpVp_lmYL8yFn-hK8x66shcnkQoa9KfUUetdlNlIapjNbprfPcoOj2ONx13GXW8fFQvHE=",
+        "summary": []
+      },
+      {
+        "id": "msg_090b423a189efa81016aa1f9a77d6c87d180819052e9980c1f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c2c3\",\"comment\":\"Prepare d4 and provide a retreat square for the bishop.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 480,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 63,
+      "output_tokens_details": {
+        "reasoning_tokens": 34
+      },
+      "total_tokens": 543
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.003309965133667,
+  "request_id": "req_08adab526b314499a1b62db5c03f9b82",
+  "text": "{\"move\":\"c2c3\",\"comment\":\"Prepare d4 and provide a retreat square for the bishop.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "c3",
+    "move": "c2c3",
+    "comment": "Prepare d4 and provide a retreat square for the bishop."
+  },
+  "usage": {
+    "input_tokens": 480,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 63,
+    "output_tokens_details": {
+      "reasoning_tokens": 34
+    },
+    "total_tokens": 543
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00915",
+  "input_count_delta": 0
+}

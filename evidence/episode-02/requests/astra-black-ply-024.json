@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-024",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r2q1rk1/2p1bppp/b2p1n2/RN2p3/4P3/1B1P1N2/1PP2PPP/2BQ1RK1 b - - 0 12\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . q . r k .\n. . p . b p p p\nb . . p . n . .\nR N . . p . . .\n. . . . P . . .\n. B . P . N . .\n. P P . . P P P\n. . B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5\nLegal UCI moves (alphabetical, unranked): a6b5, a6b7, a6c8, a8a7, a8b8, a8c8, c7c5, c7c6, d6d5, d8b8, d8c8, d8d7, d8e8, f6d5, f6d7, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "0e01933afa71f0d3436f0a3e921c9b91d99f12b630def1c296a381b98526cb09",
+  "fen": "r2q1rk1/2p1bppp/b2p1n2/RN2p3/4P3/1B1P1N2/1PP2PPP/2BQ1RK1 b - - 0 12",
+  "preflight": {
+    "input_tokens": 493,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_954445ded2954a628cdfb2e52c490e44"
+  },
+  "reserved_usd": "0.1085625",
+  "raw": {
+    "id": "resp_06a6fc15b0bb3982016aa1f834206c87d1818ed9ea330955b1",
+    "object": "response",
+    "created_at": 1788999732,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999744,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_06a6fc15b0bb3982016aa1f835547c87d180d38d09d04de09a",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofhAs-xURnQ37vvg-iRrZLCoD5X_KSYQQ66-DTvAdtrPkAp0IESIi74htD0t1xT4OMB5YliE-VXt3va0dL6TI4xZ5t0_9PA56OZMu0pd7slohjvAgFM8MpvL3wJIOtlnr5W-odpqOqJn2z9sBCa0_Tv91P0oYyRRs0DGGAmIVn78xfYmi_PrqtX0ucZLTc6oELwtK9S9S2NlliXFb2yStRctMlXTn9DfP4MoHnpiiwT22ilMK8Hfu9v20AesvWfpGwK438rlX1lzh2V3_HytcoJEBbVKzI8K4PvzFREdkQoy9rIBvsVa8I_u7ikozevPwPjO-Yzb0JdJzGOzJo4iWUVlalbCNn3gyL2dsU0zB5PXPcMY1pMPVdKCAQ4guVGLaqAWcgQaf1VBiFn3uAaF6kET0TmBAqixdEVCr2HMMfuhxGXok0WEU9PE4uzQJx2KBYFbCr0kct3khB_2IAHotr3TTnzxgzIBUm1LK-gKEDYsFmdF4QEl0WbmFm56MAxYq5NUq98j3gp_5myHoOeyUzp1k1E0jiiqvdqZuu7Pzva9lGMWQs2Kw-eK8TYdjDdVy9gDKSKlPxSGGnDruHM2Ki2aCzeM4FAgE-TYpEgEaXdH_BctFUZIDrhmiSzmTHFRDqiPXrq-lN9LfiXDIGuuNRFnXryocundRoEAICsQ7HMSNEMA-YJb6AYFv-Q4qv6SAaw0fB2aDYVl4VvtPjff8U92OuTXglI83XNlDMKnDxS0lsJCitGa4aCLfPzKOo-eEgZmgJr0HDoxciQujX2Hy5O5E-3S5pMqy2hP1Iv6bIoRjxx4H8B_5Q_VBAx69CxCm-yK9acU4GKMXG9HchQgwrH2J-9-KUCLxqykyoXZka_O2iXCprZHvpeDiSq5E3PYXHr2_XstMHZw4MOR9qRoXySjjGm-vvNWdoc7M4jtqUvPkdh3U7Q9zX9cPyHaODdyqs-Eut5VJoutIDGN_TawCQCniPrhEXd3Kqvabd7q8mf9fY-fNvWlSyIBHyhaQXUDHI6KLfKMKMkQkZXAMH8fZuM3BfJYMtA9v_tcaY8crlVFAvTsyBCXmcLYLZIQ1idI_C-cSYm2L6bw7hG_dzAl1m7H1I1rme8ewZuL47h_qLfZ8IPSZ5PVuVzAM5uga4Sc183jJYQHNIohgABhXvltMrhN8Eh8pEg9xeTNga2Iim7k7GZ8TQgmmjRyNfWikaweZ1os3a8T5k86n9xdgM2N4mU2AoFzQMNCnKZZZDz4v7EAXmfW8p7FjurYSvF_sbnoGZsBr2QW8DQzWf_s5afXldyiW6o5zMPxZIHalyzieLdLurV7KROjxC_X0BGHDw63zExwi_7Cziy2k2SzUp_h9ETfK3jqCC_zqmEwdT-_0GPCmId6vZdIQKe1shHARrmQWiQFwW_yItH6d5Knb2YkU4wvLEAirmRxySo_1FXOGciNccq_qhvfb7kzC5eQLiTGIfs6c5-Qtzn97eGXfmCV38WsJxth1XqXJ8oVjqryj2TKsMmW6H6iemk61GtWHjCUUV7s4cXYlpsOXLYNMwWoiHpgtAaiMbEOM9vMFvLJx7CdycS6gwnGbxRsyUJOQzPMZQs2m6udDNF-aLUvGwjhNHdT6vr69Jd-89VGuF4hSFtaMArBstHyXX7mLDrbLvM1-GOehIFa-FgrOZ3KeQnRLC6coLGe9_GRWNzLHY2Cqzoxo8XWnU5IXYOpLXyZ_EjC4UUHEY9KnopRUAPHyYqWGJnA-uyWwOca2C_Cujlvxajg9C6F-vy6qiYre3dp1RoIPKkRXs6uM-xovpA_uZdMvBpvhd3fcGHf5bEsZ9bZxvSpTgg6chCJVRSH6a2WJ573zmL1yOjW0YId6_vM9ck-nj1ARK-T5Aodld71thVB3aRb_WkfepvCgx_YxtrV0rsSzWLqRzqe1z1qSyYn-851Co110dJSj1qLdwAM7BAzO2LFX-_JY9EzfGDh0T23ners0h8w90xATjvGlwCWQXaQ0_Qe07AOXzSyM5RF1u0Nqnuq2TnVj43wViPpSQjP5QAxDvdpCX8HzvO9WBJo9w14gHrcu_wMuH-SaJcjjMymy5KD8tiULGBOLuOOBw74XDf9UcPFhqq4Nwtte0eCaXVf26WTEJmocOSXrDHVVflOvG1WlDa7RFJiLMTUfN6ASWIOVysp6dRmezqD8FnNjPzCgUUrcgEtYxpoh4B3TN6h8SF2H_Gbi_GAfrHAMfTbcd9IHlDUzlhtUFrGBRFrBc8dyUSYnub8oDyacD5oxSAV3Iy6LoizU2rQQ2I5fGq-JwScarAyMpvARDrNkKS7a-NI_hWABi81g6NYbcnCtPUeSiw_fD7dgztaVOX-QonhKooBAKL2LHDuoLY2qzn8UIs_d9XKS76k5TGmCVWzwD5pS82NESWHe5zb0vWsEI1ffU0VVm3R_9Zrz110HUCv33JwWzeJREbv6VrbAfXyirucDVnDoV5YD2JbTOY6gMwZbYpwboF8aAjG4AGhTm4oZou7pq53djA0jAabPYN4mLEB9sDNSnI=",
+        "summary": []
+      },
+      {
+        "id": "msg_06a6fc15b0bb3982016aa1f83f8da887d1861d5c8d1a84ccba",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a6b5\",\"comment\":\"Capture the knight and uncover an attack on White's rook.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 493,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 299,
+      "output_tokens_details": {
+        "reasoning_tokens": 270
+      },
+      "total_tokens": 792
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 12.482357263565063,
+  "request_id": "req_af3998655c3449b9bdd4ffb96ac08c61",
+  "text": "{\"move\":\"a6b5\",\"comment\":\"Capture the knight and uncover an attack on White's rook.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bxb5",
+    "move": "a6b5",
+    "comment": "Capture the knight and uncover an attack on White's rook."
+  },
+  "usage": {
+    "input_tokens": 493,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 299,
+    "output_tokens_details": {
+      "reasoning_tokens": 270
+    },
+    "total_tokens": 792
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0211125",
+  "input_count_delta": 0
+}

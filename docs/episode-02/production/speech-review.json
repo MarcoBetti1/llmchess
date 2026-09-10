@@ -1,0 +1,153 @@
+[
+  {
+    "id": "01_plan",
+    "script": "GPT just announced checkmate.",
+    "heard": "GPT just announced Checkmate.",
+    "differences": []
+  },
+  {
+    "id": "02_quote",
+    "script": "Capture the rook and deliver checkmate.",
+    "heard": "Capture the Rook and deliver Checkmate.",
+    "differences": []
+  },
+  {
+    "id": "03_escape",
+    "script": "The only legal move escapes check.",
+    "heard": "The only legal move escapes check.",
+    "differences": []
+  },
+  {
+    "id": "04_question",
+    "script": "The king can still move. Let's see how we got here.",
+    "heard": "The king can still move. Let's see how we got here.",
+    "differences": []
+  },
+  {
+    "id": "05_method",
+    "script": "Each turn: the exact board, and a list of legal moves. No chess engine. One answer. No retries.",
+    "heard": "Each turn, the exact board and a list of legal moves. No chess engine, one answer, no retries.",
+    "differences": []
+  },
+  {
+    "id": "06_tokens",
+    "script": "We save the replies and count tokens using OpenAI's own numbers.",
+    "heard": "We save the replies and count tokens using OpenAI's own numbers.",
+    "differences": []
+  },
+  {
+    "id": "07_puzzle",
+    "script": "We started with twelve tiny endgames. We didn't tell the models that checkmate was available.",
+    "heard": "We started with 12 tiny endgames. We didn't tell the models that Checkmate was available.",
+    "differences": [
+      {
+        "heard": "12",
+        "script": "twelve"
+      }
+    ]
+  },
+  {
+    "id": "08_results",
+    "script": "Astra, Sol, and Luna all found a mating move in every position. Good. Now play a whole game.",
+    "heard": "Astra, Saul, and Luna all found a mating move in every position. Good. Now play a whole game.",
+    "differences": [
+      {
+        "heard": "Saul",
+        "script": "Sol,"
+      }
+    ]
+  },
+  {
+    "id": "09_engine",
+    "script": "Astra lost both games against Stockfish. We gave the engine a small search budget: two thousand nodes per move.",
+    "heard": "Astra lost both games against Stockfish. We gave the engine a small search budget, 2,000 nodes per move.",
+    "differences": [
+      {
+        "heard": "2 000",
+        "script": "two thousand"
+      }
+    ]
+  },
+  {
+    "id": "10_self",
+    "script": "Then we made Astra play itself. Finally, an opponent with matching credentials.",
+    "heard": "Then, we made Astra play itself. Finally, an opponent with matching credentials.",
+    "differences": []
+  },
+  {
+    "id": "11_opening",
+    "script": "Both sides castle. White attacks the center; Black goes after the king.",
+    "heard": "Both sides castle. White attacks the center. Black goes after the king.",
+    "differences": []
+  },
+  {
+    "id": "12_middle",
+    "script": "A few trades later, Black reaches for a pawn.",
+    "heard": "A few trades later, Black reaches for a pawn.",
+    "differences": []
+  },
+  {
+    "id": "13_pawn",
+    "script": "Win a pawn and intensify pressure on the knight.",
+    "heard": "Win a pawn and intensify pressure on the knight.",
+    "differences": []
+  },
+  {
+    "id": "14_queen",
+    "script": "Black won a pawn. White won a queen. Excellent trade... for White.",
+    "heard": "Black won a pawn, White won a queen. Excellent trade for White.",
+    "differences": []
+  },
+  {
+    "id": "15_attack",
+    "script": "White has enough pieces to win. But watch the move it calls checkmate.",
+    "heard": "White has enough pieces to win. But watch the move it calls, checkmate.",
+    "differences": []
+  },
+  {
+    "id": "16_rejoin",
+    "script": "Rook takes rook. Check. We're back at the opening of the video.",
+    "heard": "Rook takes Rook. Check. We're back at the opening of the video.",
+    "differences": []
+  },
+  {
+    "id": "17_rule",
+    "script": "Checkmate means check with no legal reply. This position has one: king to e six.",
+    "heard": "Checkmate means check with no legal reply. This position has won. King to E6.",
+    "differences": [
+      {
+        "heard": "won",
+        "script": "one:"
+      }
+    ]
+  },
+  {
+    "id": "17b_alternative",
+    "script": "The queen could take instead. Then the rook stays here, covering e six. That's mate.",
+    "heard": "The queen could take instead. Then the rook stays here, covering e6. That's mate.",
+    "differences": []
+  },
+  {
+    "id": "18_chase",
+    "script": "Back in the game, the king runs across the board.",
+    "heard": "Back in the game, the king runs across the board.",
+    "differences": []
+  },
+  {
+    "id": "19_real_mate",
+    "script": "The rook gives check. The queen covers the escape squares. Black has no legal move left.",
+    "heard": "The rook gives check. The queen covers the escape squares. Black has no legal move left.",
+    "differences": []
+  },
+  {
+    "id": "20_close",
+    "script": "Astra finished a thirty-nine-move game against itself. Its confident commentary wasn't always right. Check the board. Code and every game are linked.",
+    "heard": "Astra finished a 39-move game against itself. Its confident commentary wasn't always right. Check the board. Code and every game are linked.",
+    "differences": [
+      {
+        "heard": "39 move",
+        "script": "thirty-nine-move"
+      }
+    ]
+  }
+]

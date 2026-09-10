@@ -1,0 +1,506 @@
+[
+  {
+    "id": "01_plan",
+    "kind": "position",
+    "title": "CHECKMATE?",
+    "narration": "GPT just announced checkmate.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 2.5,
+    "game": "astra-self",
+    "ply": 67,
+    "before": true,
+    "label": "Astra vs Astra \u00b7 move 34",
+    "speaker": "ASTRA / WHITE",
+    "chapter": "ACTUAL GAME",
+    "sounds": [],
+    "start": 0,
+    "duration": 2.933333333333333,
+    "speech_duration": 2.3,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "02_quote",
+    "kind": "move",
+    "title": "ASTRA SAYS: CHECKMATE",
+    "narration": "Capture the rook and deliver checkmate.",
+    "voice": "fable",
+    "tail": 0.65,
+    "minimum": 0,
+    "game": "astra-self",
+    "ply": 67,
+    "quote": "Capture the rook and deliver checkmate.",
+    "speaker": "ASTRA / WHITE",
+    "label": "Actual model reply \u00b7 voiced",
+    "chapter": "ACTUAL GAME",
+    "sounds": [
+      {
+        "kind": "capture",
+        "at": 0.75
+      }
+    ],
+    "start": 2.933333333333333,
+    "duration": 4.1,
+    "speech_duration": 3.3,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "03_escape",
+    "kind": "move",
+    "title": "ONE LEGAL REPLY",
+    "narration": "The only legal move escapes check.",
+    "voice": "onyx",
+    "tail": 0.55,
+    "minimum": 0,
+    "game": "astra-self",
+    "ply": 68,
+    "quote": "The only legal move escapes check.",
+    "speaker": "ASTRA / BLACK",
+    "label": "Same game \u00b7 next move",
+    "chapter": "ACTUAL GAME",
+    "sounds": [
+      {
+        "kind": "move",
+        "at": 0.8
+      }
+    ],
+    "start": 7.033333333333333,
+    "duration": 3.2333333333333334,
+    "speech_duration": 2.55,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "04_question",
+    "kind": "question",
+    "title": "CHECKMATE. EVENTUALLY?",
+    "narration": "The king can still move. Let's see how we got here.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 4.2,
+    "game": "astra-self",
+    "ply": 68,
+    "music": true,
+    "start": 10.266666666666666,
+    "duration": 4.2,
+    "speech_duration": 3.45,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "05_method",
+    "kind": "method",
+    "title": "OUR CHESS TEST",
+    "narration": "Each turn: the exact board, and a list of legal moves. No chess engine. One answer. No retries.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 8.6,
+    "game": "astra-self",
+    "ply": 67,
+    "before": true,
+    "chapter": "HOW WE TESTED",
+    "start": 14.466666666666665,
+    "duration": 8.6,
+    "speech_duration": 6.95,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "06_tokens",
+    "kind": "method_tokens",
+    "title": "SAVE EVERY MOVE",
+    "narration": "We save the replies and count tokens using OpenAI's own numbers.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 4.5,
+    "game": "astra-self",
+    "ply": 67,
+    "before": true,
+    "chapter": "HOW WE TESTED",
+    "start": 23.066666666666663,
+    "duration": 6.0,
+    "speech_duration": 5.35,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "07_puzzle",
+    "kind": "puzzle",
+    "title": "FIRST: FIND MATE",
+    "narration": "We started with twelve tiny endgames. We didn't tell the models that checkmate was available.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 6.5,
+    "case": "queen-01",
+    "label": "White to move \u00b7 choose the best move",
+    "chapter": "TEST 1 / ENDGAMES",
+    "start": 29.066666666666663,
+    "duration": 6.5,
+    "speech_duration": 5.85,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "08_results",
+    "kind": "results",
+    "title": "12 OUT OF 12. EACH.",
+    "narration": "Astra, Sol, and Luna all found a mating move in every position. Good. Now play a whole game.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 7.5,
+    "case": "queen-01",
+    "chapter": "TEST 1 / ENDGAMES",
+    "music": true,
+    "start": 35.56666666666666,
+    "duration": 8.033333333333333,
+    "speech_duration": 7.4,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "09_engine",
+    "kind": "match_results",
+    "title": "THEN: STOCKFISH",
+    "narration": "Astra lost both games against Stockfish. We gave the engine a small search budget: two thousand nodes per move.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 8,
+    "game": "astra-white",
+    "rows": [
+      {
+        "label": "Astra as White",
+        "result": "Checkmated \u00b7 move 31"
+      },
+      {
+        "label": "Astra as Black",
+        "result": "Checkmated \u00b7 move 30"
+      }
+    ],
+    "chapter": "TEST 2 / FULL GAMES",
+    "start": 43.599999999999994,
+    "duration": 8.0,
+    "speech_duration": 6.9,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "10_self",
+    "kind": "position",
+    "title": "ASTRA VS ASTRA",
+    "narration": "Then we made Astra play itself. Finally, an opponent with matching credentials.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 5.7,
+    "game": "astra-self",
+    "ply": 1,
+    "before": true,
+    "speaker": "ASTRA / WHITE",
+    "label": "Independent requests \u00b7 same model and settings",
+    "chapter": "GAME 3 / ASTRA PLAYS BOTH SIDES",
+    "music": true,
+    "start": 51.599999999999994,
+    "duration": 6.0,
+    "speech_duration": 5.35,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "11_opening",
+    "kind": "montage",
+    "title": "A PERFECTLY NORMAL OPENING",
+    "narration": "Both sides castle. White attacks the center; Black goes after the king.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 9,
+    "game": "astra-self",
+    "start_ply": 1,
+    "end_ply": 20,
+    "match_label": "Astra plays both sides",
+    "chapter": "MOVES 1\u201310 / TIME-LAPSE",
+    "music": true,
+    "sounds": [
+      {
+        "kind": "move",
+        "at": 1.0
+      },
+      {
+        "kind": "move",
+        "at": 2.5
+      },
+      {
+        "kind": "move",
+        "at": 4
+      },
+      {
+        "kind": "move",
+        "at": 5.5
+      }
+    ],
+    "start": 57.599999999999994,
+    "duration": 9.0,
+    "speech_duration": 4.45,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "12_middle",
+    "kind": "montage",
+    "title": "THEN BLACK SEES A PAWN",
+    "narration": "A few trades later, Black reaches for a pawn.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 13,
+    "game": "astra-self",
+    "start_ply": 21,
+    "end_ply": 53,
+    "match_label": "Astra plays both sides",
+    "chapter": "MOVES 11\u201327 / TIME-LAPSE",
+    "music": true,
+    "sounds": [
+      {
+        "kind": "move",
+        "at": 1.0
+      },
+      {
+        "kind": "move",
+        "at": 2.5
+      },
+      {
+        "kind": "move",
+        "at": 4
+      },
+      {
+        "kind": "move",
+        "at": 5.5
+      }
+    ],
+    "start": 66.6,
+    "duration": 13.0,
+    "speech_duration": 3.55,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "13_pawn",
+    "kind": "move",
+    "title": "BLACK\u2019S PLAN",
+    "narration": "Win a pawn and intensify pressure on the knight.",
+    "voice": "onyx",
+    "tail": 0.5,
+    "minimum": 4.2,
+    "game": "astra-self",
+    "ply": 54,
+    "quote": "Win a pawn and intensify pressure on the knight.",
+    "speaker": "ASTRA / BLACK",
+    "label": "Move 27 \u00b7 actual model reply",
+    "chapter": "THE QUEEN TRADE",
+    "delivery": " Clearly articulate 'win a pawn' as three separate words. Emphasize pawn, then pause briefly.",
+    "sounds": [
+      {
+        "kind": "capture",
+        "at": 0.75
+      }
+    ],
+    "start": 79.6,
+    "duration": 6.033333333333333,
+    "speech_duration": 5.4,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "14_queen",
+    "kind": "move",
+    "title": "WHITE TAKES THE QUEEN",
+    "narration": "Black won a pawn. White won a queen. Excellent trade... for White.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 5.7,
+    "game": "astra-self",
+    "ply": 55,
+    "speaker": "ASTRA / WHITE",
+    "label": "Move 28 \u00b7 pawn captures queen",
+    "chapter": "THE QUEEN TRADE",
+    "values": true,
+    "sounds": [
+      {
+        "kind": "capture",
+        "at": 0.75
+      }
+    ],
+    "start": 85.63333333333333,
+    "duration": 5.7,
+    "speech_duration": 4.8,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "15_attack",
+    "kind": "montage",
+    "title": "CAN WHITE FINISH?",
+    "narration": "White has enough pieces to win. But watch the move it calls checkmate.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 8,
+    "game": "astra-self",
+    "start_ply": 56,
+    "end_ply": 66,
+    "match_label": "White has queen, rook and knight",
+    "chapter": "MOVES 28\u201333 / TIME-LAPSE",
+    "music": true,
+    "sounds": [
+      {
+        "kind": "move",
+        "at": 1.0
+      },
+      {
+        "kind": "move",
+        "at": 2.5
+      },
+      {
+        "kind": "move",
+        "at": 4
+      },
+      {
+        "kind": "move",
+        "at": 5.5
+      }
+    ],
+    "start": 91.33333333333333,
+    "duration": 8.0,
+    "speech_duration": 4.7,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "16_rejoin",
+    "kind": "move",
+    "title": "BACK TO THE OPENING",
+    "narration": "Rook takes rook. Check. We're back at the opening of the video.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 4.8,
+    "game": "astra-self",
+    "ply": 67,
+    "speaker": "ASTRA / WHITE",
+    "label": "Move 34 \u00b7 replay of our opening",
+    "chapter": "CHECK OR CHECKMATE?",
+    "sounds": [
+      {
+        "kind": "capture",
+        "at": 0.75
+      }
+    ],
+    "start": 99.33333333333333,
+    "duration": 4.933333333333334,
+    "speech_duration": 4.3,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "17_rule",
+    "kind": "escape_demo",
+    "title": "ONE ESCAPE IS ENOUGH",
+    "narration": "Checkmate means check with no legal reply. This position has one: king to e six.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 6.7,
+    "game": "astra-self",
+    "ply": 68,
+    "chapter": "CHECK OR CHECKMATE?",
+    "sounds": [
+      {
+        "kind": "move",
+        "at": 0.7,
+        "relative": true
+      }
+    ],
+    "start": 104.26666666666667,
+    "duration": 6.7,
+    "speech_duration": 5.85,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "17b_alternative",
+    "kind": "alternative",
+    "title": "THE MATE IT MISSED",
+    "narration": "The queen could take instead. Then the rook stays here, covering e six. That's mate.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 8.4,
+    "game": "astra-self",
+    "ply": 67,
+    "alternative": "h6f4",
+    "chapter": "LEGAL ALTERNATIVE / NEVER PLAYED",
+    "start": 110.96666666666667,
+    "duration": 8.4,
+    "speech_duration": 6.9,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "18_chase",
+    "kind": "montage",
+    "title": "FIVE WHITE MOVES LATER\u2026",
+    "narration": "Back in the game, the king runs across the board.",
+    "voice": "cedar",
+    "tail": 0.5,
+    "minimum": 7.3,
+    "game": "astra-self",
+    "start_ply": 69,
+    "end_ply": 76,
+    "match_label": "Every move shown is from the log",
+    "chapter": "MOVES 35\u201338 / TIME-LAPSE",
+    "music": true,
+    "sounds": [
+      {
+        "kind": "move",
+        "at": 1.0
+      },
+      {
+        "kind": "move",
+        "at": 2.5
+      },
+      {
+        "kind": "move",
+        "at": 4
+      },
+      {
+        "kind": "move",
+        "at": 5.5
+      }
+    ],
+    "start": 119.36666666666667,
+    "duration": 7.3,
+    "speech_duration": 2.7,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "19_real_mate",
+    "kind": "mate_demo",
+    "title": "THIS TIME: CHECKMATE",
+    "narration": "The rook gives check. The queen covers the escape squares. Black has no legal move left.",
+    "voice": "cedar",
+    "tail": 0.8,
+    "minimum": 8.3,
+    "game": "astra-self",
+    "ply": 77,
+    "chapter": "MOVE 39 / VERIFIED MATE",
+    "sounds": [
+      {
+        "kind": "move",
+        "at": 0.7
+      },
+      {
+        "kind": "check",
+        "at": 6.8,
+        "length": 0.7
+      }
+    ],
+    "start": 126.66666666666667,
+    "duration": 8.333333333333334,
+    "speech_duration": 5.95,
+    "voice_offset": 0.12
+  },
+  {
+    "id": "20_close",
+    "kind": "end",
+    "title": "CHECK THE BOARD.",
+    "narration": "Astra finished a thirty-nine-move game against itself. Its confident commentary wasn't always right. Check the board. Code and every game are linked.",
+    "voice": "cedar",
+    "tail": 1.4,
+    "minimum": 9.6,
+    "game": "astra-self",
+    "takeaway": "Real moves.\nSometimes imaginary checkmate.",
+    "chapter": "SMALL TESTS / THESE SETTINGS",
+    "music": true,
+    "start": 135.0,
+    "duration": 10.433333333333334,
+    "speech_duration": 8.9,
+    "voice_offset": 0.12
+  }
+]

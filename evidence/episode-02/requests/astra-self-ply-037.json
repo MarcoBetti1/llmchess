@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-037",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP1R1P1/PP5P/RN3QK1 w - - 3 19\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . . r k .\n. . . . . p p p\np . p . . . . q\n. p . . . . . .\n. . . P . . b .\n. B P . R . P .\nP P . . . . . P\nR N . . . Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b3a4, b3c2, b3c4, b3d1, b3d5, b3e6, b3f7, c3c4, d4d5, e3d3, e3e1, e3e2, e3e4, e3e5, e3e6, e3e7, e3e8, e3f3, f1b5, f1c1, f1c4, f1d1, f1d3, f1e1, f1e2, f1f2, f1f3, f1f4, f1f5, f1f6, f1f7, f1g2, f1h3, g1f2, g1g2, g1h1, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "ec9d94384c741b37f857988a193651dfede7bde67ad874dadf0f89180aa63331",
+  "fen": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP1R1P1/PP5P/RN3QK1 w - - 3 19",
+  "preflight": {
+    "input_tokens": 609,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_0b283604919645e690dbb8adb944ad33"
+  },
+  "reserved_usd": "0.1100125",
+  "raw": {
+    "id": "resp_08132009a01c1853016aa1fa95ac7887d19c0a56f3fc7a0642",
+    "object": "response",
+    "created_at": 1789000341,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000355,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_08132009a01c1853016aa1fa96838887d1948e4a4e41fefa52",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofqj8XTpE6nULY7lwll4g1NRyrUOqD_o9hVYWMrisQhB11StWTaUuGnNR7WfqJ4idNHj2v19P3FoODmYohDtA9fqz2aELCbVGuVIcy6kou8RHpNcefI8FbYxbVwVyN0c8MMXmJLRIzGL2fR0zbCkayydaOeeKHd8_QBBKkeunZiyjxm6FhQdo7MGAYadFTUGdWvJjeaCaYdPDF2yC6TmA5ojV0292kULkKGCOVbS4hox0i0guEyLVTVtzcMi6zzxBxh8dChb3VFik2qgV529r4lyYmyFnQI1dFUUWNxFgst39ri8t4lJtURb0IhiKX4HnTy_oDYjikT2lUjqxLJr9qORt-AaIw3vs_EjX8PDgmVCjn8siuWw6OHHsP1el8kGEg7AkqvDFZvaacEBfDi2XrOSTxUVIlzgbq7p4iuNWxowzLonHc8W6OfngeRtP9cOCn9jaFgBJlnJg2Hdg3LL2yjrARbm7LUziB0P_eSSuTf_M0V7BsvcIu6VGK6lkaGA2IeTFmzdtWZ1V7goWtlHJGPOjGZ8mDiKLA38wj6HMVkIhtSQW-Q9vNHZNOYZmr5J_MmncwF3o6zWyjY8NTsGVJxhZZz38KsnX4-q34EQt8fFvnEqS32q5x-YhTpWh-sqjpK24Uy7HAovuxjH-75l75vJ3TJpCLq25IEsqr1ojccPF63dHplMnTp-zTGBjteS12sqx0IjTSz-owH76fBqZVDr-Fqr7fLttbgpSanIMdLvTGNcr0lYv9YLObxjrqXVBPRSYRnl1plfrbiIiP1QJwcbaS6RTAMAPfidug4CZzughyeceZodAydqD65OooL5w2Sy-vy0xK8QmUyoLV-vaPLfG0G6ZHTgODjwpF5ZVJ1K-eo8pYdGlzRkle7GMO3hZSRw3W4g2RcOthVorp3rS6HdVnfOWcnLpqdcykO_RLdlbbDENxr7Pr1suMaw-2haK1mg3gAnKHKzpAb7dreZGzu8wI1CBFIvt8-DuLlvc5m2IG7LjlMRKnbIv9Mvtai9pwfmbV8qNqywmPUle7imQqX7AecU6uNVE4_TnhXI9cB73k5QwbVFl_h4-1lwFNoYEcFq20WBp7NCpl6xqzhNpoRyU2_YDrYGn9IC1wtfi8vI8s35aa2eWh-lZuiS1iZQFYSTfclGtxVLmKEFVv7VVnr8Tcc65wgiXdj9hLpZABOlMuPIKZtf4C5Zi_NgsNf1OXey3tcdicVTbbINF2bNyuFqFSPLXhZvMLYgXqmptzROTjNVX6j3cmPOWGuVt2euU8thN4d1yZkixM4F8WuNoe8p9vsxjW99BHD2SG9PNraPBORPaln8UQKtFt5d8bq79kxl1NLSDWutVX8HUSuzxWv71r5sNQwyNQhtYinq3rhYjLFkRCuvPQbfayaVezKkWoSDw1EIYb06jBNuisILPMhcn0RgM0OmtY27m_2-UFLhLpqemunsG0O-mHIe9iG9zkL3JI1DwTYQ7-ToEIoSFd9-e_ApM6ahmMOH1d65rFy0j-VZy4LAMwDoR54tEW7O8gEtwRKqJlXeggs6eQArhp0Oar8_o-IywJaTZHDj6bhGs_1-uhK6WX8iEZP-bSm5gCoCtX9UAjbjwtK2m_b6hdFkRj7s2b6FUe4mptPyPi2tyqBDs_UaRc2UcqY1shwtvxy0iXf3GsNPya8uaWqaInmqomjZHftuko3ZfkpydJJmVNDF_JW-mNT7YYbW6IOi9VzT6RxZaGetHoQJST5Iwew67ZNrbtl-38xcVCL2NPaXI3Scg8DYevD03YQYlLmk9wZQXmbQDZbLQ_C9v1B01twnscFGgqDYivIMaAGb9uqE0fE_6hriMgBotIH1Q52q9I6DHJFqObtL8EYvwPCpxYw1tI50acw_E5wz0HlAWbUC_phU-X3gXScMT6SMbtXrpwU8HkPqCMwvlQ-biu4FwC_TE97p9O20LeMPbkOZ7IMQBrKm1ipDjKpFtbdqHDf2XjyRayVnGKio7ut4UI-JItN75OSUJdXjHv_Ac-Lr8kan07-u2z0FDx6z2ho_WUHkHHpk0syezCDtWu7xiC3OsizAgrOEKraqBrZqaj7_t28qcx-qE-VKTnGBOtMvmNtt1RWDUaM6WnkLjRjms3kOvW_yFXcfny7qwzL83KGt99THfOjTxEseRH37Osz6AWniTdBjMnTYjZT-oKhS3IFEF3JcrfJgl7kB0ITCxh0750WWXmr_R1Y44ZP-vCGfnHr1cvT25bfaz_eTmgIZlMXdmZItfkz_SAMTk0GlDGxeMNhm3Z_VV3nw17nKdNGl0bf8tJbFqBwma6cYgA4VhY6uTXs3oyOgdonlJhn50D54J4FB07HAC_YcTtECFirY8yDYa_Sws2qPopXsdKPTo0Rpr-NTOGpdKUgVVGKY7mGknSN0aRBJvGPH2sBXnqF-jxFGD20bZ35cpczoxJ6Wm0tYh3LQ_w2IaetCUt_Ce9hBCLgPsjGyBjTeTue3jdP3e770KB2C",
+        "summary": []
+      },
+      {
+        "id": "msg_08132009a01c1853016aa1faa32fb487d191ad5f41d989ba87",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e3e1\",\"comment\":\"Withdraw the attacked rook and prepare to develop the knight.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 609,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 321,
+      "output_tokens_details": {
+        "reasoning_tokens": 293
+      },
+      "total_tokens": 930
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 14.288832902908325,
+  "request_id": "req_612ef14e62a044b681a8451548c7d550",
+  "text": "{\"move\":\"e3e1\",\"comment\":\"Withdraw the attacked rook and prepare to develop the knight.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Re1",
+    "move": "e3e1",
+    "comment": "Withdraw the attacked rook and prepare to develop the knight."
+  },
+  "usage": {
+    "input_tokens": 609,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 321,
+    "output_tokens_details": {
+      "reasoning_tokens": 293
+    },
+    "total_tokens": 930
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0236625",
+  "input_count_delta": 0
+}

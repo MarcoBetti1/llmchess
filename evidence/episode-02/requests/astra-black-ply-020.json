@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-020",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bq1rk1/2p1bppp/p2p1n2/nP2p3/4P3/1BNP1N2/1PP2PPP/R1BQ1RK1 b - - 0 10\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\np . . p . n . .\nn P . . p . . .\n. . . . P . . .\n. B N P . N . .\n. P P . . P P P\nR . B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5\nLegal UCI moves (alphabetical, unranked): a5b3, a5b7, a5c4, a5c6, a6b5, a8a7, a8b8, c7c5, c7c6, c8b7, c8d7, c8e6, c8f5, c8g4, c8h3, d6d5, d8d7, d8e8, f6d5, f6d7, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "689e270ebb5ea6b70ae951df232d54500f3029851a8b0813296ce4fe9280ae14",
+  "fen": "r1bq1rk1/2p1bppp/p2p1n2/nP2p3/4P3/1BNP1N2/1PP2PPP/R1BQ1RK1 b - - 0 10",
+  "preflight": {
+    "input_tokens": 507,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_3f1380c158204216845d4ff874c2eb0d"
+  },
+  "reserved_usd": "0.1087375",
+  "raw": {
+    "id": "resp_0972b5714799e55e016aa1f80c9d2887d1a7d1b9d5c70ca6c6",
+    "object": "response",
+    "created_at": 1788999692,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999711,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0972b5714799e55e016aa1f80da5bc87d1ac7faca43cc77c7f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofgfh7a_ybFeMl8ZpsIzgS9XQ7npZe-dtNfYw7E9I6bhRdcx_Fc8cCV_YWjC0tUkwE34l37Lvo0xUqsRsiwciQBX7q4mZw9ySRNMjcTjsnlMAearjySS_SVf3t1icouvIG1HvmILDybHdmGxZGC1lEJdXn2ft0gXCA28IEdm2AbuVIfHKRt0f2vWVudPU-_Euy8FhFKFWdE2nGJB0DvQf4uv29zYUg2jdlhTvz7Te4xnd1MdlZhW5s6M6GK44Yo55hFysqFo2xZbBEhzwaI451Rm30PJSB-I0O9cxBP9KhsWRYby4S-fGN_GYDPj4tcmLvJ1kGy-vZzDMdXCHYoLAqBec9TOswG-b1slvnnAKl5bWPhsjxfAXtRX7xHQwVuCvyDOT2EqMFDTdp9-vZBawgKwxWBEa-_DtYf3irNeh9G5a4V_Ga20kTkjhC6vs8ZVjjmYm3UxBXPwSmqh-vtuRxbT-r1ChNMDzOQhNKkJAziCz8aX0UdUpER3Pait44GOsR5Qj5oB3__YrV4KCaq5zkC8diPg5xp7VXzOC3DsK0IU3pcuLKs6EgGfM5JE-2CC9XSXglHQTxLGNAg5ZsZHN7iit69iWNGovw4OY8vQegBhAqwx-gWom6SbRvtPgGJqo8Qq8Xq0yR57aPz2IT1tjOtBTSUKmPFraqi-Jw4wIBUmTUoELGMnFimH7d40GLe1lPSYXOyCYIDJ4ynUGA1dT4S3VHNHlHqJtfw3peuW5Nx4hyBLRCwXswMlCJ1p0LyfxSlp0l1-iPjLpa9ZtYLZG8IZ4mA5V1dvs5Rs85C5LIF9_UM9oAwnM1ame0hIACrRktnTmj1oykdK2J6x2VHgnfLlU7xQZcE41zkDqJ8gSWImTpAeqZ82466u19LzI94IZGH5u8P60GPBvF05urhbwlEfqCLUSWKfSGcBpC25V-E1xyfsaq5g9yjdvUNKgZMXZWDcjeoDyYR5vmootGqx73kkRoZsa-MCG4PGFUQXV5emX5RliEp8vJbevNHJntxI5YODutVnlQOB5FNjByIvIpmncSLXmy1htBSOdYSLhqn1FnxKAfxERCClDRbq1pcTVHxf-o8MSba6ePK0A285rRHV8FzBbbZqDu3Cq6lCBWhGwjgWzxpVymERyJr8L0-GrRpippcHiGJ75tpub0BNawBB_fygTdlBSDl038J5cQ15aBQx4-SsCJ9aZ66KkVETx_-wLSEEB8YAfw7RJ3E04BtiV_mOpNZjNqXf6kx8rsC3h7n0virtzJ_M3BS6oDrqeGla-dgzX8QeDTPfvrqGac0lcc1_uaHcgTMKf-mzEx-sRl2Zkw5GtzRDiY7JHq3oDuTnqklwbibsfK-HX8X5qigOteM_SoHJXVHI4lg8Mo-l0-Rcxw1wW_w1gBOIZB_A1fvVjk2PJWRxSDLao8sT-EYPHNh9Ry0pfg1nKHqPc0nfmFjHEDREXPfVY-5rJrT6tMRUnmHGa5onVOnCShIb3Kfw0UAw3dkaEsMRzMN7RP3_eJjLRC-Apt-uNiGup1Yy6w9g1jZb9Gsl0vEEj6zyUOZ9meU9rQK2w5cVHN97mWI43JAebPBymF2rZ17Zw3hxv5oXB04c-e4MHhGYoT7OBbwbMpN8jNmEBHM8SFKWpiVOc429ojAA9CzJ8J_pp3K_hwL-_3_gmpTGP5sWg6sPQ6tuoZ2I2WQ9M3pnbCS9JO4Nm6E3OlLgMt0bsnYswuInVPUZdTGFviAi53JUrEY0WgT5TA0YzRO252TklalbHovIV5NAG5JfocX7V4PZb9-1wUTakU80Gv3qA1KpwB8xkhyST_UHPrDnEzftBjppsK9sWrGQtWfhGQKQHeQAPWg0bJy_p6KZvyCElf8IPSJ7TWikSBtchqm3er7xKszJXtG3VUPJZfKYMZH1xSbG-8jw2U85O3Rq6eKaFiAm390UrOMNOBIvp6Xej4YQohrcGBJNqQiALl9OCGu31q-kiaheFrpTjVLXtNymq5J1vL_l4rhMY5CzkTn1oZlpplBzR29ro0Vf1mym2XZnv6yBp98UynhaMWIUtoTHtDLUlFllQ_gKoHsKt3voq9ZTRN1sz-GETla9m76_9y7yKs3eCSK5LDRVzgB5TL6WnhHcmulYczl4UwfDuXlahVHbwtJagIGGW1opNemsMvIk7vSUw1pp37ruea9lQoyNzqnBzbWohH2Pt10DquHJizQuj20RkZh0lfdbSoICq3EeXrAbgCc7D5xMxAvnIhXzvB1Fu9f4OSQmvTYPzPkhcfNmgtqEIAwnCskU4XQgtIJgphtXzNtlzbdXolb6s9ekylR-2pipTW6h3EpGUie-3bvgSfZ9UXcxC1PBbpXLtmvEZNYdBfUx4oII23d1AlEAnjpZWSBV5Av8EuQ_wlHMabQ-2B2tH92NNAAtwmZbUmFBTfJeOOaBwlUX1_TRy46V8K6qQcvl3qX6KehHgk5IueN-V6kJp62gaGTYdep67ImsNb9gHJOgsYZz3wv_ECidCEQ1LP2wrLncKAR4fA43Oas0CZoFHqoeZdPfeXlEdAYQM5cCkXH1f0fAI2GYxErmgRrnXLiPi0DGFwPZnOU-mffsBYhwGBC--OUuvC-IH7Fxqj8OBFiwB-nz-JRq7tvNix8Kn6xNk6aFENEvGssowjmvy0cPDM6xjJL1iCcIsE5-kUP28tEzk1Ff5XIUrhPoNeMShFntQ0_wj0_2Qpmu0h3kk8lfjEuK0ijMdnqeadX7t7lkbbFceZaxQgQvDEB_9MLyqb8CRocP-e0094D1ga9-fXaZBO1PB2QehzKvdIGYLFPMuSQd04ptloL2VWMalaNq-LIpUfGpVqvAfxDED3hwSL8kLMtUwLlZYsAG1p21s6kIAs4URQ-b1h65xDDfrmSmu2dVqhSf7iNrQWI888ifk6m51T0sJFOl56CiFKT1Ja_3TOLFC9f0aNKBsST5D94DW0TQtNU1bnzruBMk3CWuqrUp88QHUNRyN0Ls5laIAKD-SBhy261ExaYfVi9g5EhYS2yl0LQpkT3WO3XNaFV6KsIWDWEW7X5_qMhoNJPYmj1f-hIKwlG0o0K19z40ZwtQ0icCQ61l-BcOidPrPV8-6eNggEXfT_4=",
+        "summary": []
+      },
+      {
+        "id": "msg_0972b5714799e55e016aa1f81e61c087d187a601260fc0d7f4",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"a6b5\",\"comment\":\"Recapture the pawn while maintaining pressure on White's light-squared bishop.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 507,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 470,
+      "output_tokens_details": {
+        "reasoning_tokens": 438
+      },
+      "total_tokens": 977
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 18.922196865081787,
+  "request_id": "req_034aca5233dc4b3e80b6911afc2e6a16",
+  "text": "{\"move\":\"a6b5\",\"comment\":\"Recapture the pawn while maintaining pressure on White's light-squared bishop.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "axb5",
+    "move": "a6b5",
+    "comment": "Recapture the pawn while maintaining pressure on White's light-squared bishop."
+  },
+  "usage": {
+    "input_tokens": 507,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 470,
+    "output_tokens_details": {
+      "reasoning_tokens": 438
+    },
+    "total_tokens": 977
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0298375",
+  "input_count_delta": 0
+}

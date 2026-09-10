@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-rook-01-gpt-5.6-sol",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 8/8/4R3/8/8/8/8/k1K5 w - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . . .\n. . . . . . . .\n. . . . R . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\nk . K . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN 8/8/4R3/8/8/8/8/k1K5 w - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): c1c2, c1d1, c1d2, e6a6, e6b6, e6c6, e6d6, e6e1, e6e2, e6e3, e6e4, e6e5, e6e7, e6e8, e6f6, e6g6, e6h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "8d5321869aa5c667c7d64d5ad45771445a578fd906732d1b6239500a855c4db2",
+  "fen": "8/8/4R3/8/8/8/8/k1K5 w - - 0 1",
+  "preflight": {
+    "input_tokens": 361,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_f6742d32b6be44cf8d8477ec56801321"
+  },
+  "reserved_usd": "0.042765",
+  "raw": {
+    "id": "resp_05071139bcb09b6b016aa1f5327e8c87d18abe142f32210813",
+    "object": "response",
+    "created_at": 1788998962,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788998970,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_05071139bcb09b6b016aa1f53313a887d1958f470c74f0f9d3",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofU6omkjqAiTFFYCuxVzOcmccQL6-lCgB6l6Y8Ts-EAI5UOdFXHEPXNlOkqzL1PFpdJm7Lpk2QmrJA2pAj04HrT8wum4jQMopRk2FP6hDGkdFsmU4zWXMkrLSjJt5aC4LG53ArZeS9YyqL51jZvwVnhF02rTBssK8Ji2EidUuC9MRI4DqdCIcj46wkSZpBz_0MApoB7kUTJqSmftW_O_QgUBHDnUpit8lyP4E6RqNDFHq_rMZpZGPtFkdKOd9tHG2CJq78nhi64Oj_EFsmLj4sOkXgoSTxvomx4govTjlAREpaov7bzziag6V5ExYEQe3W4hzls2W7Oq7rKWY_v9YJoJls9VYAcEVeiIg60RwDRkC1O3nDqIyhKikmDfznmxmsWlcMB-JgGWIu13AObLOgtsEHrtFDxJmgLVkhJZWjQ47EOEEYkrV60bMqc1Vuy8m1N2cxHHNPaYAQ8xU2vwzDtL4iJSgdGEr-2zMHNebhoBXLijCmUjLoiyz5yQGvyB16RJriCZoivPsKDlUydUIiGle_Pt17NtlmSfv57sc-M8w5275xyYCNE8prMYYfWeVYq78JAXJVQjIuD7NDgwDzVVLuy3EZKBVev9jLTliJGN79I9KvJfbA-ReNrFDqV-Hhg2Cjp1AVkwa1NwjXe67n5YZisf9EBB4Bl40tWkjj0YkOqKTIL5pE_1illKqABW1TStVy6MCv16KU3d1A6ia8sKImZt8lj_gPPQ3YosbPpnwuCiUFBpe25vXmfhKQ_nKqMa3rzPVydVmMLkiHhO3tvgpMUaNoG9nMYkdahjeum9WdXrlZ7Yyo6ZKsKnwoGSQGRvoqB05tAWu0zBqNVc3D61OnNJIGEyZ5hf_7ZUohmhUWV-t--Wt5t4r8oiHNtwj3jJxbfbb9CxvKg5No8wXezE2rkACtKRNwM6wIP5SUFRE8A6CZ2T9oVFBWP4HpATq8pRLnzydDenLDRTI1hdBmWYbWZE1-R8FHXa5kBU-Qpum9vcWJpVFs4MChEB8xDx7SPX96Af-_rlWiRVdidh8xdphz_OwIGb8JXl1G5qe1OqgDZsJ5srfLqCFweamzhtYSB6uC2ToJKlWSVLe8YX_5VOnCyHdZeVK_XubCs0q4Y_D8a9uHrlGgKRt8MFtQgSKoEeSg7zehuKK12PAhQPB6V6uKk1MXov2r69lnCvuhmAH9YbtLi0Ke9WN58rBjxgd8oOp-PYqZTsOAtdDecRy9Wjj2-mImSC2CL_BxBUEF_g_Z7uPpyUk3_Jg60go8zXPGFj5AYg8F-2diQyAgWyf6lq71pZAjIoetYJu3-s1rl-64_zsQId63Oul7ck5YcxbOF9qdcIyJC9a8oPBU6UXbFBpDxN9tC6TX1fkNSSWgNEZ-bqSZWkzidH9tJJgPZIOQyhlV3mULuxP7vJheGEk9SjicyJEq417UQ8tkHVe8SiEBut8tzj_gkXKxNVH4NtS-rlbvxelzOZJkPtHkBAV4HljGA8vIjmcgpfTG8SKhBCQe-WdVJjHzTYUvkHBQtyTIgt6AkNEWS5G8MrggFvpNKh4hUQsCwDrxkPsK0jTjos7xmdtgcKmCRpZrRTnw04EhSklc2V1vNKUdfZfSJPq4uFBElNIVCWm3C6rJXxWFrVIWc-FBtxkjtoKxQX_u2JXD3kAyQ_jEfsVk6pRkaoNsUYcTZrgnBHVl-UVx9eijVOmOmBJMluVHo9BjBEwDEifp_juBh1ZYllvFODzMFZJbmMmlOWCl1Ed3xto0Kma2pkaX1OHI3hWd5Uft1I_9r9GU78fcvPjOEqJSHv4NylQJtscSHK2rR5ldjHihoV-_FD_i-gey7nzVYMYbGyPfqDt9wYghCbGaJJc3iM1p4lGwklGgA5xHj1_vcU8I8E3DhA25TW7u7GVBqX1cE0u4pT3lPW1a2PhPiXN7H_vGDabYJ4dpN8DwXbR_-uQQIGkkT3kbAK6ofpTFc78G4glPUBBd7iKv6Io4CU0koNaQUd__6QbfIUpHnjVKBNEpIJ04xbynJ8yUpNCerHH3ovnhZ9XT_w68DHaKbnVjuTM7ZyV5fQl4yrIgYCQWvDvhTMA1q4Wciw2Nu3E7U6sdFOdv9DQdq0TBC014a_11FMC03KbHBnKdes2cFU_nBTp27EP3ODm3O5pSP6bdmSY7-ODHWEn3QPAJiNOwmkKfFvjVC--Y81yaI_sy-tz2ksZYRaf0ZV8xe-kazjqjwQnwzmTRZIYhpZTbtLepl62iVkGIWiePoI0nHGbWuuNCrSLJOPm6lROesXB7mSKVWBrA6K1Klei4WIqMA2-BNI45e5alHbkABG6WoQLWK5bi4hzDI-toEvgkAj4lea5dBOOyfvMM0lzcAjMllGwm3QPpXlMHsyr-Qq883w5y7d5oQOALN34s2GGgqUr42mLZS-0i33yiCHNKxsvljbN4BjoJHKVT6B6jBOvM3B3UcDJEj9lBQMFaojR0v9RYsT6L6fuxBclMtOLxoh",
+        "summary": []
+      },
+      {
+        "id": "msg_05071139bcb09b6b016aa1f539c20887d19fc835e71b491be8",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e6a6\",\"comment\":\"Checkmate along the a-file; king covers all escapes.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 361,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 295,
+      "output_tokens_details": {
+        "reasoning_tokens": 266
+      },
+      "total_tokens": 656
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 8.256816864013672,
+  "request_id": "req_d2cd9de65315435d97fea8b0b8705b3d",
+  "text": "{\"move\":\"e6a6\",\"comment\":\"Checkmate along the a-file; king covers all escapes.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Ra6#",
+    "move": "e6a6",
+    "comment": "Checkmate along the a-file; king covers all escapes."
+  },
+  "usage": {
+    "input_tokens": 361,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 295,
+    "output_tokens_details": {
+      "reasoning_tokens": 266
+    },
+    "total_tokens": 656
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.007705",
+  "input_count_delta": 0
+}

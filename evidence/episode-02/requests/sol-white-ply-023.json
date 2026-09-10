@@ -1,0 +1,151 @@
+{
+  "key": "sol-white-ply-023",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1b4r/1pp1kppp/p1p3n1/8/B3P3/4b3/PPP2PPP/RN1R2K1 w - - 0 12\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . . . r\n. p p . k p p p\np . p . . . n .\n. . . . . . . .\nB . . . P . . .\n. . . . b . . .\nP P P . . P P P\nR N . R . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Nxc6 dxc6 Qxd8+ Kxd8 Rd1+ Ke7 Be3 Bxe3\nLegal UCI moves (alphabetical, unranked): a2a3, a4b3, a4b5, a4c6, b1a3, b1c3, b1d2, b2b3, b2b4, c2c3, c2c4, d1c1, d1d2, d1d3, d1d4, d1d5, d1d6, d1d7, d1d8, d1e1, d1f1, e4e5, f2e3, g1f1, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "6d46e0bfe2b06c8358df5d348a6d82412700de43eba8850a87e2b08bc174adaf",
+  "fen": "r1b4r/1pp1kppp/p1p3n1/8/B3P3/4b3/PPP2PPP/RN1R2K1 w - - 0 12",
+  "preflight": {
+    "input_tokens": 510,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_7876499ec1ee45ee9c230c80eee1ead3"
+  },
+  "reserved_usd": "0.04351",
+  "raw": {
+    "id": "resp_08f111048a885897016aa1fbba7a1887d1af0ed80760717b07",
+    "object": "response",
+    "created_at": 1789000634,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000644,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_08f111048a885897016aa1fbbb890887d18c7daeb7b56dcb31",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofvE6WGfsfRVDnPkhWTp5ZYVeESb9es1nUQImftihAoUwC8AzAJEbpjvQ37DKicyztNfp1AYJMM-8E06pRpiEA-gbxvAxwPmzpxFkWPQOPz3z-457kdieg5VbNodPWl3k1HbG-GhcaabPsBCJxOxY9RunKS8yAzuKNXmGZdTmFLeJys6kmSdvpv8cm1JYEI3JroDnY_swByLLiGecqJGoJ053wKA5FfmeBAtI-ZezDUlK9hsZqQGiSunmsCSQ9a8eGzvjWzuZCBFMrH2qLSJX72C3R8dt5Q0Bk--UbVO073sPkRgDIw0gtOlJovBcH4wnRzk54gVI-JV4cYQlVirApVGEa0TaJNQf-f6JBaYc9y9cZgHP98ZyDbhWCNGxDQDpLrsNKytclC4gAXfXmvXshADTMj4mN844aMAlHV6Nk0PF1onTyx3w3CQBfNoOCgz2gvGhF1w7w9rLUk_bPQjqXiOVbM6sHN3diw_-_Ay4hXotaYi5O9Ap31OaieoRs6bk5crmf8IRXrQ78eNntsXTmaYsn7wr4X-K5Dd9HsURjoIXpt1Toow5EKxK-TmS2vHLwWjjwZgqyvlO45Zn6RGQehTgelclleDebIL7yR0yPYRzQmXj2FgpCoTtlNzEoZjfGbANcHNOkwCLz4-u0ADcj5bC-0VC-j5t27MPFiRCGgS0lHfkqd3T68xhzTC6RwwTtv4vdhNNqN_RedM3R0U8el3Soogm5WeYC82MjTmpn_0_b_mMOgsQ4B99zK09RujhUUA8C43-G0YDe-j-XCBuPRkOSAPum9DN_HnPuAItTDS9e6KtLSmgGG2ZQetpoe-MHt66BjGNlFhhDO1jifwSOoiYMpnqZY6i4cPHB60z9QawkTcg-Sr7QaZdUu6bKjqldhPekp95W0KHfVCli4yRCd8CS_txMZuQAHTL113qaeqYdhL_Ktj3Zvk9pp1OK5Afd4292yHNQpaO3iFE_ta8n1rQ0rJgSBPV180vd5693jn0Dl83pCEQX4_nhIeT-BQirmkSLktw3i-IQRQDpZueRa4HRmB3lNBZo1gkbur-Yxnn44z-nkuifit8phH8FjpcjUYygSnQzf3noMAnW2K1DiJb0MRsGQvVY4d8RXxrCX8jk-bt0xgxNRZInJ93eu4j52_bkykmjQs28Xd5pbPMjA7h6k0Z2uYbSH55C-Vm4vhwmcbY09Ayh4ymI0Dwm3e-kezr5CdCp7RAVO3GAoY4M9-QTseaPl0OlmCPWfy3totSxgso5HzuIvpygXOtIQd97ttPsCERW-mhJc1KUqqU4_BqJyawhIuZm5PW4M9E5v1P2W1XxfcK5wWr7QVuHkOD0Q5mif0pVeiaCKa2fhb_cyNJxoh5GbytmQpoO-nLW70qXqjf_ptd8GxzJW9e9feUewzwXheF9Hqb8ruIUHjpc2VC5rmCHWk13Yw85qBR2belw4HQjUDr5kXUkLjF-DcIRIPvAuH5tL5ffZR0dHCIu5afgtmM52_dPhBGcA5qRzow4ICAhdSSsX7WmR6Elb2neqP3ZBeJU9mOcTowtvhJA5xrosfKFEOtyyFBvy6BIqpQ_RaZUOUXX3odptLr39Vmv2Vtq5OhFxdaVb6uT0Kn_tuvm1cAfk2lSw8FRhdlLhq8vOuZHP66j3EzR0u9uSi7ih2okV9A9gCUXUlg9w0spT6G4M9x8OfnX_5RBuNCaPasY99zRXCazz4j3V6IxG7-vD6ZtHqcGFOhlDI1L4rBL-C8dPs8cTGtEI4WesM5s0aefPUt5uNsUCZmaFbznZVYfgOZJb06WhTlExjv2KNfi9c80S7nNyGmz_4c362z9am8x5uv75yHwMAKTYwmINBKpTf5OXVym5stwTmHbTc2eYdRwI5h3ivR_u3ZsGU3n2y_Ll1AP2Fsr-3eUyU8i2Nffc3sL4tYK8yMB27u5QMuGLCa5O-dnG2YlRYFelXKF3AydtspIMnYR75byL8bHa8qqh2ZjcOEO8f1pzMPFqMvpGeMQjcBqn-PseKEKwGfqqruimDgFrpGhUz5U7SZv0bmZnRo5-SKkhfuVR9gqRWGM9ImSYIgk3a-wH1OnheOAa74TLJlmeQHj2sxIABERJ6oiDZZs2MSKqQ_VVS2LFc8lKuJZHgPfWuPW5WiCHnasuvn_qWL7z0a6MU0yTeObM0TnW6w7AR_JYseeCl26IPEqk2KjO5vL4wg3FA6oO9LEWM4Lpg2e7-Ls2uDmKmUrNGmZSoZp-pzoSfEmTWNTE7F5IMNU_Syv1Ilf_bM75vGsdNH54hXxrYFueHyZXqdNiZB4YOlusNIkYtyber20s26Ds0oC7lhsHXov7S8UC8Dox9BZMeN81b7AWmuN5oGsZwmI3Ogxq6BWho9bFN103tdwJy8_lOwvtY2d_UxYOC_fS86ktWtvCuCb_YZLUCmJ43lyBPHNOQEE0RhIUzEKJLjd_6M2HwRbS3xygNYZDgbKxXNdkQuslkEW1T1GFVaR7clSxSRpLm5e59QIlZIsdKU25UFiELbh-G3bRxh4dDd4EE1LqADCBquRtjlUhURJ3JdjakOgo1-ZPYe77cEhP5BpQJjNBNt9w58QdvMDGfKBvYm4Kd-VNK0CAbmB-gFriwSaQ3l1UBpGiOHc5u3c4YN6ptO_M6D3NCQfz1yLZgjZz72Jdl2oZaQspg1Sw_m6h_RoPvso30E7fEGnGebogU4xPoMhtBxrUdjcgBIKbWFJ2GErTDVljRefpHZLQQjJu-xREdGXEsQvWfGBboNqjCwKRdIJpXfNr5_DJcAZXKlzmeIPmb7jXab-aAd-r803rS6PvG",
+        "summary": []
+      },
+      {
+        "id": "msg_08f111048a885897016aa1fbc4730087d19af7aa896ad77a28",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f2e3\",\"comment\":\"Recapture the bishop and restore material balance.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 510,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 392,
+      "output_tokens_details": {
+        "reasoning_tokens": 366
+      },
+      "total_tokens": 902
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 10.743465900421143,
+  "request_id": "req_6fb73dcb1d03440ca7f31ee6730b5211",
+  "text": "{\"move\":\"f2e3\",\"comment\":\"Recapture the bishop and restore material balance.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "fxe3",
+    "move": "f2e3",
+    "comment": "Recapture the bishop and restore material balance."
+  },
+  "usage": {
+    "input_tokens": 510,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 392,
+    "output_tokens_details": {
+      "reasoning_tokens": 366
+    },
+    "total_tokens": 902
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01039",
+  "input_count_delta": 0
+}

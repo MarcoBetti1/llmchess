@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-032",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1Pq/PP5P/RN1QR1K1 b - - 0 16\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . r k .\n. . . . . p p p\np . p . . . . .\n. p . n . . . .\n. . . P . . . .\n. B P . B . P q\nP P . . . . . P\nR N . Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6c5, c8b7, c8d7, c8e6, c8f5, c8g4, d5b4, d5b6, d5c3, d5c7, d5e3, d5e7, d5f4, d5f6, f7f5, f7f6, f8d8, f8e8, g7g5, g7g6, g8h8, h3d7, h3e6, h3f1, h3f5, h3g2, h3g3, h3g4, h3h2, h3h4, h3h5, h3h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "965d3a24dd81517553f7039617fc30e1ee18f56918c84787711c5622833e9d48",
+  "fen": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1Pq/PP5P/RN1QR1K1 b - - 0 16",
+  "preflight": {
+    "input_tokens": 577,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_241afbbad6d24d05a5ce0415811fed1c"
+  },
+  "reserved_usd": "0.1096125",
+  "raw": {
+    "id": "resp_0b91dcb359ad26b7016aa1fa3aa20c87d19752e1a43ec5b230",
+    "object": "response",
+    "created_at": 1789000250,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000273,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b91dcb359ad26b7016aa1fa3be33487d1a4093f1142f55fdd",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofpRFTBqekstI2QmxpqHoUnY3H5B_tCQM-iYvgVXtK9VejTAa58bhFF7LdLO9Ch8rXucr7AOqTFAg113oRw4UhLs3ri9qbeXDfSh1GWV0J_HEo1cQG6BkQ2ShA_J-IRJXZFoV-h5QIswR6DB6URBgyw8aMckGMh0Dje7pEJ2uJq_CewpSBlwkJkZ4tSYU5DgOcKIfN2PL2wqQ4H5EpWFyNgr3iXLHDVL041fpvAjX6_b9nuOAZLBbyYffst_QnA0Io_9a8h-EOdRpA8295X7z8qttd8Embnh5xzPEXze0R3RA3_Fjin2hamhL0bbzWJ4zbjr7DmDVe7Cmb1aLsS40eMbqz9Mpi0gZOUnFhy7i4DVFNil2kYcIdxJSm-ldKXWHNQ_ut77adEfv-xk2Cy4fk8NQT2PsGgHPmg1P5jhB69sPtv3Bc4jjBhjSqWfrFt2maPCi67kkUo8klb5Cj32lXnT6_AuaptuLah45TFYFoedMZtY3py5ZdVO8a_JE2dRiMGIiNUN53sXTAm2MaWL_yOdjW_XIdmNJqDyDxOZqfee-TPHruX-NlnTq-AfE38fF1OntvJfaj_PjgjYT3__NudicP-qhqibjYs89cnnL_orQFE9miz6t5pK44WL8nCMvonXd-xPvAC_tQNSl7pGzndC7luIevO8aIQbBxNGOqtIvHNw-1NK3gJzW79cQgWuuM2XvdY7Gd1NtalP4Pc_JkuL5KXLpee8-o5yRv78zHLmoOOEAnoLU6zZfksYbhShtsBw8IPDivDSjK_SdOWpo2kd6_zJUhmRf2J-3XmfLP1xeRNUnXr-rDFN9ebSm_wzMVuJSaK5aLhDGAK4t0vJf7uzTYHbP_H5ritluBlo7HQORVnHvEdrys719fwpUg2yj0YeyBI1ULS900qqcdw0vmXXDRITJF8UDnl-lOJZxcDChFjh_cmaldC0lYNjNPqmn_aC99Sb_uJYLXsv73aAr4i3dfYoFuyOrh4u-XejpiPk6KB3OpaXeLfSHYszBw5pv0y6RGu8p3Fw2VYZOLfnCU-w9blFqes3nEpXazCoLHsk6bCVozqvvC-lsyzsDwVKxLugIrZfefz-LqTW9ep8Mbc-xyIaZkfE1ASzsOrBBQ_XAoES1l07PxCYk6qwJWXm5bDoastpLNdGR_vd0CBCiBNeypQcBkdG5iH__x9tSjM8FvaeQv3hQ85AjHN2liSxMJ3326ShTWMA_xFCaZwGbhiSfwY62MmCTU9ddMrXbSKHndxPqwWuiEZxGx0K8K3IjvMdI2R88EitKXAGrL6xacnc9HPLKRBEfuEgTFVkAfPfuSIp52EyZoN9SYFRCbPou1198ZD5UsVHxqU8-6lyRI52tCLYktjVTcI3vmzTa6L6x4MjYEHCeIgfBvPcHtBOtCtnWtw_BdolelQ_W5bHCLeN4agtDnUKcTQdGGrrRKfzJOtwp0_BwiSnakhsnh8DRacji-BeYVy_DIOpeFX4uc8G4nI9UjMnry6hqmWY9RvUJY6EW5c9lMyN8ONiyasr_uUM1gqKnEFQ-YntzsKGW5N9W2OhmW2HLVMU25VQldmljPkK-7SYfNHde7STDcz0I6JQk8KDdqKHfF72JsRgsWQ-2rr2xHpXscuVWqbPsCp189llx5Fm7h94bJln4eRuUgPJoP1SSLln8y6A_THjRw9zEkmN2LOQZgcdJxCc2Ovaq2V85JYK_AvXzn4oAQ4Ygluy0nH9hehCCSRNfY0KFT4Sjd4cCwSyOYxewQ_8MgyFOGdeOMR3RCdLIdjtNNKo9azqR2RV8ebpeFdoNz8YVE5fF1DoGCvwkphvKLX9nemoFE-cjqdXHoLvUnOQGF70LgwOdwS0emzmRVpfvQbmK_AEkQAYsqqEnU-Mvr153Wgt18cfqq_IPEOTa4Uhx-yhY6xF5tRHR8xgCG_Rf1l57CQAuzS3St8mvboXSLWMpDg0eWfaTI5yDLl7ypHHxy-fEJgRrY2aVlP_lVLP2ry7tnxHpZtyWlMg8d8RR-Y2k17Q9zrMQQxKU_IvrGZUAxNrYoeZ9i42sskEQYFZekiWjsM0sIC7fh7p8gmKOY9HrV2mgcp0BtTy3zqT2qvrJkF6lnr80UJetmgaD45pfJLJvYOVllkQal9Qz09qLCG-8FZxFAa7afkgAoR0gXoYDPHUj3xu9SFFY3dbgI_GRfL_hSRi2-4exixJLGFezgSgzPzxQEPa09WtleXP_EoKWJiTMwmX3TXR60w_12pgESbIhR10rOHHHzNN3EoS87YAL0jd3KpIHRCY5ZBbcvewUrKET-n8yANnFudi74aZUuNWnoDXmT2gZAA9JByyMSvWtRAUHWssVNB3aeefHJPL-D94eowmdhmTlhI8neJkgvjxPah7ChhB4JwOmo_24f-ClkoYlr1wpbXqTLkUWLQdVWQniXs-4ZpEw03AmIzZ8zx-FiDrrIo8rkJ9MTM1uGAPG9DeDkfW-owZ6K4Nn1snH-7xdkgRtNf68vMORI9FlKivvqyGnWqrlWHuQ5F5a_r0_fKDeE6NU4Ezr9iF1jpod6KSLxZBklzGwXQFwnyfVH8eSBYzjUAdSLJLnetBsBtnUN8HYbKA0C1lb6Idkau3qi1dk9OsTwAA-QtV8s7BnJNsb311_FJQXBtn3ixpwFMNL4920RR_iuUVHVyg4iXe1Z6C3sM5ZblGFV9FsDCP8xru5z-itf1g9c5WI26KToZwic3-wdUbV_U8WHLX5vDFLeyLUELaOXbSKFrIsa-qwCnvUZgoSLblk2lvTlAmiMmCdpj9O3KQVzcnWlzR2TWQrnZ4Xnls9GCYnXk--p3a5er5B2ZgHzCzhab27fA_At_gspgJCMTm5-3rmXhtPErjHaH-xibNfHlo2trHGqWGJAa0xmisX8VinqtdYnaSSHneHGcd-UwYgl9jwAovIS1DnOXAd8clrcnKPCJoz4jbV5pVz-iuQGR5r5vOkDwTZ9JLV4b4_5sWzETPpf8XkLMbIDc5RAljqAleNDybqwEvJw_qOV-H5kE8XjGMp2JKQj-a9KyWdFxUK7vbpbX4ZmwUGlVwxaPH0d4hiktFiaUZaRrgZwbXvofCTmyMB86qBwp0kMlL4f8=",
+        "summary": []
+      },
+      {
+        "id": "msg_0b91dcb359ad26b7016aa1fa5077e487d1817df1fd4b94b2b3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d5e3\",\"comment\":\"Capture the bishop and threaten a knight-supported mate on g2.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 577,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 513,
+      "output_tokens_details": {
+        "reasoning_tokens": 483
+      },
+      "total_tokens": 1090
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 22.859922885894775,
+  "request_id": "req_f561a1366fda45b4a2972d1154dfbe39",
+  "text": "{\"move\":\"d5e3\",\"comment\":\"Capture the bishop and threaten a knight-supported mate on g2.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nxe3",
+    "move": "d5e3",
+    "comment": "Capture the bishop and threaten a knight-supported mate on g2."
+  },
+  "usage": {
+    "input_tokens": 577,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 513,
+    "output_tokens_details": {
+      "reasoning_tokens": 483
+    },
+    "total_tokens": 1090
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0328625",
+  "input_count_delta": 0
+}

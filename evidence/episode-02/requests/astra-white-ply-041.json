@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-041",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 1r3rk1/1pp1qppp/p2pb3/7Q/4P3/1B6/PPP3PP/3R2K1 w - - 4 21\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. r . . . r k .\n. p p . q p p p\np . . p b . . .\n. . . . . . . Q\n. . . . P . . .\n. B . . . . . .\nP P P . . . P P\n. . . R . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7 Bb3 Qg5 f4 Nxf4 Rxf4 Qxf4 Nd5 Qg5 Ne7+ Qxe7 Qd5 Rab8 Qh5 Be6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b3a4, b3c4, b3d5, b3e6, c2c3, c2c4, d1a1, d1b1, d1c1, d1d2, d1d3, d1d4, d1d5, d1d6, d1e1, d1f1, e4e5, g1f1, g1f2, g1h1, g2g3, g2g4, h2h3, h2h4, h5a5, h5b5, h5c5, h5d5, h5e2, h5e5, h5f3, h5f5, h5f7, h5g4, h5g5, h5g6, h5h3, h5h4, h5h6, h5h7\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "21e2b0bbdd1ef9ac9e28b697ef72371c10279c1c7a1e8bac10f2b741e7f30920",
+  "fen": "1r3rk1/1pp1qppp/p2pb3/7Q/4P3/1B6/PPP3PP/3R2K1 w - - 4 21",
+  "preflight": {
+    "input_tokens": 616,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_6ac29dbc4e1248148a4dfd8905cf9d31"
+  },
+  "reserved_usd": "0.1101",
+  "raw": {
+    "id": "resp_02301958ca2d83a1016aa1f6d255d887d182e72053ec06d410",
+    "object": "response",
+    "created_at": 1788999378,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999398,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_02301958ca2d83a1016aa1f6d3561c87d198eac9d1309b4dc0",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofbmfdmcC9TKVox0xpItA5gsccBi1CaR5BXNE9X-PCNiocOLSOk3iU4tJ1GJ3J3UX1TQwgOjKFVn-YiOT8Hxe_SJER_t8PKZKpfLlTOyrvlr8n-IG_hdCcFqJuo4M_DcbOzdjqyT0c6w9x1F0rAFsSEsh9CdDBOpsbq7zIm_JfA6ch8rgVHBBrVo2kT-flIzCnLo_YntFv9rdLlCx2dQzJc8v4eT99JWIUjTD2-qp60rzI7kozOQFy0dRoL6bfUg7st8wx0VOIpWEvGml9d2nY6mczpE6mCvicHzZg70fwJAJG9s3oPWSFDreHOJnFDtJQw-vgmhxYhncWJXcQCGHBd_h3JnSAe4jN5jYCBg9uFMqaxqGhi3zS0SgTRKrQvpf_E0Il6d6Q5kIdXOYiSsOdSOe38iR7cy1h6JdQPMrRmqBfxEZgQXmED3on7ear7f-wLK5GV0RQz2JXTwQ0XlvZuqKg-tgYj5wfD4Y8VHc3kIoJL6_ojjPavXMnJmxoJ05J2vUrfTflnA9Gwg57rTAxhRa8Phv67Pr3cLbMiduAqqz93maGi2nPsd3uKnnZ0zUv0t6lZ2Ld_A2vu-V6Wo4LKpBVxY-9ctRdo26kqD45shfnjN5tni5GM3KBf86tmyQGTcaF3ie_e1axV1g3tr-PDEO_iWMLvNIJY-NgH_Qlr63e8VGPo8VYzwZyDWxDm5OBIHATb-V01fIR6v2WBy95rIy0lEr4trhszbpmNzoVpXm98bk28Ya4OgzHWcl-l8Hd7L1dIMkMRsFqYPxlggSodT-L6qAVAv0JIboK9AJiQQpQpE_HAB4kburfI67hclbyu5P_-Czb_Z09jZPVXLy4CLVkB8bwfYAVkZcHrIiPEV16lLzuTqlJWnjEpKNm8R0WxyU5TZs0xobCDdrxl_R_epol91daatGQoGkG4fmK7jpTmDg8J8gJyJaBKcMVoC3sUzaukha0AF9pRUgiGj6oGabUQHZ4P5vbvcxPV-XbTmMg1iTdx7kYChfBm5XLSS0ooT3IUHMbR0kFv9dIVGFVIHvHsSFOW8085__mdKQ0vZAbOPJozFVNA3icmQq8xMobY1JBApEjiNW7EfrMo94WpMxQTj-VYhZLzr6-gWhc4L2lLiZFSjTAVr2kg7WfX-D6awS_ILT3lGdUoFRCN-QE2-kaIMKDKqSV1x5oMv3UPsxBLTNlkXemncG7FOG7SqUhjauOFGSwNuUX2HO4_UdDTl9qmZeO8xtib6M623HGk2NLX2TqenY2Ruf2gHUWQr5sNAn2eJIofXcDeoOugRrNBMY99Y3zH6C4BwEyFEMc5TfKzFaGEga0ykzNwqfys-qSwP-sDA8xgDb-cixyZ2kR7A0kilCiotNmuNy7kIxsMHN4Ww7FGS_NR7CmvVkKj9dYHdB7KWle-c3Z9eTk3i-_a-j9jr2LchboS36-gqM1NAf3z7TTMJTaMyScJlqQKGYaiYObFPqFS0RfYZ40fRBvOchrIRsVuLTLh31M1RUAzMRtsPK53-ZE4AVYar_OuEItvDrZPtJssDyto6L3BchhyZyM9Jui3iiacZuzMEqFIjpO-89eMgTmTJp9QPDYxn1El4UMXyqJJl9DRrxsl_9p_ZCU3JO7wtXz1HsIP2h78KaUBLVlzRzVH8tPZKGSLanxh7RleZ6mXzj7095JQ6xxD_13vGUzmVpjV9H5OEJYe4oHhVUoKCI02igVLvzcWQWnmRvuko4T4xDzIM9Ati0Cf22IV-g-vGMprk4niR8hrrW4U6-hXTiyqRe6arpw_e03gwHifS4Z05D3711-xHY-e1DA3HK5drEfcxxMlZu0zT_ei5crq9IOfp3lpy7qrdQQYIFpPTVRGTXWv4xluU1e5GEB95oH3JGH1Ss9eMCxCiwp6NYHpoC6MnuxrcSl_j_07xIVlJPchYakQTGw8Pa1GOeItp2oZfXTAyrAZfhX0WFIH9q9vkXMNCfBRVFYfdXuNOlU7FtjtzNi0FWFpJEDGF94rbmt5hoywH-8U_tQe5EWVw5ZvYLWlbI-pY2W7AGATL9NIg2kIxs7-CSArwQt6uW6BQxHuckSYIqmlIF5aA9BfxeRywhD7_Hn59rhH6yZ0IlxeWjY0ACh-PbSGzFuXTTpf0S9Agh0Np6aSAf2dmcdbmA6fVzumqtPgbvVBAyFACzpqWPkc-RFettAyAE15FnTnQAc7fdFNCDLfm57SI9-PVsrC_fA1irZbvgBYjHF3G71RhAM8ytqo1K0wNb2V3UqA_4Dx1HsWpMfr5kUsNzvE4q-Pjs0dXqCSWuTlxQUnB_WkwEU4GiyvvtR0wV22viry2o4K6WOpL8BRobI6pMVgzLRAk8C_HI6PI4ODFbmYp0C5QC6wZs8LR9E8SMYx85kWZc0fyM_ALvXWT8e8_UZQod8ZmkmZgpnLrSaHINED5YkY1bqpSQZWpvmAGQTyIc8xjV10nTNH3u0XP8ieKN4kyUvtndzrtAAKfHgShDF-kW5yQQWho9dmtstq7MTe5pWe8pYHW85HO3b7FR870tBf7XKnrvt1WAKG0ZdvWnX-aaZbvCh3iLTFO9QoBjN142shkaTTY_rgsBy5gbt7vzp4yrGj3NpIdHF1vSjDx5TJAamLeSnqdFg039bZcoYf9PXs9EOtnK3LcCSxTSbj4ZUfV6Nhg4jsZl0fx-e-G3yui5u1cai0c-E_s0tD6tz-YNcrnjejFYIGCKm0V1poR_tXwZZhuvSMaojK-MtkB8s53U_CqnJCQi5z-_AV3nqu2uOanimFdV6S--UF1JrrwexZb_5hLmfjBoHiBT4Ova_agBUb8EDeH3HNPh4dcmQeIS2HInv3H8-Uchl5EIeCmtsUZGqtixfSFZiSHI0O6mCALbYFO5SW5rRGxExW_atvDCfirdq_zZQRmWpFCvZs8J8h7reUC5DJ2LQw_CdsDHr4r-aDA4jSoOqZFgdUmrgBIQLLdu9E_GbMLrRx1aams5dvvVIGzNNhsiuGGUfvQZ4i6B8a_ZTmFqj0QNRf14aCKa2R-uS9wOF2HvWM8vpyw5f4=",
+        "summary": []
+      },
+      {
+        "id": "msg_02301958ca2d83a1016aa1f6e5e95887d1beb4f46ed9390e5f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d1d3\",\"comment\":\"Lift the rook toward h3 to create kingside mating threats.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 616,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 497,
+      "output_tokens_details": {
+        "reasoning_tokens": 467
+      },
+      "total_tokens": 1113
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 20.784943103790283,
+  "request_id": "req_99c611223e734b26bb87dca298663a89",
+  "text": "{\"move\":\"d1d3\",\"comment\":\"Lift the rook toward h3 to create kingside mating threats.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rd3",
+    "move": "d1d3",
+    "comment": "Lift the rook toward h3 to create kingside mating threats."
+  },
+  "usage": {
+    "input_tokens": 616,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 497,
+    "output_tokens_details": {
+      "reasoning_tokens": 467
+    },
+    "total_tokens": 1113
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.03255",
+  "input_count_delta": 0
+}

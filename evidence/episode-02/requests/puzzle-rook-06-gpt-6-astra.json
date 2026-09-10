@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-rook-06-gpt-6-astra",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: K1k5/8/8/8/8/6r1/8/8 b - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nK . k . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . r .\n. . . . . . . .\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN K1k5/8/8/8/8/6r1/8/8 b - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): c8c7, c8d7, c8d8, g3a3, g3b3, g3c3, g3d3, g3e3, g3f3, g3g1, g3g2, g3g4, g3g5, g3g6, g3g7, g3g8, g3h3\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "06c44ef25d3e9a6e2f7291d2f92e326fd3d65d1e9daf7efea5ab1b34639e413b",
+  "fen": "K1k5/8/8/8/8/6r1/8/8 b - - 0 1",
+  "preflight": {
+    "input_tokens": 361,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_23b2e7acb6bf4f87b20ad84506f801ba"
+  },
+  "reserved_usd": "0.1069125",
+  "raw": {
+    "id": "resp_0dd10cf69c3f13eb016aa1f5835d4887d189ebf616a8ae31fc",
+    "object": "response",
+    "created_at": 1788999043,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999047,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0dd10cf69c3f13eb016aa1f5847b0887d18d8393b1edc1e575",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofWHC1jDAX7aRlAsG6rrEJa196QGOKhEacdW7G9SvdBktTIKNPjOe7U41W2ZM2anz6WD1DwALekleO-UdF2_KGEg8Dgyc_gCM5kklcbWRykgUafGLu3YS7xyKoe9gG44QwssO6dXu3EPXKDaIGMZtgwL2AzpIrjhxS7r5OBfQu1fIpMcGgK93VX21XpS8ErKtsOfPeA1hdXqYXEVu4lNWnwVJeG0OX3_Pu10z0u2p_2D0-YUfaBV_39Y93A_SInAH-UI6NIeaB2N7cFEMWmXoZ4dIcNzGt1pp96TKWyvowpMfK3_gpMG2BKGeRqzJ5TJhGav5CEKGHGKIJGWja_0xcbf4Y92jW5JQDyeZwP3gtdbJ6xmwE-ZPHs0GVIGw_jslLEk1gDND1o_gK_wMKYy7cyDS_FAf4zTtkRO9CpWgInRBpHF4hA0ALIhEoVYle8oZDNZ2gEFelG4Wgqx4Ax0FKLnaJU1ufxKFOl6FSUr_wLPFs-KO8UuCSXvk01c47qmjXBz9svhOSc7F7hFzceT-rKoCZ3kD2yeb1ijAByZYA_eZXpHtV9N55KFOCjfcbTaTJRncTQ8W3rkkAsK3OoSKzqQbKl6YZjuOQVe1kbJiXH0Rg9j2JpUKSRCxV_pSatFkimCG7bLzICiNAF2K_EtgmgSo3mrn1NVOiXySQDqJITWAI7EZyfuGLUoe44yI5hIyBzPn09kUKBWhqi6WsDTt5ZJOFhRmBEAFudXC5er4DrcGDZjE7lEcyXCDoehziaCFnFwTc87Cvncl7rCbjt2Kq0MIxPm0HWPpCdVop9gpd_Gte9vdSRNE4q3mlw_brPAbvoFYHY010jLL3Blf9shu4Y1VtEvyqoqzF97B7FvXQIMiH1S2XeFJipA4gi5ttACr19TO8DtbEF5iUR6imPvlPeLBOH4O9bTTkQdYfFj5yaw2gg3M_xdm94qU-eDi0r-ZuNwQrrY94gPWwpfvf7O9kCKLn9mXtvEXOQyAaJ329GdkMV5NjJdeCW2JsCYMpBx_EBiiVAZRWAQsiU1eNcrv4oyucOfYvVk0AvJwH85z0MfVuQp8BZrGxBT0__LwEXC0VrU814uyY5nUcXYoDN29HPYUeuDk3VuWuZPbOmarYDuEre2CMUuYRsGLZifzm-UjXKW_yzVEGFJ2JW-mSYK17WJjXLdA_XT9P6vbOtkm3JSb3aNmIFrYBRhjBgqjx3OAR5qdUizUV7fROgy6xfnV4fJXohEAlsyvfOomhyrBDF3zaHwYDsHbgWNih-hfZlbBhL-mGeLKK4ifYWYm0pRgGajp3A9GXtHQoNxo1F6aJsWx1Jl-Ayb-2GMqKs9_gjREFdm61RQ_g9Bel9BvJQ94RwG76HlSrRDE1Xo6FVOVdGJJCG-dXHwhSM0T8i9sKjpQnjgPHMqBNiNhC9znfD5YLxMSRdYx8_Jfy0T0WYxKQVypBA=",
+        "summary": []
+      },
+      {
+        "id": "msg_0dd10cf69c3f13eb016aa1f586849487d1ba070e01d26087ef",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g3a3\",\"comment\":\"Deliver checkmate along the a-file.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 361,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 99,
+      "output_tokens_details": {
+        "reasoning_tokens": 74
+      },
+      "total_tokens": 460
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.28166127204895,
+  "request_id": "req_832b81d6d6924f49ad74d2fd8b6893ae",
+  "text": "{\"move\":\"g3a3\",\"comment\":\"Deliver checkmate along the a-file.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Ra3#",
+    "move": "g3a3",
+    "comment": "Deliver checkmate along the a-file."
+  },
+  "usage": {
+    "input_tokens": 361,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 99,
+    "output_tokens_details": {
+      "reasoning_tokens": 74
+    },
+    "total_tokens": 460
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0094625",
+  "input_count_delta": 0
+}

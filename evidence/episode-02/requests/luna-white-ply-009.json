@@ -1,0 +1,151 @@
+{
+  "key": "luna-white-ply-009",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\n. p p p n p p p\np . n . . . . .\n. B . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, b5a4, b5a6, b5c4, b5c6, b5d3, b5e2, c2c3, c2c4, d1e1, d1e2, d2d3, d2d4, f1e1, f3d4, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "627ada0813c23a1bcea4fb16b2cd51b2833a114ff408de9957bd068fac361b37",
+  "fen": "r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5",
+  "preflight": {
+    "input_tokens": 476,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_12db3cc1524440939d37bbfd5635f546"
+  },
+  "reserved_usd": "0.0025766",
+  "raw": {
+    "id": "resp_0993a7b8025b1bf9016aa1ff3d577c87d1b3a2b1426e908559",
+    "object": "response",
+    "created_at": 1789001533,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001535,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0993a7b8025b1bf9016aa1ff3de8ac87d1882ef63578e7198d",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof8_l1l1m9Nb6PVT_XeAf3xSRVxG9u_6zkTg1EXJy3RrIhpUcL7USsaDY54ImHp5CdGyUTHxiBoPWNTmsi0DqxjUSe205cVkHyv4TYc7Fo3aUrT86L0lJ6Wc4u-3f7J4MPDwxcJYpBL_dvwMfJzJHwE5EKcW-JQyEL2yIA762m9sTbdX1AXTNmkioV7Qrwgmd2ioaapE_o0ZIYZrNMFRf4PXwn7aW13LdtHJVOvFKc0NwWtIfuiFGoePsKsIrVB_RzUvmfEKynHdSVUVoA9ugXymHzfS7CPIakKNOLbz6jD0YGA6fIj_KDJgY3mro_YhyqlhwM6y-1wvnbEamtAgAG3M_zmX0Lap2KGXaPJrdB1xR57ouLi0eXPkyNzWh33T6i1VE-BmqFIDRhkL5GMWR0FiYl2jcU4URVdnngPJfaqxPHUSl800xZ-CTPa7Km2Sq5Y-33BqzJ6pyNzq87C27SAIq-J7MEmW6pCG3DoNofB-xk2l9M6uO6bhgYqQs2L9P0zaTfLqd7KrQRJwPcvJrIHjZEuR1dfEBM8TBLZtNj-jV3Ww9YGe_0HrTXRd7FPpO9tIEzg3SeLu3uydtt7bbsxzrk7ARPQ4ymgznwfJ69XordVy3v9Du0oU2vRU_KQsMCK6-cnh1ryGMq4fghuPv3tcsmVFuDnC5gX_Qh7Rpe4kg-y39yH7QZq6ll8x6WRRx59msL5yxdt0SACkCb9F4FAdI2e_AHYvVlUj6Vtf9oiFpuTSQZjZDjyMPaSvo46xo1FRJ4bz4cdXesF7Nf5h4SzwZzmTR47rQvmgKXqO-k6qwbrJqOUqk-qzSU2AhBfgvOqy6u6_CpljOeJbBA5vIVrIT5hPp6wzvjRtJkpj2E-1WqKVwZIAOOlmGyLkIAY4_Fwmx2wZJDhfGvgDIvf-Je1DU-gV8puZZioEAH84Ah3NCYOFhWhUyhVo8NTC0_54dICuyT5LYSwkbLthGmNHDQ4MyXaAtQEHi3ClL8M6588ZTO4hwZ3chuL4dof706zDsAUlkndrwRuwU0hE8dNdpt2JvpIcAawVGkl1W0rlBMUbncfQKKaHBdFNtF1pF7EUCQWVaruHPCLIU7iCvEUqh6AqXFpy6dF1Q3UiLb35ZZhRXHm5qDVld-38_4QTTIeLGCpWKSbhqI-fOjdv65dPuu_x6HfC_sxZX1h9uagbVnTHcI4jszlps46DE9tSePmTI78Md7SXhAKnFY89SzhNrVA6VY8xxybgySegztDn9F_cZHokn8V4jPCGjsC0YQM8WSL7buDWxVoK0k4towzjphOo_X4XwnBjigD-RZJl6rvyhxBYyWAms1x1-xArZZHt9xdXolYar4PylAAJLLb1yS47BBBtgeNMokJVDKMEyO4Ex5pkAGrZCKSlGlac_kfRsx7k-cWoKDBB6Gefwak4NEL5qNEvzK31BFW-e-uAtpFvNPGA3Mh0eo4wWCOZZk8f8bVo",
+        "summary": []
+      },
+      {
+        "id": "msg_0993a7b8025b1bf9016aa1ff3e964887d18da76d6e2247c644",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d2d4\",\"comment\":\"Challenges the center immediately and exploits Black's slow knight development.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 476,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 113,
+      "output_tokens_details": {
+        "reasoning_tokens": 84
+      },
+      "total_tokens": 589
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 1.893042802810669,
+  "request_id": "req_bb7b65e5a7a643cd92535dc0c174c178",
+  "text": "{\"move\":\"d2d4\",\"comment\":\"Challenges the center immediately and exploits Black's slow knight development.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "d4",
+    "move": "d2d4",
+    "comment": "Challenges the center immediately and exploits Black's slow knight development."
+  },
+  "usage": {
+    "input_tokens": 476,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 113,
+    "output_tokens_details": {
+      "reasoning_tokens": 84
+    },
+    "total_tokens": 589
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0002546",
+  "input_count_delta": 0
+}

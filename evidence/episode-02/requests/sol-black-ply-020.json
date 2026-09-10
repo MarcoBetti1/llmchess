@@ -1,0 +1,165 @@
+{
+  "key": "sol-black-ply-020",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r3k2r/pp1n1ppp/3bpn2/2pq4/Q7/2P1N3/PP1P1PPP/R1B1KB1R b KQkq - 3 10\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . k . . r\np p . n . p p p\n. . . b p n . .\n. . p q . . . .\nQ . . . . . . .\n. . P . N . . .\nP P . P . P P P\nR . B . K B . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 d6 c3 Nf6 e5 dxe5 Nxe5 Qd5 Qa4+ Bd7 Nxd7 Nbxd7 Na3 e6 Nc2 Bd6 Ne3\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, a8b8, a8c8, a8d8, b7b5, b7b6, c5c4, d5a2, d5b3, d5c4, d5c6, d5d2, d5d3, d5d4, d5e4, d5e5, d5f3, d5f5, d5g2, d5g5, d5h5, d6b8, d6c7, d6e5, d6e7, d6f4, d6f8, d6g3, d6h2, e6e5, e8c8, e8d8, e8e7, e8f8, e8g8, f6e4, f6g4, f6g8, f6h5, g7g5, g7g6, h7h5, h7h6, h8f8, h8g8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "1b15752e617d4676a0df06d9fa17ba4713dbf97036b4d6ca8f3c5c188b4cd362",
+  "fen": "r3k2r/pp1n1ppp/3bpn2/2pq4/Q7/2P1N3/PP1P1PPP/R1B1KB1R b KQkq - 3 10",
+  "preflight": {
+    "input_tokens": 592,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_d42901bc10104c29a41e00f70d7604cc"
+  },
+  "reserved_usd": "0.04392",
+  "raw": {
+    "id": "resp_02050d55c1aa3dfb016aa1fd07ff7087d199223f531f9c4a3b",
+    "object": "response",
+    "created_at": 1789000968,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000994,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_02050d55c1aa3dfb016aa1fd08a67887d1ad54e01badb5407d",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof0jiaCGWIeyyTZSjeHicjW-7CHh-CA57STsn7piK6YEnVmH9v6H0gh37CzGOs3hKu193FzOpfmgG4QOUTus6_Md4ga2s_tvT3cqWkzn0mgUBml_Fc1c59VwKZhSA7fGpcmvOQLzHnWej0GTICnHF-34y47XuV7h9j-rsju8yS6jvwp8Jku0PwvDaYeHumCEO1cSTqcwt7GbghAvP2qxk6jyrdTw0Uyi5aa2W4HYr1qxkQnyf2OU46G7rqHTm74l-RoSEU7CPxwMn9xNMPC7o3C-lz3W-M1HbTga0FjxUbMr3bW3fZMgtBPpQgq3iX31epcjOlCAE8laRvtQiucTD6TxjRRxiU7I8GN8TqRM4QVIyPc4dr5LC0uW2KYhm-_Eg2hqiNw_OgRrcXO71aib9r3mKySjcUn3uVMXCVg41IlOydCtjXqxq1F1pqGTkJBSgg4z6x0GcDaMPPCIBmLHLydGj2igAnfvnoSOOpFIhT3_J8PVnMH6MTC7M-sDVH_UaRWf-6YX8DzGDoHtos-N93u8SAfBJFTet22rTYmX4jeCOFZQ6YgkrPN2qdfKw_8b_bzn3J9_fE75ByUWdPVyRl8g_QbiYoPEbo0_8tuRBl3msQTevMSG4_zt39t-Exyh9BdxWsTD2rmmjr6ReTJEKUJ9LaUTgGWZuAXqnq9YxhgCftqGiLkxNEY18w0CwjU0Mq__Tn0vWHpcxF_bIGXRojZ6kNuOqIDueNsKxgc5fdRKxLn67Nx81fVQqyN5JpGjW6D7ZzkXA9af6kcppIEU5or76EyL9nc_GI4EumVWiRu7qA4MwBiXxIEe8T4iB_TSxW16Odvzm72WARS219-5y0IJvBbMAexGJQlnSLITFncjz3cqafcXaNV2BtOtOWjo3Qxtma1ik8yqzwhYSHR9axJqb2vvu-1UUsZgAy2gBT6VhBVX67Cttofzs7L7ixF3h9nuA_eEe3UqbuMtbVteZvUTNSz_zpM8levkBw5kbAC5OK7f1L-DNEICSNhiVI2e0D2did9JS3WxtdYqQOUNBLzDG2WHrg32HN11QG_iHT0_NT9qxVY6-WXe1ChZmjjm26XvOzF1l0NyDcSDCppRR3jWWi9SHtPN6rYylr8XT6up7S5lav1MvdZdAis2cwuETVKPmh1X7jQ7fbzEKPLqzkWIV6WKPfnm30MIccYHCmJf5K7G6XjBSAV4qsLpz4r0QweE-qqzf9Y8qlzoIaBHqcJljnrLJsvydpRAXnz2DU1ZScRRmJIcRdbZWF3Gp-SXTZJlhTPZRuVk3ZEOZcB-kJuZ44lU2I1w87oQ0SE22iqIEbCIJC94ZHCTF20XTjiPyJLHzai0hLRO5oii4P6GTxjCNr3POSVgPnCbnmSNSvS361yhYk8uai2kEhSGZ4Ytp4cA5r-tKDA-5OWvt7gNENz-0IAKR67tg3goGhbhATyEPD3uiSpMEmgZpnBDAZanH08IMtEKgR1IPX8q6IvDml9p0KUz-B6etSDZ9yHZKWCR2JxI9v9wazcT9DwxfU0pcIvaDU1CWCeL7s3mlVC8ZimpiPi8Jkwf94yeHVbGftBZB2KDnuQ5Ovu2FYisJLodFUanjrAcaecDK00mmJKPjXMzxRl2RMpfBNGbuhMbjT0wt8LTfGYN5lheon-RdnT1IDMV53cU9WlNEVHCIVegHfX_E3QqFo3Bq--xE7cIp9EhAIKWPLWCmQPuRz9g_xA5GOeQS7oSusQtine3fsJeql_5Y1O803_p5K0pdP-z1xtgp1ePVlD8eWNFjUTPPATt0z6kMnVdBi8bJMWNExc1tnUh56b-B6btZwQQrYIfPvDZtziwnKYthXMYi-ulsoai-6r5qSRQK0J8uatN6SkaAXbtZmtIxtrFoFPGAMXyLqgUXcTAPE7QFyDcPopHGeERnERCwzuWc-PVOXxHpOhovsUjnm2p_rtPwvuVmU17GXTu3evUUTj2TxTr5VVU3Kots9i_TejKu9Msvg1LsfyGVUanQwNh574NGGxup7x999_wmqhxe_x8uvfRYcGcFFnCowxeIajJiFLQ_aY16EHGrWqZEApIiqq0SQO9R8Tq7OTaiUw3linSRXDcCbwHKI1s3S1XzCH4rLpsJSzzcxDEO6SXfD60eqgWjUKo7HKSJ3vBAJqplk4tao-FGw2-CUj7H0wpY1A9m2AEbAOQqrDxwjpRkT-lTue7KPF9h_2b1Z7exmyPMn8eoYGuNw8KIx7GKE6pUfaKg683YjZJkiGpFYE1ZGRUawXJJjiKpzUoJXQsO2GGOZDfnEiCMdN2T1LCm3NoaeNgMhEf0-QWu8JRvWdAY75IHm_s9mOe9D5_mOw2z1UWeE8upkjkHuNhEAzbPF3KOdbCeLVRTOkAQyMTyUvXQv-o2mnjMmlYQ89aKOvCMTF8ASWD2JwMEbeO25vBR4Z_uQCwLn_2SwPRS2BzD4UG700bA2AMeXxuKJjvqeoMbVOMNKZrflgGBhvj4G8o8-p9yi4mkUmZzMPQ-8AUkQvgcLsshDKLm_eFjqxrol4EpCNowQ7IfCx_7CC1B3WL34J-DziJ8FdtuHA2raUUrvxgstX01g9g68cAjr8dS9-3ElJb2dEPHrkWIOhXF73H_ymi05PvNmSPezpBFyuMvmiptZPKEwsbMA7lGjo-wgH7TNY93VmU2yoOPuSBxRenq5ghZwSz9cM60tU2ut1zOKqbMU5Q_9vs1GG4bi-79GvVXQPjzFgUgxhEuW4sEOSLCNnCTJacVg8xQO_HfDA7Vx7MYrvuIFk5g1W3Gm-DDYxBmOI1MQl4te-k3nGEntk8V5cglwzQwO4xAfgZMVCMl4WBtfV6afYkN2U45iGi4tdukGBSm291AL0DVNBB3e-7tXMuVy22OUKnYtlciBR-4V-t5IQMhwFZ1zZbbMFQNGCa0Zo4mFoBTxH3h1gMIWdna9m2x-dkW_8m_5tOSVXKf_A_mpqqNrv5Y5ABxaWE4DfX9KHQTZow8mfw_hcKu1D8105vpLllTYL_bsbko7Zfmj4FmbmeyocHI7of4LrRS7bO99rQRHispngKrrW7RoH3rRFIhDx-KWAQoPhknEdizjo12hsYqrCKRHkksVtwgqr6MZK3_HJTqeqCxVR0NrsnCKKbNq4SxQ3a8JolzwAlrqxIRMHXH3LOKQHbu-b69-u58HGwliuPcMnbt8e7MEBHWZ6eDGnI6GkBUdI_PJ8Kivsd31XHhH1zGU8ihp0LVlkJzRV8opghQsHBZpfYZW9WXFyS51lJtSaQPSASckqmnkGVeyspyFhefzwSOOc2vvEOeeFjA4XgpJu-D4uBTFVkKFRTb2aTAKRlxoTniM2xjfPF6oCVfGJgdlBgfbcMh98Li-HiuZgBFhivepDckbHQtV2fU3-0m-eqx69gJT4FUaviuNSrpiejtfOIgNkYvJxKGpF8cPpYidcJA5wdP8yXU6bFgPlGPZjWg9YYKZDX6YVavcZm7mUbfzyxfpLUzpVpTuQnnAQRn0zA1M-IKLJ0_We8lG9D5VgQoRFU6wS3iLmSqsSSVg0DlVyOw1jfUFzUWPkXD3s4JOC7B3peAijn3nUh",
+        "summary": []
+      },
+      {
+        "id": "rs_02050d55c1aa3dfb016aa1fd14fe5087d19311439fbd2d48ac",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof0jis55fkcIF4GeynKwVPuD3anfmUabYRR4vFhK2WqQqUO3D3aeNfnlFCzi0iZEB6fTshjNpXv8q1EBy5UDfj6Is00lUnzQ-I3n2xjoDxG4CiHymOvZv7hVHCYKYy7hxREQaICt9QnItBupThiY9_tKXJS59DA3Dzll6babd0BDUYlb1qxnJYsyOBdEo_7aB1bebgnCSZxDpgmJ4ABmW-h47m1Gcp6BDwyg9TqoVW14kO7XWptdK7CaDU8uidLLYxUVqDGBBv60y3NSQil2RYbkDb5tVGHkFGFucXCtKMJC2cVGtQG337_rPtGrnXhO8n3E45Fv5RYE4l67CM-srJYLaEkhSaKKJed1SgHk0tNbQXs5cPAilZVVBCgUsfY-jf_MjLwV-NlKtQmq586O2KPH-fuQZw5xbbU_uZAzPSTpfP9olS8vr4QD4YqQMwNDuilpsbmBnrRG6g9AkztMFiNHrOjWknG-_wOhR_Wqxun_ZY9EJ5A7_4FmCA2oLUnXeJKd5yjl1Oh2O2pwF1Y03grO-EfEB2frOSUrYxaFWwC69YhnOmtbW2d5F8x-nnwWbhSIJzhRXmPCPypdVzDp1XhlFe-riZSIBnU5bviy9fQwr-hTOD9Kcp9tHRAuoHQtbR5z0zm3O7gnxoE2mc0f5fr4JJzTfSRSsFxJzou8-jdFxyAAe07QqTk_iU6Pb65pPMK8J9dF5MynH2ejBeCHUKkd2xV0mbe8dJ1JXLDSBYZJKAcQ8vMA9bP7LuGUsxq6dHF59K7gta-u9mFJZ4kraGheS-1guagz2e2fdmCyeIzjb3EcXEvW6syZBYrRdgtaSa9ePVUJfUNWfzMymeebEy-A8qYMtyYqnWUYsCYrIJrEVJAHMmcuW7whZxQnaGFvBPvy15fUl1ssZV2YnjIpueL5zdxEy2juP9PDx27EkX1AP_ouxpHETb92bREmif-BI2aSvnJzTvZJ0Inq7qcu6n7iUlEVp53AaP5CqBi6z2hjhqwIHVgm7k-u9m8tEyiNm3076kMa49TgqkDP_iRtkNw8YXIEUbQD_G-H4IwMGe5lPQFe96S1k9UtWrMHUj045RbF4ua7QZmSot7-tUEfyIzOby2eFLxCLriNpHp5IofX0QRZTK9w_Qzdz6AMMAGIf6Oq7dp2pqcWtvrxbdWn7IZM0cjH0s1hUchaLatvCLc2a5BH-Scx_piwWO743P5yN4qZm9LgpemfzBQ5lNlVvKfrWe644NXJIYLDgRRS6EHVE3dwa2O2i4dytLMhEzQ5Q2-VhvmSWu9dMvW8vYSQLH0RgTh7E3UMS4GsAG3BRqgElAvnwGcc0CWvmMOMvEJV_Ze1BVARBffaNCaTFtgrpYm36x6Dl0BUNNxy3rzgozjVbWg9IcYAdCyRwJ3HKoJKZIsq4xCkH9gR6uBTKcY1xd6XXbk7lSCyGxT2MqOmfxs4kIyVRb4xfi9lPq2_83p2DSa8gAvzo-EHogCqkUc5483ihTMhh_KQADWQggTIDGHtzgSwoUE1xQxRZWYhcQUP_KQsuGK40_sSA5u82--x_shAAUCXMc43AH2dFrizcN8JIsJ9hzM48x1ssAcCgNJJiwK3cAOz48us53wpGwJfzjOqlvZHozoFfGJjF-5_e27YoDu16ZMmB6qTQiru9e3unn9jDUfah_mU9F8elcUExdCVm232wUPDdHBPiWY7M1l2YVyYdpTxEusnCsBp4brAMKNK5kG8zwQFdwwqNHnq9vNx_x6pYQox0fxkGoREXpLSklA8eWyr5-EIDa1jFPfsb-MuopVBA2Bx2hclzcvkx-jv75_Rk7Xb_sG7cKA95AQOA26Nj1nAgGQwEE_FCWkBPlV1RFh67dWvckjpIr1U9GDkRQsv8V0fpIbA7f2Bl-4VPPp0UeHT3hZzuwsNDjKKEmqbOc4OY55e1ne7oSX_HP36OqiHKWxg4Hg_ntp5qCpb3_IeXDAo5NZ4G-NMZHdZxpBWG3mfGnA9vPkm5sYMyoeRgjq9ieZTN-M9Ea9OSJWQ4vXZT15uwhX5jZ2VPpl5SUVnX-L16Csv4AvyeAqKzqt8a50WXQHq9x7T1dqwT_RVK7k6ZQgX1NLfKlpKf--WHO_M9oySA3g3VgDfSp_uiLEt_ZuR0ASl2PRgoK-djtoYeLQh-bWW81jmW2J7Hw5wzfftPepsfGwdhkDisLUAjz1wemu5dw25Kp3LyTFLlBwaCPDwUM2SjvOn8DQcY1rLutzftjp1VzENkObPDsEJGL8hILb5mB5OASNg9lp-uWC0Tp4zBBU6Ysm6E_pBtD1J0Fa-7Lr2vL1NI12MH5HFl712vMtAADXbnxj_BALBl2xu37B5iSPEqN_eY8yqMSMGI0MzNq7NU7_pcQOBYQWvJ1ETfF9cUftjYaLSwAUhsJP9hz0H7H9HX4v_7BnQn65dZBI4fc7g0VM6AXDttLoJeoHCiyTN94fLTi0P7K__nhj-GsTgwQB4Zomo5qwj680bYHtaLW2CxpqfPMuomqeAjFdf09zf9tHxBHcKQhrH47jVkPvwwQhcerudHMre2MFCOs7z3jzXIHKcj1BLPs_noxNqfxoAl5NWD65ruNIzfPYYvdp4DskhT_6ImWKcNtBlUj2ssiDZvFwJ-X82vQp3uh4ihb82sv_WFaEbUU8nxfEnIr3JMfJTg2hOVLHlHbgK4HvUw1NNUgjA2zusjM9m2-TrlTrJsBXWBitfCh4_76Eys1CBM1yXD0n3fN4_xHDm7JZUXa0LYg3soUV8-XLgihbTGO8obD5A6uSE1enLk-rMJqiQSFVv8h2mWx839D1Sd4JfcrkEqn1-aC_MnLc6CQd3UCzS_LlI3xitoLH9nA1KnWrU_pjz7uh67DSJIEMiQLJdXbwWMd2-AALaIhMc8r-jDkF35yzz-JJxGed3nKA03xjhdHOl_i7-i0fOPcPkB3MRBLmttLNUB_-lyJbfZN6m3WrxSCo8iZW_ujWY0Yh-7a2b3dXOUmOJSkcUYkRNlcjX_LwDlPfwUC0f1qmcgG2_qAC75aazarpXJytDmSgVDd5CBkDvMsOlSzvS_WsJLc7vzQDTQekOoC52t_eWmG46AsrgOmVrYSJ3AtimUnjGtx_3QYIZA3CfCyjQfkMzzrsraG6gTaIE0Ie-BNuntwKkDOZV_twURIBYaypOnGV7QNxxN39QosTbooV_9S-eQKNzNxuBiwQfR4GBh3tR8QFkjnZF69s8H0oC_hOLYsBzjsCZPOnnHM3CCYLkBKn5g08dcvKmzyPT0L6jHDuj4VBBlhcUqYvCu7Lp42qWE_-SCAS52yD9-GJD9w-Gv_uNisXv91HcEa5QQvlsFP8lsjCufOwFKGasHNg6PTg7lmGmF1kp2ZOvOb6Rw-Pavn1xaEznnVHylVmmQ_AWnnblB8FVP3LpMuBozywTmcbLqaonPgs=",
+        "summary": []
+      },
+      {
+        "id": "rs_02050d55c1aa3dfb016aa1fd20cff487d196bf8a46e6e39354",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof0jeUIUwzo9stjKMa_jQRCsWTvB3MQIGR_lRYXdriEsK0yJ2xAs8JB6WzqFTb7lIjra5IBoOYgK8pAWBR6nhAmaNMoIUOaBRAVPiDHPjNVGHiqjJiNUgfFLzEeT7aQ1F50BGEU4DoXAj0b2W4lyXJez6jQLbmxuN9JsQPaXx-R7SwGkN7SVJ-Uyi9RWgPXNDyRn7TS5GEmVi7Hmp3fsjSVR89To998yzklOrNvl4YPJwOiAasF-0AaDe_uyV9hK5CCxayfZbaaxeadHWIYSCDdT0g7vces_wrn09CoFqW75tz3Si_nan3ZBgQLzfMxripoqlsPHlv7KuNWCql7Wf1tT7O5fcF6VKPCpJVopLQzmNMcjQYh4S1dy7YysckUZxfr2P6SGhNbObU-_vzcQPbW0N-tx6rltjeRwthYu0CpWZRuQ4zsxpR2OiJlceJc0fKtRJliSC8nXmz7MrFy8wuO-r7XCnPezeHEwUJH5lp4HuccyjemU99ATl1Aw2PeBxp1OxwsVVntqB0CVuHz_YVjaYG_NymG2iN160tjhHt1iL8MpRMS0bv2nbeXYeXyzqzxkAf1BtfiDDIa56i0arvp6SdXpw9l48jJKOXS7Cp9C-3Ts_s6h0lFfSzvWnGvXZQnmt7cdVlwKpr2E9OzXUcbvjjh5KJNEVnWfOuB-x3-dEzqDO8Zl4ajOginDSa5tBEIJquuyKf038R4_PNWMeXOpa-Mts4lIlxB3tgJTfer5HwSXMP7VQuwUxv-GqDj6GX2pGO9A9ksAwy2EzTffMObJNA37hYm6Gjb40v8P1Wr_r_gi-u2MMxEPUxQSbZYoWq1xLz-lSFEBH6pPKi0wMYJaNUmA5lHOc-d7a1rfJIEGtE4CjNRMj_z01CmZNIRdiVoD3N1IEnfvBjpkA1k6cmicWwbGScJBASZM0gMNtSVAFYwrZmbUDdt9V3tcDXBGzT9I3Pdz6-YtYcbeRd-sgiaqsilFgacrdPHdxxxQE-P9VTx_bUKFf3qIHQfNgDFLA7a_oghAu0c0oRX3qW-iFtiaeMci-CD1H81-gisx_V2g7z91g72Le14SDSE7YvB517liTgbnx3qY0ZjpACJvLFMAb4LIf84mgR2auWiFllMhD5sb97WkDbA4uNKBR2YWvADTz_pFtlqFGKQG4o6j0vYiooGDA0BayjEFuiMc-aFaZXMv6asomL9OnpG7wLlWtJSL2RMO5e0PRB96L4Ev7INRypQQx57dZLnNxoazZLGVCrSjKT63QuYo8X7Egrh6gobRmKHXOx1g_lQttbDtgVfr-6SvY0kip-SVrlYDKBO6IEh5CytMjlIQxkfQQtRJMEwkIvDYAJZ4h992VNZ-K1R3FkTEP2vLdPwVOgFdj9blZfZCa5fUcZSHsmgmQrQ-br54ud6ZaivNu--jBtLp56_Bsw==",
+        "summary": []
+      },
+      {
+        "id": "msg_02050d55c1aa3dfb016aa1fd222e9487d19fb0d1cd8c8046c9",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d5h5\",\"comment\":\"Retreats safely while maintaining kingside pressure and active development.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 592,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1134,
+      "output_tokens_details": {
+        "reasoning_tokens": 1104
+      },
+      "total_tokens": 1726
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 27.193262100219727,
+  "request_id": "req_9627cb7aa33c4da394a429174458b09d",
+  "text": "{\"move\":\"d5h5\",\"comment\":\"Retreats safely while maintaining kingside pressure and active development.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qh5",
+    "move": "d5h5",
+    "comment": "Retreats safely while maintaining kingside pressure and active development."
+  },
+  "usage": {
+    "input_tokens": 592,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1134,
+    "output_tokens_details": {
+      "reasoning_tokens": 1104
+    },
+    "total_tokens": 1726
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.02564",
+  "input_count_delta": 0
+}

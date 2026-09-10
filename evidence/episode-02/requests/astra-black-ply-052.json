@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-052",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1r3b1k/6p1/8/2p2B2/4Q3/B4NP1/2P2P1P/4R1K1 b - - 0 26\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. r . . . b . k\n. . . . . . p .\n. . . . . . . .\n. . p . . B . .\n. . . . Q . . .\nB . . . . N P .\n. . P . . P . P\n. . . . R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8 Qxb8 d4 Nxe4 Re1 d5 Qe2 Bd6 Bxd5 exd4 Bxe4 Qxb2 Bxb2 c5 g3 Rb8 Ba3 d3 Qxd3 Bf8 Bxh7+ Kh8 Qe4 f5 Bxf5\nLegal UCI moves (alphabetical, unranked): b8a8, b8b1, b8b2, b8b3, b8b4, b8b5, b8b6, b8b7, b8c8, b8d8, b8e8, c5c4, f8d6, f8e7, g7g5, g7g6, h8g8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "dbc3f2f20bf893aa0f657b9d63259dd6a541d7f46ea43f8ade7a4c78d776d182",
+  "fen": "1r3b1k/6p1/8/2p2B2/4Q3/B4NP1/2P2P1P/4R1K1 b - - 0 26",
+  "preflight": {
+    "input_tokens": 521,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_bd844c43a36f4cfb98eda1056250de26"
+  },
+  "reserved_usd": "0.1089125",
+  "raw": {
+    "id": "resp_01e407a9b7a43db0016aa1f93a513487d19c371faac40c0ada",
+    "object": "response",
+    "created_at": 1788999994,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000009,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01e407a9b7a43db0016aa1f93b429087d1a795098a0bf34de1",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoflJvQgPTNzakZohZqLy9MZaTd8pCkxS5vYm2DDqBaWUPT8n_cx1jOwBojlGRMt-8LFr4Sg5m6jcEfK83qy8auU1-JDBWe2VQ_4GpWA_HLvUw599pTycIyfPVEZ7XSk_3ou8_zb8kHDFQKwmHbDoSry6G5xsaf9LCHiCTE4hF7w9l8gb2ZLuoniC8CLaYVLg4pYT3wCuuqUc-hCtZzHit4Pj1g1t3oC2IFig_V30h98N6pJQMxwGM4k6WqCufVYTBr8xMON9la1LeOT6S2WxqFwK9RqCm8eE6DuY-TgwLV7tEYI2FbN7ca3sVqsEfw-Nt4XDAedBLRc9HwHNSow8Mh1UXTRYcRrBbaPwX6_PNPr4UortVorNK20ILImosSgbBsNVgmQ8ykuRSPrhl4SLVfjwoUqZep-nYrHHhKyvoCg_Hv0StWQWQvAGb49WHOnM5IT451VNUwu4d1y7jms61Fwx8KDWrBicgkaOQqlyERI9-g1qoN2mOk8t1twlF-ok0hkdTflDJbHMRnpoXZvGvJi8Kfr9JRelnK-r3DG0islOgj-FasFOt2QAPjyWzp9RHnmway2yxBxMWjV0KQgTjcrYoAXqxAoqUjO5kKVn3bsNbWWdEV-YqY61BvoOt-fYQgR3Tet5xR80g-WJfn3bM2tRb2JtiN9g2ImyNCmqVgmmHOmWmXBwHi61nclzn7ZslUstxflSXiNtpCBzEyMB_CCNdgmsci6nu95wPeEqKOLJpPxyS3ZQqIvH8CdeA3jsCrV2IQJVSjQ3dtC6TST28wLizNqeOqDOJoXWlccF8gytqj8jOWKIVUYluPjq71WQyJ0Ns2i_qbGIKr6PolMxNCwzi_w4QWvtP18UNQ0ZwlVMej6AlgdJjquyOBvVH7YTHEEK7nhDAul59Sh_MoVsLb-1Q9vom3ytAY8-J7K1cfnO24V40sipaF-oPnn7GuLL6iKu-aFWIRypbBraigNZ2WGWNwUyyHZSpsEjZYmcVo6P-gVdevHS6K_OYg4VPjn86AptTHFVzn4D13_wycv0e62lnDuBuVqKHB0jonh0Mais78Ep3i5OYQr5YbFF3Mca80MSJioMg2GFYs-TSMCDsTocrODPd1596Z0vHURMYVtr6VMB4Gx66o826pZ1YmBHId8xukAC3jYLoj7vU9Jlhgv6tj26DWamgvRd7tmBhPb5FYBUFdK07Q_CzlQ6bZIrNZoQghdOsqzV6dAP5v1hXvXEjV31vK0j1oSxHHcg0YY8DGN06lDvvZw4lJKEFCmCn1jQ4cQqwxInkYe5rutuWjUd_wXAnDQFzcH8j9EwjVU7b0gEMb1Kyxn8PBaC6H8bX3P9dPrdpshgODeFI7UBqbGLVuixpoAYB0jEh_SjyFtnBle8S58MX_aGBwfBghOt5sPYdjGRjaNYDkrYngJK3s1VjmfYJLYMhfxefFIRUvAeQVmsjXeGI92AUA4HEFlDHho8AhCG0Hj2Zx-IyZouUEuFQkLXPQHRdBhOXh2g1K-UrQ7PGwWsUMuddkqSulQ_AjnRag33Fhbgv5yunnaj6L7XnBbSl9WvvFjKhDIcMvvWlT6USe2ZQDmJ8zpfZ_UXTF68YrvMVaykt5uUGrmqZieazKebEzu4sNb1h7ENcO7nAxgDcG1_g8Wp_rZQPKli3LKpHQgDAstWOrMOH2ingMc03AssgPjhV0RFysIzPzZY8gEnCxNeYBFgOwlq0cXeJuistxZlOmhS4ZD4kcFM-JYkZrx7KbJl7mJXhnKch23IEWok7pIg_1i30nx95k8dHgnTNfN800XRAaSq3IW9QkI7vPfDunDg6jP3EX3Eaa-CtVRJPz5PDlf4APM1q8qzfSFfgMhEtKVIfSFwL_0eVvnWBuXbgmwOaXtzX5uacmDVPCfcC8DI2qks94ntbFoWL97o02kmYimwoe3LpgePRFPN58MfoOuQHRYYsQjoLwa43aFEZ6jVTDWbx_pAYqkgeH20ygqoHIR7Nz7rJso3nlXW_79hwwdV4TSwMTWMUK6OxfuyY1rP20NEHrjP7dqmAefPDmgs11FxXqY4Xh3mhfXVDGHv6lUlgi8JOvnFXJzPl26OzHx0hZndQGk2h_95JQwkiBGR9uze8-1YTk9qIozClfWRZD6KAGcUQQX-R6Fc1GeBSEN4rXWzrx-Cg0wFH_G30FGEoSqQJcgD4fllaBnII1QqRv6xcRG0CWluExQifVcUIVlNtlvlv0hClo3f71nrO0cn81dmasgVmRbWg81_ZBOFnzL1rz2EG1gNp4bTCAH7h1-f7oQamd1J21rCwq075302NbDKWj7RChQ9BeFXAKx8Pwj6F6eUlW4Eg6m8UoNpL7fs5P0M3SZx_0PqjB7J",
+        "summary": []
+      },
+      {
+        "id": "msg_01e407a9b7a43db0016aa1f948a70487d1bb234482613f92a9",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g7g6\",\"comment\":\"Attack the bishop and create an escape square for the king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 521,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 349,
+      "output_tokens_details": {
+        "reasoning_tokens": 320
+      },
+      "total_tokens": 870
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 15.399474143981934,
+  "request_id": "req_c4eb5b3b1f3a4e00ab85ea19f0d7e47f",
+  "text": "{\"move\":\"g7g6\",\"comment\":\"Attack the bishop and create an escape square for the king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "g6",
+    "move": "g7g6",
+    "comment": "Attack the bishop and create an escape square for the king."
+  },
+  "usage": {
+    "input_tokens": 521,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 349,
+    "output_tokens_details": {
+      "reasoning_tokens": 320
+    },
+    "total_tokens": 870
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0239625",
+  "input_count_delta": 0
+}

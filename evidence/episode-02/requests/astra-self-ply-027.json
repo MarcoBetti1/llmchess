@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-027",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP5/PP3PPP/RNBQR1K1 w - - 3 14\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . r k .\n. . . . . p p p\np . p b . . . .\n. p . n . . . .\n. . . P . . . q\n. B P . . . . .\nP P . . . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b3a4, b3c2, b3c4, b3d5, c1d2, c1e3, c1f4, c1g5, c1h6, c3c4, d1c2, d1d2, d1d3, d1e2, d1f3, d1g4, d1h5, e1e2, e1e3, e1e4, e1e5, e1e6, e1e7, e1e8, e1f1, f2f3, f2f4, g1f1, g1h1, g2g3, g2g4, h2h3\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "826a7bdec90a33783eb7dd0f82a8fbf20c72dd324bde661511159807ae886c8c",
+  "fen": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP5/PP3PPP/RNBQR1K1 w - - 3 14",
+  "preflight": {
+    "input_tokens": 549,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_a7f9c8cc5c6b436db55059ed817eef28"
+  },
+  "reserved_usd": "0.1092625",
+  "raw": {
+    "id": "resp_028bb831ad4ab7d8016aa1f9e6e8c487d1a771dcd276f216c0",
+    "object": "response",
+    "created_at": 1789000166,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000176,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_028bb831ad4ab7d8016aa1f9e7aeec87d18dc846cf8d29835d",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofnwxwbjVkGY7eBVUc8Bniq0h3QLiNkJjk7R_mUKjYc0_Hty8JVf-nG4ZYgTk1IHrN2lmoOKyOcNkI82KXWShaNEGsBXzvgPb5BFwcCADlZ1Ouqug_vaBJhnVQpjgSbhW6w_TKlbNB6cN239MENwmyKACutgEoCBng5lV00KUkXCUyxzz6kmOr9TO6Xf7pBnjxBbPhHt824YQm5Rz8CUBdotpRKinwYUIS79t3fe4wIWHHlFyH8mM4FjlQzcTMOnSF6fydcTE26-aSBQMshHU-DfbpVzLY5otiWTW9ay5h6pjixlNIQ76tpLzzyXJ0xJUEpAry4pbOGR4-rrWCd9p9b4y4vsmmsq9q2JmQKy5BGrk5l4XeNihGzmHVBu66s5fonfdgVlthXZYpVlUI5-r8E6MuLGWYhn6Qft-JBcayMT51a6FKY2nynfTQ47SWrQhX_gDm6BAVTjQBS_f8iXyNQYceG9USHENgA5y-ji3PvjxTgODRtqNjJdg299PsGrBCXOWioJlopgkdxRIJqI3Mrd65ranDUoMAGykAsg1dkbmnmWmJsy_fkjbhubJjSwvJX5KXuy0UVdvSoRK09slDF5i0bemPtzNQ5FtVKjbRfPJxR4sCIdzUrDIXcnBm7bjiggDQW_eWEZgH3g0zay42oybmlwf9bRfnx6JrI3yfR_NJ2ODoknN8Bk78soufenuF-9QX4tXfUH5AiLOtoa8GEM-qFc-iKS_zqTk45PwhvHFazbZRJQlFgInbsrgN_szhdLVWNk8usoARv5yuH_9qBVnLEF8aW8Pw7LgRQNAJb1XjWgJ9ysETbDXfRj93XSf4OzA3YrOixMEb5Ear6FuN8DAlgFYN5Jp3I-IP8TDek9ISGvSEoAuI4GdjBK1YquPaCV-VwzPqCZZ6q5wwuCWIGXdkX7D3DMGjvIvrkZRi2xLoeHRq80izA2kXN-WwZxrtOA2r5CHmGcLgw27th17wua5XjeQiCBsAeXB6bXhoyh0WgWGEXT51QHs5KUGYCkTf8tdrxQqR-OZKMxkJPHStRAUQzNztBV-RB7-rTQO1t4O8TAmha7_0mnzgcyDqF6kXYHcmAmRucKkXC1ILIXYZkW-MKFNTjVHqedYbiZRGExksrud0tCfFwBwDoaR4Kx-kAmWNx1tnrs_auWqOUW-h8TSyafm30P_UxwzHeTdVvn9niZDvjQ56Kf6_SnmmpWFbj45nV54LP6yjFaGFzB47OcqJLy89qx7rvlaxJAFls5ctsLb6UimBiaeVa9V_xqogoRAkXu-W5uWbCO-GyKKn6q-EJpVpkgsXFvAPfD_q5hiMACtmFRDtLqjCY43gzJ_6x4zg3QySxc6MC6AYdGrwzeK2xMussCtPjV0gxO7CS2oyEvhBXnPr8t3t8kmcF_kTDM-khd4Qw5SBHwNLMqaO0iD4aeYOW3Mo9T3dZGZ3qS5zQpXw2A1wPvFo3FfhWWKGwaPCCzMYsp12-Cb3fQ7PqVruMB7mszI_hAERcarRxf7SSi9F7tLxKgCkKXaRMsx31QNsOLwwd5yfrxkoDYN2aYnmyhrm__1siGBFe-Ks_hndw6eryIe7tEAuWeecXDsyZhQJ7SJ5hWjt_xeyBGEncBhfOQeZYMLFOkBamWuo0NgB9LMHU4W0PoyfBfnvqyuwRjYgn3bjUPUu-yPgvpbqbGYZNMYTojpvzsLTPElad9inX8ZbRDgtBSkJ4kzfBdoiDiOVbn09EjitbeWKwaAFuN6LwWpDGsrVzRCegOobSpDhrrpvEkMhmoPzmmlUrd-9XbpXOzmHe-zq-FeH3FqOm0V4ZktQ8GVuSD9yYFYJlCl3XoSIZQp8G4UIdiRZeHankclTd4UUyi041ZBf74S8xCGLLLsUWMSJcxXbloxhxh6WRLDD2k_g8prkHFU6LX67wO",
+        "summary": []
+      },
+      {
+        "id": "msg_028bb831ad4ab7d8016aa1f9ef5df887d18b84538cf41c1528",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g2g3\",\"comment\":\"Defend h2 and drive the queen back in the Marshall Attack.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 549,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 237,
+      "output_tokens_details": {
+        "reasoning_tokens": 206
+      },
+      "total_tokens": 786
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 9.84077501296997,
+  "request_id": "req_fe8d5bbf294d4239a380cb48b653eb30",
+  "text": "{\"move\":\"g2g3\",\"comment\":\"Defend h2 and drive the queen back in the Marshall Attack.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "g3",
+    "move": "g2g3",
+    "comment": "Defend h2 and drive the queen back in the Marshall Attack."
+  },
+  "usage": {
+    "input_tokens": 549,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 237,
+    "output_tokens_details": {
+      "reasoning_tokens": 206
+    },
+    "total_tokens": 786
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0187125",
+  "input_count_delta": 0
+}

@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-054",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1r3b1k/8/6p1/2p1QB2/8/B4NP1/2P2P1P/4R1K1 b - - 1 27\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. r . . . b . k\n. . . . . . . .\n. . . . . . p .\n. . p . Q B . .\n. . . . . . . .\nB . . . . N P .\n. . P . . P . P\n. . . . R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8 Qxb8 d4 Nxe4 Re1 d5 Qe2 Bd6 Bxd5 exd4 Bxe4 Qxb2 Bxb2 c5 g3 Rb8 Ba3 d3 Qxd3 Bf8 Bxh7+ Kh8 Qe4 f5 Bxf5 g6 Qe5+\nLegal UCI moves (alphabetical, unranked): f8g7, h8g8, h8h7\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "5bba540e78f4f119da05f5bd27caf9f77240ce073a42c83d338b0129c4dc2f34",
+  "fen": "1r3b1k/8/6p1/2p1QB2/8/B4NP1/2P2P1P/4R1K1 b - - 1 27",
+  "preflight": {
+    "input_tokens": 454,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_3fcac5ed26264f669516629f92e330c4"
+  },
+  "reserved_usd": "0.108075",
+  "raw": {
+    "id": "resp_0451c902e1a3f9d3016aa1f949f68c87d19b4c50881c8c8d8d",
+    "object": "response",
+    "created_at": 1789000010,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000021,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0451c902e1a3f9d3016aa1f94b07e887d1b0bd6d9fba158456",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoflW8_BTZ-VYUfVuV9TY69fAyfS7HZ9tQPNgMS4Bx-XfUBk3V6dXnovmxlMyVTnZ6gb03fhbw-fgOnDDCy3pTOxICCMbVukG_es1d7hqOtFOQSP8tdralyz-vBSJZgeLnsERmMot47S6GjqlrxrCT6GvgWE1c6_U-dfJTSAj9al9_JvsQlevXTbNA7lR71-sKqfcQZWKkNiaZRjWmj2gFF7SZ0ff_2RuQiJjUalH5ufvD7tTddOU8YC3G_bNpChOd84OAGgRx5v8j5PW4D1ZNwJpgIuNvFyajZzKSoaTekRXd2JvED9qRjHiyqK7cWSURWcK-F6U5j-V2I-DwL7NsCG2cRJHBOP_8hS6AW8wJmfI_NUw6Qx6Wa1_UENGNoR9-nAbF9mHDNWTVzJo5TnapwyDlq5vFum1XI62NBtntqRYymudHGk1_m3VwGEo5LhtG4t-8k2sXcMDGSZ4SMu5emq1MeW5UsRcPeZt0V8SzpoXzhBH8HL0QOPmDCdJZakLUc2dOyjXjdZj-lG4h1AVlUovgaxUI5qjHsmrhTKfytCMtyin1t2C0OOBOu9Ko5ErjsHA4J06ylaD8bqjHRSiJ4N_qwb3G3bv1IZTUl-QJq6UBBqFCFrSFG7oigZ1gyi9Rs5LvnYvE_LaVGEPoI8xBRJR6ufIFL8xe26ED6VuTQpZUqAquHkiT1aj2__aJrl9RXAOks8pF0CFraAUCUczKBfOrJJ4ws4pyPa1kyJQKCUf2lnOcb4mJLlBv2JTYiWLWPuXIk44xKth8FLHwxrNwf8YKOpZjcsKMikg81rCJEn-pf_CUTJOYjiDRQpkbnbD3WkeayLJnFpwk09pVqa51SgEfbRwoJaxKF78GUrnKRpxM1H1b3qW_hF-hqaW01Yt-evnivMi7lP9NuGHyM219g0-1_G9FZaxjmmp1VaNuvVgwBH4owHTLFlbQZZ75QlXz3utg38626Zi5VuOVNGUS6yQ8MfWOhvs8gMa6SyQk2km9pwS4dtWZ5MPKgYcPZKQqYxUAT16nPcjfkz5OlB_zukyqGi30VBwELgRx6-H_owMK0BR1kkiY5OTVVyIBj7jErRo-oX0Pu75Yvzu38HYICQsuXJDHXzumXCuFSm3bNvy-U3i9itTgNJtkgqDB1Kkveos5v1GOIZ0zAlKItPxcKtuxx1TkITZWkN2Z5hqCZlZuZUNn1dnmHH2uOSX-rURWZC1_mfkTmwnmisSEIjFx7-piDnFKEtLVANcjc_-6U-_Oa-vTJyK5vY-1pl3sNJJmfEAX74B_71hqpZgYVS8ColcN_Tc5xFgA2pvYi5SBvwRpiOAjFKIuNWGPTe0BMSXOrBEe_xrJEZn4XZTO2LJ_nUzJDZEnU_BxouZ7elny-e4h6_dCCp8jEePbeZGXHrunHZaQyZEPIx2OkCGYLmw47EGcXVeTxqkij2QSjI4a-p0rrZDA7H0yjCcWhBaCAulH3aNFuDP7loXHnZMFfY9h3fLCXnGxnmmOnSgWhs9e2p5fJo1aH8aW85XV8ur3uyEj4DeVqfSF_ilqXvysJbCY88stEx28I8rbEp10EbNABzya9X72e3lUIv5KQmp07Zv7GeNKXiSMyUQ7Lja_6xSt9I5Vn1FQ58GGNieHyv1B4yKoG2D0aaIDcHxdMVzHNAhu4YvehXPODSGoBAAIj4M29fdYBdwehfuyVplLXuFj69t1WsabhXozJVhZpr3E2mLs46GyRfuMmWqyB1Qw2iNdEsGm6TUN2NcaZUzj5ha9Is7XVdcDijolxMkU5GGrx4U5FW5ZEnmqrHnDgZDDAQlKzeaPwnmlkFS0H3X28TY_A85GCE-tQm1GCBpyQXFFLY6GvBagznz3DVZvc7dTCpVQDvjfrDHEb80N0mIZ6yY0zMk_nsICqajInKcn__dGbXV4hlzuN1osoH9l_b_Z2FbWowmnjA0PAalYOyZt70ug-jL05Ghr4oTn_RIbhgSKJ--CPgF6BhJG-wKbLTLrij6sDP4TCGHSJNd5Iy_kHpyEQhT0B1l_weIenQy1IIyTYfdcGGv6IK3yrc58ZDhgcTrcLa-AmD_81uHH1r66k4UVI7nF2MTE3P2CXYfLMHCXrSpGc-Mmnp37mK_vd_t4Fecy6rECWKs-j0UmPKxYUKJKSrnbUf5Z0INt9dl4lcnh0VP_iwV78x2RQZ4HsIvSlnmGaeSml9s2KDalz3gII2eOLqluCu54NWsYB2DzwSB2D8q2vVUSvAL9NZh0541QewpxyiahzEofdNn9cQntu_vxCvNpEQ=",
+        "summary": []
+      },
+      {
+        "id": "msg_0451c902e1a3f9d3016aa1f9547cb087d188e3127791c15c77",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"h8h7\",\"comment\":\"Escape check while preserving the threat to capture White's bishop.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 454,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 318,
+      "output_tokens_details": {
+        "reasoning_tokens": 289
+      },
+      "total_tokens": 772
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 13.000096082687378,
+  "request_id": "req_4208327776f949558c0bee8e721179a2",
+  "text": "{\"move\":\"h8h7\",\"comment\":\"Escape check while preserving the threat to capture White's bishop.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kh7",
+    "move": "h8h7",
+    "comment": "Escape check while preserving the threat to capture White's bishop."
+  },
+  "usage": {
+    "input_tokens": 454,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 318,
+    "output_tokens_details": {
+      "reasoning_tokens": 289
+    },
+    "total_tokens": 772
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.021575",
+  "input_count_delta": 0
+}

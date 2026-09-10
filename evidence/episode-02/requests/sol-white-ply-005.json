@@ -1,0 +1,144 @@
+{
+  "key": "sol-white-ply-005",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b n r\np p p p . p p p\n. . n . . . . .\n. . . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K B . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, c2c3, c2c4, d1e2, d2d3, d2d4, e1e2, f1a6, f1b5, f1c4, f1d3, f1e2, f3d4, f3e5, f3g1, f3g5, f3h4, g2g3, g2g4, h1g1, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "f7fee9706cc493642a816732e77f976b24bcc273723bd0e21d0c102a8573d3ff",
+  "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+  "preflight": {
+    "input_tokens": 458,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_26cbda74891440d4b06bd7130e4395a2"
+  },
+  "reserved_usd": "0.04325",
+  "raw": {
+    "id": "resp_0358f84a20020113016aa1fb5965a887d1bb6fe136a2793a9b",
+    "object": "response",
+    "created_at": 1789000537,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000538,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "msg_0358f84a20020113016aa1fb5a00d887d1860db2c456648079",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f1b5\",\"comment\":\"Develops with check and pressures the pinned knight.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 458,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 25,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 483
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 1.6309618949890137,
+  "request_id": "req_2f4ff82293cc48578fd3d3b49b06772e",
+  "text": "{\"move\":\"f1b5\",\"comment\":\"Develops with check and pressures the pinned knight.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bb5",
+    "move": "f1b5",
+    "comment": "Develops with check and pressures the pinned knight."
+  },
+  "usage": {
+    "input_tokens": 458,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 25,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 483
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00279",
+  "input_count_delta": 0
+}

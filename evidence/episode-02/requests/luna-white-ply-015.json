@@ -1,0 +1,151 @@
+{
+  "key": "luna-white-ply-015",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/1ppp1ppp/2n3n1/4P3/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 1 8\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\n. p p p . p p p\n. . n . . . n .\n. . . . P . . .\n. p . . P . . .\n. . P . . N . .\nP P . . . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 d4 axb5 dxe5 b4 c3 Ng6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b2b3, c1d2, c1e3, c1f4, c1g5, c1h6, c3b4, c3c4, d1a4, d1b3, d1c2, d1d2, d1d3, d1d4, d1d5, d1d6, d1d7, d1e1, d1e2, e5e6, f1e1, f3d2, f3d4, f3e1, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "e16b4eef66f9a877c8d985ef435d00bb53afaa6156b287e7ea5a5f9caeef3827",
+  "fen": "r1bqkb1r/1ppp1ppp/2n3n1/4P3/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 1 8",
+  "preflight": {
+    "input_tokens": 524,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_75a490a4d44745b8803730a016fa8cea"
+  },
+  "reserved_usd": "0.0025886",
+  "raw": {
+    "id": "resp_03ce9bc8ec05f83c016aa1ff4ceac087d1a18dc684edc8a23b",
+    "object": "response",
+    "created_at": 1789001548,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001554,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_03ce9bc8ec05f83c016aa1ff4da87487d1bc85f0e37a987fb3",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof9SUNtmnre6JFOkLmO0kh0JsG6BZCy4cLZp1PnUJQUmkXE7kM1XZ1saonzheiqhG3YepFvwWgSnI3QpwcD2YytGJZTBpw0gLtdF9KacYXm-CyFVCAAf16L4aN0JBJ2HSUG-c5j6Dec6N_H-S1esaKj_kqvalvRJ-fn_ba3veQQNaSEQ26nvhAYGGdLeq2OQRqehC2cGAOqa42Z-sAJTRs4kqMHOCCP4S4Zp4G9TrC54veKpBbr6k36hsoGF7gJfg2aXPftrNEwseyZFvt-Kq0TkASCq_99lWKWclf_qvAJ0D5daiQB51ejGBkoY7szMH2h53Oi2ECDsJb339KQWElz4ABUMRD56G9GoiXsmhRyyhNITbG0kEI0j3i1EvrNeEjxppk1gsP52M-7StLx_hE-JwtOiW7Q5JOod83arXrMg87sasqzD3P0S_KMYeZdJejARN-Lgmza-wCg6gVY4bhQwUQ_YBE4EEpxtclhMy5b4jse4Odjw_55CcKOog705jbQ9uzD5HVawfVRLEraqDZrsrY-btb_xqBYMDwu1r6U2e-AOtXFD10UNOpwKVsw7CvE8_yFU13LEgMrKVvN9QIBaxfzJ4qS8SfWUcs5wMEFW1LZUbrf8CzJ6MHEkc0IcsiPTB4uo5CGbTYYzibO4r2gmLUEqeo8Q1I3lgjBe16Lj0UoDNOgR0098_6QUoFxaEvgrD8ZgqTAJMcfetvjne78x-hR3wQ1y0t_KOwljFxjg-i6kFfeRIDWaM5xL1X4X0bE6UK38WTEUUsCSdaH0FjdL7wtdP_wa9KPMswfOASO0kf0Bj0fgmP9h47DZbE9iMUjqy711qgU5joJXJtLmS2TmFYcRtlGC2YGNtPvSvZzPqY8t0eHwrn9ZarqAqbgXTK8bvmQ2C7_aYzA1DqvEehZqWawiuxyBbMzk8tFNZLW333qenAuQ0VOBokxHyfgODoAJVdJwZINjEmrqQlMumpIwB8uUbfcsgrtTCheROd08InEaRV-SyoYlGE0Topw9lP1sPic1h4c2MpYLXsCGoQIiIRDvhSZAxN13xotDXiek1WruHpSZSyHFi1Trce3biZzdvOrqNUnUaDaVWmcXkVlS2W9plNbw6x39eZpJ7J2-Jh3gNisXnzvMYN7XfIPI92Gs-ZGh4rxEvno287LCNBeB3OVJzV87ovxIyol3ZorKoEsRINPP2_Z4zAdl_NL8_ZEKfITNe_MG3A6zbhROVvMmtZny2M1tkUfSoM1xAebotqZqXhBxrI8aGNT4DBPHy1GcYtRQOjB8KXGrgYdbg5LTSwvD5Y9Xgx1w5JhWtnI9hnRu3KXn0LOpct75h9oH397kPWu76JwlczN1lho3REXABTo1Vm8ig5wF4MPjuE451-imORoRCS4Gzo6518alWLdaPgcUM4kgDbMTtP6OLv_HmpDPKRwKgpv7l7vWDMHFOTFir2eyH7QglfulfkHly8zFJhKH7CctMZ9Dny5MpruKPiMzCCz54fUjySWtVtYQql38U8x7ckA_vfm7WQrD1jUm0wHHtzgbyILqONwQ4FbYz3f7jf2dcX7jwhUzlglbf3JjnX-tsGI87ZY2b5ZuJRUTOFhP-_m407ufz9Zg701749vo5_rygzMrQjbA5KSVLJPuM_Pfh8zDd0gRtvQnPnQM7LoYu6HrLsc_XWXsi0Lt6CxQuO12T4wai-qq-ohat5VusAhvG1eH9jvQ73ghdtPHFUIMGu_zzFxVkXbG9wh6CiNNUvWMekGXRlqmVPJ4QYYLDycE1o2LJUQPRPXNdiAkwtdLri2K4lNEtBTdTlHAxlTKNVZn6udtFAwoC3kasYH5luHAxMbt6GbbUX-Vqw2pzYD0PhsohtpOJPkpuUWzgGz9LJ0ShEjfSAvlALySMrCopEiEGH4cT4RHYAGC6Y3RhOe-0NLoGMb7vyOcLg137xrKzVIhKDP7oy_rR_1eEb1ogzAL7-gNbSBE_7J2eiraPux7hHtVmKmp7TbPh1s3uDq2MF0b0EBKj2jt9_h4LhrPgiemzqkQp5SVkxSaZxjB3eh-6ohGdS9-Aogc7nbNKBEImUhumQmuY7iqYemV6tAi-9ed68PKh5CRX9ezvFzPPibH7ddiXZGbjpBcaPT7ctd0fJntSSEoZw0nua8wxqy7aWb20gwUGkyyO2Ai7OEnI0W8rUXiTUB9UH-jctlIM4bDC8ka9x9UtnB6gyODiEdd45_jESHdMJ42z1rvLMNSYmK2OU5z6Yautlz0mDCeg58l3_W-zJJsx__dB2RG3qBR6xzeOtVsD1SpbmaMmJuKuLDL-6i2ELNgzDTLYEhjd8ewXltkqVBfnpICQy-GEbuYqswz84rO9qRFWVSwkkj6V-piqK7rrRi0pt6OsCL-QhAaNU8h-ZlPS9F3fq8ZBt4GmUASKb8YaJ_ek4ztXF0Ndo9QE4qZ4qiOSjmjwOj9Y6FhcZKok37tVbPTexlYSHpgmGiAXnpl8oknuxNznLL3JL-BPV2n20kLSi-wDCWLGGI813FvM61NNM31IGVa-f0-5o8f0FRg6O74LW4FD1T2FfFiMLdHuHtMR7qoO6565SWwxqig-VrijumMC2HksYyMMVU0CWOEcvMAikA2ACiPd0NQb4Y6CaAYHdgrmE83FhDS81AxFzppp6_GuJbCIp8xu9lWvC1B3cWLqsBkAnWosEdJZDzS33JAlEZP2oEQT9z3i4296eIUehHPMXR6_GAgwfdZYM_Q4SkAt914MbqirxZHfYqc1grWYTly_FMtEv7vc6PAmAy7yDcdy1_m7-41Y_cutIQ6kfWfTgFxyY0I7uQrm98SnSlh7y4kyqwdXRVcH8goKKrHLdJ6k9aEJp-Ai7Yf47f_tgGECWQKKdkUKaeFNycuTgyGkn0u-ed7Ybt7yQK7H2VQknt8gIGqEIZhTEvmGZDUzDKY8CNCfYTMf3aN7SiQbwCasmd5QUAc3EdYwNwWqutbt22Lhqs4dT3zB4NChi37y9xwp_aVe5GD8pEMqM0C4Dw4LfyDF71FFs5ef0_1T5EwIz6i7odPLgG8ZeXuALTcxv7KTgkiNIs5gp_gPTjxutdyHb5RGWIKu-EmbFfPvkJAciuQpG3uIXW8-OO2fogkqO695U8tGMYa9WtLJCCxytAsCj8Sw5vgc3156d1o67WsYcpCmc9FEN7amB8d4Sd6yw_BZEJrIBeni0ezwhscJcI2pxD0U4t-ITPymbUo9DCFMoPqUEmKX5gD5I7tGoOx8qhSx7Nv_zg5YXTINlkBCaMqiuQ8yR8Ypg==",
+        "summary": []
+      },
+      {
+        "id": "msg_03ce9bc8ec05f83c016aa1ff5284c887d182d32bfb6477c612",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e5e6\",\"comment\":\"Advance the passed pawn, disrupting Black\u2019s center and opening tactical threats.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 524,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 547,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1071
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.083542108535767,
+  "request_id": "req_45647eafa347484a94d5909aaacac188",
+  "text": "{\"move\":\"e5e6\",\"comment\":\"Advance the passed pawn, disrupting Black\u2019s center and opening tactical threats.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "e6",
+    "move": "e5e6",
+    "comment": "Advance the passed pawn, disrupting Black\u2019s center and opening tactical threats."
+  },
+  "usage": {
+    "input_tokens": 524,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 547,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1071
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0007874",
+  "input_count_delta": 0
+}

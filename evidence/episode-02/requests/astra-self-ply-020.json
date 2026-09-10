@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-020",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bq1rk1/2p1bppp/p1n5/1p1nN3/8/1BP5/PP1P1PPP/RNBQR1K1 b - - 0 10\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\np . n . . . . .\n. p . n N . . .\n. . . . . . . .\n. B P . . . . .\nP P . P . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6a5, c6a7, c6b4, c6b8, c6d4, c6e5, c8b7, c8d7, c8e6, c8f5, c8g4, c8h3, d5b4, d5b6, d5c3, d5e3, d5f4, d5f6, d8d6, d8d7, d8e8, e7a3, e7b4, e7c5, e7d6, e7f6, e7g5, e7h4, f7f5, f7f6, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "c9f04569ce10e79176c513d5a49d64b1f6d505f7b3dafa9c8010003213f6133b",
+  "fen": "r1bq1rk1/2p1bppp/p1n5/1p1nN3/8/1BP5/PP1P1PPP/RNBQR1K1 b - - 0 10",
+  "preflight": {
+    "input_tokens": 555,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_46990f72785b43568ec3c75a76ca2aeb"
+  },
+  "reserved_usd": "0.1093375",
+  "raw": {
+    "id": "resp_01aea3696a185f62016aa1f9ba4a5487d1b6bfe700c586f893",
+    "object": "response",
+    "created_at": 1789000122,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000125,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01aea3696a185f62016aa1f9bc169887d19a914605caf47cd9",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofm-HU_6sNBGXBdb63Zbsm1QjO4A3ABT6Ia7gag414I3JA2VfNJRgzpemy2LrAj-n9wtww_mKpGdpbZc4Gp_9FjZBq9gYvFob2MjokzD3xaF4pmeFRGivSzl4MHoecQaUZFoTHb8IEBDP_rqNmYl3x13JIMGnBSZHJYZBQZ6_DwTKXg8aDb9tItIwQrKg-fI0OZ5HQ4791I1bm8h6Gm60WEw93M3Qhw3ZKWFrzeU5lsDTuReGL5cEtMYVGmAsI7k_jH4ttD4KEhknxW45Qu3vIrJ5F404YxR8kxqNcYUBC1KdzYs2HCQND5GskzKi0toPwWXCIVlr2dMyreYN0NxP7bxX5RuXnf_5PC6RFceR4xar1vJYIs71kGpDuSNvwH2UuzCAmo3-AzODDBxkHWcyFRmIWubOxe173UMywc-ce4WlzszoODxhDdFnHgOW-eK5kEOcZ7iW2l-HlxqY-fgfEzcNvxhZdRrfEeY7ynqGaCkGc6IX66oPp1-2QAaL7CkwL_pfjP-k790IPsUyo3cEQPfu_4oM4dGLhLAxHZo2F0n4zdZJ08GTbBK9pnoTvUCXYHeb42ukc2SW38Bm75jCTbP4ixUORTRQxjNkRhn5dviG8jVDEvv6NYx6o-hbj8ugI0ngJ9nAT0C2bDCpyYRvNRwByWKHUMqgh2VRbNftH_H7gsWtB07F7Hsw_AWLX9f5eO8-hvMuD2OIzJvT1adZaujIkyrkZQaTZj_LNyPI03nbFceJPX6_apWdciK1QVD8g7p-LipA3F93gcxt8xvVhP-qA-Gg7JlyIloZ6_Mn7-Sr_5VO2STYE8XDQV8JgrAC8pz-seMrRTgDhlzpuIrgR7cJENNtbuR-7fcwg9zZDBLf_CjwGjxkhivqb4yFoWpvaM03rBicqZ5CmmhRXQqdPkkSy3CbnffIH2xxDRpZSjEphK-JhPOsESv7lvftGSCpuxfKwBOMbwOfpIvg_FdTIRbRs24iOTRTh0lW7dU32TlnTzmz1lKwZdiTS_WURtMe7nTkqGwr1LX35wmsti5643osdbxy6gdT9qeh3ORRoq5KWKegzVhkpVzmBUgAnt1jEpeeFHVkgrzXQxdoVCn3G3DL1kgMdoaI1cVYgThFZHzvJ-7CP62NU1lW8cuB_kkhLaMSUGOv9f1XAz4YIxOOwN84BEFjGBlCeL86s3p_8Ykl2foMifXAqp5pQOoHAFKgHUO3mzeGmjiGGfBWG8e9oC0XLz36Tia6cQ9fYPlVBxGsMaMBVXPtSmWstSAF6VifFjy",
+        "summary": []
+      },
+      {
+        "id": "msg_01aea3696a185f62016aa1f9bd21bc87d1b7eca8b67109e1ec",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c6e5\",\"comment\":\"Exchange knights, preparing c6 to reinforce the central knight.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 555,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 58,
+      "output_tokens_details": {
+        "reasoning_tokens": 29
+      },
+      "total_tokens": 613
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.9597270488739014,
+  "request_id": "req_67702981c7c648499c05745bc6be6c88",
+  "text": "{\"move\":\"c6e5\",\"comment\":\"Exchange knights, preparing c6 to reinforce the central knight.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nxe5",
+    "move": "c6e5",
+    "comment": "Exchange knights, preparing c6 to reinforce the central knight."
+  },
+  "usage": {
+    "input_tokens": 555,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 58,
+    "output_tokens_details": {
+      "reasoning_tokens": 29
+    },
+    "total_tokens": 613
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0098375",
+  "input_count_delta": 0
+}

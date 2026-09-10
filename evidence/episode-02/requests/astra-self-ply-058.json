@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-058",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 4R3/4Qpkp/p1p3p1/1p3r2/3P4/2P2NP1/P5KP/8 b - - 2 29\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . R . . .\n. . . . Q p k p\np . p . . . p .\n. p . . . r . .\n. . . P . . . .\n. . P . . N P .\nP . . . . . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3 Rf5 Qe7\nLegal UCI moves (alphabetical, unranked): a6a5, b5b4, c6c5, f5c5, f5d5, f5e5, f5f3, f5f4, f5f6, f5g5, f5h5, g6g5, g7h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "6dda7de0e081a44e4a97f63bbc0239526ea4fa3f963ea8e9f16712d9b981a352",
+  "fen": "4R3/4Qpkp/p1p3p1/1p3r2/3P4/2P2NP1/P5KP/8 b - - 2 29",
+  "preflight": {
+    "input_tokens": 524,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_e85215d6c59144448de9a5b3e82d4b7d"
+  },
+  "reserved_usd": "0.10895",
+  "raw": {
+    "id": "resp_0e0e992f4576da67016aa1fc0bbd8c87d1a99d7f3c7ce99375",
+    "object": "response",
+    "created_at": 1789000715,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000733,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0e0e992f4576da67016aa1fc0cb3b887d1af04a6c938de5fbb",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofwdvP07v2LYu_CZ5s2p5UEULhWvf0uNlMjG1pS5hQqu70U9Hm1OB2lXaID5i1AsiMSsKBfOEoMzj3zuzmWxmqqQXB7ZnET1jkvlZqZAmRah1uN9hcNxbUni5aIEMFLM6VapBOwRGfjQMyhTcO7ccEiTGaGZUrCFCTdhY9iozDUvbjjD9QbnaCr_FJGRFjVMAETICg1Kws17-KB5n3_stVecgOvvvhsZR-SnlPPaBPMTJIWQ-3Jxk7ZhqgED8u9PpkJUaypUfESEPKuWmri9KVDSgaiteNmVBP8xmOxHH2Jt_D4L5w0x2o7Cz0S0l43suhNUIeXWIq5abr8-jTpCHefkEJO90XtfSQN9Is7x6KddBHQCBmau5TvH7YELwgMXy-3ZoclEacuKyoJEGCbgDjWk7kMkOGLcPj9NLup32h-seRq7m6yPmlOoWMvZ4For8xm9FeuVwH1aW16SPILYlkL27bIfP4TwTEewANMZ2FJfxKfvoP_d6cvYLnf76G-zW4MjRnS6cT0NheZgcrLlfpJ37OV_pfm35jP5S4BnqyoeWfQcV7THZkerUffKji39khro0dng9JWhpfy5V55tZE-DTlsjTiB51iihDi8GWLwsYmeVeBYvoVL4My0STQJ2uvMQkaNC65y_QM-_ClBohWUUFp_loTqilpZ-7UQj5mTRiV80EXb0ZuslAowIxbt8d-zDFwMV05o_hIS_KI1RQUSXgRBvuoxoVnoaTDtLPwM7U5taPFsaSK-BvmJEHB13dJfpi-BUOEji1qCh_fF7R9xycNuPXWZPUtVKQynCQGjFR1BZfgWYbHAEYVuPXTohZsLIHQTgqXuyj1_VvNsfk7XpKG_ehoI4Sthc2Y-rsQ8EIeEpMIf-gxEpnwlslKJfhG_HlDWX3RDoUxBdhqjY0CPljxtcrLP017k452TB8lt0zKfWwkl1dL4ocleSXM7RPFtvZyOtyempB-AXHHnLx6z6HMVrmt4Iedu-mFg-UQI8Nkv93ue0Yv9Ab3mevEcBd3ep7U19c5SWUZ6a6wkq_1ngDlIg6O23WiD7a46xG27wep5FHdx9gOr-O5eBkouGKrmEdk44KoR87OQ8TralVJUzqgguoMu_rPoUr5UWXYSUyZTj8nzcOfLvxJgehihhw9VwIaw5XyVKB9rqgVepf674CldhbGTz-tM8pI0aGh1gMUwKaorQVFEGAEPFeK_FxxvTgqtj_RuhJPMlH1l6hwpu0reIaE5akaE_sAMhMHoeQy7ODxQUtY5Gs-emNIenOQADVKeIXVMu9fO_y8xxsLZgoRG5_Vrfi_xEwDluRC_F6jWYIDG4cSuYnkolx1dJwfz-XsrG6G9X_ImrX5Qjw3ISgxA_6qi27KwMXznsSRv_8qqBZS4OBlR58jfGjm-qJzyXv6_HlH3t-UjKTWfa7f_dJ7R1AsnSA79hHSQAgS2dnFLU5zCUbULC2iqWqMJXhLMFs-tzNakL4AaR0_xo3EdPplcuJPAq2uokYdkOX5nhTkaRAHMqKZcBBYj_zMZSP4usxt-Ocg_zlu-OxxdXEEikXQDSn1gU0slyPPUV6WWM6MSej4zj_N9q5f7fiEwmwqYtZNtpxo3DXpMv1EykRR8K9UN5LWSIFECzLvRXhmRTQceZQeg4nHVlxZmO9HbEEJ1sWcEp3tjeirl21o_1CEIeQRRs8xWD5N7MYcCXLbIkrLknPGQxOJOHmyY-0mJ5euLd8ck_v52iT8na97iK14nflbq53HtokpMPpN73cIdPq26kqNIonpBLx-vGnrs1o5zuNao_C8bgHNrAV7ceTJ3K2afoXzpqx32M3YZIDvoazcFzjkBYYeoZKkp7b7Rf6icdFoF8ZwfYaGxbtx5UEYoWZL_SxO4eKXyAGmCKrkFUSMhVCF-M9mD5hMjRyzxt8sbCoVYMEpIhTdZA3vEfRVqnBba-3c81tVFNi7VJ7djRKCxpv2cYy66KYEG4d_2uJx0JZb47aBxyFWdvZkxZ8hBkQS5MAzuD4AqOOGRxVRpVC9c4_DvdaWZps53U9Fc8TEwb8UnOlduH9_Ee1zOS8Uztnd6c5rfI6SYHxbMYHXOBjvvL_xCkMPyWuP0eQagCvaXk_YWHOhMALPjttjDTsX44-B62dMMjOJWBoTpzX6a2X95zmfkeAUpop2kGL7w-3Cnbpv3fh_3DfKkQQk-9v4ESlLqsCkP51SeYeNM3DaQNhaQuFF-DOhY7AsgGGgxmXjWb40I9jUekEYwnuxgdR3EQY7LIIicpFRFix-5ZrMw3RhCUYcRuOD55a6jDmqAIlOzzHw1nWXEhsQQg5GQkX1I7QFSO8JO3BRXfyJPHqG-rGczVs0b2ATCre7aaMdFvWkI5b1PrqhAa_No6cWOYTOSrOomXWnLJ84-HFvHVqvIP6yqhAFE5ZVVQibT7xGa441jTiSA1EZ-f0K5YFE4BrmSixtMKo9CiUnCotSsPepRKmRt04SwwbJVW6k9xSuDZIBVQ4vl56VmLc6_kcuNSyRGCPJ5helCit5qtslrIUWEhu0qPdfBHnR1BKrYhQyCO2BcuYzZExxDxSRXZG6qdgfQwxU8ZHQTADRxcMz9R3YrB4nMjFgHNLze2SZudFhgPqq8WmoPo6CCN9qjmqHiO5ZIm03-Sz_fiLbkCLgTRvSlx4SyvMo9_1QZ3j9nmSn6MhfUCokWkoAmdWE7ivGDvZrsf1QUfJsIpxx3A6bHAexRJwjsy9mWDE5rdtt9aHO6Q8aoWg1JpMSMymRrCDEIxT-8nsP7pxoXXyypp2rN6vnegab1HNL9pqcoS56G4mMRqukP5OhF0CBp9YaHEjVz5xNml_KysLWiPfqq7fjlE0RU4kCgd0uiMztMmovLD_I3ahJGAq1pVlONQSwJqhgowg0zipfmAfLzhI8P1QhtNjhw_rDQ0BWpzypq3jQ7ziGJdDyU1Oa4WpCdhZW7dAHG220oXcjwAw_A4TphQlI6FZjLtMWSIuWD6mywV0yGGUDkSYSjZWHzSxLIdbK43C4_lH9Rqoay9IyycOgRpHs2H5dCGeTfTWm2XmbMWGcPqfdRv7ZAKDClezg_XgYErERfpr3PJQr1paxpcUAZo9us2-OCTQ4k=",
+        "summary": []
+      },
+      {
+        "id": "msg_0e0e992f4576da67016aa1fc1c6dd887d1bf6de9e2dc052810",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g7h6\",\"comment\":\"Escape the mating net before White plays Qf8.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 524,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 528,
+      "output_tokens_details": {
+        "reasoning_tokens": 500
+      },
+      "total_tokens": 1052
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 17.567688941955566,
+  "request_id": "req_3c15a8607a0f44948bbebfcaaf1b02f5",
+  "text": "{\"move\":\"g7h6\",\"comment\":\"Escape the mating net before White plays Qf8.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kh6",
+    "move": "g7h6",
+    "comment": "Escape the mating net before White plays Qf8."
+  },
+  "usage": {
+    "input_tokens": 524,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 528,
+    "output_tokens_details": {
+      "reasoning_tokens": 500
+    },
+    "total_tokens": 1052
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.03295",
+  "input_count_delta": 0
+}

@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-057",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 5rk1/2p2p2/pp4pQ/4pq2/8/8/PPP2KPP/3r4 w - - 0 29\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . r k .\n. . p . . p . .\np p . . . . p Q\n. . . . p q . .\n. . . . . . . .\n. . . . . . . .\nP P P . . K P P\n. . . r . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7 Bb3 Qg5 f4 Nxf4 Rxf4 Qxf4 Nd5 Qg5 Ne7+ Qxe7 Qd5 Rab8 Qh5 Be6 Rd3 Rbd8 Rg3 b6 Qh6 g6 Rxg6+ hxg6 Bxe6 Qf6 e5 dxe5 Bf5 Rd1+ Kf2 Qxf5+\nLegal UCI moves (alphabetical, unranked): f2e2, f2e3, f2g3, h6f4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "0bb38b87e936d90d5fca9570b2b6e22e193b5e7588120b8cba5df91d474eb423",
+  "fen": "5rk1/2p2p2/pp4pQ/4pq2/8/8/PPP2KPP/3r4 w - - 0 29",
+  "preflight": {
+    "input_tokens": 464,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_6531ec1f8e82421483a96a40f3e05809"
+  },
+  "reserved_usd": "0.1082",
+  "raw": {
+    "id": "resp_021329c4ee6a654d016aa1f79ce1ec87d18b3e3f8c7125f941",
+    "object": "response",
+    "created_at": 1788999580,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999599,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_021329c4ee6a654d016aa1f79dd89887d1b71b92f7ade910b7",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofev5Z1a6aU1cuGfYavmAH7u1PjhmX3eMhINLXvq4hAYhTRMPfLo0f2-KljWX4jYeZA6BHgyin7reqXJIkk9Wl9vWYcXWqAyKQdkVSd_C89OtIGesnCf0nIUARM7lfdLGZFl2v56JuaGlrLdHgarzfl3OHEzQc393wy2TE2xg8lPz9gz-58_R1QIorstD7_gjJ7bqkb14X0wnKLHYNAr9mY1KnVBxeTwgFPdW9kICF3lF25HKcGqnKYV2dYyCpYJAHEiekYA_-x3aVVgDVQIA3erHg2LthjC6NVkePpB4I-Al-7L5WhM_WK0w6nkdma3D2pIi9Y77FhKjk-tI0AU4eMk-D64uofq5ho6F9BS4nrCwRj0bB-zK5rE5bXIi4Gjv3etMbFdTALKWW-wBxUjjkAB4HsMgnz_0C0-Ml1gtchPDW-aFAyNr5edYJmgDt-xoBF8y80i4XEWG_awqkTCA5f1dx_2Z70cef1KGQ4qP473h7_IrfkuA0doSVxkshIRQTiOPF0FHWz1hw8_H7OMEipmsjHltAxS-cUIX1UkrYun9FAqsTy0mA07DXMpfAJ5Lv1QlV2GIz4OyGKwZY_84RLjpN1V2QTjdJr3dVJm30RTheWp3hGKvaZYHiYQkanziaIYJ_4vza4pRKxzt5Up-DHkMq8c2duUnZOf54MsI1UvAMjS2L7pgTvs3bqWq3gnu9qDj6E8Smpht-wQHdz1FsmIRFiIhl7BfJrXfxyS3ezmOSheA42sNyAh_PqwWmY7p7IDlb7gpgX1VOhoiP0Esg9WhFUwTGPNsCA4P8S-owaJXGwialtDWU3LnSY-8HhLdpYxAnnSp_8lrV8ZsRrGk_rrtK5GrbvJFzqzeMI7kWtT86C-19764L-Fj41sML392yiO8OjKsV4P2S83znoXAA1Xhigz-He4xFtpD6Ic_rt3xBLRsheIGQwcDJFnoLbc5PMrOBaQTb0Ln4UiMnEmlnQGtpNdemDK62tBl5wC4PsLVmokTQR1gjSLE03HrlcEuaHe6S4YsGmIdgAlQPbAomGM4Byh5Q45Kaw5EWWDfRBu3Ki09ETnhlG44yihpYNQnms-6ejCQo0RSOf2t3xnYEvb49q9fQEJLkFEIdFkZq4Ys39Gs98nHb9J0sAdME7W3inU-j53naBuDQwldtEe2h9cgHZrzEFztV-FsDLY7FPHnLvXilj0irZJMYjJ1YoSOEqm3dTKwsm7nH7b6xLmPe1ydxprbDpTRiHElHtE-IXQJYegcWRT0TeYQAhw8tNl85hBxCTHg0CCqdBaR8X4WOXu2PCiD2DQyuIsp3WI9YziFJ0PT4ypuBa4zdm0Yx93-bOC32V8MekF-njh9JyU775eHUSl2iHfitUDs3O2rUPw3AlNm2rVdL3UobGAprQ-xDhEAc4laVNJeK8PU01IE7bjgzG5-q7pVjKzv9p5WZD8tUIGyKX37ijaADuwByM6FX7Ai8I_m3LqN6M0ccQtIgKC02yTFftWhud_UpLgGGMUMTkSDxfo83QKPtsIDid8PRTf9Us5IxW7MLXLFYMfOvOlgs-HEK3OqVsVL4mtA26RM2OCHm_yC3yKZVizW8Yr-9LKI8obyLx_xwXqbFm5K592auy-MrWshyGazx6VFW1W4aOFhgKCbFN-h22bJ5E8FanjaATMhL_WDVJ0xD_zkLXdD3b0ZFISCnCVQqCTIGd7vD3PY3UiOXBvtsaj1xfiwUFLjhJbL5WNp0swDlWUwfucaFtJcqu9JggxDrKRMOBiYeZ5wsFZdG5z3TLlzK3D9aQOLgLwY_Hp9mbEzlslpGUSdKI5EoqsSxcc_T9-RI5Y9KbswCy7T_WFQcUznMD2sjE8h82-bf6gS-GqG4uwagcFkzksJ9HcshXp5qbq2B3UE4NRPu-WNIGXpPGOC7-s0UU46M4S6YssdRD41houC4lMOz78oFcNv9pbjBFE2i46830g2x3XozG8zGq5tUaKs0O67ahjmbhUcFmZFXmlFzDt5Y6LQkS3S7p4gpXZCrs_uqiuL7Ofixf0m8cR3_5i4FfAKP8n33vqeX6qtb--viEbTML__mHQGdIIspkXL8_ltW_LxDGlrw_m38pCFBk_AQ5S2gYpDkET_F6j3aEH1f2TEdgvlXyU8wqXwY6gsyz2ZqbuuyQ0Aa0UmUzl-N83W4ITMW7ofs3jE4u2sufiHQGhFvMUVxo_035Imt0FKi-6zBju8frPjYH-cm4AKhq7TyXRSqUoeY_oYOQOB59TLDr3RqDB1z1s5WHYN9EFr7fP4sUaJOmV5t9C661jCibXzWuVI0AUIT9OIu8e_IUX_D84_9QQNA-Ud5HqDKbqHExIrvegPbvX62QDZVaF8Rjd_5MwktDWei15roAOkjDPMnNO1U6chfwD-Xe4BfW21ANO6R7udJySoXYpHxfNGbbQ-ifZhbFVxmlFrjlBwIU3UnjtA7DU5BF9j__AiNkzu2BU97mYk7l1Z30Ccd-nz8QmjymD8Wuua9BKvdWVbubm9B-fRg==",
+        "summary": []
+      },
+      {
+        "id": "msg_021329c4ee6a654d016aa1f7adacb087d18d895c623b8bc7e8",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f2g3\",\"comment\":\"Escape check while keeping the king near the kingside pawns.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 464,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 391,
+      "output_tokens_details": {
+        "reasoning_tokens": 361
+      },
+      "total_tokens": 855
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 18.59587597846985,
+  "request_id": "req_deab74bdd04c485abe991ea709d969c6",
+  "text": "{\"move\":\"f2g3\",\"comment\":\"Escape check while keeping the king near the kingside pawns.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kg3",
+    "move": "f2g3",
+    "comment": "Escape check while keeping the king near the kingside pawns."
+  },
+  "usage": {
+    "input_tokens": 464,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 391,
+    "output_tokens_details": {
+      "reasoning_tokens": 361
+    },
+    "total_tokens": 855
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.02535",
+  "input_count_delta": 0
+}

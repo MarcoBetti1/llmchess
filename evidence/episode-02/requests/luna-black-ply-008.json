@@ -1,0 +1,151 @@
+{
+  "key": "luna-black-ply-008",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bqkbnr/pp1p1ppp/2B1p3/2p5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b n r\np p . p . p p p\n. . B . p . . .\n. . p . . . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 Nc6 Bb5 e6 Bxc6\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, a8b8, b7b5, b7b6, b7c6, c5c4, d7c6, d8a5, d8b6, d8c7, d8e7, d8f6, d8g5, d8h4, e6e5, e8e7, f7f5, f7f6, f8d6, f8e7, g7g5, g7g6, g8e7, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "3668ebb0e662ac3120318d8d1bcadaa4437f3eb3ed87215c600e9ca9ddd3b3bc",
+  "fen": "r1bqkbnr/pp1p1ppp/2B1p3/2p5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4",
+  "preflight": {
+    "input_tokens": 473,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_890e895928ad4347b9651f68f6e49578"
+  },
+  "reserved_usd": "0.00257585",
+  "raw": {
+    "id": "resp_077c7c98974cd75b016aa1ff96265887d1a3272e5caf0b35be",
+    "object": "response",
+    "created_at": 1789001622,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001623,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_077c7c98974cd75b016aa1ff96be9887d19d99915b772c9395",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof-X1FrH5pkoT8K7GNflQ-oWDyWGWe8KGJckzbQHzZu0Tq2qGzF0THESc0nN2-OJ7P8JzM03DBqI6j7vHAcWk5NqDChAXA68H403Kd6dKBdtrD94v0xIS-_NWqhTQuzjgIN9a1RUAmN2D_NyDbmeGYd7uxOAiF4I2JDbYybTFY-gOysukzeXVWtZ73tC4p2q4UNwB5JfielV6se0T3USU9OFldUtbzItHe2_B7IJi-6pghaDSXOGubuSc0etq7B9_ow3oHesJRI9vqxd-reJU9tIG4p3rp-V4ZI-BgUrI552cRqXTML59GzFo2hJMoZ-_i83F404fjt4XB5xO4JwU9RJdTKTIz0j13rbAaFIUHs29RmAYZMc9NbZVT5iXQ-b5pfQgLR30XIaRSsRftD5Dac4L_gGxoCnW36_jHSqYd-PwmFTksQHPEi-Q5Y4baG6Xi8UHvTQBNTU7b9c3SB3bqOuVRa0eUtco63fY1TNiWRd4ywcFr7HajfVhnuSexn1IBrlGlvg-ym9cmAeKbOPqQZaUG6kS4escQsI1wbN72O8ym3-9RfWWD8rDAMZzVxCJacKVO-uHWef-iTCdg1V9T5-4_vRXpt7xk9JGHtJkGwp2oym7VCIhINeywwzj4U1rWjNzVUKAFQ0tUUY2d1nHz4yTAXNtXs0GCC5Z0YFFvSgX9ulsu97rWdetY0sDPtbveXXQM2BsmIWxZvA4MGejmVasuu1R32mb2t1vAxL-BNqTFROkRGg9xspDqgT93gJzQ6EuLuiepz1z2UosupRCqVqbdc4_zhntCe_i2gaMhydZ9ddKHXg-ZXfFhbQDeJzBD7-7R_Dx4uVoEb-Vg6j31Q64Lm82f4Qtg3BlCB2ns5OcHcyyoGcfakZvCZDeFjlWe_Wyggem-UogpGLH8bJGVP-1k4D20P3GbGQXW739JSo5lClvU0ipHz8_uOZJsP3eho3b8PrAJywFQlQtCZlxG6scSTATLBKD4iZhXk0S6AY2zO6Y9OhCUB1KNc45gFJifU-sGIPCvAtdUxif8Gi6SB-4I_QsXbX5IHb0yJQILFqayclMJ2BIm4uoh0R6H1wA1yi2V-OXWtXKzP1H2X7j64igeAtTnWg8FmqF0HrPeA7p2lFDrfotxfu_eO3xQmN7WKw20KX_qZnqGR-wxNUEA91k0f5KvBpVj0B0aeVxtgIvySb02PdQdXKFvZ8u3AcyXJcl9UJ2Wq0Vsha4xLQCn-Lep46zuZGGkwvHnONQTrit2hmDZuKZlnUDIJQ2BezWG8oX6pG00EuVHalm8081zDR_pIe4HpCo6BJt3NWx7fV4mHGv1RJ9bntzs1BFJoRqxE0g8icPyJH2_7QPRLrdV5gYsY0Se9PoIU5z8uLNvbbeqDMksTbBT13Y7vfQu8QF3v_LnkIGPaQ6Z3wql5_xolpvUbs67YoGDqxo75wxSBhUsJfAogEZNZPnbEzLLvqLUoEr1pnY9vs_qLHIymerMqKMg7l58r-aXPsqj0zLC8RI8LnC9MSwXKiq07c3ejWk7_P",
+        "summary": []
+      },
+      {
+        "id": "msg_077c7c98974cd75b016aa1ff978ca487d1bac5ab422c0ad0b1",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d7c6\",\"comment\":\"Recapture the bishop and preserve central control.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 473,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 115,
+      "output_tokens_details": {
+        "reasoning_tokens": 89
+      },
+      "total_tokens": 588
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 1.9097521305084229,
+  "request_id": "req_7ff92702d7564f22959575d04016eca3",
+  "text": "{\"move\":\"d7c6\",\"comment\":\"Recapture the bishop and preserve central control.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "dxc6",
+    "move": "d7c6",
+    "comment": "Recapture the bishop and preserve central control."
+  },
+  "usage": {
+    "input_tokens": 473,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 115,
+    "output_tokens_details": {
+      "reasoning_tokens": 89
+    },
+    "total_tokens": 588
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00025625",
+  "input_count_delta": 0
+}

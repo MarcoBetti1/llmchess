@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-028",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP3P1/PP3P1P/RNBQR1K1 b - - 0 14\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . r k .\n. . . . . p p p\np . p b . . . .\n. p . n . . . .\n. . . P . . . q\n. B P . . . P .\nP P . . . P . P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6c5, c8b7, c8d7, c8e6, c8f5, c8g4, c8h3, d5b4, d5b6, d5c3, d5c7, d5e3, d5e7, d5f4, d5f6, d6a3, d6b4, d6b8, d6c5, d6c7, d6e5, d6e7, d6f4, d6g3, f7f5, f7f6, f8d8, f8e8, g7g5, g7g6, g8h8, h4d4, h4d8, h4e4, h4e7, h4f4, h4f6, h4g3, h4g4, h4g5, h4h2, h4h3, h4h5, h4h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "78ea43e9fb6d758ea859a952eb161e39e33edf49d7658829d6074e9ecee9376e",
+  "fen": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP3P1/PP3P1P/RNBQR1K1 b - - 0 14",
+  "preflight": {
+    "input_tokens": 625,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_688e81e3671b46518dce8fae8202df40"
+  },
+  "reserved_usd": "0.1102125",
+  "raw": {
+    "id": "resp_07ce00c452c66417016aa1f9f10dcc87d1b06d179c381ed2bf",
+    "object": "response",
+    "created_at": 1789000177,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000183,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07ce00c452c66417016aa1f9f34bb887d1982e711e32ceb3b6",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofn3I--YG2dzrUuuqrk6H8Vqn0K8tg50Q5LN2GMwslcgra0mYtmwZ3OlZBhRkowLGk2Hv7t-FQd1rBjt9dz0wd0nrSXn7p3p85XKgnud0mLtnvf0jEYYhI1b8efRlrG69IV7GwSE2BroBSR_9K8zX24K89ltD9FAdsaZpgeDr7thpu6UNUAM03gtfstjtb3UsZlQH-th7cOflm5z3xJiI79DTM42Y1Wm4s0KXUGJnL5IrFnKpP7vulnunOJkFjEdwMKkxzZ2XBu6xgbppLSRoUBjrYt2WC_2FfxwAgv5GsCpImc8V--iILmWjbwzKTQ6YUtvTtDFmRZzv-NqcWirrqk_g4mN4qt2Zbv8ZHmvq-nfgvix2c6Mlfye-iRKMcT0vTzfN2h_3wAzXvFrZX2p6Q8-Yct_TL3uJQItn7u9mh2R6ivpkH6HZ2kHetJpFKCfoHB95mBc4d-jcGaTQ7WLtvOhKWYrHkGLYaGASr-U8EqQQ3w_CChrpQXoOoJL45iXDZePD-vx5aZZxdw77VFe7nGjy9YsMXNaBL4pJ9m8fzH6XzdDQN57RCGUHQQpELtPqNdeJ8HQOOPEe1MR0skK_PlKQGLb1i0m5nRm4b2quKyoD05FgNQG3OwrEXUrs9RlpniS3oCHdkeFfL-qeRrO8K_e8p_-9A7yWI6exG5JhUi_eScCW8r8mK9tsgVJUHMvUcO_pk1PNm2L4ey7mbDejylAazP2GHHk9BtEdSrn93H7cqc8OaD0ZmjfqNpz3SL-JLUmYlb5gigIXbViW_5iaFApfsp2HwDLTBtrLqQp3xVFRQx6Vc4PeC2shNwqt4TNh6N7G84uAYnckCAyaLLA74V6vCWlPTKQLdElo6N8Tp2g_-uOd_YUpFs-tEnw3M51ByGlEJhetXLyGONETSLSQeXcmsQXArn_iBtx9azeToV-l25CrMaDV83Xlqc1ddgjjijgNayoMkfACE3bj0Mb2CbDiMwWuEAkcUSvtYlTxdxjZlmxwkuWu8bgPSx7BgAgObwuu3ZJn_PONPgaNIZQDhzMAmFQ-O_zA1Wwlv6Lh2UX1ba9pgegVftPxszmvtp-XdiaQAeuSmIOxpH2mPaiqyyU25wyhN1EX3Ph3T_7y8vf8fZRAj7BBzF7lw9ULmP9Z_I6abxs-sz39hd7SkQcmqaAiTld2Q5kcmuITrtcF8nkZRVV3HMS8h1ouwWecZA0HplegabdVAOU3YhojEaaRmziyX5aMhGb09nBFc_uz6g18E_s7j9swr-E81owatKI-XAPW09T56bRi4WPVP5i5buNrg5iHkE0JrZ1wGPmrd8Y9Niu30yl7HL7Mgh-Igr-s6qe8CfY-3_nwwt5SYMc6sfgZEw4yypul5cwLgyre17hP8yHksnJRPXlo3zILpua7M_W0UfB1QtyAK3b1bsuQUO-Vffzo3Jnz-1dXpt5S42tu-ix8J_ZhjI1i18RBdw4SxnF",
+        "summary": []
+      },
+      {
+        "id": "msg_07ce00c452c66417016aa1f9f6859887d19609c4825d60a881",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"h4h3\",\"comment\":\"Maintain kingside pressure and prepare a dangerous bishop invasion on g4.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 625,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 104,
+      "output_tokens_details": {
+        "reasoning_tokens": 73
+      },
+      "total_tokens": 729
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.945336103439331,
+  "request_id": "req_4349332a350a4787afd02dff2490907a",
+  "text": "{\"move\":\"h4h3\",\"comment\":\"Maintain kingside pressure and prepare a dangerous bishop invasion on g4.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qh3",
+    "move": "h4h3",
+    "comment": "Maintain kingside pressure and prepare a dangerous bishop invasion on g4."
+  },
+  "usage": {
+    "input_tokens": 625,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 104,
+    "output_tokens_details": {
+      "reasoning_tokens": 73
+    },
+    "total_tokens": 729
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0130125",
+  "input_count_delta": 0
+}

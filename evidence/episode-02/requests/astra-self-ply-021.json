@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-021",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bq1rk1/2p1bppp/p7/1p1nn3/8/1BP5/PP1P1PPP/RNBQR1K1 w - - 0 11\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\np . . . . . . .\n. p . n n . . .\n. . . . . . . .\n. B P . . . . .\nP P . P . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b3a4, b3c2, b3c4, b3d5, c3c4, d1c2, d1e2, d1f3, d1g4, d1h5, d2d3, d2d4, e1e2, e1e3, e1e4, e1e5, e1f1, f2f3, f2f4, g1f1, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "e5c9aabeb7fc8cb8e54f1671f2c3d854cc9c2777de10456d03a96345cfac6a25",
+  "fen": "r1bq1rk1/2p1bppp/p7/1p1nn3/8/1BP5/PP1P1PPP/RNBQR1K1 w - - 0 11",
+  "preflight": {
+    "input_tokens": 495,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_c5880c3780e548a384b0dcc577fe2807"
+  },
+  "reserved_usd": "0.1085875",
+  "raw": {
+    "id": "resp_01c71ff39b273557016aa1f9be691c87d19cb8438d3bd65246",
+    "object": "response",
+    "created_at": 1789000126,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000132,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01c71ff39b273557016aa1f9bfe3f487d1806321e248f93bbb",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofnER42RRVU8ulT3T_69_4aEfGeCe67FRDP48ioNSw8JH8hCHDJQiwsX6bC9nRFabRiQk1TesiPBxlSX-hm-ZCqTEpf-BzvS_cbOixOy4cQoS3SJJRHJpdVRaybNeaThi6SmqSgnkGRekNFhiJryaGiIZv-ATg_KahvFkvqnq8BUt7VKjw7yeaRi4DwozArSab9SiScoioR85qmTLYjJvNABY85Qe_mS1hNG_rJZsSSRcpBtZ1_-oXgG0tz12EtIdUXIbowefDOGKFI1zN0OrebRhFiLEwyp5S3vazX_CH7D0K2gBdpXoTId_BQHP1RDKY45n7HDneKz48ZT9xoBiqpnvs5W-Xcx5U0gi1jYBxCY99AE3lrcIjQMPuE3VHRa2ZRsFeB264oNSBQY-Qnmvth_elouBhEBjkQky0TULwA3uJgXKONqlBxcxk6FJcXvknbR8zaID4KG6jT2HQD9tOFi51feh7ZC81jydZnUD3etgE5loQGjgu8bPVVTTqdhh0DDXe0o1fzEH3BRMqsDAdcFbZlmoOrymVrhxyB5mscjxPsxfbjAwu0qvFzp5A27NzcIkXAEku3D23-h0xmp3faIhD-6le5RaktJKD-A7jOghQGyKpVFldTZBzrNpngvlSqvjRe2Ime9emw5LUn7rOhczEzrojHrruD2-NM22jmONZ9TR7T8h1zOLuezJL25nHnhNWfQm5XV_jy4mABjUQdsjQFbnV5760eAmlpItrq0opuNEN9tqQ_L9Jfe8N_1UefLvwz9dx8ibJJWpQ2xqBJ1mFG9A-hHtI10DIFTBlrqkvn4bEEbP1MSp4DkgZgRFitFO0EQjSF7R1GuP7tvCooVHfM-glzX7EixKmZ75ET1mZ45TW2wvtX8GCFJYaMxwLZqIsSEt3Tyukn2BtNpBhIQrvBjyIT9eQ6DXxYld2gIWQy8sXjIZqWG8EN9yzv1-uY_gqCsso7Ha8WtZtT25XGfl2lV8mEXzICeRFsKv8hhWh2NMLcJ87ojo7ryq6s1tTn7Dv76JtZDxGUIXmfs1kYZv9F_kfCl2YpG6T9Z6inWXBKdlCxyTI3XYMAJsgHd4wXmSw__SdagoWqwMwdyrqIcxg8J8zvpuQ1f1Kkn4AkbkOqIAxjUY5r75yMzd4SX7DPA9rjmJJ-zZ_mad_rqPVB3Z1qEWEPAYzunNO59OVCsVeKsYMT3pMhnukp5gPi-GCHkhUk8uI04yojOqFl9imqY-YqgnXHauSKXc6Vz1-kzDp78XhPlfWtpfDXTyhq4txIHzYt4-Nrt9BOW3K1xR4GfTgbf4DiR4zZOs3Xy_LmXyAzmlnjI-VI49dlDQYFVJwrLlOWUT20fDFe-F2H9Vd-NR77yT-2oYPvkLrMFNMR6GeG2aEZH5kWi5y6BO_JL6i5_ipxqgzeO8QWqKR1jr2AjeuB0vm25CBeUtQVcUobszlBWjGH7tG1QRP0VVy49mwiD9OEPfaxscIb5ckLF4LjxLyLpVl-9BktsJko0xWfcwmK7v-CDvQWncew0RCYjMbPm",
+        "summary": []
+      },
+      {
+        "id": "msg_01c71ff39b273557016aa1f9c39e6487d1bf2ae83ac669ec3a",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e1e5\",\"comment\":\"Recapture the knight and maintain the extra pawn.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 495,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 104,
+      "output_tokens_details": {
+        "reasoning_tokens": 77
+      },
+      "total_tokens": 599
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.148221969604492,
+  "request_id": "req_c7b53399c374491294b6e2366ae4dc31",
+  "text": "{\"move\":\"e1e5\",\"comment\":\"Recapture the knight and maintain the extra pawn.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rxe5",
+    "move": "e1e5",
+    "comment": "Recapture the knight and maintain the extra pawn."
+  },
+  "usage": {
+    "input_tokens": 495,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 104,
+    "output_tokens_details": {
+      "reasoning_tokens": 77
+    },
+    "total_tokens": 599
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0113875",
+  "input_count_delta": 0
+}

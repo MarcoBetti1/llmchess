@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-029",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP3Pq/PP3P1P/RNBQR1K1 w - - 1 15\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . r k .\n. . . . . p p p\np . p b . . . .\n. p . n . . . .\n. . . P . . . .\n. B P . . . P q\nP P . . . P . P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b3a4, b3c2, b3c4, b3d5, c1d2, c1e3, c1f4, c1g5, c1h6, c3c4, d1c2, d1d2, d1d3, d1e2, d1f3, d1g4, d1h5, e1e2, e1e3, e1e4, e1e5, e1e6, e1e7, e1e8, e1f1, f2f3, f2f4, g1h1, g3g4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "09ebca5fe5f0c6a27387563ebd25f0695a0da3bcb33de4d12dc3f35f3ef72680",
+  "fen": "r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP3Pq/PP3P1P/RNBQR1K1 w - - 1 15",
+  "preflight": {
+    "input_tokens": 542,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_13e7e992d6d44cbca482de1fa22d540c"
+  },
+  "reserved_usd": "0.109175",
+  "raw": {
+    "id": "resp_0d40ace903f815e6016aa1f9f8a9c087d18a87ab82a77ece42",
+    "object": "response",
+    "created_at": 1789000184,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000199,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0d40ace903f815e6016aa1f9f9d26087d1b4b984f8922877e3",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofoI9P3yfUOcUyngKKyRc0ta8uMVtfaPephelOUGe5C9yJGf7XWjzPxb4rdfV0sB2ce9W0pX032v9wD5vzmUrhylJL1e1PqTiLRft3RjQKh0P_abGJX8yaUOHGZHtuhaDO29w_nDt7_rmHx18Lzq0LJjc0FkT9V4ptu0G3aJiGtOES4xOnLPDAYn5vROtayiqCcF5J9P_TotiAqmFUF0FQY9q9uDAk5bR10Nd9osRVEYIXOkUKlkESqhLShrrSVyK0l8XHKRUi_8C64TmU-0kCXrt7Z0VoYJWYNidWU5zVooOWswaxV7o29sHseGwL0geiACkM4UJ372F17bhySFoXEdDW9OK5QBCT1yPXDxFazLSwcCU6ZbcFniamnD7dU8GLPwvnymnaYi-k3XftoRtG5rmantSp4ql5LnPHd7g4GV1FUD6k1m3h51HRBCTvvrtsiGQnUSn5vZc8Cz6JUrD8FwH9ojZu25PafilsXA4_m1dSWDJ8asIqnhvRwSIH9afct5uJNe6JeegxzI3ipS-8GaB7QhRSFJP582Xx-wq3VZr5Ph8q5xSG3gPh_G86q_ipCXLp_tx_slg-guWDCequ2cuTDugj5aOWgfU5IsWb3N68dqx_x07C3sfj50pZMy-QHboFxPO1quoo4YbgCO_LrIgQu8veGyFOh4KtDjx4-piF-g1Sz90HSgcueg_5YZnNaiquyqNGUgaUnnVrodkXDxZZrIex-JtQZYL_BCAnisKqtFjN_Czd0_3xTcWNWDwsCNIZ_7Qze-BkRz_0vu9xkM2pf659U3KQOMw5bobFlP1wmblEoaUgGhtv6qcDbZiGmw1vwf0Ml3nHLj-j8GjwyXutayHzdqosxw-sNTIuMb9kg4E4O5OtXO9Ug5Pe6nuZAzlRzcvWGaaFD-JG_PXDUzxDAEWT1GmRn9aI02oyCVtv1qd8aYlKM_HMVvU2JEbN4Fpc2QtU2a3AEwaX7v2eNfRmom-QRN6P3crjbC9YqdJfaYdOK38VG6ToKz0qAwGdcHHgnVPSd9Ve-G67_aoYVjvnihVOU91rJgHqcvdVUgOnKi-6k2W2yUQvqYUdp7WVr6YjIh7GVVJF_5e1npAfsDb-VbQI3TkW4HzWc31rCrEXAkpMxrVQXEhsZPHXkDWqhF5neIWKji3mX4_9MPQ_R_dz2KrkQ06lsAo7GN6PgZEC8U5A9BVkg2B71wLj09ZXjNs9qeFr3WfxhZ3MX-9pBluplR4HZI6rdl2QKkga_-CDW31L_a29D-w2NNi6wxHhqR6Bh8iS8vb2Kyt56mLkm1JVyZMeEaTZX9vpB7pnK9ByFcyHbcsehTHtsvIXrXwW45BU6yozPPBzEp1eMt4naIMxDdu_4irqrkAHCaIKj4xM7FCMSUO_rSWc5Mc8Ll5aqwtldI3ATmXEhQ_yrqADauUeer3NOdTQqe8DgXAx1xuQsk0RCtm7erviiFA1tXISWSSBBg0Cy4vP62ot5PBl9AmOWg2KmyND7KraaEWI_I9f6IzoEmacJtuTSRMfIStvhNvtZrahLoYhGJTlBIsQj5u6GYeFxFFyo0DW-kfC64CQVIsQGAjNVRQS_xukFb0uDO5HDeqaoqJy8gGWTvBW5TDVhGzjVYXE2II9Ix2PfbFGpWqwD6oEWXt2B7SPF1B_bAfv0Iwq33rjhyR9INKcgaGDs2AFMf0qt6u82_IL-vq1TH1Z0GO5SSjNmJHY0i9woJ67tyJfhlRCZwv81QLRhQCFXaSCDVILN11f2gJZhahJhybx3gYwUEXrN2bt89JQ2ppB3CsT4kfDr1-UjtKAnPQ-tG9-P27TGfYup1sqlKOWoF1YxA5AzrLM_AEGqFUQDVn4dXpwH5VbrjmqYY8ox4YYZ8qu92N-PvJ4KuenkVa08K62ihRdO9U5svF8tXNHrOUv-lox5b9VKPc9g8WlsmrQ2EFOaWxDYVhaEU6vh9YcIHmXhe-SXMaRmaiy_iOpt_u29O5nV6v35eTppBXmla5EitU8JcHUiTx_-7nG_j9xaR9FKab8OqE_WGI1iRgZoy0c6H_w7wTO709YET4GD8MMnFqrcTTXywZKRQIA_5HbKNHZ1zdQp2WHEzlcReebi3a-75sOro4uSvewfw765jkcq3ShSQz7TBDR27ZUJQiQjD0zqQAkpmlVRcozhYk7ksbm2RRiFKAgqkf-YdauxA_j25og4xhQcpnodad0388DwpAyhRxodwH2AH87DU2POnfWZwD0fbmpqbw4cOfoSelpaCUhMdP9l5ytNXx6QAjPmV9rlPXwJUegFQDdXb4LAAszupZtHy3KfKl-5BVG_yq4j5Lajhjvj26geNOH0scJAzxHFymVy9HtI7NWaKekujtlXFJl4Xcvu6CaH4HWPz-pMUR4xUhlQOySkcLIn-90cuRP71LTr6g2HTDyJeSICuYEaFA64iTUaE7jZHV5o-mMKDpSRaOKyOuSXDI91XRtnHgELz_dlwm_wiqpOqcbE0",
+        "summary": []
+      },
+      {
+        "id": "msg_0d40ace903f815e6016aa1fa06a82087d1bab86208c93b03ff",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c1e3\",\"comment\":\"Develop the bishop, reinforce d4, and prepare queenside coordination.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 542,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 399,
+      "output_tokens_details": {
+        "reasoning_tokens": 368
+      },
+      "total_tokens": 941
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 15.966931104660034,
+  "request_id": "req_99067ba7d11747ba95e51c776447cdb4",
+  "text": "{\"move\":\"c1e3\",\"comment\":\"Develop the bishop, reinforce d4, and prepare queenside coordination.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Be3",
+    "move": "c1e3",
+    "comment": "Develop the bishop, reinforce d4, and prepare queenside coordination."
+  },
+  "usage": {
+    "input_tokens": 542,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 399,
+    "output_tokens_details": {
+      "reasoning_tokens": 368
+    },
+    "total_tokens": 941
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.026725",
+  "input_count_delta": 0
+}

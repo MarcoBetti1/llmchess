@@ -1,0 +1,151 @@
+{
+  "key": "luna-black-ply-018",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bk1bnr/pp3Npp/8/1Qpp4/8/8/PPPP1PPP/RNB1K2R b KQ - 0 9\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b k . b n r\np p . . . N p p\n. . . . . . . .\n. Q p p . . . .\n. . . . . . . .\n. . . . . . . .\nP P P P . P P P\nR N B . K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 Nc6 Bb5 e6 Bxc6 dxc6 Qe2 e5 Nxe5 Qd5 exd5 cxd5 Qb5+ Kd8 Nxf7+\nLegal UCI moves (alphabetical, unranked): d8c7, d8e7\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "4cb52fda9e6e3432dcb536ff72dda949a39bdf0f903ecdf7ef9c49c3118559de",
+  "fen": "r1bk1bnr/pp3Npp/8/1Qpp4/8/8/PPPP1PPP/RNB1K2R b KQ - 0 9",
+  "preflight": {
+    "input_tokens": 361,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_4d99003144c74ce9a1a1f7213083f5aa"
+  },
+  "reserved_usd": "0.00254785",
+  "raw": {
+    "id": "resp_0f00ef4d666ddcfb016aa1ffb0f76887d1ae1e7b9ccea7eb0e",
+    "object": "response",
+    "created_at": 1789001648,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001655,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0f00ef4d666ddcfb016aa1ffb1900c87d18522635562787e40",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof-3FGRUEWIsmZwZXqBHJmriVZaeJvvL_qaTcOsqjYNZmcg8dG1QO6JzBODqT8y8QJoFanyyO3FZIHNtdaY3fCaLOZO1GoUhd-5IztfdanE9FYTHAd2hrwcH0-31RDvM_eq6Xqf_KVetjDKmeGa5TZU3XeH59fhYw4wYkfmrc7e-egRvWuNuqz0e7e4svjIDE8J_evOqrPElOx_ZvAtWo_0QOQVZZ6mBZYibKcphlsa16DkLNld6I76lWZKHlFFZYYGa2bnzsBsTSP59goY5OuFNubOq2BJ6AYD9oHQsCASNQt1i3eKSvBHSXfKIYAEiSCm2SuPujx3TwOYJpSqCkG7g_0m90sTfyNk76NUS4gf0lKak3w6Iy1I96HortBIZKdbf5woLsWcVAK_Ue5vqrnYhw1POphjyvSRlMIfTwEgfBGg_WhCLQhGnhXyWMR9SY0YBVqoXzTgk7JmdG-CsfELDWSjM3I82PjgZzdvfUe4uqiEIpYxOt4QCDJ1_PJScTlF6bU0AbhCiluIWI-07mJX9TyX3L3R3VLb54rj5tsA4AxRRGmyqiv_CEnL4nfNtA-FcWTKLkcUyCE57dPnOZHbICBb-9gz9gFwt8D0gK-QNc37pxsyvJfhQ92LjvjMlUaDv4to4tP_F5zDVEW9-tpGqbPLson-62empenf0pN0TMa1e1lDJtZPO7setzzlQs2WpLX8YP2a4zR44A8oR92MroYJlxQqv1yiZFErr1TlRKz0jrjzlzfr2SC4h8tradOp2Rhioj1kher3phoBRwPVqGMgY5jCft2smxlF1QzxO-3Y1BwJSe5Yprf6_9rziBaagCDFDe-g8YgtP10Y9YOcxYoUv7lciVz9UuWFIcZbidRLkDYjJ7bMzojOtOPUxs7hlXlEFsNObOkZn3vePjxoEOaf916EXahPs-A2Ou07Ec5UwFgTsXmhgMUbJ-KbsCH0uFZYq8roCztEype-ANsVZvgB_sW0UwgW9xc36b25OW4J3S0JZktddSBMHSpkU18NF_W65MZB3AqYL-kUC9g5fge6vDs8eT5P6RWfiJkYFfokyWGUx9-KooyxDiJJeCZUXuh_Zppue7I64cJYaoiVYKPg5PdoIMJ5GZcRtemQ_UXHZW-uUFrVIZJ9TRey9-YeMnvwOAi2YlrbPljNxeKPMthW_pW_9Q92XCpE_7UeP-S5IdSnIXbcSRIj-M10mZSfifYASlYRqKn_6PxCSKVfVKvEzjpaM2mkgd9C0fgHQfFqyFnMn5WWtzC7st9TROaRSwH-kfOjD_7n3ync0L01Hol4WmRh8UY6uZXhZdI4I2GTAnfbwXJLvTXelXoW1bU1HawSQJlq7fKgczYPCFXc_Ski6uWcL8pQIEnrwxcXwf8E6oy7LJ7H34dgd8VgpmQ3JXAau2N5wdhXcspatZ4cMTeV_OWmK6tHe_9dK2lsOnC8a7S8SyGT6XEcoBQTPwEaPEWXp3Hh8478cggdqs72ZRnikd6LFLYTwGGcb8GzPvPm-OgcZCW7VDfbgisy6Vhfm0TLxTffs1xNnhZ3kJswYl8Vdx-GP8pweOy8ksuCJX4nyDIVWH_9Czd_25mwelHEbRmLsXZV8FEJcMPlUbpu3hjwzUDV0887UfYXDhIFjm8l3eOjP7VjarblPcnSjDw3Vai0uMmD4ORkH-ozUNg-3y9dDDPiWh-gLiXPbOMUFBS1UXI2dfGd_TgXzLhTDdpz9vqOnu1CEBmqwNAIBDJj8S7iSmuiRsFWG5qHmZRyBSkpfrCu8QQN0zdKliUuP6FmOtbGMQilrh4XkyXrMaFOazsOdufcRAcrDWbOgr0sAph2cIkL3G3YVMMWqWEekGl9hwkrNj7DKnLxtElwUXB7fYNnB5qcp7tvEugTtIp2tiUpO8wTs0rd9U1xlJ1JjaHoeRtfM59Xy_0lGLX1uYj2TTPqeSMcLw9_b13w-lbs7p_ba-Haki2DICpvNDrcYyB4qOJp_SwGJuODzcsp43fpQhk4xQdRtPgzGHrrYDNQ3wbnZcTdEaHp_ILtA34iPm3ci24i_rp-Yy568JWWn-iGdsSEKeuZ3g5fQgwxNRIzYze1BAK8VIuhiPvnkR_0kbjlgqLET0pKs1vgSmsoXYENtE5-c-X1b1CdpW7NBfRbsayoDrey7jfAqV2cEnUtplgIPnejLkOaQs0qWpzGu8_MX3N4_7ZmCeuxD_JFPEjQ8-DhUv3ihJD-Yc48jZbXsRNlldz92jVX5KkrcLGJdTudg82UQ_O8IQXHbZQBFL0fQvFgn08Wu7FgIdxivWqV-n7SZrrApvj5o-Ba1DY1BVSaWJgJSRIlk9mHGJuCMVLExXOnRtbano8GWCnwaBbI73KmytaFZSPkT5o6lNtx2LwsSJrgyVGhllRRPWb190eA_p_6vL-CNgWKxQNMf-A28yMMu1lbET7SweEo1JEzyEgfIXMbHbgd6hBZKPHpnybL5cJI9CuCEYHwjlTFF22xt891iX0fOWd7_MdXe7l5Je89jcigKzvX5OIXGvSTuhejSxPDa7FJyGkpU9K40Ttk8Q8fez8uOV7V-5fq-M_Mw_Xy1oY8j-M3p5PZgdohHVgh9kHUWacUykZylGZxqXcs7YyURKQ6-Yq-bVPquf9N0ZzO4gdcoYFI3myVUxqtRmjp2zmBntbeMoNCZgHFhkzHQzrsk4HCIqSj1RZ5PRLUt7o_V-KiMqfK45KsqoruyQwc3LOoXGLZvssjVsVmYp4hGatmge5MIAbpxucScblzFiOPW9g6Hd8I6P1n5aIevyVes5bGPXM1Gg85LYQB9FHKGRyEf4Bh8rkGijnJICdxqnksHpaA78gvI-DxQxarqIqAYqEOnEksh3wweHyzkdHiSzSN7pw6boyvUDd6KKWT8Qp1DGNgKXtS8OfcpPs665ddqTocWGKPiM3qi3J-c00-qicjBe40PWgkMKVCkz-KwToxy2spVkAJNqco_QcBvrVggQTq14rH-6P4tmn2CLXMTazqJxgxOqbz0Qt1ANKi6qsGJOG-lPkzTvv_Ky7YgSPZsEgB0-DH738RLIQlXxPh5IiiD3ZLbrhQvnoFR8lR_OQCMlUoDSs0hZe_Iku97afksh30YdmYE0fD6O7F1nqfJl9Q3JfpRgTTKT5CiqDDqLotNXaEp90N73Z8xkN3V6IV48SI3NQrc1YwVSO3KVNsmf4zO8TQUJ7FZYB8fHvEC88n-ziirGy6kdOt22964H7e1PmZGTf4y7BZRtGVgJJvG1YYwq-Lsb4vf8q9gS31lw3DbxF91OMNIUIJhb0GSBre9czSzUhLv7cmjrmVYYR6HVqHa92y3rINqSjQAN0m7oXo75B-NuSwaSAtB9ENbO_SXKKQIR05VqwXorgqhTinBz6LFMe6wV1nySQvPji23Lmxjzr6QI4-2PeAaUhXQ6sAwZbs-kxGXH-Czhb9hKxOk9dTGQUBjtf2Dix_e9GhEgacQY_1FlqIg7ZvFLm9ewaNWFfXw4E9LeQfEJm6rKi49beYs",
+        "summary": []
+      },
+      {
+        "id": "msg_0f00ef4d666ddcfb016aa1ffb7617887d19c5a59a52f005ff7",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d8c7\",\"comment\":\"Centralizes the king while avoiding the more exposed e7 square.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 361,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 546,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 907
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 7.052510976791382,
+  "request_id": "req_daebeb1005cf47e690bf74f2eac29be6",
+  "text": "{\"move\":\"d8c7\",\"comment\":\"Centralizes the king while avoiding the more exposed e7 square.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kc7",
+    "move": "d8c7",
+    "comment": "Centralizes the king while avoiding the more exposed e7 square."
+  },
+  "usage": {
+    "input_tokens": 361,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 546,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 907
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00074545",
+  "input_count_delta": 0
+}

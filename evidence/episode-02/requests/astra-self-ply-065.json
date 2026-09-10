@@ -1,0 +1,158 @@
+{
+  "key": "astra-self-ply-065",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 5Q2/5p1p/p1p3p1/1p6/3PRrk1/2P2N2/P5KP/8 w - - 2 33\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . Q . .\n. . . . . p . p\np . p . . . p .\n. p . . . . . .\n. . . P R r k .\n. . P . . N . .\nP . . . . . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3 Rf5 Qe7 Kh6 Qf8+ Kh5 g4+ Kxg4 Re4+ Rf4\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, c3c4, d4d5, e4e1, e4e2, e4e3, e4e5, e4e6, e4e7, e4e8, e4f4, f3d2, f3e1, f3e5, f3g1, f3g5, f3h4, f8a3, f8a8, f8b4, f8b8, f8c5, f8c8, f8d6, f8d8, f8e7, f8e8, f8f7, f8g7, f8g8, f8h6, f8h8, g2f1, g2f2, g2g1, g2h1, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "378cd0e1010c28bae64c179e5324b5d7be8cc33a6d35bf99a21ef14008bb4756",
+  "fen": "5Q2/5p1p/p1p3p1/1p6/3PRrk1/2P2N2/P5KP/8 w - - 2 33",
+  "preflight": {
+    "input_tokens": 664,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_9f507cf085904432aed66fcd40a67ab4"
+  },
+  "reserved_usd": "0.1107",
+  "raw": {
+    "id": "resp_0c749174ff2d4225016aa1fc69f45087d1829aabff712305e4",
+    "object": "response",
+    "created_at": 1789000809,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000839,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0c749174ff2d4225016aa1fc6c71a887d1b1e6fce9ab24e7b0",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofyHRYDeiCktvJ2CxKtGOqc_uUP5QBudkF0DrfONvr2QZojKHfVEDeX6x_MiiDTa_3srBLqQx-7d6mDLdOjQeIIX-_DTWqrw4EEU3iH7U6gPbAEzc-hvXbI2Ec_TFwOQVtHQ4tIXXjMoReJcDPnX6ZHlc00CH5fVgRI0Ak1r-goRyG9i1Y8rJoTTEtsRJhAQpD6jmBu96oR-5ZINl4DzIwFCLnRWDhUNKtuAqCu1dku4P2PDbkeX3U4aqJ18CQ4VfDBWvqtZeSewxMCesK2YgMpyP__iX_W_ROdJX16E3s7az9yP5vcxO1pEbXUekb2pbNBuZGS26TL8cjfx9bx9fjoDwLVDuENci893OoOz0SzFg_W4y3jZS8LlpxwPZbf1OrUfMqBQtQMh7RMwz6oE8C-LYEMEXL4tT5dAc-if39r4RwosafE7931KJGD6W9HkjDJN6ZEOsHd01J8VgD3EO-UVg0PGJmfOONGbB5gnRk0zwCKdC3jMD47FB7fSvbzM0_1Js_rXd-n-Qbs3d0OW8Ae86jILkslzpmOPfGC7uNnRMoEJdXPn_wAQfgyEjkfqR3M8aJdb-z4ruk6yDxoY5aeD2iMQTH9w6c0z4AIsaZ488N5pjPOEEZa12luYRJmGlaMGrXtM7zdhj2tuzRT6qNdNwIn2R0oOGPuKSI4NlBFK_2FhtqK8paZArPm0jHWFlj2PWIaErdTxvNjXaT6GR1naycBCf972-vuONwVxNNFvJZEp3qQrJb-atmVQwRwzpSImkFUku6ufuJr43HDSDXHqyURl2gh7rbsQysSNVMXPXK4j_3G0xGR7Y3hXWdR-0yrV2KRPO57fGzHT497o6ysJbZXJLejiY9Y3b_oTaZhR6713UFS8HdYyAaPbkQNC-0-2B2HOFm6hhrKV-hg5Hi_jlNYRgdC26U5x04PxrByP0ugonEvlSIPf4wJLIwqFQeV9P5rRUXZV75mrMvBt7Cc4jnYHou1eFafeDlFZjne6N6gKccKK9qsP81Tp9X5z8smkDZUSsl6QldAUXJnFN2pX75tPm2LajkuMk0eraJ1stdUskO1AXlCZhOWDlVKewlkrRbnkiH8koCn8U5QiaJeZOxsSxBgmlJPdbHe9O_bnZRmGf5aHeIgGHPGxWRn8sqRF7gmzxJg4K512pf05I75iMOtL7mS8duL8h6ujrP319I6T1YObz1HfY56fttlCip71eyVbVBAXhqb68LFYmdH2qW7TBHs4L0nQoe_XCi7qOrKhJQcOXDIZO0W49PeSwUMnStmlqgrInJkTyJcownrIJzJ8_BzJuzb2yI6aryC_-_VOb-ZFAm10zUCDpjLwMk5lFbEBFva5JaPoF3XJSv2TX3xiY1xpIAcOh2pyu9Fh3ghl18IRdPYC4_CiQtnFKkmv-gbN_C8UPhZS7SAcO7_rpRJ9mBCQKCaScBtD7ohe0Ma8yOQViepeW2ov8CHVWU6fOLoOzmt-NrRCnXhbIPj5rwqom6mvUMdmeMoiaBa5ikHHmJJk1v_D-l8HJglEVTU0eBRPBiTSMbyEyNY2eC3Slm-VQqSdZ4b3ImQMhCg7i4hsWrxvB7e0w9HAdzUXD5ugO6xGmPv0rvVahEeCKJ-NXQs_Ei5iYQoILVQMFqYJP_pMEc0yKNBr1gIK_2ACu21NawWKESTUe29YrmdvYRx1KCUu3QEHR_7f7s1dE_YA5xkqDRItp2HksMN5oF2mOq-sAbEmT3wfO21JlImvUISk6ZCvN3NAy_latX6jILOyHVcCzyHSpvNR1mnYvHChBcehWvCbk0bk52Qvw5Da839Lo8dxNadpuFSmv6IavMbSrc6WYZlLYgqPHwaCGHdjWkOtFmzJQC2roUMR6umHb9GoUG9x8gQCI7oX-J24iMNF2xzbFOJWvjMp2FyCOvAX9nk6rDOdpuFIvfImplQf6v_SQoN5iZ_HNZx4G17S_IAeixeFO91fkVlqQvOmzmi5gwlsSdxdQt61dmDQaeNLywszOT95trzR8miobmcRZLevVlxTKPDlKsuz1_wTIIIvO8CeCwfkror8Wsz9QbhV1x4koI8u4vYkY-n9hsn8tN8wauFQBpGGxsBnbsb1A7nFKUUD1P3V1UR0Lg4TTtqSDq6cJBOGRQ0W2vzpH97H5bJYZusB4Hj8vmytAQe4m-M93mXptqbWWTgOyzVVb43ASnJzj0PvkdkkPx8NdGf0ws6w76TIT0KASEoOf1l-FImpjyQXQv26ReibuKDizU4bIo8jRgx3yhPvXTH3XovdI_TdWrW18Ivmkpqp4YDeKkLaBG-g9ttc2PlTCaeqZbnyqVKl82-iMwetaazVPT5yiR5S70IyKtlGZVXD8Yx39BndOTZtOsDH5vntv6EZ4Stxt4ljumhxOvybu7eGmDKWDe1--EN--X8vd52hQVsG2GKxi2IMb-RAYIhukzqjwJuVjC5vFI-ZF_tmSXRgJ76HAWBWoUSGjRxa5LQ6Kl_7IJVj-FVyH1ocIWPvyp6EQsta2J6ZDfUCRN1izYk2nYdHCf222fyqbTotbtlvrY8oiNsjAjz5Avmti0mHSrm3vDtovEGbnJxdXVh4amuGuxzev4b94Yo9BxFm9gRMYNQzL09KMyL1iZkg3DWV97AE4qdq_x9x9X9kVldMd03YvwKrsmvhmvSbyEyBdzrInm-IxdGndb6KxBKBqT2VrdBDkc1MtNPc6R-pTae2-KxtdJ6yg1SYm5VENohBsVfrqRe6K19iTASmxWKJ5-Md7IkAs68cLqSBrOevPqrlP7Vcwy2cJTMfsKeOFHgv1QrnSm0dP8eoflUqIgHRRQoayU_fAQcKEh9QKjav40zBTv1VZCu8-5Pr1qhCz5vNMGl-665I8gRWOa-fiSrsdc9tmFFV83KdOLBRTRMkdv9-u0q4WqjR0beIZOPbEpwQ40PsqirO2wLwdNR_BkztWdug-OC4yjap8lEvV6IZjHMoTB_acXnSSv34T9Gynb1pKzLn9fnjWn8tbh0lQ-ZK-JVC14mC8WZZYfK0YIiXbSGoCezHmo8vZtOvlCgqdi7_RHODa0BjIl9Ond6l9Ed4G5lGtTI7RwDITJX9QVWm_If_yDTkfRU6A7UiofYF39u9IMtpFiJ_A14hNLMpbnhnBMPTu2BabtTiJKD8YzShPaslN5VmbS2rtxrxB1L-qdWWqk66b9KecMMSgx91XUJ_OpqbG3G5cu2SoPbJZXSvtoj7AsLhDKNrQXfYDUVu_qWVl1gHcluaoq2zWR2n",
+        "summary": []
+      },
+      {
+        "id": "rs_0c749174ff2d4225016aa1fc791c3c87d1a920f3026f992507",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofyHippqgJkuOVK8sg_7Am10YL7RsbWcI_cFqUmuTXV9uk_aUKLS5X6VFB6SYGvPw3YP9Vowlg-RkpvHM_vc3AMdBwSL1intJ_gyaxnHWWuiGDZ1ikNq8it0q7qpCRcuvPUPPX8GwPCHJpC-Pth3VMPfBNKzhUH_Ost67IjYzvjx_9dG_eTA7Le6atT7T4mGodjzmA3VDXeStZIjzBrksGWLRqte_Ru5GUNLq8f8wt1eD65vcoI8zXnKlElmizm7AXUplzh6UntMzT0NaTERrUUISB0hJtDUD3oAdBdQA3eGnZ45s_wqBpvtyHnvvTYPpuPooYlR3q9kRXjygk0f2n4a95syZk2fLFlK53xS1XoSC72L_-c0kljNUZVewYsNvMlK3j3cq9gsMH98E7ghqDrmjfL5iZh0pi_Mw5liHbCvvNzaBDkAy6QTLYxzuFsGMZouuRPk8UFlWVqFjrePeR2z2znuF3ccNr1m8IF_U--1LFqkxES5p9ac0z09JmBHj6Di6P-A7LibVj1y2L1O9zEc8I1159x68UGz2dSniXH8ivlBfm8pfiL_Qk25rBLaqzSxAyes8C3tdtk2sdUHE0XS2YAqoyEVY7RGIzsE0CMlw0xW3kgagw2RTvhUZ2Pfws2WWC6m-DHRF0QwTt6vjyXf5vg_ihzSBjf_4XCeQFsTJTrNVWrUUg52h4TUSMPCZhxnYs1-Zxk9U4qyI2Lra7f1gLRTGS8wyEvdlWjOxa1NWpZqcPGGwKVIGeLk8nP-O5BxGE_nG0gDyQIAUErHQ-QxHZ0DK-ZWAc_Oxf51Kfp3mzKOud9XCkbCA0nGj1Qyrapv_87Om-f0137dPr2mB6wLCbUAd4xALX3ws-hBiMQsjViO7uY9E3fIc141UtGhe85S1rytKOPYCnRF-HDd9fmTEgI_m0BVhXjM-ntCzDqeKEhHr1EGMmbLY8px3u_EhkY3yO7G1ZX-GqmZu8UKZynoP1gHB5byTCUMOQoTiNS912uzv1XH498IyyP0GLL8sCxWjRQyV5G7e9Av_vM3H71bsMUYD4sms6EoqnZ2xZpKlX9lWfTe8hUb9C35uPusDxBDSgPA28R9OoltKjIBUuF_wjNvVXdiV8KYMAuebO6l8oVn1dDtPN3yFdkyoSpdSC-DASsK-6m8cIwZIN13QVb1pcFtGqpfj1rEVzjnJNSUo6AybtCog0oIbabshcfIL_7ncwZlSfLTZ4xmtRA2rHBXUm42Z2dYYhf1_Zg174_-CPPU6Xrt1ef5qOyMeI-MwzvSRkz2m_XksFiQurtKCy3cIZnHlShGSNp9MJs_pBfsKkYUAxb44d-jVFMxKWMBLIu8H5PoXwMocFgbcIEgeWFW_GkUEj7z0KwX0RZKA5dVHiP0rwDiBKM71YAcov8M1GfP7dJUr0kam9EzbP38juXDZ4ZiQ-47h5LSFC3eRjgYHDrWq1N-CG1-iFzPtuOJfLLtxp60INsZIdH3zzx10PidcDDee5AH5EUdaWosQfEJB8mMH7wP2MnEY3wCG597Vs9RXUw-W-_Vc_A9a96E92mNEv6qh2R2jin3nJGANSotC7qtNpyOMBRm8qTHO2_d8hFqGx7vpYXXAGOh0s9dibFWbVV99loP0wkGGsk9PwIk2MOVHAtv6z7AxbsQF1JMY5Mate7yxpdm1opGhBRfSfFIxH-jXY-uqMrmNaDejIvc_tZoYOaqMXEu9vmPqRF552Ni28bBWEVGUbeQqP7_0LKRtgL_J09P7WXI4c0Cm1FncfGfM-miPq5iGzzFH4nNCbozDDDii9O8wNkZjecklEC1czmh23LQ8oxxk3p5kYfcuh_g-8deBDOsCUPDkzoBhIxDtH9UH-d-gn0YXGs07ve075WBDbIuFJRxXSj3DNk3DKkRO-Sk3jRt3ko9qknx-HwpiDNvOQId94HyJFEEHwtFUBUTPpRYXxm2XCjzVUUVQMfmrf6bJZZ6DFWqLRxpco5Tfxp0K13xbWnysi3Z4xX-jC55qBXbrSQX2EpLOTfV5fRYVuX7chv5mTaUZdZqWsEs0f6XaU2orpRA8PGFySdt-WUzpshTTvyNonUMnm-cp3_wec2lfV8PLoG_F32T_qL4yJp2te6ikOHvzyAcbm_iKIJ8j6YFTids2NrDLW59gMSbGTbB0zhdgOkrzUN3-pQWD_k-80lvhXJHtDW_gCmnnZkRKVwA7lxvk0t_kLDoHIpS9R1jSJmi0rd_vgy0FPax8N5gfvaB0asAMbBPQLdUd--uWmVJdPtqAzMRgrFzjB0DWnwdJfNn0ZFRkvN1Bvp_8cSekmMUI5MTFYAYwEiXzqHxyphs5bMhwca7vZIzqSR66WXTGzKC6bfpMRUlYXcEBQvGkWOu28uHNsusPnNgzikK2JQYwcQSnsO_jokHoLqF2WTiCTQDS2LZXKPiNQ5BObcbBslpKSAUyvM6PabHG5duh-hMcxdVRAjNkPaG_Rz4Jq6Nj7tB330M8iRRqhzKKyv0uliEhVILuzX9oS9QzVY1p5e5q29RFPSH0lBy11387yKsiD5m61iMyUVvKW0FhigJI8sNtQ2jT6o6_GbDcGV3qLjO6hPLh6VI004f1ScY-bchk2IfP99ap8ZbiPRkPrds22SmT39XMIWIMgfZEWUUsRmFsSb9rAew9hQmES-gEuGyb9wpE2xsrELlu2brPl4HOgCPyer42Jfw92XlHgZjoKWXF3op8xIOfNoi1pn8Fi0HdiPVku_6XFZ46X0tuuikl1A0FCMMhNjgegurKa6DfLZssSaXnzDXfZjJPHcJ1ctvdsoNxTsKWO4VUxZCyGJQQq14EQyWQ2Op7ST9bOhLYvRcwAB7GGN9BCI0IqrJaFPTg0HmWyhzKZtvZNXxPh-MHk85X-athk7ZVysopETZ5ns0kGoqAMkGzGAjs0_8ZSGna6MXz9YdrM8JGq_aCNeTH8dlwuNRS7-XO6UZO_2NHgupck5nutxAPI0XocEC_hivV--Lmnm0xL751EFF9KomM_Xmu5WwKCGo0Hg3GpQ7MANTdfjDKas1Tfq8GWY=",
+        "summary": []
+      },
+      {
+        "id": "msg_0c749174ff2d4225016aa1fc868b2c87d1bf9c6b9f255a0ceb",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f8h6\",\"comment\":\"Threaten decisive mate with Qg5 or Qh4.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 664,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1040,
+      "output_tokens_details": {
+        "reasoning_tokens": 1010
+      },
+      "total_tokens": 1704
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 29.58290672302246,
+  "request_id": "req_962d7ec964ac450dbf2e86172281f1f0",
+  "text": "{\"move\":\"f8h6\",\"comment\":\"Threaten decisive mate with Qg5 or Qh4.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qh6",
+    "move": "f8h6",
+    "comment": "Threaten decisive mate with Qg5 or Qh4."
+  },
+  "usage": {
+    "input_tokens": 664,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1040,
+    "output_tokens_details": {
+      "reasoning_tokens": 1010
+    },
+    "total_tokens": 1704
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0603",
+  "input_count_delta": 0
+}

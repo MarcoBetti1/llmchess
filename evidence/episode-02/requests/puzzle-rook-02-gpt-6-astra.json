@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-rook-02-gpt-6-astra",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 3K4/8/3k4/1r6/8/8/8/8 b - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . K . . . .\n. . . . . . . .\n. . . k . . . .\n. r . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN 3K4/8/3k4/1r6/8/8/8/8 b - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): b5a5, b5b1, b5b2, b5b3, b5b4, b5b6, b5b7, b5b8, b5c5, b5d5, b5e5, b5f5, b5g5, b5h5, d6c5, d6c6, d6d5, d6e5, d6e6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "98799d0d3a9806bc95984b3b03089e3b80ba2de9b1ed74396fe5704c1cd11590",
+  "fen": "3K4/8/3k4/1r6/8/8/8/8 b - - 0 1",
+  "preflight": {
+    "input_tokens": 375,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_6655652aefda440e9f5e5d49d56dab00"
+  },
+  "reserved_usd": "0.1070875",
+  "raw": {
+    "id": "resp_0a7f62097ac201a5016aa1f54090b487d19ccf70b564d3b3fc",
+    "object": "response",
+    "created_at": 1788998976,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788998985,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a7f62097ac201a5016aa1f5419c1887d18f2ff5c42b9f91ca",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofVKmtL_7QY4Dj7tpbVEbdPmHz8_sSLuyZTUrHL80z_jUExdaBXINoAdl3m6msCl0WWlL6nyf2fLHuqcouwVSXCDZtDBLqLKoTduqmx16C0yP_0SlpdlB-dlcDBYmq3_C49xcOqqm6bqBYZarTBM-lBqytuzwCwieI3TYNxiCgpw_WuSstw9OVTmd7rGgHbuCh6l8OWFEJvp_kP5WGje2OD6mv5DifDxw3aWz-90VXkmuoImVBZsHaGvxBA9XN0yee8YfYGu5Kjene2gIh-RZQTghKP4Hm8DHRgk7hyivZV7Ti_3nUR2C8swTfvkjk54I9BVaBVof3MS-lMFNbKzHsj45Ik2FtjwVNn2Ero6qZFD1_WQbpNvmBZIFpM797EMrW71ZVjb8w924V-BvZv-8LD34StRin-8mA4il76aJU5iPaVNSbOT2lQs0baXJ9KkyCBSqwALSFuoS-M2_eM22SgkdGf4SEQdpb6M3nvPN1N_UHrUCOPB-UTqJYmTfNUZfB4WJ90qOXjkUxRUVfCVnUkn5O9YFickX0zKfUCZWEz4dJZcCtusdKQE7_6xYfCTj_jszusXIap2zL7g3EAt5cT94HhFdS5ysY1rHcrCsUxKornhXYeJQfXTy1Tuboe3VppSRjGHvI-rknTVEpeDlS6f0GX27EO29qgdF27LC6amu7xieY5Nm46bps3EeGaXoJHBBnkmlDZ73AThI1fhg2wBTMPaBpmOtAnaGq7NVrGWPxTTb3O13V09lNtJ3oqo5Im6c2LIMbPzh9drCs1tURXMhgxoE6NQGjgal42uh2OUG1zYRsqG0F8lzlTPG9lch0pDV31fbZz1VXuDLhMqGBj52zIYQ-OFHsHdDoxOSzXMXIPCMk0MvlmstPfgFC_Q0LDf9vwu6620jyDwy8MML_ab82bj0DK7vPPStMlmwcqOAwFuGJlaODALUV4FzKIPUdYJlUp7EvAKggEgIcM7e7hYjifwmh3CfBKdm39Idi_6w-pTb3jU37D9J2YjnWMhnu-WMNrUk7XLxu33vC93ooOlrrqNW9teRmrIBhYejGK3g7mPE0V3v-jpIaSzG8MAh8jmIcjZTHJZQIobtaa4aGOlbc9PbNYwXEb5SSWFSvUENfh__H8kzZN7zXOYDzUIq15gxtNbZr-POvnyqmLhWrr6Whn4QSo0ToEgp-pB0wvGRH0Z0Yr0DskYV4H-q-pJUXeWAF8EFSbpAjeU9uosp6HJ3ljafIsWjkTU-4nyzA_aUnf4--SJgPtndI6l-MGvApbVe1iohkIFv3uoy9w1ixIq8Du-t-U9BReHJWOAR4ZhsbprD59yEIwTxuimspwdjl1wtYSkPrU73d1NwB1wAiQNmUE5hM_P26NNvECZNZt9-1YJb168ctcVsw7w08lZYusUQOuS9ccndS0wQtzsFDhL_gQpgxvTxpWwZv1HGM7WS7QsQsfB8JNNRW6prDi8L_5XAMLAkKHEU0efmEzule3p6tr6AT_xByVeb7ywaVNfTp4uUFIPdj2AIH4GfWNVCf3LEOyOLpEvEbd7nwdJft-ohh3A7d64y5TgGFHgIC8EE38Q0uGLfSbXCPIDJepNYkT94hRt4O5FxIPb3zgMagx4LrzVdjaO04bDsThbTvjwrMdXrDfOFQlK6ohANb4AyJeM2NerSCMWzhBgUy0jQnPXILSWVPgZoCTxYHpC0ZqQwOZpud4r59qkgArT05v8qBY84mQ753v0wgvdq8A87E7eNjkU_KKYTkOnkL7cgkEJl49O5bMCYXsve_ko3bBRQvZ3XmF_dlWQhNHtBKq16lmXSsz0swwbg-tZ2C6JVGV3C9IdTbb4F08lN2GU7BhGwsXTLfaqNvE2223qwoU4nxOmzGH5UTRls2sdP2s05RdC_4mhWmXF_qS-RpjjMSxMYKNCsm2pzjnQ3rnC4JeynLDhC_Ser_8WIcTXOx3a84pFCptqhBYyuG6VNKmZTVewi7X6cI-vzB8EioHPKjx9AEhz4q1IQ3XaGPK14VgykP11NsDn3cKUDF9RKkPyUkci8bltXCvVwAll8-uIhHJvMVoJv3cDS5mqNQ6JgzoU6imRsvHrlHCrqynx6-Yx0q5yfn3ioNE3Zd4LP33u-SCVssuNn4uuJpy52MBgbu7y9SO68xp__Kb7UMLOGq5x75GPwSZv1x6ub4V5eXSuVj_kpgUi2BAr7cG9GyTtRp2PbrQtSoI3KVMM78jpfzVwwFvRuugqp2WyA12VyjwQPFhx6GF8nyveJvb3VKXub6vg9nGoLBOV858yWHMpYeAvi0pebV-W6xjnQdsaVXSqmKX3CQYRF7wQJzrOG9wGuNFm6D_l8F4=",
+        "summary": []
+      },
+      {
+        "id": "msg_0a7f62097ac201a5016aa1f5491d4487d188b8d95e339b33a3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b5b8\",\"comment\":\"Checkmate: the rook controls rank eight, king blocks escape.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 375,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 275,
+      "output_tokens_details": {
+        "reasoning_tokens": 245
+      },
+      "total_tokens": 650
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 9.72582197189331,
+  "request_id": "req_b90587e901ed479fbdd0ea178d1f9d4a",
+  "text": "{\"move\":\"b5b8\",\"comment\":\"Checkmate: the rook controls rank eight, king blocks escape.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rb8#",
+    "move": "b5b8",
+    "comment": "Checkmate: the rook controls rank eight, king blocks escape."
+  },
+  "usage": {
+    "input_tokens": 375,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 275,
+    "output_tokens_details": {
+      "reasoning_tokens": 245
+    },
+    "total_tokens": 650
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0184375",
+  "input_count_delta": 0
+}

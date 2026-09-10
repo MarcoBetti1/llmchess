@@ -1,0 +1,151 @@
+{
+  "key": "sol-black-ply-006",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: rnbqkbnr/pp2pppp/3p4/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 3\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr n b q k b n r\np p . . p p p p\n. . . p . . . .\n. . p . . . . .\n. . . . P . . .\n. . P . . N . .\nP P . P . P P P\nR N B Q K B . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 d6 c3\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, b7b5, b7b6, b8a6, b8c6, b8d7, c5c4, c8d7, c8e6, c8f5, c8g4, c8h3, d6d5, d8a5, d8b6, d8c7, d8d7, e7e5, e7e6, e8d7, f7f5, f7f6, g7g5, g7g6, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "29c19cdbaf252ec299cca7de7ed0bd413fe9583bd8b54828850054077105bb69",
+  "fen": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 3",
+  "preflight": {
+    "input_tokens": 471,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_4e35dacdb4dd4cbc9966beebcea02921"
+  },
+  "reserved_usd": "0.043315",
+  "raw": {
+    "id": "resp_0ffbb8ab0614a874016aa1fc960f6087d1a9b7028762c9409d",
+    "object": "response",
+    "created_at": 1789000854,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000856,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ffbb8ab0614a874016aa1fc96ecc487d1b59f9572a6a1b5b1",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofyYCLCb0Xe7kos_7VH9G4MhtIwLf2PYFwixrZPznRDd_gdibncbANPexeKitM3_oIVKQ0lV8Nqp3AREe26OybA6-zFY7US27pp7w9iqYwo-_VOtpL_OseaFFDi4mZcn4SzumQ2XgO_CPrxQyGBZgYvSSIEeDvEcX_CYvQLOgG5-GbTLJcy7h1lyeh-biYChbDFaEfdWbsJRRcMcTRwJvIyqUbD8s0XwBz6HSYhwlsIp9vxL3rtZHfYtTJcwo47w7CetIUMY6a-qAzFni0k-mTJrzuxQEWVdZ4Wfg7te5p34r7tBisCi4qwi7ERE01AuDE6NZhp2dQWJbNVXDRZSoRzgTQplSwPIl2tEUAp6VzS4208KyPjPMpur7meUwOsza3baWnQqV5mb53KyxPG4L5IuexCp3qoluX1XFDWqQJnhxiQ3q8bxnjb0qZ_Whi6ZvFLFu8qh4tTKxBHba30WvNxOTapTJhFibQF41SiUewFm4LakmsmOacT25pWutiqshvgDEzvcXwiQ5BKrQuI5xtBJgcQOwElWFvQ8AhiO3xE3VBv4Xcmx2VyCJrhQSz4cGarYWReRq3JJp0ZFUX9N2fWmJDW933UkggL-Emi5J6t2Zu3zgZg2Ypy6Xl_-4uGKf7yHxX8ur__y9OsJnmCCWkjUPjXCWtxdt33qIFLsI4lHDmJDv7lrnShHmfqunAS6iSuITyRbcMMnb1SaSiiVYFqGz3ahfMEVZPOsYabbzGmA8rjqP13HHYQPZVwQOOC_FK6tx6x3sHTxBHVuc1dvNmrDwknHed7WwnXfY6m84mliKH6Glqd163My4jZ8D3XkAQFQCDGFoaGFY2oypoHZFspz64V0UBJVOi1Aycge4wfGG4Snp3yDcRrZYSFq9qrjRNE28tgRnKNrzznahNHPLg5X4fapUjKyfn0q6_5qtMsMSt33CQ4dyqNnlrLrKVCe-mQ9VZbnY2Yf2avgiSXg6zhMhQu1B_1110a0obDtRgOGBvmLeTCKJ-V9d1b9pkyJ6wyP2KpSeWQNQZYtoIhLfn7lBTegFk0BifI1PKjD2vOFln7ChEXUUKG5zamBC2KZqN-he5u0afDvOY0RS07xSSLXX9WHmC9t_orbksF4aqVjNCIv9Y9o-mipcPF6WqiOPkNmXxyj6t5c1nK7rVkbk8QxScBVrSbu5KqpS7a0B1-uudO6fpsX_88g5VSMXcNdaXN-INxDnJ6djbiQACW6pIB1ZOHKP9AMuv7h2tYyuin2hb-1SCpf8k_ixDLLITRZCpHF2nutUkupLRHL1EeavKX4lGOi7uF8eAc6eXlofyS4rC1IUerKTnihj96LgRTg4Yv56KoKFxheMDcWkGVxsYRZ3Q==",
+        "summary": []
+      },
+      {
+        "id": "msg_0ffbb8ab0614a874016aa1fc97e42887d1bc0bef302b0178d9",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g8f6\",\"comment\":\"Develops naturally while attacking the e4 pawn.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 471,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 92,
+      "output_tokens_details": {
+        "reasoning_tokens": 65
+      },
+      "total_tokens": 563
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.015510082244873,
+  "request_id": "req_c3aeed59e2794cee90c7a4b38388c154",
+  "text": "{\"move\":\"g8f6\",\"comment\":\"Develops naturally while attacking the e4 pawn.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nf6",
+    "move": "g8f6",
+    "comment": "Develops naturally while attacking the e4 pawn."
+  },
+  "usage": {
+    "input_tokens": 471,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 92,
+    "output_tokens_details": {
+      "reasoning_tokens": 65
+    },
+    "total_tokens": 563
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.004195",
+  "input_count_delta": 0
+}

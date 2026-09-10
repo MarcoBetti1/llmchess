@@ -1,0 +1,14 @@
+{
+  "reviewed_from": "Final encoded MP4 frames, all 21 shots in each native layout",
+  "checks": [
+    "All main-game moves in order",
+    "Three voiced quotes match recorded comments",
+    "Unplayed alternative continuously labeled",
+    "Escape/mate diagrams verified by legal move enumeration",
+    "Light/dark piece contours and actor colors visible",
+    "Main captions stay within both layouts; maximum two lines",
+    "No clipped main titles or overlapping captions",
+    "Thumbnail and portrait cover inspected"
+  ],
+  "speech_review": "All 21 clips compared with per-clip transcription; numeric formatting and named-model homophones reviewed. No transcript omission remains."
+}

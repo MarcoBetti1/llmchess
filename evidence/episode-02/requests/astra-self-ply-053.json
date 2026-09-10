@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-053",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q2P/2q3K1 w - - 4 27\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . R . . .\n. . . . . p k p\np . p . . r p .\n. p . . . . . .\n. . . P . . . .\n. . P . . N P .\nP P . . Q . . P\n. . q . . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+\nLegal UCI moves (alphabetical, unranked): e2d1, e2e1, e2f1, f3e1, g1f2, g1g2\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "8a1a19f0f7fae02c91334001806b794aad36a8299c5a78b8f9d60f7405a738d0",
+  "fen": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q2P/2q3K1 w - - 4 27",
+  "preflight": {
+    "input_tokens": 468,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_b7d4b45bf5404a27816931004a7b0e22"
+  },
+  "reserved_usd": "0.10825",
+  "raw": {
+    "id": "resp_0570e777c3f2df3a016aa1fbcda4d887d1b8d8493a0cdf2574",
+    "object": "response",
+    "created_at": 1789000653,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000666,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0570e777c3f2df3a016aa1fbce7d0887d18d149f7bedea9a65",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofva-8BkSh6jY4M4uELy7kfnR-IBATTIvB7k-Yeq2mBqiocbY3JiKekDgMnbMMkB4vGd8sksZR5pPA6I3_co35mbWSlLLWi3ay9OswFpN89ZKP0sGZ9PJWU8GGtlpAlSmoqP2MGHQ0-qFYdvI5QTnmydGDR1E11jsiwm2quHLfGIALCJSD-7tMxfmvsxA9-k20xXA5nDd3WQeiGUah6hQX2ogJ13MVTIHk9_iyREymDPCldJvcO4ave1GnYfj3UPK9olKrN80SkeRaBuJdtJiQaNh0JGfshpj0LSXPuJ8EjLuCrXsVnyEET2kR-0Lcx1S-Q4R0dkHESfVUznSQNBX8ne2_V2bouokrjJ3wng6AAnU9fB6QjlQr3QjppgiZpeNcEXzSDoO1sTXL8Ur2Nj9UJRwTYUqrdCRFt6_hqSRdPDn9SIE73JSK9rk9cm1XBL-yScDTBwwvm58HvaSR0BqGlfhsmqd8JCWcIU3ZZF83NrfwoeVae6_JNp8x3Xfw2YTCejsfyjaS7TsvwYK17r1IvvUPWHlw30PNoWVsYkglv9CMceehXxVvHw08h5tdGv-G6gQgFsULo2oh7wV4Ei4PKolHSJ3T-kFSPs13Yw9wUUheSMVE8sL1vNMDDDOJqqgcDYZrlysLj6O72aho49DSjXnEv_dMUGBR78KtwSuDv-h0oJ6MLiRIZ_g-rgcYLDdSHvxxb6y6q9TTcy-QLl4CEgJXBpfSXE4lwLcry_-6ovg_yp57yHySdXboDfeIN80jjC4B31Ep8bsR9fRR14Vfv-4ZS936THaf-5ez9Rj6PmjLb-dumLRGfynLf6-xAJMdBHwUt14PDFwrxA9K2R1VdmgRVgxwc7zaU95Ol6odOXgKa3iuQBTNcd_tFPKRFJZ7y5Blc6p6JZ9apLS20Of3v8pljcHFU98Q79QpTl9NDKu4MAHKxOpGzbHGGn-3NkDrsozenFDB-iwVlNsqysSt0KGHaVesgHFO8oF42oGREOgVjxTHWro35heJG7c63edcwRjbAMtAWbHxedLwBhBfrb266rJB2MPvCt5pFlZdOiGan4bsuaPz_rA78qoHII2PmfE5NSs11-N0blHKl7ZcuXQeXfem6Qqb3o4YpIzeY603yXDDFtmD-xPIp4JR2l7HEvFC-XivYpbpcY_Cq-bSz34nsrHbYLbSHEVwh1DLl3Y24ORlBj05bNILCjSY_xyr2rTGfsbIK3D0k1kB2uB3dkKMTOjUmJCvvborN7H_iK37tG2dv9LM1ISJWDsUsLbHviaw0f95J8kfkqejHSfLLcA0Jzkx7dd-m5KdkBXD9oSzVxXvBGgzGokTz8GoUvb9J1lKBQW7lOMNbYhtzsiw0Qk-PcuOmbbKUqKC1dCJqERSJHp0RJHrxastcoMdmVS2q6l7aJFwRHXRNU78Pd1dSxdMqRrIwEsh8EjA1XtW4om4hWDQZq0tSaPsWtYuKYDSlaD5WmoUb7jIdM_nijrIZ_T5F_m_dad-QJHsDja0V5BarHijk2VQ19wl4ZewqM7xfkqq1SWGEesKbJrxiLuxzDckO60f2000oWBvzZEczW0OrXeGmZvrxttTxLOMcVIxOM4_u1hbIUNneaE8StnqWBQlQoKgEa39PcK6SD2qgl5VWECJLBcXe3Ntlx_WjtbAOghduO_6tK7ardPiOXNV5ReCKjkxKJq8Aa5wIcjYP558LM9B2uYwF90uFjSbK1zJHTWDwY3Qucnu8cQ0mQnQ1kwd3csnNfG47BJsiywvxyXxLu2rKWxdWNMA7BE54UW_Y5BlGNhHdFoJylIC0ZYgFtSJWgGoXhZ0d-nVpSrsNbdKSJZiQWNt-91MnR4ah2n2YtfwJ4udBz-C8-x4OMW7Mn1m8hLgASLQlIItYR2ydkU-5UaWoZTfaykdatwhG1Pyk5-rQ2eTVOZ7SK7XQtqyOiO2NM3yeFlTaiq0gc7f0WoCUyegfWyqVaPCCt8U-SyNlgPdq5PxBRWqBjJwv1R397wbSUL5mvYoNUw1Qo0L2somwPpf3IOUFQyo3zeIkJYU7uxGQ0yEWHHqf8kSiBrafQRcYH6V138_xjLtUK-LV1LEm5orf9p2pXM3qoG_qDdEqYZLvhmc9kxVsZ2A6HfnZEIjyavYtB1OOZZcqTPr3vK3WsuzhmEXLxS-rvPH1jpIqpvGtHVKkywke0RDbTS0gBeCDuRewgvO_IPv2-kQwC7XmSOu2KRiP1CVzejA1iwAx0yN3ScCU6m14nP0ywI9gQH-VS3S8DG8r2JB_C_IrxzOUiBQGokyHQoW0gA1YEMDYZgMXhXfngvBuIX_JckKYgTYI_lJGKj9omt8CtINeL2vxwPxWrDeiIpumQKX88QOirH9pHwy8B61EKI1JlPUOMKA==",
+        "summary": []
+      },
+      {
+        "id": "msg_0570e777c3f2df3a016aa1fbd9c26487d1be9fa3907dbdcfd2",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g1g2\",\"comment\":\"Escape the check while preserving coordination and the extra knight.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 468,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 316,
+      "output_tokens_details": {
+        "reasoning_tokens": 288
+      },
+      "total_tokens": 784
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 13.07476806640625,
+  "request_id": "req_979d7925f13c4f8ba80405711eac0607",
+  "text": "{\"move\":\"g1g2\",\"comment\":\"Escape the check while preserving coordination and the extra knight.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Kg2",
+    "move": "g1g2",
+    "comment": "Escape the check while preserving coordination and the extra knight."
+  },
+  "usage": {
+    "input_tokens": 468,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 316,
+    "output_tokens_details": {
+      "reasoning_tokens": 288
+    },
+    "total_tokens": 784
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.02165",
+  "input_count_delta": 0
+}

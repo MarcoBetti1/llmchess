@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-rook-04-gpt-6-astra",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 3K4/8/3k4/8/8/7r/8/8 b - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . K . . . .\n. . . . . . . .\n. . . k . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . r\n. . . . . . . .\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN 3K4/8/3k4/8/8/7r/8/8 b - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): d6c5, d6c6, d6d5, d6e5, d6e6, h3a3, h3b3, h3c3, h3d3, h3e3, h3f3, h3g3, h3h1, h3h2, h3h4, h3h5, h3h6, h3h7, h3h8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "1ac0b236190a04e0d2927802be7c626787a278888db3221f5394900d35b181b3",
+  "fen": "3K4/8/3k4/8/8/7r/8/8 b - - 0 1",
+  "preflight": {
+    "input_tokens": 374,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_66e111eb0e1d44fd8c0ac0e3c6e18a6d"
+  },
+  "reserved_usd": "0.107075",
+  "raw": {
+    "id": "resp_0ffae4fc3fb65ae2016aa1f562162087d1ad88bbdb9b037c64",
+    "object": "response",
+    "created_at": 1788999010,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999012,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ffae4fc3fb65ae2016aa1f562f5ec87d19162a5c9b322d36b",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofVljdtvf2Yc-0s-Z4o_4GVfhhcMecZltOWBtnnMkdypJ-PQf3KulT9-dmPFCLH0Gmk-kvDDhMDMt7zesgj5b_HgXItLe_D7So-Q1yhfwdqP4_RNOctOV1K2NZHWXpi8YeGNBZJe-zeCvjs7yigdnikDFkbxS5xMr5aMAbGH1ePQQY9czNTykiXrsay05RlgOu68PKg9Y8Hk9NdrDERnUEYA18rDfklUxRqohdpzCxOwOj0mvSIQ8Eo_QCP9aLj9Ld4p-oz_2SnDNLHtS81R9Owig7IS0CNoTDjKt5kLqU0V-tV-gi3KmaoK1aDO_ghwCqUbq4RBn0VEivPL3db7F0jhXU1V9DfBMrUWY8uGNco8bfwCf94ApqGFLuLuD3julLcuLyQvpzLRazM-y9CUqkcRfBdVJum7hGqYFBD2mhEgXjKx4nkh-gVOQccAEJMzc2xqVA_UhD2Zmg6mV1aUcxyWr1UR5Fx2e8YQcnBsI73_oqgZK09tzOiks8n9SUGsa_--k-hglgo_j-FJehGsnp2nLkDPEicIlhcoCNlgrs1V3LHGmTr3ZMx6rlHyrqEQYiIasEwaUuSPtAShA-D1vDQQDnWcEIYWrTIyu-1k99c2UopfVAJT3l0u5CLhm6hYAzdMtws16_mHxPA1MRx-9ZHEttzuLe_uB9qUysj_cvNil1H3QhWGktrYD6MRSeFKmE78nz1uanZbGNVEcGkJJoC1dNqz4N2lU6HgZI90WiwQOSlCo1aDuM28w4BgqamfrS2xfJY_t-qQSUYDp2dVK1d1UXaTCvnB-u3c6cMR3igj9cfFMvNUITYn1m8yAPpiuBO1E3rhm1muUVA_Tf1hFJ6cG46SQK9KHUnue3ZcTWUFhGp0raa_2DrsF5sL3chqx5Qi62Kx0WnJDhV8SA9YUnJfBPSAn92ok4KUlYQlcFNoHpTM7QtU93uLtNAXa2QtlvWP7Hc8ToWevPe6tSEL2Dy8TzoOAEXwoOhhwLctzbBofoj8tV2j7c-RYHQ1EoXPSjwiETLBf4Fk0s6cm5PWRHaIBxilXtYanntWih2tTWFUyOhclAG0Vb8gSUh8P2gaGJAcvHhk5nMC2T10KC9ycu9_cC4wnm0uhZeXqkRhLMYIGvjnh_BKwMfMy_bwABijY29zBcv3uYzsnLxHANzxxzWEhkamE5Erm6_whxc1W9UkpB4cNaXbF5_D7YqLszKA22USjnKTD7olM-Bnkm7J0vO_Qk_0cHwe0zYpfEf2nsOqcj7ln3dmEWINF_hNcXECqR_XPb8iTljVwWp4yHcxx5CBTqdwxmdRyvPCEeU9mtbSMMHMID60EIV3GTL0lfILmgcdximIB4Ng304cvc2ozi_5LA==",
+        "summary": []
+      },
+      {
+        "id": "msg_0ffae4fc3fb65ae2016aa1f56431cc87d18b146594452d647f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"h3h8\",\"comment\":\"Deliver checkmate along the eighth rank.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 374,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 70,
+      "output_tokens_details": {
+        "reasoning_tokens": 45
+      },
+      "total_tokens": 444
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.12158203125,
+  "request_id": "req_61e824df8d904e3994d228f97458167f",
+  "text": "{\"move\":\"h3h8\",\"comment\":\"Deliver checkmate along the eighth rank.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rh8#",
+    "move": "h3h8",
+    "comment": "Deliver checkmate along the eighth rank."
+  },
+  "usage": {
+    "input_tokens": 374,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 70,
+    "output_tokens_details": {
+      "reasoning_tokens": 45
+    },
+    "total_tokens": 444
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.008175",
+  "input_count_delta": 0
+}

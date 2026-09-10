@@ -1,0 +1,151 @@
+{
+  "key": "luna-black-ply-010",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bqkbnr/pp3ppp/2p1p3/2p5/4P3/5N2/PPPPQPPP/RNB1K2R b KQkq - 1 5\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b n r\np p . . . p p p\n. . p . p . . .\n. . p . . . . .\n. . . . P . . .\n. . . . . N . .\nP P P P Q P P P\nR N B . K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 Nc6 Bb5 e6 Bxc6 dxc6 Qe2\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, a8b8, b7b5, b7b6, c5c4, c8d7, d8a5, d8b6, d8c7, d8d2, d8d3, d8d4, d8d5, d8d6, d8d7, d8e7, d8f6, d8g5, d8h4, e6e5, e8d7, e8e7, f7f5, f7f6, f8d6, f8e7, g7g5, g7g6, g8e7, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "f33240fdb4c2a17090e38870e2bb72cba513d1d5b535d63dd136214acac60d83",
+  "fen": "r1bqkbnr/pp3ppp/2p1p3/2p5/4P3/5N2/PPPPQPPP/RNB1K2R b KQkq - 1 5",
+  "preflight": {
+    "input_tokens": 507,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_cab006dd894b41ff8b09de33c33df4d2"
+  },
+  "reserved_usd": "0.00258435",
+  "raw": {
+    "id": "resp_0b406a4ef99466a0016aa1ff98b2b087d1b2fccab30a9deef7",
+    "object": "response",
+    "created_at": 1789001624,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001628,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b406a4ef99466a0016aa1ff99ba4487d1aaa99f652d4df004",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof-cdcAFH7_nxn2Clb4EOnvZMsW9hm5p4bKNt6KR6FbvEoOtpZbBhgUVqstw9dUMtdv_aouYYRuR4gVa7u-0E3vNSZ7PMf7Dhev7uRjhWXZVrq-fB_de3jId0FQZy5ykeabswFvnH1_bUfFM5nsonupM3TOedOfSjA88kRRgITl1elNqdywHSen1BXkbDc1mgVnb2AVZYeEttpEKHKXzu24e_FTQiJ_yaMAZ40RtBpCnrIcDbsCxrYTJSpL0RxseBJFzNJKas8QXYFDk4w6yld-QEgqOxGlA9oHxonlSAF7pgfGNF3N0N35sUfBCqPqGdMmlEfx32T9caK1Ok2tNyTUvA3kRjyGD73qmf2nMfnHtWrtHj5Kd87YmL_-9qZlV5V8EI_KFAD9wJ8BZxIkxX_pGJ4HJkBZ98Pb6BaL3zXkZQEvY3NYb4zrgtlXdlceqqyHGCrLWdmMBPfW2K7ol48afVY8rsh-po5pPFYcLUJ3YTvafbT1UdKX2yNICTjS9fmiEx3GVi8G8AAYQ4vNREsScjQFdeGSUY0LN9CGGVaym1zfztQY21L_aEa7vDP0cMWPKV22ctUu0wVT9tLXAwxI_M82LEfjSpRYvJAIzK5nO4RioDmRU9ZyBbpZ3e2BHhtv6r1LIpMr_q9693aqIuNVqZYijgkw1M9ayWmtPMYPAitNfpfx6znEvj7LDgPeqOGwqFy1ui2lP01EFyWO4_hdlG83hfytAJXqUU6L8yGec-xkZxkNnLh3vabJ_u5LfZ3A2DTce3Lr9oGuL2iwuvtKZANwCkH4nDRE_mCHmlK6WT0iEketvyQ-eRfMTYJzap0Zq9WwmMBK7o5EhTGRZNo05YcGlzNc772C_coIDINerQqj-Yxg_qJbx650aYzYZjbr-nKVHigE4eeRLJbyM8BhhPxRMRLPYKXna0Bg5JnwwpT9eDiEw14yphOelnkqptBABzpDEDk8PM9-E6UNIWMaNlMI_FG5BT8bl1jBuyBjCtUSeN1wq_yx_5qGmvP7Ob2axcNPvWwyWcce2eMpm_iYO1WnL5aEnUKPT77CSkvkV73qgI62znR90rPqgTCKEzn2DTqf7z3mzy30bD3yopdC9ydWh6kysnaURNiGXYAUdFZl2p8EQYVGkKfggojMwA8m9NqvII1Oql7SS6FHV8FT3iFxQXSTCZXF63PYhwAVwHaUCfH1wkYKJZTIcpZ7Rf4lKnLsP_7U9jtr5puLv2I2ehTbSgVdUy6ppZ5tCOLG2jJRVRZDafZ6yLYvNF1J2H2Y2XTHC1tRdQEEeNQBz2FNrJ5mpvz2XOMP33THIMk2UqwbCNY-g7a_ra7uTWa8x3oEqigDrlTjCWSLgY-lPInqC2UTEfsEeZ6ipjGjDN6QCk3YXnwamI6mYokBkdm7vjpwUsc0mUg00qlPRTVBfxUyCTjQ5INUPaEFx9PsSJy5XhnvQ1hpViap9npLppdloC4Al9-E415MOMCFuKuJq6CX383-lTYYsoD6lmm3FvXRf1rR24OU0kDfPVnHTSGntFu4jt3nFGhRS3d8LXh7KKPd3dKD7Q3DnrPiJJ6RGF9J8cv2O4qkkSqsl-Ue7QS3CTYQ7OS_Xt_YgzyiEygrY7pjuXAjfrUM52aRbVFd9wNoy4YpkmyRFpPmBP2JzZ4vrdGjDQ70J0ewFeTOknBqjhjjeeQAwcet0w_417x34KFp0vICQ-IB-4zpJADYijLwS3p7QH4h_tgAeS81xHpQGOP2kOFE8WXVxE8ZZYJXjIlBIrW421j9szpmNu4KZ7IAgom0kekaaynAXZ0wv-pjIGgvGN820LXMrZwuWYloRqlXt4H6Tn8hAvKyjON6gLvXOSJsb",
+        "summary": []
+      },
+      {
+        "id": "msg_0b406a4ef99466a0016aa1ff9bb7d487d1a3d0e2d4281ceb77",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e6e5\",\"comment\":\"Claims the center and prepares straightforward development.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 507,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 219,
+      "output_tokens_details": {
+        "reasoning_tokens": 194
+      },
+      "total_tokens": 726
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.640820026397705,
+  "request_id": "req_4bdf80e514d244d5b0e67d180e2bcba8",
+  "text": "{\"move\":\"e6e5\",\"comment\":\"Claims the center and prepares straightforward development.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "e5",
+    "move": "e6e5",
+    "comment": "Claims the center and prepares straightforward development."
+  },
+  "usage": {
+    "input_tokens": 507,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 219,
+    "output_tokens_details": {
+      "reasoning_tokens": 194
+    },
+    "total_tokens": 726
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00038955",
+  "input_count_delta": 0
+}

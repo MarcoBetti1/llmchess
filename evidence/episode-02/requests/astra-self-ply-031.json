@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-031",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1bq/PP3P1P/RN1QR1K1 w - - 0 16\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . r k .\n. . . . . p p p\np . p . . . . .\n. p . n . . . .\n. . . P . . . .\n. B P . B . b q\nP P . . . P . P\nR N . Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1d2, b3a4, b3c2, b3c4, b3d5, c3c4, d1c1, d1c2, d1d2, d1d3, d1e2, d1f3, d1g4, d1h5, e1e2, e1f1, e3c1, e3d2, e3f4, e3g5, e3h6, f2f3, f2f4, f2g3, g1h1, h2g3\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "a033b11c7e21a97d58ed5394757dca7e91ef397235bd7fd7fded5c63b5aa2f41",
+  "fen": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1bq/PP3P1P/RN1QR1K1 w - - 0 16",
+  "preflight": {
+    "input_tokens": 531,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_1673d0a3679d4b4393520815b4efe3c8"
+  },
+  "reserved_usd": "0.1090375",
+  "raw": {
+    "id": "resp_0b6869b01a02b23d016aa1fa2afb4887d1ae3baedff7854859",
+    "object": "response",
+    "created_at": 1789000235,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000250,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b6869b01a02b23d016aa1fa2cc21087d18362a0a83e15619f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofo65p19ULBM1aEwqTeJw1J2_K-kid-SUbviXz0UlKbd1cZN0FKW-b0YFG9txzP3P2yo1xz2EV1soyEStWgk-Vmq5E-KR-_I4G9Do4v3GXqcljPVGV_-i03sQ8JXCKfAbwn3jFfNDLlfX5QI84Tux-_ir9DBNm1XyHQWl6ORpi6HKAe3xOUoavAhS9pq5uGL9p3OskgAVOUvgvhuewzxCeBOfxwsLD85u39s5YodvWknSO8V9abP98eviGlLnJpmAlazTd4ygHCj3jkQzn8KCLBLX5KkFx3Ayt2SOzlmOjVLKSlBo_-PbNBW3lzawg706-7KvqahcI7i-y4eyi94ZkgBv38KV3dGDj2ofOkteJQZli4Z3GEabnzRnwL9hH7XzplxFVTpuhT1hVMJd-5jwTN5OD_FBlKhLIl7r0S58Gfpg7TqltQ-YlET0LKwef2e3o-krKn2L1CyxJCxs2WPqNmY_PNndtpsrSsSbnmb3A300WgcdgayMfNcPimJx6djhYUSdGGNLSjkkbB7o2foeh4vss2AcPYsXS9fTxnjVsoa2w7z5fcN4qbNKtOD0FHZvkdEs0Veanmpo6xhGCCrZYqb7ErhQvr2OFsMux4XIbRdggBnoy_CetKcy4L0Co6D9iRCcKmLISMCglRxbJmWgEjyZQ_dsFmTuIlKCemhpRXPoYR5o45pKsOqTOk3e8D_woH9VpobEshxuN-r6YOPVn-2dhmd-tTXmTlRS2hNFkmaARQI_QkpUUIGx4dNaEIvTknygJcH5YXekbkH1dh3y0t9QYtR7OfI4DuFZicbLsLbwoLCjixf-ntrJMnACfN9NnLrRy68iO1j-5JJ_3JirITy_Ve2iJpTLvUk5tf88KB0RQnfNLWkTruHYPSir9F3YG4lUE_NWmwQdQjcc0lOk_BBV16QLInctKlK8vLgDt8SBd9YXjY-vHVfDyvN-glyWeGy8AUK34_SsE93Qav09qk-syzgDlA28ay8NP6JM0qGPfEJE44W-CvPWpFPRzX9x2k8nqEv_BblmsdZEC4uNW4-c8WoUxSrlqAK-za0cyR3muS9U-D0TFYhpUqvCazpGKNqoS1tamCNk6mp4fj6C2rnUYQ77yCKbn7C9R3ii_MT5gcYY79J3bIv7dRTqXJgLaWLXQQq5VXYwuM5K-LJPLyYQIyUdF44iI3MWJGZgzYdpKUiEPydOTrSWhT462g-fstpbyfM4DeaMyAnRYc-0B9DB0VVeU1h5r30L4BfVynqUtNgbc_6z4n-kI6nmo5BiWoG1cSQdZ6dw21-ZY4wYYsxtau0-Zw-uVmqghnYTMZn2qtTpq8dx3BE0TBQx5uenpMVaalYyEK3qknDrW6BX2kpDULpDYLDdni4r4IGWMhHlsE4l9rfnZXDxMOb1XPj7R6PEL9QMjbv4ysBuWfRYO-vVO7z6SpoiZlxlz17MwNum3Kzm72h6H3lHq1-aGE1lCvSTMQK1hdm6_SfMFa5MkEu67O-rVkMxyVCa_PMEmyJn8YvKVGS1X-F3kDzo605zoUNmCUdjr18kzQSMZwHr8NFCWtbg5gnMOEqlwa9qfgDbmjgym4zOEEhbws3h5o_6JyLrzAWDPdM6hPW2VOxageJzro6_uDCQPfuH0y6vEBWvwHps3zwkNArGywud0KEgL1_rbOurAKwkTUDSSS1Kx12UQGM812bR4Rt1u0ekWzzCos_rfzTiKDjlXU6A13foJrh0lZ_g5TygFL_eMTYI3CCZguGg28R8B8oyzaCZPHgTqgk8x9ZcuvaMGsAtIl9SrE1Z7zFWP6FSziwSO9SOwaZ7S3qsUXDNBoYKTpm7M_L-pAmNyyfqFSiKvLs_l2uGO7cPKdsssKgOYdnzk06cJ1o5L5RD9s2d7-xcXjAuaOa2nnnEImBlJpZ0C8FRJwdHqNcLNetMtW4GOWQijmXY26zKk-3LPU3YyZy_21D0MsxzYl0wCKQNJ08_SO3vuaMkeA8KMRvipWyJfcuye4c5JP2rRxM37zgMdr9YdX045UjOJp7WyxuEuQnoT5yGXBZJjXsrbXWx4ncFKS81pAHfreQ97Wnb4Gj-Yf2neKSXetDilJQwGn0xiOovT9Wgak5s8H3dU9AfYi7Y_6AyHaCtg6Am4SpNAZsqLSFBi3oPuCYvTcpv3EuwuZ0glu3SrIFcYA70thoCrljhSJXOpE3vT_iNjOhJaP4C4cyGZFiJl4xZC3Jh6F0QV-qvPlXXsmNNHDn0qmxPYdWI1E36HVFfwtwhCTWt-OZS9RlDZYbYtZlkq2RBju6LdO2DUnXVjHgikHz9WKPmayFnq3CuqoZPZFkGowC1fhCnX4cIzCZFSyORUQrqgrfx2oWxzNAa9H9C1b-0bs_VPNjkoCXxRPw4ndOZecmHMyHQ22HlxblVE0Nr_nOlXdZD6zmQj8rgDoy-ErjgBVlWPBbu-B71nZ__p0CeN7QRORBnFCPBvBoUlN5vptqcNPz5xhc-O2URDGzN0y9QHgcLyFGoh3uC7_JaAxYjNZBosyWwE953P_qPFOI0i9U1cr9-B7iYINe__Y94aaWg6MrH-9V1l8iOdkG08DAvw==",
+        "summary": []
+      },
+      {
+        "id": "msg_0b6869b01a02b23d016aa1fa397c6087d1bb4bf01e54e30b32",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f2g3\",\"comment\":\"Accept the sacrifice while opening an escape route for the king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 531,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 389,
+      "output_tokens_details": {
+        "reasoning_tokens": 360
+      },
+      "total_tokens": 920
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 15.457575798034668,
+  "request_id": "req_2c0a661f14f34724af689f98caa9501d",
+  "text": "{\"move\":\"f2g3\",\"comment\":\"Accept the sacrifice while opening an escape route for the king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "fxg3",
+    "move": "f2g3",
+    "comment": "Accept the sacrifice while opening an escape route for the king."
+  },
+  "usage": {
+    "input_tokens": 531,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 389,
+    "output_tokens_details": {
+      "reasoning_tokens": 360
+    },
+    "total_tokens": 920
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0260875",
+  "input_count_delta": 0
+}

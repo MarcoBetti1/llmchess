@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-009",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\n. p p p n p p p\np . n . . . . .\n. B . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, b5a4, b5a6, b5c4, b5c6, b5d3, b5e2, c2c3, c2c4, d1e1, d1e2, d2d3, d2d4, f1e1, f3d4, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "a5f3850d32c7fe2386f772da65534a61cdcc4a9b2cdd1e4029f340de3dee0495",
+  "fen": "r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5",
+  "preflight": {
+    "input_tokens": 476,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_5544f89640744f92a6cbe152dc4cdb3b"
+  },
+  "reserved_usd": "0.10835",
+  "raw": {
+    "id": "resp_037fd87bcd933bae016aa1f5faf36887d1a3298b81759b0ca4",
+    "object": "response",
+    "created_at": 1788999162,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999166,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_037fd87bcd933bae016aa1f5fbf95887d1a360165d33f156f5",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofX-hVm9bK2gOrf02rl5L3Bo6bx8Vp5JD3eFJ3jHJvri_G2SyeQB9PBifJrzKpEomkZ3IYIp9jeG81xGBSPWxgK1n3ZaK6im6bfn1tXnHTXOHVYUBeoCEybawfvoeUaOLxamaaAXV-uqgO3c221ghBIUhmV22BJv2SzvQv3hlflk8IUHuRrVm_4_ZWxVeFHUb7bhfuPewCIT9V6_ooXlEfpD_Ss7hnqve-fXAzK1c9_I7bfum36vyQcZlHpMpVKY7V5u-IwUI2QGtLYrC5-ratG9gwK7hCZhuO80KkdbBHmUfgOrfxwJoKZpgHNWvPKCtLtp-rzdRwfvmylxETmj7wLQQKa4HnTecIY5ZX1ZnZmEPS5fDvxBDxpS2DD42KetlAZx42IE3Qo36Nkl6ENHWgUnGxib_Qy2cvMcE4F8p41_ZG_sgIbrs6GoGIXjTZ7suAkCDGYI0ok7rzQbGiJyrmUef25P9hg3-odDy99alXUUNWTZo4U8s6d3i2YjlPiesnHhArSUuEc5f5xopMaE0xTTTfkSn7o2xCwBTZllp6dVRHisYMCRCTqDDvep97lUCRxaArrNi6p6ndHzQitnOVWSoEzlY_KLnu4KYztAGLf-iODOwTRJ3IBac6J7-A_diDX4N7k8_ySSaNKGSmPw1LNBSnQcoel9cjflldjok9Hnhre11h25bztEiB7V42CYRJudBn-l0fzGBX2nwffFbwYfNkmUsvcT_RkNIBJR0wVCUomkCSM9XfMQB19DyZR-5WUBWF2OifRt6y6tsYJ7zAOIiUDFkJ49Cdnw6IAyZ4snNcB2-75Lns43dSIH9Hki5vCoohkEyazQnB_rXII8dpcEiYuv6VQLmUDIKKlQu8924SnlEwnaDuV4BOEAXA3KXabBoaitkdaWBle9xLAPlbhN-vYaubkuNRaOkys0tE0WYAobCILH_CqM8cvQlEGbYiWAaMXeMVZRxsi2lRClqdPyp94ja-AF-gUQWaG9t_4QQMkrRVJEeVjx1s4B67NrTxdX67GyMFGT7bU30Lu0r72mH0LgvRYsh9NiBNhPuSEet7u-SOuY_PCIEsp3WFBPYnOhZ3e3hsUDpylaGYy4ZIbBieLlH7JwJTgqru6jJ9SaJC3_FWX31iOCooBN91YZ0yBa18dao88uJOlkT19yj2DpJbmCMM4qW1FQua-BD7f3ptQkz2mIBzQnY_geBdsH4kZJL-xJ-l9VFtUI6ZMGnF_yy0FsfBCSrh6ozKUrYtu0hFbGD-YXJmaPqhPBm5yYr4GfezYGqMJQ-gD5JtH5nUuEZMZYmcDfLhJArtgeToR33T7JLRPtBaoO9W-NF8bSp5391_QVguxfZEVAipbaj61SzP04sHFyG15B27crirgEkHY=",
+        "summary": []
+      },
+      {
+        "id": "msg_037fd87bcd933bae016aa1f5fde6d087d1a3968622021f9091",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b5a4\",\"comment\":\"Preserve the bishop and maintain pressure on the pinned knight.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 476,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 96,
+      "output_tokens_details": {
+        "reasoning_tokens": 67
+      },
+      "total_tokens": 572
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.9523367881774902,
+  "request_id": "req_42ef3c482f8f481887c89332a99699ff",
+  "text": "{\"move\":\"b5a4\",\"comment\":\"Preserve the bishop and maintain pressure on the pinned knight.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Ba4",
+    "move": "b5a4",
+    "comment": "Preserve the bishop and maintain pressure on the pinned knight."
+  },
+  "usage": {
+    "input_tokens": 476,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 96,
+    "output_tokens_details": {
+      "reasoning_tokens": 67
+    },
+    "total_tokens": 572
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01075",
+  "input_count_delta": 0
+}

@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-034",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1R1Pq/PP5P/RN1Q2K1 b - - 0 17\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b . . r k .\n. . . . . p p p\np . p . . . . .\n. p . . . . . .\n. . . P . . . .\n. B P . R . P q\nP P . . . . . P\nR N . Q . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6c5, c8b7, c8d7, c8e6, c8f5, c8g4, f8d8, f8e8, g7g5, g7g6, g8h8, h3d7, h3e6, h3f1, h3f5, h3g2, h3g3, h3g4, h3h2, h3h4, h3h5, h3h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "fb890dfb6f3556ddf95de656f0bf7ac85a56dff24026da6bfc7f5011a045e44b",
+  "fen": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1R1Pq/PP5P/RN1Q2K1 b - - 0 17",
+  "preflight": {
+    "input_tokens": 531,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_53fa2e3ad5b347a1b7e0ccab1debafdf"
+  },
+  "reserved_usd": "0.1090375",
+  "raw": {
+    "id": "resp_06c810a3ab5c2fe2016aa1fa643b7887d1b137ea3b4e8b286d",
+    "object": "response",
+    "created_at": 1789000292,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000310,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_06c810a3ab5c2fe2016aa1fa659c3887d19e65f48be027bd7f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofp2IN9K9Hg2-4haHSxSRv-aGVKSmY7XOkg1TP0HwWN1XYnATzWn4GgyyqZnxdywaLmG0GfDHntcg7GK_PNb9kFC1dZSrWu6kfx0uhw8EROKWjDrvB5S6J25J-_o2eJZOe4zE3bJwl32MWcpuR9mtpLNufWL5NuSbgMFcRvmbvhlXwqb9tVQwrY0PicxPLiE8DOEeRNDuzOKaUaQds_y4qZ2J4S50UeGyguEmtd4WoaorhV8FaR_CzNtIrrK-DSEw6iPdhwO7dfcimtzmVAGSHXQrvmiIQZOyhB41mlTjlTOmp84jrs3PnixIgq7BVXgQFg2y-Fv2e_2KHXw_1VoQkuu8qlsr246biOlW3p7hSbz6wtSjdRYSuUXb5fQdlh5w75h1TsOH_zRftooNkWEzq7MHZjPhIqN1gThshjeCwbubKx1pxyiOKgYUUQaR4I19aOUks_1xfXCWTIcCGIdlMTb0Ga6g-XwT5CvvhkZATYoYmKD74M50ECaroE7V7q31T3y895DHvQ8SYdpXdHt0EyE4amOlqDJ8NYuOM6bd_2a9fI44E5h5-E3JtHk6tbt9XpM5HMya8GfV4fbmquFxQXQmWr6DuRh4aGrXlpbEAY9m3Wiqz-wLauNse3coZ4d-FXQJ5eje8cxUfu1GwwyD8zEWgBF_w-JemAaRTVXOEY5svw3fBrTjAo1T9RKVfu3My_tQAE_g148e1WDs-9o1t8EdUEZGYDbl4AteaPRScMgvs9nulO-jF-IFtKsqkurngRo22SXXGoja5woL9X7DPYZu1SxVtfO9hdRxVA5enAibm2BPKl5Iz8Wu-ZymeYrvYDQ5GRaLZxyxfHhdlkxRO83aXfmZdK_CAQlbUcLs3J5LV5lB4YsEN_rk8FrwXnfESf2Yznm3B15-OJnpUx_UNDsCcVBLA8qDWuzRQJCl8YLA_W0YEpjmTtOoeBNQig_NDiTc6NkJ1_G2gC3eGkVvkzxTYX2Erw_qaRnEHP-dEl8VuWAff4rHEMDl1xyFHlVvxsKTXdx1emS6pukDOSL2s1bufzufuKcPLGC5eRxoRif2eTAnmLkKxue2ocWOpH9zwpW8Jpdt_U1zp8Z3KioGd1jcq5vQIR45swtyGoF-9hfx5MSLpriSFmk_GPknfZ6m0jHkTgne9kPLxNolUPEG4qFMaNZA4jDyNqIPYNhABE2feRt5f1QmQD5_iYqJHLvlxthsNuP4Zb-ENHZuARp0dbyGC2TUFLXz_U7yoAJMKA38L4rsbNeklywa7oOLs8Q8Mc5njoTldIuuJ0ewoJRYkEVhcEXtD0YpJVYlnWLG2kIeIAQfzCWJe0tqCe7deYBmniidLmMLmZCOQrjBD7pVNEVAIQbaCfEjM92lxXxgoT_kLXi5k0vOFzZKixDR5gJOaolTSwmNFZjbKs5Q5Zxk9NvbWJGoB1UR_SKpxaXWvYDSLWllzIAehlWlYRpU75b9yupZGqPNWU21Coi3l4pcbt2Gk2VH1bpjJnpCjRbjiZVRLjGLQFC9nWBpnl8nSbQsJVyTW7F0CMT5xjrPu7hhR0bEWXsc3S_Zq0iIjEF197B3jQVaaL15lhWUt7H-OPtMOos2f6TzxB5XQ7b4C1D1XUaxZc4roNHlJCtiUfqScMbK1rLF9g883saE8MtcrpCntBU0bCIkKVLbb4PLf_Gdrdj_ZTdBfcqPVs0ko9z0qKbg9xI2EGO3pcUIcqS3Q2CjZNE32l7guaTY-ARtmwuk2oMSuQPjnsRjzV0Aqr7moWh4JOZLc1PQ-2Gqe79jMZstf5hSz9vZXs1q_RznVl6uNNmN3Vbp0l4lJoYRMzlArTGPabF_LDbWsk376xhQVNfJ8lvAhQjNIagjY8iud0HrEiUVGN0RgcoHdL81c70JG1o0ss1FGHH4hw4-4QGCsyzUoS9buM2CLXC9SOZqAo2ePFTBntXmw1M864TDokiW_77RBcN2YI389Yipm2ZftkHGD8NHKRgNLG06lKucQm9gr95NZ64SDlRX_-fa4TFhipLikvIvSsdCuzSoT6GpPD2mGJSN8RFDQh5frjblMG5M4GkPSpp8559WBACDM_ZFMWh0yKpTPBpmv6LkwW8icUULM3BiFqPs0U91b7yihcf9UTgSLAiXxnl92u3pPpZbSMU-V90UBOL5bJy8LMuYKc2izDeF0stYoL3PckXhmX6D0BPb9XEDMwo3BpDSzZpYqTuvuN709XIwPlxTXneT1_uvVAizKp6w8a-uGo9tUw5rmyq1M0Ti-i-J-1GjiqGqrCNJgwctj_1zFKrmBj2bZMF3SJCA-8GFmxV4RZktCw9rkiZ8Ei-2SvJBymqXHO7b7y4zNjEys4SJMP8MYqD3XKzBT0ykf7vdXQYGFD8ZyH8iMMnTG89nIHrsr4OXABV7ePFelGojcpFGxsQrOo3HqTBiLhZW6LU5X7rf-okP6bvBgkVu2G3DNT-E_Dnb7EVj_Gl_3hKQf5NuUfQNNkU9-yIGZocamU8s02SJm2AHkAxkXnHuLnXONm8dyM6SajKL6C4mkEx12wowrfW_vmL30tUGHoet4ZGEIuHS6UfgW4rVnlGJwhpWKC0wBnuFvtgNFPaZrXRtKfVfAcjytnoDSxIJkoFHEplgwHEqHFIKrIbUMsJNjtazmLxBS39ytCKJc4-X-LpjkuPUbShULylOYdKgdYM",
+        "summary": []
+      },
+      {
+        "id": "msg_06c810a3ab5c2fe2016aa1fa757fe087d18f635eaccb10499d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c8g4\",\"comment\":\"Develop with tempo against the queen and intensify kingside pressure.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 531,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 410,
+      "output_tokens_details": {
+        "reasoning_tokens": 380
+      },
+      "total_tokens": 941
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 18.32018804550171,
+  "request_id": "req_24cf92ca3bac4b54ad946112757239fa",
+  "text": "{\"move\":\"c8g4\",\"comment\":\"Develop with tempo against the queen and intensify kingside pressure.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bg4",
+    "move": "c8g4",
+    "comment": "Develop with tempo against the queen and intensify kingside pressure."
+  },
+  "usage": {
+    "input_tokens": 531,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 410,
+    "output_tokens_details": {
+      "reasoning_tokens": 380
+    },
+    "total_tokens": 941
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0271375",
+  "input_count_delta": 0
+}

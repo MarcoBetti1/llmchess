@@ -1,0 +1,151 @@
+{
+  "key": "luna-black-ply-006",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bqkbnr/pp1ppppp/2n5/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b n r\np p . p p p p p\n. . n . . . . .\n. B p . . . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 Nc6 Bb5\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, a8b8, b7b6, c5c4, c6a5, c6b4, c6b8, c6d4, c6e5, d7d5, d7d6, d8a5, d8b6, d8c7, e7e5, e7e6, f7f5, f7f6, g7g5, g7g6, g8f6, g8h6, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "3acfbd4628b9cbeb9100ea0d12be2100c9af7e89789a1473f37d4ae19bd248ab",
+  "fen": "r1bqkbnr/pp1ppppp/2n5/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+  "preflight": {
+    "input_tokens": 450,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_7000c437bf6e4ff28ea98bdd9f710810"
+  },
+  "reserved_usd": "0.0025701",
+  "raw": {
+    "id": "resp_018da58c23d2e069016aa1ff93ae3487d19004f191e3daae6c",
+    "object": "response",
+    "created_at": 1789001619,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001621,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_018da58c23d2e069016aa1ff9499cc87d1919853d30de29a86",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof-V69JJwpzFRZvSzmPgtKKVA174JWl6273qd107hwZoTVC-bKZotFK1-TEAbk9dzy1ziEIOtG1EwZ-uyAZkS0BQJB4SzXTCRMxuLMFYvaID0WeyTiZQ-ZLL6KdJmyFW4pGCcmOS8F1KAdEEHCppC9G8RcZeRYSe6muzTnJiAj9rfne0skd5pkM9R3z9vCDHW306JQRC4xnuAiU90rFQeGqsjB3HruU-Qppa4LNkRYj1DlKTPL_W5BkggJyeZLQPEMdiIYwcpa7mssVuPRF7LzCRbmbe6qjrz3PKk7JrkgyHD53ewX6yY7tJtVfRcRV071-8wnIx7_KJm_L6S0gSaY9_5N9pK53CGPPhNBlHv7UFn-OEhZ2g3alZNux0xlxuFYRp9NcIYaQY5_I0OhQUUm9y_44S_nZY-9Nn0FjTlktbu78Ul9TkdmZ9glBWmEIIjgDZXpMTogvBtwi1-WUYfHjMzfYbOxPVxhOXXEPhDP1pq3YsdQHCV5-LZHp4voCh_PqS0eg2RtX9ai1ERBCR50z6X9xONJ_3o7-DuGDWF_YZ_RnJzud_WEfPdAY8WvXT7zDESDGG6GryGwCt1kdnBsAlpcwRk6Blr7jY4xVrW49PPc7YDpgYrEAJdqyofsVFxXnDoVfZQKkBY5KJpaPG88A8dyvJ2CLPcw73lt5obTNMeMRozXOn2FwmYcR-h47EjHXwZrklyhM4E1MWKWDlV-SLgN2Lo94e-h5Cpg6QGPcDYkIstDXW8uLY4eLuuDM0hP1JczS_17zAdfGjvKoMY3SG-8DQW9u_WXm5oEyAFbENpc3UyNWRgSNtvARTi4UqsM1cK-hUfkz5uHPAGI-oI8kuuFeM_U5EeDu_ii2apqvYh00o95U12F_kpVNYAifKJpk1q2l5zaXUVAsNtFuKRsSw5N_53ZJ7ZkLjdDARlAIkuz5LV0hwb-wyIQL6F1VLAGk7Z1YodWRuV1vPp0pZbvVOnlh9r7pICRBfScZ4vLtu46eSHvGIksKdr5FNAD1xxivMthjvs76zt2fQXEhw4TN4g7OJipJmYxMAu8CC7IhNG8xf997G5lB7iIwjDjFB2Sp0y0Egcyj_ZDuqxRNNpHZEU7ju3ii6MrT3oiimfJwzgn6MB5CORdVyugnjrvp6Xk0XWx-CjIzR5np0Fq1uLehLCB6VElS9mUtMGtPA6y0rQImH74ouZULyae8yELczxdkuBoYA_70mDuWDdDusqz5uOdShNsZiNUIwnQHbuH8Ub9kxgtsEG_FOp51txtAKMHsE4sIAFJa73gPH6BpyoVe3Aw8gIZ2airKd_052xOhItxyGWWWsESg-lBSItAItGavEm-bqRFMdTBnF42S5w-vytsstYQo7B-Hoc10B4d3-s4zoGJWeDTKiJ8ohitJ9985H",
+        "summary": []
+      },
+      {
+        "id": "msg_018da58c23d2e069016aa1ff9550a487d18965b665dad62c4a",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e7e6\",\"comment\":\"Develops solidly and prepares d5, challenging White\u2019s central control.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 450,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 97,
+      "output_tokens_details": {
+        "reasoning_tokens": 65
+      },
+      "total_tokens": 547
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 2.2649872303009033,
+  "request_id": "req_d3fec0491c4c4344925b20aa43263593",
+  "text": "{\"move\":\"e7e6\",\"comment\":\"Develops solidly and prepares d5, challenging White\u2019s central control.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "e6",
+    "move": "e7e6",
+    "comment": "Develops solidly and prepares d5, challenging White\u2019s central control."
+  },
+  "usage": {
+    "input_tokens": 450,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 97,
+    "output_tokens_details": {
+      "reasoning_tokens": 65
+    },
+    "total_tokens": 547
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0002289",
+  "input_count_delta": 0
+}

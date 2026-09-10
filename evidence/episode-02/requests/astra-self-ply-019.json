@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-019",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bq1rk1/2p1bppp/p1n5/1p1np3/8/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 10\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\np . n . . . . .\n. p . n p . . .\n. . . . . . . .\n. B P . . N . .\nP P . P . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b3a4, b3c2, b3c4, b3d5, c3c4, d1c2, d1e2, d2d3, d2d4, e1e2, e1e3, e1e4, e1e5, e1f1, f3d4, f3e5, f3g5, f3h4, g1f1, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "073b9aa2f1427d7863cde90c3e4de9d6496becadfb8fbf98d6af7504c2ce438c",
+  "fen": "r1bq1rk1/2p1bppp/p1n5/1p1np3/8/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 10",
+  "preflight": {
+    "input_tokens": 488,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_8b4f1f7c9c8f44b790abf539ea300f10"
+  },
+  "reserved_usd": "0.1085",
+  "raw": {
+    "id": "resp_045dbc5c16e54312016aa1f9b520d487d1b6312c8687b0439a",
+    "object": "response",
+    "created_at": 1789000117,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000121,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_045dbc5c16e54312016aa1f9b6134c87d1952da3a0f2ced77a",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofm5v377VL6iXbUhfNXnzauZFaSmpOWhOKP3Gaovd-U_UhtpDb-nhhWfq6e0u9plIB4LOht-IN7IGy3msb-Y-BK-RTJ0RGeR2gG-fuOFhxpLgIjHPI5KLzPLbSUstT4fIvLTpXfnqmmtOZFg8GNefv1YNE5MJ8gOoZ4FYTComuLyZaBaTsGpM-c0XAD3U2i-uRMYnhFkRUh70LUXptcDvStaFSYbaAGAbsZq_88gmkC19Fuv6LAvwO9jmBQaBpUWloEAxWPwb7xWPk3ZvzZZF643ALXtJl_OVGPtSr6oo7KgwLnh1jcV57FtDeXQ7f_i6UNDYliYT9ssGcafbiLNAHXe1mFdFK5Xb3U4IrNE_NwFrUMFpKTXCUmgzCyitJPFNOPuowE8cR2-0RVgxqYq2h0WKUrLY_dXqU318pLD7qyFP58-9Mp3pxdLSkOVTBT1oojSfdpiaC58JEl7j_bvqxZJizEK4CZT5cyZcGUd8cL2jf4XHo24sQnDUeDvRXZ5zcjJdE3I8g-jqqhAxl9g3adl80XQrep6hEjCZuIkEeoPkHnu-XvDEipjJPUXBN9t19fjmRDSax71rk9AQYvQ_fBt8xHhfsPi9DR9jMKdJ8cA0_Ea7xTbKq5l1HGi88MyuWSTbhPtSTtoakbYeNnuNCRKfmgq38MiPeqcjeXDwmp_cNIIniiTxPncrVZc1Fwk0TuDWcsSFwY2Al8X4GR1Qb2M2AFEOydRrgvZ7f6e8sg28ofq4B_axtOutzaQjLSsZWuIQZoJiYXQyuaTOYpvKnzXhl38hkYMNjppS3zJszP3hNq91lKFFDnFa7F4WmXgEcmFJ5qCkaVO3k_t5lXJgGwrg9AmllAi4S20PDdFTK0VGYrbpJCqWbu0VfKp3QU-7g0dnIe1n5GZmxwUZY3vAvxLXGcviczZ6GJkjGXmB3xD1rPDE2b6jIMks9khMIQxkwd_xH0zkw6oSq7SZDGslQ277zoSZx-osHT3W8FagUtzr4b4miY3PCb3VEMnX7g9V2DKXHLFP7yBdn_i5AQa8pxDjgrR6YoZPj-1FDrO4K1K8xvaK97DbZd7a65z3O-OmP4diK-KTRnezkZTX7TT57Ga5Mbp_8jkAvuFWFBwj_pvCAh7_iqsjxXkLldxp6U-vbMr0EvM5X7HJiqzV1bR79nuhn9hx4lkgWWt8v_ykTgf0pIqZi-3BvH7lC7baqbl_6RegnlEqJJVbU1igBaqsAs4Ll3fQnLkr3FuGaRO30zJ2omfbizWU429vcQ9dg99pEkIwuq9F9DZlxpj3uIMOuVJ4Qm016UAb96TZob6qn0iQ57NNUqa3zbQyANaJXly-uXibZUdjNhA_mMmpx0pGeSMB1rtr20WGSzIv_YTjHnc46UO2tyjypVxUJqzlLcKWu9jyLs5pMtBpoNu_QHSCOapiimOWtc96HcUcfkQQZVW_6bUI-kPxLuwnErbS3Ggn5ioW10EH6v_2KzAuf6ZwC8vCA==",
+        "summary": []
+      },
+      {
+        "id": "msg_045dbc5c16e54312016aa1f9b91ccc87d1ba888015a7d15812",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f3e5\",\"comment\":\"Win the central pawn and accept the Marshall gambit.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 488,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 123,
+      "output_tokens_details": {
+        "reasoning_tokens": 95
+      },
+      "total_tokens": 611
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.948092222213745,
+  "request_id": "req_490786e292c64872b110c5b4378761be",
+  "text": "{\"move\":\"f3e5\",\"comment\":\"Win the central pawn and accept the Marshall gambit.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nxe5",
+    "move": "f3e5",
+    "comment": "Win the central pawn and accept the Marshall gambit."
+  },
+  "usage": {
+    "input_tokens": 488,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 123,
+    "output_tokens_details": {
+      "reasoning_tokens": 95
+    },
+    "total_tokens": 611
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.01225",
+  "input_count_delta": 0
+}

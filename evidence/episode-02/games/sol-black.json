@@ -1,0 +1,521 @@
+{
+  "id": "sol-black",
+  "white": "stockfish",
+  "black": "gpt-5.6-sol",
+  "moves": [
+    {
+      "ply": 1,
+      "actor": "stockfish",
+      "uci": "e2e4",
+      "comment": null,
+      "request": null,
+      "san": "e4",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "ply": 2,
+      "actor": "gpt-5.6-sol",
+      "uci": "c7c5",
+      "comment": "Challenge White's center immediately with the Sicilian Defense.",
+      "request": "sol-black-ply-002",
+      "san": "c5",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "ply": 3,
+      "actor": "stockfish",
+      "uci": "g1f3",
+      "comment": null,
+      "request": null,
+      "san": "Nf3",
+      "fen_before": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "fen_after": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+    },
+    {
+      "ply": 4,
+      "actor": "gpt-5.6-sol",
+      "uci": "d7d6",
+      "comment": "Supports central control and prepares natural Sicilian development.",
+      "request": "sol-black-ply-004",
+      "san": "d6",
+      "fen_before": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "fen_after": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
+    },
+    {
+      "ply": 5,
+      "actor": "stockfish",
+      "uci": "c2c3",
+      "comment": null,
+      "request": null,
+      "san": "c3",
+      "fen_before": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+      "fen_after": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 3"
+    },
+    {
+      "ply": 6,
+      "actor": "gpt-5.6-sol",
+      "uci": "g8f6",
+      "comment": "Develops naturally while attacking the e4 pawn.",
+      "request": "sol-black-ply-006",
+      "san": "Nf6",
+      "fen_before": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 3",
+      "fen_after": "rnbqkb1r/pp2pppp/3p1n2/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R w KQkq - 1 4"
+    },
+    {
+      "ply": 7,
+      "actor": "stockfish",
+      "uci": "e4e5",
+      "comment": null,
+      "request": null,
+      "san": "e5",
+      "fen_before": "rnbqkb1r/pp2pppp/3p1n2/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R w KQkq - 1 4",
+      "fen_after": "rnbqkb1r/pp2pppp/3p1n2/2p1P3/8/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 4"
+    },
+    {
+      "ply": 8,
+      "actor": "gpt-5.6-sol",
+      "uci": "d6e5",
+      "comment": "Eliminate the advanced pawn and challenge White's central space.",
+      "request": "sol-black-ply-008",
+      "san": "dxe5",
+      "fen_before": "rnbqkb1r/pp2pppp/3p1n2/2p1P3/8/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 4",
+      "fen_after": "rnbqkb1r/pp2pppp/5n2/2p1p3/8/2P2N2/PP1P1PPP/RNBQKB1R w KQkq - 0 5"
+    },
+    {
+      "ply": 9,
+      "actor": "stockfish",
+      "uci": "f3e5",
+      "comment": null,
+      "request": null,
+      "san": "Nxe5",
+      "fen_before": "rnbqkb1r/pp2pppp/5n2/2p1p3/8/2P2N2/PP1P1PPP/RNBQKB1R w KQkq - 0 5",
+      "fen_after": "rnbqkb1r/pp2pppp/5n2/2p1N3/8/2P5/PP1P1PPP/RNBQKB1R b KQkq - 0 5"
+    },
+    {
+      "ply": 10,
+      "actor": "gpt-5.6-sol",
+      "uci": "d8d5",
+      "comment": "Attack the exposed knight while centralizing the queen.",
+      "request": "sol-black-ply-010",
+      "san": "Qd5",
+      "fen_before": "rnbqkb1r/pp2pppp/5n2/2p1N3/8/2P5/PP1P1PPP/RNBQKB1R b KQkq - 0 5",
+      "fen_after": "rnb1kb1r/pp2pppp/5n2/2pqN3/8/2P5/PP1P1PPP/RNBQKB1R w KQkq - 1 6"
+    },
+    {
+      "ply": 11,
+      "actor": "stockfish",
+      "uci": "d1a4",
+      "comment": null,
+      "request": null,
+      "san": "Qa4+",
+      "fen_before": "rnb1kb1r/pp2pppp/5n2/2pqN3/8/2P5/PP1P1PPP/RNBQKB1R w KQkq - 1 6",
+      "fen_after": "rnb1kb1r/pp2pppp/5n2/2pqN3/Q7/2P5/PP1P1PPP/RNB1KB1R b KQkq - 2 6"
+    },
+    {
+      "ply": 12,
+      "actor": "gpt-5.6-sol",
+      "uci": "c8d7",
+      "comment": "Block the check while developing and forcing the knight\u2019s decision.",
+      "request": "sol-black-ply-012",
+      "san": "Bd7",
+      "fen_before": "rnb1kb1r/pp2pppp/5n2/2pqN3/Q7/2P5/PP1P1PPP/RNB1KB1R b KQkq - 2 6",
+      "fen_after": "rn2kb1r/pp1bpppp/5n2/2pqN3/Q7/2P5/PP1P1PPP/RNB1KB1R w KQkq - 3 7"
+    },
+    {
+      "ply": 13,
+      "actor": "stockfish",
+      "uci": "e5d7",
+      "comment": null,
+      "request": null,
+      "san": "Nxd7",
+      "fen_before": "rn2kb1r/pp1bpppp/5n2/2pqN3/Q7/2P5/PP1P1PPP/RNB1KB1R w KQkq - 3 7",
+      "fen_after": "rn2kb1r/pp1Npppp/5n2/2pq4/Q7/2P5/PP1P1PPP/RNB1KB1R b KQkq - 0 7"
+    },
+    {
+      "ply": 14,
+      "actor": "gpt-5.6-sol",
+      "uci": "b8d7",
+      "comment": "Recapture while developing the queenside knight and preserving central control.",
+      "request": "sol-black-ply-014",
+      "san": "Nbxd7",
+      "fen_before": "rn2kb1r/pp1Npppp/5n2/2pq4/Q7/2P5/PP1P1PPP/RNB1KB1R b KQkq - 0 7",
+      "fen_after": "r3kb1r/pp1npppp/5n2/2pq4/Q7/2P5/PP1P1PPP/RNB1KB1R w KQkq - 0 8"
+    },
+    {
+      "ply": 15,
+      "actor": "stockfish",
+      "uci": "b1a3",
+      "comment": null,
+      "request": null,
+      "san": "Na3",
+      "fen_before": "r3kb1r/pp1npppp/5n2/2pq4/Q7/2P5/PP1P1PPP/RNB1KB1R w KQkq - 0 8",
+      "fen_after": "r3kb1r/pp1npppp/5n2/2pq4/Q7/N1P5/PP1P1PPP/R1B1KB1R b KQkq - 1 8"
+    },
+    {
+      "ply": 16,
+      "actor": "gpt-5.6-sol",
+      "uci": "e7e6",
+      "comment": "Develop the bishop and prepare solid kingside castling.",
+      "request": "sol-black-ply-016",
+      "san": "e6",
+      "fen_before": "r3kb1r/pp1npppp/5n2/2pq4/Q7/N1P5/PP1P1PPP/R1B1KB1R b KQkq - 1 8",
+      "fen_after": "r3kb1r/pp1n1ppp/4pn2/2pq4/Q7/N1P5/PP1P1PPP/R1B1KB1R w KQkq - 0 9"
+    },
+    {
+      "ply": 17,
+      "actor": "stockfish",
+      "uci": "a3c2",
+      "comment": null,
+      "request": null,
+      "san": "Nc2",
+      "fen_before": "r3kb1r/pp1n1ppp/4pn2/2pq4/Q7/N1P5/PP1P1PPP/R1B1KB1R w KQkq - 0 9",
+      "fen_after": "r3kb1r/pp1n1ppp/4pn2/2pq4/Q7/2P5/PPNP1PPP/R1B1KB1R b KQkq - 1 9"
+    },
+    {
+      "ply": 18,
+      "actor": "gpt-5.6-sol",
+      "uci": "f8d6",
+      "comment": "Develop the bishop and prepare kingside castling.",
+      "request": "sol-black-ply-018",
+      "san": "Bd6",
+      "fen_before": "r3kb1r/pp1n1ppp/4pn2/2pq4/Q7/2P5/PPNP1PPP/R1B1KB1R b KQkq - 1 9",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2pq4/Q7/2P5/PPNP1PPP/R1B1KB1R w KQkq - 2 10"
+    },
+    {
+      "ply": 19,
+      "actor": "stockfish",
+      "uci": "c2e3",
+      "comment": null,
+      "request": null,
+      "san": "Ne3",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2pq4/Q7/2P5/PPNP1PPP/R1B1KB1R w KQkq - 2 10",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2pq4/Q7/2P1N3/PP1P1PPP/R1B1KB1R b KQkq - 3 10"
+    },
+    {
+      "ply": 20,
+      "actor": "gpt-5.6-sol",
+      "uci": "d5h5",
+      "comment": "Retreats safely while maintaining kingside pressure and active development.",
+      "request": "sol-black-ply-020",
+      "san": "Qh5",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2pq4/Q7/2P1N3/PP1P1PPP/R1B1KB1R b KQkq - 3 10",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q7/2P1N3/PP1P1PPP/R1B1KB1R w KQkq - 4 11"
+    },
+    {
+      "ply": 21,
+      "actor": "stockfish",
+      "uci": "g2g3",
+      "comment": null,
+      "request": null,
+      "san": "g3",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q7/2P1N3/PP1P1PPP/R1B1KB1R w KQkq - 4 11",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q7/2P1N1P1/PP1P1P1P/R1B1KB1R b KQkq - 0 11"
+    },
+    {
+      "ply": 22,
+      "actor": "gpt-5.6-sol",
+      "uci": "h5f3",
+      "comment": "Capture the loose knight and gain a clean piece.",
+      "request": "sol-black-ply-022",
+      "san": "Qf3",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q7/2P1N1P1/PP1P1P1P/R1B1KB1R b KQkq - 0 11",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2p5/Q7/2P1NqP1/PP1P1P1P/R1B1KB1R w KQkq - 1 12"
+    },
+    {
+      "ply": 23,
+      "actor": "stockfish",
+      "uci": "f1g2",
+      "comment": null,
+      "request": null,
+      "san": "Bg2",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2p5/Q7/2P1NqP1/PP1P1P1P/R1B1KB1R w KQkq - 1 12",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2p5/Q7/2P1NqP1/PP1P1PBP/R1B1K2R b KQkq - 2 12"
+    },
+    {
+      "ply": 24,
+      "actor": "gpt-5.6-sol",
+      "uci": "f3h5",
+      "comment": "Retreat the attacked queen while preserving kingside pressure.",
+      "request": "sol-black-ply-024",
+      "san": "Qh5",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2p5/Q7/2P1NqP1/PP1P1PBP/R1B1K2R b KQkq - 2 12",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q7/2P1N1P1/PP1P1PBP/R1B1K2R w KQkq - 3 13"
+    },
+    {
+      "ply": 25,
+      "actor": "stockfish",
+      "uci": "e3c4",
+      "comment": null,
+      "request": null,
+      "san": "Nc4",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q7/2P1N1P1/PP1P1PBP/R1B1K2R w KQkq - 3 13",
+      "fen_after": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R b KQkq - 4 13"
+    },
+    {
+      "ply": 26,
+      "actor": "gpt-5.6-sol",
+      "uci": "d6c7",
+      "comment": "Preserve the bishop while maintaining pressure on White\u2019s uncastled king.",
+      "request": "sol-black-ply-026",
+      "san": "Bc7",
+      "fen_before": "r3k2r/pp1n1ppp/3bpn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R b KQkq - 4 13",
+      "fen_after": "r3k2r/ppbn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R w KQkq - 5 14"
+    },
+    {
+      "ply": 27,
+      "actor": "stockfish",
+      "uci": "g2b7",
+      "comment": null,
+      "request": null,
+      "san": "Bxb7",
+      "fen_before": "r3k2r/ppbn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R w KQkq - 5 14",
+      "fen_after": "r3k2r/pBbn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1P1P/R1B1K2R b KQkq - 0 14"
+    },
+    {
+      "ply": 28,
+      "actor": "gpt-5.6-sol",
+      "uci": "a8b8",
+      "comment": "Save the rook while gaining tempo on the exposed bishop.",
+      "request": "sol-black-ply-028",
+      "san": "Rb8",
+      "fen_before": "r3k2r/pBbn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1P1P/R1B1K2R b KQkq - 0 14",
+      "fen_after": "1r2k2r/pBbn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1P1P/R1B1K2R w KQk - 1 15"
+    },
+    {
+      "ply": 29,
+      "actor": "stockfish",
+      "uci": "b7g2",
+      "comment": null,
+      "request": null,
+      "san": "Bg2",
+      "fen_before": "1r2k2r/pBbn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1P1P/R1B1K2R w KQk - 1 15",
+      "fen_after": "1r2k2r/p1bn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R b KQk - 2 15"
+    },
+    {
+      "ply": 30,
+      "actor": "gpt-5.6-sol",
+      "uci": "e8g8",
+      "comment": "Castle safely and unpin the d7 knight.",
+      "request": "sol-black-ply-030",
+      "san": "O-O",
+      "fen_before": "1r2k2r/p1bn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R b KQk - 2 15",
+      "fen_after": "1r3rk1/p1bn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R w KQ - 3 16"
+    },
+    {
+      "ply": 31,
+      "actor": "stockfish",
+      "uci": "a4d1",
+      "comment": null,
+      "request": null,
+      "san": "Qd1",
+      "fen_before": "1r3rk1/p1bn1ppp/4pn2/2p4q/Q1N5/2P3P1/PP1P1PBP/R1B1K2R w KQ - 3 16",
+      "fen_after": "1r3rk1/p1bn1ppp/4pn2/2p4q/2N5/2P3P1/PP1P1PBP/R1BQK2R b KQ - 4 16"
+    },
+    {
+      "ply": 32,
+      "actor": "gpt-5.6-sol",
+      "uci": "h5d1",
+      "comment": "Trade queens and strand the white king in the center.",
+      "request": "sol-black-ply-032",
+      "san": "Qxd1+",
+      "fen_before": "1r3rk1/p1bn1ppp/4pn2/2p4q/2N5/2P3P1/PP1P1PBP/R1BQK2R b KQ - 4 16",
+      "fen_after": "1r3rk1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BqK2R w KQ - 0 17"
+    },
+    {
+      "ply": 33,
+      "actor": "stockfish",
+      "uci": "e1d1",
+      "comment": null,
+      "request": null,
+      "san": "Kxd1",
+      "fen_before": "1r3rk1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BqK2R w KQ - 0 17",
+      "fen_after": "1r3rk1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BK3R b - - 0 17"
+    },
+    {
+      "ply": 34,
+      "actor": "gpt-5.6-sol",
+      "uci": "f8d8",
+      "comment": "Centralize the rook and build pressure against the exposed king.",
+      "request": "sol-black-ply-034",
+      "san": "Rfd8",
+      "fen_before": "1r3rk1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BK3R b - - 0 17",
+      "fen_after": "1r1r2k1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BK3R w - - 1 18"
+    },
+    {
+      "ply": 35,
+      "actor": "stockfish",
+      "uci": "d1c2",
+      "comment": null,
+      "request": null,
+      "san": "Kc2",
+      "fen_before": "1r1r2k1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BK3R w - - 1 18",
+      "fen_after": "1r1r2k1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PPKP1PBP/R1B4R b - - 2 18"
+    },
+    {
+      "ply": 36,
+      "actor": "gpt-5.6-sol",
+      "uci": "d7b6",
+      "comment": "Challenge the active knight while improving coordination around White\u2019s king.",
+      "request": "sol-black-ply-036",
+      "san": "Nb6",
+      "fen_before": "1r1r2k1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PPKP1PBP/R1B4R b - - 2 18",
+      "fen_after": "1r1r2k1/p1b2ppp/1n2pn2/2p5/2N5/2P3P1/PPKP1PBP/R1B4R w - - 3 19"
+    },
+    {
+      "ply": 37,
+      "actor": "stockfish",
+      "uci": "c4a5",
+      "comment": null,
+      "request": null,
+      "san": "Na5",
+      "fen_before": "1r1r2k1/p1b2ppp/1n2pn2/2p5/2N5/2P3P1/PPKP1PBP/R1B4R w - - 3 19",
+      "fen_after": "1r1r2k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PPKP1PBP/R1B4R b - - 4 19"
+    },
+    {
+      "ply": 38,
+      "actor": "gpt-5.6-sol",
+      "uci": "d8d2",
+      "comment": "Sacrifice the rook to deflect and fork White's minor pieces.",
+      "request": "sol-black-ply-038",
+      "san": "Rxd2+",
+      "fen_before": "1r1r2k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PPKP1PBP/R1B4R b - - 4 19",
+      "fen_after": "1r4k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PPKr1PBP/R1B4R w - - 0 20"
+    },
+    {
+      "ply": 39,
+      "actor": "stockfish",
+      "uci": "c2d2",
+      "comment": null,
+      "request": null,
+      "san": "Kxd2",
+      "fen_before": "1r4k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PPKr1PBP/R1B4R w - - 0 20",
+      "fen_after": "1r4k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PP1K1PBP/R1B4R b - - 0 20"
+    },
+    {
+      "ply": 40,
+      "actor": "gpt-5.6-sol",
+      "uci": "b8d8",
+      "comment": "Check the exposed king and seize the open d-file.",
+      "request": "sol-black-ply-040",
+      "san": "Rd8+",
+      "fen_before": "1r4k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PP1K1PBP/R1B4R b - - 0 20",
+      "fen_after": "3r2k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PP1K1PBP/R1B4R w - - 1 21"
+    },
+    {
+      "ply": 41,
+      "actor": "stockfish",
+      "uci": "d2e1",
+      "comment": null,
+      "request": null,
+      "san": "Ke1",
+      "fen_before": "3r2k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PP1K1PBP/R1B4R w - - 1 21",
+      "fen_after": "3r2k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PP3PBP/R1B1K2R b - - 2 21"
+    },
+    {
+      "ply": 42,
+      "actor": "gpt-5.6-sol",
+      "uci": "b6d5",
+      "comment": "Centralize while uncovering the bishop\u2019s attack on the knight.",
+      "request": "sol-black-ply-042",
+      "san": "Nbd5",
+      "fen_before": "3r2k1/p1b2ppp/1n2pn2/N1p5/8/2P3P1/PP3PBP/R1B1K2R b - - 2 21",
+      "fen_after": "3r2k1/p1b2ppp/4pn2/N1pn4/8/2P3P1/PP3PBP/R1B1K2R w - - 3 22"
+    },
+    {
+      "ply": 43,
+      "actor": "stockfish",
+      "uci": "a5c4",
+      "comment": null,
+      "request": null,
+      "san": "Nc4",
+      "fen_before": "3r2k1/p1b2ppp/4pn2/N1pn4/8/2P3P1/PP3PBP/R1B1K2R w - - 3 22",
+      "fen_after": "3r2k1/p1b2ppp/4pn2/2pn4/2N5/2P3P1/PP3PBP/R1B1K2R b - - 4 22"
+    },
+    {
+      "ply": 44,
+      "actor": "gpt-5.6-sol",
+      "uci": "d5c3",
+      "comment": "Wins a pawn while exploiting the rook\u2019s pressure down the d-file.",
+      "request": "sol-black-ply-044",
+      "san": "Nxc3",
+      "fen_before": "3r2k1/p1b2ppp/4pn2/2pn4/2N5/2P3P1/PP3PBP/R1B1K2R b - - 4 22",
+      "fen_after": "3r2k1/p1b2ppp/4pn2/2p5/2N5/2n3P1/PP3PBP/R1B1K2R w - - 0 23"
+    },
+    {
+      "ply": 45,
+      "actor": "stockfish",
+      "uci": "b2c3",
+      "comment": null,
+      "request": null,
+      "san": "bxc3",
+      "fen_before": "3r2k1/p1b2ppp/4pn2/2p5/2N5/2n3P1/PP3PBP/R1B1K2R w - - 0 23",
+      "fen_after": "3r2k1/p1b2ppp/4pn2/2p5/2N5/2P3P1/P4PBP/R1B1K2R b - - 0 23"
+    },
+    {
+      "ply": 46,
+      "actor": "gpt-5.6-sol",
+      "uci": "f6d5",
+      "comment": "Centralize, attack c3, and invite a favorable bishop exchange.",
+      "request": "sol-black-ply-046",
+      "san": "Nd5",
+      "fen_before": "3r2k1/p1b2ppp/4pn2/2p5/2N5/2P3P1/P4PBP/R1B1K2R b - - 0 23",
+      "fen_after": "3r2k1/p1b2ppp/4p3/2pn4/2N5/2P3P1/P4PBP/R1B1K2R w - - 1 24"
+    },
+    {
+      "ply": 47,
+      "actor": "stockfish",
+      "uci": "c1d2",
+      "comment": null,
+      "request": null,
+      "san": "Bd2",
+      "fen_before": "3r2k1/p1b2ppp/4p3/2pn4/2N5/2P3P1/P4PBP/R1B1K2R w - - 1 24",
+      "fen_after": "3r2k1/p1b2ppp/4p3/2pn4/2N5/2P3P1/P2B1PBP/R3K2R b - - 2 24"
+    },
+    {
+      "ply": 48,
+      "actor": "gpt-5.6-sol",
+      "uci": "d5c3",
+      "comment": "Capture a pawn while forcing a favorable bishop-knight exchange.",
+      "request": "sol-black-ply-048",
+      "san": "Nxc3",
+      "fen_before": "3r2k1/p1b2ppp/4p3/2pn4/2N5/2P3P1/P2B1PBP/R3K2R b - - 2 24",
+      "fen_after": "3r2k1/p1b2ppp/4p3/2p5/2N5/2n3P1/P2B1PBP/R3K2R w - - 0 25"
+    },
+    {
+      "ply": 49,
+      "actor": "stockfish",
+      "uci": "d2c3",
+      "comment": null,
+      "request": null,
+      "san": "Bxc3",
+      "fen_before": "3r2k1/p1b2ppp/4p3/2p5/2N5/2n3P1/P2B1PBP/R3K2R w - - 0 25",
+      "fen_after": "3r2k1/p1b2ppp/4p3/2p5/2N5/2B3P1/P4PBP/R3K2R b - - 0 25"
+    }
+  ],
+  "finished": true,
+  "engine": {
+    "id": {
+      "name": "Stockfish 18",
+      "author": "the Stockfish developers (see AUTHORS file)"
+    },
+    "options": {
+      "name": "Stockfish 18",
+      "nodes_per_move": 2000,
+      "Threads": 1,
+      "Hash": 16,
+      "skill_level": 20,
+      "limit_strength": false,
+      "opening_book": false,
+      "tablebases": false
+    },
+    "binary_sha256": "ae4c93fa9676ca7750d0714342fd8a5b1d018000fc6e0f6cedf112067b5ef374"
+  },
+  "failed_request": "sol-black-ply-050",
+  "termination": "provider_incomplete",
+  "result": "1-0",
+  "plies": 49,
+  "final_fen": "3r2k1/p1b2ppp/4p3/2p5/2N5/2B3P1/P4PBP/R3K2R b - - 0 25",
+  "rules_completed": false
+}

@@ -1,0 +1,158 @@
+{
+  "key": "astra-white-ply-059",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 3r2k1/2p2p2/pp4pQ/4pq2/8/6K1/PPP3PP/3r4 w - - 2 30\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . r . . k .\n. . p . . p . .\np p . . . . p Q\n. . . . p q . .\n. . . . . . . .\n. . . . . . K .\nP P P . . . P P\n. . . r . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7 Bb3 Qg5 f4 Nxf4 Rxf4 Qxf4 Nd5 Qg5 Ne7+ Qxe7 Qd5 Rab8 Qh5 Be6 Rd3 Rbd8 Rg3 b6 Qh6 g6 Rxg6+ hxg6 Bxe6 Qf6 e5 dxe5 Bf5 Rd1+ Kf2 Qxf5+ Kg3 Rfd8\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b2b3, b2b4, c2c3, c2c4, g3h4, h2h3, h2h4, h6c1, h6d2, h6e3, h6f4, h6f8, h6g5, h6g6, h6g7, h6h3, h6h4, h6h5, h6h7, h6h8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "8f2414bc713de24013f91e9aa8a0c57f6d4de6e139d8b7ac0ee86af409dcba88",
+  "fen": "3r2k1/2p2p2/pp4pQ/4pq2/8/6K1/PPP3PP/3r4 w - - 2 30",
+  "preflight": {
+    "input_tokens": 563,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_d7ed79dc55f74ce1a365a41822dcd90e"
+  },
+  "reserved_usd": "0.1094375",
+  "raw": {
+    "id": "resp_07430b9a33228324016aa1f7afb46487d1b2d9e24c093aa7d5",
+    "object": "response",
+    "created_at": 1788999599,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999632,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07430b9a33228324016aa1f7b0a28087d1b1cca0e944ba2b58",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoffQujVGWwlStWsgOebYpsTEmv9aoZjnA8y58NTb14Ed5BlSYROHQCUtahyBLaYHr0Sv-Iq870TiBr0MWl_NH_H0immeETk---oVPPCR6G1HZ7lV9LuwueYfq5TThbl_hTXAEnmXaypriQay9k8AZJF-CjmUgUO0QphdkKc7y8lz1DlcTPMe9TdIup7C-m6pHtjnRkfldg9f8T7O3R8cb4MTHrctmjwh3LoLM-0phFwPpQz0GAPu_BhrRfXkhOGrbEh_-pNqHPmgDRCUpAAQsJEUTT7t5UnRng3ymGYMTdnCqUG2QM526QIUQ_WUC247Zl3DupHbidD8PQJLJgEyWTjW_D9auvFf2sgY86vyD1_UfNZaiavb_aJtk5bKAcL-ERbvii5baDlAokK1jkgmCAlLTbm53guP5BMwQxr-ZBUIcW8ms3rPkwbFrfxtHRPzlAZJHmj_rPGt_EO92DhXpRJKrvoyY_y0qA5YWmtCf091uTlRrhhJwM1mHbGnY1goQkkNbdmTkGvSAZjgBC1FVTqS9kicPpAae52rt0VpA92kcDmjR7EgPKDyvMBllA4K8UcgbC6T3Fxw-Rn4UdVZCOJOeFDDtnv4BxnrB9ID-dDKkfjnjwpYu76d35NpUnfL72qBNGpKGDv-dCSxi0fQEab-9YCPclMfm5Atk9CQTQMG0g5gXHj0j0C7xpw1LmTcKmIiMhOYOwf5nT8feWxVD-szZ9oYBI9T1eSAxi1e9WgnOKY87-e_boFczVdqOgvTYuLyCbuqJqrD8h7Re2LjN-qhfnIfoountXoV09pZxC7s_5kseOQ2HZktFIEQqe-0QO8TiUFGkNTHc1OwJPLbGO0shCdsIwI8H-Iyyz13XFCu6WZcYNzqHUcCIcnHx7hofxjySvvDtt_Fa_VDLs9_oIwtBWr_VrH6fiTFFKdrMU2pfLU53n-oUl6XC4oL08fT4sSlwsqrMUxccnoeVLTK7LDhpLvl0c8k__J2wsBDYA-py9E_nrlvtqReRt83tEu2jE7Mfj5D_1xp_o5ortLBqUQ9HyV_0vM2b_76IGEpOVAXAve8jPtguAMLn7QJLqUJ57B2hfTIkP9HfeiX_cOUwKqFPnfwi7SVhXMes1PjH2nNAGEoDxoAUvmiaRzk9x5UvY0UHqH-4D9M7t_lUo2g0cFgiP0hwK_oRMXIXQMJwV_BwsyimmuX-Qw2S3SxtsSz_WXWggmdajrOleZOCSWgehzaoTgMWRexfO-dfKrK5xQVh_zSHGpO8h1u8e23TY7lk6vOx6rfF2TArUzNkWVM2YEZMiJpDYca8-1efPhNizW2DsS-baUq3xapXhUz5BHRg17rwjANCQFML9JjOtdF-ipSNTxYysh1u_gmOW0abtLVopScXwuExI18iq0VDa6d10cC_JdAc4DCyrMqtUrEa93adq-HTOiN1S3uvkzA0I8O7dhd416h8enbE3hKzm_yZdFQqNq_UOtbluhnnT46xqBL-l4SaHyIn-AY-ERcLra01MlNVpkdsOxPgOD7NYL2tQvhdSMGTZnWvQRtPglbHC8rrI9y-4ut3MTRX6_ZlXR3-C8fV16UFXZgzz6IyUzA22ZONcQq99-Qpk9eja_jPgtiQFTrpRr_GrkogHahnh0BW0p5H4sIAlALB1-hj-wHIka_YV-F6hhelPYOovs7lIkkO5Oovw2wADPn6lkEE9Vke_3oJ0-iaJWt4Mx6yjltIMdCC6E30-z7hZlwjxIOuFk1OB7KLpqwdG3qemrT9eq7bTggMAihXddVVvmZLQJmwQQYmUHyqwRPPPPBwhZ3GduSEr_e94cX9Gbo5oAbq_-Nmic_UjBifs6aYavRBWINkRDSrzpZXTbmIEtUukUTDNkdVe4zVeLHGvwMdWkbuPlLNaYT7AWhjtPre1sQVHzBuB3PlqgzhHMCBA85gGPFpzNRpF72FLQKgKhb4IF5pKGc5-pNGsKbWGKWwxoVZmDlfvak6-QF7SZZkjENKpYmHpyiho6_Yn86Et_YaOg2iVzqHY0X8PL26Dh-tbUKzD7YsnVjsbm0ubNIPjkbhoS0bmSDMfNjLrhIyInfRJ2Ase50B7lt9FB2n0D4MjKRFIEz6C6F4NJDjaN5pdNo1Yq84J1aZCXkhPrXh6RSVSqpIeEKuayBh0Y8thiPzEPiK5b1AlDfR5P_O9q_jT4Lo1pIL7ZtK4FpcG2SBFMZf6_6OjZu7ZKs1oNBpwaw-njy6vaevG1zPc3FvCGnh_8cJu00CLiadhjGjAWKreFjakM2nhF1UflU3uKOrS15hZ2HXTfaZLvvIJ3AboIdogIM_iJgSHpFfE3TzhPWHDqr_ewExkPJR9g5sUziA-vB0_5lq7JnCvyLMEYsbrMIM4rtKNIGPyav9CtiFahyyexqsJyEJpVpK1KtDIOFIDxKUoATp38-mB7IO6qtEufLoJ2eisQza8KfjGGAjbJ4bt7oVIq8ERpvQyrsEVcTT1d-OVOh2CYFg2JwGeWaxQqV5nAp62nNk7MMNPuqPOrmihGH_3gZs2OGH2TeJRxaLFuoTU-4Dy5CBCPbNmj_Zx9ppgSY_TRpeLI2EfsTcJaO41alBpV-L_BTQqRermsJoCTyLY5vDtb5pkb0FBvmbmH06EPbRXPhKWHMWw71wWCawZLx86EFD2LeayIfTWV-tW5irpU1pcpkcHWc_9PqpSkXUCPRd6dKS8T3kTVyX2grFb0Xtry7DP0IVI-ooA6ks5jGB-toa1rkKnOKE2neJp8JdPGSrPF_xrYRA3adGTW_hkIz9WNNVkI0LrIdNBDn07s07GDiCO2mkJWMLeHBTzqddnYPHqZdNt6xP8so4C7_Cgo4lQh2WxQUqG8ECOYmS9GjlmZ_k9qw4ftVFNGezFPgf55CfIBcFqbQUaIylrTCD9x_jDUHz4EQDwBPSfxWx6X53isRxhro4zIpdTI8SUq0I1HwWvmOOTlfKFcyJxXqekUUUX7ONB3KKlZxCaJzt-lsf9FFU6EZSZQELH8FCBqKqiciW09qggCL_5vbe7Y1H7QSf7EzqLZdIR0GelZOLIbtUicCHGFz8boCcCREo4yXXrBUyqmf0QMIsS4DUZ1iPAQtKqjPHg08u4pkK0kP9FMT9iMXJ1rXUzns5FNw4PvaZDQlL3cyB-LP6Q9xobHBIPj_VUVzXUn2NFEopsOlzHuQMrfCaqP7GiGeu2QU_wb-HwbJvpoAUHvMnUV0L1XUZzp-3DxCLlHge0NVhvljZVyPhP76kgvUZbFS",
+        "summary": []
+      },
+      {
+        "id": "rs_07430b9a33228324016aa1f7c6e43887d18c4d72865e737e14",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoffQxDjv4yTVZCDzscJNspF_1hKFVOrgAKKnUDlwTyQR7eBff76TVtcdnwWNzEP0sXvurUjRHzAxubRaTCdkSTULYhmfMkI3EFstbsR1L1b1R3dc_82ox3Ywdp5ys4hXRlkiXJw-BGvhH8Jf7MFycI5EFykGveMrzi9VIwQblGQ3Xyv4wjm9_lBm82vz7F2KgI2iOdGNhcpneYkjT9nGuxVc5tYXiTV3NKUH3vlJ0nQYzvU2I6H2Yu8qJHTZuYhASAXMKft9S8T_QbEtT03ubKeZ5-aPYo1qPQLMaIIxQjUz4JGCYOz9QM_to7E4bnNwGMBaBpraLNXNr8Gw5kqPFcwT-3I4Pch4MAIPDTbmx8QSfFJzwUHhQCAHBT4VXks3sXFYbE6Z0UR5pRoI0h__TmYVZc9Zg5Hf5i31j7af4v6-XX5NAhh2qxUul3pfdtu23K5SmCns50niEsnQgbgymRsg1CWcTcaNnbiFIEAGwI-3UhefqpC_vfPp55lb67Tl1dk2Twugqh0IbsJU1_V4n_A7tUYGJ6kGMK2CZJ6nI8ktRoE8VP9sDhqgsYIPukTe0SISfq4Krclcx-kQ2y-XzEo4qXsB1uS3aeXxojVbjkEIJpLl1K0L2ZsbZcBa69PHjT0ag4ntdFasWHhhzf7A6NeyLSk4GQLffruZrTbaxrDEuIhZj9M2UwkvM1e231P0X5-Mabbf7rVirr3tsZKR7bUaN7kYc403g5JjS8BoAx687GpHhSfyvq3AGoM5HlpFVmJXvqTFyBEekPkG_8hHoxW3uvy1dbcTT7azQpD9T18mEGnUL9UuiWWoJoI0Td9sjMb0oBy3fZasDYzpoNK1_speM6GzCUiQj-x2I4H_aN8y7UyCNHqMm5fQTc_hVrnMP8zFDYVdJktlNNiqM3uEPAaldcoS8X2j28cizwEabWnDshwmn4lF6w0c2FXf9agOCfxi1xeGT17hYWSIX7JObp_FX_7-hYZoX9Cw2hVeLn-aopJ1iGKJnWsVQSuIdKj_pI2lld_OVtB0VydqpLtZWQjrdJz8WEjGarTqlAmAu29VCqCszyPP4kp1kXMWSK-SFt9sRpledv3bBj0W6bN7P1wlYGobHWZOj7kUEsy7CL-F9GNTHImCMbj9Xnw72ifmlYnj-VPNA-hOKxdhPNh_kanD63MniRF81KRvdCckNmLjLjnzTBkf88c8KvPi9jXKhx0qT3GeYxF98wV0GBPUR8fqFyDNptnm1Iff3SVHGATIwH9Ltq2CxQumAFrzFzpOWIP_lyvpadL11bJzcAMQFKHhXSOP7Flrmvs2wCh9gKrJQUAF-4o2MOHudxXR0Ogwyxfwx7ZSAJ55hlKa37vp4wPCTzJeH2Suc6iK_aLE0c8g-eJfUnf42BRGfvrvDk1LfQnnkcWMiMd31AzksC5mL9R9gWGDgZ48KupJ421R2iI7PeMAuwsRKIlE2f1-qpDNg_KfTLr6NmwmuHAQqtkLfJbsROlizK0XamvybhLlVwsPuy396UQTiXaXakKJgVOmyRRYSNoqXjQbogYYorhIqIXILrUZk4G6YN1pkNI6g8ehePnkLLP6SB7KJc5jpDjACm5ChjEMiGnHM2IZ02o7aHjnRh2nQsokJAl_eD5O9iNBlbgKXrqwsReJsTt0X06eY0WboAWM2kEdEHYF3--07PS62T_T9Z6GDrohXPyjn3rrsG9-WsBWNkLZzLlymXOqKatpdVqg2-1eI-s6YsSLsN8MiDV4FuJxVPcie0AyE3KVQysQ8mYyiBaoebud1kQrfJ0CZWYra1M2CfqLLtAqeCjw206Cjz0MFouiF3i7SqE_-r83qc8yB2jhyZflR9EuJEZc_wAHnsDHv4EtJcqiVQ5DylBo0vzVuvR0HRKyFk8BFL3iKoWuOUkpv-dp5tw2egUvgjgqgC0wzezEYc8GCGjyk3bXO5hDU66AbnmJnCluRnDivOFTl4GMzvxOtraS6yySDvOS6PLWg8WN-QBNyx3PyO50tBPLOGGkpgqjMJp64aUKRK14bm-QsV3SzZ2bFMH9McOgXn8_UT_ZIdd5EkOvn3bQ_jGwySzT3AzD9h7rE9B-ZeEG0XUCg715eBFTo4CLp-lKf3TLts8HPCc7waeZ_vHUgxjJkkynvNNwjZ6mrAk_NQoZq4rl5UyT9wd9CLtdBsws6UTPeqEkzT0Ln95wuhAcVrMVjboFIWeZaM1W6BaW8KSYmN8qXoA2lbEo2VpE",
+        "summary": []
+      },
+      {
+        "id": "msg_07430b9a33228324016aa1f7cf711887d18d37044ad7f4dabe",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"h6h4\",\"comment\":\"Centralize the queen, protect the king, and attack the rook.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 563,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 819,
+      "output_tokens_details": {
+        "reasoning_tokens": 788
+      },
+      "total_tokens": 1382
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 32.88003492355347,
+  "request_id": "req_4453671ee50e4f439156f653b27685bc",
+  "text": "{\"move\":\"h6h4\",\"comment\":\"Centralize the queen, protect the king, and attack the rook.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qh4",
+    "move": "h6h4",
+    "comment": "Centralize the queen, protect the king, and attack the rook."
+  },
+  "usage": {
+    "input_tokens": 563,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 819,
+    "output_tokens_details": {
+      "reasoning_tokens": 788
+    },
+    "total_tokens": 1382
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0479875",
+  "input_count_delta": 0
+}

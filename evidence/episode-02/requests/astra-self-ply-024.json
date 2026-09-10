@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-024",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bq1rk1/4bppp/p1p5/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 b - - 0 12\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . . . b p p p\np . p . . . . .\n. p . n R . . .\n. . . P . . . .\n. B P . . . . .\nP P . . . P P P\nR N B Q . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6c5, c8b7, c8d7, c8e6, c8f5, c8g4, c8h3, d5b4, d5b6, d5c3, d5c7, d5e3, d5f4, d5f6, d8a5, d8b6, d8c7, d8d6, d8d7, d8e8, e7a3, e7b4, e7c5, e7d6, e7f6, e7g5, e7h4, f7f5, f7f6, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "74df3b7a7c5e3ec4d3e3bd61860af2e81a28009e1fa4e4db5b3688dea5c7ef4a",
+  "fen": "r1bq1rk1/4bppp/p1p5/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 b - - 0 12",
+  "preflight": {
+    "input_tokens": 558,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_bd0a964288cc44f092b89a57ffca82de"
+  },
+  "reserved_usd": "0.109375",
+  "raw": {
+    "id": "resp_0fae2018b73b0fd5016aa1f9d3cbf887d1a920081e00f893ac",
+    "object": "response",
+    "created_at": 1789000147,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000152,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0fae2018b73b0fd5016aa1f9d560f887d1b8bd6afec14cba15",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofnYF-LzvmzHWMZHa6y1X4cfktbDVabJS72uw7lYIkQQQ-VaQ9zPiFGYFe_GKJ6lO1Uh0RvKl58X8LzQpgWFo_pql7hfHqQ3x5Hg6axXf7WDbJlulGW_W-G2BTDAZHZmSn3N0qdaGWSpuu75gqYWfArkLdh_3JmFmMwrvteOye_zpbtKlZcts7C3yHwM8FEtVEsnpcS7gWW0q1OL0v1Gffl8_NEaas2uFNp8GP9nN3kVJdmg65ah2hheV4WjYFDmKZmu3CWJ8wSaaPzdl-tHZW98ygJY_9QHG2aSVNYkrz2JAJ_3nAt1vYicX8KTxuQEpNJehSeE9XEbGjjvIok0083AyMoGxgR174T8iSnxddDW7Gbe4LHsWWz00EezptJtZsp-cfEdAM3GD6GejAMVJCaNyaD1BZTcKEydgzJWU9rmPxantJJMxnaoBgUNXGtdnNfDDANGIKQeZyW2gyjLgraO7_Hh_LHxvnbH6PBL_3zeeqGps2cglDMRY-QrVG7rHWpopWVZLwU1SmtMYpzwwvAID7XgK2qqT_BgM5JbonJ0IdyzH-Fvoo0FTCvCxSJtmEkNjFIaczCF1j_PF61ytw_XGTb-SnXLYK6-bZEWugr2rlkMnnuJfPKkcYCdwPeE6aetJQ5kwoxfGEHl8HE4N4DinKByDG9gsFVehpiTYg1SCHYi4tbVd74DI7Qcslo38jgcbiNzIa4JPVRKjWdosvKa76HGFR0d6U-v5hYjaDFiDi7FGJVaiN9f3UU8NGQE-XsUiwE_noMy0KWCyO3w_vw3KtCAKyxsPkchPrgfoD2WG6Lw7re-vnz-0A4w880PGT6VzleVO-mxx0djfyaUuVgHNq5qjhjUcATnHXAPfbIowgLY29_QeSP6DxGlFpP4AoB20dw4xW8NvOx0D__e5qg2aiMR5hHT92gW5-bzillSTVYBiruJ02yHGhkE7WcV_584OkoCZMgHnXOi4o7Bxr1u4IAOL_25WUrxxL5MrHL7qc4mLfFHlsCJsjOfhvVc2A_EDKhxWlIxXxtz-NK1sW5ZLWUI5vs8O14wqiC4EcyUCve08zKSQpaEUZFWoZaex5xhk_wlRtSEoxKmFG7qpqkEX5t1d-zHQZZ-ldek-dm0rXUlHd0sJf6t-p9UacZxLEPoLsMT46Y8bMXuKNHDL7AgFmuAvLPEfu6R6kEKYGS1datXXo9XOUaW26_z8HEerCTC7dfASOVGwkLAiKXP2qEBbX0iPWP9r89t2D2sVFrrnKD0Y4JOlj5qNv0Je19EWKXcKlIyJem80VsQBUcHVJtm7eV5LPvxRjv4DtuBtpSZBm6V9m2BywQ2hIjtWcasUAEYdwDZAyscg2IU8GmmCKf-3HirV1B_9WmpEoWQ9Lvhzfs=",
+        "summary": []
+      },
+      {
+        "id": "msg_0fae2018b73b0fd5016aa1f9d7b74087d1b9381bbabe87c712",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e7d6\",\"comment\":\"Attack the rook and prepare a kingside attack with Qh4.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 558,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 86,
+      "output_tokens_details": {
+        "reasoning_tokens": 55
+      },
+      "total_tokens": 644
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.964836835861206,
+  "request_id": "req_76eafb5b7872457fa0408ca573d0f02c",
+  "text": "{\"move\":\"e7d6\",\"comment\":\"Attack the rook and prepare a kingside attack with Qh4.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bd6",
+    "move": "e7d6",
+    "comment": "Attack the rook and prepare a kingside attack with Qh4."
+  },
+  "usage": {
+    "input_tokens": 558,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 86,
+    "output_tokens_details": {
+      "reasoning_tokens": 55
+    },
+    "total_tokens": 644
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.011275",
+  "input_count_delta": 0
+}

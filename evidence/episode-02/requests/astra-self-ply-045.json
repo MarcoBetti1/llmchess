@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-045",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 6k1/5ppp/p1p1r2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 w - - 0 23\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . k .\n. . . . . p p p\np . p . r . . q\n. p . . . . . .\n. . . P . . . .\n. . P . . . P .\nP P . N . . . P\nR . . . . Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6\nLegal UCI moves (alphabetical, unranked): a1b1, a1c1, a1d1, a1e1, a2a3, a2a4, b2b3, b2b4, c3c4, d2b1, d2b3, d2c4, d2e4, d2f3, d4d5, f1b1, f1b5, f1c1, f1c4, f1d1, f1d3, f1e1, f1e2, f1f2, f1f3, f1f4, f1f5, f1f6, f1f7, f1g2, f1h3, g1f2, g1g2, g1h1, g3g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "944da4a322bd9b258dc62f51376cdc3d65a9044cf7cc430b8d8db568920073d3",
+  "fen": "6k1/5ppp/p1p1r2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 w - - 0 23",
+  "preflight": {
+    "input_tokens": 603,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_c0dd28a75aeb439d88b9da9c0ceffc30"
+  },
+  "reserved_usd": "0.1099375",
+  "raw": {
+    "id": "resp_011e5a077f702706016aa1fb4270b087d1896590432c9c1053",
+    "object": "response",
+    "created_at": 1789000514,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000528,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_011e5a077f702706016aa1fb43d16087d1a0f81cb357b102af",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoftQCynIdcGf4YfGmmYoi1pWACBMYezZJEXJ8Y_vxc0vUgWf9RkF8UhNz4XIrL--sqYQz53UkjupyUMaVZGNBY206GIpWpdg9uikxd0ltBiN6VDvG1I-GhC9nquWemnlpQToPS1VFfH3UgbvGm5YAIuxOc6-CeeKNHM7L0iYjTh6z4BXYxoHE257B4hcGEf-Jd9arhROZGhiTOrY-4W9-0-uMuHNT2lmoARRZ7XIbL6dRUYZ5LCBe6fQm87DnkhXGuHWnozCDpy_OkIHLrT8GsTJEMEw6u7A3XZ64s4DYY1zWLU8j9Kc-rNAuHCyiWq16UsSxvyXPq3oN5LXIM_TqfUF0IW2sArhRp43Zh3l-6pmERS7LIuawbNS2bbFKn6ye8SY8Mws5WuUxBvieQP1fdTjCBpCH1sNAcuy2yXuY6VZ-3SoSiLrKPhOgkY6Q7b0WuW3c-7p9e3_M8iP3_suws5gqN5S9ij3sWP12IiVwDtOS_1TESKfLExe__80eF9-9bPjOuOz-zrlOvpaBa0UrcRrX44EtXCIakbiAEAeQ0TNHHwitVkKbc3zz2Uql_uNSKiRMWNhUBOtosTkokS9MzEmMGRFUA9YSJ0_qa9lzl1DGoc1h_UbyvafSaA7Zif3l5zwffjDJvgGyYMw0JFZ31xHLTfMt99Zj9TDIfagMHs7Z6kPuCtDlxveZkb8y4Iv-PBta_6QAbv-sVhBmJ30eEHpyKxRz1kVqfTmuCfW33FvYFMJE4eUkrfH66Ibd7oQLX9HB5KQPwpa8kqvrFrpp_J4gYI5KVamX5qruyJL7y7TdFj33Yb4jFoRUHTc1GzEEtdamqrtfdBh617YQ5Yrpa-Py7jtzaVAC5qQFqRGmdVwIevMDp2-xvcAhQT7kBkwDtRPDO5wVSotGMlncKF2G_z0tppTknZoGYqthqfo9U7gu4Gj0Ks-JZ7esTO4XITGQGMZKtDGfFqw2ZqBkJE0SSafBJc-mH6o2hZ3Li8XhIoCtmpJb5vIhb2KYklaFykBzMaAX9HG3JoFWWqInuKehzhV8i2810Tj-pehoyVcmapsoulbCfQc-HdkvUVk8cOIDtJxnvZzdAgrStK7DmfZTWAjeYVosOWcyzZqIubV8V65adAfXFkT6_Zm_PIgUVfrZMWklI-gowyWjq9a75idDUaoFN08HWeWym-WhVhMv-FzZRNS45Hj2Y_w-rHDmZYBl7QC5hzisu5qjMt4fexM95xcmn0uZBZ9rvGR3rweQFDuThlDA8JJtgIrJFlUA1oAbi5ixLSjaxZgNum2lj4r9TDpGJHWKxGZPQcIkgaM43jfUQ9bHWF-nsZp8cFW2jYUgGFU1Zk92pjU4UjavoQakL2qv5znXpr_TGch_K6yij2I-vE_hz0hbDBjo-ZO_ZLE-7BLT3nGCHackd4qCeldzm4qBxE0rIxf9dGoxDAOEUUa4b_8_c_6zCw5mOqU_zJritRkxGBIsRgsKJZliurI-IlS6g0MvH4dka52MMwf8S-OrUWg_UVvg_H1O0Ibt1_Wc3T-ADjojj8oDZOdawsFQbGDCnEGf6Sji6ccWibA9fNw0IRWVLxynVw7oRaKdxKiPNVdkjEHFn4b346kDtAQsYpsgv2byn7QIy316lN1NybmYg-agS__W6Dhyk2kLDMDWkpEUqbFVQNREwTSDZOfehb3VAYTBAaKTwzda5mhJZfiomsVxzKEmMncCYOCMkcGH09ZHhWkWpqXo4u1zsLNv6FtuD3LJIaHXYzMTohNzC1bw8wRsxuRUO3Dqn19CURBfXL3jfz2CofwfZKuoHBKkw-wC7ZB4gCF5r7Jcp9H_EMcuxVdI_b-m7YanAs-qUuk_fYSZN3DPXX0dK5wMgTYpLyF7aVOBhmUxhMbG96fxvdBmZBkEs_2yWtLZTbMO4wjxTXC9gQlCEvv64br_94ex12M1Ktj8D0eOxMlmSIV0ZwP_VmPQdBqWQo4n6DwI2WGGrr-8H2_hxJMw2E-8X7MmWV0iwybPi5hR0XQQnWyFrZH0rJFizJSJNiFjoEiwZK1DpUYN_fmnvuTL9AtDrXQKAd9TeuAMBnDDRQO_5F4xxzRJiW_o-ZZWveHkJSPz51fTJ7jjKmeMUhqZEqfQTtgQM9H6uyHEgzeM1838Te1lbRhyGHmyM1PtKBFZF3BrKjKIMQwWJpG-xPpgOW4P-VPzQ8oj12jf0BfjZGllgABMHozlovlF5kzH-PSTcE20FS4AdECPD0rpIclTSHJHx55nnElU5f4owln-HUidIQgtQqZgxeHZg9BXztvbAIn8EhuWydBnpdMIuOcY46aGmeJMYXfE9nI32Iv3lkR2_OJEdSrdUUGD-avG2sW92pkL79PoIwbWYHLUIEFKj0qGHL_rrwnbkm9gkd2dv8EB6LOA3a5eOAgvd2YDd7m6Py26Ncrl8rmUCJtip_0PArFTHECa3Rdu81hmMb_2TKET3al7ipZ79bVwJEnkjmVpe-Hir_8yh3T",
+        "summary": []
+      },
+      {
+        "id": "msg_011e5a077f702706016aa1fb4f403087d1ade0f016801bdb58",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d2f3\",\"comment\":\"Save the knight, develop, and reinforce the kingside defenses.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 603,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 363,
+      "output_tokens_details": {
+        "reasoning_tokens": 333
+      },
+      "total_tokens": 966
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 13.861719131469727,
+  "request_id": "req_f6cb7251e3c14bbda2860aacdfc92e19",
+  "text": "{\"move\":\"d2f3\",\"comment\":\"Save the knight, develop, and reinforce the kingside defenses.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nf3",
+    "move": "d2f3",
+    "comment": "Save the knight, develop, and reinforce the kingside defenses."
+  },
+  "usage": {
+    "input_tokens": 603,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 363,
+    "output_tokens_details": {
+      "reasoning_tokens": 333
+    },
+    "total_tokens": 966
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0256875",
+  "input_count_delta": 0
+}

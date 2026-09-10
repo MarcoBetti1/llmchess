@@ -1,0 +1,151 @@
+{
+  "key": "luna-white-ply-011",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/1pppnppp/2n5/1p2p3/3PP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 6\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\n. p p p n p p p\n. . n . . . . .\n. p . . p . . .\n. . . P P . . .\n. . . . . N . .\nP P P . . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 d4 axb5\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b1d2, b2b3, b2b4, c1d2, c1e3, c1f4, c1g5, c1h6, c2c3, c2c4, d1d2, d1d3, d1e1, d1e2, d4d5, d4e5, f1e1, f3d2, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "95eb1cdc4b1e06821b8c684887acd49f612979675d28941a7b3ccf065e3a1c4f",
+  "fen": "r1bqkb1r/1pppnppp/2n5/1p2p3/3PP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 6",
+  "preflight": {
+    "input_tokens": 490,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_2666f678e39a4118baee95f7366d6d1c"
+  },
+  "reserved_usd": "0.0025801",
+  "raw": {
+    "id": "resp_0ea7b79700c6cc02016aa1ff3f8ad087d1b7a6b8079246cf85",
+    "object": "response",
+    "created_at": 1789001535,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001541,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ea7b79700c6cc02016aa1ff401cdc87d195fe3c257d8b6e80",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof9F2akEW1jRCTnbPhjHlWrXw9E0VCFr5wBRi-pjTuxH4Bj7oR_XA-TlK6sMulVuoPvgzkob98C_dZ-ZuoXfrT3WYoyKw0iNuSg8NW-aAgEl7MIr49WccrWEylFUMWA649T1GIKc-BiXlowufEwto94g0LUkcjthGKQUz9PxulAd_HC0BzzxuEcQCxBGy5tZr1pPmXShQQhgE64jChRZo_CJ-HTPiqWP7o4XYK9HHcmXrK5NnRkzAdSpfiRcXkXI-Uq0vJBHrERHAf910XHzB41lbd_bEzpElI0zLB44fsajaai_kVEOqiF_EeT28P4amuwMrvvKbptrF11GnGa2wsiulF9T1mbMXw9Ph7hQO4KmAzrS3GqJT0CX2HQGzOuEIDL9Cdcwgxxj8DgnsnwyOy9GIjmmdwmc-MTcoB4xBLIg-O3GpGC3gaSDUv_66Xzbg-J4qb-LEmcZdU2iYN2fe_OocATDYdueYQUbsQGoDhDMQ4tIZmEVmHeRNsg38ckWhja3BxeRKCzGiqkbb26CuLMqktbocqn_98ei_CNVUDknldgJQ0cAPVWVtRIb0uBzVXQqh_QFvQ3ArOGFOugIOi-g4Fr5WtG-rDbMAjuN-GosMbH1BQMkbeQJmSZz8B6WBZv3MpvExrJqAS6ndXWuOG6DhIBb3Y3RBpwMfho2t9dND2qWZ3idYMRFNn_4tEMVTHHvARBbgAuJGZu5FR1Oh0Ssva6ow9yi-FXmksKBePFEj5-GWwBnPb9HySg5sb05xv7uqIOCAbpxi-Y09zQ7sMJN6tvsCF9xMLBhIZTn_1ggorZ48sAKRcY6aMr8Y4884WVIDahtUp34d-oqPi67tSf8mvTrFyKhrqASE9ll8kyZNPhZ2eyceVoAQjAEDAd0DNx1JGqh5kRMQWiRF_G5enBu4PMwVYgR71_f1fHWsSJeKaFnLrifC-Lb5XZWGIwtcq5baojiEnSxWj4AfLGZFzsKfq0NHQNbTCLL4ij-5TclQv6vYF0mBc-dZnLABAdyaqUe_5qxH2GtpyLlYAfisLhmwYU4_ldj4qVAhg525XW9NK-xbTgblB54nn4WZ8BhHByY1T2WwkZMeADTYzv1iUMMUMt-sdVABCyRp1_jVm75jFJpEINnkAXHs2Oker-dxS_jhqUtOpTHsxR780ijRvNOTbUR6EDTxiXMWGEpkdh4oR2J4ZYvgJOWqCu3p4KTaIeJbTmJcCu0B3ycMfEun7QLTaWq4VG7Cb4Q8tb8QT279WlepSds0T45seKqVd2rCZdbNgUEH2jiLwR4A6v8fHK6MDMKfJBPglCaPwEVzLhqLTIic1QURR94cn-aLkQnRAESPCa1z0YkxzDzpjCiHNnKIvnJfp315bMtUMtQ0HJJj0ks8BimQi0ty2sCOOpJXG4HOV2T1eCI8X774J5H9xsqzB0l9rano8_5yPOL75-a8qVIWs_UGW7Taqns4D73CRn-b922JlHEVhTQ_0jtErRuXtA5SCBT5nYRhFDGNswhR9E4Pz0qpOzta5sxG_DTMTrkb2xt5UH3_jTfqCNElc4fDYchB65WtoU07LIQIcsIGGB6CTKu-7t_WVOj0_riCGbyvCuxRifgEUVPsf0dXuEMP8tXpUeK9le8Gk5FLu_9nLprAcG_y56deP-0YjPGYJSNe_8T_c8n4uVE-PTt0C2enkWV0qORYsRa5HVtf526QsxOm7sp--7OUsKmXh1st4FwPGm8e2TrFgrkqu83BcNSmCdUpFYhJIsUOu-UXaxbH1m0ZSdCS3_agebDpsi3MHQgWtGqhno57cj2Uczhkcpfi8jGl1kDkQZ4yz5x5KmW4zCx9WSnaZUBSmh5yRcgScT207bIIUznLauII_QCoNie4KIypa-PrLgmkf4jSWD8Tr2wW081Q7jj8IMBtpDMWmFn0cRs0jhCaqD2TglAP26lAQ-guWzbl_cGXFWthBZ8AGqWEIXWeWCAdSJor_PcdxXc5Pt2I-nvJcJamBTDk96vMOId2a6hjyu4PV0pwR80JgZlyAEkyAYotv9wDNovt2hfH68okdrRH4L0DaBszWyLydI5L4wtO7elTjvVstLdsk4EfsWqyKieSi8-vWfpqDYhS-yGP5__8Cf7GalRwCD2PaRr1o5fUet_tsNSHFfPxUGo1XQFe6hbCt-E8e7aYic63ukXlonY-2invxOJkOe1eo-xlWLKW2YitxYWKB_kfRjjl6HeUwuXWZ1iBxgrFZnZi1P_86bHXNnxcU34MgVTKQfmAOCRb77yNuDA-uynPrTRKCfmfpkwRdb9469AEucQmBJPq5MaU8x7Sp6Ta6GvXnXovVACw1vyuW3Er9lZ2tm2xy0-C_a-hqAs60Z2bSPbdI6ZHB4uq8Alxe5BoFj6uzhgTFdPpy3W9_InvuFFIcu_yiloIyUvKvtpjKF690VxT1WLq8r59El-qcMO78Zaoxm1ByBpQFLe5c40mrX5ueEMmPLXUqMS8rpAKRqWSGO7jPhIkcxqqTRqA4q2GFFzz1fsaCWFO5TRPdYUcjJxkS3TEUkIyDit96resoPwsk6DpOgoFNjk7II0WYjPedCmvzkMGEHKWhYFKoWEbGpp8DCMAaewHJ0b7plOJSQP3H2tWAyxSrXrgoNd7H2a4_g7zvdHjQS3SDQauy-Ujc-FINdC4Afm_2kjf4yP0k-3d6U83CwtDybDnU9C6Sl9l5ebSHOK62zyfHGao-BFNzFfuj2hFFEmIkvyrfCHTuB_U4p6e1u4shjxWaBOVeUiy3WRv71-UKKid0MEmbCiczbd-uo_TQJ1-Z18iuo9u_aTPYbiQ6auGSX7eodZ7TjsHJ-6Qkdl8tLn9U4nKX3WfwbNEu_DAV0f8Ebhfy7ou2n4cayQtEd7Usg2XhoOiE9OqttMCJs70ocf4Z8R8FNFXOpFh3YquOk7nqjyrK1j-kXlJBXHHvXOwM9mLwjUzw_ybIbQSiGo-DKpW7EFM_BEVW30v-KkFslCSxsPdRUyPObKU4Z4ewZV-a46lUXfdjD1ZBFW75DYqa3bGiQ-6sBB9D9cBm9h2kniQpXdEKnQforZQ9V63jH5ioDdE7UkkPOasgwSJwVJWir7GdowodIvqjawltU9qryywqw5ae7kKAsSFRoXSxZH2Nv_05PUOKjvb9d5kvz2G-ercMpS0EFlvCrhvSkEFPHGvLUbVwjRfG6iPFkhd-NHzzOECJvRK2jeA87APIFLadPSL-fxoEZhKk1Dr1v_vJJdQeQpAF4ZnaKyXlM8uAac89L9FkDp79s_ZCnhP649ypzey4qYr7a-N-5rZjaRA54bi5H1JBnZOw78IOWprkfTMt-jNuZplyv4E2OWzSr4WzacINvv_H-g0o-srNjTLVCUMJyxBvXo3EEki-t-",
+        "summary": []
+      },
+      {
+        "id": "msg_0ea7b79700c6cc02016aa1ff44ebac87d196695bddee839b34",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d4e5\",\"comment\":\"Wins Black\u2019s advanced pawn and challenges the c6-knight tactically.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 490,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 548,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1038
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.245615005493164,
+  "request_id": "req_afd16539e1314116a71f1acbed23e453",
+  "text": "{\"move\":\"d4e5\",\"comment\":\"Wins Black\u2019s advanced pawn and challenges the c6-knight tactically.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "dxe5",
+    "move": "d4e5",
+    "comment": "Wins Black\u2019s advanced pawn and challenges the c6-knight tactically."
+  },
+  "usage": {
+    "input_tokens": 490,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 548,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1038
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0007801",
+  "input_count_delta": 0
+}

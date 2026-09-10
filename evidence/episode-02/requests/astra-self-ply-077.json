@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-077",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 3k4/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 5 39\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . k . . . .\nQ . . . . . . p\np . p . . . p .\n. p . . . . . .\n. . . P . R . .\n. . P . . N . .\nP . . . . . K P\n. . . . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6 Bxe6 Rxe6 Nf3 Rf6 Re1 g6 Re8+ Kg7 Qe2 Qc1+ Kg2 Qxc3 bxc3 Rf5 Qe7 Kh6 Qf8+ Kh5 g4+ Kxg4 Re4+ Rf4 Qh6 Kf5 Rxf4+ Ke6 Qg5 f6 Qxf6+ Kd7 Qf7+ Kc8 Qa7 Kd8\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, a7a6, a7a8, a7b6, a7b7, a7b8, a7c5, a7c7, a7d7, a7e7, a7f7, a7g7, a7h7, c3c4, d4d5, f3d2, f3e1, f3e5, f3g1, f3g5, f3h4, f4e4, f4f5, f4f6, f4f7, f4f8, f4g4, f4h4, g2f1, g2f2, g2g1, g2g3, g2h1, g2h3, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "296b853467d5d6750183ddde18392133d2174d774339e08652f6375f94b6c30a",
+  "fen": "3k4/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 5 39",
+  "preflight": {
+    "input_tokens": 689,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_421fcc5d87074f64be929bfe3b881c67"
+  },
+  "reserved_usd": "0.1110125",
+  "raw": {
+    "id": "resp_0bc21c8ecfde77ff016aa1fd3554ac87d1b8516ef01f143276",
+    "object": "response",
+    "created_at": 1789001013,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001019,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0bc21c8ecfde77ff016aa1fd36648087d1b2eccdeacb9808d8",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof073vbIeJEZ5Z9Y71qt8PCRDX_TuNyeBTkw9q2j_nZL7wHsxeE7o2-RoKTWKWtWnrP4fHzyRN_x7RYnTo0DWQ54ieTa15MFpMpXiSzQxTsAlQGpdME3CR_hxpMudNLqwSmj2n6OerjfzFH4szxY3duoC4R71f-H6ZeP-V597bH8EQ30wGg2JgU3FmyVFlV8gF6Npv4OK_J2y_fq1yU-I90r880YS5lJ21rtBCwtkwLSMHnFOG_OZLtWn05w4JNJnYY5a5UnsAYzvD77lfJmt-xQO8_vOMVU52oG0JIqR5N4CYcaVdU0K-axdWrEhPyisjEV3FOTHV3FPQ_AFubtDxo412gIv3LHPI2mL2j5dCqrHMDUsLoVtdmo9WqZnd-pITA4TodSDPfWfF9dFG0TXtn5EWTjRJxbtl2xj0ZyZSsSceLEpqmiqd6yXnUKBzgib6hV47eTO5p1dhPZuKC5XWIgceDijSKRZHg8lPZJqFPpeIVK_Qw2qxuwFl5TwA1PRQdIBCUIIX2zF32zoAGM3gZsntGpMh3fZwYdcQSebJ3hz8gSDgkOUD0SGL2dN68BwTGSPw0IkrDeXi-CxKcLWBav5LHpp8OwteoIZWO1rCgCqJvSPvHG303m2PkU2ZAng2awbj_kRET2t_A8qWe0jpahMLygLSt5-s0QnjgPa8EcLN-tGqevDte4T0GxBr1RFf2WgnV5hb_Sg3ZYgXTokNpLzwKPn3yrgcGS7df4JEka72uWUdptRa3LaFL03PsRTdXXWuJXc7vyEqTaBXknqI5RWZX5bOl9uidGBfO5bzYfJ0TZMsNQOgW7LwnB_zdkqKFMCtrfAiTRJ9xaflo0gf6eAuqmblqOrhNkUOEPrGYZWSSwg5kpFKR43WjgXeTK_hXh7gg3UjTM2nwEz5CX4k0E9WAsfSwsbuZYp2IiAEuJXwjJ4YrG58KmJK0-FU8GUl8H4PI_qFzcqACL87SMnJblhn93qWRMPLqVLIISokmi-lExi52eYVdNWbTKGd9P7F7h1W5Tg6Pa8hw8lL_66XR_9YYwgxpYHnyH_CKCymBwnXubGp7jl5w0rPc7hACxFuNTiiDJxhxP8eJt369ni5tW_dc0hFe0HM83ZLwArI4eFbMsrb_WD-xIbBryZkHEZWZCXn1DKySKBrqqJyvD6tl4_uSKr1JIs93OfG_Gjmuj_uViNnL9frUnhqC3xTMa4kzc2CBWCEUxLqkxn9KMwtjT1EHR_1HqDdcP4Na3lakSwQ8uYtnLe5XoCyAeKZWEwEN8u0-1d-8buiGK9mUNwMLEtTpNl14Ifi8hVjJDrju_iADZcByAsZXytEMqXkAINtrD9aOw2Hi9_N2B8BNeYbKz5tZ0Bw2CBBLptEPyMd26MiCCzv2zdHWv7mIuBP10jxoGmV11adizOVLE8OHAfB-qfPk4OGtQow88B2PJhvHyNv0DdymDrvToBmbHLCfydmZu2Z6ZIMHTXmmEB7VarZv86oDLssE5_f375XC3SEYce4jZIllAE8O_dMkOdufNEFiEILFJGODjdzmVs1QZ4J_lTSAmRS2bRNQzp3OgZUWU44Qb9Q5C0Q4hWFVrRpNoUtk_x66ohp-szUp4_GNQXrMoOv2X27jLcXDKnExnkH47SMw=",
+        "summary": []
+      },
+      {
+        "id": "msg_0bc21c8ecfde77ff016aa1fd3abae887d194b2798befe121ba",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f4f8\",\"comment\":\"Deliver checkmate with the rook; queen seals the seventh rank.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 689,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 160,
+      "output_tokens_details": {
+        "reasoning_tokens": 130
+      },
+      "total_tokens": 849
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 6.6650390625,
+  "request_id": "req_814324c15a924910bbce5c10b6cbaf91",
+  "text": "{\"move\":\"f4f8\",\"comment\":\"Deliver checkmate with the rook; queen seals the seventh rank.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rf8#",
+    "move": "f4f8",
+    "comment": "Deliver checkmate with the rook; queen seals the seventh rank."
+  },
+  "usage": {
+    "input_tokens": 689,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 160,
+    "output_tokens_details": {
+      "reasoning_tokens": 130
+    },
+    "total_tokens": 849
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0166125",
+  "input_count_delta": 0
+}

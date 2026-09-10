@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-038",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1q3rk1/2p2ppp/3b4/8/3pB3/5N2/1PP1QPPP/2B1R1K1 b - - 0 19\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. q . . . r k .\n. . p . . p p p\n. . . b . . . .\n. . . . . . . .\n. . . p B . . .\n. . . . . N . .\n. P P . Q P P P\n. . B . R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8 Qxb8 d4 Nxe4 Re1 d5 Qe2 Bd6 Bxd5 exd4 Bxe4\nLegal UCI moves (alphabetical, unranked): b8a7, b8a8, b8b2, b8b3, b8b4, b8b5, b8b6, b8b7, b8c8, b8d8, b8e8, c7c5, c7c6, d4d3, d6a3, d6b4, d6c5, d6e5, d6e7, d6f4, d6g3, d6h2, f7f5, f7f6, f8c8, f8d8, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "d5d1e632374112fde71e4d1ca6dda89739c888743f4bace7a5861dcbc82671b7",
+  "fen": "1q3rk1/2p2ppp/3b4/8/3pB3/5N2/1PP1QPPP/2B1R1K1 b - - 0 19",
+  "preflight": {
+    "input_tokens": 560,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_d588d020b47142fbb7919f5e7f880fa8"
+  },
+  "reserved_usd": "0.1094",
+  "raw": {
+    "id": "resp_08742546f2ea1f1c016aa1f8c7234c87d198268911efc022d2",
+    "object": "response",
+    "created_at": 1788999879,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999902,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_08742546f2ea1f1c016aa1f8c86ff087d196a58ca357a6e8a5",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofjeWGgVPHA7cTFrThYen8X3uBrvBlwlVLOrGvLoeSFCWv4qPpyswtY2xhJ6yqh4_Pm46GzC4_-vO0HJ3fRikJg3Q1RYLtu7BwsjmJQM5KurEbLc9lYz4TY6ji6AO0jhCqHp0bq2NFusClpozuR8XPt7jQVgfiQ-rha-dZ5ne7g_fHU5V2DDvBNtjg2uRdpjnV8PqeHl0LkCkZ-ts2lRVm1SofgjSF3HjzdX8QkfmqaQ_iWQ0WMaLrrGIUdmw_jQEqjmtOxxfUybyIOT8rJd9embCt7IvrYxu6kqqreGIIbwBkIEOus3rHYEu4Gl2FAZISp0eyuuNnhxPN8dLICLwiQNAkikiwKI8HXYaiRPRgWxh6TgHYiUsAGTN43g6cjnQXMG9UdWHJLxYdSATIc2ZQxazyQeO718kmUmZ50jgpUICsA069N_qgZxNqj5gkmIcAZZ8a3L4CSwJl6WZJYPysR5ome5WqYlM8Fxz1NuJh6l-YNqp5sI-sX1btNRcKhA7mcrTKEk-AmlETcWYao9C3_eW7ElESt91STh3ZJ5zHZf6jgEW3fCsm2mGUOOF3xOruBFfJ9mPtYF_rg9rLpBVgD9K0RjOAXJcKtHRB7FdLRb90zA4NKkg8Ao9e2Bv71N-05e8_aG5KOsAVg6Net0oaaBKJ7uM0ZwiUuGJCM_fplPQ3OFExk6jciQ2kFPkcAXf2GCW3YjW4antdrU4hg3kGouzGGrfpcPhaL4SXw89qk6UyRI7HrgL-yfm9BlC-JR08Az4gIObbzuv_LY0O-Ak-y5pLFCyEgeC7DNaqBgar0fdA4-mw93YGHUZuhPsQwFkLJcqZtp_Q-4625xxnAhKx6Aqb5MdTJvZzJoZ5WGnrrd3fN4c_mtxhsj_GLgPFIs-oLVfB56a7NHrwgEQDqlCya0r4VLeoUJ1jTjIh3sJw0MOTkEaswyUYiZBW7R4qE3O8cYGHEfKt3Gtb271-QbJMVR52FHgmApsciP0I65kX7NbmxN6znaqlbW1SFZiyhD_Wtj8kYuhl2B3szQZckZTU3EGDvRXLkhcOcJpdIBPq2I5Q_LSFljKc3394CJgKA4mRxqxPiGgOE2DV-ZOWA7YDpQijhWSosFo0yA504rIpwDquorpZ94-HNomUCOIe3n8lzRFwcf3htdd3WtqE2qOSGo1X92WsDxZYD2x1imkyxwYdctSuV2UNtJ6AuGS_xcQD31dQaLcmMB-BZ9ssjTMa3fFciFU52C8DlDSahYD999fIWWzY467tCJS6_Kfn9loB2Iw_0EE9PNU_7dgnFg-U7d63mbldZWvvRQR5jS7Yxf0fZ8UncKJwQEHZ54Po37qjL1npOvcLBpzmrB22HqBNlNRtHeP2YmmhUEYt7PGfHVj978BrQ0ltISI4y0rBdJQ9WBUBvTMgnJr0u0yzKTZAL2s9ztiw52kO96ZgG8MAXSPM5JM74tJFO-4HcPBxsZsxcAiD5nULK1A_IpurjGU4KiJGrR77wUVaVYbrqbc2yO8iIx48DRpPV161nlmrEXf1kWQJUZ-puemnKx57t_WHYOAxeIdLbP-wToS3Q-0AfihyeQQi3vhNUkiiqWKeT8UIgKsmFSSV540WcX8Ubrj_6EmTTscFQZXXZ2Hm4C8_Q7j9XRj24URzmzKNayv2EFaMe4MMrIn4mIcgh1QoUHtRN38BQhhFkgC42RV43Tgwf4fNc2UUoq-l3I7zMo0gmnXESwO7A3vTFAP5_LRNOlhhZPRVZIJLAb6TJ0b7wk_CDReY1RkLclZiYQWfyYOSkK0UPruFNojIXSuecAORJdw03LXgMaHci5kzAAKaUt8LbnJPxaOu7vojzxd_-nV-Bk79LCSMctitm7rKOuvGiAQHPuAJqdWtD6ZS2ZFiPA1eBWQxCGLebTdjPcAn8o5Q5zo854BT2sr4UpWGDjiB5diCIrgFU1fi4KSb6CVBc2tYRsbiwn7bvXm_DBDsJ6G3PU40gCz-FdlUur60h--TZLrFnsjsL6lh-TC2xT14eqE5M6MiSOc35UDnEroimx11WNaeqNe7vR4blUgNXrKi5IXnAuwP8vAc01vZJ2msa4iRzMYgq3revn1mylvMTq3zQRMJ6iJCOk1Kg8rbWlvlT3HqkgwcJodC9V-1PNi_OMSJ7Pc2hJuSDK7HjmnzGeosNgzKCdRN1lLXtijogzmSCllB-4XoG9ibyfB9rwC5Hxvz-31SH5sEiOmp7BDwzvg4JBl20jYUW8QTuSPF7wn0-HHSO1rZJhZTi9_ibNk4azX6wLLG6HK9rBsTgAJGBMX5OXTdQDGy4SpZyfOh_S_yci8ZcCdMQz18ryI25xGr5or0vLZF952rIldLrUD-vEg7qCVYT-_1q_vtaIUMzebrnqlQ_Qa_7r_quN4rsd7d809-R71quPwcOq3bc0YekJDiUdGmd1O1te9K3LChxQ8RJbKvq2JgYCHMBf9Pa-caEt5dG990HW14kHqx09_JdzhQum_A52jBgqiDF9h79FF6-xs7tv3n-IuM_C45VtwIe2h_4VIFLxSZqKptIEa_RPOhHnjmYvJKlCAyBq3x0YEJ_0eL9-tJIG9ebamaTajCsl-hhDoMwCEZ96WZiT3Zs-IJ-FILjutdeVky8SKGTLmEGDAybhRerRR7u9c5RYKjlbQDly2vX3x7IS1rG5J-vEexTM8mWflrmf6FHmF0ksZ8wshvvWe8HF0_99rLvAhZ3i9VPoqXZJRDHWayh9_6Cr2Qhht0UUDZroKpU62oBaxm8slx3TIatn6Y4DiWbjsKQjiSFC_zxQ4MT7s7yHMUCtf-V0K8jbPjA2Erfr4CDBN43EHsbeogYP_0967mYu9SwGGfbUsouMawvQ8oTwpuMYpwzhJnR8hdxR73Rs3wXCSdellv63j1hV2FmORjTV3WT5iEK59pNR0yPBDipB8UAT9hwOoprP1TM6jGQ_0Xxtdkk4TuaDS8ZQRkgj0YTuuaniKYqcs0qmLtdIE1qBBQdzaTM5X7KwZOBftteBCInNryhkgsNMDGwpHhAqY91fkxpMupmnD8ynr2FlAS7JvGg-WpMXwsvP5mNL5KnCgVFjORg8z0G2q71SOvVlALvHYzJfpcQFxvtvNJwC8uWPmRtttUHIVZ_cahuiOr4S3j6Cdf2q8wz78ug0rlhMDC1-jh3gfmSpnr1mfLDyoV5Q4C8qaCvxMWrMxYyXox8bamnxqjENIQVPluEwpFZi1UUIbSVMmfCoyfNZT_ac4kIrxCRv_YOPonRT",
+        "summary": []
+      },
+      {
+        "id": "msg_08742546f2ea1f1c016aa1f8dd7a0887d1babd49b18b090044",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b8b2\",\"comment\":\"Win a pawn and create queenside counterplay.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 560,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 543,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1103
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 23.490007162094116,
+  "request_id": "req_310478671ef8489f84593ca91342bc63",
+  "text": "{\"move\":\"b8b2\",\"comment\":\"Win a pawn and create queenside counterplay.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qxb2",
+    "move": "b8b2",
+    "comment": "Win a pawn and create queenside counterplay."
+  },
+  "usage": {
+    "input_tokens": 560,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 543,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1103
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.03415",
+  "input_count_delta": 0
+}

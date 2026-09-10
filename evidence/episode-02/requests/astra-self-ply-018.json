@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-018",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bq1rk1/2p1bppp/p1n2n2/1p1Pp3/8/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 9\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\np . n . . n . .\n. p . P p . . .\n. . . . . . . .\n. B P . . N . .\nP P . P . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5\nLegal UCI moves (alphabetical, unranked): a6a5, a8a7, a8b8, b5b4, c6a5, c6a7, c6b4, c6b8, c6d4, c8b7, c8d7, c8e6, c8f5, c8g4, c8h3, d8d5, d8d6, d8d7, d8e8, e5e4, e7a3, e7b4, e7c5, e7d6, f6d5, f6d7, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "93605cfde3e67589bb59732625b2d9f025355240533659f27fbd6a5d3e80e2f2",
+  "fen": "r1bq1rk1/2p1bppp/p1n2n2/1p1Pp3/8/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 9",
+  "preflight": {
+    "input_tokens": 533,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_28750c3b3223420b8c95544eabbc100d"
+  },
+  "reserved_usd": "0.1090625",
+  "raw": {
+    "id": "resp_04b328bdbb5c7657016aa1f9b06f6087d1987b07c3b271f4c9",
+    "object": "response",
+    "created_at": 1789000112,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000116,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_04b328bdbb5c7657016aa1f9b2db7487d1a2d374bb513b6715",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofm0hjf7c2unmVw2nUktMPNCQfFd0Yn4LgDnQL1Ti-mIfbZU8Xpw4cDQJ_sl9ei7ubNMrtOzVTXPQQXQeuvWlsl-vjfl4ltdt9I7n53uRDuccP0zTNmz4LCu8uipzmOwtUW5Xn9wRdzww5Ep50ZKq9-CWa7pdbReYjgZ7sblw6VWbJf5eaFI1U0fsllaK2bDtE7uMrtjebjSrhL30ox1pauegtnjjVl_R0UCGRx3x4Ls2bXGagfBTcpQeFd66GT9H9704avBfd09aIFW5IbD4OMZRyAU0sm1-fvrVjLtFG8VC7iDLxlX1WSr8IdJRbwGi0hW36NRNE-g4mW2dugDamK9Yalmhy9nHoBaAc-2JT8tK0bierfqpkkR-euBt1Gg27ClVcUq8nZqnA5eyICN4Ug5usYfzyEw6UChdgXJO-yRn8e40V9mUhUqijaWpNdjC65HW1tEbkZW0VA0Qy39R8F59fw-iPbDymywfpE8G_zmtb4vfHiZqUdIrAMy4lLfdM6Q7X3CcR90R4pVqlr1IK_Ws34uXZFyGshdyy54wrRfDbH_D7fb86jObn51qFarJydjdG4Gzmri5szK-3v-dF0ryWrDPuZoFMKZfgNhrGwmfn2PCAVfQnHgwQKL83n9y01XE5i7oaJ36jcKeaYGrekgO68lwgHQ3N-9wOFuxBL3cPb3SHAFtY-xXLZwsTfM8nKmSbuSP8VP3ugivF8C4rmWlNWXSdi8XP6MlAvY4be_7w1IKflWuUXMKZPUcKAqlbwNRW7caPIKy5UsG3KdJjKzjdcGFxwqlOW2LHRdENkYD0eLOgWpSRzttQ5ljpiG5TUte3op_rzNBY2tKRztgY0cBruRMhTmAgFKfPEhFr1KAUYsnU3NoyGVmAlwuiPoUH3z6Mg6hKvM4ktN_0hsoJWJfGia_Len928OKoK2-GPv4q9Nu84_GuDgPdof1xyHFN8AQ15mGLYEjKFZfEPvEZ0EXkuS8G-BHors9mauerThFEXMuG2voryYktjSygq-6AVcO4zEUIJvusFNd2eN2gJyg_Am6S4ZyMZuQGDbXROxYaQIeVDzMkbPbblQKDqAvoaQ9gfJDd6TtayhTCD3vsKOn2gFgGzbUZlukopa6USRjMmGFoiOGJc-1B_QsMmuft_VkhCGa5PwOzTUrgNaBq3wqoaS_sg_LXv5xnvMwpFHH0rMA-QVrT73IflQNaPjk40dawoNlf6hUdI8RgLKzVSA9rglvncLtuhdt_swypbovi1NU2vT24nZuHMyxPmTLOpCf_B-MFL4d-z87zlR9Zyszg==",
+        "summary": []
+      },
+      {
+        "id": "msg_04b328bdbb5c7657016aa1f9b3bfa087d183a36c9f404610ac",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f6d5\",\"comment\":\"Recapture centrally, entering the Marshall Attack with active piece play.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 533,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 71,
+      "output_tokens_details": {
+        "reasoning_tokens": 41
+      },
+      "total_tokens": 604
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.502051830291748,
+  "request_id": "req_05a0679f3b7c411abd66b16a7c6004d6",
+  "text": "{\"move\":\"f6d5\",\"comment\":\"Recapture centrally, entering the Marshall Attack with active piece play.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nxd5",
+    "move": "f6d5",
+    "comment": "Recapture centrally, entering the Marshall Attack with active piece play."
+  },
+  "usage": {
+    "input_tokens": 533,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 71,
+    "output_tokens_details": {
+      "reasoning_tokens": 41
+    },
+    "total_tokens": 604
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0102125",
+  "input_count_delta": 0
+}

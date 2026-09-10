@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-031",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r4rk1/1ppb1ppp/p2p4/6q1/3QPn2/1BN5/PPP3PP/3R1RK1 w - - 0 16\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . . r k .\n. p p b . p p p\np . . p . . . .\n. . . . . . q .\n. . . Q P n . .\n. B N . . . . .\nP P P . . . P P\n. . . R . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7 Bb3 Qg5 f4 Nxf4\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b3a4, b3c4, b3d5, b3e6, b3f7, c3a4, c3b1, c3b5, c3d5, c3e2, d1a1, d1b1, d1c1, d1d2, d1d3, d1e1, d4a4, d4a7, d4b4, d4b6, d4c4, d4c5, d4d2, d4d3, d4d5, d4d6, d4e3, d4e5, d4f2, d4f6, d4g7, e4e5, f1e1, f1f2, f1f3, f1f4, g1f2, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "d13266830c5cd3d6410474946990879cae37ead8df172f3f583c63b54ae28b7c",
+  "fen": "r4rk1/1ppb1ppp/p2p4/6q1/3QPn2/1BN5/PPP3PP/3R1RK1 w - - 0 16",
+  "preflight": {
+    "input_tokens": 598,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_dbc01eab69d84caa89e2564dd145b8f7"
+  },
+  "reserved_usd": "0.109875",
+  "raw": {
+    "id": "resp_08c15ea5cc882160016aa1f6459b2c87d1a3d59e55ea098aba",
+    "object": "response",
+    "created_at": 1788999237,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999284,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_08c15ea5cc882160016aa1f6653bcc87d1adecf1c30ed0749e",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofZ0yjOA7oJ12id6qDW0IGK5gizftcaq5P-GAvwVn09zdIujDIC2eOT34owTNGquwS294KZDIWcPAKB08F8JVcjAlxVHaFvE8RxcFzN9uoaTefw2_aQ0jo1J8mH311og9r4G_imuR03cT_JJHUF0B8JK5XnE96CbT4SG4gHEBq4c66Wd54gIyye9g9XV1x9tLEP67VrnAG7sB8Jp2yLSFgXdlDaHd_vo1os91ce_VEgZ1CktlVjYdg-qYIGoVWohq960HxVoPbyECEjXs6nJU5hQSfdV1JV18I_EH8QCCramFSt0L-8htqFFEiCIpH9f-a_KWFywbRWFO8viOwLyPByLkP2M8rCNkmtEEkYf0N_COAOJWZM0iGdrvS01oLOLsFk2OSuxAa7d96Ykl3x-QUr4TI7NmncTBS-_h3CsBCRJGWprIoS9e53DyXwU87qZGjeY2Puw3OPrhGuY9mWczoI3ztIsh9orVgnR2_z_qE5HvCn71WOrLd_b301bb4LBzyPUKQqmSt7umyw71mahRZG8h9-wvPNKxaB-OKaa-ezVRoX27D5IhKQy_b4J93HrUaL0a9t-1_i0WBPB9RFkeZEIyV6l5bV_FRDThgZC22Z15dNVKU1k1v1GylVQpBxMAxmYRJks0NdiC7v-mkM2DJLScLqGZYGUbaCI8v9M7SFD7JITBZmk6VcekyAXqRbfwA_k3jIFVbp1_3zGBrC942a22I8GVd0ZlgmsNtIUjQsYfw3WfNrF4ElY_tB3n3wLqk1XKiJ3kV1v9Jko6ZiAinVK49WzXG-l4lwFsaabgpvHzSgXwUx2MG350uCv-7yYnNDu8-TJOgvSNBcYGCdeyYBgRbmBX318PcICGmu41aLar8kN0orTcQeUjXOmw_btRfocM13KYR3_CusH3XujWt3oIfet9_waQHuqKS_ZKrcuA-s3fgtc0XwgOZkJpeic3ay9fykiqi94jXkWL6qYmU97PNf2BmGlX3QXhU_sj07gMiEibb4zETcVWfpkTXVW9U7LwcN7q4MpPh3JYqjwbtkEEIIbM0caWJw21W6bmfBhbzO7-oUFnZUqgnyCXTXYDHNDQYyqps7_p-pP3fjFi_oH1SB-pxcuQgZkrERoHZCR0LpIWsTaa38wwXZ2phCJJzqOrMzn5NfMzzLgSB5kDf9Q2SlsNscEY2DV0zhBUMY6MWVZz9-jHUvBqFr-kZq4t2rN6Fg0V3IruFJ_5aQeiIKj4o6Po2bHwuZR-2dS5Pkz4yaBKmw8vfOTzwj46dCOxEzbS5_A9Ab6lxGDxcA5_bIHwxEa9T_DiHrbQxRdxyO-feZjzQshMoZHu6-dTByvayfi9uU607jbyIBSjIGFh0rwYoHuGAEaXVR-qamMIjXl6vgSoULpgpTAhR7Pux7d481SdWqcrjnoUk79CU7u0BnXe9DpJLYzzHvJtatsut_v4OtzEN8yiKVeddVJm9wfvwPzYdfW2mh7ib_l-SupSQ8XPxBNeHfozHstNz4570FOI871zkiNfiAtOVIj32L4AY0nSN5jdUv-StUuo5521aW7gC4t9WYIBPm8HinNLaVtykRQjL34ogaY1FQkk2U2qfY2eriCf3SYdPMERLqnW3jP8_xutSGnNiztyrbkmSvpzcTl3L-cmZ8Sqq6sHADu7F_EnJZHevosz0axwdJlMx-xgWgPNsboBxRC4UwU7cXfa0xZE5Md4O1uoLpyvNkBIbKl6OMxGD8XjUZRM0vcjErWGiNAQ-EKNHW2X761hCA3ao3YOIe4A6K62ouzML27jh4uatAGWmA4e3vD3Ov2uieHS8wOTEWRFUgtG-0ThCUplR32qtsQdnHj7kigULv0qoTZsHO3s2EvVumGWqw0bvMQM5J7Pa0mGYvYGZCqnUISdXlOPOk0AVPHzbStLlzXZeGBj7Yp2jV86YHlWjE6KyUiYOKDFMGLWDttyrx_7GQVfqBbjculOWZfIVEQB2NWQfnNn_ezUwmzdmzHmwTDPWeNVDhNfarp5MGhhxug3lE3BIOej-fG0086H9TMxGYruY7UOPiB0kPZV3iKmlALdslgnSwy27NqjGJ6KIcPH8L8WvT479g2_GIw2gSkwVgYIYp3jLll8YO5rgw2-ASFcLFdPwSXa3rQruYRKPltDQsgr-fXgl1YPI4T01OUsThFH05MzleDwI22ZWxNWFjtyXh2us0FVdMgYATIZ4yEG-u1XxjO8HA6l-Z_pOeGbpNbHM3vu81kbaOQK3YDpfoUm-bJnyA7_HwrBx8RtiozI8T74jnjH_SqNApaF3Sg2qZ94NhSHGFuDDmHKmOCZncaXe3VtkOAiCC2BZofWM3a818JxwRPzlY9UZyblzP1L8lQXYRd7a1NFQwAV_bbm7BFLEJs4xR-KeBqRjgSQZ8MoTjMhwGF0EMq7w2bVuBC2Pdy2W_FV_xAQQpusx5uN-2vzb0mtqh9vZjfpe_iD2RzCGqKYuGnNYZcAua0OwlgiGnmIhiTlDnu6FeJja0Tt9qfD55eMZ3psBieK2-fqUxbfVfIT7P7O_2opH8RCH8ZY52H0GSBkxlffh7FnVmKStOb6o9Dt2lN7GrVos9IfGpylJkCcL1cQSG6cRaIHzKY9e5sACIs3xnd94dSB8olhrjCkqyqY14fHZHFkyeTiO9UXswVSZ-jGAtsnm7oZ58pGM3o4hfnjyZI13oSn63OfDpWpDdNEttYZOjhmYRCCQsUjF-l6k_8kK94fdHAyuF0IlDQ57L0xFtePOpLIP8bc8uQ3gouPC5jRJ8V6CDm_Hd-F75c_soPrsIISkeJq_uQsZVEBsvGe36xwOqGvGBzDklLuZvcHyo7xPtEIpBPUvcE1wCdwieX1hIHQZ7Oeia7E5-23F4HV2IZ8Oqx_IU4v7v6EnOyy0FPSlAXpNZpKM8a9mluOq3KihzedjM8Zzq1nHrM_oKjKhgjZ50QRD7FaB5_UTHSDVlk6jc61WKHBLYDwvRQRfPJnYPhOTOXQwH1yIVDp9pEIMHeqdErXwKOwzYmiy20hg==",
+        "summary": []
+      },
+      {
+        "id": "msg_08c15ea5cc882160016aa1f6731f7887d1a841177ef9af36a9",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f1f4\",\"comment\":\"Remove the dangerous knight and open tactical threats against Black\u2019s queen.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 598,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 546,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1144
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 46.868096113204956,
+  "request_id": "req_85d77ebdd52840e8851d3199007b528f",
+  "text": "{\"move\":\"f1f4\",\"comment\":\"Remove the dangerous knight and open tactical threats against Black\u2019s queen.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rxf4",
+    "move": "f1f4",
+    "comment": "Remove the dangerous knight and open tactical threats against Black\u2019s queen."
+  },
+  "usage": {
+    "input_tokens": 598,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 546,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1144
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.034775",
+  "input_count_delta": 0
+}

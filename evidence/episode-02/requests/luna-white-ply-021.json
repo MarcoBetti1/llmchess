@@ -1,0 +1,158 @@
+{
+  "key": "luna-white-ply-021",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqk2r/1pp1bppp/2n1p1n1/8/4P3/P4N2/1P3PPP/RNBQ1RK1 w kq - 1 11\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k . . r\n. p p . b p p p\n. . n . p . n .\n. . . . . . . .\n. . . . P . . .\nP . . . . N . .\n. P . . . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 d4 axb5 dxe5 b4 c3 Ng6 e6 dxe6 cxb4 Bxb4 a3 Be7\nLegal UCI moves (alphabetical, unranked): a1a2, a3a4, b1c3, b1d2, b2b3, b2b4, c1d2, c1e3, c1f4, c1g5, c1h6, d1a4, d1b3, d1c2, d1d2, d1d3, d1d4, d1d5, d1d6, d1d7, d1d8, d1e1, d1e2, e4e5, f1e1, f3d2, f3d4, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "2bd9d4c0ebfd28ab89feb74d003fa25d7ed2badd440e0f6adbcb5847ee7658ea",
+  "fen": "r1bqk2r/1pp1bppp/2n1p1n1/8/4P3/P4N2/1P3PPP/RNBQ1RK1 w kq - 1 11",
+  "preflight": {
+    "input_tokens": 541,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_64ff37e9547f44d0b3f7b7c99a96ddfd"
+  },
+  "reserved_usd": "0.00259285",
+  "raw": {
+    "id": "resp_02d11059591781e1016aa1ff6e5a1c87d1942c2cb9521fad01",
+    "object": "response",
+    "created_at": 1789001582,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001593,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_02d11059591781e1016aa1ff6f409087d19fc579af42347e2a",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof95MEzJ1OnpHwubEWDxrbrewNtxbDdPjh-IZTV0pOVKmzNZXz-2mKOQFcYcwgalU8JoMa_jIlkhCp97I1IYdI_SsODASOL311wXtgCAG0KCoA6IjK0O3yhdt4Ln3bpmNb7TMZ75G9QZB3VV1NlFE-6qSUyvqsj7oK13WuKt8-ziSUYBZ_DPtS8PsKfzn87VhNR_bg4uzaedY2IsFHikfe4gdjoYEP5KNLdXNQ4w3Jh5T_e8DhiJbFiRh7vshJpc8hOeWoT39SuP1qShbTgqgP7KtjrObbniLKiQeMtOgbc2Mt7WAneyW_iFoZzcG-M5vcsvoBomUkgJCKpdpBY2_FDuE_EW8pVVdMLWrKN2EHq3S0xeNDfUxs2J1VSGDaqU-n9r70-CF-bgYpbX9k8c4AnqEmW8S-A-pGoyl18iGGQ52sucMDCoYldldGHIT3cSZrscnD-CKQI5kMI2l0_oNLBwvIrTewwafQhAl6VwCX-uuurfU6dmFX58aRo9I75UCXtbrJVeCTOmb_rjbAyX4HYJmHQDChvoS9RThY58KIfWOzkSo-KJ5C-HB0GFTYResdtnyrDnMnmdD1DoBpn2kXXQ_xtd6FggUBNs8bCkfDuo0DnDgsJSxAi8G-8RVBa1U1RrOWmWVruLEgeN9BEJQeznI9u-gaF1kkg-9akQfn7dIvnh36qsw8w35IlSNex7xDlO3fuVtX8OdxwV9MywN_0ZIQ65B72co6EfSlXs3lJul6tt5GP4ik1InzCfqrqmdOKhEzwc_q5KMX60dQErE0jE8622-kFQ7ZBOm8T_WA-ux7UefMTm4OyRb6qa3Cmo9ASSDS2XPAl_ogTnn5WRZm5w6vmqLOlvB88eqnU9l_cH9RUC5QzV_DbbZDZBGSL246Qp_xarqOQwWvPX2BPPHt_PNG2Y5-lYqyYFGt3TfV4B5dDcH14R5yN_llqnO6WoTalNdQOrIeipEjDND5Q92Uf1wnYOTBy2xaCFJ3EU9xtCijKggnsb-XN8BKnFcSL0hATihBZ8xgszwL9MZ9dQ97MFswb4GWH5hakfXZn1QIM_ytDZ0kgFVHRF-wl5Fdlz4Rca-qfw7EszUshb0480JC31R4hXJoEGqZCv5pMx8eWMJutHZ00pqqqf7RrMr5bGpyK2ohwbrPG2F85wU7d3KJ2qlEDhiLgWesrYqREtC31lZNL6c7DZaNV7v0HhtIrF--qt6zbetFFayPd7C41FTvt69bAgMevVg0GEpwZiKAcr_9lWsv5qlFmgu2QpA-HDxHvsjEnLpzGQ3h9ur8_1kqVaOFuSUmCCSpw1_yKJ4n958xivt_ZE5XICQkAnX2Cfdem546oAJFURD08gBtTN_b27END1kIx6PTx8UaTIY6cSOUrLAs0jTcRkl88gncSqafcJdX79CnutIrM164dqPGKDYwlGSYEN-ZvTKKNvaq045wL8jGh5epa_rCELrT-KE99y4PuOGB_44tJBrAaJPdPb8sORUmvE8eFtGDhI8NXgBEnAHmpAaTGojvGZuobbMg_L5AJ6hKOWT0S11vywFhti98LeJpk09yJ5TIKvmmRxMoseA4Tq3AcZOoEj982HUYORt902wJ6-g0_Kx7SZF2WkUpC9Zsa-pptRQPr_8NyeBz3qH3poYN0dcoJmvp7ujP20TLB_EmX00B_mYIRcuufgoCk7_ukS-ZBf_R78vCXxqRoSgI9wjIcE3unYtrUtAtRb3HV9mnLEmRco_FPlq4uXcLVc_lC1x8th_ciBQztodkY8XHBLpzhU6FdTaDliNoEPZjnqQme_lsIFfOk5IYdAjhRyN3jlPMg5tLo8Ae6SCv0HR25LXnKKxQ8COT9QPooKgvNdk9eyQbNADe1h2wd61UV6oazOkg7SIBwuBD8QjyB2ODIi9XIK5BzMgtD3MVTw4XIqDucDWPGOi2WgdHUOu-bphwtWaeVELTGMyQkHCCuw_Rj7eGTGx9Fb-5DujPj3AHH11xRoiUjjXmlI-6fl_XFeTo8TqU9r_ofoX_EQzjmff0HXTdmpXNPcbgnDtNSRsisO9Gs-VggNgYKM0Xyuep7O993zpueVDwzu8lOdP6S6on5ZGl_F4KP9e_6sZcMENgG_TrljVv2IgXpdJR_4k9oDguDuSuCTlfMSPCCpe5FYZ43b4-uURUfh5ecK44sKfY2Fwd6KiSRMbZ-bdGm9uvmR_SkL-e2ToAjhwu7kSQklBBkBQbhyGOdviBc7iqA4i0IOOE0OPnnk0NtMGBHmy1uTiDheMCQUAXN2XFePKCN17RR9__fEF234xJRcmAhKaxDiJlT3nI9zW-ITUViI09Kg2nJLA1p2ve8gHkaP0nmsUOw8lASlnuRLuYCIfNI9JHryta1kpZ1OrTezL_3ZiHfTYUB53TlPwSFA-Nu5_-bX38Pb9X4o680wZyzo22GlX3wFzTJUShrIqSF13PI0b3MtV1tX-CbcOquJR2M4ddZVKEUh_kV0-hjjuhKppTx5PnG_O5Mo8zuG7bVxd_bTDInkaSwfPuBuFt7gSI0PcgJ-pDf-Ffrclt-WQK0OQCLQNdIdwLeGzK_iaazTFHfTIrAk2_QGS5Sna89dkTV-8ixW3hOKldNAON9VIEZIc6TLl95LmOXIIcUXvKSolNsA8ErajJcTBfNOJZTtu2gmZp_BtsgQ6aE7IO329aGvzyTnq0N-AXPyR1INzlgNoUlv7RUWO1_2gLx24cnHa1Ak89CPRtnpKkq4vWwqukU_0RehzknI8iw14vSsY_7HsMhm3LJCMWezu32guJakFSOV8Hj7T1e1Dglv1AmSHH_FQy2rbpo8WkZX452spwIfmRJW-XkRuPV1IGS9CBP9I4nqesxcXOMDz4CAyTSrVpWOaT0RQ3QET2xqLitqKycY0qp4CFOIAq-1GOceEOoHA74zYT7BAvYrQb4bSdetsjlyNvitA9HbH4PnFSJswZHRb6ALWu1GcQhj4Jw8tUI91Dt8LicOF3ApLKZVNyAxd69mguzyrneHl_OgiYpbpZntypcXQD1GkTbEDGK5HJohvoL9ufCXzZ6BCMsL31_2slLKcVpYA-nek8Oz7SKQgBP-lln0eBjzxnYHjkTAOl8ib6CtksH9vrhdKJvXaq7HhgzpJsovv2VQ6m1NDRMrMimojx21WQ==",
+        "summary": []
+      },
+      {
+        "id": "rs_02d11059591781e1016aa1ff73bb7c87d19d5c85fa5adb72d5",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof95J1ETkBRvKfidSGtGuyfzKm4nPNP3slo_Db4BiO7G1fQTMgixOSO6Pq1wmpEzYhIuPFsOLZpwNNhWc-TdapUDvjj7gO8l0gJ-LlEXkHzXWqmPzM20bJ_5lIn0Bj4bKiyjC-fIMSXyjJZydIPKIgtx5UeLpaCyEaji_X2pH0c5er8u1e8nKJTkdyq2rHUfVMUL9IPRbQXuyTpx699voNKKf0nR2BMhIIRJRVMd3UryO0kyHlZFnXay3Vw0djiOKNGGHDsU2Gcq1RNkVFp09Lrqtq94ziFF2Yn5jkpC792qtLQeCZeJaTHeaSaIX1psRrClpHzPAyIhhOm0pL35e1MZSuEUfBATl4wjcv1wIm9l7JSpBbuZfsqW3EEpnG6IxrzU4ioDx8bKNmtD-_AzHOqaIe7m8vWzEb73bEjV_9xU-mdEADKfwtnYh6DSI0kJ_bNMwo6QwX2YLKB5yHMDYpXK_s6FK06VUI-1G5269d9v9bM3-ztCnFwbnS_NBaRu0oQiTNnt0yGv5vSM2tMpQ7TZgY5CaOjAyKGaHT4EXH2ycDM3qKZYhizVZ4oyq7yvrbbE_MssIbb1ygjkPXetkH616YmxjTGGV3GwxJ_v35eaRb0vpP83zL3Ftw_Wvqj6szzTJKxlYxApf2KKNJC6VIakIOR-ix0QdWrNZiNI7b33M7aeOmeNZVq2LWILHjAvY6s2soFrmD_0ZmEUYq6zS2n-4pNlt5FmTHYK5BWM7jzu44ZWoPHxlKk-GAmFdZY1rX4B6jsz7LeQZoicrYbJ53tMsrs67HPBZldG8VwDga1BGBeufybBOS7I9LvJBnmUyW-olcsHug_ocXN8C_KVcqHJj6NBks1AdtVKWziiQoyvS2bl1JEaC2_RdhdqoPAEnWuq13DQ5tYJ2Z_RA-G-BtisjTGqe_MtQ9dD1ADhn9BfjDT9_SadafTGoBVsPIPXRmB7Fl8AmqB2FBPp-Brx6enQBD14GmMRrf-54dW-Fnyt3MceQ4hgMth341xUS03hXi-oO_GCuqpntDDjPeofIP2z6CsPF3_ymLjnejK0T2wMa7-qhmVjoMtlmgnClA2u1Ui0V6b53agxS4NS64-iF4vuyqoIlPdKCGxzKEOJGKTJ3y2XR8Dn0iNdn8gU1Meq3hwpoywbKETBt2KaP_bUUBP9zAaUVgV-nc9HJ19giseGuEvnZNukW6jpENilca0CJRGfazLZ0X_TcDRhGhSEpINu6DCJXMHgXgHQ7arsd9D41LJ8Ev4GoMuKF89mDoehvBmvHsBZxs2vjn3iAZPw9iYWgTgp26hmTfyPgBHme-pi650O9nTKzEIjAt2HhZMSvN-_hDApm2kLZrm12MUyDgGBaecI68Z7qxEW9WYZGn1fc5IQrkzwnLJpUGad4J6VEdZUc89pUkWtJu1y67ki2SvLkNddJqXWTBPdYZJiLPn0nCgdloVy2QknehaEayPqhJlXfyZBO4jN1woo-JXDr7xivw6SkpLbwvReJQSLueo4faCN7GasDN2Ykk9kZgAzMsu33zGOIOWNbKizWZzvKq0Eq4rKYhnNZWKJFX4P0IlQQx6mPU8CH-MktswY3UMPitGLL5vXjy1pZddamEjmC2Mb3yuZdyOCqLN6cf4gvVsV0D_j4Fifbz4dBA-gQFtv024ZKeIAFGSlSfx2Y4TiXk_-Gjsi2h5XkiSE9RZ9PomF2D4nDALy--W4lXtj5yEzV-f4JFb_QEtmsF2x6TqMEIJPkJrUOWY-_y9dHWdFL9000mSPyfG2x_d4sCC2dNn3qmI23SSZhtww3QoT9vp_UPJxhMObZeI3lY7ynarRC5e-RJlB8bsWthPqr4Nw5tlwzDU9b_bew5OJKOgbHiYuxALYhRDJPbRVWQmur2QNMyhiX3NbLYLYWe7eezmvhYrVonaUZS59qzpp9tdZGGWyRCcd-1JlVD4uCmCckaKUqLpG_D3AwcAi-IrJQVswyvPFv_er24sp1c_G6_SGTv23dVbKLF8_xnL6a-K0puR7MpzoOfowly66qHzeqX2yUbw_xt0Spc4W6qoySBr1WvfIDJ2u9cA6Zh0_IkLoQz4lIf_ooesItzQWzhAVstYxZAjk_sEt-TvILyDpJBPpvpcCyx2XOKNrgKOGuJZxQfC5joQB7Xaiv4YFIidJaxwQhVtigy7Zf8_HOIixQV9gPGx_2r2wjscVZuoRNYaN5f9VmFxurJkHp6623RFf6XVKdJV0vZ6Eeg_7VhD8IM05-9JicRwUpZOB1D3pmP-WAkLw9zBblVN2g9Wx5dm3zopUbMUzfzWkyBadM8H6PHX79gFc9sih1YA9VKPkS_RcEGWyAwIOE6jFmrF8-PiT3Ip-3d-Yi709I0XBDp86sgXndMPc6JCUS4tyg8pqp4J2lwcSkLg8hD3vLyUsvn7he2Tg4Qj8QGV_6936LD4lwdkGQIUqHI42HOno6riPxCCVJCuOJAWOYoKnMvcReee3lLGA1OZakfPGmvniTpkjY6YUjmOcj4gW1rUC3fRrj-w0sNjnTOAKFR1Zxm1w7R5TB96di-WK4mdnWb4pWj0buBHtg6DGHsfTpdwMd5b_ohXjbaKLcEFhPWnAcj-w66JIhfCkx2l288-AqipiaUsVlYLvOkeE5Xr4aorFFTsLkFyVRk8y1nlAI-ailgBEnhLb-FKsormactO9T64qYI_mw7i61HkmVw79yr_Q9wAF1m5WtO1MFMJ5goxKaAaivhHK1g5X3l34IAUTgPk7DbPfTIE-9JvVFoTiOcYFxIXYZM2-SnjNAXNQQCZ2s17lGLog_miifZ9ppMfXDEehAoW3ZwhOLg0tTOQlMd3u1mDfyf2dzlD5nciR_67rNcu7rZwX02iqDA03xMtlTff13-4lLHqil-rW56c6AV-BmiieL2iIBuwmFoU-GKvQW6z4SRyGRfknaJAa_brbRQwSeZzmIqlJWyoWhomMrqTtj5budMsNOFHWflnc350C5frnUKEkFsAP5zoEL1YtAex9jMrjoZ04_QgWLLmau3rRQSQQNbAjeQ1omS6m5DUtsrE-ZpZ0JjzZMXTYm4nJdn4qiwfiuQzlNOtoGaYI9qoRr35hnLO_PHv0WpgQSg39cXYDQrDCQfYEY1AfXq-U3V_AdfCWireTveStmiJWGAw_4uL08UJPqQzP9D2rV0VRyCiLk3qjboc8QIaQEwPVnOjvJsoZK25I7LncVv7swJghxw4fdBXDZkisIn8a1oitE3rLQug4ToANGDYbY9U1-hoW_eGvxRR02ZOI_1A85gPbRr2AuqT0qpMhIqVH2WY8e6LuOl_QgVmzoCdjYAnJTVpzmVxukMAraIC7KIXIx125hhdPEjmsm-h-hbdQ87w6h6m0EvBa1kjav7vOXULZe5ZoYDnNXgWcXNc4pRhkZ1KT2uN1L8MrpHQx65vezbw=",
+        "summary": []
+      },
+      {
+        "id": "msg_02d11059591781e1016aa1ff78d9e487d1a64373f9ae3df513",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c1e3\",\"comment\":\"Develops the bishop, reinforces central control, and prepares for active queenside play.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 541,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1068,
+      "output_tokens_details": {
+        "reasoning_tokens": 1034
+      },
+      "total_tokens": 1609
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 11.220778942108154,
+  "request_id": "req_844870a59d3a44aab3c4521fdb9ac17f",
+  "text": "{\"move\":\"c1e3\",\"comment\":\"Develops the bishop, reinforces central control, and prepares for active queenside play.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Be3",
+    "move": "c1e3",
+    "comment": "Develops the bishop, reinforces central control, and prepares for active queenside play."
+  },
+  "usage": {
+    "input_tokens": 541,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1068,
+    "output_tokens_details": {
+      "reasoning_tokens": 1034
+    },
+    "total_tokens": 1609
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00141685",
+  "input_count_delta": 0
+}

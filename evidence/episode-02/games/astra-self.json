@@ -1,0 +1,800 @@
+{
+  "id": "astra-self",
+  "white": "gpt-6-astra",
+  "black": "gpt-6-astra",
+  "moves": [
+    {
+      "ply": 1,
+      "actor": "gpt-6-astra",
+      "uci": "e2e4",
+      "comment": "Control the center and open lines for rapid development.",
+      "request": "astra-self-ply-001",
+      "san": "e4",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "ply": 2,
+      "actor": "gpt-6-astra",
+      "uci": "e7e5",
+      "comment": "Claim central space and open lines for rapid development.",
+      "request": "astra-self-ply-002",
+      "san": "e5",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "ply": 3,
+      "actor": "gpt-6-astra",
+      "uci": "g1f3",
+      "comment": "Develop the knight, attack e5, and prepare kingside castling.",
+      "request": "astra-self-ply-003",
+      "san": "Nf3",
+      "fen_before": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "fen_after": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+    },
+    {
+      "ply": 4,
+      "actor": "gpt-6-astra",
+      "uci": "b8c6",
+      "comment": "Develop the knight, defend e5, and control the center.",
+      "request": "astra-self-ply-004",
+      "san": "Nc6",
+      "fen_before": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "fen_after": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    },
+    {
+      "ply": 5,
+      "actor": "gpt-6-astra",
+      "uci": "f1b5",
+      "comment": "Develop the bishop, pressure c6, and prepare kingside castling.",
+      "request": "astra-self-ply-005",
+      "san": "Bb5",
+      "fen_before": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "fen_after": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "ply": 6,
+      "actor": "gpt-6-astra",
+      "uci": "a7a6",
+      "comment": "Challenge the bishop and prepare queenside expansion.",
+      "request": "astra-self-ply-006",
+      "san": "a6",
+      "fen_before": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "fen_after": "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4"
+    },
+    {
+      "ply": 7,
+      "actor": "gpt-6-astra",
+      "uci": "b5a4",
+      "comment": "Preserve the bishop and maintain pressure on the c6 knight.",
+      "request": "astra-self-ply-007",
+      "san": "Ba4",
+      "fen_before": "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+      "fen_after": "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 4"
+    },
+    {
+      "ply": 8,
+      "actor": "gpt-6-astra",
+      "uci": "g8f6",
+      "comment": "Develop the knight, attack e4, and prepare kingside castling.",
+      "request": "astra-self-ply-008",
+      "san": "Nf6",
+      "fen_before": "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 4",
+      "fen_after": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5"
+    },
+    {
+      "ply": 9,
+      "actor": "gpt-6-astra",
+      "uci": "e1g1",
+      "comment": "Secure the king and activate the rook in the Ruy Lopez.",
+      "request": "astra-self-ply-009",
+      "san": "O-O",
+      "fen_before": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5",
+      "fen_after": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 3 5"
+    },
+    {
+      "ply": 10,
+      "actor": "gpt-6-astra",
+      "uci": "f8e7",
+      "comment": "Develop the bishop and prepare castling in the Closed Ruy Lopez.",
+      "request": "astra-self-ply-010",
+      "san": "Be7",
+      "fen_before": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 3 5",
+      "fen_after": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6"
+    },
+    {
+      "ply": 11,
+      "actor": "gpt-6-astra",
+      "uci": "f1e1",
+      "comment": "Defend e4 and prepare central expansion in the Ruy Lopez.",
+      "request": "astra-self-ply-011",
+      "san": "Re1",
+      "fen_before": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6",
+      "fen_after": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq - 5 6"
+    },
+    {
+      "ply": 12,
+      "actor": "gpt-6-astra",
+      "uci": "b7b5",
+      "comment": "Gain queenside space and drive the bishop back before castling.",
+      "request": "astra-self-ply-012",
+      "san": "b5",
+      "fen_before": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq - 5 6",
+      "fen_after": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq - 0 7"
+    },
+    {
+      "ply": 13,
+      "actor": "gpt-6-astra",
+      "uci": "a4b3",
+      "comment": "Preserve the bishop and maintain pressure on the central light squares.",
+      "request": "astra-self-ply-013",
+      "san": "Bb3",
+      "fen_before": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq - 0 7",
+      "fen_after": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq - 1 7"
+    },
+    {
+      "ply": 14,
+      "actor": "gpt-6-astra",
+      "uci": "e8g8",
+      "comment": "Secure the king and prepare central counterplay.",
+      "request": "astra-self-ply-014",
+      "san": "O-O",
+      "fen_before": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq - 1 7",
+      "fen_after": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8"
+    },
+    {
+      "ply": 15,
+      "actor": "gpt-6-astra",
+      "uci": "c2c3",
+      "comment": "Prepare d4 and provide a retreat square for the bishop.",
+      "request": "astra-self-ply-015",
+      "san": "c3",
+      "fen_before": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8",
+      "fen_after": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 8"
+    },
+    {
+      "ply": 16,
+      "actor": "gpt-6-astra",
+      "uci": "d7d5",
+      "comment": "Launch the Marshall Attack, sacrificing a pawn for active kingside play.",
+      "request": "astra-self-ply-016",
+      "san": "d5",
+      "fen_before": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 8",
+      "fen_after": "r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9"
+    },
+    {
+      "ply": 17,
+      "actor": "gpt-6-astra",
+      "uci": "e4d5",
+      "comment": "Accept the Marshall gambit and challenge Black's central control.",
+      "request": "astra-self-ply-017",
+      "san": "exd5",
+      "fen_before": "r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9",
+      "fen_after": "r1bq1rk1/2p1bppp/p1n2n2/1p1Pp3/8/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 9"
+    },
+    {
+      "ply": 18,
+      "actor": "gpt-6-astra",
+      "uci": "f6d5",
+      "comment": "Recapture centrally, entering the Marshall Attack with active piece play.",
+      "request": "astra-self-ply-018",
+      "san": "Nxd5",
+      "fen_before": "r1bq1rk1/2p1bppp/p1n2n2/1p1Pp3/8/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 9",
+      "fen_after": "r1bq1rk1/2p1bppp/p1n5/1p1np3/8/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 10"
+    },
+    {
+      "ply": 19,
+      "actor": "gpt-6-astra",
+      "uci": "f3e5",
+      "comment": "Win the central pawn and accept the Marshall gambit.",
+      "request": "astra-self-ply-019",
+      "san": "Nxe5",
+      "fen_before": "r1bq1rk1/2p1bppp/p1n5/1p1np3/8/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 10",
+      "fen_after": "r1bq1rk1/2p1bppp/p1n5/1p1nN3/8/1BP5/PP1P1PPP/RNBQR1K1 b - - 0 10"
+    },
+    {
+      "ply": 20,
+      "actor": "gpt-6-astra",
+      "uci": "c6e5",
+      "comment": "Exchange knights, preparing c6 to reinforce the central knight.",
+      "request": "astra-self-ply-020",
+      "san": "Nxe5",
+      "fen_before": "r1bq1rk1/2p1bppp/p1n5/1p1nN3/8/1BP5/PP1P1PPP/RNBQR1K1 b - - 0 10",
+      "fen_after": "r1bq1rk1/2p1bppp/p7/1p1nn3/8/1BP5/PP1P1PPP/RNBQR1K1 w - - 0 11"
+    },
+    {
+      "ply": 21,
+      "actor": "gpt-6-astra",
+      "uci": "e1e5",
+      "comment": "Recapture the knight and maintain the extra pawn.",
+      "request": "astra-self-ply-021",
+      "san": "Rxe5",
+      "fen_before": "r1bq1rk1/2p1bppp/p7/1p1nn3/8/1BP5/PP1P1PPP/RNBQR1K1 w - - 0 11",
+      "fen_after": "r1bq1rk1/2p1bppp/p7/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 b - - 0 11"
+    },
+    {
+      "ply": 22,
+      "actor": "gpt-6-astra",
+      "uci": "c7c6",
+      "comment": "Reinforce the knight and prepare a kingside attack with Bd6.",
+      "request": "astra-self-ply-022",
+      "san": "c6",
+      "fen_before": "r1bq1rk1/2p1bppp/p7/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 b - - 0 11",
+      "fen_after": "r1bq1rk1/4bppp/p1p5/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 w - - 0 12"
+    },
+    {
+      "ply": 23,
+      "actor": "gpt-6-astra",
+      "uci": "d2d4",
+      "comment": "Secure the center, support the rook, and open the bishop's diagonal.",
+      "request": "astra-self-ply-023",
+      "san": "d4",
+      "fen_before": "r1bq1rk1/4bppp/p1p5/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 w - - 0 12",
+      "fen_after": "r1bq1rk1/4bppp/p1p5/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 b - - 0 12"
+    },
+    {
+      "ply": 24,
+      "actor": "gpt-6-astra",
+      "uci": "e7d6",
+      "comment": "Attack the rook and prepare a kingside attack with Qh4.",
+      "request": "astra-self-ply-024",
+      "san": "Bd6",
+      "fen_before": "r1bq1rk1/4bppp/p1p5/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 b - - 0 12",
+      "fen_after": "r1bq1rk1/5ppp/p1pb4/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 w - - 1 13"
+    },
+    {
+      "ply": 25,
+      "actor": "gpt-6-astra",
+      "uci": "e5e1",
+      "comment": "Retreat the attacked rook, preserving material and controlling the e-file.",
+      "request": "astra-self-ply-025",
+      "san": "Re1",
+      "fen_before": "r1bq1rk1/5ppp/p1pb4/1p1nR3/3P4/1BP5/PP3PPP/RNBQ2K1 w - - 1 13",
+      "fen_after": "r1bq1rk1/5ppp/p1pb4/1p1n4/3P4/1BP5/PP3PPP/RNBQR1K1 b - - 2 13"
+    },
+    {
+      "ply": 26,
+      "actor": "gpt-6-astra",
+      "uci": "d8h4",
+      "comment": "Launch the Marshall attack, pressuring h2 and provoking kingside weaknesses.",
+      "request": "astra-self-ply-026",
+      "san": "Qh4",
+      "fen_before": "r1bq1rk1/5ppp/p1pb4/1p1n4/3P4/1BP5/PP3PPP/RNBQR1K1 b - - 2 13",
+      "fen_after": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP5/PP3PPP/RNBQR1K1 w - - 3 14"
+    },
+    {
+      "ply": 27,
+      "actor": "gpt-6-astra",
+      "uci": "g2g3",
+      "comment": "Defend h2 and drive the queen back in the Marshall Attack.",
+      "request": "astra-self-ply-027",
+      "san": "g3",
+      "fen_before": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP5/PP3PPP/RNBQR1K1 w - - 3 14",
+      "fen_after": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP3P1/PP3P1P/RNBQR1K1 b - - 0 14"
+    },
+    {
+      "ply": 28,
+      "actor": "gpt-6-astra",
+      "uci": "h4h3",
+      "comment": "Maintain kingside pressure and prepare a dangerous bishop invasion on g4.",
+      "request": "astra-self-ply-028",
+      "san": "Qh3",
+      "fen_before": "r1b2rk1/5ppp/p1pb4/1p1n4/3P3q/1BP3P1/PP3P1P/RNBQR1K1 b - - 0 14",
+      "fen_after": "r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP3Pq/PP3P1P/RNBQR1K1 w - - 1 15"
+    },
+    {
+      "ply": 29,
+      "actor": "gpt-6-astra",
+      "uci": "c1e3",
+      "comment": "Develop the bishop, reinforce d4, and prepare queenside coordination.",
+      "request": "astra-self-ply-029",
+      "san": "Be3",
+      "fen_before": "r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP3Pq/PP3P1P/RNBQR1K1 w - - 1 15",
+      "fen_after": "r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP1B1Pq/PP3P1P/RN1QR1K1 b - - 2 15"
+    },
+    {
+      "ply": 30,
+      "actor": "gpt-6-astra",
+      "uci": "d6g3",
+      "comment": "Sacrifice the bishop to expose White's king and create mating threats.",
+      "request": "astra-self-ply-030",
+      "san": "Bxg3",
+      "fen_before": "r1b2rk1/5ppp/p1pb4/1p1n4/3P4/1BP1B1Pq/PP3P1P/RN1QR1K1 b - - 2 15",
+      "fen_after": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1bq/PP3P1P/RN1QR1K1 w - - 0 16"
+    },
+    {
+      "ply": 31,
+      "actor": "gpt-6-astra",
+      "uci": "f2g3",
+      "comment": "Accept the sacrifice while opening an escape route for the king.",
+      "request": "astra-self-ply-031",
+      "san": "fxg3",
+      "fen_before": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1bq/PP3P1P/RN1QR1K1 w - - 0 16",
+      "fen_after": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1Pq/PP5P/RN1QR1K1 b - - 0 16"
+    },
+    {
+      "ply": 32,
+      "actor": "gpt-6-astra",
+      "uci": "d5e3",
+      "comment": "Capture the bishop and threaten a knight-supported mate on g2.",
+      "request": "astra-self-ply-032",
+      "san": "Nxe3",
+      "fen_before": "r1b2rk1/5ppp/p1p5/1p1n4/3P4/1BP1B1Pq/PP5P/RN1QR1K1 b - - 0 16",
+      "fen_after": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1n1Pq/PP5P/RN1QR1K1 w - - 0 17"
+    },
+    {
+      "ply": 33,
+      "actor": "gpt-6-astra",
+      "uci": "e1e3",
+      "comment": "Capture the knight, removing its support for the mating threat.",
+      "request": "astra-self-ply-033",
+      "san": "Rxe3",
+      "fen_before": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1n1Pq/PP5P/RN1QR1K1 w - - 0 17",
+      "fen_after": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1R1Pq/PP5P/RN1Q2K1 b - - 0 17"
+    },
+    {
+      "ply": 34,
+      "actor": "gpt-6-astra",
+      "uci": "c8g4",
+      "comment": "Develop with tempo against the queen and intensify kingside pressure.",
+      "request": "astra-self-ply-034",
+      "san": "Bg4",
+      "fen_before": "r1b2rk1/5ppp/p1p5/1p6/3P4/1BP1R1Pq/PP5P/RN1Q2K1 b - - 0 17",
+      "fen_after": "r4rk1/5ppp/p1p5/1p6/3P2b1/1BP1R1Pq/PP5P/RN1Q2K1 w - - 1 18"
+    },
+    {
+      "ply": 35,
+      "actor": "gpt-6-astra",
+      "uci": "d1f1",
+      "comment": "Offer a queen trade, neutralizing the attack while preserving extra material.",
+      "request": "astra-self-ply-035",
+      "san": "Qf1",
+      "fen_before": "r4rk1/5ppp/p1p5/1p6/3P2b1/1BP1R1Pq/PP5P/RN1Q2K1 w - - 1 18",
+      "fen_after": "r4rk1/5ppp/p1p5/1p6/3P2b1/1BP1R1Pq/PP5P/RN3QK1 b - - 2 18"
+    },
+    {
+      "ply": 36,
+      "actor": "gpt-6-astra",
+      "uci": "h3h6",
+      "comment": "Preserve the queen with tempo by attacking the rook on e3.",
+      "request": "astra-self-ply-036",
+      "san": "Qh6",
+      "fen_before": "r4rk1/5ppp/p1p5/1p6/3P2b1/1BP1R1Pq/PP5P/RN3QK1 b - - 2 18",
+      "fen_after": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP1R1P1/PP5P/RN3QK1 w - - 3 19"
+    },
+    {
+      "ply": 37,
+      "actor": "gpt-6-astra",
+      "uci": "e3e1",
+      "comment": "Withdraw the attacked rook and prepare to develop the knight.",
+      "request": "astra-self-ply-037",
+      "san": "Re1",
+      "fen_before": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP1R1P1/PP5P/RN3QK1 w - - 3 19",
+      "fen_after": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 b - - 4 19"
+    },
+    {
+      "ply": 38,
+      "actor": "gpt-6-astra",
+      "uci": "a8e8",
+      "comment": "Contest the open file and intensify pressure against White's king.",
+      "request": "astra-self-ply-038",
+      "san": "Rae8",
+      "fen_before": "r4rk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 b - - 4 19",
+      "fen_after": "4rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 w - - 5 20"
+    },
+    {
+      "ply": 39,
+      "actor": "gpt-6-astra",
+      "uci": "e1e8",
+      "comment": "Exploit back-rank weaknesses; recapturing allows a decisive queen invasion.",
+      "request": "astra-self-ply-039",
+      "san": "Rxe8",
+      "fen_before": "4rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN2RQK1 w - - 5 20",
+      "fen_after": "4Rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN3QK1 b - - 0 20"
+    },
+    {
+      "ply": 40,
+      "actor": "gpt-6-astra",
+      "uci": "f8e8",
+      "comment": "Recapture the rook and maintain pressure against White's exposed king.",
+      "request": "astra-self-ply-040",
+      "san": "Rxe8",
+      "fen_before": "4Rrk1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN3QK1 b - - 0 20",
+      "fen_after": "4r1k1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN3QK1 w - - 0 21"
+    },
+    {
+      "ply": 41,
+      "actor": "gpt-6-astra",
+      "uci": "b1d2",
+      "comment": "Develop the knight, reinforce the kingside, and connect the rooks' back rank.",
+      "request": "astra-self-ply-041",
+      "san": "Nd2",
+      "fen_before": "4r1k1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP5P/RN3QK1 w - - 0 21",
+      "fen_after": "4r1k1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP1N3P/R4QK1 b - - 1 21"
+    },
+    {
+      "ply": 42,
+      "actor": "gpt-6-astra",
+      "uci": "g4e6",
+      "comment": "Block the bishop\u2019s attack on f7 while maintaining pressure on d2.",
+      "request": "astra-self-ply-042",
+      "san": "Be6",
+      "fen_before": "4r1k1/5ppp/p1p4q/1p6/3P2b1/1BP3P1/PP1N3P/R4QK1 b - - 1 21",
+      "fen_after": "4r1k1/5ppp/p1p1b2q/1p6/3P4/1BP3P1/PP1N3P/R4QK1 w - - 2 22"
+    },
+    {
+      "ply": 43,
+      "actor": "gpt-6-astra",
+      "uci": "b3e6",
+      "comment": "Trade bishops to reduce Black's attacking chances.",
+      "request": "astra-self-ply-043",
+      "san": "Bxe6",
+      "fen_before": "4r1k1/5ppp/p1p1b2q/1p6/3P4/1BP3P1/PP1N3P/R4QK1 w - - 2 22",
+      "fen_after": "4r1k1/5ppp/p1p1B2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 b - - 0 22"
+    },
+    {
+      "ply": 44,
+      "actor": "gpt-6-astra",
+      "uci": "e8e6",
+      "comment": "Recapture the bishop, activate the rook, and threaten the knight.",
+      "request": "astra-self-ply-044",
+      "san": "Rxe6",
+      "fen_before": "4r1k1/5ppp/p1p1B2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 b - - 0 22",
+      "fen_after": "6k1/5ppp/p1p1r2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 w - - 0 23"
+    },
+    {
+      "ply": 45,
+      "actor": "gpt-6-astra",
+      "uci": "d2f3",
+      "comment": "Save the knight, develop, and reinforce the kingside defenses.",
+      "request": "astra-self-ply-045",
+      "san": "Nf3",
+      "fen_before": "6k1/5ppp/p1p1r2q/1p6/3P4/2P3P1/PP1N3P/R4QK1 w - - 0 23",
+      "fen_after": "6k1/5ppp/p1p1r2q/1p6/3P4/2P2NP1/PP5P/R4QK1 b - - 1 23"
+    },
+    {
+      "ply": 46,
+      "actor": "gpt-6-astra",
+      "uci": "e6f6",
+      "comment": "Pressure the pinned knight and threaten a decisive queen invasion.",
+      "request": "astra-self-ply-046",
+      "san": "Rf6",
+      "fen_before": "6k1/5ppp/p1p1r2q/1p6/3P4/2P2NP1/PP5P/R4QK1 b - - 1 23",
+      "fen_after": "6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/R4QK1 w - - 2 24"
+    },
+    {
+      "ply": 47,
+      "actor": "gpt-6-astra",
+      "uci": "a1e1",
+      "comment": "Threaten back-rank mate and encourage favorable rook exchanges.",
+      "request": "astra-self-ply-047",
+      "san": "Re1",
+      "fen_before": "6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/R4QK1 w - - 2 24",
+      "fen_after": "6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/4RQK1 b - - 3 24"
+    },
+    {
+      "ply": 48,
+      "actor": "gpt-6-astra",
+      "uci": "g7g6",
+      "comment": "Create king escape space, preventing White's back-rank mate.",
+      "request": "astra-self-ply-048",
+      "san": "g6",
+      "fen_before": "6k1/5ppp/p1p2r1q/1p6/3P4/2P2NP1/PP5P/4RQK1 b - - 3 24",
+      "fen_after": "6k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/4RQK1 w - - 0 25"
+    },
+    {
+      "ply": 49,
+      "actor": "gpt-6-astra",
+      "uci": "e1e8",
+      "comment": "Activate the rook with check, then unpin the knight.",
+      "request": "astra-self-ply-049",
+      "san": "Re8+",
+      "fen_before": "6k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/4RQK1 w - - 0 25",
+      "fen_after": "4R1k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 b - - 1 25"
+    },
+    {
+      "ply": 50,
+      "actor": "gpt-6-astra",
+      "uci": "g8g7",
+      "comment": "Escape check while preserving the queen and active rook.",
+      "request": "astra-self-ply-050",
+      "san": "Kg7",
+      "fen_before": "4R1k1/5p1p/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 b - - 1 25",
+      "fen_after": "4R3/5pkp/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 w - - 2 26"
+    },
+    {
+      "ply": 51,
+      "actor": "gpt-6-astra",
+      "uci": "f1e2",
+      "comment": "Unpin the knight and prepare active threats with queen and rook.",
+      "request": "astra-self-ply-051",
+      "san": "Qe2",
+      "fen_before": "4R3/5pkp/p1p2rpq/1p6/3P4/2P2NP1/PP5P/5QK1 w - - 2 26",
+      "fen_after": "4R3/5pkp/p1p2rpq/1p6/3P4/2P2NP1/PP2Q2P/6K1 b - - 3 26"
+    },
+    {
+      "ply": 52,
+      "actor": "gpt-6-astra",
+      "uci": "h6c1",
+      "comment": "Activate the queen with check and pressure White's queenside pawns.",
+      "request": "astra-self-ply-052",
+      "san": "Qc1+",
+      "fen_before": "4R3/5pkp/p1p2rpq/1p6/3P4/2P2NP1/PP2Q2P/6K1 b - - 3 26",
+      "fen_after": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q2P/2q3K1 w - - 4 27"
+    },
+    {
+      "ply": 53,
+      "actor": "gpt-6-astra",
+      "uci": "g1g2",
+      "comment": "Escape the check while preserving coordination and the extra knight.",
+      "request": "astra-self-ply-053",
+      "san": "Kg2",
+      "fen_before": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q2P/2q3K1 w - - 4 27",
+      "fen_after": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q1KP/2q5 b - - 5 27"
+    },
+    {
+      "ply": 54,
+      "actor": "gpt-6-astra",
+      "uci": "c1c3",
+      "comment": "Win a pawn and intensify pressure on the knight.",
+      "request": "astra-self-ply-054",
+      "san": "Qxc3",
+      "fen_before": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/PP2Q1KP/2q5 b - - 5 27",
+      "fen_after": "4R3/5pkp/p1p2rp1/1p6/3P4/2q2NP1/PP2Q1KP/8 w - - 0 28"
+    },
+    {
+      "ply": 55,
+      "actor": "gpt-6-astra",
+      "uci": "b2c3",
+      "comment": "Capture the hanging queen for a decisive material advantage.",
+      "request": "astra-self-ply-055",
+      "san": "bxc3",
+      "fen_before": "4R3/5pkp/p1p2rp1/1p6/3P4/2q2NP1/PP2Q1KP/8 w - - 0 28",
+      "fen_after": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/P3Q1KP/8 b - - 0 28"
+    },
+    {
+      "ply": 56,
+      "actor": "gpt-6-astra",
+      "uci": "f6f5",
+      "comment": "Keep the rook active and control key checking squares.",
+      "request": "astra-self-ply-056",
+      "san": "Rf5",
+      "fen_before": "4R3/5pkp/p1p2rp1/1p6/3P4/2P2NP1/P3Q1KP/8 b - - 0 28",
+      "fen_after": "4R3/5pkp/p1p3p1/1p3r2/3P4/2P2NP1/P3Q1KP/8 w - - 1 29"
+    },
+    {
+      "ply": 57,
+      "actor": "gpt-6-astra",
+      "uci": "e2e7",
+      "comment": "Threaten Qf8+ and a decisive kingside mating attack.",
+      "request": "astra-self-ply-057",
+      "san": "Qe7",
+      "fen_before": "4R3/5pkp/p1p3p1/1p3r2/3P4/2P2NP1/P3Q1KP/8 w - - 1 29",
+      "fen_after": "4R3/4Qpkp/p1p3p1/1p3r2/3P4/2P2NP1/P5KP/8 b - - 2 29"
+    },
+    {
+      "ply": 58,
+      "actor": "gpt-6-astra",
+      "uci": "g7h6",
+      "comment": "Escape the mating net before White plays Qf8.",
+      "request": "astra-self-ply-058",
+      "san": "Kh6",
+      "fen_before": "4R3/4Qpkp/p1p3p1/1p3r2/3P4/2P2NP1/P5KP/8 b - - 2 29",
+      "fen_after": "4R3/4Qp1p/p1p3pk/1p3r2/3P4/2P2NP1/P5KP/8 w - - 3 30"
+    },
+    {
+      "ply": 59,
+      "actor": "gpt-6-astra",
+      "uci": "e7f8",
+      "comment": "Force the king to h5, tightening the mating net.",
+      "request": "astra-self-ply-059",
+      "san": "Qf8+",
+      "fen_before": "4R3/4Qp1p/p1p3pk/1p3r2/3P4/2P2NP1/P5KP/8 w - - 3 30",
+      "fen_after": "4RQ2/5p1p/p1p3pk/1p3r2/3P4/2P2NP1/P5KP/8 b - - 4 30"
+    },
+    {
+      "ply": 60,
+      "actor": "gpt-6-astra",
+      "uci": "h6h5",
+      "comment": "The only legal move escapes check.",
+      "request": "astra-self-ply-060",
+      "san": "Kh5",
+      "fen_before": "4RQ2/5p1p/p1p3pk/1p3r2/3P4/2P2NP1/P5KP/8 b - - 4 30",
+      "fen_after": "4RQ2/5p1p/p1p3p1/1p3r1k/3P4/2P2NP1/P5KP/8 w - - 5 31"
+    },
+    {
+      "ply": 61,
+      "actor": "gpt-6-astra",
+      "uci": "g3g4",
+      "comment": "Force the king forward into a decisive mating net.",
+      "request": "astra-self-ply-061",
+      "san": "g4+",
+      "fen_before": "4RQ2/5p1p/p1p3p1/1p3r1k/3P4/2P2NP1/P5KP/8 w - - 5 31",
+      "fen_after": "4RQ2/5p1p/p1p3p1/1p3r1k/3P2P1/2P2N2/P5KP/8 b - - 0 31"
+    },
+    {
+      "ply": 62,
+      "actor": "gpt-6-astra",
+      "uci": "h5g4",
+      "comment": "Capture the checking pawn; the only legal move.",
+      "request": "astra-self-ply-062",
+      "san": "Kxg4",
+      "fen_before": "4RQ2/5p1p/p1p3p1/1p3r1k/3P2P1/2P2N2/P5KP/8 b - - 0 31",
+      "fen_after": "4RQ2/5p1p/p1p3p1/1p3r2/3P2k1/2P2N2/P5KP/8 w - - 0 32"
+    },
+    {
+      "ply": 63,
+      "actor": "gpt-6-astra",
+      "uci": "e8e4",
+      "comment": "Force the king to h5 and deliver Rh4 mate.",
+      "request": "astra-self-ply-063",
+      "san": "Re4+",
+      "fen_before": "4RQ2/5p1p/p1p3p1/1p3r2/3P2k1/2P2N2/P5KP/8 w - - 0 32",
+      "fen_after": "5Q2/5p1p/p1p3p1/1p3r2/3PR1k1/2P2N2/P5KP/8 b - - 1 32"
+    },
+    {
+      "ply": 64,
+      "actor": "gpt-6-astra",
+      "uci": "f5f4",
+      "comment": "Block the check and delay the mating attack.",
+      "request": "astra-self-ply-064",
+      "san": "Rf4",
+      "fen_before": "5Q2/5p1p/p1p3p1/1p3r2/3PR1k1/2P2N2/P5KP/8 b - - 1 32",
+      "fen_after": "5Q2/5p1p/p1p3p1/1p6/3PRrk1/2P2N2/P5KP/8 w - - 2 33"
+    },
+    {
+      "ply": 65,
+      "actor": "gpt-6-astra",
+      "uci": "f8h6",
+      "comment": "Threaten decisive mate with Qg5 or Qh4.",
+      "request": "astra-self-ply-065",
+      "san": "Qh6",
+      "fen_before": "5Q2/5p1p/p1p3p1/1p6/3PRrk1/2P2N2/P5KP/8 w - - 2 33",
+      "fen_after": "8/5p1p/p1p3pQ/1p6/3PRrk1/2P2N2/P5KP/8 b - - 3 33"
+    },
+    {
+      "ply": 66,
+      "actor": "gpt-6-astra",
+      "uci": "g4f5",
+      "comment": "Escape the mating net and avoid Qg5 mate.",
+      "request": "astra-self-ply-066",
+      "san": "Kf5",
+      "fen_before": "8/5p1p/p1p3pQ/1p6/3PRrk1/2P2N2/P5KP/8 b - - 3 33",
+      "fen_after": "8/5p1p/p1p3pQ/1p3k2/3PRr2/2P2N2/P5KP/8 w - - 4 34"
+    },
+    {
+      "ply": 67,
+      "actor": "gpt-6-astra",
+      "uci": "e4f4",
+      "comment": "Capture the rook and deliver checkmate.",
+      "request": "astra-self-ply-067",
+      "san": "Rxf4+",
+      "fen_before": "8/5p1p/p1p3pQ/1p3k2/3PRr2/2P2N2/P5KP/8 w - - 4 34",
+      "fen_after": "8/5p1p/p1p3pQ/1p3k2/3P1R2/2P2N2/P5KP/8 b - - 0 34"
+    },
+    {
+      "ply": 68,
+      "actor": "gpt-6-astra",
+      "uci": "f5e6",
+      "comment": "The only legal move escapes check.",
+      "request": "astra-self-ply-068",
+      "san": "Ke6",
+      "fen_before": "8/5p1p/p1p3pQ/1p3k2/3P1R2/2P2N2/P5KP/8 b - - 0 34",
+      "fen_after": "8/5p1p/p1p1k1pQ/1p6/3P1R2/2P2N2/P5KP/8 w - - 1 35"
+    },
+    {
+      "ply": 69,
+      "actor": "gpt-6-astra",
+      "uci": "h6g5",
+      "comment": "Centralize the queen and prepare a decisive mating net.",
+      "request": "astra-self-ply-069",
+      "san": "Qg5",
+      "fen_before": "8/5p1p/p1p1k1pQ/1p6/3P1R2/2P2N2/P5KP/8 w - - 1 35",
+      "fen_after": "8/5p1p/p1p1k1p1/1p4Q1/3P1R2/2P2N2/P5KP/8 b - - 2 35"
+    },
+    {
+      "ply": 70,
+      "actor": "gpt-6-astra",
+      "uci": "f7f6",
+      "comment": "Attack the queen and disrupt White's coordinated attack.",
+      "request": "astra-self-ply-070",
+      "san": "f6",
+      "fen_before": "8/5p1p/p1p1k1p1/1p4Q1/3P1R2/2P2N2/P5KP/8 b - - 2 35",
+      "fen_after": "8/7p/p1p1kpp1/1p4Q1/3P1R2/2P2N2/P5KP/8 w - - 0 36"
+    },
+    {
+      "ply": 71,
+      "actor": "gpt-6-astra",
+      "uci": "g5f6",
+      "comment": "Capture with check, maintaining overwhelming pressure on the exposed king.",
+      "request": "astra-self-ply-071",
+      "san": "Qxf6+",
+      "fen_before": "8/7p/p1p1kpp1/1p4Q1/3P1R2/2P2N2/P5KP/8 w - - 0 36",
+      "fen_after": "8/7p/p1p1kQp1/1p6/3P1R2/2P2N2/P5KP/8 b - - 0 36"
+    },
+    {
+      "ply": 72,
+      "actor": "gpt-6-astra",
+      "uci": "e6d7",
+      "comment": "Retreat toward the queenside to maximize escape squares.",
+      "request": "astra-self-ply-072",
+      "san": "Kd7",
+      "fen_before": "8/7p/p1p1kQp1/1p6/3P1R2/2P2N2/P5KP/8 b - - 0 36",
+      "fen_after": "8/3k3p/p1p2Qp1/1p6/3P1R2/2P2N2/P5KP/8 w - - 1 37"
+    },
+    {
+      "ply": 73,
+      "actor": "gpt-6-astra",
+      "uci": "f6f7",
+      "comment": "Restrict the king and threaten a decisive mating net.",
+      "request": "astra-self-ply-073",
+      "san": "Qf7+",
+      "fen_before": "8/3k3p/p1p2Qp1/1p6/3P1R2/2P2N2/P5KP/8 w - - 1 37",
+      "fen_after": "8/3k1Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 2 37"
+    },
+    {
+      "ply": 74,
+      "actor": "gpt-6-astra",
+      "uci": "d7c8",
+      "comment": "Head toward the queenside to prolong resistance.",
+      "request": "astra-self-ply-074",
+      "san": "Kc8",
+      "fen_before": "8/3k1Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 2 37",
+      "fen_after": "2k5/5Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 3 38"
+    },
+    {
+      "ply": 75,
+      "actor": "gpt-6-astra",
+      "uci": "f7a7",
+      "comment": "Cut off the seventh rank, threatening Rf8 checkmate.",
+      "request": "astra-self-ply-075",
+      "san": "Qa7",
+      "fen_before": "2k5/5Q1p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 3 38",
+      "fen_after": "2k5/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 4 38"
+    },
+    {
+      "ply": 76,
+      "actor": "gpt-6-astra",
+      "uci": "c8d8",
+      "comment": "Seek escape toward the center, though White has unavoidable mate.",
+      "request": "astra-self-ply-076",
+      "san": "Kd8",
+      "fen_before": "2k5/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 b - - 4 38",
+      "fen_after": "3k4/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 5 39"
+    },
+    {
+      "ply": 77,
+      "actor": "gpt-6-astra",
+      "uci": "f4f8",
+      "comment": "Deliver checkmate with the rook; queen seals the seventh rank.",
+      "request": "astra-self-ply-077",
+      "san": "Rf8#",
+      "fen_before": "3k4/Q6p/p1p3p1/1p6/3P1R2/2P2N2/P5KP/8 w - - 5 39",
+      "fen_after": "3k1R2/Q6p/p1p3p1/1p6/3P4/2P2N2/P5KP/8 b - - 6 39"
+    }
+  ],
+  "finished": true,
+  "engine": {
+    "id": {
+      "name": "Stockfish 18",
+      "author": "the Stockfish developers (see AUTHORS file)"
+    },
+    "options": {
+      "name": "Stockfish 18",
+      "nodes_per_move": 2000,
+      "Threads": 1,
+      "Hash": 16,
+      "skill_level": 20,
+      "limit_strength": false,
+      "opening_book": false,
+      "tablebases": false
+    },
+    "binary_sha256": "ae4c93fa9676ca7750d0714342fd8a5b1d018000fc6e0f6cedf112067b5ef374"
+  },
+  "termination": "checkmate",
+  "result": "1-0",
+  "plies": 77,
+  "final_fen": "3k1R2/Q6p/p1p3p1/1p6/3P4/2P2N2/P5KP/8 b - - 6 39",
+  "rules_completed": true
+}

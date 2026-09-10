@@ -1,0 +1,151 @@
+{
+  "key": "sol-white-ply-009",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\n. p p p n p p p\np . n . . . . .\n. B . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, b5a4, b5a6, b5c4, b5c6, b5d3, b5e2, c2c3, c2c4, d1e1, d1e2, d2d3, d2d4, f1e1, f3d4, f3e1, f3e5, f3g5, f3h4, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "eb7bef601079e2203efdfb7986cf413efa019785c69d35f2cc0a2bdedb085779",
+  "fen": "r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5",
+  "preflight": {
+    "input_tokens": 476,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_ef0e870ef74c423fba5f3370ffe0ee08"
+  },
+  "reserved_usd": "0.04334",
+  "raw": {
+    "id": "resp_023de0a2a3faa1ac016aa1fb5e77b487d184e5579f19b54529",
+    "object": "response",
+    "created_at": 1789000542,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000547,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_023de0a2a3faa1ac016aa1fb5f0ce487d1a4404fb562ebd0a2",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqoftjWhHFtrVYf2Nc_rNFKw2CTy17TWtvGzTbR2AJnKuMMG_nf7fGtuRHZZ-P5qbnptaAGtx1tdyk90u1IHsoA-mcVfm72N8TCwF5I-dfXBfsUDFQhQCURDQnjTv3fW4pOp7WnwYBSNqqZE_xvJAMhotpRIL5CrTvip_mLWydUBweiE7DQlqtWU6wEn8PqOVVzp0zZ_D29SUZudPlmIoAUrzaGWQ1vqQ2XRGm7nU4pfQjF0AyJQtmsu7ZitmPYjPcxjqQYetUdB55zyjc3bjVLj26gEFs0w_2EyIMXZoE4MWWgtFBoe9x7_hfMfGOthH0vVLdQTLZ4XEZYyO1j8uUfVSb3RWiJehg0Kbf-a6REo4uUCa1EKMBFKTRYpfGgdprBgjff5ZbNB6XCRka_23rJuy6ZXY2sK19OM3iBseFACEU6w4M4w9SvM8BikUK-cugcue0njoitV2wbyEIqEsK9zfoicE0LoYYDzr3WRA-q1U2DYXL3Zumg3klhVSy8Vmly2X3WvFCzqwfSR8JGbUxJZ2fmwwsysgDCQ7a1ZVmLhiqc4OFcWjWcK6vwYTt8rMHQsGHfK8tq_brQtqFPYqxKB9JV96N6T9f8ZSNUf9O287I1GmIsd8NjbEZ1l1goLp50GTVVVFiFoy91AlHCmZi0K3IZHGoqcVbD1yxuHqmcmSrOU4GxfBHVBORQR7Ncs2x0YThyG_bjG3iUbu6wWbFh_MtqIiBsFS8qKhVIMJet2i8nEMPLa3ORJl8v-WkOIcXuRFILPcaRQtcACeJ4ySJLKo9QetAFz1eeIkoGi7JfViw23te9E85f5MORTxDHOZ-kT3dmPdwxPnVrQHk3VD69wmDHDBDIjvCsQU4U1NzZ7JTYy1dr6Lum71XIyj7d8piKT9RI9RLdee5DNv3r0jhnnWFk7XLs9mHqHQS8fLr9wntQddEG0uIYjL1wUGVlvY_IPFES5v3Gy9HAm-Orj3SgPpXVeXqqP42qhQRs_cWVq6obDUoYt7h3jR4BnQrEcsESSxBAumb-EReD_t_wRqqa8Qptqa42TcMvw6_b_yNtSnZMic3X3xqwewouzO9FeGmTvQLeJc41VY_aavSAqka9u_qPYKPF5U_ZDWUQaQosKfeeuz5m5b3yqt2nnIrbxEOtUrw2YVnBHws50hZoVNoMMPRpcaMZR5VfFlKKKlRXTFAq4yv-HnLjo5Kd3NTajRMhiihfm6J0KEvLKcSVrUv7tifLEvJIEesw-EYpjM6T-qheXEowIJaw8ZrgZSEtQePCOfAdreU-jeRQZSJ5ubtxHiotxp7NV-v-b6BXrcLw--VUq3rlP6XLDz6VxUJfCqDVHFy_rng_aKrN3NNiar-O8JubcDaUwkk0hq2E6TVi9_SBAjhfSg96eZljnlo2wmEOPphwkhlAKPQ9fe4cCv_zrUFbpxSzxvY4xPbwSAL5hoWXgVt6-IeC_Dyjmk8FJNebWGSNDj9yMwuuv6xELrgUwI0omoe1mzTAVYIrA8PGZt_2n0_ZNgFOBF814qAA5aZpTkqXF-IHIaoZ1mQ-mtr64Q1LtXlk4Yhd5ffqlCDuPn_xoPnNVQq5RoT7BUjlOj97kkyikxC2Ey8oOxpwIWIi7NDglJTB8LHMnMsptngNk5VtBALh_Lo03UH-RywVJgtVwz3rGLZsSKBJ4gDAY4dnR0lOOnAUkU8pTtUhEFUqxRe_H3Jlq0E9_ljP5YvehmHIJPwnW-p2MeuQhefu4wXLwBxkn1tQ5Qp3CAMc_ZelcB3YY3WL1Xc4Mfwac01Yyjrr3QoKAcjnCRwrwNhcssvfK9hza-JC-nncya0IidvuFYZR6_FRnnbjfTYfyW4GSHe7QjbY1_nGhxTnpGqeRZHKMG-dmkWuPmQKcA4mntWCI3qoNNBK6RCXGDVGs39GNpg-AySPRozFYrvO8ISA094GHcPubxxYEoI0DLW6TOs7ZcYJPM=",
+        "summary": []
+      },
+      {
+        "id": "msg_023de0a2a3faa1ac016aa1fb6262f887d199b2cc12bb104d0e",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b5a4\",\"comment\":\"Preserve the bishop while maintaining pressure on c6.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 476,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 221,
+      "output_tokens_details": {
+        "reasoning_tokens": 193
+      },
+      "total_tokens": 697
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 4.762844800949097,
+  "request_id": "req_a604160579334ab0b8b71b0dec60d876",
+  "text": "{\"move\":\"b5a4\",\"comment\":\"Preserve the bishop while maintaining pressure on c6.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Ba4",
+    "move": "b5a4",
+    "comment": "Preserve the bishop while maintaining pressure on c6."
+  },
+  "usage": {
+    "input_tokens": 476,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 221,
+    "output_tokens_details": {
+      "reasoning_tokens": 193
+    },
+    "total_tokens": 697
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0068",
+  "input_count_delta": 0
+}

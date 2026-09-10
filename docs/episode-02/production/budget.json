@@ -1,0 +1,481 @@
+{
+  "cap_usd": "3",
+  "entries": {
+    "tts-cc47953490ea7a070cc8125eb40eb4fd52b38ca1d73d9817a6e683534e2a9c3c": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-a9828a76fdf19d27cc61b1f9cc8cc85146925e0ec8ac54415c97fd0d960c2269": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-2384ad0ea676928dbf4791b9ef327cefe7c068f36546f8c16b124e92f6a07203": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-6edf35b44240ac89cb926f92c1a81ad90a105149907ac4945be14f8f3ee3ff59": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-5ad750ce2080cb7616f6a8d5a9c8382e35baef3771196161de32c2cd17660048": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-ed06718e5739f0a19491fe4ed1d4e3dfd9674b0d34327b676ac6560037ba34b3": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-76e9efeeab6abd26bf1c656d5f0fcf3eeb16cae240308365a9be8b9211c6102d": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-cdb7df22a084983189f74344bece7d01edfcf24985b449d34b20654d12069872": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "asr-2de7448147e8e389af75b4380badd921e596465e61efa569d294bbbd5acbb394": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_139d8aa28da3424fb949db4feeba937a",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-127a5ec039253c79fbce832338697488c603a1981770c88defe1fe68664c74f8": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_a24840190f3d49e5b7c3e0e8cd4f6418",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-029cb2ee83000d835e63dc02ba5c1c4604586a042145421a9d68833b7fc646c0": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_9f383029b5d84efb9406c84992c0cfc7",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-5a3f81168cc74927827e8e39e2e1ec127c2c18d18e1101a717bb62b3340031f9": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_fa0977b4757e485f9c872d935814bb3f",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-65b3f465e37be8eab1521c15e39dbc526a694989004c6e8777424b9d46b47f9f": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_1a03eb6b95a54e368146305d876a888a",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-b7c6b87a5d5e8649172d33a31b2123152a874b9c612ed83c0ddf76ad135fb4cf": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_5a2675ee216d4111b323ca996a8bee5c",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-734d394ec8889f90c41316599e241a5ce4e3c6ffacee96f74499bc53f5c0a9ef": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_b792a188f2ea4b358485fb16d435a272",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-3ee735fa04d079fc4d2fd8f9512a5bf12d062c420f00e3ab1cf9afaf8c6b397a": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_6edcece9763b4a74bc9028d5e456b5cb",
+      "note": "Conservative per-clip allowance"
+    },
+    "tts-e2518c10272e05675606de1641ea210cb064576444fb82c2a6208ece2912e963": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-bafac417082439189da8f2cc1fab9d3364a476d0221f72e8bc7a3eeb95db9388": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-b3038e39f8b8a4216887e4bf345ea8a7a5b3db98397e65ffae93b8473dddc97a": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-bb6fba5f82f63ea58388e4b3d08a063cff5dff5fc599e7b8e62a90ba8131c941": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-39d9799c0db13055c8ce2c0bebd4b3fc956c113e89675c5a1255a08a2fd3018b": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-414669d71f30f9956764d49ce57aadafd6c3c139d3b2d948f044d34b8eaf6d60": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-1c2b9e15f2ee44e4497762ae04761e04131b70323345b8a057639c0cfd5fffa4": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-e39e419c6a874b7cf99e3c8a452d84fee1cb5cec5dadb2c8cfdc7cde2b47f7b3": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-2c48a2d5958d5251152d7e396d8a4cad32b56816f8fd9cabccbd379fa76b0d56": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-d41cce5cc1074d597a90e0762c41a11ebe668d5f302572edea20694c7f3dc23c": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-eb8648dcc55e956972cc534e5eb6c21b6a77d17fd32bfdf99ff2e353325d6f9d": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-554a36009b56ceb3eacbf4e0cdbd73c5effaceb3bd9e2016ef7255662a1abf83": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-c7a882c52ff3bac05e18502ba99e558a877e296ac8386e7c0f0f4f083805d5af": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-1f555aef9ca5229330ed0e747c0a5bcb394e976df35217e36ce7954d7811f7b5": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-415877d6b587143a5d1b1274befd5887f597396f922685783c0735e9d220de58": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-4742aee44283c29a72d6dfcd786a2e67a97e750650178897d12495168e6364ea": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "asr-fc3302122bb583346abd90688557a95eb26f1ce25df13b5ba622aff73286393b": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_6d7e164e63064661b6b5002c32adc2f2",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-6c33bc9fd981740ee183b17f78f755958f804665e7b6c2887f1155d1851b22b9": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_aceeed21ec3d4e3182930c78fef2ba3a",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-61513912d1ba3a86551263defe9395dcbb5d566b3d5528f2847c5dff128115c9": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_ad09da675bb14d348c19a3fac5aed5e8",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-730f64ae61cf5d65be44f8c603bcda3faf904f5480727b6201792d7ed45d8835": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_8fa66350a8224ad0b8b247e4cb995e23",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-f905607cc577ece5d1c4249e6a284d99e0bc12c1ebcc5880ea39d3973f44b70f": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_042bfe3950c84dd0812086df41d92980",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-7ca9878f9a1ea6e795be87853a55a707e4861b9c49d5728d4b4f876a7c30e6d1": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_5291aba16cab46b1b67a17da45477b23",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-53e52874225ff1c31ed095f42a8fda7c60b10a6143066638d2e844b1a4e4d81c": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_76c46e2af2624f3c9453150800753838",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-85be4a147d607cfeffe2cc29fdbd7e18040eefea45840679af8b76acc2734856": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_82f2a51f0a294889b6d84e3750b349a4",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-b61bb09b9cba4509e52674c749c2444e263655d4fb963c8846a4432e2c1f8d2a": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_1d506ae3982f480db772f2b622812e8a",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-3f987525d0dee9ac4bd7f213fcb55a8a93ebc92c9006852f4cfcaa84f3832dee": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_04f0bae501e148db8575497689bde589",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-64b4ff95371ee299294b003fa0286202fb1e5c563925b840a63319398a76d0e9": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_1c56063fccc24177a6e897e5c33ec1a5",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-d86bf0333a99bbae59675119e25667d7a30d416c3faded90da56253833e8e088": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_35a4b96563d446f2926f67af889829ae",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-831222f57339f55f065bd42be2699a5446b08f5c2a98dce5ae9e2546d9200866": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_6e8393f0946040dfa2dff99cb7b18a72",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-1b38533d8fb725d0d2970ab47130822b0f76c6f84c5a72829df66b570a4119dd": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_7b7cda16dd7c447da079f2ea05667757",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-744159365de3eb9abe81180631ff2adee6bf699c9141935882b2c2f22a7d9b57": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_916aeb11ea1044418ac522f96dfeaaf6",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-3dc8bbbe4a4d617f7d0a30a8dfd379c3a18bc51b6614e553825eb04ea8e7958e": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_55fb55a041ef4b438989ffc98b47413d",
+      "note": "Conservative per-clip allowance"
+    },
+    "tts-f51a397960862d132aaaaee747e8d67db693b3e675ea65ef10540cb23a1c2a86": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-b9cbe56d0058194a9283f4b1f02bebe6bd79041141e7499659c81c2ac9d3a4c5": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-1015d2ad1e2f529270f8fc9e148a47c3617812fb57752c8e1f7700bc8d8456f7": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "tts-44c4d242c5b550d7b19878fe5a9491710904fa4b2cc3872e2050df760159da13": {
+      "status": "received",
+      "bound_usd": "0.08",
+      "service": "speech",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "reserved_usd": "0.08",
+      "note": "Conservative planning allowance; endpoint does not return token usage"
+    },
+    "asr-d41f0788d209fcab2fb721f8337af499195e28b6b7cbee39842518fe07003589": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_4f75d072bfd04b1aad6bcdd186bfd6a3",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-304d3887f48add4a4b69987e5414322e2c10176345d0fabd84945f2bcdecba13": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_b68ddcad4c134acc905b261167a99c1b",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-8f8157a77a8537e26a4bcdf8ede8ff9665e1295b9ff91d700e45c248b0681040": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_3a6f517f81a24768a95b19f2619ba72d",
+      "note": "Conservative per-clip allowance"
+    },
+    "asr-c269f81b684d145eb003890b935f6149d91820756962ef2394272d2dbf0cdb34": {
+      "status": "received",
+      "bound_usd": "0.01",
+      "service": "speech_qa",
+      "model": "whisper-1",
+      "reserved_usd": "0.01",
+      "request_id": "req_6a726b4d3cf14dd3b751be314cfef488",
+      "note": "Conservative per-clip allowance"
+    }
+  }
+}

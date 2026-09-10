@@ -1,0 +1,151 @@
+{
+  "key": "puzzle-rook-01-gpt-5.6-luna",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 8/8/4R3/8/8/8/8/k1K5 w - - 0 1\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . . . . .\n. . . . . . . .\n. . . . R . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\n. . . . . . . .\nk . K . . . . .\nFiles left to right: a b c d e f g h\nMoves from starting FEN 8/8/4R3/8/8/8/8/k1K5 w - - 0 1: (none)\nLegal UCI moves (alphabetical, unranked): c1c2, c1d1, c1d2, e6a6, e6b6, e6c6, e6d6, e6e1, e6e2, e6e3, e6e4, e6e5, e6e7, e6e8, e6f6, e6g6, e6h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "624023028e25acdc8830a8dec8113df8cfe5505443742c906915984dbab6a821",
+  "fen": "8/8/4R3/8/8/8/8/k1K5 w - - 0 1",
+  "preflight": {
+    "input_tokens": 361,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_3b9849c511ac41efb17ffe2f668a77e6"
+  },
+  "reserved_usd": "0.00254785",
+  "raw": {
+    "id": "resp_0ae89f1e8b4c5015016aa1f53ae83887d1b1dcfd7270ef2098",
+    "object": "response",
+    "created_at": 1788998970,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788998976,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ae89f1e8b4c5015016aa1f53b844887d1837519fc1322dc88",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofVA0iyR3cgtBrZXJLKYRc27ASgPSOxcarO_a9R1l0itjvstt_wLdb6rZ_KvYtMzl9VPS9vlZTnWTKNJCWGPU2tngqX2v8ZavPblma0ZxlBacoIveL0ANvIbEfYB3ZWAQ-29blwwhBmBsliRrqm580xkPcS2n1xVRob6yVl_hUKm8vxez9PiSAgg1fUbnMSgBGsgtrI_RbCjLixnBMDxSmWaQWaIJf6K0UfgQHYvaOX8uc5G9s3RDFi8Y9sho7k3qa2vitf4rdu1sbIumnhjgyJ6X7e0ey9zrO5Btm7eMJptRZUDJgU5lLapp0MawnzYfhPGpx1k1RDK5sw3xGNjP0IXHKp6f4quLp2rBKE2fUL27EOGxeRAJ38KURSaYNVcV3-dpNLWbVPcAp9EOrsVjuMoX3ribgPhLY8wB7U_ArTINICuD_ogZkKu2XqOb3VCg1VhJN3zR9JtiILCXpSfm2_-PR0dSBUSLF2JkHsn8MvbWZ9xJQQzMIPghSDWVXkDHZ2oZSFpJ7Tw2jndJFC5EgN2KbqQkMYg-c2pLzhMN6J64jiXfOLvpesSkaicAzq_bsNE-CwjgASO4w7uncNGj8TJADXq7bv2ZOy93B6nr577gcUU4-IZvRqLZ291wIyEpbJo9O4Ct5PvppevkAuvl9fdnO2SDHY3Xx1pnRFas4dSXIB1FKSaU_b6R27m_RTTiMMvhf5cqCqhXtvDTVPGYL2gDqGz8qRUND1e_kRRYJ9ymMU0lDdSrHWkZjIdMlCk6nX9_xjv9NMU3fut93MYwyxZnkQilkARNmURVGeIqlAkbrypa5dIttKkVmeNX2lO24fGlgX06Kqmdj-dODuFJ2vLhevv_usCqLQMPWVmoESSkAEBfXZ0or29q-Ns7N_UrtQ4PWc4Kep3SyT3RccjDW7oPHqfREXWEdwIYp-5s8xvzq0RiC7Keze2FbpZOcDAYDQh5jCOhY8kC9nQUacKNOcu02DEbALKCNkTH8-Bw9qXD9WpiHdMttg25Tbh08a6k0yVzIucZ--8L_lRZmfq7dnSKkZ9w_4ch5MwSdgTSNoIT9LHognJKX_9p496vStqBWWu6Sbb762UzjeQwjOdDzNY_qPRv2KfjLlmiSvD1zw9JzW0VLqiYtKnjDAMt8aeZRWKMksW5WRnxsdsuxr3wfwY1k49l_HANxI-3L_pE5xVikfreBrErGAVFYw6lLCaBs9Lh09xY3d6xEpW-L28ZTN6VJjDawpKcicR2G9EDx5NeWZHoFvtFVUN_8aSo-0pU_TixJoJ-qdGKsUNecu1vMWe7t1kB3lKFmhg-qglF6SxpVw9vNMuf_Il_ZYgMUPoe1d-LxUdG37PiQuYiUbjp68ub-kRJVvFNTdaz-BCUFSPm_TKmH2YehaezVGpxTpPh8FRqrZQ9OMbdU7o2IQx2Iywr_bLiqCNtRajSs-aBX0IbgRTASxV42eIsbtLJjPPcdRHs13bvIm2qQdoDYFqRkVUv6dEJnnL9L-5VsHpLa9yA8MJ87mJYWsQitgt8vro6kJ0yYGFyCrOVwLwBgV8ZY-QoY5G4rXiZjvj1LL835fCTx0d_zug56VffvhrNh92UDtE-Stj6UctxIJBnKvjn9bJtGZf237TwGqwyJ9y1EFnwxUyPoS6bIuX9U2xictSOJq4bVp3BIZv7aQE7o1gYJitdsjOVMEbvYh3cSiEo_u4lIxsuUpszranYEkiBAvG2QqTovv9xb1bSkJbUuIce3MsqslP1ro7XWLLJTi6MHZKoT80Z8s_0Km2xUFHusSSJNxcBIHfZ9z8miDRvfB7zRhVBFJYUrvg2bFRml-Erjus_QKAPKal6qy7dDRohlyJHhevnsvFl-KEsGsVNXqurIzttu0YSDRI-KxHOBLxqh1QzcyIznTX7n3TQtzOxx-rQkRjFIJIywbvpOhnqJ_ImC8XuPEirnUjVteqyW4Lj7fUODZqBiVFur-2nVT3FxvxtQUgPkGR8oKajFKFIbFzTXgCIWb_Z8ipgP8Zo8M7yfu9nLPRBDu7nQUUnxXR6PRCeza5PgdUAwYiaNCdlF6QKnkf6Rukoal13paow5Hwd0LQGEbogUkHNe9w7DIkh19ZkUeUwutHAC6xR9jYYLosZnp1BYJpOYat44ojw8O824SGNTJYx8VpvvgrdNrTM3NLIMPAZxAO7ftpnTlEiaFGjGqIY2rN5jNJNIxyju-oZ84IpDRY4JlGcgN2vlm5BoSKNssaKmiV70SFXtjpjJap-buZwkX1wXNELREoxaxde22W1Tzmit38wNhmSL9BG9I_vMAeqHidqIe_HlOjazIOmAAgaylkuzkz08M-BNbrveV_hBlEWy-eEBon2xhOltiBj5PcjflOd_biU6NFle5CglSkGDpEEbcAZLRg8iP3AnV2S8SLbtff27dUOfazW9tNoRP8l0PuDHyKmh1awse2v3T9yjYFnv5IP3kT9D6WJSis7G-QomPCtnCPKwfQwwOCiIkwAp3Uli1L9dPf9Nv4A--58dJohcACvpCmLZ10QkMiZkg5HeKDcCK8V26YChx3gqihX2Q7PuvEmOTXPNVxwtMBDrIt160gX8PuwGMOXoj4kntCxdGWIqT66uQrG_fy8qBNG_ACV-VqLbbnjZmmvZn5y8nnyQGwKkjbj2IyHTXdZrH_yQSqR92n5d6YSs8phItxZxK9ruY9ASdPcAbGC8-u7bn0XBoidOunPxadFn1yMT8=",
+        "summary": []
+      },
+      {
+        "id": "msg_0ae89f1e8b4c5015016aa1f53f91ac87d195474d68f69af811",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e6a6\",\"comment\":\"Ra6 checkmates: the rook covers the a-file while White's king covers escape squares.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 361,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 363,
+      "output_tokens_details": {
+        "reasoning_tokens": 327
+      },
+      "total_tokens": 724
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 5.4004809856414795,
+  "request_id": "req_c49c55f84c044df49e0074d7e168a378",
+  "text": "{\"move\":\"e6a6\",\"comment\":\"Ra6 checkmates: the rook covers the a-file while White's king covers escape squares.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Ra6#",
+    "move": "e6a6",
+    "comment": "Ra6 checkmates: the rook covers the a-file while White's king covers escape squares."
+  },
+  "usage": {
+    "input_tokens": 361,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 363,
+    "output_tokens_details": {
+      "reasoning_tokens": 327
+    },
+    "total_tokens": 724
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00052585",
+  "input_count_delta": 0
+}

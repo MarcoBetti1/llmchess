@@ -1,0 +1,650 @@
+{
+  "id": "astra-white",
+  "white": "gpt-6-astra",
+  "black": "stockfish",
+  "moves": [
+    {
+      "ply": 1,
+      "actor": "gpt-6-astra",
+      "uci": "e2e4",
+      "comment": "Control the center and open lines for the bishop and queen.",
+      "request": "astra-white-ply-001",
+      "san": "e4",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "ply": 2,
+      "actor": "stockfish",
+      "uci": "e7e5",
+      "comment": null,
+      "request": null,
+      "san": "e5",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "ply": 3,
+      "actor": "gpt-6-astra",
+      "uci": "g1f3",
+      "comment": "Develop the knight, attack e5, and prepare kingside castling.",
+      "request": "astra-white-ply-003",
+      "san": "Nf3",
+      "fen_before": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "fen_after": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+    },
+    {
+      "ply": 4,
+      "actor": "stockfish",
+      "uci": "b8c6",
+      "comment": null,
+      "request": null,
+      "san": "Nc6",
+      "fen_before": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "fen_after": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    },
+    {
+      "ply": 5,
+      "actor": "gpt-6-astra",
+      "uci": "f1b5",
+      "comment": "Develop the bishop, pressure c6, and prepare kingside castling.",
+      "request": "astra-white-ply-005",
+      "san": "Bb5",
+      "fen_before": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "fen_after": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "ply": 6,
+      "actor": "stockfish",
+      "uci": "g8e7",
+      "comment": null,
+      "request": null,
+      "san": "Nge7",
+      "fen_before": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "fen_after": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+    },
+    {
+      "ply": 7,
+      "actor": "gpt-6-astra",
+      "uci": "e1g1",
+      "comment": "Secure the king and prepare a central breakthrough with d4.",
+      "request": "astra-white-ply-007",
+      "san": "O-O",
+      "fen_before": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "fen_after": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4"
+    },
+    {
+      "ply": 8,
+      "actor": "stockfish",
+      "uci": "a7a6",
+      "comment": null,
+      "request": null,
+      "san": "a6",
+      "fen_before": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4",
+      "fen_after": "r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5"
+    },
+    {
+      "ply": 9,
+      "actor": "gpt-6-astra",
+      "uci": "b5a4",
+      "comment": "Preserve the bishop and maintain pressure on the pinned knight.",
+      "request": "astra-white-ply-009",
+      "san": "Ba4",
+      "fen_before": "r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5",
+      "fen_after": "r1bqkb1r/1pppnppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 1 5"
+    },
+    {
+      "ply": 10,
+      "actor": "stockfish",
+      "uci": "e7g6",
+      "comment": null,
+      "request": null,
+      "san": "Ng6",
+      "fen_before": "r1bqkb1r/1pppnppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 1 5",
+      "fen_after": "r1bqkb1r/1ppp1ppp/p1n3n1/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 2 6"
+    },
+    {
+      "ply": 11,
+      "actor": "gpt-6-astra",
+      "uci": "d2d4",
+      "comment": "Challenge the center and open lines against Black's undeveloped position.",
+      "request": "astra-white-ply-011",
+      "san": "d4",
+      "fen_before": "r1bqkb1r/1ppp1ppp/p1n3n1/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 2 6",
+      "fen_after": "r1bqkb1r/1ppp1ppp/p1n3n1/4p3/B2PP3/5N2/PPP2PPP/RNBQ1RK1 b kq - 0 6"
+    },
+    {
+      "ply": 12,
+      "actor": "stockfish",
+      "uci": "e5d4",
+      "comment": null,
+      "request": null,
+      "san": "exd4",
+      "fen_before": "r1bqkb1r/1ppp1ppp/p1n3n1/4p3/B2PP3/5N2/PPP2PPP/RNBQ1RK1 b kq - 0 6",
+      "fen_after": "r1bqkb1r/1ppp1ppp/p1n3n1/8/B2pP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 7"
+    },
+    {
+      "ply": 13,
+      "actor": "gpt-6-astra",
+      "uci": "f3d4",
+      "comment": "Recover the pawn and centralize the knight.",
+      "request": "astra-white-ply-013",
+      "san": "Nxd4",
+      "fen_before": "r1bqkb1r/1ppp1ppp/p1n3n1/8/B2pP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 7",
+      "fen_after": "r1bqkb1r/1ppp1ppp/p1n3n1/8/B2NP3/8/PPP2PPP/RNBQ1RK1 b kq - 0 7"
+    },
+    {
+      "ply": 14,
+      "actor": "stockfish",
+      "uci": "f8c5",
+      "comment": null,
+      "request": null,
+      "san": "Bc5",
+      "fen_before": "r1bqkb1r/1ppp1ppp/p1n3n1/8/B2NP3/8/PPP2PPP/RNBQ1RK1 b kq - 0 7",
+      "fen_after": "r1bqk2r/1ppp1ppp/p1n3n1/2b5/B2NP3/8/PPP2PPP/RNBQ1RK1 w kq - 1 8"
+    },
+    {
+      "ply": 15,
+      "actor": "gpt-6-astra",
+      "uci": "c1e3",
+      "comment": "Develop the bishop and reinforce the central knight.",
+      "request": "astra-white-ply-015",
+      "san": "Be3",
+      "fen_before": "r1bqk2r/1ppp1ppp/p1n3n1/2b5/B2NP3/8/PPP2PPP/RNBQ1RK1 w kq - 1 8",
+      "fen_after": "r1bqk2r/1ppp1ppp/p1n3n1/2b5/B2NP3/4B3/PPP2PPP/RN1Q1RK1 b kq - 2 8"
+    },
+    {
+      "ply": 16,
+      "actor": "stockfish",
+      "uci": "c5d4",
+      "comment": null,
+      "request": null,
+      "san": "Bxd4",
+      "fen_before": "r1bqk2r/1ppp1ppp/p1n3n1/2b5/B2NP3/4B3/PPP2PPP/RN1Q1RK1 b kq - 2 8",
+      "fen_after": "r1bqk2r/1ppp1ppp/p1n3n1/8/B2bP3/4B3/PPP2PPP/RN1Q1RK1 w kq - 0 9"
+    },
+    {
+      "ply": 17,
+      "actor": "gpt-6-astra",
+      "uci": "e3d4",
+      "comment": "Recapture the bishop and restore material balance with central control.",
+      "request": "astra-white-ply-017",
+      "san": "Bxd4",
+      "fen_before": "r1bqk2r/1ppp1ppp/p1n3n1/8/B2bP3/4B3/PPP2PPP/RN1Q1RK1 w kq - 0 9",
+      "fen_after": "r1bqk2r/1ppp1ppp/p1n3n1/8/B2BP3/8/PPP2PPP/RN1Q1RK1 b kq - 0 9"
+    },
+    {
+      "ply": 18,
+      "actor": "stockfish",
+      "uci": "e8g8",
+      "comment": null,
+      "request": null,
+      "san": "O-O",
+      "fen_before": "r1bqk2r/1ppp1ppp/p1n3n1/8/B2BP3/8/PPP2PPP/RN1Q1RK1 b kq - 0 9",
+      "fen_after": "r1bq1rk1/1ppp1ppp/p1n3n1/8/B2BP3/8/PPP2PPP/RN1Q1RK1 w - - 1 10"
+    },
+    {
+      "ply": 19,
+      "actor": "gpt-6-astra",
+      "uci": "b1c3",
+      "comment": "Develop the knight, reinforce e4, and increase central control.",
+      "request": "astra-white-ply-019",
+      "san": "Nc3",
+      "fen_before": "r1bq1rk1/1ppp1ppp/p1n3n1/8/B2BP3/8/PPP2PPP/RN1Q1RK1 w - - 1 10",
+      "fen_after": "r1bq1rk1/1ppp1ppp/p1n3n1/8/B2BP3/2N5/PPP2PPP/R2Q1RK1 b - - 2 10"
+    },
+    {
+      "ply": 20,
+      "actor": "stockfish",
+      "uci": "c6d4",
+      "comment": null,
+      "request": null,
+      "san": "Nxd4",
+      "fen_before": "r1bq1rk1/1ppp1ppp/p1n3n1/8/B2BP3/2N5/PPP2PPP/R2Q1RK1 b - - 2 10",
+      "fen_after": "r1bq1rk1/1ppp1ppp/p5n1/8/B2nP3/2N5/PPP2PPP/R2Q1RK1 w - - 0 11"
+    },
+    {
+      "ply": 21,
+      "actor": "gpt-6-astra",
+      "uci": "d1d4",
+      "comment": "Recapture the knight and centralize the queen.",
+      "request": "astra-white-ply-021",
+      "san": "Qxd4",
+      "fen_before": "r1bq1rk1/1ppp1ppp/p5n1/8/B2nP3/2N5/PPP2PPP/R2Q1RK1 w - - 0 11",
+      "fen_after": "r1bq1rk1/1ppp1ppp/p5n1/8/B2QP3/2N5/PPP2PPP/R4RK1 b - - 0 11"
+    },
+    {
+      "ply": 22,
+      "actor": "stockfish",
+      "uci": "d7d6",
+      "comment": null,
+      "request": null,
+      "san": "d6",
+      "fen_before": "r1bq1rk1/1ppp1ppp/p5n1/8/B2QP3/2N5/PPP2PPP/R4RK1 b - - 0 11",
+      "fen_after": "r1bq1rk1/1pp2ppp/p2p2n1/8/B2QP3/2N5/PPP2PPP/R4RK1 w - - 0 12"
+    },
+    {
+      "ply": 23,
+      "actor": "gpt-6-astra",
+      "uci": "a1d1",
+      "comment": "Centralize the rook and increase pressure along the d-file.",
+      "request": "astra-white-ply-023",
+      "san": "Rad1",
+      "fen_before": "r1bq1rk1/1pp2ppp/p2p2n1/8/B2QP3/2N5/PPP2PPP/R4RK1 w - - 0 12",
+      "fen_after": "r1bq1rk1/1pp2ppp/p2p2n1/8/B2QP3/2N5/PPP2PPP/3R1RK1 b - - 1 12"
+    },
+    {
+      "ply": 24,
+      "actor": "stockfish",
+      "uci": "c8g4",
+      "comment": null,
+      "request": null,
+      "san": "Bg4",
+      "fen_before": "r1bq1rk1/1pp2ppp/p2p2n1/8/B2QP3/2N5/PPP2PPP/3R1RK1 b - - 1 12",
+      "fen_after": "r2q1rk1/1pp2ppp/p2p2n1/8/B2QP1b1/2N5/PPP2PPP/3R1RK1 w - - 2 13"
+    },
+    {
+      "ply": 25,
+      "actor": "gpt-6-astra",
+      "uci": "f2f3",
+      "comment": "Attack the bishop, shield the rook, and reinforce the center.",
+      "request": "astra-white-ply-025",
+      "san": "f3",
+      "fen_before": "r2q1rk1/1pp2ppp/p2p2n1/8/B2QP1b1/2N5/PPP2PPP/3R1RK1 w - - 2 13",
+      "fen_after": "r2q1rk1/1pp2ppp/p2p2n1/8/B2QP1b1/2N2P2/PPP3PP/3R1RK1 b - - 0 13"
+    },
+    {
+      "ply": 26,
+      "actor": "stockfish",
+      "uci": "g4d7",
+      "comment": null,
+      "request": null,
+      "san": "Bd7",
+      "fen_before": "r2q1rk1/1pp2ppp/p2p2n1/8/B2QP1b1/2N2P2/PPP3PP/3R1RK1 b - - 0 13",
+      "fen_after": "r2q1rk1/1ppb1ppp/p2p2n1/8/B2QP3/2N2P2/PPP3PP/3R1RK1 w - - 1 14"
+    },
+    {
+      "ply": 27,
+      "actor": "gpt-6-astra",
+      "uci": "a4b3",
+      "comment": "Preserve the active bishop and maintain pressure along the a2\u2013g8 diagonal.",
+      "request": "astra-white-ply-027",
+      "san": "Bb3",
+      "fen_before": "r2q1rk1/1ppb1ppp/p2p2n1/8/B2QP3/2N2P2/PPP3PP/3R1RK1 w - - 1 14",
+      "fen_after": "r2q1rk1/1ppb1ppp/p2p2n1/8/3QP3/1BN2P2/PPP3PP/3R1RK1 b - - 2 14"
+    },
+    {
+      "ply": 28,
+      "actor": "stockfish",
+      "uci": "d8g5",
+      "comment": null,
+      "request": null,
+      "san": "Qg5",
+      "fen_before": "r2q1rk1/1ppb1ppp/p2p2n1/8/3QP3/1BN2P2/PPP3PP/3R1RK1 b - - 2 14",
+      "fen_after": "r4rk1/1ppb1ppp/p2p2n1/6q1/3QP3/1BN2P2/PPP3PP/3R1RK1 w - - 3 15"
+    },
+    {
+      "ply": 29,
+      "actor": "gpt-6-astra",
+      "uci": "f3f4",
+      "comment": "Gain tempo against the queen and prepare a kingside pawn advance.",
+      "request": "astra-white-ply-029",
+      "san": "f4",
+      "fen_before": "r4rk1/1ppb1ppp/p2p2n1/6q1/3QP3/1BN2P2/PPP3PP/3R1RK1 w - - 3 15",
+      "fen_after": "r4rk1/1ppb1ppp/p2p2n1/6q1/3QPP2/1BN5/PPP3PP/3R1RK1 b - - 0 15"
+    },
+    {
+      "ply": 30,
+      "actor": "stockfish",
+      "uci": "g6f4",
+      "comment": null,
+      "request": null,
+      "san": "Nxf4",
+      "fen_before": "r4rk1/1ppb1ppp/p2p2n1/6q1/3QPP2/1BN5/PPP3PP/3R1RK1 b - - 0 15",
+      "fen_after": "r4rk1/1ppb1ppp/p2p4/6q1/3QPn2/1BN5/PPP3PP/3R1RK1 w - - 0 16"
+    },
+    {
+      "ply": 31,
+      "actor": "gpt-6-astra",
+      "uci": "f1f4",
+      "comment": "Remove the dangerous knight and open tactical threats against Black\u2019s queen.",
+      "request": "astra-white-ply-031",
+      "san": "Rxf4",
+      "fen_before": "r4rk1/1ppb1ppp/p2p4/6q1/3QPn2/1BN5/PPP3PP/3R1RK1 w - - 0 16",
+      "fen_after": "r4rk1/1ppb1ppp/p2p4/6q1/3QPR2/1BN5/PPP3PP/3R2K1 b - - 0 16"
+    },
+    {
+      "ply": 32,
+      "actor": "stockfish",
+      "uci": "g5f4",
+      "comment": null,
+      "request": null,
+      "san": "Qxf4",
+      "fen_before": "r4rk1/1ppb1ppp/p2p4/6q1/3QPR2/1BN5/PPP3PP/3R2K1 b - - 0 16",
+      "fen_after": "r4rk1/1ppb1ppp/p2p4/8/3QPq2/1BN5/PPP3PP/3R2K1 w - - 0 17"
+    },
+    {
+      "ply": 33,
+      "actor": "gpt-6-astra",
+      "uci": "c3d5",
+      "comment": "Attack the queen and threaten a fork on c7.",
+      "request": "astra-white-ply-033",
+      "san": "Nd5",
+      "fen_before": "r4rk1/1ppb1ppp/p2p4/8/3QPq2/1BN5/PPP3PP/3R2K1 w - - 0 17",
+      "fen_after": "r4rk1/1ppb1ppp/p2p4/3N4/3QPq2/1B6/PPP3PP/3R2K1 b - - 1 17"
+    },
+    {
+      "ply": 34,
+      "actor": "stockfish",
+      "uci": "f4g5",
+      "comment": null,
+      "request": null,
+      "san": "Qg5",
+      "fen_before": "r4rk1/1ppb1ppp/p2p4/3N4/3QPq2/1B6/PPP3PP/3R2K1 b - - 1 17",
+      "fen_after": "r4rk1/1ppb1ppp/p2p4/3N2q1/3QP3/1B6/PPP3PP/3R2K1 w - - 2 18"
+    },
+    {
+      "ply": 35,
+      "actor": "gpt-6-astra",
+      "uci": "d5e7",
+      "comment": "Drive the king into the corner and threaten to trap its queen.",
+      "request": "astra-white-ply-035",
+      "san": "Ne7+",
+      "fen_before": "r4rk1/1ppb1ppp/p2p4/3N2q1/3QP3/1B6/PPP3PP/3R2K1 w - - 2 18",
+      "fen_after": "r4rk1/1ppbNppp/p2p4/6q1/3QP3/1B6/PPP3PP/3R2K1 b - - 3 18"
+    },
+    {
+      "ply": 36,
+      "actor": "stockfish",
+      "uci": "g5e7",
+      "comment": null,
+      "request": null,
+      "san": "Qxe7",
+      "fen_before": "r4rk1/1ppbNppp/p2p4/6q1/3QP3/1B6/PPP3PP/3R2K1 b - - 3 18",
+      "fen_after": "r4rk1/1ppbqppp/p2p4/8/3QP3/1B6/PPP3PP/3R2K1 w - - 0 19"
+    },
+    {
+      "ply": 37,
+      "actor": "gpt-6-astra",
+      "uci": "d4d5",
+      "comment": "Centralize the queen and pressure f7 alongside the bishop.",
+      "request": "astra-white-ply-037",
+      "san": "Qd5",
+      "fen_before": "r4rk1/1ppbqppp/p2p4/8/3QP3/1B6/PPP3PP/3R2K1 w - - 0 19",
+      "fen_after": "r4rk1/1ppbqppp/p2p4/3Q4/4P3/1B6/PPP3PP/3R2K1 b - - 1 19"
+    },
+    {
+      "ply": 38,
+      "actor": "stockfish",
+      "uci": "a8b8",
+      "comment": null,
+      "request": null,
+      "san": "Rab8",
+      "fen_before": "r4rk1/1ppbqppp/p2p4/3Q4/4P3/1B6/PPP3PP/3R2K1 b - - 1 19",
+      "fen_after": "1r3rk1/1ppbqppp/p2p4/3Q4/4P3/1B6/PPP3PP/3R2K1 w - - 2 20"
+    },
+    {
+      "ply": 39,
+      "actor": "gpt-6-astra",
+      "uci": "d5h5",
+      "comment": "Activate the queen for a kingside attack with rook support.",
+      "request": "astra-white-ply-039",
+      "san": "Qh5",
+      "fen_before": "1r3rk1/1ppbqppp/p2p4/3Q4/4P3/1B6/PPP3PP/3R2K1 w - - 2 20",
+      "fen_after": "1r3rk1/1ppbqppp/p2p4/7Q/4P3/1B6/PPP3PP/3R2K1 b - - 3 20"
+    },
+    {
+      "ply": 40,
+      "actor": "stockfish",
+      "uci": "d7e6",
+      "comment": null,
+      "request": null,
+      "san": "Be6",
+      "fen_before": "1r3rk1/1ppbqppp/p2p4/7Q/4P3/1B6/PPP3PP/3R2K1 b - - 3 20",
+      "fen_after": "1r3rk1/1pp1qppp/p2pb3/7Q/4P3/1B6/PPP3PP/3R2K1 w - - 4 21"
+    },
+    {
+      "ply": 41,
+      "actor": "gpt-6-astra",
+      "uci": "d1d3",
+      "comment": "Lift the rook toward h3 to create kingside mating threats.",
+      "request": "astra-white-ply-041",
+      "san": "Rd3",
+      "fen_before": "1r3rk1/1pp1qppp/p2pb3/7Q/4P3/1B6/PPP3PP/3R2K1 w - - 4 21",
+      "fen_after": "1r3rk1/1pp1qppp/p2pb3/7Q/4P3/1B1R4/PPP3PP/6K1 b - - 5 21"
+    },
+    {
+      "ply": 42,
+      "actor": "stockfish",
+      "uci": "b8d8",
+      "comment": null,
+      "request": null,
+      "san": "Rbd8",
+      "fen_before": "1r3rk1/1pp1qppp/p2pb3/7Q/4P3/1B1R4/PPP3PP/6K1 b - - 5 21",
+      "fen_after": "3r1rk1/1pp1qppp/p2pb3/7Q/4P3/1B1R4/PPP3PP/6K1 w - - 6 22"
+    },
+    {
+      "ply": 43,
+      "actor": "gpt-6-astra",
+      "uci": "d3g3",
+      "comment": "Pressure g7 and prepare Qh6 for a kingside mating attack.",
+      "request": "astra-white-ply-043",
+      "san": "Rg3",
+      "fen_before": "3r1rk1/1pp1qppp/p2pb3/7Q/4P3/1B1R4/PPP3PP/6K1 w - - 6 22",
+      "fen_after": "3r1rk1/1pp1qppp/p2pb3/7Q/4P3/1B4R1/PPP3PP/6K1 b - - 7 22"
+    },
+    {
+      "ply": 44,
+      "actor": "stockfish",
+      "uci": "b7b6",
+      "comment": null,
+      "request": null,
+      "san": "b6",
+      "fen_before": "3r1rk1/1pp1qppp/p2pb3/7Q/4P3/1B4R1/PPP3PP/6K1 b - - 7 22",
+      "fen_after": "3r1rk1/2p1qppp/pp1pb3/7Q/4P3/1B4R1/PPP3PP/6K1 w - - 0 23"
+    },
+    {
+      "ply": 45,
+      "actor": "gpt-6-astra",
+      "uci": "h5h6",
+      "comment": "Threaten mate on g7 and force defensive concessions.",
+      "request": "astra-white-ply-045",
+      "san": "Qh6",
+      "fen_before": "3r1rk1/2p1qppp/pp1pb3/7Q/4P3/1B4R1/PPP3PP/6K1 w - - 0 23",
+      "fen_after": "3r1rk1/2p1qppp/pp1pb2Q/8/4P3/1B4R1/PPP3PP/6K1 b - - 1 23"
+    },
+    {
+      "ply": 46,
+      "actor": "stockfish",
+      "uci": "g7g6",
+      "comment": null,
+      "request": null,
+      "san": "g6",
+      "fen_before": "3r1rk1/2p1qppp/pp1pb2Q/8/4P3/1B4R1/PPP3PP/6K1 b - - 1 23",
+      "fen_after": "3r1rk1/2p1qp1p/pp1pb1pQ/8/4P3/1B4R1/PPP3PP/6K1 w - - 0 24"
+    },
+    {
+      "ply": 47,
+      "actor": "gpt-6-astra",
+      "uci": "g3g6",
+      "comment": "Sacrifice the rook to force perpetual check and secure a draw.",
+      "request": "astra-white-ply-047",
+      "san": "Rxg6+",
+      "fen_before": "3r1rk1/2p1qp1p/pp1pb1pQ/8/4P3/1B4R1/PPP3PP/6K1 w - - 0 24",
+      "fen_after": "3r1rk1/2p1qp1p/pp1pb1RQ/8/4P3/1B6/PPP3PP/6K1 b - - 0 24"
+    },
+    {
+      "ply": 48,
+      "actor": "stockfish",
+      "uci": "h7g6",
+      "comment": null,
+      "request": null,
+      "san": "hxg6",
+      "fen_before": "3r1rk1/2p1qp1p/pp1pb1RQ/8/4P3/1B6/PPP3PP/6K1 b - - 0 24",
+      "fen_after": "3r1rk1/2p1qp2/pp1pb1pQ/8/4P3/1B6/PPP3PP/6K1 w - - 0 25"
+    },
+    {
+      "ply": 49,
+      "actor": "gpt-6-astra",
+      "uci": "b3e6",
+      "comment": "Remove the defender and threaten a kingside attack.",
+      "request": "astra-white-ply-049",
+      "san": "Bxe6",
+      "fen_before": "3r1rk1/2p1qp2/pp1pb1pQ/8/4P3/1B6/PPP3PP/6K1 w - - 0 25",
+      "fen_after": "3r1rk1/2p1qp2/pp1pB1pQ/8/4P3/8/PPP3PP/6K1 b - - 0 25"
+    },
+    {
+      "ply": 50,
+      "actor": "stockfish",
+      "uci": "e7f6",
+      "comment": null,
+      "request": null,
+      "san": "Qf6",
+      "fen_before": "3r1rk1/2p1qp2/pp1pB1pQ/8/4P3/8/PPP3PP/6K1 b - - 0 25",
+      "fen_after": "3r1rk1/2p2p2/pp1pBqpQ/8/4P3/8/PPP3PP/6K1 w - - 1 26"
+    },
+    {
+      "ply": 51,
+      "actor": "gpt-6-astra",
+      "uci": "e4e5",
+      "comment": "Attack the queen and disrupt Black's defensive coordination.",
+      "request": "astra-white-ply-051",
+      "san": "e5",
+      "fen_before": "3r1rk1/2p2p2/pp1pBqpQ/8/4P3/8/PPP3PP/6K1 w - - 1 26",
+      "fen_after": "3r1rk1/2p2p2/pp1pBqpQ/4P3/8/8/PPP3PP/6K1 b - - 0 26"
+    },
+    {
+      "ply": 52,
+      "actor": "stockfish",
+      "uci": "d6e5",
+      "comment": null,
+      "request": null,
+      "san": "dxe5",
+      "fen_before": "3r1rk1/2p2p2/pp1pBqpQ/4P3/8/8/PPP3PP/6K1 b - - 0 26",
+      "fen_after": "3r1rk1/2p2p2/pp2BqpQ/4p3/8/8/PPP3PP/6K1 w - - 0 27"
+    },
+    {
+      "ply": 53,
+      "actor": "gpt-6-astra",
+      "uci": "e6f5",
+      "comment": "Threaten mate on h7 and pressure Black's kingside defenses.",
+      "request": "astra-white-ply-053",
+      "san": "Bf5",
+      "fen_before": "3r1rk1/2p2p2/pp2BqpQ/4p3/8/8/PPP3PP/6K1 w - - 0 27",
+      "fen_after": "3r1rk1/2p2p2/pp3qpQ/4pB2/8/8/PPP3PP/6K1 b - - 1 27"
+    },
+    {
+      "ply": 54,
+      "actor": "stockfish",
+      "uci": "d8d1",
+      "comment": null,
+      "request": null,
+      "san": "Rd1+",
+      "fen_before": "3r1rk1/2p2p2/pp3qpQ/4pB2/8/8/PPP3PP/6K1 b - - 1 27",
+      "fen_after": "5rk1/2p2p2/pp3qpQ/4pB2/8/8/PPP3PP/3r2K1 w - - 2 28"
+    },
+    {
+      "ply": 55,
+      "actor": "gpt-6-astra",
+      "uci": "g1f2",
+      "comment": "Only legal move to escape check.",
+      "request": "astra-white-ply-055",
+      "san": "Kf2",
+      "fen_before": "5rk1/2p2p2/pp3qpQ/4pB2/8/8/PPP3PP/3r2K1 w - - 2 28",
+      "fen_after": "5rk1/2p2p2/pp3qpQ/4pB2/8/8/PPP2KPP/3r4 b - - 3 28"
+    },
+    {
+      "ply": 56,
+      "actor": "stockfish",
+      "uci": "f6f5",
+      "comment": null,
+      "request": null,
+      "san": "Qxf5+",
+      "fen_before": "5rk1/2p2p2/pp3qpQ/4pB2/8/8/PPP2KPP/3r4 b - - 3 28",
+      "fen_after": "5rk1/2p2p2/pp4pQ/4pq2/8/8/PPP2KPP/3r4 w - - 0 29"
+    },
+    {
+      "ply": 57,
+      "actor": "gpt-6-astra",
+      "uci": "f2g3",
+      "comment": "Escape check while keeping the king near the kingside pawns.",
+      "request": "astra-white-ply-057",
+      "san": "Kg3",
+      "fen_before": "5rk1/2p2p2/pp4pQ/4pq2/8/8/PPP2KPP/3r4 w - - 0 29",
+      "fen_after": "5rk1/2p2p2/pp4pQ/4pq2/8/6K1/PPP3PP/3r4 b - - 1 29"
+    },
+    {
+      "ply": 58,
+      "actor": "stockfish",
+      "uci": "f8d8",
+      "comment": null,
+      "request": null,
+      "san": "Rfd8",
+      "fen_before": "5rk1/2p2p2/pp4pQ/4pq2/8/6K1/PPP3PP/3r4 b - - 1 29",
+      "fen_after": "3r2k1/2p2p2/pp4pQ/4pq2/8/6K1/PPP3PP/3r4 w - - 2 30"
+    },
+    {
+      "ply": 59,
+      "actor": "gpt-6-astra",
+      "uci": "h6h4",
+      "comment": "Centralize the queen, protect the king, and attack the rook.",
+      "request": "astra-white-ply-059",
+      "san": "Qh4",
+      "fen_before": "3r2k1/2p2p2/pp4pQ/4pq2/8/6K1/PPP3PP/3r4 w - - 2 30",
+      "fen_after": "3r2k1/2p2p2/pp4p1/4pq2/7Q/6K1/PPP3PP/3r4 b - - 3 30"
+    },
+    {
+      "ply": 60,
+      "actor": "stockfish",
+      "uci": "d1d3",
+      "comment": null,
+      "request": null,
+      "san": "R1d3+",
+      "fen_before": "3r2k1/2p2p2/pp4p1/4pq2/7Q/6K1/PPP3PP/3r4 b - - 3 30",
+      "fen_after": "3r2k1/2p2p2/pp4p1/4pq2/7Q/3r2K1/PPP3PP/8 w - - 4 31"
+    },
+    {
+      "ply": 61,
+      "actor": "gpt-6-astra",
+      "uci": "c2d3",
+      "comment": "Capture the checking rook, the only legal move.",
+      "request": "astra-white-ply-061",
+      "san": "cxd3",
+      "fen_before": "3r2k1/2p2p2/pp4p1/4pq2/7Q/3r2K1/PPP3PP/8 w - - 4 31",
+      "fen_after": "3r2k1/2p2p2/pp4p1/4pq2/7Q/3P2K1/PP4PP/8 b - - 0 31"
+    },
+    {
+      "ply": 62,
+      "actor": "stockfish",
+      "uci": "d8d3",
+      "comment": null,
+      "request": null,
+      "san": "Rxd3#",
+      "fen_before": "3r2k1/2p2p2/pp4p1/4pq2/7Q/3P2K1/PP4PP/8 b - - 0 31",
+      "fen_after": "6k1/2p2p2/pp4p1/4pq2/7Q/3r2K1/PP4PP/8 w - - 0 32"
+    }
+  ],
+  "finished": true,
+  "engine": {
+    "id": {
+      "name": "Stockfish 18",
+      "author": "the Stockfish developers (see AUTHORS file)"
+    },
+    "options": {
+      "name": "Stockfish 18",
+      "nodes_per_move": 2000,
+      "Threads": 1,
+      "Hash": 16,
+      "skill_level": 20,
+      "limit_strength": false,
+      "opening_book": false,
+      "tablebases": false
+    },
+    "binary_sha256": "ae4c93fa9676ca7750d0714342fd8a5b1d018000fc6e0f6cedf112067b5ef374"
+  },
+  "termination": "checkmate",
+  "result": "0-1",
+  "plies": 62,
+  "final_fen": "6k1/2p2p2/pp4p1/4pq2/7Q/3r2K1/PP4PP/8 w - - 0 32",
+  "rules_completed": true
+}

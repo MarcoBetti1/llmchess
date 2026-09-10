@@ -1,0 +1,48 @@
+[
+  {
+    "file": "GPT-Learning-02-landscape.mp4",
+    "sha256": "5fd81e8e37d05958059824355fb3fa1401dba1b804e66ce3a6eb15018f5d408a",
+    "bytes": 7874937,
+    "width": 1920,
+    "height": 1080,
+    "frames": 4363,
+    "fps": 30,
+    "duration_seconds": 145.433333,
+    "full_decode": "passed",
+    "loudness": {
+      "input_i": "-16.01",
+      "input_tp": "-2.87",
+      "input_lra": "5.40",
+      "input_thresh": "-27.72",
+      "output_i": "-15.82",
+      "output_tp": "-1.50",
+      "output_lra": "5.40",
+      "output_thresh": "-27.51",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.18"
+    }
+  },
+  {
+    "file": "GPT-Learning-02-portrait.mp4",
+    "sha256": "e716fed5ba27d4e4366e49c6140d8c89f61f34efc897fa3fd3e7e9ab3925b5a9",
+    "bytes": 7061958,
+    "width": 1080,
+    "height": 1920,
+    "frames": 4363,
+    "fps": 30,
+    "duration_seconds": 145.433333,
+    "full_decode": "passed",
+    "loudness": {
+      "input_i": "-16.01",
+      "input_tp": "-2.87",
+      "input_lra": "5.40",
+      "input_thresh": "-27.72",
+      "output_i": "-15.82",
+      "output_tp": "-1.50",
+      "output_lra": "5.40",
+      "output_thresh": "-27.51",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.18"
+    }
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "key": "luna-white-ply-007",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q k b . r\np p p p n p p p\n. . n . . . . .\n. B . . p . . .\n. . . . P . . .\n. . . . . N . .\nP P P P . P P P\nR N B Q K . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, b5a4, b5a6, b5c4, b5c6, b5d3, b5e2, b5f1, c2c3, c2c4, d1e2, d2d3, d2d4, e1e2, e1f1, e1g1, f3d4, f3e5, f3g1, f3g5, f3h4, g2g3, g2g4, h1f1, h1g1, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "2c70d84dd661694d46e06257fd85fd2a9c08b4a3426f5a326ced593cb771f375",
+  "fen": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+  "preflight": {
+    "input_tokens": 490,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_6087c754e14f4a3eb028a3bfea42dfc2"
+  },
+  "reserved_usd": "0.0025801",
+  "raw": {
+    "id": "resp_0ed7c8b680ae94b4016aa1ff39b23c87d1a563b95b9280d567",
+    "object": "response",
+    "created_at": 1789001529,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001532,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ed7c8b680ae94b4016aa1ff3a5e2087d184f3a99100e01c47",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof88gNa0evUTNGm4u3fwWAFRbia-6v3A0N5uOjiyZqPKYO-DrfShmkAI2SCICQtb73AZnXhXPa2LZg7J0C1wuQTX5Tx4GDvjXpc5Ve7euey3jN1P-O1M_5Eb70lqoPgecmtAsx0cIutF4YGpNrNJCJ2aB6ouneyNIco68uEQ8tO8chvHYbBsvlGSAB1-PB3X4zWVduJKfIMpqR7ntzxMPdMKVfI0t_7v_S1ySytaSWJ7d5lBZvaxUTYTpktaIO5HzLng3tc54eAp9_UcWIF22heFrjJElpEOd7A0YEt2NzrNa3CD-weYQTq-E7KV_VpsNUmkSZTQFgQDcf5TxwD8xX6RVsYc1jFyTH65w-Qd2RWYP7qAgqpwP2PfP8QzJ-oQNSlrDnc9FxfDxKvhj1pdbmQIFmtkjxrffUOHpn9QhGttJKkjHWZ4eGlwQY_OUzwkUDHbmUPHhN98nHLwtFpnH5SqzY5y_dEOCCEhxu3XYK8egb0_8WW4pET5TstyB9tcVF3WUi7SEQw3_HneIfhkULC3PGNNHOaWdV3kpVYYi6WDvh1yVVNgLUzA8mY2EVAVsdFaVN9Nwn_E63F2oMKR4hjwVyy1CFbLYbNvloMY3EWGUZJGf9BMhUcPnv0eG662qMBK-wY2PNxcJPLREpFzILFn8G1TKqfsXnoR9ItTrkzWj81A6wfMFiiymXlqqvMS_ldZnaKFDKAooFlH9Avx74_5HXX0oq1ywSJXixvrL-xPY7T_sdcTVdtCtJUFYNb80eBx6uL8CiRvpnQ4N_DJfkytjS3KE_s1sjGLCaGLp-zSQk4BTlvSmSp-J6aO4Yu-S_s3fvNE-9HdlQdWX3dppwapOizFxO3euoeA396eSKT4XDBZnMnce441Pkmuk2uYt15oJi1lNaHYge4w3MSJ8Q1zplL2QZBowunDo030KxZMaqbAyBAkLOIMbd7wgGNFs82GUSetWt0V4XghIWh-zIkD5voP9jdmR7cxCOrS9TtQuT52vM4MikY66wsuxbS_rraOe03Vc4v4CDdmLVxqm1vSqSyFaK981RZp9rjZh8eFlSYExgRE2kyvsDMpOYywA0g9ti_qqvcf1QgRmjgeCHPiL7F70nesT1eZB0zkvTZyOVO4qZot5gvynX7R3qQVDi6ByPyQ8DEOomkeZK4h4nyc8lmdz3gb2gTuER2_fcmGeA8QfGamLNxm-e32V2VJagj7v7awY468camlx4dA4vIZS3O60_h320YZXztbdXZfxKlztZeY-3gFTLBrzblP03lBxYHbwZoNN1RhPOd_oeyhAA==",
+        "summary": []
+      },
+      {
+        "id": "msg_0ed7c8b680ae94b4016aa1ff3ad04087d181d63504b0fab4c8",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e1g1\",\"comment\":\"Castle to safety and prepare rapid central development.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 490,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 58,
+      "output_tokens_details": {
+        "reasoning_tokens": 32
+      },
+      "total_tokens": 548
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.401489019393921,
+  "request_id": "req_974db9483f424514b9e47f72f460438d",
+  "text": "{\"move\":\"e1g1\",\"comment\":\"Castle to safety and prepare rapid central development.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "O-O",
+    "move": "e1g1",
+    "comment": "Castle to safety and prepare rapid central development."
+  },
+  "usage": {
+    "input_tokens": 490,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 58,
+    "output_tokens_details": {
+      "reasoning_tokens": 32
+    },
+    "total_tokens": 548
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0001921",
+  "input_count_delta": 0
+}

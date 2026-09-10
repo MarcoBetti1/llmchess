@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-049",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 3r1rk1/2p1qp2/pp1pb1pQ/8/4P3/1B6/PPP3PP/6K1 w - - 0 25\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . r . r k .\n. . p . q p . .\np p . p b . p Q\n. . . . . . . .\n. . . . P . . .\n. B . . . . . .\nP P P . . . P P\n. . . . . . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7 Bb3 Qg5 f4 Nxf4 Rxf4 Qxf4 Nd5 Qg5 Ne7+ Qxe7 Qd5 Rab8 Qh5 Be6 Rd3 Rbd8 Rg3 b6 Qh6 g6 Rxg6+ hxg6\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b3a4, b3c4, b3d5, b3e6, c2c3, c2c4, e4e5, g1f1, g1f2, g1h1, g2g3, g2g4, h2h3, h2h4, h6c1, h6d2, h6e3, h6f4, h6f8, h6g5, h6g6, h6g7, h6h3, h6h4, h6h5, h6h7, h6h8\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "14125894db49a6967ba934bcd9cc31c964ec7f16629da46e5d7e1badaed99d40",
+  "fen": "3r1rk1/2p1qp2/pp1pb1pQ/8/4P3/1B6/PPP3PP/6K1 w - - 0 25",
+  "preflight": {
+    "input_tokens": 571,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_78268c9585d34708ab0458a384a7f315"
+  },
+  "reserved_usd": "0.1095375",
+  "raw": {
+    "id": "resp_0aa65bb7ec657e33016aa1f730b00487d1a02262789075b91a",
+    "object": "response",
+    "created_at": 1788999472,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999491,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0aa65bb7ec657e33016aa1f731ce6887d195fad415198b1b17",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofdDMYKhkH9w7d3H3eglYHNjKqx4ZEJ9pv9fXBVUn7imQJVaoMUUfYrmgQfQFQ1fcl7fTBKdpdSrNmxnHk8RzRt8x3AuguQ4W5c13VvsnIWrmWEAHr1iYpRXlW2I1jHxgLv3wEe5eKWUhqcsOMvEdx44sLe-bAGsNUCy3CxvxwthF7qjZUjxL6j3WfXUl53VG2RS3okWacNhZCfdElMvQQiofDfil55TIXmA3B9ts4BL5dsES6A42qCGg0_CS6SWuUS9g3H1IA9s_KZcvNBWX-487UUcNqrB0lz2G8Xy3aKcF_mgHxUooH7m8lBK3JrZvPOEasRHKNh2ZpVAN-fRGMH92rzw27vpynXFNZybnLoJZo2fda5Kb_-19WskVIrgR3IwqQCukTuGluxDhSr4tvGOYoJLoJqGav9JVFvf72mVpKkgeK9LNNjifJFI2JXsOLCiJs6oH1PadBH5PbnGpnv9kculPCuYUgP7iDlx7BXkQ195AKiprzN6VsDd5SmAejK4KDsDfUd_ZlT-R8e3YF4_C9DSTUo6vf5dIogWkylPfszrmiP3c8LnpY5xHZFwVfDUyowKclv2qVJ_ZROjLWbFJFXOZnFjqfaUk2TE4DtyQYVzkX_E27aUc6x7jChhqw5lihUNKaEM1Ic5aTHzDwa1S4bHavuZpqvm46VkEnkxZNvN1gTt1TpMY619NlrSevqIsG26gFp5tUpYozY1bF-9ScZ1m03hFrZNlGazSnjGMGd-DV5e1XiVmjnKpuCKI1sHfS68X573yfee3mqLOnQ4-sIq3lPPu-2-FU6tAU77UD_VrpjkrrJRZ5RYP1t4lMpdi9m_GVsE8jlYSwKpf0ep2QvO1DrSjZ3avDaaAi8RKnfllJuYPoqidPyxpD80gj9AMyQoiMrLZhLc6S3B_-1UObZCYYY14v7woQ_rgmKUWk_Jku1ilpYbLmz31stn3oo9Tm8zuuR-38OWZPnCIg2Asr6rBiiIPUHZtUor_y9oSDhnN-CoCVWO9XUD2rVqzMgU1bsKnru2wniRx1Wqn92MsrvqrTyIzu9lOKm8Urc9OGfQVvPdndbIo3GxpyonJiZabSTjszFy1Xw9CKEEHKjNgYBk4z6BB_xH-l8lqdpqI1SCKJgafqPCuhXqr2wx_EjgXo79PgmqjdWeGp2qMi0DRwMtpubu33hwBoQFsgk4GESgLoz2wtG1mIlQ4s2d5oo17WyI0whARXpJoRwlsRxThZg6W7nIpsK-BqtZgNCFMhb2VqRVLrc-N2Ay2WhPxEuKRc9Q76iBZH2Kh8q1XvOLbtOS3D3NuA9Z4Jg3zvnM6qsLLdUe1lqhRWF732kWFgzw80MZFvelA8mnwIT8xMiAQTeFvVvNSRlAs3g_Ja4cvi5nHV6xqevp4UHWw_ON6w2gLIZtJmvbD0_ICE4JN55OsmmF4jDlN83HE-GaKt47czFnYjURkKNWfk-ypQKVKHp-DD-w1Xq2JBcgGnLcLQ5JV09HYEZF2PefxisNLeRR5jetjTbBUeN_mbf1YlmfAuGnT0B97G5rhLT_16zeccWQhBRUvtTid4isQZcUSpTY21-s42Ce4kVOWcIDnvyt1omtGV5Qtku5HdIvKPrMhLsIrLrhYBIHgb9ArMUcJCBKm7gbBIVW639sjDU3-WbVZ6_eknOEmWetidqiEjDiNmteezTG_CwcN6Wc5CB1R04hCnFH16jdQbQgg5rTj1W-_e6cEuXqbiAIY_osFadzRGesyGaL5krA71j2pLrKpMAxsA07H-JmdpUv40xL6VWpnK7fUwipx23wM01D5KXK8sSc9-v6JdyMVIYAkNjNhuWeO1YfUCd6J5u513waaQEDfEVGKTXHaEmAECpnZTh_LKWxAYHxe2b_L5unUKouw_9p7ihUS7-NXG-eW8TIu_E8A4kPu7TcMNKgutVB0pfq5dyX6BntHUVeFZe2GVm3CmPWCBk7AqnuH1hv7Lz09oWt7dyxal8-1ZIMPpRATerNqvmyzeLr3tiDJub0rPMQI5xrGc3o8nq2-J_bE4sJCrf5RCzPAAiEZdN7p04ExtF49wM4gKHi65ow5sTp_6g37T1kquGhzIbb5NaIU1QMSlWJFx3WA0UXPWW7jFfthJJq3vZH8Cx6HJxO78KDgWbW4M75V1rbv4vHrz60rVXZ1zw_QjlCCqQ4VrGJb2BljCXjjVI1NtRE8RFyU0UrPKD-uYP8pbpE2uIbfLmZ7U1PeDujomwtyU5Xn5I3zp1w1700VqIR7Xjs5CKOHiNZ9hTmt_aIqkAiTG7pHH8rKSfThKCU5p55NjWONNXuiVjCV48r0gODk-p3QUmPGEl0TcwqOFQbcL9yHFtUBt0uAy5U5Dhuz1FQj7T0jJX1bZhn5hCpTAVUDAcSIsyTyA_ouCBx21OLzDwR3ssedPgNsSXRBnOsEC_JmuP85wyFjV8hUL6gtIx3lYHFaqbAnrM_ykZBpcIRetZZLI9ego1KaO70Hl1r5RdTzT1Vqy67UQzkT5HoFs4tHBAHq1zWsQYZ0L2kVSWSdLLRT14h1H7IUgxbs0S7saYEVylheD75VffI4V9ho5eJugo6Ss89tUdGcy-Rb9hJ-r4IMsF1iF4vwPZmvZLLqFF2j_NiAM1xBv6Po2W1tzfbfzTP3HUg0sQ5vRk-wTGIy9uIHMdWgR-buOOdK4MaQkws1iLyaqYCcm573gQyBldDSKyGhQjDGSORgtxkJMYq_T7bIjJppBIAkt25y3u895wNHvKLS2b8D_Cvn6liDdDm4vx3kWCto0PS8jMcpODbMBAWNQsV7NVwKPE7rJyQEYf6sxZgjEWCNEjruEGS8LdPWe1JyMAuUsM93D3lvQVS72dWIpYOi2ut0NZ96lLdhwRvhVJ44lab1T_cuBzPngHkPS7FMi7nAU_s_XDSum1UtA8a0lTWmfHKVCJl0OIus5hzc_KwxT3cMTZmJ64v3z0sDONqQuWNvZOeJ5GaB-gygVJXIX6VpqA9VQrlv42cb6u9oyLqF6MK1Gxi90yBz65mDg==",
+        "summary": []
+      },
+      {
+        "id": "msg_0aa65bb7ec657e33016aa1f7423f0887d1aba0bb8887d79d09",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b3e6\",\"comment\":\"Remove the defender and threaten a kingside attack.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 571,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 543,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1114
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 18.71667218208313,
+  "request_id": "req_8a3c74e385a74b5a9163ba567e85560c",
+  "text": "{\"move\":\"b3e6\",\"comment\":\"Remove the defender and threaten a kingside attack.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bxe6",
+    "move": "b3e6",
+    "comment": "Remove the defender and threaten a kingside attack."
+  },
+  "usage": {
+    "input_tokens": 571,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 543,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1114
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0342875",
+  "input_count_delta": 0
+}

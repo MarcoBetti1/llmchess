@@ -1,0 +1,158 @@
+{
+  "key": "sol-black-ply-034",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-sol",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1r3rk1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BK3R b - - 0 17\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. r . . . r k .\np . b n . p p p\n. . . . p n . .\n. . p . . . . .\n. . N . . . . .\n. . P . . . P .\nP P . P . P B P\nR . B K . . . R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 c5 Nf3 d6 c3 Nf6 e5 dxe5 Nxe5 Qd5 Qa4+ Bd7 Nxd7 Nbxd7 Na3 e6 Nc2 Bd6 Ne3 Qh5 g3 Qf3 Bg2 Qh5 Nc4 Bc7 Bxb7 Rb8 Bg2 O-O Qd1 Qxd1+ Kxd1\nLegal UCI moves (alphabetical, unranked): a7a5, a7a6, b8a8, b8b2, b8b3, b8b4, b8b5, b8b6, b8b7, b8c8, b8d8, b8e8, c7a5, c7b6, c7d6, c7d8, c7e5, c7f4, c7g3, d7b6, d7e5, e6e5, f6d5, f6e4, f6e8, f6g4, f6h5, f8c8, f8d8, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "e91a127686279dff7b8521b4e250b9d637212c97473213e6bc57308bc48f65de",
+  "fen": "1r3rk1/p1bn1ppp/4pn2/2p5/2N5/2P3P1/PP1P1PBP/R1BK3R b - - 0 17",
+  "preflight": {
+    "input_tokens": 571,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_8cd723c18ec5444386fa4303c1f413ac"
+  },
+  "reserved_usd": "0.043815",
+  "raw": {
+    "id": "resp_02d44da36647195a016aa1fdef063887d19b7d94f139459137",
+    "object": "response",
+    "created_at": 1789001199,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001218,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_02d44da36647195a016aa1fdef8a4487d1a986ff3ecc83ce57",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof4C7CS1moutmzmM4IfHztSc-MEXA4L9hciSY7-MIRLOm0iJSCvbCCArPlnsN7Hfy9Zbkq7MqA5aBE2r5DDFxJmuCm278AlloB2pjqjqgJYbZVDdR1GH4Vl70kHWHRc_Z-CAQ8MpSq1KZcZAgAzCpfZozj2UiH9pE6rcnShSRwBimdsvK6cOzpmWj-gbUApXIC1AQpCkly-AX3e-n7PXI2g7QPBFnAa1YSchreQly4VEm28ywUlctKNnsY7wvCef9J78ArHWdRmF2oA8gwYqe6EF_AFUJoYS8j6coJFedPW25l5VVU50I4vobqxzgL7VgPNBFcxCXtn-Uuy9NB6RCEavCcniWZAkVdvwMZxd_ZTTyhVD7BwFUhIFYlOYbSvy4gxVCCCCgL0Fs3joar9VRP0MBHjIuSeIHFikY049gEoMDVXpr1NyGY2RndacTNiAeN6neTKsTEaOFzWVVdJbSI7qRlccHzpNZIPaxNch57cDqSELv1ylnOQr1sTGmE80k36ZpnucxgI4HnaMJ6E8sacisVnM2U-VLvZp2akBJeBbplghXZTSspRXiKa2H-uHP91P3J7OWE6AZ4alUQeMAk3KxOFZc1KcMS3Nsjxg5Kh1K4S5KEU0JCxHduZbIaG8tywJNHBbf7RGsc0m2JD8j1vfSLKM8GVoLHIPjiHr5uVtuXXq5hg3xnwN0awRGgrmXYYdhm8CfJRarNwjOs-miWaRX_0ZV81F3Qr1WIYc4OSE23Oh2WBDwv9mjgoHii7BqgdqNwqq4OLMyuxHymB11sTSYzqLxL-V50CuAxPbue7dwxDRXvp1s86bTKBdjfBDiYd3aOtshyyNaKT12hjEcIPZzLfNnlyk2Pllb9oErwc7wt0Mdk4XPKGmN4UR5qvPTJOat2vbKrsRks0urUXUaaUN-HgnMZqnJq42yKAjLRGQOLZaRoOCsMO_8ICiAGk4J6R8XMRNx1iKCnTIhXVUZ1rAIqpPYDNs248PwHTjlU9AA-fJy9oVUtcocL7LK1v1RzEa1UktRPudyrsRuonc-mN26qgrSx4z2ikBO1roxdZbBgHMB09B46W9qJ_Dbx1ZWtLiyzeA5Cq-JM8FQLPhmaD1m_2NQXaufZf_PAOhWlniZx4XB7GrpHxku5nbLnyhc5kzl3ZZOt0AfOg10OzeiQA9gJ5qhVYSYwG7L1_FEKPgGsxCsofrmeKmlm9reAVvb0HCcJjK25xlnssLU3zsAYaspbgdlbDCfVvwPpYN2Hf9mBGbV2ed0Vhuy4JgLUE_ALQMZbwvJfUFXEI-FZwTmQPzZBcpfDG2-L9kZ8EoZWOQR6GlpgEbMgx0XSa7Ip13vgA23wiS0GcDnhc6hOb3CJX-RzM_wT_RHTHoX0v-8diPGdoV20GeIVSbHG5cOVEMCOeUAIb7I-qbPus2tHFEodjYzRXQuTbo6GMO7cYX-rQmqpVmjNXKHjsMjOABwBVoftNAz-84J8kr9jq6-GyRqQxoN67o0ZEbArWLl0B3rV_tjxY0Qz9CMj5afdsWSD-Hgtil3dTgyu4ELQn1KoRSA-2OPM0NkefyWqdiRoISNcXurvDCv5JcWruOE__n4XlwFX7y7WdNFEmppyLg-jK2T177cBA6bO0csUWbv1xo4LnifgKmfac8pRcgFILjQTNPrH5zY0QQKslf9JV5iQqChgdMBku52miKJAX4EWm_riUzZZXHzQRlpwRcUBVIO8thXFl6ezGsegFlUnLY4dsZywwAbi5QSEiNE6Do1AX5-vBkYRPH9YqkP_3M6Ck2buWhCxCr5BWsRLJJVpP4-5A50Ez5kcsV1mqBXkhn8taLRk_6TJ9B1Wfr-o7lE4QIQ2VtHn8-EBxFwbEHS78H9j_AKE6D-xZ-Do51sxJqxYTghNLY3PcZVch9aMyK0Ohxi2ldw4Cw-dEsxTe6vcgj6XzDKGQw_X2s3jmUoGh5GqrU5ErBclhdXol358v0NAY7OHYPZZxd1XrskTmJTorTAJanRvzcoRMwK-0-sbIS4mZfeSd_Jt2h0Lm_c15dSSgUK9WeW4QWdJCgBL3w-aAcncQpaTr7DJf81tcn7ONuvaewTZq8egMJclcxTnJc7erdPxEqR6n4KKVhPen0z6gILrQe4P4Bai7--iqrnGpnYSPaxqpoaZomEBHiaw1Q3Lk1OBth-mCEsJINC9P55ucPR2FEjklJUW7USNhEBEZ3aTWa5trTbf9pncDrAYcECu9S86Y4BinXjh3CyuEzyelsgN0EpXJb_WTj2R-EIcYNOSoF7m6cp2wOHGQACbLrSQJAfdLqsDK1Ty4x825efe2v3JcBLhJBYd4YUOqgSuxIF9wez6LNIk_dAFCJmHQTJc9ixOFeajQUpZ2RgEVKKrR7fMyzbW-VZlhX8Wczu7XwQz1mSkDy51FsgT96Ps9XunaKPFoY8g2_wFrQP2JvPgtQCUKwbv2KY-kRv3Y8vE-CqUE6DowLvmel4J4Q_9BzveWZ3t47YWywzrgJdsDqVv8R9fr2QOHrCMRq8jdlX76uLaaxAFGVCZRJR2Skmz5efyXek0AG447Tw4z1-Tr93YT-L0gF92Cd531mwoGu3StbxQ0SYsg6cODFzyjCeIPs3oKl-FfQ59Nk1uUZFGY2OJLiA2kNmB2ZyozWTTCC-VD6pmzHlj5EI65uIeV0hftRRND05kduZalmfFwvdlvfgrQFtuwj-kpCakh7_sSC-CnJm9nVASE1PnJDj4pfW-vO7QtQVS5yewIucF4GX_iafC2F3j2FKmzG5EdF7rbWcFvSxUZ_0CxpT8HHaQcndCrhyreTKtcy4duDYqL7ZXBb5giFuOHxAEGRlC4yduLhR9zxzH5SWSaJMqEG6McnfSGpc2YHUz_d3C1wShaMkf1bxqrSGsFI4zy6m2EQ_4yPxfIUqePCedQy7zmcIL42OVGyxXGffCfDWfJiPncq3BT48sQKvAzZOofeRrcCwg5YsVqTP0laD3ub4LEw-gJ86YtsGaOf9r_HCDLP1XJnGtj-F981eEBiaJINFdYEnLPiFblASLflTTvZ9DlppoNN9ozfxJKoSaNSZpz3Krq5jDJ6xX1zVOIAFRrLta-fzV8BY8QdHYOSjHw_U6fEOAqhlTbuqvBf7qxX7LIpITrHrHz-7_9w-0j-Dko7k69MFDlSJzm3GPMCl8rNU-fWTFn49mdLfA2D3TgRuxNnlTbwC9mvk6ji0h1LJIYzF3WSjBDj3JPM2JOHGqEH2hhl3T2RGwfrzk3EEZMS7fhcXlZGviPjpvRnRpMOZMJB6st1ESubzBcRy3r99XBYvmx0OVT9V5BP7TdNINn6i41DEDcrxRqqztflq0I5yiyg5KUQEthXXwTmrdpi0rbd57k=",
+        "summary": []
+      },
+      {
+        "id": "rs_02d44da36647195a016aa1fdfc64a087d18c8380b2ac02dbfd",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof4CpCyu4qm3F1MB8Xm3PCTAOC9kodE5BQash1ZAOyFRy2GSRyYeO_fLo1RZu9HEVd0W73sZgA-nDFcwVZop88b7Ktqpld64gbBidu_Et4A1jJWnQkVDw_EE8sTNq2fyHT8Q4SMI88fBg1Tq054rcwfMjuyv9pLTqpg-OILlrZn-MjqBnYZtpxWEB5K3t5MVr8YhdgHCs3C2kLwo-0DzmSTGQl1J8JhQzKwP67FaWOH9_3AI4pc87vGtra0dyd6AjI_rrdc4A_sIQXAzPrp2y-ngk7o-ZozOeZ01NFMV_SekH9aaiTl-KG0S5h1eejH-A684MFLR8_8RVvq9Pllt6t9WRR37nvLTrpqvkjFE5-Jil6q2mUk0AB2XSWf0oFbWoUYyerSc154ssUIM1XZd8cs49gFScVz-GEkAmAwvAKrJIdprMn3k1E68YuIVis2ueSIP1DN9uDqvjXQzxvT5k8w989AgudC7ghYjl-aks5f6_5aV5cD74sXlmGpS20-pcuBHiFEtdjeSCLeAk-pk7FJloPpau0rVB-ZDxIw1oZJzTRzccqvWcEArjwOhMEIXamhqn8GfAsQP2OX4RNjNGpnlTScwbOnhCArhmdt9Dv2Bmh-UrQuohSn3VMoaPpmQz7f40Y-qxy89QVVtbJdGeQYo6i9LceJxUGZOv8koPSsJawiVaa3vkV1avnev2hZC0J63lstQw80TU6V1YVhpqMYUbpxCKbBuMrwJGny1zXGc3XipBA8MoJHkE0mwkSKo03n6XET89Ffxad_ntDPEs0rZu80yY9Gpq1JE4G_lzwRAthxL2lOQ-Fwy2SFyTjqUcD0MrSlQPZJ-BnbWBLMMuqw2nkoSGyHeo8WkR9TaPydcurMkXL6JZ36i1J-pA_nKAGGcwJE-EPF4gp-eH-63QFmF9qDcYUncMZedgpGok2soko0i8IIF4kPvpujwhMY7S0by7q2Vh5Oha-fu901TxAhtgjqAdwu9CN977rUIdHyssQ0JHnxCUpIO46CRMK-F7rrlT9uUcT9WPIMjHofDQtoSv3g4pNlTHxZir4_r6bxXNYGK3Gocr9deJG4joDptBYTRqabR5D8h5nIat5vLKJ3DQGuoJQK62w9oWk7Iv_G9P4hEKVwBrYYpOkocdOZ-R5d-bJWTXMB7bwf6q2fgcONJmSeQAZKA1NI_BcEBDK-Se7PAOuckxb14i6PD7O-CvX1-g5BnQZYCmHPCC3FNFb8zvxiuutcid-xbn5aqFveulk-_dn5iETXJ0fDo9KkIWM_KYsmT75KHsCtbg7LUqasBmykCCBDDDlpDqdmX9PPuwNenqsJkxPAdgxYJKsbwRTUfTl9lLzaf8fpPTmRcLNd277AAVAOmV8jr31W6Z8txsFy33LrhRTWyhWZuMyBXelOgaOkOXb8QB5T_VQTmI8vBTpHEaAHPz4n4glYbxJfbJE7-ojGCBZACbV9uuGmq44p_5EO2ef9DTaD6AChI5mBs8liRH8FzrTh5nh6VOV0QlbpflkhSzwYGA12_W8N6YA5NCQ1JNv5qTdhZFG9BK0YEq6oYpTTAIkCnjaZXMivP28w_9N6c1reQGL_UxSRFGdTSBZZSaZXudqy7IPmVnzdFJgqhgwns81CAy5b681fqu3j1IAyAlZIRiXc19rucD3RRvzN73JjeLMJKdtiBSh3X1Ct5kDRM59zoqGF-lxx1mQXm1ElTSha_Vf2jUYUtEP3XNAakz9YnrtQ037PhFzxn0kW2vMf2lFSWxA0SkyurcOI2cG_L8Lp6QS51WCEnOLFN82E9gVs-0trfjllvGLpvt8JuZ7y1mmcdV4TRz3HqHc7eKITvawP2pHkaJauFIq3JXTUCCte5qRMLLgMjugmvaFEtvhulhyPcFHNU3ZEp4lZf5pGiD-ESfRY1SFhQsplgND22TTPL5RAqYS6hxHskmfQ0aLrsolMG1vFdgJ5bYBoE99IzTxmMBXi4D0NbEzd8ti-Lhe6XiwHUGETLQ1iOWEiKyjg0sC_k9dfHqG7RSTBBMpNEpcRTBJNWqHDQQ_ieGX8S3Di0Ou_pGug1FTmMqj97Rkbuby2GvtEg5leooUNGqfCdnsVHbXgB7VkihDNWVDquD5FqgHIbPA2ScOSa-qmIWBhE0JLxdWnA37GNhm0Rsz-1F5nBg6-H3Jql7aLMtwRcsqzDLnyKO3b4Y_GSzlZcgGEfm9bGzHIHC-fnfAA=",
+        "summary": []
+      },
+      {
+        "id": "msg_02d44da36647195a016aa1fe01959487d1a235f9c95e2f1ea3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f8d8\",\"comment\":\"Centralize the rook and build pressure against the exposed king.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 571,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 790,
+      "output_tokens_details": {
+        "reasoning_tokens": 761
+      },
+      "total_tokens": 1361
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 19.206735849380493,
+  "request_id": "req_d88769d9b9ba4384bd174791c8e1197c",
+  "text": "{\"move\":\"f8d8\",\"comment\":\"Centralize the rook and build pressure against the exposed king.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Rfd8",
+    "move": "f8d8",
+    "comment": "Centralize the rook and build pressure against the exposed king."
+  },
+  "usage": {
+    "input_tokens": 571,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 790,
+    "output_tokens_details": {
+      "reasoning_tokens": 761
+    },
+    "total_tokens": 1361
+  },
+  "returned_model": "gpt-5.6-sol",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.018655",
+  "input_count_delta": 0
+}

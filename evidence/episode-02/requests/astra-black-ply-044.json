@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-044",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1r4k1/5ppp/3b4/2p5/3pB3/B4NP1/2P1QP1P/4R1K1 b - - 2 22\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. r . . . . k .\n. . . . . p p p\n. . . b . . . .\n. . p . . . . .\n. . . p B . . .\nB . . . . N P .\n. . P . Q P . P\n. . . . R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8 Qxb8 d4 Nxe4 Re1 d5 Qe2 Bd6 Bxd5 exd4 Bxe4 Qxb2 Bxb2 c5 g3 Rb8 Ba3\nLegal UCI moves (alphabetical, unranked): b8a8, b8b1, b8b2, b8b3, b8b4, b8b5, b8b6, b8b7, b8c8, b8d8, b8e8, b8f8, c5c4, d4d3, d6c7, d6e5, d6e7, d6f4, d6f8, d6g3, f7f5, f7f6, g7g5, g7g6, g8f8, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "d2df88eaea970d56b91b71e393914830b76e5ba90dccbab87cdae5a21a99dbc8",
+  "fen": "1r4k1/5ppp/3b4/2p5/3pB3/B4NP1/2P1QP1P/4R1K1 b - - 2 22",
+  "preflight": {
+    "input_tokens": 554,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_c246d7552de04782b663e3efc3c5e687"
+  },
+  "reserved_usd": "0.109325",
+  "raw": {
+    "id": "resp_0c2bc0b84c55b254016aa1f905aa3c87d183a8af82e6eb25a4",
+    "object": "response",
+    "created_at": 1788999941,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999960,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0c2bc0b84c55b254016aa1f9068a7487d1bb65b8c897f83c52",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofkYhGYJSCJLQBLomXDZSTY5Iwrs61hIrGxfHFiGRTACbR4coMLprRiIMMrumjJFhHAmofZr1suIYU43yT2nqOZisXe8oURU1T5hBCpFfoOADqAqeot98mf4XrSrQiPvyFZOdvhf-gHkOSoVbiv0n8XhUw8336k8kdsQGl5cqhA7edIHVGNiZtaTyPDiJbxRNkn7XIdfZYKyCUJDrHkW5syAoHKQL-E0GeTrnoLLsJpbiPnklafaj4Wv5raoOqWWUvT_maDgABcnqAUnMKK_qBGF6NCKUULmJ7fcv0YHIGdswP82n4JAmgYNDRjB9HW1gZ-c3S2_qFdkjP-BIRNqBbCFYTS70Yt4uIVCCYGIf342y_c79niJDHjuvvA5RwFrMyQYE4wOtvfsrSebwsruKIN5vIc4PyHE4JahybT4GVU__R7yMYOZUpVekCmOKN0oZEOgSfd-C9na1ZNYzyETMY-WwrNeREi9gBpf19l0FD6dE24nwjoexqiMBji0KTmp2vIkRA0auqtsSXyyFz6YhqE2KWPFVXwIOFlVXo9Y4BuY0z4-UfOgxWLrCBvhv9ptFlz1E9YWwpeeo7U0ojtEQlMUUvVQnRvnZystPKKUeHnfgSIbcWwvVosTvewFOjhg7xP_1S655pvOp37TnF7Du3od6xv6PSRjBPn8V41jmOm1aQ5sSH7PTQiA-V9m7kC0fy7pHGsEXLwj-K87gcgDtpYtNXNDpD6KqyFygK-u5uqmJDweAmIGLG_ajgtOAeTM6HMNcn0lFWWaczRfuaMOt_aizAuSXVoOPQb9l24lS4Oyuo8cXV8T4eRMP1oxzYCc18lsoVG0lH81VOEvkZKb4dBagdpqD9i3qxZ2NvOuEjVOHcxdNbvuHtWZB7JjPHvehvOaR-5PjPt39_WAW6SuWubiH222L23qdX-dlytFiYbRHvL29aFOq4BQ9PN9I61mf6heaRkS87PZKTtAd7QJGNCs2ODaFWyuBOruwLuYhwipNG_4pNNcj-0pLGyBAOfio38p-P5wxhV-uu9Z8VjPEwFv2ZDnzXWeeFydF6dVne_LJLWGqCDM8UVuIr246rTnhsgfKsQKrzVBIanKkeoYCrHDWvpdcIuGKIKG0KUJ8LaZMkRVfbRb0BvfRi4gurSjgvDXB1YrLvxNFWX7u7N10boht1Uif9hZIAkCzpCMB5O8eTjodbB_f25gh51wUNXnXXtC24fvL6z9vlgmzzlckuw_DwxI_szJIZKgtELwvqdlNeWX6GOi1T9HvZdqyFDwzRMoB4z_JgTqRDg1BYZ_2aGtwFAHs5ok4CAx5CadKJpjt9JZncErlVKZxdE-FQFQhu1xV0DaJsQ33Mnbrl8yVQzxtK42cq05y3LWHVYS2Wc5j7XDMBYc4zJMs7cM8MQlSz3f8IHn24egwLVfnr1XURRMHeVFBXKqjm6MFOrJOLSrnHBMOXJbu9GqgMjgnRQCmcgVmPZfz7QbEirznJUeddwipjYzbzPv2HK_4C3KuLGJSsHyiDgvvvpnD8w95ItlhBgcf0h33WZJyPLgpcpj-4KOlIhmm5ABwu20x_RKvZt0t_UWBdfhGA8BReu5CdgcSq_ebuG5B-P8wWEHPAQRQGKC5fZXTC_9w77G-V4Fnxn_gr4S7B9gbrhqQ-ZE8P-LwlPMdKw06EL1XAkiXHJFu18794OAYwxsfiFgvlAIRyCf_SJIQ_HGAhvOvxQFQVngjxX_qb9ZN4SoQQIqdWrZija3ESpDgzfV--Z3NPkWLbtHmiNmNh3EdOvJ33ZaVD_qtj-CM-4ZO3FeaiHfqMlixshlxZhkwvASJBn5R13yCtuIpPu9HVDOWPyyP4VvdhqqMqzeza0b3dObmUueIK0G8D-aIqStENazY671dd0OqouJptqMSZOnlfpBXHgAt8ANyDyYN5XYZCjwdbUp3R-hy0PRCNeq8P7DZhuJlDNPg_nkD-DnVJP7J0ovFlguh25stzZi5CZBE3oIR9fEG8E38593TOZ0mYCM5PjZMMSOLKyoCpXGOK4Pss_pHHjdR8XnOvZjDa1k-T_3y069iFf9l6_pMNW5iAZr2mRzxLcTWdN5lV58-PWFxW0iG7sYP6OfpHrKmBjV4pgpPit3LgtOvzJODpZCUwO38nNYrTIxcEUlU_m6aLDX8VH2VyCgL6B0tUT_PTqkXBkKuI1P1EBzbOnTIVEvxD4B1OHnAN9aAZSv4TD8mwNsl4AoeBA0RFWdVZqi7ZJ0gveb5n8Thv--kuHP2XfAkHVqSVB06v7-wG40FP2F-UPPmWuBjx0F4RV6FVLgOBGViwIWC95BYvl9LjwntnREpm2GJreaRLMSEnCaZMvw8bcM-_GzdsOHPJ9bwyf6ZwZhKcqm6IsryCUwU8XJR7SuM_tkAttHAHXTT1mgKO2PvhKo_q149TgidhQQuc4MN3qjdktDBzpKfTM01UE91xD8c074lO9ToaXUeY1oFSs2bkcQHSE7vRjTmnlguGGgDb8xYpwvoEcs2V-oFsjFa0DJmswuyEunqTXUENFlSVrotCLvwPGp3sXiJW7LUL4kPXerDhU_hTlc-gZo-5Yfw97hoQosR_sagzfhRp4KM7W_JP-HWEfJwTDe4FY2zK1Z_gqP9hnl6ZFkOukOdx-R2aWFdmU3g9axUFWO3BIsqoBocuTbGnCbcccBT46M4ape8Sz1dCbv9j5ww-_RsrReAA896sGhdHRa1SnvhGEH8eE=",
+        "summary": []
+      },
+      {
+        "id": "msg_0c2bc0b84c55b254016aa1f916e74087d1a56d9744701458ae",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d4d3\",\"comment\":\"Attack the queen and create an advanced passed pawn.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 554,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 417,
+      "output_tokens_details": {
+        "reasoning_tokens": 390
+      },
+      "total_tokens": 971
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 18.670790910720825,
+  "request_id": "req_8defc98ef853481594fb2553eb64bf11",
+  "text": "{\"move\":\"d4d3\",\"comment\":\"Attack the queen and create an advanced passed pawn.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "d3",
+    "move": "d4d3",
+    "comment": "Attack the queen and create an advanced passed pawn."
+  },
+  "usage": {
+    "input_tokens": 554,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 417,
+    "output_tokens_details": {
+      "reasoning_tokens": 390
+    },
+    "total_tokens": 971
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.027775",
+  "input_count_delta": 0
+}

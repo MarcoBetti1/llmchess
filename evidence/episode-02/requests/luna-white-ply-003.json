@@ -1,0 +1,151 @@
+{
+  "key": "luna-white-ply-003",
+  "status": "received",
+  "payload": {
+    "model": "gpt-5.6-luna",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr n b q k b n r\np p p p . p p p\n. . . . . . . .\n. . . . p . . .\n. . . . P . . .\n. . . . . . . .\nP P P P . P P P\nR N B Q K B N R\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b1c3, b2b3, b2b4, c2c3, c2c4, d1e2, d1f3, d1g4, d1h5, d2d3, d2d4, e1e2, f1a6, f1b5, f1c4, f1d3, f1e2, f2f3, f2f4, g1e2, g1f3, g1h3, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "6d6607e32adf7f28551115ec93f914ccf2148668623b805c198c46b40287b6b7",
+  "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+  "preflight": {
+    "input_tokens": 458,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_4fcbd8fa410e4cc3b2d403466d58013a"
+  },
+  "reserved_usd": "0.0025721",
+  "raw": {
+    "id": "resp_0b1060cdf0e789de016aa1ff35966c87d1931ec0f69c6fcde4",
+    "object": "response",
+    "created_at": 1789001525,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789001527,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-luna",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b1060cdf0e789de016aa1ff36411087d18522a1cdc4b98afa",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqof83zLj2mPS5bk_kSDv5dj9KoeSSS00zMm4SrJy4moND0b21Pva3k2F_MLhIqpgG0TFAAnoySeI31W5WdnwAzDvfL8NDNAtt8Xow4us4---MWs8FQ2-Gf5uFwxuFcVJGiT_j6tzMHma42G63aYlCBY4lB7t1bmlioEAAqlePv9pCUfy_3rFTA0h37EEfNmn0j5lVAokpOeXTKTk8qltMbgydrPljRcd0Dcu5aM8VjlONLd7IzlMpSDG45f6U6nZTCw_YrP6jjhGzB1fRRB8_hZcELyRAeQHupIMq9n0wPdvy_C5Tx81MF_Cl2x4fYC67Z8hEowOhbRRf23xVeR3knulGpRjrsnU_fNKWoPa5OK-6SSZrT1dQfezPubh8WUJ-UCeeI2lhRLACl4oG55MY5MErddMyn5kz6Pj9u-9D-vEihN6zMylrRRxJvHbHN0LGCw6L0giZjRXzRxrB11b4iJ_3xi0K2xxly0hnt48wy9niu15_n_336ryvSgybfbIp5DatkVgiD4fLPnJyUhIm2cAXDGJsi_cpQmR-RMajCzRtZDBa-umI6q0aEaYeZAOAx6EKVz3BD_19NGNpwy99Kq9GBxkYFSSQ7OXsZLRc473Hmi_HNF2SVpWGSVnkJSYK1U-W054h5eiNQ79vzrabW7oUcf_kKqaa0G7xQk1Lsn2x6eRm60Ia2aVX78uZgifBsroP8O7IcPs-yJHylTEECbTM8e1G2XxT00kRaUzeHkhOHRHVwM4sxqAKpSDtknF3v4RkOGU9izELPutLkSnDRY8c6IThVMbCIV4Zxx7vfXZqVyzLExqqMotQGk5egU3LagAFTucv1PdLpl5AR9IqHSN7zgiR0IHrfg6iQIoxDf198PYyiBFOduOCIZut8Nu0rYnCDAmdKDaN5IzWhkMHr-EynX1DAVuaFLkCZbEWMsv1v_jZ9ofy4fvQNJ86iHR6dptHmb9gMb5x84LcxVsUqjrxtYq7ShqGOOquZpQTWOc5jui2O-rp0MyC-45rQ5hHoJdXEUr3dezlEl1-gSzGIpClvidWUCLJMCxAPisoms35VZT3QhNp6cnPsJRZR1RuuitUiirZ7gAbc_uie7ldGfiwaHPvP1OFKmfBx69FpxV8H8t0905pdhLkjDY5pBMUDHEq-i52JnFT5MfgaAe3W3_NkG1DnAoo_qij57HEb-ycvnAcAorzrQMWyctfZ7cXn5fQM5BGR0a2bAgv_TgYvQiEt8IJR6W66HdJm5U4uRYTSV0FFv-TPwpbGYBq_UecmbZzsZkUUjTG357IvTu7KDlXlxKO9mJy2MhPJMob4XfeBh4=",
+        "summary": []
+      },
+      {
+        "id": "msg_0b1060cdf0e789de016aa1ff36a3f087d19f4b2e304e67b866",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"g1f3\",\"comment\":\"Develops naturally, attacks e5, and prepares rapid kingside castling.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 458,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 74,
+      "output_tokens_details": {
+        "reasoning_tokens": 41
+      },
+      "total_tokens": 532
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 1.8228321075439453,
+  "request_id": "req_0c8db9defd144bd9a4974929f808e5c5",
+  "text": "{\"move\":\"g1f3\",\"comment\":\"Develops naturally, attacks e5, and prepares rapid kingside castling.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Nf3",
+    "move": "g1f3",
+    "comment": "Develops naturally, attacks e5, and prepares rapid kingside castling."
+  },
+  "usage": {
+    "input_tokens": 458,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 74,
+    "output_tokens_details": {
+      "reasoning_tokens": 41
+    },
+    "total_tokens": 532
+  },
+  "returned_model": "gpt-5.6-luna",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0002033",
+  "input_count_delta": 0
+}

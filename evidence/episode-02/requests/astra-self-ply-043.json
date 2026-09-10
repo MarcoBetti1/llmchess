@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-043",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: 4r1k1/5ppp/p1p1b2q/1p6/3P4/1BP3P1/PP1N3P/R4QK1 w - - 2 22\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. . . . r . k .\n. . . . . p p p\np . p . b . . q\n. p . . . . . .\n. . . P . . . .\n. B P . . . P .\nP P . N . . . P\nR . . . . Q K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3 Be3 Bxg3 fxg3 Nxe3 Rxe3 Bg4 Qf1 Qh6 Re1 Rae8 Rxe8 Rxe8 Nd2 Be6\nLegal UCI moves (alphabetical, unranked): a1b1, a1c1, a1d1, a1e1, a2a3, a2a4, b3a4, b3c2, b3c4, b3d1, b3d5, b3e6, c3c4, d2b1, d2c4, d2e4, d2f3, d4d5, f1b1, f1b5, f1c1, f1c4, f1d1, f1d3, f1e1, f1e2, f1f2, f1f3, f1f4, f1f5, f1f6, f1f7, f1g2, f1h3, g1f2, g1g2, g1h1, g3g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "aa6bd4659d871502cfac96743e1d8083e2baede435fadb141da79af5328c87dd",
+  "fen": "4r1k1/5ppp/p1p1b2q/1p6/3P4/1BP3P1/PP1N3P/R4QK1 w - - 2 22",
+  "preflight": {
+    "input_tokens": 614,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_010074f108e94a12891ecd850ef6b760"
+  },
+  "reserved_usd": "0.110075",
+  "raw": {
+    "id": "resp_0db5ac8d6a8a09ef016aa1fb28776c87d19e346cca60d273a6",
+    "object": "response",
+    "created_at": 1789000488,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000498,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0db5ac8d6a8a09ef016aa1fb2942f887d1a26695526927195c",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofsyj1pPe_UoZBR4IL0XCZmwNA08QBq_5K6SAjnzDa_n8XCu8rAnWtylp4MdQ7W66clofb2lyT7W-l5cz2UpzMF7JCLsbD19aKKyuTvLWkYHCObbLUc3taHjDW1BE_t5zz_iwjHiUKE_sG148nynFi8QYEEqOPXycLXGJ6MH7EmmjSp1AvORtIOW0phlWbYLBaXTb0lmscDO10TRUQXgkjk1rUlmCEy7YA1gDX39l8zY-rMZ6IWcCHfit3CQw7F4BNomWmxwbvpZx2_JNTD-txG2u_sOfgz5y8-HnU6UyybUYOrNpNr770OOBlikZbYvTiZZ59ha_gxyg3wFA9U--jAYRHSoVZ3HoOnukJNJq376SNG14zy5zgYxNd9W1_X6vC_BTQjzFer_UIKN4dbOfjkT--JS-nD0VtU1cH5Z5-mveKt79LngtY75XYb6GK9qW4J1h1XQOYtiXpyoyjCYp6twmehigDCXi_qNlq9jckVynvGoOLy-ak2sTGtw5zno19LA5C9N6_3OROcpYiAvOAAn5PfCIE4rbtXHkx1cYwAmjAvEdZEUW2l8Hwe3lejCqb9Bpuk2_gKzsW4akvYd_Uv4zailAao5-Kwr7hbNIUSGs6brdq9TFBtlWD_n4rKuUled32XN9EObTOgs_zFNnvNZPiffyO-vPRoqp0CBaL8uguXycx8Y780IYSIuh5blwYn43Vve_B0hfPjSmDMiAyqDPaZJ19itNJjtVF0U2J49yXW2hzJGZeKM8pZK2gfrTl2x0NamZeU1byOMwmoBB5wuhiktIVTH4E-kP5N5wu9hdtj8G1r807wskNRlb3jl5OJaXgG8zlLj1lygg3ZAL4iLbQd6O87sWBxOkmIKxGrdhOP4BiZRI-cgrXxB3YrfyLpBS_Dh4ReEtpultls45uuzh9XfJ_Ks0cwz3rvWd9WU7DQ46CzsHa1D7P378jKnD-43LD0fUeUCy68RWrd0HDNSBt7P16ZjLN9G9gAuS9wH9UWosb72tzoprBxwIgB_a8eqt_gBQyJlQgHHoQedMlJeijmANdKImt6J9OxEbFHvi6Kxijs4eiubH8Hfd1KH4zlfAZtvbRdtt02mk3dmjuUsoNtRqK402afhRF1Qnm_Z_M43gmXMlcII454mT2EnQhmB5yM6xIlLDYRIcT7v1tabQ_V7e2FQKJ1WbK1M4IraExw8821n2UXxG1rw3ke8U1xZCImENMO-Qqs_33uW7C5decWDYtaqYOKwn3IPXouyBosoNnPbwMeIKZ0uQcyS-51-XsFDSXwhOEPh4LXfE9aymsVQEbYezTE57KOM4_B-Q9hFp221E1Y1cKMrsiABjfFgImnEmQq19WzZ72RvZd0JiXEjR4dXo37Gbt_YCbMAGF7kTBNdN9HyV0YNx2WhlKplxrybYG6HtlpL9Dz1B1zrRzmgRGeVpzSuH4OS-8rhXgGU7OHi3lpF2unZq9eO0LrFa7x6nky-fB0tWd9F5QrKFV1xs9wXYWtUu4VVsED2n1ZDaqUVl5gjawMkvKInutqobELvNBolFAKZ5pG2gl8v66UXDesTdzmfqclLQF3PEDja2sKDbqjZk8rH9yGIrDoSlAFshWhG-xW42b7CfjwiJJzr1bu5kipu2YyHepZqAlX7mc5s_EdgOg9Uce_aTQOnpAcFqL_QO6Xz8l6qOhKuvvOEveGshDj5UBSnc2VSBp0gq394DG54M3Dewg-8vlwkByss-bQ2QLmPZbB4jBmF_DDsYtmXsFOHtwDraplo2qj-w7Qx2L62fn-3lSAmQNIkzjpFjJ3cnUCCvWXQ5Sgl8t0nhtgh-hSTs1LDVGSd9Nn7kap7OdRYORXnKAx3mmBSng392Rq56W79CbLMJok2if5U8g08fhI5ebl6n_2LG9sq68TciQHo7UHMTa_F39kmkkq97PBXQ6lwV24I8CWnqxdnuC_qcoFWKQw_u74KhxKG-0tDCr6vgvicEOHR2Ud_yn3BPdqREU6mBenuH-DR08qj1GDCwX12IvwRJREoCC7G1qlIg3v5BDgoK2RT5uiQ7lekmjJnUMvw_AMr0cL4JUNCJRvh_r59RBsNLaqpfo0GBkvCMlsQ8rmG_eAriAKCE9GSQ4IBJ70wL8B-ZR0gzD0p7-ebO6-EMdFQaIjkdyDnTQMKL2z_YPBeArgI1dEcmsxCK-v3EOuLuM57hxqsfFHWfFR8xIRVgqSivOIFHiHSya4cRV_0tZhi9vfSyqug",
+        "summary": []
+      },
+      {
+        "id": "msg_0db5ac8d6a8a09ef016aa1fb31a68c87d1abce66830b2023c9",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"b3e6\",\"comment\":\"Trade bishops to reduce Black's attacking chances.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 614,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 275,
+      "output_tokens_details": {
+        "reasoning_tokens": 249
+      },
+      "total_tokens": 889
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 10.176856994628906,
+  "request_id": "req_2c5564a71d824a209b3c24326892e4d5",
+  "text": "{\"move\":\"b3e6\",\"comment\":\"Trade bishops to reduce Black's attacking chances.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Bxe6",
+    "move": "b3e6",
+    "comment": "Trade bishops to reduce Black's attacking chances."
+  },
+  "usage": {
+    "input_tokens": 614,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 275,
+    "output_tokens_details": {
+      "reasoning_tokens": 249
+    },
+    "total_tokens": 889
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.021425",
+  "input_count_delta": 0
+}

@@ -1,0 +1,144 @@
+{
+  "key": "astra-black-ply-028",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: 1R1q1rk1/2p1bppp/3p1n2/4p3/4P3/1B1P1N2/1PP2PPP/2BQ1RK1 b - - 0 14\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\n. R . q . r k .\n. . p . b p p p\n. . . p . n . .\n. . . . p . . .\n. . . . P . . .\n. B . P . N . .\n. P P . . P P P\n. . B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5 Ba6 Rxa5 Bxb5 Rxb5 Rb8 Rxb8\nLegal UCI moves (alphabetical, unranked): c7c5, c7c6, d6d5, d8b8, d8c8, d8d7, d8e8, f6d5, f6d7, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "80ebb5db20b58e7f68151687f11cefd019f659b39823cf1e61f73cb035d25bba",
+  "fen": "1R1q1rk1/2p1bppp/3p1n2/4p3/4P3/1B1P1N2/1PP2PPP/2BQ1RK1 b - - 0 14",
+  "preflight": {
+    "input_tokens": 476,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_84812ca9e91146ec8b66b7fd9db4e9c1"
+  },
+  "reserved_usd": "0.10835",
+  "raw": {
+    "id": "resp_0077a87e148c60b9016aa1f851049487d1b7eae71fb0af0faa",
+    "object": "response",
+    "created_at": 1788999761,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999762,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "msg_0077a87e148c60b9016aa1f852116487d1af7e0a569c0345b9",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"d8b8\",\"comment\":\"Recapture the rook and restore material balance.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 476,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 24,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 500
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 2.0527021884918213,
+  "request_id": "req_d73f800c5f1f469e897d2053d8a39873",
+  "text": "{\"move\":\"d8b8\",\"comment\":\"Recapture the rook and restore material balance.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Qxb8",
+    "move": "d8b8",
+    "comment": "Recapture the rook and restore material balance."
+  },
+  "usage": {
+    "input_tokens": 476,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 24,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 500
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.00715",
+  "input_count_delta": 0
+}

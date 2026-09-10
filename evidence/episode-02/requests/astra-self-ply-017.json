@@ -1,0 +1,151 @@
+{
+  "key": "astra-self-ply-017",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\np . n . . n . .\n. p . p p . . .\n. . . . P . . .\n. B P . . N . .\nP P . P . P P P\nR N B Q R . K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b1a3, b3a4, b3c2, b3c4, b3d5, c3c4, d1c2, d1e2, d2d3, d2d4, e1e2, e1e3, e1f1, e4d5, f3d4, f3e5, f3g5, f3h4, g1f1, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "93150d018ca993b3c63dc8c17d6ac55790616a1e9c5a107542c6242fe0102598",
+  "fen": "r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9",
+  "preflight": {
+    "input_tokens": 481,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_f01d5222d9d84249832859c63d8e7bc6"
+  },
+  "reserved_usd": "0.1084125",
+  "raw": {
+    "id": "resp_0615ac038188c5ec016aa1f9acc0d087d1b0b2e5fd93c34fef",
+    "object": "response",
+    "created_at": 1789000108,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1789000111,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0615ac038188c5ec016aa1f9ae04d087d182d1e566807e0343",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofmwZQ3lPLHdPEeUHVkARwiUcP2SiQnCTHrdiAqMqhVTGgE3y0SzS6MafzwDeftSEHy7y03ije9xdC4nbBmbyiLUBD3g3uIGcAupr5TviL7a3NJlJU1TkkpifxNLikPZOB30--Gn5fe1CnX1ZXsPnfPXTaof8gMdgXLICchfj-H50E__Q02pjDGoo2ZnJAGuswNtAlzracYUERElRgv4cGV2l-hDsN8Ykz78MvjwsU_wQ8KamS_UpkgVm9T2f3yMzn_C7FTfSO9BLCP87XBuMqugTjbMX_TsZIhX9vt3zJa8CW-vXOpIf6IoQ_ENH1T8Yo7RDs6yS0-xXv9aSSihzSMSk9Dn7SIx9GBxTmaQSaJT4v-O2x6uSROuv-YDBFpKqyZGqaygeEWQUlHBi4ZP5P9Fu4QxPOrgR4CBzNAITW4O6YFjLjfsaz8-97PgwbmzBQ1dctiUIoEmdwPgOLJt3sh43xaEGp8S1Gi5sNiM_qEeWsrXAsTKD3lyNi-UykpqsHZQiTmEHnrAqaTpSCr8GmicSXsLG1hfLmIX3wJY18upvv31TF0HyrReogRGQ-1b_sTbJMPY43ToovHVSWkqykLjS4F5I0aiWxS51UfsGzI-pIY4DNQr4hD0W2ZwlQNQOjaklqr8yPQg8ecWdllYr_8GG9cCPZ4Pgrba6nYM2NsS5LNg-LUtsr-2cPun50mhEUteRR2pGDeaCmoHVm5dve5n0PIXMymfZe15C9GkwUZ7CLzwARMojlpKiUinYiuilkWIYkRAPpc4K2caAtUZDVPQiktK1kgk5Re8_1juEDGgrtas_HqW-zKUO6V52txamL6e8DUxu3kw6yFtSrFfzfxVNDuWw8ar2TkYTFcQyJ4OAGtPi6TBYd34n9JkQ-KIVTXzWjJ6SwmcLj4gXLeIFMd4G_wcYOAqwq2F74Xgkkhg3h6hBAmmo6nkIBkXCLXjS8t6bQo_k2ctA6Z0UAZ9H-kISExW2ahKGK4gvMAINK8oj5h6T92pZXz4Qfm7Pupr8Ruo2Zs-DmwRayWLLU5T5mKhWslW2Z37L_Wb2TaD_pisVZTXPrnTH-GU1sacKzyhxC059waY7GgjUv-GGrkZdxIioZ5THxMK4k0C8OWhkuLEmII8xMVTZZF7fPJQgh0IXUJTMsNEbNO0F0PyLbrS_XS9cmzzYxraK3h7OO4VleMHV6rEOD36zv51h55ijXv5UWFGNDjchjc6S-yZJFJj19RTkhFKoRFzPvxYZ-uUQEhXizc=",
+        "summary": []
+      },
+      {
+        "id": "msg_0615ac038188c5ec016aa1f9aecb2087d19ef61bf1ebbc9847",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"e4d5\",\"comment\":\"Accept the Marshall gambit and challenge Black's central control.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 481,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 54,
+      "output_tokens_details": {
+        "reasoning_tokens": 25
+      },
+      "total_tokens": 535
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 3.467367172241211,
+  "request_id": "req_fdeec1293edc412fac4554e1ca13afb5",
+  "text": "{\"move\":\"e4d5\",\"comment\":\"Accept the Marshall gambit and challenge Black's central control.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "exd5",
+    "move": "e4d5",
+    "comment": "Accept the Marshall gambit and challenge Black's central control."
+  },
+  "usage": {
+    "input_tokens": 481,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 54,
+    "output_tokens_details": {
+      "reasoning_tokens": 25
+    },
+    "total_tokens": 535
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0087125",
+  "input_count_delta": 0
+}

@@ -1,0 +1,617 @@
+{
+  "engine": {
+    "name": "Stockfish 18",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "nodes_per_position": 100000,
+  "rows": [
+    {
+      "after_ply": 0,
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "score_cp": 47,
+      "mate": null,
+      "score_for_graph": 47,
+      "nodes": 100054,
+      "depth": 16,
+      "pv": [
+        "e2e4",
+        "c7c5"
+      ]
+    },
+    {
+      "after_ply": 1,
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "score_cp": 35,
+      "mate": null,
+      "score_for_graph": 35,
+      "nodes": 100053,
+      "depth": 15,
+      "pv": [
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6",
+        "b5c6",
+        "d7c6",
+        "e1g1",
+        "g8e7",
+        "f3e5",
+        "d8d4",
+        "d1h5",
+        "g7g6",
+        "h5g5",
+        "f8g7"
+      ]
+    },
+    {
+      "after_ply": 2,
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "score_cp": 34,
+      "mate": null,
+      "score_for_graph": 34,
+      "nodes": 100009,
+      "depth": 15,
+      "pv": [
+        "g1f3",
+        "b8c6"
+      ]
+    },
+    {
+      "after_ply": 3,
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "score_cp": 38,
+      "mate": null,
+      "score_for_graph": 38,
+      "nodes": 100010,
+      "depth": 15,
+      "pv": [
+        "b8c6"
+      ]
+    },
+    {
+      "after_ply": 4,
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "score_cp": 42,
+      "mate": null,
+      "score_for_graph": 42,
+      "nodes": 100011,
+      "depth": 15,
+      "pv": [
+        "f1b5"
+      ]
+    },
+    {
+      "after_ply": 5,
+      "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "score_cp": 43,
+      "mate": null,
+      "score_for_graph": 43,
+      "nodes": 100093,
+      "depth": 14,
+      "pv": [
+        "a7a6",
+        "b5a4"
+      ]
+    },
+    {
+      "after_ply": 6,
+      "fen": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "score_cp": 77,
+      "mate": null,
+      "score_for_graph": 77,
+      "nodes": 100094,
+      "depth": 15,
+      "pv": [
+        "b1c3"
+      ]
+    },
+    {
+      "after_ply": 7,
+      "fen": "r1bqkb1r/ppppnppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4",
+      "score_cp": 66,
+      "mate": null,
+      "score_for_graph": 66,
+      "nodes": 100059,
+      "depth": 14,
+      "pv": [
+        "e7g6"
+      ]
+    },
+    {
+      "after_ply": 8,
+      "fen": "r1bqkb1r/1pppnppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5",
+      "score_cp": 78,
+      "mate": null,
+      "score_for_graph": 78,
+      "nodes": 100024,
+      "depth": 15,
+      "pv": [
+        "b5c4",
+        "e7g6",
+        "d2d4",
+        "e5d4",
+        "f3d4",
+        "g6e5",
+        "c4b3",
+        "f8c5",
+        "c1e3",
+        "d7d6",
+        "d4c6",
+        "e5c6",
+        "e3c5",
+        "d6c5",
+        "d1d8",
+        "c6d8",
+        "b1c3",
+        "d8e6",
+        "f2f4"
+      ]
+    },
+    {
+      "after_ply": 9,
+      "fen": "r1bqkb1r/1pppnppp/p1n5/1B2p3/3PP3/5N2/PPP2PPP/RNBQ1RK1 b kq - 0 5",
+      "score_cp": -312,
+      "mate": null,
+      "score_for_graph": -312,
+      "nodes": 100019,
+      "depth": 16,
+      "pv": [
+        "a6b5",
+        "d4d5",
+        "c6b8",
+        "f3e5",
+        "d7d6",
+        "e5d3",
+        "e7g6",
+        "b1c3",
+        "f8e7",
+        "c3b5",
+        "e8g8",
+        "a2a4",
+        "f7f5"
+      ]
+    },
+    {
+      "after_ply": 10,
+      "fen": "r1bqkb1r/1pppnppp/2n5/1p2p3/3PP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 6",
+      "score_cp": -306,
+      "mate": null,
+      "score_for_graph": -306,
+      "nodes": 100057,
+      "depth": 17,
+      "pv": [
+        "d4d5",
+        "c6b8",
+        "f3e5",
+        "d7d6",
+        "e5d3",
+        "e7g6",
+        "f2f4",
+        "f8e7",
+        "b1c3",
+        "b5b4",
+        "d3b4",
+        "e8g8",
+        "b4d3",
+        "e7f6",
+        "a2a4",
+        "f6c3",
+        "b2c3",
+        "f7f5",
+        "e4e5",
+        "d6e5"
+      ]
+    },
+    {
+      "after_ply": 11,
+      "fen": "r1bqkb1r/1pppnppp/2n5/1p2P3/4P3/5N2/PPP2PPP/RNBQ1RK1 b kq - 0 6",
+      "score_cp": -357,
+      "mate": null,
+      "score_for_graph": -357,
+      "nodes": 100056,
+      "depth": 17,
+      "pv": [
+        "e7g6",
+        "b1c3",
+        "f8e7",
+        "f3d4",
+        "c6d4",
+        "d1d4",
+        "b7b6",
+        "c3d5",
+        "e7c5",
+        "d4c3",
+        "c7c6",
+        "b2b4",
+        "c6d5",
+        "b4c5"
+      ]
+    },
+    {
+      "after_ply": 12,
+      "fen": "r1bqkb1r/1pppnppp/2n5/4P3/1p2P3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 7",
+      "score_cp": -345,
+      "mate": null,
+      "score_for_graph": -345,
+      "nodes": 100080,
+      "depth": 17,
+      "pv": [
+        "c2c3",
+        "e7g6",
+        "c1g5",
+        "f8e7",
+        "g5e7",
+        "d8e7",
+        "c3b4",
+        "c6b4",
+        "b1c3",
+        "e8g8",
+        "h2h4",
+        "g6e5",
+        "f3e5",
+        "e7e5",
+        "f2f4",
+        "e5c5",
+        "g1h2",
+        "b4c6"
+      ]
+    },
+    {
+      "after_ply": 13,
+      "fen": "r1bqkb1r/1pppnppp/2n5/4P3/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 b kq - 0 7",
+      "score_cp": -368,
+      "mate": null,
+      "score_for_graph": -368,
+      "nodes": 100079,
+      "depth": 17,
+      "pv": [
+        "e7g6",
+        "c1e3",
+        "f8e7",
+        "c3b4",
+        "e7b4",
+        "h2h4",
+        "g6e5",
+        "f3e5",
+        "c6e5",
+        "h4h5",
+        "h7h6",
+        "d1d4"
+      ]
+    },
+    {
+      "after_ply": 14,
+      "fen": "r1bqkb1r/1ppp1ppp/2n3n1/4P3/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 1 8",
+      "score_cp": -342,
+      "mate": null,
+      "score_for_graph": -342,
+      "nodes": 100099,
+      "depth": 18,
+      "pv": [
+        "c1g5",
+        "f8e7",
+        "g5e7",
+        "d8e7",
+        "c3b4",
+        "c6b4",
+        "b1c3",
+        "e8g8",
+        "a2a3",
+        "b4c6",
+        "c3d5",
+        "e7d8",
+        "a1c1",
+        "d7d6",
+        "b2b4",
+        "c6e5",
+        "f3e5",
+        "d6e5",
+        "d5c7",
+        "d8d1",
+        "f1d1",
+        "a8a3"
+      ]
+    },
+    {
+      "after_ply": 15,
+      "fen": "r1bqkb1r/1ppp1ppp/2n1P1n1/8/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 b kq - 0 8",
+      "score_cp": -465,
+      "mate": null,
+      "score_for_graph": -465,
+      "nodes": 100069,
+      "depth": 18,
+      "pv": [
+        "d7e6",
+        "d1e2",
+        "e6e5",
+        "f1d1",
+        "c8d7",
+        "a2a3",
+        "f8d6",
+        "c1e3",
+        "b4b3",
+        "c3c4",
+        "e8g8",
+        "b1c3",
+        "d8c8",
+        "c4c5"
+      ]
+    },
+    {
+      "after_ply": 16,
+      "fen": "r1bqkb1r/1pp2ppp/2n1p1n1/8/1p2P3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 0 9",
+      "score_cp": -477,
+      "mate": null,
+      "score_for_graph": -477,
+      "nodes": 100106,
+      "depth": 18,
+      "pv": [
+        "d1e2",
+        "f8d6",
+        "c3b4",
+        "e6e5",
+        "c1g5",
+        "d8d7",
+        "f1d1",
+        "e8g8",
+        "b1c3",
+        "h7h6",
+        "g5e3",
+        "c6b4",
+        "h2h4"
+      ]
+    },
+    {
+      "after_ply": 17,
+      "fen": "r1bqkb1r/1pp2ppp/2n1p1n1/8/1P2P3/5N2/PP3PPP/RNBQ1RK1 b kq - 0 9",
+      "score_cp": -493,
+      "mate": null,
+      "score_for_graph": -493,
+      "nodes": 100100,
+      "depth": 17,
+      "pv": [
+        "f8b4",
+        "h2h4",
+        "h7h5",
+        "d1c2",
+        "e8g8",
+        "f1d1",
+        "d8e8",
+        "b1c3",
+        "e6e5",
+        "c1e3",
+        "c8g4",
+        "c3d5",
+        "b4d6",
+        "e3c5",
+        "d6c5"
+      ]
+    },
+    {
+      "after_ply": 18,
+      "fen": "r1bqk2r/1pp2ppp/2n1p1n1/8/1b2P3/5N2/PP3PPP/RNBQ1RK1 w kq - 0 10",
+      "score_cp": -489,
+      "mate": null,
+      "score_for_graph": -489,
+      "nodes": 100045,
+      "depth": 16,
+      "pv": [
+        "d1e2",
+        "e8g8",
+        "h2h4",
+        "g6h4",
+        "f3h4",
+        "d8h4",
+        "b1c3",
+        "b4d6",
+        "g2g3",
+        "h4e7",
+        "f1d1",
+        "d6b4",
+        "c3b5"
+      ]
+    },
+    {
+      "after_ply": 19,
+      "fen": "r1bqk2r/1pp2ppp/2n1p1n1/8/1b2P3/P4N2/1P3PPP/RNBQ1RK1 b kq - 0 10",
+      "score_cp": -498,
+      "mate": null,
+      "score_for_graph": -498,
+      "nodes": 100065,
+      "depth": 17,
+      "pv": [
+        "b4d6",
+        "b1c3",
+        "h7h6",
+        "c1e3",
+        "c8d7",
+        "d1c2",
+        "e8g8",
+        "a1d1",
+        "d8c8",
+        "e3h6",
+        "g7h6"
+      ]
+    },
+    {
+      "after_ply": 20,
+      "fen": "r1bqk2r/1pp1bppp/2n1p1n1/8/4P3/P4N2/1P3PPP/RNBQ1RK1 w kq - 1 11",
+      "score_cp": -482,
+      "mate": null,
+      "score_for_graph": -482,
+      "nodes": 100087,
+      "depth": 17,
+      "pv": [
+        "d1c2",
+        "e6e5",
+        "f1d1",
+        "c6d4",
+        "f3d4",
+        "e5d4",
+        "b1c3",
+        "c7c5",
+        "h2h4",
+        "c8g4",
+        "f2f3",
+        "g4e6",
+        "h4h5",
+        "g6e5",
+        "c3d5",
+        "e8g8"
+      ]
+    },
+    {
+      "after_ply": 21,
+      "fen": "r1bqk2r/1pp1bppp/2n1p1n1/8/4P3/P3BN2/1P3PPP/RN1Q1RK1 b kq - 2 11",
+      "score_cp": -485,
+      "mate": null,
+      "score_for_graph": -485,
+      "nodes": 100027,
+      "depth": 17,
+      "pv": [
+        "e6e5",
+        "b1c3",
+        "e8g8",
+        "b2b4",
+        "h7h6",
+        "d1c2"
+      ]
+    },
+    {
+      "after_ply": 22,
+      "fen": "r1bq1rk1/1pp1bppp/2n1p1n1/8/4P3/P3BN2/1P3PPP/RN1Q1RK1 w - - 3 12",
+      "score_cp": -477,
+      "mate": null,
+      "score_for_graph": -477,
+      "nodes": 100075,
+      "depth": 17,
+      "pv": [
+        "d1c2",
+        "f7f5",
+        "e4f5",
+        "f8f5",
+        "b1c3",
+        "d8e8",
+        "a1d1",
+        "f5f3",
+        "g2f3",
+        "c6e5",
+        "f3f4",
+        "e5f3",
+        "g1h1"
+      ]
+    }
+  ],
+  "largest_cp_losses": [
+    {
+      "ply": 9,
+      "san": "d4",
+      "actor": "gpt-5.6-luna",
+      "cp_loss_estimate": 390,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Challenges the center immediately and exploits Black's slow knight development."
+    },
+    {
+      "ply": 15,
+      "san": "e6",
+      "actor": "gpt-5.6-luna",
+      "cp_loss_estimate": 123,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Advance the passed pawn, disrupting Black\u2019s center and opening tactical threats."
+    },
+    {
+      "ply": 11,
+      "san": "dxe5",
+      "actor": "gpt-5.6-luna",
+      "cp_loss_estimate": 51,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Wins Black\u2019s advanced pawn and challenges the c6-knight tactically."
+    },
+    {
+      "ply": 6,
+      "san": "Nge7",
+      "actor": "stockfish",
+      "cp_loss_estimate": 34,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": null
+    },
+    {
+      "ply": 14,
+      "san": "Ng6",
+      "actor": "stockfish",
+      "cp_loss_estimate": 26,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": null
+    },
+    {
+      "ply": 13,
+      "san": "c3",
+      "actor": "gpt-5.6-luna",
+      "cp_loss_estimate": 23,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Challenge the advanced b4-pawn and prepare rapid central development."
+    },
+    {
+      "ply": 17,
+      "san": "cxb4",
+      "actor": "gpt-5.6-luna",
+      "cp_loss_estimate": 16,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Recaptures the advanced pawn and restores some lost material."
+    },
+    {
+      "ply": 20,
+      "san": "Be7",
+      "actor": "stockfish",
+      "cp_loss_estimate": 16,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": null
+    },
+    {
+      "ply": 1,
+      "san": "e4",
+      "actor": "gpt-5.6-luna",
+      "cp_loss_estimate": 12,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Claims central space and opens lines for rapid development."
+    },
+    {
+      "ply": 8,
+      "san": "a6",
+      "actor": "stockfish",
+      "cp_loss_estimate": 12,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": null
+    },
+    {
+      "ply": 12,
+      "san": "b4",
+      "actor": "stockfish",
+      "cp_loss_estimate": 12,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": null
+    },
+    {
+      "ply": 7,
+      "san": "O-O",
+      "actor": "gpt-5.6-luna",
+      "cp_loss_estimate": 11,
+      "mate_before": null,
+      "mate_after": null,
+      "comment": "Castle to safety and prepare rapid central development."
+    }
+  ],
+  "mate_transitions": []
+}

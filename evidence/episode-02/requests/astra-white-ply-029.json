@@ -1,0 +1,151 @@
+{
+  "key": "astra-white-ply-029",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: White\nFEN: r4rk1/1ppb1ppp/p2p2n1/6q1/3QP3/1BN2P2/PPP3PP/3R1RK1 w - - 3 15\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . . . . r k .\n. p p b . p p p\np . . p . . n .\n. . . . . . q .\n. . . Q P . . .\n. B N . . P . .\nP P P . . . P P\n. . . R . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 Nge7 O-O a6 Ba4 Ng6 d4 exd4 Nxd4 Bc5 Be3 Bxd4 Bxd4 O-O Nc3 Nxd4 Qxd4 d6 Rad1 Bg4 f3 Bd7 Bb3 Qg5\nLegal UCI moves (alphabetical, unranked): a2a3, a2a4, b3a4, b3c4, b3d5, b3e6, b3f7, c3a4, c3b1, c3b5, c3d5, c3e2, d1a1, d1b1, d1c1, d1d2, d1d3, d1e1, d4a4, d4a7, d4b4, d4b6, d4c4, d4c5, d4d2, d4d3, d4d5, d4d6, d4e3, d4e5, d4f2, d4f6, d4g7, e4e5, f1e1, f1f2, f3f4, g1f2, g1h1, g2g3, g2g4, h2h3, h2h4\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "bcac3b61062f80d679d31b94c9b7404a6c3de4f681138ac344cb2ab6418b467f",
+  "fen": "r4rk1/1ppb1ppp/p2p2n1/6q1/3QP3/1BN2P2/PPP3PP/3R1RK1 w - - 3 15",
+  "preflight": {
+    "input_tokens": 591,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_e7a3b3c6c72a4fc4af95fdf6cce0ac5b"
+  },
+  "reserved_usd": "0.1097875",
+  "raw": {
+    "id": "resp_0ef43ced6f28a1f1016aa1f63b1b7c87d1ba566f47f9a44973",
+    "object": "response",
+    "created_at": 1788999227,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999237,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ef43ced6f28a1f1016aa1f63c739087d188b7abdef60f282c",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofZFiGeSH0HnoqGRzD4QAHYD2ZdyuGrrfYqhhJ3T9a6zktBEiNEhDrgLJi89y8v9yL3CJ2XMoAq9hy5F0D0cxyDGs_RTwzopI9S-jIAq8_J8mct4phEG5Kuxohrkueo6f0nsXLFic3CCzVYTo_24RcbzKAb0QP44gfBDh4uPOy5xQkZuh5VPCM6QiGdo9E1sTV8q16Cw4u7dgnlaZZbCuC7r6po-_NXJOvxafzBNvqR2nOy8zAxILtCA0kF5ETvjohA8xu50F6BfWY87MgkPN8U2BSaodmHR6frMnNN2F4nKAdMAjrg35L6_edqQvXXZoSinI2Xsn1Fc9AWIKKXkjA6dIpI01p9wTp-B0Qy3Ao4T82GXOzLkEq7RuGazkaJpmPwpET-dbuoasp5Cjw1o8g3UFPjUkv5gljgs0Pl_ly-L3cUi59a6tEfpZ7jCTllYElmtQw_v3R7GbfmaT22o86N_Lm_13OZraP8-CfxENyrdzIqZBfyTUFZQDQ5j_euWscpoSFd36u_NTcBpEABUyyoFTSdDCzzBYuR0_kHLLcM6VTkd1cWBZvSUx9TpeFgC3nIJtXuy_bJjZPCRi0nuba4DpH3RdMEvdjuIi7C4HOd6_P_a-4xQ3788ZUUXtxH3eKUtVJXtqTVeP-bVC_2c_HylQOcgKwcUeGEwlcxKsdrmXYqqZefi4En2RAYsw7IAzG6aofL6LNX_s1Tp4haGEircyUwzrZtjCjEIq6eSxx4uqFe1fF3yVUHs_cDJkJf3Rl4Jocw7eFjKNm0SusORyM4K9H6AEQOCGCDf8btHJx9IChxTrx24EzXu21PWIYfGk1tXTfEcPsh5iekBzXaFvGym63cxLLp2bFCj-TKHvS4YeLpQdnXx-elFl1O9lcfEfcBNyade538Zqx5Jk1qbwobZwhbpJGPbd-Rrn541lyIAjalW4X2A5LGlEhCEvSM_SBKL0RbNz-2vvAICye6AGqtaW5lWQqsJq60gNvcAt4BbfF3gSNSwcKv-F0TIdfG6enhWA2NmXaDcneGAlb4GESZxPM3_FYBzryTGaK2iXtpk3O1XO_AkzRKZrO7awZ0Z4IC0Em-KDJzZ3ceDDLqa7BEdEwye-mANNcLj8StLZkoscHe2EY5tbZcAyk8tNWOMytRl3HTq8bpTE2_uNMDwyq6QyXSNEl_BVEY6jLMMi_KB619TnQeyjvZkI8-iJl78Z9K4WoKb6UzBD9OQSXvBCcSKS69IzZ1qiYVJHisiHGNWpBo2R-YPmvRIe5_8vW374NlCIHHUSW30EgOApJlsN-AbotPXbqrPJX2TMXV9fv-FMbzaFKJo2LgbupMLs9FhGcfgF5aIOXWlfc3szl4gzzavf9-sZS0sDfId2eeVKwTqv_ilYB1OLi0ukemCFLxgBiY64PAIoZ4L0LubiDMdTVv3hj2ElOzTysVUY1uqgtD3QjOx3jlkJ9YCex5ryopbwz2ew1r88Dzcb0p06_ZB-ORLCobxtj0ITNWAsyIkgFWpXpADul7TI6ma2aEr9Z6dkpBaIOzz7U2-DBFeIIYvZnfET7pObGomm8MI1XM7CVGWBatGm5ElHAPSrVx9MTbkWQ76MrMqhQIeXz4p4pBvVclWjn9Pwu37yHxEyew5zoQHrGsvOoorcJsOpH6tpJjMi0nBHXcfTjECi1G2714JqN5EFeNNvFEMXBlxHGyG4zcyDAIVvLDZUma1Wa5QMwo9teBE80jMUbrZyVveshRAHaJOayjDZbUvBuGEU3q1gcS8LcPuCG9kqA1wmTVlGhVOg4PikzKMyZthKrjn05nDgkPP4VdDex2tib2ln_D_vF10JhikftdzcFfK5f7_fxrW7c9ZA-RWEugnr8Iabz3ldZ4gngFenQmaiymkalSkIkAEb4IjUK__1FSTuDEqdDjj7Y8i63DVAHnINpnUHLvOaVzlvg==",
+        "summary": []
+      },
+      {
+        "id": "msg_0ef43ced6f28a1f1016aa1f644580087d19fe3fb7a87a9d145",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"f3f4\",\"comment\":\"Gain tempo against the queen and prepare a kingside pawn advance.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 591,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 249,
+      "output_tokens_details": {
+        "reasoning_tokens": 219
+      },
+      "total_tokens": 840
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 10.225868940353394,
+  "request_id": "req_4758c4370e424610bd1879d64d7697c6",
+  "text": "{\"move\":\"f3f4\",\"comment\":\"Gain tempo against the queen and prepare a kingside pawn advance.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "f4",
+    "move": "f3f4",
+    "comment": "Gain tempo against the queen and prepare a kingside pawn advance."
+  },
+  "usage": {
+    "input_tokens": 591,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 249,
+    "output_tokens_details": {
+      "reasoning_tokens": 219
+    },
+    "total_tokens": 840
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0198375",
+  "input_count_delta": 0
+}

@@ -1,0 +1,151 @@
+{
+  "key": "astra-black-ply-022",
+  "status": "received",
+  "payload": {
+    "model": "gpt-6-astra",
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "input": "Side to move: Black\nFEN: r1bq1rk1/2p1bppp/3p1n2/nN2p3/4P3/1B1P1N2/1PP2PPP/R1BQ1RK1 b - - 0 11\nBoard (rank 8 at top; uppercase White, lowercase Black; dot empty):\nr . b q . r k .\n. . p . b p p p\n. . . p . n . .\nn N . . p . . .\n. . . . P . . .\n. B . P . N . .\n. P P . . P P P\nR . B Q . R K .\nFiles left to right: a b c d e f g h\nMoves from starting FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1: e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 Nc3 b5 Bb3 Be7 O-O O-O d3 d6 a4 Na5 axb5 axb5 Nxb5\nLegal UCI moves (alphabetical, unranked): a5b3, a5b7, a5c4, a5c6, a8a6, a8a7, a8b8, c7c5, c7c6, c8a6, c8b7, c8d7, c8e6, c8f5, c8g4, c8h3, d6d5, d8d7, d8e8, f6d5, f6d7, f6e4, f6e8, f6g4, f6h5, f8e8, g7g5, g7g6, g8h8, h7h5, h7h6\nChoose the best move. Return the JSON move and short comment.",
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2048,
+    "store": false,
+    "truncation": "disabled",
+    "service_tier": "default"
+  },
+  "payload_sha256": "2149c397fbe9eca6d022990d79c0646ac682992ca500cc1a5b0380a5cac43030",
+  "fen": "r1bq1rk1/2p1bppp/3p1n2/nN2p3/4P3/1B1P1N2/1PP2PPP/R1BQ1RK1 b - - 0 11",
+  "preflight": {
+    "input_tokens": 519,
+    "source": "OpenAI responses/input_tokens",
+    "request_id": "req_3fdc211fa4be4322a210a68d87582b79"
+  },
+  "reserved_usd": "0.1088875",
+  "raw": {
+    "id": "resp_04f93ed0441a314d016aa1f81fcb6087d19c8af481f13223d1",
+    "object": "response",
+    "created_at": 1788999711,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "openai"
+    },
+    "completed_at": 1788999731,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "Play the best chess move for the side to move. You have no chess engine or tools. The board and legal move list are supplied accurately. Choose a move yourself. Return only a JSON object with exactly two keys: \"move\" (one legal UCI move) and \"comment\" (your brief intention, at most twelve words). Do not include analysis.",
+    "max_output_tokens": 2048,
+    "max_tool_calls": null,
+    "model": "gpt-6-astra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_04f93ed0441a314d016aa1f820f36087d1ad78cd37eb845624",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqofgzyRcACUn8-7bBnND7iwfKK5vRD1d9ef747DrRUDNAdX3V1SD2mBFB0vt7clEmD2_U6X1ikZV8uncjKZUn_BxfvaMvQ1qgg9dkIqySt0LgCuxWcgGG2pjvNCFYQn-HRfOdW9QiESOc-bubJYqr3s_BsKzp5633i5iYOp9Gzza26prG2HdTA_j10xWyOqc6r5JKSBRbauYM91DBQ4UgAlNym8leMTrAqjyZWRd-ulvLm57Ihdc0MrLTtl-9x69WnvF8IYM2LlzDfQoJcAu5mYtVsTTkErkz5rv2LVyPoVCYb7msruQC3pX_pi8WSQAoRRE9RrbwI6PnqTTq4kmxQ0X2kEadz_vkCaW4Me2EZ1X8HZ3lDAmypM_Cq0d0k89--ggBhHHKS_e-CxAFlIngWT4EyMjoU77QKx9naN1-VXeZaEq-Z1bnP3ihEv6yIGBbB4g5bP9pghw6vPsHRxyqB6oP6FQvwP-QcXiMtyJ8tj7cXkFiHGchnCyDLSasBVOk3Str5rvg4QLolLvYk1zxTI76Aj8PBbQsk9MdazaB8-JMox_pECDuH3nRonuXPmPy9oPBHog0mdQ2GQRkI-Iho7Mr1y3EAMhMy2alEdit-xjQOCSzo6gEVjR_KspjccZWApIADPki4sUT70uDEL_OegFVps39RABc7HcZjgUEZp8f-xyav2LrupoSM8BOpl5GYiYX8Y1mh8-hlCeWibBilCiPZdDu4ejGS1hisQwLkU_klcYuRSSWD7z2WFVotf_FzHhJgrPhCbv_V4XiSETtnH9hgQam_W3NyxvY4h0gzvp_z7syhX-Bc6tgrcgdQQZ0zijzTuKeoxuvBqMiAMqaDrouEDb1rueDv102C-52Knd9EGT3eYUV_q31tFgTYwfdwKwW-qoLqri_fIkSz-PQqpzH7y5kY4d2GnmecJs4NUtKDaV1VWUR0kH7RRCPfewttMOxgv-wFbxeZlfpxVdPIqtFSrkkF4FCbgV20SlyICw9wsyK92nkDnsH1nUfpTzDe9c1B2BDxfPsEJzDEbFbGQxYr1sfP7GjGwOSybGCtToZ0VnueKruRAPkJBDKKGz5zbuHzPxzrja6MHu5j4MCCTxtX83wYiWuAOyq7awb7c2lo89El7q6TMqC52zWprxKtg5UWH2KZ8uHqrwKb9eucNM2b7e6dooC1FDrC_DwdhS6xNHzPiOd8YCtdXswAkmmBFoeeB-D_Sl63KAtpbJvdRV9tGBOQ5h8Ce5n17XaTmX7HYoos4jc3d7gwKiGbzxI0CsaBsqQcwFDsekzyli5aBq686RsJUMPNQcNrvZ0QTfzhDAsasymw2ahadwWO7ZrZWHEeW_ODrjeFEtu6zemwSnfBri_J1q3ZiEtKFgpPuGf1HVD9GYv80VYMEQGoNd4xSap5wh_MNIwyBosdGJEdz_GgZXCQ9s7VUjiCZDCbyQVUxVnkvT6Vm7bWEDB0nab7z5CfI2D9lGLrQ9dsb8JmVTi1Ko8y_gWW9Q_ZrSteylR02ukLWg3AGMZAN67xLVFpM2U4P6pW0Lldj-KmkAkEHkSt6rxD_-mxenMlb0GWPfqsuLl_Uk4WZsVQARqqBzvbwrVpSVbv9MgPJBEEOfBVDR04Vr-ACj4iDfnymV2exVKKw_XMXA46Q9RwkGH29fuaJURugyNdOj8bjxcHfyASUxgBpnpluuDA6mAFbKIlbKZs6WYXongY0O_qqRCG5_2wnSSlV7savN4w4G1wHEflb8E0s5oHYBeNjfnDXbX7TGvKbVWqnhdOlX1nbYfL_695TgtcPxNJcJKHZcofE1duTb0RWgYZrZUTTX-f30yolm93IYBBazbPwo3pnTY0D7hKFaSaHE7XUpd2JKPKuW-rZGacnCfYZ3HO0-P8Q2njRhUoghTNl0f3aEuCUIoC3SRAq-tfbgmgLLpeTVda21SmJo7JhY-opx6usxWMfktrx3Qu4wHQX7Lqb6QLJWsTJrniS7z2k4ScRgjRH6VMj4w-gBsdZ1KqrkeU2hjPgj5zxP0sCLMEYHVV8QoM8_N6g4Em4r3ubKcxR_Ng24nNdAS_v3GCTMxR6Mpc5EKFZo0dMwhWTiPHzPhpS3Dt8_s8qct0VDMECdOxhkOsxMEBQc9zr7kXMhbVbvufQfqcfsQVV1C6WxU2NEN7ZCGbo5lOrKN5HdP9SHIHPLse3WhOg8Yg36Yl8NPiNa21z-vRM0AOE0vZms4Z8ssokdc-DX4tfJJxP0sGl3CgFGaRUgIOoAk-j1PXDPepShLhZqM1TXpLoy5mREdD_rIpBnNUaBJmG-5y4ZXfstBfkqcNq3LZZzMg-fF83swUxmVG4IjuabFGvEKBNeZ86JYBLITwLx2PaDfkAtiEF-r339D4RWEW0gWQbTCKIBIZ7ndlRn-aqgCzLHGj_cBpo8HZeJgGoJSZWVGiQPElKI-aGvnQCH6h8bRfpDw9gh1euYcek2cJgLIrzGJ7PT5Pxw35sZM7U2IZ48Sn3DqhoTH2SwmE8hg2K3zOvFuYbqs1IiCq8UX4n7R9fPbSiABJF9agd-mekXm9-dpltKn_VLovhbNqR2OL539qeIbDkjj10CuNx6Uj27ncehUlL13nQ4OsJdUAkpD2XUKMtxnCsbV4nJFBKzhDAErWe7Da9x_uTvmLcCFQjzZZ_mx4jvrKVQqCODtSx__LomFB3MU3ydbKIqK6EUuD0C0Oi7V-eRo56mz1NYZepiBkREVVINJaX5OfTsWiu0BMAK8KE90ppaG-VqhgS674bZhpihxp08N2BCiioDj6th6P_bfhAomjGxrTOiLKPPZRhN25V-yRxw142pgjQxAR9pma0k5HmLnnoU97J6S0V2vBOQCtJxe1VBA12I82kM33FzTbTcdaJ-LzNMuXWOWFA2KbJ8OBfmKKMCECKsBvQ0RAA1xK0oDlrH991y6o6ASC_cSZxFxF5MmUGMVtdXU29cKU5-9mtvtACyIrhF-Mn6YQA29o1YlCLECMgoXI4bT6eqFewPtHQpq8FA649P0RzfNj-UNl7eL7KM8oP5K3AacDIaRbWX4ANsSMwi4Uy8jPwt1jhXV43BES2wff5FtIkh6FJG-E3HLC2bzBoEEBfGLHYrtLgYxFRsnv4W-hQQmUcn8GGA8ZBdMkkRRV6NsEsf8Fbu3ShQMOBCOzGBxPV4dx-n7xoM=",
+        "summary": []
+      },
+      {
+        "id": "msg_04f93ed0441a314d016aa1f832bfc887d1926ccf4244615dee",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"move\":\"c8a6\",\"comment\":\"Develop with tempo against the knight and clear the back rank.\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "low",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 519,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 499,
+      "output_tokens_details": {
+        "reasoning_tokens": 470
+      },
+      "total_tokens": 1018
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "latency_s": 20.134748935699463,
+  "request_id": "req_6e551d4b38da4bcaab0decb55424b599",
+  "text": "{\"move\":\"c8a6\",\"comment\":\"Develop with tempo against the knight and clear the back rank.\"}",
+  "parsed": {
+    "legal": true,
+    "failure": null,
+    "san": "Ba6",
+    "move": "c8a6",
+    "comment": "Develop with tempo against the knight and clear the back rank."
+  },
+  "usage": {
+    "input_tokens": 519,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 499,
+    "output_tokens_details": {
+      "reasoning_tokens": 470
+    },
+    "total_tokens": 1018
+  },
+  "returned_model": "gpt-6-astra",
+  "provider_status": "completed",
+  "cost_bound_usd": "0.0314375",
+  "input_count_delta": 0
+}
